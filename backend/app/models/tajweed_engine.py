@@ -12,10 +12,12 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import json
 import os
 import re
 import tempfile
 import wave
+from pathlib import Path
 from difflib import SequenceMatcher
 from functools import lru_cache
 
@@ -26,22 +28,24 @@ from app.schemas.evaluation import EvaluationResult, Mistake
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Quran text reference (Al-Fatihah hardcoded for MVP)
+# Quran text reference (Tanzil Uthmani, pinned JSON corpus)
 # ---------------------------------------------------------------------------
 
-_AYAH_TEXT: dict[tuple[int, int], str] = {
-    (1, 1): "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-    (1, 2): "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-    (1, 3): "الرَّحْمَٰنِ الرَّحِيمِ",
-    (1, 4): "مَالِكِ يَوْمِ الدِّينِ",
-    (1, 5): "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-    (1, 6): "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-    (1, 7): "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
-}
+_QURAN_TEXT_PATH = Path(__file__).resolve().parents[2] / "data" / "quran_text.json"
+
+
+@lru_cache(maxsize=1)
+def _load_quran_text() -> dict[str, str]:
+    """Load the pinned Tanzil Uthmani corpus once per process."""
+    with _QURAN_TEXT_PATH.open("r", encoding="utf-8") as handle:
+        payload = json.load(handle)
+    if not isinstance(payload, dict):
+        raise ValueError("quran_text.json must contain an object keyed by surah:ayah")
+    return {str(key): str(value) for key, value in payload.items()}
 
 
 def _get_ayah_text(surah: int, ayah: int) -> str:
-    return _AYAH_TEXT.get((surah, ayah), "")
+    return _load_quran_text().get(f"{surah}:{ayah}", "")
 
 
 def _strip_tashkeel(text: str) -> str:
@@ -201,10 +205,14 @@ class TajweedEvaluator:
         if not expected_text:
             logger.warning("No reference text for surah=%d ayah=%d", surah, ayah)
             return EvaluationResult(
-                score=80.0,
+                score=0.0,
                 recognized_text="",
                 feedback="Could not find reference text for this ayah.",
-                mistakes=[],
+                mistakes=[Mistake(
+                    word_index=-1,
+                    error_type="missing_reference",
+                    details="No reference text is available for this ayah.",
+                )],
             )
 
         # Write audio to a temporary WAV file for Whisper

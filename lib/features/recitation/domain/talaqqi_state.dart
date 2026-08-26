@@ -1,12 +1,24 @@
-/// The five phases of the Talaqqi call-and-response loop.
-/// Each phase drives the UI: visualizer color, mic button state, mascot text.
+/// The child-facing stages of one Talaqqi practice loop.
 enum TalaqqiPhase {
   idle,
   sheikhPlaying,
   childRecording,
   analyzing,
+  selfReview,
   success,
   error,
+}
+
+/// Describes whether an automated recitation verdict may be trusted.
+///
+/// The current learning loop only uses [selfReview]. The remaining states
+/// reserve a safe contract for a future model that has passed its confidence gate.
+enum VerificationStatus {
+  notRequested,
+  selfReview,
+  unavailable,
+  uncertain,
+  verified,
 }
 
 class TalaqqiState {
@@ -23,8 +35,12 @@ class TalaqqiState {
   /// Arabic text for each ayah, populated from Supabase metadata.
   final List<String> ayahTexts;
 
-  /// Last AI evaluation score (0–100), null if no evaluation yet.
+  /// Kept for a future verified evaluator. Never synthesized by the practice loop.
   final double? lastScore;
+  final VerificationStatus verificationStatus;
+  final String recordingPath;
+  final int recordingDurationMs;
+  final int attemptCount;
 
   const TalaqqiState({
     this.phase = TalaqqiPhase.idle,
@@ -34,6 +50,10 @@ class TalaqqiState {
     this.mascotMessage = '',
     this.ayahTexts = const [],
     this.lastScore,
+    this.verificationStatus = VerificationStatus.notRequested,
+    this.recordingPath = '',
+    this.recordingDurationMs = 0,
+    this.attemptCount = 0,
   });
 
   TalaqqiState copyWith({
@@ -44,19 +64,28 @@ class TalaqqiState {
     String? mascotMessage,
     List<String>? ayahTexts,
     double? lastScore,
-  }) =>
-      TalaqqiState(
-        phase: phase ?? this.phase,
-        currentAyah: currentAyah ?? this.currentAyah,
-        totalAyahs: totalAyahs ?? this.totalAyahs,
-        phaseProgress: phaseProgress ?? this.phaseProgress,
-        mascotMessage: mascotMessage ?? this.mascotMessage,
-        ayahTexts: ayahTexts ?? this.ayahTexts,
-        lastScore: lastScore ?? this.lastScore,
-      );
+    VerificationStatus? verificationStatus,
+    String? recordingPath,
+    int? recordingDurationMs,
+    int? attemptCount,
+  }) => TalaqqiState(
+    phase: phase ?? this.phase,
+    currentAyah: currentAyah ?? this.currentAyah,
+    totalAyahs: totalAyahs ?? this.totalAyahs,
+    phaseProgress: phaseProgress ?? this.phaseProgress,
+    mascotMessage: mascotMessage ?? this.mascotMessage,
+    ayahTexts: ayahTexts ?? this.ayahTexts,
+    lastScore: lastScore ?? this.lastScore,
+    verificationStatus: verificationStatus ?? this.verificationStatus,
+    recordingPath: recordingPath ?? this.recordingPath,
+    recordingDurationMs: recordingDurationMs ?? this.recordingDurationMs,
+    attemptCount: attemptCount ?? this.attemptCount,
+  );
 
   bool get isActive =>
       phase == TalaqqiPhase.sheikhPlaying ||
       phase == TalaqqiPhase.childRecording ||
       phase == TalaqqiPhase.analyzing;
+
+  bool get hasRecording => recordingPath.isNotEmpty && recordingDurationMs > 0;
 }
