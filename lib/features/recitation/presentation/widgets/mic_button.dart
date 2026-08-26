@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../domain/talaqqi_state.dart';
 
-/// Large circular mic button — Stitch reference: golden/yellow circle
-/// with mic icon, "LISTENING..." label beneath when recording.
+/// Large circular practice button for the child-led Talaqqi loop.
 class MicButton extends StatelessWidget {
   final TalaqqiPhase phase;
   final VoidCallback onTap;
@@ -14,27 +13,33 @@ class MicButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isRecording = phase == TalaqqiPhase.childRecording;
-    final isSuccess = phase == TalaqqiPhase.success;
-    final isBusy = phase == TalaqqiPhase.sheikhPlaying ||
-        phase == TalaqqiPhase.analyzing;
+    final isReview = phase == TalaqqiPhase.selfReview;
+    final isBusy =
+        phase == TalaqqiPhase.sheikhPlaying ||
+        phase == TalaqqiPhase.analyzing ||
+        isReview;
 
-    // Stitch shows a warm gold/yellow button
     final bgColor = isRecording || phase == TalaqqiPhase.idle
         ? AppColors.gold
-        : isSuccess
-            ? AppColors.olive
-            : AppColors.gold.withValues(alpha: 0.5);
+        : phase == TalaqqiPhase.error
+        ? AppColors.softOrange
+        : AppColors.olive;
 
-    final icon = isSuccess ? Icons.arrow_forward_rounded : Icons.mic_rounded;
+    final icon = isReview
+        ? Icons.headphones_rounded
+        : phase == TalaqqiPhase.error
+        ? Icons.refresh_rounded
+        : Icons.mic_rounded;
     final size = isRecording ? 88.0 : 76.0;
 
     final label = switch (phase) {
       TalaqqiPhase.childRecording => 'LISTENING...',
       TalaqqiPhase.sheikhPlaying => 'SHEIKH PLAYING',
-      TalaqqiPhase.analyzing => 'ANALYZING...',
-      TalaqqiPhase.success => 'NEXT AYAH',
+      TalaqqiPhase.analyzing => 'CHECKING...',
+      TalaqqiPhase.selfReview => 'SELF REVIEW',
+      TalaqqiPhase.success => 'PRACTICE COMPLETE',
       TalaqqiPhase.error => 'TRY AGAIN',
-      TalaqqiPhase.idle => 'TAP TO START',
+      TalaqqiPhase.idle => 'TAP TO PRACTICE',
     };
 
     return Semantics(
@@ -63,11 +68,7 @@ class MicButton extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Icon(
-                icon,
-                color: Colors.white,
-                size: 32,
-              ),
+              child: Icon(icon, color: Colors.white, size: 32),
             ),
           ),
           const SizedBox(height: 12),

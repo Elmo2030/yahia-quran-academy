@@ -6,52 +6,18 @@ import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/app_theme.dart';
 import '../domain/talaqqi_controller.dart';
 import '../domain/talaqqi_state.dart';
-import '../usage_tracker_service.dart';
-import '../widgets/limit_reached_dialog.dart';
 import 'widgets/audio_visualizer.dart';
 import 'widgets/mic_button.dart';
 import 'widgets/yahya_mascot.dart';
 
-/// Recitation Room — the core Talaqqi loop screen.
-///
-/// Layout matches Stitch reference (recitation_room/screen.png):
-///   ┌─────────────────────────────┐
-///   │  ←    SURAH AL-FATIHA       │  ← top bar
-///   │                             │
-///   │   الْحَمْدُ لِلَّهِ رَبِّ  │  ← large Arabic ayah
-///   │      الْعَالَمِينَ          │
-///   │       [ AYAH 2 ]            │  ← olive chip
-///   │   "English translation"     │  ← translation text
-///   │                             │
-///   │  الرَّحْمَٰنِ الرَّحِيمِ   │  ← faded next-ayah preview
-///   │                             │
-///   │      ▐ ▌ ▐ ▌▐ ▌ ▐ ▌ ▐      │  ← visualizer
-///   │                             │
-///   │         ( 🎤 )              │  ← mic button
-///   │       LISTENING...     [👦] │  ← label + Yahya render
-///   └─────────────────────────────┘
-class RecitationRoomScreen extends ConsumerStatefulWidget {
+/// Recitation Room — a child-led listen, repeat, record, and review practice loop.
+class RecitationRoomScreen extends ConsumerWidget {
   const RecitationRoomScreen({super.key});
 
   @override
-  ConsumerState<RecitationRoomScreen> createState() =>
-      _RecitationRoomScreenState();
-}
-
-class _RecitationRoomScreenState extends ConsumerState<RecitationRoomScreen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(talaqqiProvider);
     final ctrl = ref.read(talaqqiProvider.notifier);
-    final canUse = ref.watch(canUseAIProvider).valueOrNull ?? true;
-
-    // Show limit dialog if controller flagged it
-    if (ctrl.dailyLimitReached) {
-      ctrl.dailyLimitReached = false;
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) LimitReachedDialog.show(context);
-      });
-    }
 
     return Scaffold(
       backgroundColor: AppColors.ivory,
@@ -61,7 +27,7 @@ class _RecitationRoomScreenState extends ConsumerState<RecitationRoomScreen> {
           child: Column(
             children: [
               const SizedBox(height: 8),
-              _TopBar(surahName: 'SURAH AL-FATIHA'),
+              const _TopBar(surahName: 'SURAH AL-FATIHA'),
               const SizedBox(height: 12),
               _AyahProgressBar(
                 current: state.currentAyah,
@@ -88,10 +54,21 @@ class _RecitationRoomScreenState extends ConsumerState<RecitationRoomScreen> {
                         phase: state.phase,
                         progress: state.phaseProgress,
                       ),
-                      if (state.phase == TalaqqiPhase.success && state.lastScore != null)
+                      if (state.phase == TalaqqiPhase.selfReview)
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
-                          child: _ScoreFeedback(score: state.lastScore!),
+                          child: _SelfReviewCard(
+                            state: state,
+                            onReplayChild: ctrl.replayChildRecording,
+                            onReplaySheikh: ctrl.replaySheikhAyah,
+                            onRetry: ctrl.retryCurrentAyah,
+                            onNext: ctrl.nextAyah,
+                          ),
+                        ),
+                      if (state.phase == TalaqqiPhase.error)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: _PracticeNotice(message: state.mascotMessage),
                         ),
                     ],
                   ),
@@ -100,15 +77,9 @@ class _RecitationRoomScreenState extends ConsumerState<RecitationRoomScreen> {
               const SizedBox(height: 16),
               _BottomControls(
                 state: state,
-                micDisabled: !canUse,
                 onMicTap: () {
-                  if (!canUse) {
-                    LimitReachedDialog.show(context);
-                    return;
-                  }
-                  if (state.phase == TalaqqiPhase.success) {
-                    ctrl.nextAyah();
-                  } else if (!state.isActive) {
+                  if (!state.isActive &&
+                      state.phase != TalaqqiPhase.selfReview) {
                     ctrl.startTalaqqiSession();
                   }
                 },
@@ -121,10 +92,6 @@ class _RecitationRoomScreenState extends ConsumerState<RecitationRoomScreen> {
     );
   }
 }
-
-// ─────────────────────────────────────────────
-// Ayah progress — step dots showing position in surah
-// ─────────────────────────────────────────────
 
 class _AyahProgressBar extends StatelessWidget {
   final int current;
@@ -148,8 +115,8 @@ class _AyahProgressBar extends StatelessWidget {
             color: isDone
                 ? AppColors.olive
                 : isCurrent
-                    ? AppColors.gold
-                    : AppColors.navy.withValues(alpha: 0.1),
+                ? AppColors.gold
+                : AppColors.navy.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(4),
           ),
         );
@@ -157,10 +124,6 @@ class _AyahProgressBar extends StatelessWidget {
     );
   }
 }
-
-// ─────────────────────────────────────────────
-// Top bar — Stitch: back arrow + centered caps label
-// ─────────────────────────────────────────────
 
 class _TopBar extends StatelessWidget {
   final String surahName;
@@ -171,7 +134,6 @@ class _TopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Back button — 24px radius per spec
         GestureDetector(
           onTap: () => context.pop(),
           child: Semantics(
@@ -206,21 +168,16 @@ class _TopBar extends StatelessWidget {
             style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              letterSpacing: 0.05 * 12,
+              letterSpacing: 0.6,
               color: AppColors.navy,
             ),
           ),
         ),
-        // Balance spacer for centering
         const SizedBox(width: 40),
       ],
     );
   }
 }
-
-// ─────────────────────────────────────────────
-// Ayah card — large Arabic + chip + translation
-// ─────────────────────────────────────────────
 
 class _AyahCard extends StatelessWidget {
   final int ayahNumber;
@@ -233,7 +190,6 @@ class _AyahCard extends StatelessWidget {
     this.ayahTexts = const [],
   });
 
-  // Fallback translations for Al-Fatihah
   static const _translations = [
     'In the name of Allah, the Entirely Merciful, the Especially Merciful',
     '[All] praise is [due] to Allah, Lord of the worlds',
@@ -244,7 +200,6 @@ class _AyahCard extends StatelessWidget {
     'The path of those upon whom You have bestowed favor, not of those who have earned anger or of those who are astray',
   ];
 
-  // Fallback Arabic for when metadata hasn't loaded yet
   static const _fallbackArabic = [
     'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
     'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
@@ -278,7 +233,6 @@ class _AyahCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Arabic ayah — large, centered, Naskh
           Text(
             ar,
             textAlign: TextAlign.center,
@@ -292,8 +246,6 @@ class _AyahCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-
-          // Ayah number chip — olive green pill
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             decoration: BoxDecoration(
@@ -305,14 +257,12 @@ class _AyahCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                letterSpacing: 0.05 * 12,
+                letterSpacing: 0.6,
                 color: AppColors.olive,
               ),
             ),
           ),
           const SizedBox(height: 16),
-
-          // English translation
           Text(
             en,
             textAlign: TextAlign.center,
@@ -328,15 +278,14 @@ class _AyahCard extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────
-// Next ayah preview — faded olive text
-// ─────────────────────────────────────────────
-
 class _NextAyahPreview extends StatelessWidget {
   final int nextAyahIndex;
   final List<String> ayahTexts;
 
-  const _NextAyahPreview({required this.nextAyahIndex, this.ayahTexts = const []});
+  const _NextAyahPreview({
+    required this.nextAyahIndex,
+    this.ayahTexts = const [],
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -357,70 +306,110 @@ class _NextAyahPreview extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────
-// Score feedback — shown after successful evaluation
-// ─────────────────────────────────────────────
+class _SelfReviewCard extends StatelessWidget {
+  final TalaqqiState state;
+  final Future<void> Function() onReplayChild;
+  final Future<void> Function() onReplaySheikh;
+  final Future<void> Function() onRetry;
+  final Future<void> Function() onNext;
 
-class _ScoreFeedback extends StatelessWidget {
-  final double score;
-
-  const _ScoreFeedback({required this.score});
+  const _SelfReviewCard({
+    required this.state,
+    required this.onReplayChild,
+    required this.onReplaySheikh,
+    required this.onRetry,
+    required this.onNext,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final isExcellent = score >= 90;
-    final isGood = score >= 80;
-    final label = isExcellent ? 'Excellent!' : isGood ? 'Great Job!' : 'Keep Practicing';
-    final color = isExcellent ? AppColors.gold : isGood ? AppColors.olive : AppColors.softOrange;
+    final hasNext = state.currentAyah < state.totalAyahs;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: color.withValues(alpha: 0.2)),
+        color: AppColors.olive.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.olive.withValues(alpha: 0.18)),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 44,
-            height: 44,
-            decoration: BoxDecoration(
-              color: color,
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Text(
-                '${score.toInt()}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 14),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: color,
+              const Icon(Icons.headphones_rounded, color: AppColors.olive),
+              const SizedBox(width: 8),
+              const Expanded(
+                child: Text(
+                  'Review your recitation',
+                  style: TextStyle(
+                    color: AppColors.navy,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
               Text(
-                'Tajweed Accuracy: ${score.toStringAsFixed(0)}%',
+                'Attempt ${state.attemptCount}',
                 style: TextStyle(
-                  fontSize: 13,
                   color: AppColors.navy.withValues(alpha: 0.5),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Listen to your recording and the Sheikh. This practice does not make an automatic mastery decision.',
+            style: TextStyle(
+              color: AppColors.navy.withValues(alpha: 0.68),
+              height: 1.45,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              OutlinedButton.icon(
+                onPressed: onReplayChild,
+                icon: const Icon(Icons.play_circle_outline_rounded),
+                label: const Text('My recording'),
+              ),
+              OutlinedButton.icon(
+                onPressed: onReplaySheikh,
+                icon: const Icon(Icons.volume_up_outlined),
+                label: const Text('Sheikh again'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: onRetry,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.olive,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+              ),
+              icon: const Icon(Icons.refresh_rounded),
+              label: const Text('Practice this ayah again'),
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: TextButton(
+              onPressed: onNext,
+              child: Text(
+                hasNext
+                    ? 'Continue to the next ayah'
+                    : 'Finish this practice session',
+              ),
+            ),
           ),
         ],
       ),
@@ -428,38 +417,45 @@ class _ScoreFeedback extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────
-// Bottom controls — mic button centered, Yahya bottom-right
-// ─────────────────────────────────────────────
+class _PracticeNotice extends StatelessWidget {
+  final String message;
+
+  const _PracticeNotice({required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.softOrange.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: const TextStyle(color: AppColors.navy, height: 1.4),
+      ),
+    );
+  }
+}
 
 class _BottomControls extends StatelessWidget {
   final TalaqqiState state;
-  final bool micDisabled;
   final VoidCallback onMicTap;
 
-  const _BottomControls({
-    required this.state,
-    this.micDisabled = false,
-    required this.onMicTap,
-  });
+  const _BottomControls({required this.state, required this.onMicTap});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        // Mic button — centered
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: MicButton(phase: state.phase, onTap: onMicTap),
         ),
-
-        // Yahya — bottom right, per Stitch layout
-        Positioned(
-          right: 0,
-          bottom: 0,
-          child: YahyaMascot(size: 64),
-        ),
+        const Positioned(right: 0, bottom: 0, child: YahyaMascot(size: 64)),
       ],
     );
   }
