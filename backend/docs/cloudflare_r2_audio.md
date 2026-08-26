@@ -45,16 +45,19 @@ operator authentication. No anonymous upload policy is permitted.
 | Public playback base | `https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev` |
 | CORS | `GET` and `HEAD` only; no browser write methods are allowed |
 | Browser dashboard session | تعذر تسجيل الدخول في المتصفح؛ لم يُستخدم المتصفح للرفع |
-| Uploaded audio objects | `surahs/001.m4a` فقط؛ الحجم `526,243` بايت وبصمة SHA-256 مطابقة للمصدر |
+| Uploaded audio objects | جميع السور 001–114 في المسار `surahs/`؛ لا توجد ملفات صوت في Git |
+| Verified source inventory | 114 ملفًا، `927,005,453` بايت (`884.06 MiB`) |
+| Verification | طابقت SHA-256 للمصدر وR2، والتحقق من الحجم وHTTP Range (`206`) لكل السور 114 |
+| Temporary migration channel | Worker محمي بـ Bearer token ومربوط بـ R2 فقط؛ لا يقبل كتابة عامة وسيزال بعد اكتمال التسليم |
 
-## Verified playback sample
+## Verified whole-surah playback
 
-The first approved object is `surahs/001.m4a`. Its public HTTPS URL returned
-`206 Partial Content` to a `bytes=0-1023` request, declared
-`Content-Type: audio/mp4`, and returned the same SHA-256 as the approved local
-intake sample: `75bc1954341dadff60b35be00732a6eab85c074beeaeca2e3165f1c2164b743e`.
-This verifies whole-surah byte-range playback only; it does not provide ayah
-or word timing data.
+Every whole-surah object has a public HTTPS URL under `surahs/`, canonical
+content type (`audio/mp4` for `001.m4a`, otherwise `audio/mpeg`), an exact
+source/R2 SHA-256 match, and support for byte-range playback. The manifest
+records each object key, public URL, byte count, checksum, and Range response.
+This verifies whole-surah playback only; it does not provide ayah or word
+timing data.
 
 ## Required server environment
 
@@ -70,17 +73,17 @@ The R2 API token must be scoped to this single bucket. It needs object write,
 read, list, and delete only for the server-side intake process; it must not be
 embedded in the mobile/web app.
 
-## Intake gate
+## Completed intake and migration gate
 
-Before production upload, produce an inventory containing original file name,
-surah number, MIME type, byte size, SHA-256, and intended R2 key. Download and
-inspect only approved samples first: 001, 002, and 108 when its source file ID
-is confirmed. The full library requires an explicit user go-ahead after the
-inventory and total size are shown.
+The full source inventory now contains original file name, Drive ID, surah
+number, MIME type, byte size, intended R2 key, and source/R2 SHA-256 match.
+The user approved the displayed 113-file bulk transfer after `001.m4a` had
+already been verified. The transfer retried two transient fetch failures
+(`059.mp3` and `060.mp3`) successfully before the final 114-file check.
 
-For each uploaded sample, verify HTTP `200`, `Content-Type`, byte-range
-playback, checksum, and actual playback in the app before writing a
-`playback_url` into `audio_manifest.json`.
+For future changes, retain the same gate: inventory first, explicit approval
+for any bulk transfer, then HTTP content type, byte-range playback, byte size,
+and SHA-256 verification before adding or changing a `playback_url`.
 
 ## Flutter behavior
 

@@ -83,6 +83,7 @@ void main() {
     final fatiha = await content.getSurah(1);
     final ayatAlKursi = await content.getAyah(surah: 2, ayah: 255);
     final fatihaAudio = await audio.getForSurah(1);
+    final kautherAudio = await audio.getForSurah(108);
 
     expect(fatiha.ayahCount, 7);
     expect(fatiha.ayahs.first.text, 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ');
@@ -94,6 +95,12 @@ void main() {
       'https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/surahs/001.m4a',
     );
     expect(fatihaAudio.supportsAyahSegments, isFalse);
+    expect(kautherAudio.hasWholeSurahPlayback, isTrue);
+    expect(
+      kautherAudio.playbackUri.toString(),
+      'https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/surahs/108.mp3',
+    );
+    expect(kautherAudio.supportsAyahSegments, isFalse);
   });
 
   test('v2 session payload contains practice facts but no score or mistakes',
