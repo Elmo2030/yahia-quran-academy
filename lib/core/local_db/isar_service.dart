@@ -125,6 +125,15 @@ class LocalDbService {
     return logs.where((log) => !log.isSynced && log.isLegacySyncable).toList();
   }
 
+  /// Returns validated session-v2 records that can be sent to the additive
+  /// practice_sessions table. The caller keeps records pending on any failure.
+  Future<List<LocalMemorizationLog>> getPracticeSessionSyncableLogs() async {
+    final logs = await _readAll();
+    return logs
+        .where((log) => !log.isSynced && log.isPracticeSessionSyncable)
+        .toList();
+  }
+
   /// Marks a local legacy record as synchronized after a successful insert.
   Future<void> markSynced(int logId) async {
     final logs = await _readAll();
