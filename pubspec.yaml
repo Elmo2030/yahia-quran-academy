@@ -55,6 +55,8 @@ flutter:
   assets:
     - assets/images/
     - assets/animations/
+    - assets/data/quran_text.json
+    - assets/data/audio_manifest.json
 
   fonts:
     - family: Plus Jakarta Sans

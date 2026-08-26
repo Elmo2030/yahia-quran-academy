@@ -21,10 +21,22 @@ enum VerificationStatus {
   verified,
 }
 
+/// What the active source audio can truthfully support.
+enum SourceAudioAvailability {
+  loading,
+  unavailable,
+  wholeSurahOnly,
+  ayahSegments,
+}
+
 class TalaqqiState {
   final TalaqqiPhase phase;
   final int currentAyah;
   final int totalAyahs;
+  final int surah;
+  final bool isContentLoading;
+  final String contentError;
+  final SourceAudioAvailability sourceAudioAvailability;
 
   /// 0.0–1.0 progress within the current phase (drives visualizer amplitude).
   final double phaseProgress;
@@ -32,7 +44,7 @@ class TalaqqiState {
   /// Feedback message shown near the mascot.
   final String mascotMessage;
 
-  /// Arabic text for each ayah, populated from Supabase metadata.
+  /// Arabic text from the pinned Tanzil Uthmani corpus.
   final List<String> ayahTexts;
 
   /// Kept for a future verified evaluator. Never synthesized by the practice loop.
@@ -45,7 +57,11 @@ class TalaqqiState {
   const TalaqqiState({
     this.phase = TalaqqiPhase.idle,
     this.currentAyah = 1,
-    this.totalAyahs = 7,
+    this.totalAyahs = 0,
+    this.surah = 1,
+    this.isContentLoading = true,
+    this.contentError = '',
+    this.sourceAudioAvailability = SourceAudioAvailability.loading,
     this.phaseProgress = 0.0,
     this.mascotMessage = '',
     this.ayahTexts = const [],
@@ -60,6 +76,10 @@ class TalaqqiState {
     TalaqqiPhase? phase,
     int? currentAyah,
     int? totalAyahs,
+    int? surah,
+    bool? isContentLoading,
+    String? contentError,
+    SourceAudioAvailability? sourceAudioAvailability,
     double? phaseProgress,
     String? mascotMessage,
     List<String>? ayahTexts,
@@ -68,19 +88,25 @@ class TalaqqiState {
     String? recordingPath,
     int? recordingDurationMs,
     int? attemptCount,
-  }) => TalaqqiState(
-    phase: phase ?? this.phase,
-    currentAyah: currentAyah ?? this.currentAyah,
-    totalAyahs: totalAyahs ?? this.totalAyahs,
-    phaseProgress: phaseProgress ?? this.phaseProgress,
-    mascotMessage: mascotMessage ?? this.mascotMessage,
-    ayahTexts: ayahTexts ?? this.ayahTexts,
-    lastScore: lastScore ?? this.lastScore,
-    verificationStatus: verificationStatus ?? this.verificationStatus,
-    recordingPath: recordingPath ?? this.recordingPath,
-    recordingDurationMs: recordingDurationMs ?? this.recordingDurationMs,
-    attemptCount: attemptCount ?? this.attemptCount,
-  );
+  }) =>
+      TalaqqiState(
+        phase: phase ?? this.phase,
+        currentAyah: currentAyah ?? this.currentAyah,
+        totalAyahs: totalAyahs ?? this.totalAyahs,
+        surah: surah ?? this.surah,
+        isContentLoading: isContentLoading ?? this.isContentLoading,
+        contentError: contentError ?? this.contentError,
+        sourceAudioAvailability:
+            sourceAudioAvailability ?? this.sourceAudioAvailability,
+        phaseProgress: phaseProgress ?? this.phaseProgress,
+        mascotMessage: mascotMessage ?? this.mascotMessage,
+        ayahTexts: ayahTexts ?? this.ayahTexts,
+        lastScore: lastScore ?? this.lastScore,
+        verificationStatus: verificationStatus ?? this.verificationStatus,
+        recordingPath: recordingPath ?? this.recordingPath,
+        recordingDurationMs: recordingDurationMs ?? this.recordingDurationMs,
+        attemptCount: attemptCount ?? this.attemptCount,
+      );
 
   bool get isActive =>
       phase == TalaqqiPhase.sheikhPlaying ||
@@ -88,4 +114,10 @@ class TalaqqiState {
       phase == TalaqqiPhase.analyzing;
 
   bool get hasRecording => recordingPath.isNotEmpty && recordingDurationMs > 0;
+  bool get hasTextContent => totalAyahs > 0 && ayahTexts.length == totalAyahs;
+  bool get canPlayAyahSegments =>
+      sourceAudioAvailability == SourceAudioAvailability.ayahSegments;
+  bool get canPlayWholeSurah =>
+      sourceAudioAvailability == SourceAudioAvailability.wholeSurahOnly ||
+      sourceAudioAvailability == SourceAudioAvailability.ayahSegments;
 }

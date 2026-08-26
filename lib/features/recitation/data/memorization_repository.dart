@@ -5,6 +5,7 @@ import '../../../core/local_db/isar_service.dart';
 import '../../../core/network/connectivity_service.dart';
 import '../../../core/services/supabase/supabase_service.dart';
 import '../../../shared/models/memorization_log.dart';
+import '../../../shared/models/practice_session.dart';
 
 final memorizationRepositoryProvider = Provider<MemorizationRepository>((ref) {
   return MemorizationRepository(
@@ -14,7 +15,7 @@ final memorizationRepositoryProvider = Provider<MemorizationRepository>((ref) {
   );
 });
 
-class MemorizationRepository {
+class MemorizationRepository implements PracticeSessionSink {
   final SupabaseClient client;
   final LocalDbService localDb;
   final ConnectivityService connectivityService;
@@ -24,6 +25,16 @@ class MemorizationRepository {
     required this.localDb,
     required this.connectivityService,
   });
+
+  /// Persists a child-led session with no artificial score or AI error list.
+  ///
+  /// The Supabase table still requires a numerical `score`; therefore this
+  /// method intentionally writes offline only. A separate, additive database
+  /// migration will enable v2 sync without changing the current wire contract.
+  @override
+  Future<void> logPracticeSession(PracticeSession session) {
+    return localDb.savePracticeSessionLocally(session);
+  }
 
   /// Save a session — ALWAYS writes to Isar first (offline-safe),
   /// then triggers sync if online.
