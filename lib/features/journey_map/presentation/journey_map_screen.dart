@@ -30,7 +30,8 @@ class JourneyMapScreen extends ConsumerWidget {
       data: (data) => _JourneyScaffold(
         child: _JourneyContent(
           summary: data,
-          onStartPractice: () => context.push('/recitation'),
+          onStartPractice:
+              data.hasActiveLearner ? () => context.push('/recitation') : null,
         ),
       ),
     );
@@ -58,7 +59,7 @@ class _JourneyScaffold extends StatelessWidget {
 
 class _JourneyContent extends StatelessWidget {
   final ChildPracticeSummary summary;
-  final VoidCallback onStartPractice;
+  final VoidCallback? onStartPractice;
 
   const _JourneyContent({
     required this.summary,
@@ -112,22 +113,30 @@ class _JourneyContent extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Expanded(
-          child: summary.hasSessions
-              ? ListView.separated(
-                  itemCount: summary.recentSessions.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
-                  itemBuilder: (context, index) => _SessionCard(
-                    session: summary.recentSessions[index],
-                    onTap: onStartPractice,
-                  ),
-                )
-              : _PracticeNotice(
-                  title: 'لم تُسجَّل جلسات بعد',
+          child: !summary.hasActiveLearner
+              ? const _PracticeNotice(
+                  title: 'اختر طفلًا أولًا',
                   message:
-                      'ابدأ بالاستماع والتكرار والتسجيل، ثم راجع تلاوتك بنفسك.',
-                  actionLabel: 'ابدأ أول جلسة',
-                  onAction: onStartPractice,
-                ),
+                      'من لوحة ولي الأمر، أضف ملف الطفل أو اختره قبل بدء جلسة تلاوة تُسجّل في رحلته.',
+                  actionLabel: null,
+                  onAction: null,
+                )
+              : summary.hasSessions
+                  ? ListView.separated(
+                      itemCount: summary.recentSessions.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 10),
+                      itemBuilder: (context, index) => _SessionCard(
+                        session: summary.recentSessions[index],
+                        onTap: onStartPractice,
+                      ),
+                    )
+                  : _PracticeNotice(
+                      title: 'لم تُسجَّل جلسات بعد',
+                      message:
+                          'ابدأ بالاستماع والتكرار والتسجيل، ثم راجع تلاوتك بنفسك.',
+                      actionLabel: 'ابدأ أول جلسة',
+                      onAction: onStartPractice,
+                    ),
         ),
       ],
     );
@@ -214,7 +223,7 @@ class _MetricTile extends StatelessWidget {
 
 class _SessionCard extends StatelessWidget {
   final PracticeSessionRecord session;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const _SessionCard({required this.session, required this.onTap});
 
@@ -280,14 +289,14 @@ class _SessionCard extends StatelessWidget {
 class _PracticeNotice extends StatelessWidget {
   final String title;
   final String message;
-  final String actionLabel;
-  final VoidCallback onAction;
+  final String? actionLabel;
+  final VoidCallback? onAction;
 
   const _PracticeNotice({
     required this.title,
     required this.message,
-    required this.actionLabel,
-    required this.onAction,
+    this.actionLabel,
+    this.onAction,
   });
 
   @override
@@ -323,8 +332,10 @@ class _PracticeNotice extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(color: AppColors.navy.withValues(alpha: 0.65)),
             ),
-            const SizedBox(height: 18),
-            FilledButton(onPressed: onAction, child: Text(actionLabel)),
+            if (actionLabel != null && onAction != null) ...[
+              const SizedBox(height: 18),
+              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
+            ],
           ],
         ),
       ),
