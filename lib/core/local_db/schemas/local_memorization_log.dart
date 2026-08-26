@@ -48,6 +48,16 @@ class LocalMemorizationLog {
   bool get isLegacySyncable =>
       schemaVersion == 1 && score != null && mistakesJson != null;
 
+  bool get isPracticeSessionSyncable =>
+      schemaVersion == 2 &&
+      practiceMode != null &&
+      verificationStatus != null &&
+      source != null &&
+      surah != null &&
+      ayahStart != null &&
+      ayahEnd != null &&
+      syncBlockReason == 'requires_session_v2_migration';
+
   LocalMemorizationLog copyWith({bool? isSynced}) => LocalMemorizationLog(
         id: id,
         profileId: profileId,
