@@ -26,7 +26,13 @@ def main() -> None:
     assert manifest["coverage"] == {
         "expected_surahs": 114,
         "listed_surahs": 114,
+        "whole_surah_playback_verified": 1,
         "timing_status": "unavailable",
+    }
+    assert manifest["delivery"] == {
+        "provider": "Cloudflare R2",
+        "public_base_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev",
+        "write_access": "restricted_server_or_operator_only",
     }
 
     surahs = manifest["surahs"]
@@ -36,17 +42,28 @@ def main() -> None:
         assert item["surah"] == number
         assert item["source_file"] == expected_source_file(number)
         assert item["source_folder"] == FOLDER_URL
-        assert item["availability"] == "listed"
         assert item["timing_status"] == "unavailable"
         assert item["word_timestamps"] is None
-        assert "playback_url" not in item
+        if number == 1:
+            assert item["availability"] == "migrated"
+            assert item["r2_object_key"] == "surahs/001.m4a"
+            assert item["content_type"] == "audio/mp4"
+            assert item["playback_url"] == (
+                "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/surahs/001.m4a"
+            )
+            assert item["sha256"] == "75bc1954341dadff60b35be00732a6eab85c074beeaeca2e3165f1c2164b743e"
+            assert item["playback_verification"]["http_status"] == 206
+            assert item["playback_verification"]["checksum_matches_source"] is True
+        else:
+            assert item["availability"] == "listed"
+            assert "playback_url" not in item
 
     assert surahs["1"]["sample_inspection"]["status"] == "passed"
     assert surahs["1"]["sample_inspection"]["duration_seconds"] > 0
     assert surahs["2"]["sample_inspection"]["status"] == "listed_only"
     assert surahs["108"]["sample_inspection"]["status"] == "passed"
     assert surahs["108"]["sample_inspection"]["duration_seconds"] > 0
-    print(json.dumps({"status": "passed", "surahs": 114, "samples": [1, 2, 108], "timings": "unavailable"}, ensure_ascii=False))
+    print(json.dumps({"status": "passed", "surahs": 114, "playable_samples": [1], "timings": "unavailable"}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

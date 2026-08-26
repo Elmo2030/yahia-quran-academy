@@ -88,7 +88,11 @@ void main() {
     expect(fatiha.ayahs.first.text, 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ');
     expect(ayatAlKursi.text, startsWith('ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ'));
     expect(fatihaAudio.sourceFile, '001.m4a');
-    expect(fatihaAudio.hasWholeSurahPlayback, isFalse);
+    expect(fatihaAudio.hasWholeSurahPlayback, isTrue);
+    expect(
+      fatihaAudio.playbackUri.toString(),
+      'https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/surahs/001.m4a',
+    );
     expect(fatihaAudio.supportsAyahSegments, isFalse);
   });
 

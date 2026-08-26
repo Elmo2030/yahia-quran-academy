@@ -7,13 +7,19 @@
     "checked_at": "2026-08-26",
     "notes": [
       "Audio binaries are intentionally excluded from Git.",
-      "The app must use a migrated storage/CDN URL before production playback.",
+      "The app may use a verified Cloudflare R2 playback URL when one is present; listed-only records are not playable.",
       "No ayah or word timestamp JSON files were present in the shared folder during intake."
     ]
+  },
+  "delivery": {
+    "provider": "Cloudflare R2",
+    "public_base_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev",
+    "write_access": "restricted_server_or_operator_only"
   },
   "coverage": {
     "expected_surahs": 114,
     "listed_surahs": 114,
+    "whole_surah_playback_verified": 1,
     "timing_status": "unavailable"
   },
   "surahs": {
@@ -21,9 +27,20 @@
       "surah": 1,
       "source_file": "001.m4a",
       "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
-      "availability": "listed",
+      "availability": "migrated",
       "timing_status": "unavailable",
       "word_timestamps": null,
+      "playback_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/surahs/001.m4a",
+      "r2_object_key": "surahs/001.m4a",
+      "content_type": "audio/mp4",
+      "sha256": "75bc1954341dadff60b35be00732a6eab85c074beeaeca2e3165f1c2164b743e",
+      "playback_verification": {
+        "verified_at": "2026-08-26T17:46:48Z",
+        "http_status": 206,
+        "range_request": "bytes=0-1023",
+        "content_range": "bytes 0-1023/526243",
+        "checksum_matches_source": true
+      },
       "sample_inspection": {
         "status": "passed",
         "inspected_from": "user_upload",
