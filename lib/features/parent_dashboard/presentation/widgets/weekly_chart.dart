@@ -4,17 +4,14 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_theme.dart';
 
-/// Weekly engagement area chart — Stitch reference: dark navy card,
-/// filled area chart with two series (minutes + goals), Mon–Fri labels.
+/// A single-series chart of minutes from persisted practice sessions.
 class WeeklyChart extends StatelessWidget {
   final List<double> minutes;
-  final List<double> goals;
   final List<String> days;
 
   const WeeklyChart({
     super.key,
     required this.minutes,
-    required this.goals,
     required this.days,
   });
 
@@ -30,12 +27,11 @@ class WeeklyChart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header: title + legend
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Weekly\nEngagement',
+              Text(
+                'نشاط التدريب\nهذا الأسبوع',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
@@ -43,18 +39,10 @@ class WeeklyChart extends StatelessWidget {
                   height: 1.2,
                 ),
               ),
-              Row(
-                children: [
-                  _LegendDot(color: AppColors.olive, label: 'Minutes'),
-                  const SizedBox(width: 12),
-                  _LegendDot(color: AppColors.gold, label: 'Goals'),
-                ],
-              ),
+              _LegendDot(color: AppColors.olive, label: 'دقائق التدريب'),
             ],
           ),
           const SizedBox(height: 24),
-
-          // Chart
           SizedBox(
             height: 160,
             child: LineChart(
@@ -76,17 +64,17 @@ class WeeklyChart extends StatelessWidget {
                       showTitles: true,
                       interval: 1,
                       getTitlesWidget: (value, _) {
-                        final i = value.toInt();
-                        if (i < 0 || i >= days.length) {
+                        final index = value.toInt();
+                        if (index < 0 || index >= days.length) {
                           return const SizedBox.shrink();
                         }
                         return Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: Text(
-                            days[i],
+                            days[index],
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.5),
-                              fontSize: 12,
+                              fontSize: 10,
                             ),
                           ),
                         );
@@ -96,21 +84,7 @@ class WeeklyChart extends StatelessWidget {
                 ),
                 minY: 0,
                 maxY: _maxY,
-                lineBarsData: [
-                  // Minutes — olive filled area
-                  _buildLine(
-                    minutes,
-                    AppColors.olive,
-                    AppColors.olive.withValues(alpha: 0.3),
-                  ),
-                  // Goals — gold dashed line
-                  _buildLine(
-                    goals,
-                    AppColors.gold,
-                    AppColors.gold.withValues(alpha: 0.1),
-                    isDashed: true,
-                  ),
-                ],
+                lineBarsData: [_buildMinutesLine()],
                 lineTouchData: const LineTouchData(enabled: false),
               ),
             ),
@@ -121,35 +95,29 @@ class WeeklyChart extends StatelessWidget {
   }
 
   double get _maxY {
-    final allValues = [...minutes, ...goals];
-    final max = allValues.reduce((a, b) => a > b ? a : b);
-    return (max * 1.3).ceilToDouble();
+    final max = minutes.fold<double>(
+      0,
+      (current, value) => value > current ? value : current,
+    );
+    return max == 0 ? 1 : (max * 1.3).ceilToDouble();
   }
 
-  LineChartBarData _buildLine(
-    List<double> data,
-    Color color,
-    Color fillColor, {
-    bool isDashed = false,
-  }) {
-    return LineChartBarData(
-      spots: List.generate(
-        data.length,
-        (i) => FlSpot(i.toDouble(), data[i]),
-      ),
-      isCurved: true,
-      curveSmoothness: 0.3,
-      color: color,
-      barWidth: 2.5,
-      isStrokeCapRound: true,
-      dashArray: isDashed ? [6, 4] : null,
-      dotData: const FlDotData(show: false),
-      belowBarData: BarAreaData(
-        show: true,
-        color: fillColor,
-      ),
-    );
-  }
+  LineChartBarData _buildMinutesLine() => LineChartBarData(
+        spots: List.generate(
+          minutes.length,
+          (index) => FlSpot(index.toDouble(), minutes[index]),
+        ),
+        isCurved: true,
+        curveSmoothness: 0.3,
+        color: AppColors.olive,
+        barWidth: 2.5,
+        isStrokeCapRound: true,
+        dotData: const FlDotData(show: false),
+        belowBarData: BarAreaData(
+          show: true,
+          color: AppColors.olive.withValues(alpha: 0.3),
+        ),
+      );
 }
 
 class _LegendDot extends StatelessWidget {

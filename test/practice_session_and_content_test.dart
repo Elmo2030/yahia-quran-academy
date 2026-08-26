@@ -5,6 +5,7 @@ import 'package:faras_quran_ai/features/recitation/data/quran_content_repository
 import 'package:faras_quran_ai/core/local_db/schemas/local_memorization_log.dart';
 import 'package:faras_quran_ai/core/network/sync_engine.dart';
 import 'package:faras_quran_ai/shared/models/practice_session.dart';
+import 'package:faras_quran_ai/shared/models/practice_session_record.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/services.dart';
 
@@ -117,5 +118,30 @@ void main() {
     expect(payload['attempt_count'], 3);
     expect(payload.containsKey('score'), isFalse);
     expect(payload.containsKey('mistakes'), isFalse);
+  });
+
+  test('remote practice session exposes activity facts without evaluation data',
+      () {
+    final record = PracticeSessionRecord.fromJson({
+      'id': 'row-1',
+      'profile_id': 'profile-1',
+      'session_id': 'session-1',
+      'source': 'talaqqi',
+      'practice_mode': 'selfReview',
+      'verification_status': 'selfReview',
+      'surah': 1,
+      'ayah_start': 1,
+      'ayah_end': 7,
+      'duration_seconds': 75,
+      'attempt_count': 2,
+      'started_at': '2026-08-26T16:00:00.000Z',
+      'ended_at': '2026-08-26T16:01:15.000Z',
+    });
+
+    expect(record.surah, 1);
+    expect(record.durationSeconds, 75);
+    expect(record.attemptCount, 2);
+    expect(record.verificationStatus, 'selfReview');
+    expect(record.runtimeType.toString(), 'PracticeSessionRecord');
   });
 }

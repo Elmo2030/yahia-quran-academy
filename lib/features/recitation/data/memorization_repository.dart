@@ -9,6 +9,7 @@ import '../../../core/network/sync_engine.dart';
 import '../../../core/services/supabase/supabase_service.dart';
 import '../../../shared/models/memorization_log.dart';
 import '../../../shared/models/practice_session.dart';
+import '../../../shared/models/practice_session_record.dart';
 
 final memorizationRepositoryProvider = Provider<MemorizationRepository>((ref) {
   return MemorizationRepository(
@@ -134,6 +135,50 @@ class MemorizationRepository implements PracticeSessionSink {
 
     final data = await query.order('started_at', ascending: false);
     return (data as List).map((e) => MemorizationLog.fromJson(e)).toList();
+  }
+
+  /// Reads persisted self-review activity for one child. The database RLS
+  /// policy determines whether the current user may see the selected profile.
+  Future<List<PracticeSessionRecord>> fetchPracticeSessions({
+    required String profileId,
+    DateTime? since,
+    int limit = 100,
+  }) async {
+    var query = client.from('practice_sessions').select().eq(
+          'profile_id',
+          profileId,
+        );
+    if (since != null) {
+      query = query.gte('started_at', since.toUtc().toIso8601String());
+    }
+    final data = await query.order('started_at', ascending: false).limit(limit);
+    return (data as List)
+        .map(
+          (row) => PracticeSessionRecord.fromJson(row as Map<String, dynamic>),
+        )
+        .toList();
+  }
+
+  /// Reads self-review activity across child profiles visible to the parent.
+  Future<List<PracticeSessionRecord>> fetchChildrenPracticeSessions({
+    required List<String> childProfileIds,
+    DateTime? since,
+    int limit = 250,
+  }) async {
+    if (childProfileIds.isEmpty) return const [];
+    var query = client
+        .from('practice_sessions')
+        .select()
+        .inFilter('profile_id', childProfileIds);
+    if (since != null) {
+      query = query.gte('started_at', since.toUtc().toIso8601String());
+    }
+    final data = await query.order('started_at', ascending: false).limit(limit);
+    return (data as List)
+        .map(
+          (row) => PracticeSessionRecord.fromJson(row as Map<String, dynamic>),
+        )
+        .toList();
   }
 
   /// Push a single log to Supabase and mark it synced locally.

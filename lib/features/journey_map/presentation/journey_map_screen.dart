@@ -2,398 +2,329 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/app_theme.dart';
-import '../../gamification/gamification_controller.dart';
-import '../../gamification/widgets/reward_dialog.dart';
-import '../../recitation/presentation/widgets/yahya_mascot.dart';
+import '../../../shared/models/practice_session_record.dart';
 import '../domain/journey_state.dart';
-import 'widgets/journey_node_card.dart';
 
-class JourneyMapScreen extends ConsumerStatefulWidget {
+/// Child journey built from actual self-review sessions, not points or unlocks.
+class JourneyMapScreen extends ConsumerWidget {
   const JourneyMapScreen({super.key});
 
   @override
-  ConsumerState<JourneyMapScreen> createState() => _JourneyMapScreenState();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final summary = ref.watch(childPracticeSummaryProvider);
+    return summary.when(
+      loading: () => const Scaffold(
+        backgroundColor: AppColors.ivory,
+        body: Center(child: CircularProgressIndicator(color: AppColors.olive)),
+      ),
+      error: (_, __) => _JourneyScaffold(
+        child: _PracticeNotice(
+          title: 'تعذّر تحميل نشاطك',
+          message: 'يمكنك مواصلة التدريب، وستظهر الجلسات عند توفر الاتصال.',
+          actionLabel: 'ابدأ التدريب',
+          onAction: () => context.push('/recitation'),
+        ),
+      ),
+      data: (data) => _JourneyScaffold(
+        child: _JourneyContent(
+          summary: data,
+          onStartPractice: () => context.push('/recitation'),
+        ),
+      ),
+    );
+  }
 }
 
-class _JourneyMapScreenState extends ConsumerState<JourneyMapScreen> {
-  String? _lastRewardedId;
+class _JourneyScaffold extends StatelessWidget {
+  final Widget child;
+
+  const _JourneyScaffold({required this.child});
 
   @override
   Widget build(BuildContext context) {
-    final gState = ref.watch(gamificationProvider);
-
-    // Trigger reward dialog when a level was just completed
-    _checkRewardDialog(context, gState);
-
     return Scaffold(
       backgroundColor: AppColors.ivory,
       body: SafeArea(
-        child: Column(
-          children: [
-            _JourneyTopBar(points: gState.totalPoints),
-            Expanded(
-              child: _SnakingPath(
-                levels: gState.levels,
-                onLevelTap: (level) {
-                  if (level.status == LevelStatus.active) {
-                    context.push('/recitation');
-                  }
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: const _JourneyBottomNav(),
-    );
-  }
-
-  void _checkRewardDialog(BuildContext context, GamificationState gState) {
-    final completedId = gState.justCompletedLevelId;
-    if (completedId == null || completedId == _lastRewardedId) return;
-    _lastRewardedId = completedId;
-
-    // Find the completed level for its title
-    final level = gState.levels.where((l) => l.id == completedId).firstOrNull;
-    if (level == null) return;
-
-    // Post-frame to avoid build-phase navigation
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      RewardDialog.show(
-        context,
-        levelTitle: level.title,
-        pointsAwarded: 150,
-        onContinue: () {
-          Navigator.of(context).pop();
-          ref.read(gamificationProvider.notifier).clearRewardFlag();
-        },
-      );
-    });
-  }
-}
-
-// ─────────────────────────────────────────────
-// Top bar — Yahya avatar + points badge
-// ─────────────────────────────────────────────
-
-class _JourneyTopBar extends StatefulWidget {
-  final int points;
-
-  const _JourneyTopBar({required this.points});
-
-  @override
-  State<_JourneyTopBar> createState() => _JourneyTopBarState();
-}
-
-class _JourneyTopBarState extends State<_JourneyTopBar> {
-  int _prevPoints = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _prevPoints = widget.points;
-  }
-
-  @override
-  void didUpdateWidget(_JourneyTopBar old) {
-    super.didUpdateWidget(old);
-    if (old.points != widget.points) _prevPoints = old.points;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: AppColors.olive, width: 2),
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: Image.asset(
-                      'assets/images/yahya_3d.png',
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => Container(
-                        color: AppColors.gold.withValues(alpha: 0.1),
-                        child: const Center(
-                          child: Text('👦', style: TextStyle(fontSize: 20)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Yehia Quran Academy',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.navy,
-                          letterSpacing: 0.3,
-                        ),
-                      ),
-                      Text(
-                        'Keep going, you\'re doing great!',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: AppColors.navy.withValues(alpha: 0.45),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              TweenAnimationBuilder<int>(
-                tween: IntTween(begin: _prevPoints, end: widget.points),
-                duration: const Duration(milliseconds: 600),
-                builder: (context, value, _) => Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(100),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.navy.withValues(alpha: 0.06),
-                        blurRadius: 8,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.star_rounded, color: AppColors.gold, size: 16),
-                      const SizedBox(width: 4),
-                      Text(
-                        '$value',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.navy,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-// ─────────────────────────────────────────────
-// Snaking path — vertical line + alternating cards
-// ─────────────────────────────────────────────
-
-class _SnakingPath extends StatelessWidget {
-  final List<JourneyLevel> levels;
-  final void Function(JourneyLevel) onLevelTap;
-
-  const _SnakingPath({required this.levels, required this.onLevelTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-      itemCount: levels.length,
-      itemBuilder: (context, index) {
-        final level = levels[index];
-        final alignRight = index.isOdd;
-        final isActive = level.status == LevelStatus.active;
-        final isLast = index == levels.length - 1;
-
-        return Column(
-          children: [
-            IntrinsicHeight(
-              child: Row(
-                children: [
-                  if (alignRight) const Spacer(),
-                  Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      JourneyNodeCard(
-                        level: level,
-                        onTap: () => onLevelTap(level),
-                      ),
-                      if (isActive)
-                        Positioned(
-                          right: -72,
-                          top: 8,
-                          child: YahyaMascot(size: 64),
-                        ),
-                    ],
-                  ),
-                  if (!alignRight) const Spacer(),
-                ],
-              ),
-            ),
-            if (!isLast)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: CustomPaint(
-                  size: const Size(double.infinity, 40),
-                  painter: _PathConnectorPainter(
-                    fromRight: alignRight,
-                    color: level.status == LevelStatus.completed
-                        ? AppColors.gold.withValues(alpha: 0.4)
-                        : AppColors.navy.withValues(alpha: 0.1),
-                  ),
-                ),
-              ),
-          ],
-        );
-      },
-    );
-  }
-}
-
-class _PathConnectorPainter extends CustomPainter {
-  final bool fromRight;
-  final Color color;
-
-  _PathConnectorPainter({required this.fromRight, required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
-
-    final startX = fromRight ? size.width * 0.6 : size.width * 0.4;
-    final endX = fromRight ? size.width * 0.4 : size.width * 0.6;
-
-    final path = Path()
-      ..moveTo(startX, 0)
-      ..cubicTo(startX, size.height * 0.5, endX, size.height * 0.5, endX, size.height);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(_PathConnectorPainter old) =>
-      old.fromRight != fromRight || old.color != color;
-}
-
-// ─────────────────────────────────────────────
-// Bottom nav — Learn (active), Daily, Library, Badges
-// ─────────────────────────────────────────────
-
-class _JourneyBottomNav extends StatelessWidget {
-  const _JourneyBottomNav();
-
-  void _showComingSoon(BuildContext context, String label) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(
-        content: Text('$label — coming soon!'),
-        duration: const Duration(seconds: 1),
-        backgroundColor: AppColors.navy,
-      ));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.navy.withValues(alpha: 0.05),
-            blurRadius: 16,
-            offset: const Offset(0, -4),
-          ),
-        ],
-      ),
-      child: SafeArea(
-        top: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _NavItem(icon: Icons.school_rounded, label: 'Learn', isActive: true, onTap: () {}),
-              _NavItem(icon: Icons.calendar_today_rounded, label: 'Daily', onTap: () => _showComingSoon(context, 'Daily')),
-              _NavItem(icon: Icons.menu_book_rounded, label: 'Library', onTap: () => _showComingSoon(context, 'Library')),
-              _NavItem(icon: Icons.emoji_events_rounded, label: 'Badges', onTap: () => _showComingSoon(context, 'Badges')),
-            ],
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: child,
         ),
       ),
     );
   }
 }
 
-class _NavItem extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool isActive;
-  final VoidCallback? onTap;
+class _JourneyContent extends StatelessWidget {
+  final ChildPracticeSummary summary;
+  final VoidCallback onStartPractice;
 
-  const _NavItem({
-    required this.icon,
-    required this.label,
-    this.isActive = false,
-    this.onTap,
+  const _JourneyContent({
+    required this.summary,
+    required this.onStartPractice,
   });
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 20),
+        const Text(
+          'رحلتي في التلاوة',
+          style: TextStyle(
+            color: AppColors.navy,
+            fontSize: 30,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'Source Serif 4',
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'كل جلسة هنا هي تدريب ومراجعة ذاتية، وليست حكمًا على الإتقان.',
+          style: TextStyle(color: AppColors.navy.withValues(alpha: 0.65)),
+        ),
+        const SizedBox(height: 20),
+        _PracticeTotals(summary: summary),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              'جلساتك الأخيرة',
+              style: TextStyle(
+                color: AppColors.navy,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            FilledButton.icon(
+              onPressed: onStartPractice,
+              style: FilledButton.styleFrom(
+                backgroundColor: AppColors.olive,
+                foregroundColor: Colors.white,
+              ),
+              icon: const Icon(Icons.mic_rounded, size: 18),
+              label: const Text('تدرّب'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Expanded(
+          child: summary.hasSessions
+              ? ListView.separated(
+                  itemCount: summary.recentSessions.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  itemBuilder: (context, index) => _SessionCard(
+                    session: summary.recentSessions[index],
+                    onTap: onStartPractice,
+                  ),
+                )
+              : _PracticeNotice(
+                  title: 'لم تُسجَّل جلسات بعد',
+                  message:
+                      'ابدأ بالاستماع والتكرار والتسجيل، ثم راجع تلاوتك بنفسك.',
+                  actionLabel: 'ابدأ أول جلسة',
+                  onAction: onStartPractice,
+                ),
+        ),
+      ],
+    );
+  }
+}
+
+class _PracticeTotals extends StatelessWidget {
+  final ChildPracticeSummary summary;
+
+  const _PracticeTotals({required this.summary});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: _MetricTile(
+            icon: Icons.timer_outlined,
+            value: '${summary.totalPracticeMinutes}',
+            label: 'دقيقة تدريب',
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: _MetricTile(
+            icon: Icons.repeat_rounded,
+            value: '${summary.totalAttempts}',
+            label: 'محاولة مسجلة',
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _MetricTile extends StatelessWidget {
+  final IconData icon;
+  final String value;
+  final String label;
+
+  const _MetricTile({
+    required this.icon,
+    required this.value,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.navy.withValues(alpha: 0.05),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: AppColors.olive),
+          const SizedBox(height: 12),
+          Text(
+            value,
+            style: const TextStyle(
+              color: AppColors.navy,
+              fontSize: 25,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          Text(
+            label,
+            style: TextStyle(color: AppColors.navy.withValues(alpha: 0.6)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SessionCard extends StatelessWidget {
+  final PracticeSessionRecord session;
+  final VoidCallback onTap;
+
+  const _SessionCard({required this.session, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final minutes = (session.durationSeconds / 60).ceil();
     return Semantics(
-      label: label,
       button: true,
-      selected: isActive,
-      child: GestureDetector(
+      label: 'تدرب على السورة ${session.surah}',
+      child: InkWell(
         onTap: onTap,
-        behavior: HitTestBehavior.opaque,
+        borderRadius: BorderRadius.circular(18),
+        child: Ink(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: AppColors.olive.withValues(alpha: 0.14)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: AppColors.olive.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child:
+                    const Icon(Icons.menu_book_rounded, color: AppColors.olive),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'سورة ${session.surah} · الآيات ${session.ayahStart}–${session.ayahEnd}',
+                      style: const TextStyle(
+                        color: AppColors.navy,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '$minutes دقيقة · ${session.attemptCount} محاولات · مراجعة ذاتية',
+                      style: TextStyle(
+                        color: AppColors.navy.withValues(alpha: 0.6),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_left_rounded, color: AppColors.navy),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PracticeNotice extends StatelessWidget {
+  final String title;
+  final String message;
+  final String actionLabel;
+  final VoidCallback onAction;
+
+  const _PracticeNotice({
+    required this.title,
+    required this.message,
+    required this.actionLabel,
+    required this.onAction,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: 48,
-              height: 48,
-              decoration: isActive
-                  ? const BoxDecoration(
-                      color: AppColors.olive,
-                      shape: BoxShape.circle,
-                    )
-                  : null,
-              child: Icon(
-                icon,
-                color: isActive
-                    ? Colors.white
-                    : AppColors.navy.withValues(alpha: 0.55),
-                size: 22,
-              ),
+            const Icon(
+              Icons.headphones_rounded,
+              color: AppColors.olive,
+              size: 38,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 16),
             Text(
-              label,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
-                color: isActive
-                    ? AppColors.navy
-                    : AppColors.navy.withValues(alpha: 0.55),
+              title,
+              style: const TextStyle(
+                color: AppColors.navy,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
               ),
             ),
+            const SizedBox(height: 8),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: AppColors.navy.withValues(alpha: 0.65)),
+            ),
+            const SizedBox(height: 18),
+            FilledButton(onPressed: onAction, child: Text(actionLabel)),
           ],
         ),
       ),

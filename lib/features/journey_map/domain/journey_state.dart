@@ -1,7 +1,67 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../auth/data/auth_repository.dart';
+import '../../recitation/data/memorization_repository.dart';
+import '../../../shared/models/practice_session_record.dart';
+
+/// Honest activity summary for the child journey.
+///
+/// It intentionally measures practice time, completed self-review sessions,
+/// and attempts. None of these metrics is presented as mastery or a score.
+class ChildPracticeSummary {
+  final List<PracticeSessionRecord> recentSessions;
+  final int totalPracticeMinutes;
+  final int totalAttempts;
+
+  const ChildPracticeSummary({
+    required this.recentSessions,
+    required this.totalPracticeMinutes,
+    required this.totalAttempts,
+  });
+
+  bool get hasSessions => recentSessions.isNotEmpty;
+}
+
+final childPracticeSummaryProvider =
+    FutureProvider.autoDispose<ChildPracticeSummary>((ref) async {
+  final profile = ref.watch(currentProfileProvider).valueOrNull;
+  if (profile == null) {
+    return const ChildPracticeSummary(
+      recentSessions: [],
+      totalPracticeMinutes: 0,
+      totalAttempts: 0,
+    );
+  }
+
+  final sessions = await ref
+      .watch(memorizationRepositoryProvider)
+      .fetchPracticeSessions(profileId: profile.id, limit: 50);
+  final totalSeconds = sessions.fold<int>(
+    0,
+    (sum, session) => sum + session.durationSeconds,
+  );
+  final totalAttempts = sessions.fold<int>(
+    0,
+    (sum, session) => sum + session.attemptCount,
+  );
+
+  return ChildPracticeSummary(
+    recentSessions: sessions,
+    totalPracticeMinutes: (totalSeconds / 60).round(),
+    totalAttempts: totalAttempts,
+  );
+});
+
+/// Legacy presentation types retained only while the unused visual card is
+/// removed in a later cleanup. No active provider populates them and the child
+/// journey no longer treats them as progress, points, or unlocking decisions.
+@Deprecated('The activity-based child journey does not use levels.')
 enum LevelStatus { locked, active, completed }
 
+@Deprecated('The activity-based child journey does not use level icons.')
+enum IconType { mic, book, star, lock }
+
+@Deprecated('The activity-based child journey does not use levels.')
 class JourneyLevel {
   final String id;
   final String title;
@@ -11,7 +71,7 @@ class JourneyLevel {
   final int ayahEnd;
   final LevelStatus status;
   final IconType iconType;
-  final double progress; // 0.0–1.0 for completed levels
+  final double progress;
 
   const JourneyLevel({
     required this.id,
@@ -22,66 +82,6 @@ class JourneyLevel {
     required this.ayahEnd,
     required this.status,
     required this.iconType,
-    this.progress = 0.0,
+    this.progress = 0,
   });
 }
-
-enum IconType { mic, book, star, lock }
-
-class JourneyState {
-  final List<JourneyLevel> levels;
-  final int totalPoints;
-
-  const JourneyState({required this.levels, this.totalPoints = 0});
-}
-
-// ponytail: mock data, replaced by Supabase queries on memorization_logs
-final journeyProvider = Provider<JourneyState>((ref) {
-  return const JourneyState(
-    totalPoints: 1250,
-    levels: [
-      JourneyLevel(
-        id: 'l5',
-        title: 'Al-Fatihah 5-7',
-        subtitle: 'Ayah 5–7',
-        surah: 1,
-        ayahStart: 5,
-        ayahEnd: 7,
-        status: LevelStatus.locked,
-        iconType: IconType.lock,
-      ),
-      JourneyLevel(
-        id: 'l4',
-        title: 'Al-Fatihah 4',
-        subtitle: 'Ayah 4',
-        surah: 1,
-        ayahStart: 4,
-        ayahEnd: 4,
-        status: LevelStatus.active,
-        iconType: IconType.mic,
-      ),
-      JourneyLevel(
-        id: 'l3',
-        title: 'Al-Fatihah 3',
-        subtitle: 'Ayah 3',
-        surah: 1,
-        ayahStart: 3,
-        ayahEnd: 3,
-        status: LevelStatus.completed,
-        iconType: IconType.book,
-        progress: 1.0,
-      ),
-      JourneyLevel(
-        id: 'l2',
-        title: 'Al-Fatihah 1-2',
-        subtitle: 'Ayah 1–2',
-        surah: 1,
-        ayahStart: 1,
-        ayahEnd: 2,
-        status: LevelStatus.completed,
-        iconType: IconType.star,
-        progress: 1.0,
-      ),
-    ],
-  );
-});
