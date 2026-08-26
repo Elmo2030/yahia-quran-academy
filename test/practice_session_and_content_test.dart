@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:faras_quran_ai/features/recitation/data/audio_asset_repository.dart';
 import 'package:faras_quran_ai/features/recitation/data/quran_content_repository.dart';
+import 'package:faras_quran_ai/core/local_db/schemas/local_memorization_log.dart';
+import 'package:faras_quran_ai/core/network/sync_engine.dart';
 import 'package:faras_quran_ai/shared/models/practice_session.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/services.dart';
@@ -85,5 +87,35 @@ void main() {
     expect(fatihaAudio.sourceFile, '001.m4a');
     expect(fatihaAudio.hasWholeSurahPlayback, isFalse);
     expect(fatihaAudio.supportsAyahSegments, isFalse);
+  });
+
+  test('v2 session payload contains practice facts but no score or mistakes',
+      () {
+    final localSession = LocalMemorizationLog(
+      id: 9,
+      profileId: 'profile-9',
+      sessionId: 'session-9',
+      durationSeconds: 61,
+      startedAt: DateTime.utc(2026, 8, 26, 16),
+      endedAt: DateTime.utc(2026, 8, 26, 16, 1, 1),
+      schemaVersion: 2,
+      source: 'talaqqi',
+      practiceMode: 'selfReview',
+      verificationStatus: 'selfReview',
+      surah: 1,
+      ayahStart: 1,
+      ayahEnd: 7,
+      attemptCount: 3,
+      syncBlockReason: 'requires_session_v2_migration',
+    );
+
+    final payload = practiceSessionInsertPayload(localSession);
+
+    expect(localSession.isPracticeSessionSyncable, isTrue);
+    expect(payload['practice_mode'], 'selfReview');
+    expect(payload['verification_status'], 'selfReview');
+    expect(payload['attempt_count'], 3);
+    expect(payload.containsKey('score'), isFalse);
+    expect(payload.containsKey('mistakes'), isFalse);
   });
 }
