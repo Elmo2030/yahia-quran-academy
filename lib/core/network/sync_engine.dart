@@ -51,19 +51,19 @@ class SyncEngine {
     _isSyncing = true;
 
     try {
-      final unsyncedLogs = await localDb.getUnsyncedLogs();
-      if (unsyncedLogs.isEmpty) return;
+      final syncableLogs = await localDb.getLegacySyncableLogs();
+      if (syncableLogs.isEmpty) return;
 
-      for (final log in unsyncedLogs) {
+      for (final log in syncableLogs) {
         try {
-          final mistakes = (jsonDecode(log.mistakesJson) as List)
+          final mistakes = (jsonDecode(log.mistakesJson!) as List)
               .cast<Map<String, dynamic>>();
 
           await supabase.from('memorization_logs').insert({
             'profile_id': log.profileId,
             'session_id': log.sessionId,
             'duration_seconds': log.durationSeconds,
-            'score': log.score,
+            'score': log.score!,
             'mistakes': mistakes,
             'started_at': log.startedAt.toIso8601String(),
             'ended_at': log.endedAt?.toIso8601String(),

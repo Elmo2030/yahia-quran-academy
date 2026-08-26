@@ -61,6 +61,15 @@ class AudioPlayerService {
     sub.cancel();
   }
 
+  /// Starts full-surah playback when no ayah timing metadata is available.
+  /// This intentionally does not infer an end position or claim ayah-level
+  /// navigation; callers must expose it as whole-surah listening only.
+  Future<void> playWhole() async {
+    _endTimer?.cancel();
+    await _player.seek(Duration.zero);
+    await _player.play();
+  }
+
   Future<void> stop() async {
     _endTimer?.cancel();
     await _player.stop();

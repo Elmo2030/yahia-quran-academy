@@ -27,7 +27,7 @@ class RecitationRoomScreen extends ConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 8),
-              const _TopBar(surahName: 'SURAH AL-FATIHA'),
+              _TopBar(surahName: 'سورة ${state.surah}'),
               const SizedBox(height: 12),
               _AyahProgressBar(
                 current: state.currentAyah,
@@ -38,22 +38,38 @@ class RecitationRoomScreen extends ConsumerWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      _AyahCard(
-                        ayahNumber: state.currentAyah,
-                        totalAyahs: state.totalAyahs,
-                        ayahTexts: state.ayahTexts,
-                      ),
-                      const SizedBox(height: 24),
-                      if (state.currentAyah < state.totalAyahs)
-                        _NextAyahPreview(
-                          nextAyahIndex: state.currentAyah,
+                      if (state.isContentLoading)
+                        const _ContentLoading()
+                      else if (!state.hasTextContent)
+                        _PracticeNotice(
+                          message: state.contentError.isEmpty
+                              ? 'تعذّر تحميل محتوى السورة. حاول لاحقًا.'
+                              : state.contentError,
+                        )
+                      else ...[
+                        _AyahCard(
+                          ayahNumber: state.currentAyah,
+                          totalAyahs: state.totalAyahs,
                           ayahTexts: state.ayahTexts,
                         ),
-                      const SizedBox(height: 32),
-                      AudioVisualizer(
-                        phase: state.phase,
-                        progress: state.phaseProgress,
-                      ),
+                        const SizedBox(height: 24),
+                        if (state.currentAyah < state.totalAyahs)
+                          _NextAyahPreview(
+                            nextAyahIndex: state.currentAyah,
+                            ayahTexts: state.ayahTexts,
+                          ),
+                        const SizedBox(height: 24),
+                        if (!state.canPlayAyahSegments)
+                          _AudioAvailabilityCard(
+                            state: state,
+                            onPlayWholeSurah: ctrl.playWholeSurah,
+                          ),
+                        const SizedBox(height: 24),
+                        AudioVisualizer(
+                          phase: state.phase,
+                          progress: state.phaseProgress,
+                        ),
+                      ],
                       if (state.phase == TalaqqiPhase.selfReview)
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
@@ -115,8 +131,8 @@ class _AyahProgressBar extends StatelessWidget {
             color: isDone
                 ? AppColors.olive
                 : isCurrent
-                ? AppColors.gold
-                : AppColors.navy.withValues(alpha: 0.1),
+                    ? AppColors.gold
+                    : AppColors.navy.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(4),
           ),
         );
@@ -190,32 +206,10 @@ class _AyahCard extends StatelessWidget {
     this.ayahTexts = const [],
   });
 
-  static const _translations = [
-    'In the name of Allah, the Entirely Merciful, the Especially Merciful',
-    '[All] praise is [due] to Allah, Lord of the worlds',
-    'The Entirely Merciful, the Especially Merciful',
-    'Sovereign of the Day of Recompense',
-    'It is You we worship and You we ask for help',
-    'Guide us to the straight path',
-    'The path of those upon whom You have bestowed favor, not of those who have earned anger or of those who are astray',
-  ];
-
-  static const _fallbackArabic = [
-    'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
-    'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
-    'الرَّحْمَٰنِ الرَّحِيمِ',
-    'مَالِكِ يَوْمِ الدِّينِ',
-    'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
-    'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
-    'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ',
-  ];
-
   @override
   Widget build(BuildContext context) {
-    final idx = (ayahNumber - 1).clamp(0, 6);
-    final arabicList = ayahTexts.isNotEmpty ? ayahTexts : _fallbackArabic;
-    final ar = arabicList[idx.clamp(0, arabicList.length - 1)];
-    final en = idx < _translations.length ? '"${_translations[idx]}"' : '';
+    final idx = (ayahNumber - 1).clamp(0, ayahTexts.length - 1);
+    final ar = ayahTexts[idx];
 
     return Container(
       width: double.infinity,
@@ -253,23 +247,13 @@ class _AyahCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
             ),
             child: Text(
-              'AYAH $ayahNumber',
+              'الآية $ayahNumber من $totalAyahs',
               style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0.6,
                 color: AppColors.olive,
               ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            en,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              height: 1.5,
-              color: AppColors.navy.withValues(alpha: 0.7),
             ),
           ),
         ],
@@ -289,8 +273,7 @@ class _NextAyahPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final list = ayahTexts.isNotEmpty ? ayahTexts : _AyahCard._fallbackArabic;
-    final text = list[nextAyahIndex.clamp(0, list.length - 1)];
+    final text = ayahTexts[nextAyahIndex.clamp(0, ayahTexts.length - 1)];
 
     return Text(
       text,
@@ -301,6 +284,86 @@ class _NextAyahPreview extends StatelessWidget {
         height: 1.6,
         fontFamily: 'Noto Naskh Arabic',
         color: AppColors.olive.withValues(alpha: 0.35),
+      ),
+    );
+  }
+}
+
+class _ContentLoading extends StatelessWidget {
+  const _ContentLoading();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 56),
+      child: Column(
+        children: [
+          CircularProgressIndicator(color: AppColors.olive),
+          SizedBox(height: 16),
+          Text(
+            'يُحمّل نص السورة وبيانات الاستماع…',
+            style: TextStyle(color: AppColors.navy),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AudioAvailabilityCard extends StatelessWidget {
+  final TalaqqiState state;
+  final Future<void> Function() onPlayWholeSurah;
+
+  const _AudioAvailabilityCard({
+    required this.state,
+    required this.onPlayWholeSurah,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final hasWholeSurah = state.canPlayWholeSurah;
+    final message = hasWholeSurah
+        ? 'يتوفر تسجيل للسورة كاملة، لكن لا تتوفر توقيتات موثوقة للآيات. لذلك لا يبدأ التدريب آيةً بآية تلقائيًا.'
+        : 'نص السورة متاح. التسجيل مدرج في المكتبة، لكنه غير جاهز للتشغيل أو التقسيم إلى آيات بعد.';
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.softOrange.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.softOrange.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            children: [
+              Icon(Icons.headphones_outlined, color: AppColors.navy),
+              SizedBox(width: 8),
+              Text(
+                'حالة الاستماع',
+                style: TextStyle(
+                  color: AppColors.navy,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            message,
+            style: TextStyle(color: AppColors.navy.withValues(alpha: 0.75)),
+          ),
+          if (hasWholeSurah) ...[
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: onPlayWholeSurah,
+              icon: const Icon(Icons.play_arrow_rounded),
+              label: const Text('استمع إلى السورة كاملة'),
+            ),
+          ],
+        ],
       ),
     );
   }

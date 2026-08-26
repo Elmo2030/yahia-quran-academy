@@ -4,14 +4,15 @@ import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../shared/models/practice_session.dart';
 import 'schemas/local_memorization_log.dart';
 
 final isarServiceProvider = Provider<LocalDbService>((ref) {
   return LocalDbService();
 });
 
-/// ponytail: JSON file store replacing Isar (avoids codegen dependency hell).
-/// Same API surface. Upgrade to drift/sqflite if volume exceeds ~1k records.
+/// JSON file store replacing Isar to avoid a code-generation dependency.
+/// Upgrade to drift/sqflite if volume exceeds approximately 1,000 records.
 class LocalDbService {
   static const _fileName = 'yqa_offline_logs.json';
   int _nextId = 1;
@@ -55,7 +56,8 @@ class LocalDbService {
     await file.writeAsString(jsonEncode(logs.map((l) => l.toJson()).toList()));
   }
 
-  /// Save a session log locally. Always called before network sync.
+  /// Saves a legacy score-based log locally. Retained only to read and sync
+  /// existing records that fit the current remote schema.
   Future<void> saveLogLocally({
     required String profileId,
     required String sessionId,
@@ -66,50 +68,82 @@ class LocalDbService {
     DateTime? endedAt,
   }) async {
     final logs = await _readAll();
-
-    // Duplicate guard
     if (logs.any((l) => l.sessionId == sessionId)) return;
 
-    final log = LocalMemorizationLog(
-      id: _nextId++,
-      profileId: profileId,
-      sessionId: sessionId,
-      durationSeconds: durationSeconds,
-      score: score,
-      mistakesJson: jsonEncode(mistakes),
-      startedAt: startedAt,
-      endedAt: endedAt,
-      isSynced: false,
+    logs.add(
+      LocalMemorizationLog(
+        id: _nextId++,
+        profileId: profileId,
+        sessionId: sessionId,
+        durationSeconds: durationSeconds,
+        score: score,
+        mistakesJson: jsonEncode(mistakes),
+        startedAt: startedAt,
+        endedAt: endedAt,
+      ),
     );
-
-    logs.add(log);
     await _writeAll(logs);
   }
 
-  /// Fetch all logs not yet pushed to Supabase.
-  Future<List<LocalMemorizationLog>> getUnsyncedLogs() async {
+  /// Saves a child-led practice session without fabricating score or mistakes.
+  /// The record remains local until the session-v2 database migration is ready.
+  Future<void> savePracticeSessionLocally(PracticeSession session) async {
     final logs = await _readAll();
-    return logs.where((l) => !l.isSynced).toList();
+    if (logs.any((log) => log.sessionId == session.id)) return;
+
+    logs.add(
+      LocalMemorizationLog(
+        id: _nextId++,
+        profileId: session.profileId,
+        sessionId: session.id,
+        durationSeconds: session.durationSeconds,
+        startedAt: session.startedAt,
+        endedAt: session.endedAt,
+        schemaVersion: PracticeSession.schemaVersion,
+        practiceMode: session.practiceMode.name,
+        verificationStatus: session.verificationStatus.name,
+        source: session.source.name,
+        surah: session.surah,
+        ayahStart: session.ayahStart,
+        ayahEnd: session.ayahEnd,
+        attemptCount: session.attemptCount,
+        syncBlockReason: 'requires_session_v2_migration',
+      ),
+    );
+    await _writeAll(logs);
   }
 
-  /// Mark a log as synced after successful Supabase insert.
+  /// Fetches all records not yet pushed to the remote service.
+  Future<List<LocalMemorizationLog>> getUnsyncedLogs() async {
+    final logs = await _readAll();
+    return logs.where((log) => !log.isSynced).toList();
+  }
+
+  /// Returns only records that meet the score-required remote schema.
+  Future<List<LocalMemorizationLog>> getLegacySyncableLogs() async {
+    final logs = await _readAll();
+    return logs.where((log) => !log.isSynced && log.isLegacySyncable).toList();
+  }
+
+  /// Marks a local legacy record as synchronized after a successful insert.
   Future<void> markSynced(int logId) async {
     final logs = await _readAll();
-    final idx = logs.indexWhere((l) => l.id == logId);
+    final idx = logs.indexWhere((log) => log.id == logId);
     if (idx == -1) return;
 
     logs[idx] = logs[idx].copyWith(isSynced: true);
     await _writeAll(logs);
   }
 
-  /// Delete synced logs older than [age] to reclaim storage.
+  /// Deletes synchronized legacy logs older than [age] to reclaim storage.
+  /// Pending v2 records are preserved even if old, because migration is pending.
   Future<int> purgeSyncedLogs({Duration age = const Duration(days: 7)}) async {
     final logs = await _readAll();
     final cutoff = DateTime.now().subtract(age);
     final before = logs.length;
 
     logs.removeWhere(
-      (l) => l.isSynced && l.startedAt.isBefore(cutoff),
+      (log) => log.isSynced && log.startedAt.isBefore(cutoff),
     );
 
     await _writeAll(logs);

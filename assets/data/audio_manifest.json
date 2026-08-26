@@ -1,0 +1,959 @@
+{
+  "schema_version": 1,
+  "reciter": "Al-Husaree Almoalim",
+  "source": {
+    "provider": "Google Drive",
+    "folder_url": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+    "checked_at": "2026-08-26",
+    "notes": [
+      "Audio binaries are intentionally excluded from Git.",
+      "The app must use a migrated storage/CDN URL before production playback.",
+      "No ayah or word timestamp JSON files were present in the shared folder during intake."
+    ]
+  },
+  "coverage": {
+    "expected_surahs": 114,
+    "listed_surahs": 114,
+    "timing_status": "unavailable"
+  },
+  "surahs": {
+    "1": {
+      "surah": 1,
+      "source_file": "001.m4a",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null,
+      "sample_inspection": {
+        "status": "passed",
+        "inspected_from": "user_upload",
+        "codec": "aac",
+        "container": "m4a",
+        "sample_rate_hz": 11025,
+        "channels": 2,
+        "duration_seconds": 73.300045,
+        "size_bytes": 526243
+      }
+    },
+    "2": {
+      "surah": 2,
+      "source_file": "Audio002 - Al-Baqara.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null,
+      "sample_inspection": {
+        "status": "listed_only",
+        "inspected_from": "public_drive_listing",
+        "listed_size": "75.6 MB",
+        "note": "Direct sample download was not available through the public folder UI during intake."
+      }
+    },
+    "3": {
+      "surah": 3,
+      "source_file": "Audio003.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "4": {
+      "surah": 4,
+      "source_file": "Audio004.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "5": {
+      "surah": 5,
+      "source_file": "Audio005.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "6": {
+      "surah": 6,
+      "source_file": "Audio006.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "7": {
+      "surah": 7,
+      "source_file": "Audio007.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "8": {
+      "surah": 8,
+      "source_file": "Audio008.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "9": {
+      "surah": 9,
+      "source_file": "Audio009.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "10": {
+      "surah": 10,
+      "source_file": "Audio010.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "11": {
+      "surah": 11,
+      "source_file": "Audio011.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "12": {
+      "surah": 12,
+      "source_file": "Audio012.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "13": {
+      "surah": 13,
+      "source_file": "Audio013.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "14": {
+      "surah": 14,
+      "source_file": "Audio014.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "15": {
+      "surah": 15,
+      "source_file": "Audio015.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "16": {
+      "surah": 16,
+      "source_file": "Audio016.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "17": {
+      "surah": 17,
+      "source_file": "Audio017.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "18": {
+      "surah": 18,
+      "source_file": "Audio018.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "19": {
+      "surah": 19,
+      "source_file": "Audio019.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "20": {
+      "surah": 20,
+      "source_file": "Audio020.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "21": {
+      "surah": 21,
+      "source_file": "Audio021.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "22": {
+      "surah": 22,
+      "source_file": "Audio022.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "23": {
+      "surah": 23,
+      "source_file": "Audio023.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "24": {
+      "surah": 24,
+      "source_file": "Audio024.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "25": {
+      "surah": 25,
+      "source_file": "Audio025.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "26": {
+      "surah": 26,
+      "source_file": "Audio026.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "27": {
+      "surah": 27,
+      "source_file": "Audio027.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "28": {
+      "surah": 28,
+      "source_file": "Audio028.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "29": {
+      "surah": 29,
+      "source_file": "Audio029.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "30": {
+      "surah": 30,
+      "source_file": "Audio030.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "31": {
+      "surah": 31,
+      "source_file": "Audio031.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "32": {
+      "surah": 32,
+      "source_file": "Audio032.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "33": {
+      "surah": 33,
+      "source_file": "Audio033.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "34": {
+      "surah": 34,
+      "source_file": "Audio034.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "35": {
+      "surah": 35,
+      "source_file": "Audio035.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "36": {
+      "surah": 36,
+      "source_file": "Audio036.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "37": {
+      "surah": 37,
+      "source_file": "Audio037.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "38": {
+      "surah": 38,
+      "source_file": "Audio038.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "39": {
+      "surah": 39,
+      "source_file": "Audio039.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "40": {
+      "surah": 40,
+      "source_file": "Audio040.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "41": {
+      "surah": 41,
+      "source_file": "Audio041.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "42": {
+      "surah": 42,
+      "source_file": "Audio042.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "43": {
+      "surah": 43,
+      "source_file": "Audio043.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "44": {
+      "surah": 44,
+      "source_file": "Audio044.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "45": {
+      "surah": 45,
+      "source_file": "Audio045.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "46": {
+      "surah": 46,
+      "source_file": "Audio046.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "47": {
+      "surah": 47,
+      "source_file": "Audio047.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "48": {
+      "surah": 48,
+      "source_file": "Audio048.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "49": {
+      "surah": 49,
+      "source_file": "Audio049.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "50": {
+      "surah": 50,
+      "source_file": "Audio050.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "51": {
+      "surah": 51,
+      "source_file": "Audio051.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "52": {
+      "surah": 52,
+      "source_file": "Audio052.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "53": {
+      "surah": 53,
+      "source_file": "Audio053.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "54": {
+      "surah": 54,
+      "source_file": "Audio054.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "55": {
+      "surah": 55,
+      "source_file": "Audio055.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "56": {
+      "surah": 56,
+      "source_file": "Audio056.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "57": {
+      "surah": 57,
+      "source_file": "Audio057.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "58": {
+      "surah": 58,
+      "source_file": "Audio058.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "59": {
+      "surah": 59,
+      "source_file": "Audio059.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "60": {
+      "surah": 60,
+      "source_file": "Audio060.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "61": {
+      "surah": 61,
+      "source_file": "Audio061.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "62": {
+      "surah": 62,
+      "source_file": "Audio062.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "63": {
+      "surah": 63,
+      "source_file": "Audio063.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "64": {
+      "surah": 64,
+      "source_file": "Audio064.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "65": {
+      "surah": 65,
+      "source_file": "Audio065.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "66": {
+      "surah": 66,
+      "source_file": "Audio066.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "67": {
+      "surah": 67,
+      "source_file": "Audio067.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "68": {
+      "surah": 68,
+      "source_file": "Audio068.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "69": {
+      "surah": 69,
+      "source_file": "Audio069.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "70": {
+      "surah": 70,
+      "source_file": "Audio070.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "71": {
+      "surah": 71,
+      "source_file": "Audio071.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "72": {
+      "surah": 72,
+      "source_file": "Audio072.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "73": {
+      "surah": 73,
+      "source_file": "Audio073.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "74": {
+      "surah": 74,
+      "source_file": "Audio074.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "75": {
+      "surah": 75,
+      "source_file": "Audio075.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "76": {
+      "surah": 76,
+      "source_file": "Audio076.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "77": {
+      "surah": 77,
+      "source_file": "Audio077.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "78": {
+      "surah": 78,
+      "source_file": "Audio078.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "79": {
+      "surah": 79,
+      "source_file": "Audio079.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "80": {
+      "surah": 80,
+      "source_file": "Audio080.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "81": {
+      "surah": 81,
+      "source_file": "Audio081.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "82": {
+      "surah": 82,
+      "source_file": "Audio082.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "83": {
+      "surah": 83,
+      "source_file": "Audio083.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "84": {
+      "surah": 84,
+      "source_file": "Audio084.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "85": {
+      "surah": 85,
+      "source_file": "Audio085.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "86": {
+      "surah": 86,
+      "source_file": "Audio086.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "87": {
+      "surah": 87,
+      "source_file": "Audio087.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "88": {
+      "surah": 88,
+      "source_file": "Audio088.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "89": {
+      "surah": 89,
+      "source_file": "Audio089.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "90": {
+      "surah": 90,
+      "source_file": "Audio090.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "91": {
+      "surah": 91,
+      "source_file": "Audio091.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "92": {
+      "surah": 92,
+      "source_file": "Audio092.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "93": {
+      "surah": 93,
+      "source_file": "Audio093.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "94": {
+      "surah": 94,
+      "source_file": "Audio094.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "95": {
+      "surah": 95,
+      "source_file": "Audio095.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "96": {
+      "surah": 96,
+      "source_file": "Audio096.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "97": {
+      "surah": 97,
+      "source_file": "Audio097.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "98": {
+      "surah": 98,
+      "source_file": "Audio098.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "99": {
+      "surah": 99,
+      "source_file": "Audio099.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "100": {
+      "surah": 100,
+      "source_file": "Audio100.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "101": {
+      "surah": 101,
+      "source_file": "Audio101.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "102": {
+      "surah": 102,
+      "source_file": "Audio102.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "103": {
+      "surah": 103,
+      "source_file": "Audio103.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "104": {
+      "surah": 104,
+      "source_file": "Audio104.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "105": {
+      "surah": 105,
+      "source_file": "Audio105.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "106": {
+      "surah": 106,
+      "source_file": "Audio106.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "107": {
+      "surah": 107,
+      "source_file": "Audio107.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "108": {
+      "surah": 108,
+      "source_file": "108-Al-Kauther.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null,
+      "sample_inspection": {
+        "status": "passed",
+        "inspected_from": "user_upload",
+        "codec": "mp3",
+        "container": "mp3",
+        "sample_rate_hz": 16000,
+        "channels": 2,
+        "duration_seconds": 39.416,
+        "size_bytes": 158713
+      }
+    },
+    "109": {
+      "surah": 109,
+      "source_file": "Audio109.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "110": {
+      "surah": 110,
+      "source_file": "Audio110.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "111": {
+      "surah": 111,
+      "source_file": "Audio111.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "112": {
+      "surah": 112,
+      "source_file": "Audio112.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "113": {
+      "surah": 113,
+      "source_file": "Audio113.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    },
+    "114": {
+      "surah": 114,
+      "source_file": "Audio114.mp3",
+      "source_folder": "https://drive.google.com/drive/folders/16qQulScaUDZT0jrc6Gw2uLmSVEJ9Q32E?usp=drive_link",
+      "availability": "listed",
+      "timing_status": "unavailable",
+      "word_timestamps": null
+    }
+  }
+}
