@@ -8,236 +8,155 @@ import '../domain/parent_dashboard_controller.dart';
 import 'widgets/kpi_card.dart';
 import 'widgets/weekly_chart.dart';
 
-/// Parent Analytics Dashboard — data-rich progress overview.
-///
-/// Stitch reference (parent_analytics_dashboard_1/screen.png):
-///   - Top: avatar + points + hamburger
-///   - "Progress Overview" heading (serif font)
-///   - Filter pills: "This Week" / "Download Report"
-///   - KPI cards: Total Minutes, Tajweed Accuracy, Current Focus
-///   - Weekly Engagement chart (navy card, area chart)
-///   - Gentle Reminders section (specific tajweed corrections)
-///   - Bottom nav: Overview, Progress (active), Schedule, Settings
+/// Parent dashboard grounded in persisted child practice activity.
 class ParentDashboardScreen extends ConsumerWidget {
   const ParentDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncState = ref.watch(dashboardDataProvider);
-
-    return asyncState.when(
+    final state = ref.watch(dashboardDataProvider);
+    return state.when(
       loading: () => const Scaffold(
         backgroundColor: AppColors.ivory,
         body: Center(child: CircularProgressIndicator(color: AppColors.olive)),
       ),
-      error: (e, _) => Scaffold(
-        backgroundColor: AppColors.ivory,
-        body: Center(child: Text('Error loading dashboard: $e')),
+      error: (_, __) => const _ParentScaffold(
+        child: _MessageCard(
+          title: 'تعذّر تحميل النشاط',
+          body: 'ستظهر جلسات التدريب عند توفر اتصال آمن بالحساب.',
+        ),
       ),
-      data: (state) => _buildDashboard(context, state),
+      data: (data) => _ParentScaffold(child: _DashboardContent(state: data)),
     );
   }
+}
 
-  Widget _buildDashboard(BuildContext context, DashboardState state) {
+class _ParentScaffold extends StatelessWidget {
+  final Widget child;
+
+  const _ParentScaffold({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.ivory,
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            // Top bar
-            SliverToBoxAdapter(child: _DashboardTopBar()),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              sliver: SliverList(
-                delegate: SliverChildListDelegate([
-                  const SizedBox(height: 24),
-
-                  // Title — Source Serif 4 per Stitch spec
-                  const Text(
-                    'Progress\nOverview',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Source Serif 4',
-                      color: AppColors.navy,
-                      height: 1.15,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    "Tracking your child's learning journey this week.",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.navy.withValues(alpha: 0.5),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Filter pills
-                  _FilterPills(),
-                  const SizedBox(height: 24),
-
-                  // KPI: Total Minutes Listened
-                  KpiCard(
-                    title: 'Total Minutes Listened',
-                    value: state.totalMinutes.toString(),
-                    unit: 'mins',
-                    subtitle:
-                        '↗ +${state.minutesChangePercent.toStringAsFixed(0)}% from last week',
-                    icon: Icons.headphones_rounded,
-                  ),
-                  const SizedBox(height: 16),
-
-                  // KPI: Tajweed Accuracy
-                  KpiCard(
-                    title: 'Tajweed Accuracy',
-                    value: '${state.tajweedAccuracy.toStringAsFixed(0)}',
-                    unit: '%',
-                    subtitle: state.accuracyNote,
-                    icon: Icons.verified_rounded,
-                    iconBgColor: AppColors.olive.withValues(alpha: 0.1),
-                    bottomWidget: ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: LinearProgressIndicator(
-                        value: state.tajweedAccuracy / 100,
-                        minHeight: 6,
-                        backgroundColor:
-                            AppColors.olive.withValues(alpha: 0.1),
-                        valueColor:
-                            const AlwaysStoppedAnimation(AppColors.olive),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // KPI: Current Focus
-                  _CurrentFocusCard(surahs: state.currentFocus),
-                  const SizedBox(height: 24),
-
-                  // Weekly Engagement Chart
-                  WeeklyChart(
-                    minutes: state.weeklyMinutes,
-                    goals: state.weeklyGoals,
-                    days: state.weekDays,
-                  ),
-                  const SizedBox(height: 24),
-
-                  // Gentle Reminders
-                  _GentleRemindersSection(reminders: state.reminders),
-                  const SizedBox(height: 32),
-                ]),
-              ),
+              sliver: SliverToBoxAdapter(child: child),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: const _ParentBottomNav(),
     );
   }
 }
 
-// ─────────────────────────────────────────────
-// Top bar — avatar + points + menu
-// ─────────────────────────────────────────────
+class _DashboardContent extends StatelessWidget {
+  final DashboardState state;
 
-class _DashboardTopBar extends StatelessWidget {
+  const _DashboardContent({required this.state});
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      child: Row(
-        children: [
-          // Parent avatar placeholder
-          Container(
-            width: 44,
-            height: 44,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.navy.withValues(alpha: 0.1),
-              border: Border.all(
-                color: AppColors.gold.withValues(alpha: 0.3),
-                width: 2,
+    final trend = state.minutesChangePercent;
+    final trendText = trend == 0
+        ? 'لا توجد مقارنة كافية بالأسبوع السابق'
+        : '${trend.isNegative ? '↓' : '↑'} ${trend.abs().toStringAsFixed(0)}% مقارنة بالأسبوع السابق';
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 20),
+        const _TopBar(),
+        const SizedBox(height: 24),
+        const Text(
+          'متابعة التدريب',
+          style: TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'Source Serif 4',
+            color: AppColors.navy,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'هذه البيانات تصف وقت التدرّب والمراجعة الذاتية؛ لا تمثل حكمًا آليًا على الإتقان.',
+          style: TextStyle(
+            fontSize: 15,
+            height: 1.45,
+            color: AppColors.navy.withValues(alpha: 0.62),
+          ),
+        ),
+        const SizedBox(height: 24),
+        KpiCard(
+          title: 'وقت التدريب هذا الأسبوع',
+          value: '${state.totalMinutes}',
+          unit: 'دقيقة',
+          subtitle: trendText,
+          icon: Icons.timer_outlined,
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            Expanded(
+              child: _CompactMetric(
+                title: 'جلسات مسجلة',
+                value: '${state.sessionCount}',
+                icon: Icons.menu_book_rounded,
               ),
             ),
-            child: const Icon(Icons.person_rounded,
-                color: AppColors.navy, size: 22),
-          ),
-          const Spacer(),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(100),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.navy.withValues(alpha: 0.06),
-                  blurRadius: 8,
-                ),
-              ],
-            ),
-            child: const Text(
-              '1,250 pts',
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w700,
-                color: AppColors.navy,
+            const SizedBox(width: 12),
+            Expanded(
+              child: _CompactMetric(
+                title: 'محاولات تكرار',
+                value: '${state.totalAttempts}',
+                icon: Icons.repeat_rounded,
               ),
             ),
-          ),
-          const SizedBox(width: 12),
-          Icon(
-            Icons.menu_rounded,
-            color: AppColors.navy.withValues(alpha: 0.6),
-          ),
-        ],
-      ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        WeeklyChart(minutes: state.weeklyMinutes, days: state.weekDays),
+        const SizedBox(height: 24),
+        _FocusCard(surahs: state.currentFocus),
+        const SizedBox(height: 24),
+        _RecentPracticeSection(highlights: state.recentPractice),
+        const SizedBox(height: 32),
+      ],
     );
   }
 }
 
-// ─────────────────────────────────────────────
-// Filter pills — "This Week" + "Download Report"
-// ─────────────────────────────────────────────
+class _TopBar extends StatelessWidget {
+  const _TopBar();
 
-class _FilterPills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Inactive pill
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          width: 44,
+          height: 44,
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(100),
+            shape: BoxShape.circle,
+            color: AppColors.navy.withValues(alpha: 0.08),
             border: Border.all(
-              color: AppColors.navy.withValues(alpha: 0.1),
+              color: AppColors.gold.withValues(alpha: 0.3),
+              width: 2,
             ),
           ),
-          child: Text(
-            'This Week',
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-              color: AppColors.navy.withValues(alpha: 0.6),
-            ),
-          ),
+          child:
+              const Icon(Icons.family_restroom_rounded, color: AppColors.navy),
         ),
-        const SizedBox(width: 8),
-        // Active/CTA pill
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          decoration: BoxDecoration(
-            color: AppColors.navy,
-            borderRadius: BorderRadius.circular(100),
-          ),
-          child: const Text(
-            'Download Report',
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
+        const Spacer(),
+        Text(
+          'لوحة ولي الأمر',
+          style: TextStyle(
+            color: AppColors.navy.withValues(alpha: 0.65),
+            fontWeight: FontWeight.w600,
           ),
         ),
       ],
@@ -245,14 +164,53 @@ class _FilterPills extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────
-// Current Focus card
-// ─────────────────────────────────────────────
+class _CompactMetric extends StatelessWidget {
+  final String title;
+  final String value;
+  final IconData icon;
 
-class _CurrentFocusCard extends StatelessWidget {
+  const _CompactMetric({
+    required this.title,
+    required this.value,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: AppColors.olive),
+          const SizedBox(height: 14),
+          Text(
+            value,
+            style: const TextStyle(
+              color: AppColors.navy,
+              fontSize: 25,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            title,
+            style: TextStyle(color: AppColors.navy.withValues(alpha: 0.6)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FocusCard extends StatelessWidget {
   final List<FocusSurah> surahs;
 
-  const _CurrentFocusCard({required this.surahs});
+  const _FocusCard({required this.surahs});
 
   @override
   Widget build(BuildContext context) {
@@ -262,100 +220,64 @@ class _CurrentFocusCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.navy.withValues(alpha: 0.05),
-            blurRadius: 20,
-            offset: const Offset(0, 4),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          const Row(
             children: [
+              Icon(Icons.menu_book_rounded, color: AppColors.olive),
+              SizedBox(width: 8),
               Text(
-                'Current Focus',
+                'السور التي تدرّب عليها الطفل',
                 style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.navy.withValues(alpha: 0.6),
+                  color: AppColors.navy,
+                  fontWeight: FontWeight.w700,
                 ),
-              ),
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: AppColors.navy.withValues(alpha: 0.06),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Icon(Icons.menu_book_rounded,
-                    color: AppColors.navy, size: 20),
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          ...surahs.map((s) => Padding(
+          const SizedBox(height: 14),
+          if (surahs.isEmpty)
+            Text(
+              'لا توجد جلسات مسجلة هذا الأسبوع بعد.',
+              style: TextStyle(color: AppColors.navy.withValues(alpha: 0.6)),
+            )
+          else
+            ...surahs.map(
+              (surah) => Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 8,
-                          height: 8,
-                          decoration: const BoxDecoration(
-                            color: AppColors.olive,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          s.name,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.navy,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: AppColors.olive.withValues(alpha: 0.08),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
+                    const Icon(Icons.circle, size: 8, color: AppColors.olive),
+                    const SizedBox(width: 10),
+                    Expanded(
                       child: Text(
-                        s.tag,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.olive,
-                        ),
+                        surah.name,
+                        style: const TextStyle(color: AppColors.navy),
+                      ),
+                    ),
+                    Text(
+                      surah.tag,
+                      style: TextStyle(
+                        color: AppColors.navy.withValues(alpha: 0.6),
+                        fontSize: 12,
                       ),
                     ),
                   ],
                 ),
-              )),
+              ),
+            ),
         ],
       ),
     );
   }
 }
 
-// ─────────────────────────────────────────────
-// Gentle Reminders — navy bg with orange accent
-// ─────────────────────────────────────────────
+class _RecentPracticeSection extends StatelessWidget {
+  final List<PracticeHighlight> highlights;
 
-class _GentleRemindersSection extends StatelessWidget {
-  final List<GentleReminder> reminders;
-
-  const _GentleRemindersSection({required this.reminders});
+  const _RecentPracticeSection({required this.highlights});
 
   @override
   Widget build(BuildContext context) {
@@ -363,7 +285,7 @@ class _GentleRemindersSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Gentle Reminders',
+          'أحدث جلسات التدريب',
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -373,205 +295,94 @@ class _GentleRemindersSection extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         Text(
-          "Areas where your child could use a little extra encouragement.",
-          style: TextStyle(
-            fontSize: 14,
-            color: AppColors.navy.withValues(alpha: 0.5),
-          ),
+          'ملخصات نشاط، وليست ملاحظات تصحيح أو تقييم جودة التلاوة.',
+          style: TextStyle(color: AppColors.navy.withValues(alpha: 0.6)),
         ),
-        const SizedBox(height: 16),
-        ...reminders.map((r) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
+        const SizedBox(height: 14),
+        if (highlights.isEmpty)
+          const _MessageCard(
+            title: 'لا توجد جلسات بعد',
+            body: 'ستظهر هنا ملخصات التدريب عند تسجيل أول جلسة.',
+          )
+        else
+          ...highlights.map(
+            (highlight) => Padding(
+              padding: const EdgeInsets.only(bottom: 10),
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(AppConstants.cornerRadiusLarge),
+                  borderRadius: BorderRadius.circular(18),
                   border: Border.all(
-                    color: AppColors.softOrange.withValues(alpha: 0.2),
+                    color: AppColors.olive.withValues(alpha: 0.14),
                   ),
                 ),
-                child: Row(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Orange accent dot
-                    Container(
-                      margin: const EdgeInsets.only(top: 4),
-                      width: 10,
-                      height: 10,
-                      decoration: const BoxDecoration(
-                        color: AppColors.softOrange,
-                        shape: BoxShape.circle,
+                    Text(
+                      highlight.title,
+                      style: const TextStyle(
+                        color: AppColors.navy,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            r.title,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.navy,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            r.body,
-                            style: TextStyle(
-                              fontSize: 13,
-                              height: 1.5,
-                              color: AppColors.navy.withValues(alpha: 0.6),
-                            ),
-                          ),
-                          if (r.actionLabel != null) ...[
-                            const SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.play_circle_rounded,
-                                  size: 16,
-                                  color: AppColors.softOrange,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  r.actionLabel!,
-                                  style: const TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.softOrange,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ],
+                    const SizedBox(height: 6),
+                    Text(
+                      highlight.body,
+                      style: TextStyle(
+                        color: AppColors.navy.withValues(alpha: 0.62),
                       ),
                     ),
                   ],
                 ),
               ),
-            )),
+            ),
+          ),
       ],
     );
   }
 }
 
-// ─────────────────────────────────────────────
-// Bottom nav — Overview, Progress (active), Schedule, Settings
-// ─────────────────────────────────────────────
+class _MessageCard extends StatelessWidget {
+  final String title;
+  final String body;
 
-class _ParentBottomNav extends StatelessWidget {
-  const _ParentBottomNav();
-
-  void _showComingSoon(BuildContext context, String label) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(
-        content: Text('$label — coming soon!'),
-        duration: const Duration(seconds: 1),
-        backgroundColor: AppColors.navy,
-      ));
-  }
+  const _MessageCard({required this.title, required this.body});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.navy.withValues(alpha: 0.05),
-            blurRadius: 16,
-            offset: const Offset(0, -4),
+        borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            Icons.hourglass_empty_rounded,
+            color: AppColors.olive,
+            size: 36,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            title,
+            style: const TextStyle(
+              color: AppColors.navy,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            body,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: AppColors.navy.withValues(alpha: 0.65)),
           ),
         ],
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _ParentNavItem(icon: Icons.grid_view_rounded, label: 'Overview', onTap: () => _showComingSoon(context, 'Overview')),
-              _ParentNavItem(
-                icon: Icons.show_chart_rounded,
-                label: 'Progress',
-                isActive: true,
-                onTap: () {},
-              ),
-              _ParentNavItem(
-                  icon: Icons.calendar_today_rounded, label: 'Schedule', onTap: () => _showComingSoon(context, 'Schedule')),
-              _ParentNavItem(
-                  icon: Icons.settings_rounded, label: 'Settings', onTap: () => _showComingSoon(context, 'Settings')),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ParentNavItem extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool isActive;
-  final VoidCallback? onTap;
-
-  const _ParentNavItem({
-    required this.icon,
-    required this.label,
-    this.isActive = false,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      label: label,
-      button: true,
-      selected: isActive,
-      child: GestureDetector(
-        onTap: onTap,
-        behavior: HitTestBehavior.opaque,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 48,
-              height: 48,
-              decoration: isActive
-                  ? const BoxDecoration(
-                      color: AppColors.navy,
-                      shape: BoxShape.circle,
-                    )
-                  : null,
-              child: Icon(
-                icon,
-                color: isActive
-                    ? Colors.white
-                    : AppColors.navy.withValues(alpha: 0.55),
-                size: 22,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
-                color: isActive
-                    ? AppColors.navy
-                    : AppColors.navy.withValues(alpha: 0.55),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

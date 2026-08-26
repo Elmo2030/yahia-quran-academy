@@ -1,107 +1,146 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../shared/models/practice_session_record.dart';
 import '../../auth/data/auth_repository.dart';
 import '../../recitation/data/memorization_repository.dart';
-import '../domain/dashboard_state.dart';
+import 'dashboard_state.dart';
 
-/// Live dashboard data fetched from Supabase.
-/// Invalidated by TalaqqiController after each session log.
-final dashboardDataProvider = FutureProvider.autoDispose<DashboardState>((ref) async {
+/// Parent activity dashboard derived exclusively from child self-review sessions.
+/// It does not compute or present automatic tajweed accuracy or mastery.
+final dashboardDataProvider =
+    FutureProvider.autoDispose<DashboardState>((ref) async {
   final authRepo = ref.watch(authRepositoryProvider);
-  final memRepo = ref.watch(memorizationRepositoryProvider);
-
+  final practiceRepo = ref.watch(memorizationRepositoryProvider);
   final children = await authRepo.fetchChildProfiles();
-  if (children.isEmpty) {
-    return _emptyDashboard;
-  }
+  if (children.isEmpty) return _emptyDashboard;
 
-  final childIds = children.map((c) => c.id).toList();
-  final now = DateTime.now();
-  final weekStart = now.subtract(Duration(days: now.weekday - 1));
-  final lastWeekStart = weekStart.subtract(const Duration(days: 7));
+  final now = DateTime.now().toUtc();
+  final currentWeekStart = _startOfWeek(now);
+  final previousWeekStart = currentWeekStart.subtract(const Duration(days: 7));
+  final childIds = children.map((child) => child.id).toList();
+  final sessions = await practiceRepo.fetchChildrenPracticeSessions(
+    childProfileIds: childIds,
+    since: previousWeekStart,
+  );
 
-  // Fetch this week's and last week's data in parallel
-  final results = await Future.wait([
-    memRepo.totalMinutesSince(profileIds: childIds, since: weekStart),
-    memRepo.totalMinutesSince(profileIds: childIds, since: lastWeekStart),
-    memRepo.averageScoreSince(profileIds: childIds, since: weekStart),
-    memRepo.fetchChildrenLogs(childProfileIds: childIds, since: weekStart),
-  ]);
+  final thisWeek = sessions
+      .where((session) => !session.startedAt.toUtc().isBefore(currentWeekStart))
+      .toList();
+  final previousWeek = sessions
+      .where(
+        (session) =>
+            !session.startedAt.toUtc().isBefore(previousWeekStart) &&
+            session.startedAt.toUtc().isBefore(currentWeekStart),
+      )
+      .toList();
 
-  final thisWeekMinutes = results[0] as int;
-  final lastTwoWeeksMinutes = results[1] as int;
-  final avgScore = results[2] as double;
-  final logs = results[3] as List;
+  final thisWeekMinutes = _minutes(thisWeek);
+  final previousWeekMinutes = _minutes(previousWeek);
+  final changePercent = previousWeekMinutes == 0
+      ? 0.0
+      : ((thisWeekMinutes - previousWeekMinutes) / previousWeekMinutes) * 100;
 
-  // Calculate week-over-week change
-  final lastWeekMinutes = lastTwoWeeksMinutes - thisWeekMinutes;
-  final changePercent = lastWeekMinutes > 0
-      ? ((thisWeekMinutes - lastWeekMinutes) / lastWeekMinutes * 100)
-      : 0.0;
-
-  // Build daily minutes for the chart (Mon–Fri)
-  final weeklyMinutes = List.generate(5, (dayIndex) {
-    final dayStart = weekStart.add(Duration(days: dayIndex));
-    final dayEnd = dayStart.add(const Duration(days: 1));
-    return logs
-        .where((log) {
-          final started = (log as dynamic).startedAt as DateTime;
-          return started.isAfter(dayStart) && started.isBefore(dayEnd);
-        })
-        .fold<double>(
-          0,
-          (sum, log) => sum + (log as dynamic).durationSeconds / 60.0,
-        );
+  const weekDays = [
+    'الإثنين',
+    'الثلاثاء',
+    'الأربعاء',
+    'الخميس',
+    'الجمعة',
+    'السبت',
+    'الأحد',
+  ];
+  final weeklyMinutes = List<double>.generate(7, (index) {
+    final start = currentWeekStart.add(Duration(days: index));
+    final end = start.add(const Duration(days: 1));
+    return _minutes(
+      thisWeek.where(
+        (session) =>
+            !session.startedAt.toUtc().isBefore(start) &&
+            session.startedAt.toUtc().isBefore(end),
+      ),
+    ).toDouble();
   });
-
-  // ponytail: goals are static for now, make configurable later
-  const dailyGoal = 40.0;
-
-  // Extract recent mistakes for gentle reminders
-  final allMistakes = <GentleReminder>[];
-  for (final log in logs.take(10)) {
-    final mistakes = (log as dynamic).mistakes as List<Map<String, dynamic>>?;
-    if (mistakes == null) continue;
-    for (final m in mistakes) {
-      allMistakes.add(GentleReminder(
-        title: '${m['type']} (Ayah ${m['ayah']})',
-        body: 'Severity: ${m['severity']}. A gentle reminder to practice this rule.',
-        actionLabel: m['severity'] == 'minor' ? null : 'Listen to practice clip',
-      ));
-    }
-  }
 
   return DashboardState(
     totalMinutes: thisWeekMinutes,
     minutesChangePercent: changePercent,
-    tajweedAccuracy: avgScore,
-    accuracyNote: _accuracyNote(avgScore),
-    currentFocus: const [
-      FocusSurah(name: 'Surah Al-Mulk', tag: 'Ayah 1-5'),
-      FocusSurah(name: 'Surah Al-Qalam', tag: 'Review'),
-    ],
+    sessionCount: thisWeek.length,
+    totalAttempts: thisWeek.fold<int>(
+      0,
+      (total, session) => total + session.attemptCount,
+    ),
+    currentFocus: _focusSurahs(thisWeek),
     weeklyMinutes: weeklyMinutes,
-    weeklyGoals: List.filled(5, dailyGoal),
-    weekDays: const ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-    reminders: allMistakes.take(3).toList(),
+    weekDays: weekDays,
+    recentPractice: _highlights(thisWeek),
   );
 });
 
-String _accuracyNote(double score) {
-  if (score >= 90) return 'Outstanding Tajweed mastery!';
-  if (score >= 80) return 'Excellent pronunciation on Ghunnah rules.';
-  if (score >= 70) return 'Good progress — keep practicing the stretches.';
-  return 'Building foundations — consistency is key!';
+DateTime _startOfWeek(DateTime time) {
+  final localMondayOffset = time.weekday - DateTime.monday;
+  return DateTime.utc(time.year, time.month, time.day)
+      .subtract(Duration(days: localMondayOffset));
+}
+
+int _minutes(Iterable<PracticeSessionRecord> sessions) {
+  final seconds = sessions.fold<int>(
+    0,
+    (total, session) => total + session.durationSeconds,
+  );
+  return (seconds / 60).round();
+}
+
+List<FocusSurah> _focusSurahs(List<PracticeSessionRecord> sessions) {
+  final bySurah = <int, List<PracticeSessionRecord>>{};
+  for (final session in sessions) {
+    bySurah.putIfAbsent(session.surah, () => []).add(session);
+  }
+  final entries = bySurah.entries.toList()
+    ..sort((a, b) => b.value.length.compareTo(a.value.length));
+
+  return entries.take(3).map((entry) {
+    final ayahStart = entry.value.map((session) => session.ayahStart).reduce(
+          (a, b) => a < b ? a : b,
+        );
+    final ayahEnd = entry.value.map((session) => session.ayahEnd).reduce(
+          (a, b) => a > b ? a : b,
+        );
+    return FocusSurah(
+      name: 'سورة ${entry.key}',
+      tag: 'الآيات $ayahStart–$ayahEnd · ${entry.value.length} جلسات',
+    );
+  }).toList();
+}
+
+List<PracticeHighlight> _highlights(List<PracticeSessionRecord> sessions) {
+  final ordered = [...sessions]
+    ..sort((a, b) => b.startedAt.compareTo(a.startedAt));
+  return ordered.take(3).map((session) {
+    final minutes = (session.durationSeconds / 60).ceil();
+    return PracticeHighlight(
+      title:
+          'سورة ${session.surah} · الآيات ${session.ayahStart}–${session.ayahEnd}',
+      body:
+          '$minutes دقيقة تدريب و${session.attemptCount} محاولات مسجلة في مراجعة ذاتية.',
+    );
+  }).toList();
 }
 
 const _emptyDashboard = DashboardState(
   totalMinutes: 0,
   minutesChangePercent: 0,
-  tajweedAccuracy: 0,
-  accuracyNote: 'No sessions yet. Start learning!',
+  sessionCount: 0,
+  totalAttempts: 0,
   currentFocus: [],
-  weeklyMinutes: [0, 0, 0, 0, 0],
-  weeklyGoals: [40, 40, 40, 40, 40],
-  weekDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-  reminders: [],
+  weeklyMinutes: [0, 0, 0, 0, 0, 0, 0],
+  weekDays: [
+    'الإثنين',
+    'الثلاثاء',
+    'الأربعاء',
+    'الخميس',
+    'الجمعة',
+    'السبت',
+    'الأحد',
+  ],
+  recentPractice: [],
 );
