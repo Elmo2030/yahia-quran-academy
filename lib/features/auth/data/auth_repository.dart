@@ -21,6 +21,29 @@ final userRoleProvider = Provider<UserRole?>((ref) {
   return ref.watch(currentProfileProvider).valueOrNull?.role;
 });
 
+/// Child profiles owned by the signed-in parent. The provider is refreshed
+/// after a child is added or selected from the parent dashboard.
+final childProfilesProvider = FutureProvider.autoDispose<List<Profile>>((ref) {
+  return ref.watch(authRepositoryProvider).fetchChildProfiles();
+});
+
+/// The dependent child chosen by the parent for practice and child views.
+/// A signed-in child account, if introduced later, uses its own profile.
+final selectedChildProfileIdProvider = StateProvider<String?>((ref) => null);
+
+final activeLearnerProfileProvider = Provider<Profile?>((ref) {
+  final current = ref.watch(currentProfileProvider).valueOrNull;
+  if (current == null) return null;
+  if (current.role == UserRole.child) return current;
+
+  final selectedId = ref.watch(selectedChildProfileIdProvider);
+  final children = ref.watch(childProfilesProvider).valueOrNull ?? const [];
+  for (final child in children) {
+    if (child.id == selectedId) return child;
+  }
+  return null;
+});
+
 class AuthRepository {
   final SupabaseClient _client;
 
@@ -83,12 +106,15 @@ class AuthRepository {
       throw StateError('Only parents can add children');
     }
 
-    final data = await _client.from('profiles').insert({
-      'auth_user_id': currentUser!.id,
-      'role': 'child',
-      'parent_id': parent.id,
-      'display_name': displayName,
-    }).select().single();
+    final data = await _client
+        .from('profiles')
+        .insert({
+          'role': 'child',
+          'parent_id': parent.id,
+          'display_name': displayName,
+        })
+        .select()
+        .single();
 
     return Profile.fromJson(data);
   }
@@ -98,10 +124,8 @@ class AuthRepository {
     final parent = await fetchCurrentProfile();
     if (parent == null) return [];
 
-    final data = await _client
-        .from('profiles')
-        .select()
-        .eq('parent_id', parent.id);
+    final data =
+        await _client.from('profiles').select().eq('parent_id', parent.id);
 
     return (data as List).map((e) => Profile.fromJson(e)).toList();
   }

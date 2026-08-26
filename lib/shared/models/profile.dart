@@ -2,7 +2,7 @@ enum UserRole { child, parent, teacher }
 
 class Profile {
   final String id;
-  final String authUserId;
+  final String? authUserId;
   final UserRole role;
   final String? parentId;
   final String displayName;
@@ -10,7 +10,7 @@ class Profile {
 
   const Profile({
     required this.id,
-    required this.authUserId,
+    this.authUserId,
     required this.role,
     this.parentId,
     required this.displayName,
@@ -19,7 +19,7 @@ class Profile {
 
   factory Profile.fromJson(Map<String, dynamic> json) => Profile(
         id: json['id'] as String,
-        authUserId: json['auth_user_id'] as String,
+        authUserId: json['auth_user_id'] as String?,
         role: UserRole.values.byName(json['role'] as String),
         parentId: json['parent_id'] as String?,
         displayName: json['display_name'] as String,

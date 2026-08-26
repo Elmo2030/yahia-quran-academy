@@ -40,7 +40,7 @@ class AyahSegment {
 
 final talaqqiProvider =
     StateNotifierProvider.autoDispose<TalaqqiController, TalaqqiState>((ref) {
-  final profile = ref.watch(currentProfileProvider).valueOrNull;
+  final profile = ref.watch(activeLearnerProfileProvider);
   return TalaqqiController(
     player: ref.watch(audioPlayerServiceProvider),
     recorder: ref.watch(audioRecordingServiceProvider),

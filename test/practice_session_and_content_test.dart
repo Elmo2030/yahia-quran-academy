@@ -6,6 +6,8 @@ import 'package:faras_quran_ai/core/local_db/schemas/local_memorization_log.dart
 import 'package:faras_quran_ai/core/network/sync_engine.dart';
 import 'package:faras_quran_ai/shared/models/practice_session.dart';
 import 'package:faras_quran_ai/shared/models/practice_session_record.dart';
+import 'package:faras_quran_ai/shared/models/profile.dart';
+import 'package:faras_quran_ai/features/journey_map/domain/journey_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/services.dart';
 
@@ -143,5 +145,34 @@ void main() {
     expect(record.attemptCount, 2);
     expect(record.verificationStatus, 'selfReview');
     expect(record.runtimeType.toString(), 'PracticeSessionRecord');
+  });
+
+  test('dependent child profile does not require an auth identity', () {
+    final profile = Profile.fromJson({
+      'id': 'child-1',
+      'auth_user_id': null,
+      'role': 'child',
+      'parent_id': 'parent-1',
+      'display_name': 'يحيى',
+      'created_at': '2026-08-26T16:00:00.000Z',
+    });
+
+    expect(profile.role, UserRole.child);
+    expect(profile.authUserId, isNull);
+    expect(profile.parentId, 'parent-1');
+  });
+
+  test(
+      'empty child summary keeps practice unavailable until a child is selected',
+      () {
+    const summary = ChildPracticeSummary(
+      recentSessions: [],
+      totalPracticeMinutes: 0,
+      totalAttempts: 0,
+      hasActiveLearner: false,
+    );
+
+    expect(summary.hasActiveLearner, isFalse);
+    expect(summary.hasSessions, isFalse);
   });
 }

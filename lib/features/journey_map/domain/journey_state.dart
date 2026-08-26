@@ -12,11 +12,13 @@ class ChildPracticeSummary {
   final List<PracticeSessionRecord> recentSessions;
   final int totalPracticeMinutes;
   final int totalAttempts;
+  final bool hasActiveLearner;
 
   const ChildPracticeSummary({
     required this.recentSessions,
     required this.totalPracticeMinutes,
     required this.totalAttempts,
+    required this.hasActiveLearner,
   });
 
   bool get hasSessions => recentSessions.isNotEmpty;
@@ -24,12 +26,13 @@ class ChildPracticeSummary {
 
 final childPracticeSummaryProvider =
     FutureProvider.autoDispose<ChildPracticeSummary>((ref) async {
-  final profile = ref.watch(currentProfileProvider).valueOrNull;
+  final profile = ref.watch(activeLearnerProfileProvider);
   if (profile == null) {
     return const ChildPracticeSummary(
       recentSessions: [],
       totalPracticeMinutes: 0,
       totalAttempts: 0,
+      hasActiveLearner: false,
     );
   }
 
@@ -49,6 +52,7 @@ final childPracticeSummaryProvider =
     recentSessions: sessions,
     totalPracticeMinutes: (totalSeconds / 60).round(),
     totalAttempts: totalAttempts,
+    hasActiveLearner: true,
   );
 });
 

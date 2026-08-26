@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../auth/data/auth_repository.dart';
 import '../domain/dashboard_state.dart';
 import '../domain/parent_dashboard_controller.dart';
 import 'widgets/kpi_card.dart';
@@ -91,6 +93,8 @@ class _DashboardContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
+        const _ChildProfilePanel(),
+        const SizedBox(height: 24),
         KpiCard(
           title: 'وقت التدريب هذا الأسبوع',
           value: '${state.totalMinutes}',
@@ -161,6 +165,156 @@ class _TopBar extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class _ChildProfilePanel extends ConsumerWidget {
+  const _ChildProfilePanel();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final children = ref.watch(childProfilesProvider);
+    final selectedId = ref.watch(selectedChildProfileIdProvider);
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+        border: Border.all(color: AppColors.olive.withValues(alpha: 0.14)),
+      ),
+      child: children.when(
+        loading: () => const Center(
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: CircularProgressIndicator(color: AppColors.olive),
+          ),
+        ),
+        error: (_, __) => const Text(
+          'تعذّر تحميل ملفات الأطفال الآن.',
+          style: TextStyle(color: AppColors.error),
+        ),
+        data: (profiles) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.face_rounded, color: AppColors.olive),
+                SizedBox(width: 8),
+                Text(
+                  'ملفات الأطفال',
+                  style: TextStyle(
+                      color: AppColors.navy, fontWeight: FontWeight.w700,),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Text(
+              profiles.isEmpty
+                  ? 'أضف ملف الطفل أولًا لربط جلساته ولوحة نشاطه بحسابك.'
+                  : 'اختر الطفل الذي تريد متابعة نشاطه أو بدء تدريب له.',
+              style: TextStyle(color: AppColors.navy.withValues(alpha: 0.62)),
+            ),
+            const SizedBox(height: 14),
+            if (profiles.isNotEmpty)
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: profiles
+                    .map(
+                      (profile) => ChoiceChip(
+                        label: Text(profile.displayName),
+                        selected: selectedId == profile.id,
+                        selectedColor: AppColors.olive.withValues(alpha: 0.18),
+                        onSelected: (_) => ref
+                            .read(selectedChildProfileIdProvider.notifier)
+                            .state = profile.id,
+                      ),
+                    )
+                    .toList(),
+              ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                OutlinedButton.icon(
+                  onPressed: () => _showAddChildDialog(context, ref),
+                  icon: const Icon(Icons.person_add_alt_1_rounded),
+                  label: const Text('إضافة طفل'),
+                ),
+                const SizedBox(width: 10),
+                if (selectedId != null)
+                  FilledButton.icon(
+                    onPressed: () => context.go('/journey'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.olive,
+                      foregroundColor: Colors.white,
+                    ),
+                    icon: const Icon(Icons.play_arrow_rounded),
+                    label: const Text('مساحة الطفل'),
+                  ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showAddChildDialog(BuildContext context, WidgetRef ref) async {
+    final controller = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+    final name = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('إضافة ملف طفل'),
+        content: Form(
+          key: formKey,
+          child: TextFormField(
+            controller: controller,
+            autofocus: true,
+            decoration: const InputDecoration(labelText: 'اسم الطفل'),
+            validator: (value) {
+              if (value == null || value.trim().length < 2) {
+                return 'أدخل اسمًا من حرفين على الأقل.';
+              }
+              return null;
+            },
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('إلغاء'),
+          ),
+          FilledButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                Navigator.of(dialogContext).pop(controller.text.trim());
+              }
+            },
+            child: const Text('إضافة'),
+          ),
+        ],
+      ),
+    );
+    controller.dispose();
+    if (name == null) return;
+
+    try {
+      final child = await ref
+          .read(authRepositoryProvider)
+          .addChildProfile(displayName: name);
+      ref.read(selectedChildProfileIdProvider.notifier).state = child.id;
+      ref.invalidate(childProfilesProvider);
+      ref.invalidate(dashboardDataProvider);
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('تعذّرت إضافة ملف الطفل. حاول لاحقًا.')),
+        );
+      }
+    }
   }
 }
 
