@@ -6,6 +6,7 @@ import 'package:faras_quran_ai/core/audio/audio_recording_service.dart';
 import 'package:faras_quran_ai/features/recitation/data/audio_asset_repository.dart';
 import 'package:faras_quran_ai/features/recitation/data/quran_content_repository.dart';
 import 'package:faras_quran_ai/features/recitation/domain/talaqqi_controller.dart';
+import 'package:faras_quran_ai/features/recitation/domain/talaqqi_state.dart';
 import 'package:faras_quran_ai/core/local_db/schemas/local_memorization_log.dart';
 import 'package:faras_quran_ai/core/network/sync_engine.dart';
 import 'package:faras_quran_ai/shared/models/practice_session.dart';
@@ -53,6 +54,50 @@ Map<String, dynamic> _allTimedSurahs() => Map.fromEntries(
       }),
     );
 
+List<String> _minshawiGapKeys() => [
+      '33:7',
+      '33:8',
+      ...List.generate(51, (index) => '33:${index + 23}'),
+      '36:40',
+      '101:3',
+    ];
+
+Map<String, dynamic> _allMinshawiTimedSurahs() => Map.fromEntries(
+      List.generate(114, (index) {
+        final surah = index + 1;
+        final chapter = surah.toString().padLeft(3, '0');
+        final gaps = _minshawiGapKeys()
+            .where((ayahKey) => ayahKey.startsWith('$surah:'))
+            .map((ayahKey) => int.parse(ayahKey.split(':').last))
+            .toList();
+        final ayahCount = switch (surah) {
+          33 => 73,
+          36 => 83,
+          101 => 11,
+          _ => 1,
+        };
+        return MapEntry('$surah', {
+          'surah': surah,
+          'availability': 'migrated',
+          'timing_status': 'available_with_declared_gaps',
+          'playback_url':
+              'https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/recitations/minshawi-muallim-kids/$chapter.mp3',
+          'r2_object_key': 'recitations/minshawi-muallim-kids/$chapter.mp3',
+          'content_type': 'audio/mpeg',
+          'size_bytes': 1000,
+          'sha256': surah.toRadixString(16).padLeft(64, 'a'),
+          'duration_ms': surah == 33 ? 3061000 : 2000,
+          'ayah_count': ayahCount,
+          'timed_ayah_count': ayahCount - gaps.length,
+          'unavailable_timing_ayahs': gaps,
+          'complete_word_timing_ayahs': 1,
+          'partial_word_timing_ayahs': [],
+          'timing_sha256': 'd' * 64,
+          'timing_url': 'https://timings.example.test/minshawi-$chapter.json',
+        });
+      }),
+    );
+
 Map<String, dynamic> _recitationManifest() => {
       'schema_version': 'recitation-manifest-v1',
       'default_recitation_id': 'husary_muallim_timed',
@@ -80,6 +125,31 @@ Map<String, dynamic> _recitationManifest() => {
           'timing_status': 'unavailable',
           'children_audio_manifest_asset':
               AudioAssetRepository.childrenManifestAssetKey,
+        },
+        'minshawi_muallim_kids_timed': {
+          'id': 'minshawi_muallim_kids_timed',
+          'speaker': 'teacher_and_children',
+          'timing_status': 'available_with_declared_gaps',
+          'timing_schema_version': 'minshawi-muallim-kids-timed-v1',
+          'timing_validation_policy': 'fail-closed-with-declared-gaps-v1',
+          'timing_source_id': 314,
+          'source_content_verification': {
+            'schema_version':
+                'minshawi-muallim-kids-source-r2-range-hash-audit-v1',
+            'status': 'verified',
+            'expected_surahs': 114,
+            'verified_surahs': 114,
+            'audit_report_url': 'https://audit.example.test/minshawi.json',
+            'audit_report_sha256': 'c' * 64,
+          },
+          'timing_payload_validation': {
+            'schema_version': 'minshawi-muallim-kids-timing-validation-v1',
+            'status': 'verified',
+            'audit_report_url':
+                'https://audit.example.test/minshawi-timing.json',
+          },
+          'unavailable_timing_ayahs': _minshawiGapKeys(),
+          'surahs': _allMinshawiTimedSurahs(),
         },
       },
     };
@@ -115,6 +185,81 @@ Map<String, dynamic> _timingPayload({String? sha256}) => {
                 'word_number': 1,
                 'start_ms': 0,
                 'end_ms': 1200,
+                'raw_timing_valid': true,
+                'intersects_ayah_window': true,
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+Map<String, dynamic> _minshawiTimingPayload({
+  int surah = 1,
+  String? sha256,
+  List<int> unavailableTimingAyahs = const [],
+}) =>
+    {
+      'schema_version': 'minshawi-muallim-kids-timed-v1',
+      'validation_policy': 'fail-closed-with-declared-gaps-v1',
+      'recitation': {
+        'id': 'minshawi_muallim_kids_timed',
+        'recitation_source_id': 314,
+        'speaker': 'teacher_and_children',
+      },
+      'surah': {
+        'surah': surah,
+        'timing_status': 'available_with_declared_gaps',
+        'source_review_status': 'source-verified',
+        'audio': {
+          'r2_key':
+              'recitations/minshawi-muallim-kids/${surah.toString().padLeft(3, '0')}.mp3',
+          'sha256': sha256 ?? surah.toRadixString(16).padLeft(64, 'a'),
+          'size_bytes': 1000,
+          'duration_ms': surah == 33 ? 3061000 : 2000,
+        },
+        'unavailable_timing_ayahs': unavailableTimingAyahs,
+        'ayahs': [
+          {
+            'ayah': 1,
+            'ayah_key': '$surah:1',
+            'start_ms': 0,
+            'end_ms': 1000,
+            'word_timing_status': 'available',
+            'missing_word_numbers': [],
+            'text_word_count': 2,
+            'accepted_word_pass_count': 2,
+            'display_word_segment_count': 4,
+            'words': [
+              {
+                'word_number': 1,
+                'pass_number': 1,
+                'start_ms': 0,
+                'end_ms': 200,
+                'raw_timing_valid': true,
+                'intersects_ayah_window': true,
+              },
+              {
+                'word_number': 2,
+                'pass_number': 1,
+                'start_ms': 200,
+                'end_ms': 450,
+                'raw_timing_valid': true,
+                'intersects_ayah_window': true,
+              },
+              {
+                'word_number': 1,
+                'pass_number': 2,
+                'start_ms': 500,
+                'end_ms': 700,
+                'raw_timing_valid': true,
+                'intersects_ayah_window': true,
+              },
+              {
+                'word_number': 2,
+                'pass_number': 2,
+                'start_ms': 700,
+                'end_ms': 1000,
                 'raw_timing_valid': true,
                 'intersects_ayah_window': true,
               },
@@ -266,6 +411,14 @@ void main() {
       1,
       recitationId: RecitationId.husaryMuallimChildren,
     );
+    final minshawiFatiha = await audio.getForSurah(
+      1,
+      recitationId: RecitationId.minshawiMuallimKidsTimed,
+    );
+    final minshawiAhzab = await audio.getForSurah(
+      33,
+      recitationId: RecitationId.minshawiMuallimKidsTimed,
+    );
 
     expect(fatiha.ayahCount, 7);
     expect(fatiha.ayahs.first.text, 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ');
@@ -285,6 +438,13 @@ void main() {
     expect(kautherAudio.supportsAyahSegments, isTrue);
     expect(childrenFatiha.sourceFile, '001.m4a');
     expect(childrenFatiha.supportsAyahSegments, isFalse);
+    expect(minshawiFatiha.supportsAyahSegments, isTrue);
+    expect(
+      minshawiFatiha.playbackUri.toString(),
+      'https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/recitations/minshawi-muallim-kids/001.mp3',
+    );
+    expect(
+        minshawiAhzab.unavailableTimingAyahs, containsAll(<int>[7, 8, 23, 73]));
   });
 
   test(
@@ -326,6 +486,123 @@ void main() {
         recitationId: RecitationId.husaryMuallimTimed,
       ),
       throwsA(isA<FormatException>()),
+    );
+  });
+
+  test(
+      'Minshawi timing accepts only complete repeat passes and keeps gaps inactive',
+      () async {
+    final repository = AudioAssetRepository(
+      loadText: (key) async => jsonEncode(
+        key == AudioAssetRepository.assetKey
+            ? _recitationManifest()
+            : {'surahs': _allChildrenSurahs()},
+      ),
+      loadRemoteText: (uri) async => jsonEncode(
+        uri.toString().contains('minshawi')
+            ? _minshawiTimingPayload()
+            : _timingPayload(),
+      ),
+    );
+
+    final timing = await repository.loadVerifiedTiming(
+      1,
+      recitationId: RecitationId.minshawiMuallimKidsTimed,
+    );
+    final ahzab = await repository.getForSurah(
+      33,
+      recitationId: RecitationId.minshawiMuallimKidsTimed,
+    );
+    final declaredGap = VerifiedSurahTiming(
+      surah: 33,
+      audioSha256: 'a' * 64,
+      audioSizeBytes: 1000,
+      audioDurationMs: 1000,
+      ayahs: const [
+        AyahTimingSegment(
+          surah: 33,
+          ayahNumber: 22,
+          startMs: 0,
+          endMs: 100,
+          hasCompleteWordTiming: false,
+          words: [],
+        ),
+        AyahTimingSegment(
+          surah: 33,
+          ayahNumber: 74,
+          startMs: 200,
+          endMs: 300,
+          hasCompleteWordTiming: false,
+          words: [],
+        ),
+      ],
+    );
+
+    expect(timing!.activeAt(const Duration(milliseconds: 600))?.wordNumber, 1);
+    expect(timing.activeAt(const Duration(milliseconds: 800))?.wordNumber, 2);
+    expect(ahzab.unavailableTimingAyahs, containsAll(<int>[7, 8, 23, 73]));
+    expect(declaredGap.activeAt(const Duration(milliseconds: 150)), isNull);
+  });
+
+  test('Minshawi selection resets stale timing and children remain untimed',
+      () async {
+    final player = _FakeAudioPlayback();
+    final audioAssets = AudioAssetRepository(
+      loadText: (key) async => jsonEncode(
+        key == AudioAssetRepository.assetKey
+            ? _recitationManifest()
+            : {'surahs': _allChildrenSurahs()},
+      ),
+      loadRemoteText: (uri) async => jsonEncode(
+        uri.toString().contains('minshawi')
+            ? _minshawiTimingPayload()
+            : _timingPayload(),
+      ),
+    );
+    final controller = TalaqqiController(
+      player: player,
+      recorder: _FakeAudioRecording(),
+      quranContent: QuranContentRepository(
+        loadText: (_) async => jsonEncode({'1:1': 'بِسْمِ ٱللَّهِ'}),
+      ),
+      audioAssets: audioAssets,
+    );
+    addTearDown(() async {
+      controller.dispose();
+      await player.dispose();
+    });
+
+    await _settleController();
+    await controller.selectRecitation(RecitationId.minshawiMuallimKidsTimed);
+    await controller.playWholeSurah();
+    player.emitPosition(const Duration(milliseconds: 600));
+    await _settleController();
+
+    expect(
+        controller.state.recitationId, RecitationId.minshawiMuallimKidsTimed);
+    expect(controller.state.activeTimedAyah, 1);
+    expect(controller.state.activeTimedWord, 1);
+    expect(player.loadedUrls.last, contains('minshawi-muallim-kids/001.mp3'));
+    expect(
+      displayedAyahNumber(
+        recitationId: RecitationId.minshawiMuallimKidsTimed,
+        practiceAyah: 1,
+        activeTimedAyah: 4,
+      ),
+      4,
+    );
+
+    await controller.selectRecitation(RecitationId.husaryMuallimChildren);
+    expect(player.stopAndResetCalls, 2);
+    expect(controller.state.activeTimedAyah, isNull);
+    expect(controller.state.activeTimedWord, isNull);
+    expect(
+      displayedAyahNumber(
+        recitationId: RecitationId.husaryMuallimChildren,
+        practiceAyah: 1,
+        activeTimedAyah: 4,
+      ),
+      1,
     );
   });
 
