@@ -9,6 +9,7 @@ import '../../auth/data/auth_repository.dart';
 import '../data/audio_asset_repository.dart';
 import '../data/memorization_repository.dart';
 import '../data/quran_content_repository.dart';
+import '../data/recording_repository.dart';
 import 'talaqqi_state.dart';
 
 /// Metadata for a verified ayah segment supplied by a future timing asset.
@@ -44,6 +45,7 @@ final talaqqiProvider =
     quranContent: ref.watch(quranContentRepositoryProvider),
     audioAssets: ref.watch(audioAssetRepositoryProvider),
     sessionSink: ref.watch(memorizationRepositoryProvider),
+    recordingStore: ref.watch(recordingStoreProvider),
     profileId: profile?.id,
   );
 });
@@ -59,6 +61,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
   final QuranContentRepository quranContent;
   final AudioAssetRepository audioAssets;
   final PracticeSessionSink? sessionSink;
+  final RecordingStore? recordingStore;
   final String? profileId;
   final int _surah;
   Timer? _progressTimer;
@@ -82,6 +85,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     required this.quranContent,
     required this.audioAssets,
     this.sessionSink,
+    this.recordingStore,
     this.profileId,
     int surah = 1,
     RecitationId recitationId = defaultRecitationId,
@@ -265,7 +269,18 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     try {
       final recordingPath = await recorder.startRecording();
       await Future.delayed(recordDuration);
-      final savedPath = await recorder.stopRecording() ?? recordingPath;
+      final recordedPath = await recorder.stopRecording() ?? recordingPath;
+      var savedPath = recordedPath;
+      if (profileId != null && recordingStore != null) {
+        final stored = await recordingStore!.save(
+          profileId: profileId!,
+          surah: state.surah,
+          ayah: state.currentAyah,
+          sourcePath: recordedPath,
+          durationMs: recordDuration.inMilliseconds,
+        );
+        savedPath = stored.filePath;
+      }
       _progressTimer?.cancel();
 
       if (!mounted) return;
@@ -365,6 +380,8 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
 
   /// Repeats the same ayah. This never changes mastery or unlocks a level.
   Future<void> retryCurrentAyah() async {
+    // The recorder cleans its temporary source. A durable recording is kept by
+    // RecordingStore and replaced only when this ayah is recorded again.
     await recorder.cleanupLastRecording();
     if (!mounted) return;
     state = state.copyWith(
@@ -380,6 +397,8 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
 
   /// Moves through practice without making an automated mastery claim.
   Future<void> nextAyah() async {
+    // Only the recorder's temporary source is discarded here. The parent copy
+    // saved in RecordingStore remains available for playback and review.
     await recorder.cleanupLastRecording();
     if (!mounted) return;
 

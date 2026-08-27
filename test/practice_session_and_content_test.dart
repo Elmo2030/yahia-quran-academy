@@ -5,6 +5,7 @@ import 'package:faras_quran_ai/core/audio/audio_player_service.dart';
 import 'package:faras_quran_ai/core/audio/audio_recording_service.dart';
 import 'package:faras_quran_ai/features/recitation/data/audio_asset_repository.dart';
 import 'package:faras_quran_ai/features/recitation/data/quran_content_repository.dart';
+import 'package:faras_quran_ai/features/recitation/data/recording_repository.dart';
 import 'package:faras_quran_ai/features/recitation/domain/talaqqi_controller.dart';
 import 'package:faras_quran_ai/features/recitation/domain/talaqqi_state.dart';
 import 'package:faras_quran_ai/core/local_db/schemas/local_memorization_log.dart';
@@ -311,8 +312,12 @@ class _FakeAudioPlayback implements AudioPlayback {
 }
 
 class _FakeAudioRecording implements AudioRecording {
+  final MicPermission permission;
+
+  _FakeAudioRecording({this.permission = MicPermission.denied});
+
   @override
-  Future<MicPermission> checkPermission() async => MicPermission.denied;
+  Future<MicPermission> checkPermission() async => permission;
 
   @override
   Future<void> cleanupLastRecording() async {}
@@ -322,6 +327,59 @@ class _FakeAudioRecording implements AudioRecording {
 
   @override
   Future<String?> stopRecording() async => '/tmp/test.wav';
+}
+
+class _CapturingRecordingStore implements RecordingStore {
+  int saveCalls = 0;
+  String? profileId;
+  int? surah;
+  int? ayah;
+  String? sourcePath;
+  int? durationMs;
+
+  @override
+  Future<void> delete(String recordingId) async {}
+
+  @override
+  Future<void> enforceRetention({required String profileId}) async {}
+
+  @override
+  Future<StoredRecording?> latestFor({
+    required String profileId,
+    required int surah,
+    required int ayah,
+  }) async => null;
+
+  @override
+  Future<List<StoredRecording>> recentFor({
+    required String profileId,
+    int limit = 20,
+  }) async => const [];
+
+  @override
+  Future<StoredRecording> save({
+    required String profileId,
+    required int surah,
+    required int ayah,
+    required String sourcePath,
+    required int durationMs,
+  }) async {
+    saveCalls++;
+    this.profileId = profileId;
+    this.surah = surah;
+    this.ayah = ayah;
+    this.sourcePath = sourcePath;
+    this.durationMs = durationMs;
+    return StoredRecording(
+      id: 'stored-1',
+      profileId: profileId,
+      surah: surah,
+      ayah: ayah,
+      filePath: '/documents/yqa_recordings/stored-1.wav',
+      durationMs: durationMs,
+      recordedAt: DateTime.utc(2026, 8, 27),
+    );
+  }
 }
 
 Future<void> _settleController() async {
@@ -604,6 +662,46 @@ void main() {
       ),
       1,
     );
+  });
+
+  test('self-review keeps the final child recording in local parent storage',
+      () async {
+    final player = _FakeAudioPlayback();
+    final recordingStore = _CapturingRecordingStore();
+    final audioAssets = AudioAssetRepository(
+      loadText: (key) async => jsonEncode(
+        key == AudioAssetRepository.assetKey
+            ? _recitationManifest()
+            : {'surahs': _allChildrenSurahs()},
+      ),
+      loadRemoteText: (_) async => jsonEncode(_timingPayload()),
+    );
+    final controller = TalaqqiController(
+      player: player,
+      recorder: _FakeAudioRecording(permission: MicPermission.granted),
+      quranContent: QuranContentRepository(
+        loadText: (_) async => jsonEncode({'1:1': 'بِسْمِ ٱللَّهِ'}),
+      ),
+      audioAssets: audioAssets,
+      recordingStore: recordingStore,
+      profileId: 'child-1',
+    );
+    addTearDown(() async {
+      controller.dispose();
+      await player.dispose();
+    });
+
+    await _settleController();
+    await controller.startTalaqqiSession();
+
+    expect(recordingStore.saveCalls, 1);
+    expect(recordingStore.profileId, 'child-1');
+    expect(recordingStore.surah, 1);
+    expect(recordingStore.ayah, 1);
+    expect(recordingStore.sourcePath, '/tmp/test.wav');
+    expect(recordingStore.durationMs, 2500);
+    expect(controller.state.phase, TalaqqiPhase.selfReview);
+    expect(controller.state.recordingPath, '/documents/yqa_recordings/stored-1.wav');
   });
 
   test('switching to children resets playback and suppresses teacher timing',
