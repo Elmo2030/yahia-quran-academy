@@ -2,7 +2,7 @@
 
 **تاريخ التوثيق:** 27 أغسطس 2026
 
-**النطاق:** تطبيق Flutter، فرع `manus/timed-solo-reader`
+**النطاق:** تطبيق Flutter، مدموج في `main` عبر طلب السحب [#12](https://github.com/Elmo2030/faras-quran-ai/pull/12)
 
 ## ملخص الإصدار
 
@@ -33,6 +33,10 @@
 | `flutter build web --release --no-web-resources-cdn --no-wasm-dry-run` | ناجح؛ أُنشئ `build/web` |
 | فحص واجهة الويب المرئي | غير معتمد: بيئة المعاينة توقفت قبل إنشاء `flt-glass-pane` أو canvas، رغم تحميل وحدات Flutter؛ السجل التشخيصي محفوظ خارج المستودع |
 | APK/AAB Android | محجوب: لا توجد Android SDK أو `ANDROID_HOME` في البيئة الحالية |
+
+## دمج المصدر
+
+رُفع الالتزام `c5ea645` إلى GitHub، ثم دُمج طلب السحب [#12](https://github.com/Elmo2030/faras-quran-ai/pull/12) بنجاح في `main` ضمن التزام الدمج `39cdda0` بتاريخ 27 أغسطس 2026. بقيت ملفات backend غير المتتبعة المحلية خارج الالتزام عمدًا لأنها لا تخص هذا الإصدار.
 
 ## حدود النشر التالية
 
