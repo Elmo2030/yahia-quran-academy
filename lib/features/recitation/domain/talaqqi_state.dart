@@ -31,6 +31,22 @@ enum SourceAudioAvailability {
   ayahSegments,
 }
 
+/// Chooses the ayah a reader surface may display while full-surah audio runs.
+///
+/// Children audio deliberately keeps the practice ayah, even if a stale timing
+/// value is supplied. It has no verified timing contract.
+int displayedAyahNumber({
+  required RecitationId recitationId,
+  required int practiceAyah,
+  int? activeTimedAyah,
+}) {
+  if (recitationId == RecitationId.husaryMuallimTimed &&
+      activeTimedAyah != null) {
+    return activeTimedAyah;
+  }
+  return practiceAyah;
+}
+
 class TalaqqiState {
   final TalaqqiPhase phase;
   final int currentAyah;

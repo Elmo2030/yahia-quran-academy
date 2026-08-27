@@ -20,6 +20,11 @@ class RecitationRoomScreen extends ConsumerWidget {
     final state = ref.watch(talaqqiProvider);
     final ctrl = ref.read(talaqqiProvider.notifier);
     final recitations = ref.watch(recitationDescriptorsProvider);
+    final displayedAyah = displayedAyahNumber(
+      recitationId: state.recitationId,
+      practiceAyah: state.currentAyah,
+      activeTimedAyah: state.isWholeSurahPlaying ? state.activeTimedAyah : null,
+    );
 
     return Scaffold(
       backgroundColor: AppColors.ivory,
@@ -66,12 +71,31 @@ class RecitationRoomScreen extends ConsumerWidget {
                               : state.contentError,
                         )
                       else ...[
-                        _AyahCard(
-                          ayahNumber: state.currentAyah,
-                          totalAyahs: state.totalAyahs,
-                          ayahTexts: state.ayahTexts,
-                          activeAyah: state.activeTimedAyah,
-                          activeWord: state.activeTimedWord,
+                        AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 220),
+                          switchInCurve: Curves.easeOutCubic,
+                          switchOutCurve: Curves.easeOutCubic,
+                          transitionBuilder: (child, animation) =>
+                              FadeTransition(
+                            opacity: animation,
+                            child: SlideTransition(
+                              position: Tween<Offset>(
+                                begin: const Offset(0, 0.035),
+                                end: Offset.zero,
+                              ).animate(animation),
+                              child: child,
+                            ),
+                          ),
+                          child: _AyahCard(
+                            key: ValueKey(
+                              '${state.recitationId.name}-$displayedAyah',
+                            ),
+                            ayahNumber: displayedAyah,
+                            totalAyahs: state.totalAyahs,
+                            ayahTexts: state.ayahTexts,
+                            activeAyah: state.activeTimedAyah,
+                            activeWord: state.activeTimedWord,
+                          ),
                         ),
                         const SizedBox(height: 24),
                         if (state.currentAyah < state.totalAyahs)
@@ -270,6 +294,7 @@ class _AyahCard extends StatelessWidget {
   final int? activeWord;
 
   const _AyahCard({
+    super.key,
     required this.ayahNumber,
     required this.totalAyahs,
     this.ayahTexts = const [],
@@ -283,6 +308,8 @@ class _AyahCard extends StatelessWidget {
     final ar = ayahTexts[idx];
     final isActive = activeAyah == ayahNumber;
     final words = ar.trim().split(RegExp(r'\s+'));
+
+    final label = isActive ? 'الآية المنطوقة الآن' : 'آية التدريب';
 
     return Container(
       width: double.infinity,
@@ -306,6 +333,55 @@ class _AyahCard extends StatelessWidget {
       ),
       child: Column(
         children: [
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      label,
+                      style: TextStyle(
+                        color: AppColors.olive.withValues(alpha: 0.8),
+                        fontSize: 11,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 0.6,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'سورة ١ · الآية $ayahNumber',
+                      style: const TextStyle(
+                        color: AppColors.navy,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: isActive
+                      ? AppColors.olive
+                      : AppColors.olive.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(21),
+                ),
+                child: Text(
+                  '$ayahNumber',
+                  style: TextStyle(
+                    color: isActive ? Colors.white : AppColors.olive,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
           if (isActive && activeWord != null)
             Wrap(
               alignment: WrapAlignment.center,
@@ -350,21 +426,14 @@ class _AyahCard extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-          const SizedBox(height: 16),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-            decoration: BoxDecoration(
-              color: AppColors.olive.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: Text(
-              'الآية $ayahNumber من $totalAyahs',
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.6,
-                color: AppColors.olive,
-              ),
+          const SizedBox(height: 12),
+          Text(
+            '۝ $ayahNumber  ·  من $totalAyahs',
+            textDirection: TextDirection.rtl,
+            style: TextStyle(
+              color: AppColors.olive.withValues(alpha: 0.82),
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ],
