@@ -504,13 +504,16 @@ class _AudioAvailabilityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasWholeSurah = state.canPlayWholeSurah;
-    final isTimedTeacher =
-        state.recitationId == RecitationId.husaryMuallimTimed;
-    final message = hasWholeSurah && isTimedTeacher
-        ? 'تلاوة الحُصَري المعلّم متزامنة مع هذه السورة. يضيء النص فقط أثناء تشغيل التسجيل المطابق.'
-        : hasWholeSurah
-            ? 'هذا مصحف للتعلّم مع الأطفال. لا تتوفر له توقيتات مطابقة ومراجعة، لذلك لا يظهر تمييز زمني.'
-            : 'نص السورة متاح. التسجيل مدرج في المكتبة، لكنه غير جاهز للتشغيل أو التقسيم إلى آيات بعد.';
+    final message = switch (state.recitationId) {
+      RecitationId.husaryMuallimTimed when hasWholeSurah =>
+        'تلاوة الحُصَري المعلّم متزامنة مع هذه السورة. يضيء النص فقط أثناء تشغيل التسجيل المطابق.',
+      RecitationId.minshawiMuallimKidsTimed when hasWholeSurah =>
+        'تلاوة الشيخ محمد صديق المنشاوي مع الأطفال متزامنة حيث تحققت البيانات. لا يظهر تمييز زمني في الأحزاب ٢٣–٧٣ أو أي فجوة مصدر معلنة.',
+      RecitationId.husaryMuallimChildren when hasWholeSurah =>
+        'هذا مصحف الحُصَري المعلّم مع الأطفال. لا تتوفر له توقيتات مطابقة ومراجعة، لذلك لا يظهر تمييز زمني.',
+      _ =>
+        'نص السورة متاح. التسجيل مدرج في المكتبة، لكنه غير جاهز للتشغيل أو التقسيم إلى آيات بعد.',
+    };
 
     return Container(
       width: double.infinity,

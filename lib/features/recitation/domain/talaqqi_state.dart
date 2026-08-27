@@ -40,8 +40,13 @@ int displayedAyahNumber({
   required int practiceAyah,
   int? activeTimedAyah,
 }) {
-  if (recitationId == RecitationId.husaryMuallimTimed &&
-      activeTimedAyah != null) {
+  final supportsVerifiedTiming = switch (recitationId) {
+    RecitationId.husaryMuallimTimed ||
+    RecitationId.minshawiMuallimKidsTimed =>
+      true,
+    RecitationId.husaryMuallimChildren => false,
+  };
+  if (supportsVerifiedTiming && activeTimedAyah != null) {
     return activeTimedAyah;
   }
   return practiceAyah;

@@ -148,8 +148,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     if (_segmentsLoaded) return _segments.isNotEmpty;
 
     final audioAsset = _audioAsset;
-    if (audioAsset == null ||
-        audioAsset.recitationId != RecitationId.husaryMuallimTimed) {
+    if (audioAsset == null || !audioAsset.supportsAyahSegments) {
       return false;
     }
 
@@ -172,10 +171,9 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
           .toList()
         ..sort((a, b) => a.ayahNumber.compareTo(b.ayahNumber));
 
-      if (segments.length != state.totalAyahs) return false;
       _segments = segments;
       _segmentsLoaded = true;
-      return true;
+      return _segments.isNotEmpty;
     } catch (_) {
       return false;
     }
@@ -197,10 +195,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
   }
 
   void _onPlaybackPosition(Duration position) {
-    if (!mounted ||
-        !state.isWholeSurahPlaying ||
-        _recitationId != RecitationId.husaryMuallimTimed ||
-        _verifiedTiming == null) {
+    if (!mounted || !state.isWholeSurahPlaying || _verifiedTiming == null) {
       return;
     }
     final active = _verifiedTiming!.activeAt(position);
@@ -230,7 +225,8 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
       return;
     }
     if (state.sourceAudioAvailability != SourceAudioAvailability.ayahSegments ||
-        !await _ensureSegmentsLoaded()) {
+        !await _ensureSegmentsLoaded() ||
+        _segments.length != state.totalAyahs) {
       _setError(
         'التدريب آيةً بآية يحتاج تسجيلًا موثوقًا وتوقيتات للآيات؛ يمكنك الاستماع للسورة كاملة عند توفر التسجيل.',
       );
@@ -298,9 +294,9 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
       return;
     }
     try {
-      if (_recitationId == RecitationId.husaryMuallimTimed &&
+      if (_audioAsset?.supportsAyahSegments == true &&
           !await _ensureSegmentsLoaded()) {
-        _setError('تعذّر التحقق من توقيتات الشيخ لهذه السورة.');
+        _setError('تعذّر التحقق من توقيتات التلاوة لهذه السورة.');
         return;
       }
       await player.load(playbackUri.toString());
@@ -310,9 +306,14 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
           phase: TalaqqiPhase.idle,
           isWholeSurahPlaying: true,
           clearActiveTiming: true,
-          mascotMessage: _recitationId == RecitationId.husaryMuallimTimed
-              ? 'استمع إلى الشيخ؛ يضيء النص وفق التوقيتات المتحققة.'
-              : 'يعمل الآن مصحف التعلّم مع الأطفال؛ لا تظهر مزامنة زمنية.',
+          mascotMessage: switch (_recitationId) {
+            RecitationId.husaryMuallimTimed =>
+              'استمع إلى الشيخ؛ يضيء النص وفق التوقيتات المتحققة.',
+            RecitationId.minshawiMuallimKidsTimed =>
+              'تلاوة المنشاوي مع الأطفال تعمل الآن؛ لا يظهر تمييز داخل فجوات المصدر المعلنة.',
+            RecitationId.husaryMuallimChildren =>
+              'يعمل الآن مصحف الحُصَري المعلّم مع الأطفال؛ لا تظهر مزامنة زمنية.',
+          },
         );
       }
     } catch (_) {
