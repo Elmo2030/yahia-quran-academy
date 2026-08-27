@@ -1,3 +1,5 @@
+import '../data/audio_asset_repository.dart';
+
 /// The child-facing stages of one Talaqqi practice loop.
 enum TalaqqiPhase {
   idle,
@@ -37,6 +39,10 @@ class TalaqqiState {
   final bool isContentLoading;
   final String contentError;
   final SourceAudioAvailability sourceAudioAvailability;
+  final RecitationId recitationId;
+  final int? activeTimedAyah;
+  final int? activeTimedWord;
+  final bool isWholeSurahPlaying;
 
   /// 0.0–1.0 progress within the current phase (drives visualizer amplitude).
   final double phaseProgress;
@@ -62,6 +68,10 @@ class TalaqqiState {
     this.isContentLoading = true,
     this.contentError = '',
     this.sourceAudioAvailability = SourceAudioAvailability.loading,
+    this.recitationId = defaultRecitationId,
+    this.activeTimedAyah,
+    this.activeTimedWord,
+    this.isWholeSurahPlaying = false,
     this.phaseProgress = 0.0,
     this.mascotMessage = '',
     this.ayahTexts = const [],
@@ -80,6 +90,11 @@ class TalaqqiState {
     bool? isContentLoading,
     String? contentError,
     SourceAudioAvailability? sourceAudioAvailability,
+    RecitationId? recitationId,
+    int? activeTimedAyah,
+    int? activeTimedWord,
+    bool clearActiveTiming = false,
+    bool? isWholeSurahPlaying,
     double? phaseProgress,
     String? mascotMessage,
     List<String>? ayahTexts,
@@ -98,6 +113,12 @@ class TalaqqiState {
         contentError: contentError ?? this.contentError,
         sourceAudioAvailability:
             sourceAudioAvailability ?? this.sourceAudioAvailability,
+        recitationId: recitationId ?? this.recitationId,
+        activeTimedAyah:
+            clearActiveTiming ? null : activeTimedAyah ?? this.activeTimedAyah,
+        activeTimedWord:
+            clearActiveTiming ? null : activeTimedWord ?? this.activeTimedWord,
+        isWholeSurahPlaying: isWholeSurahPlaying ?? this.isWholeSurahPlaying,
         phaseProgress: phaseProgress ?? this.phaseProgress,
         mascotMessage: mascotMessage ?? this.mascotMessage,
         ayahTexts: ayahTexts ?? this.ayahTexts,

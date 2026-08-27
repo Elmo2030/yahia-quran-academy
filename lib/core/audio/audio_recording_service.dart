@@ -15,13 +15,25 @@ final audioRecordingServiceProvider =
 /// Permission status from the recording check.
 enum MicPermission { granted, denied, permanentlyDenied }
 
+/// Recording contract consumed by the learning flow.
+///
+/// The concrete service remains responsible for platform microphone access;
+/// this interface keeps flow tests independent of a device plugin.
+abstract interface class AudioRecording {
+  Future<MicPermission> checkPermission();
+  Future<String> startRecording();
+  Future<String?> stopRecording();
+  Future<void> cleanupLastRecording();
+}
+
 /// Handles microphone recording: permission check, start/stop,
 /// and temp file management.
-class AudioRecordingService {
+class AudioRecordingService implements AudioRecording {
   final AudioRecorder _recorder = AudioRecorder();
   String? _currentPath;
 
   /// Check and request microphone permission.
+  @override
   Future<MicPermission> checkPermission() async {
     final hasPermission = await _recorder.hasPermission();
     if (hasPermission) return MicPermission.granted;
@@ -33,21 +45,27 @@ class AudioRecordingService {
   /// Start recording to a temp file. Returns the output path.
   ///
   /// Uses AAC encoding at 64kbps to match our pipeline spec.
+  @override
   Future<String> startRecording() async {
     final dir = Directory.systemTemp;
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     _currentPath = '${dir.path}/yqa_rec_$timestamp.wav';
 
-    await _recorder.start(
+    await _recorder
+        .start(
       const RecordConfig(
         encoder: AudioEncoder.wav,
         sampleRate: 16000,
         numChannels: 1,
       ),
       path: _currentPath!,
-    ).timeout(const Duration(seconds: 5), onTimeout: () {
-      print('[AudioRec] start() timed out — simulator audio may not work');
-    });
+    )
+        .timeout(
+      const Duration(seconds: 5),
+      onTimeout: () {
+        print('[AudioRec] start() timed out — simulator audio may not work');
+      },
+    );
 
     return _currentPath!;
   }
@@ -61,12 +79,14 @@ class AudioRecordingService {
   }
 
   /// Stop the current recording. Returns the file path.
+  @override
   Future<String?> stopRecording() async {
     final path = await _recorder.stop();
     return path ?? _currentPath;
   }
 
   /// Delete the last recorded temp file to free storage.
+  @override
   Future<void> cleanupLastRecording() async {
     if (_currentPath != null) {
       final file = File(_currentPath!);
