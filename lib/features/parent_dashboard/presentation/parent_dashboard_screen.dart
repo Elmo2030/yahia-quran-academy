@@ -3,10 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/app_constants.dart';
+import '../../../core/audio/audio_player_service.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../auth/data/auth_repository.dart';
+import '../../recitation/data/recording_repository.dart';
 import '../domain/dashboard_state.dart';
 import '../domain/parent_dashboard_controller.dart';
+import '../domain/parent_recording_feed.dart';
 import 'widgets/kpi_card.dart';
 import 'widgets/weekly_chart.dart';
 
@@ -23,9 +26,15 @@ class ParentDashboardScreen extends ConsumerWidget {
         body: Center(child: CircularProgressIndicator(color: AppColors.olive)),
       ),
       error: (_, __) => const _ParentScaffold(
-        child: _MessageCard(
-          title: 'تعذّر تحميل النشاط',
-          body: 'ستظهر جلسات التدريب عند توفر اتصال آمن بالحساب.',
+        child: Column(
+          children: [
+            _MessageCard(
+              title: 'تعذّر تحميل النشاط',
+              body: 'ستظهر جلسات التدريب عند توفر اتصال آمن بالحساب.',
+            ),
+            SizedBox(height: 24),
+            _RecentRecordingsSection(),
+          ],
         ),
       ),
       data: (data) => _ParentScaffold(child: _DashboardContent(state: data)),
@@ -126,6 +135,8 @@ class _DashboardContent extends StatelessWidget {
         WeeklyChart(minutes: state.weeklyMinutes, days: state.weekDays),
         const SizedBox(height: 24),
         _FocusCard(surahs: state.currentFocus),
+        const SizedBox(height: 24),
+        const _RecentRecordingsSection(),
         const SizedBox(height: 24),
         _RecentPracticeSection(highlights: state.recentPractice),
         const SizedBox(height: 32),
@@ -495,6 +506,209 @@ class _RecentPracticeSection extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+class _RecentRecordingsSection extends ConsumerWidget {
+  const _RecentRecordingsSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final feed = ref.watch(parentRecordingFeedProvider);
+    final reviewerId = ref.watch(currentProfileProvider).valueOrNull?.id;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'تسجيلات الطفل للاستماع والمراجعة',
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'Source Serif 4',
+            color: AppColors.navy,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'هذه التسجيلات محفوظة على هذا الجهاز فقط ولا تُرفع إلى الحساب.',
+          style: TextStyle(color: AppColors.navy.withValues(alpha: 0.62)),
+        ),
+        const SizedBox(height: 14),
+        feed.when(
+          loading: () => const Center(
+            child: Padding(
+              padding: EdgeInsets.all(12),
+              child: CircularProgressIndicator(color: AppColors.olive),
+            ),
+          ),
+          error: (_, __) => const _MessageCard(
+            title: 'تعذّر فتح التسجيلات',
+            body: 'جرّب فتح لوحة الوالد مرة أخرى.',
+          ),
+          data: (items) {
+            if (items.isEmpty) {
+              return const _MessageCard(
+                title: 'لا توجد تسجيلات محفوظة بعد',
+                body: 'بعد أن يتدرّب الطفل على آية، ستظهر آخر تلاوة هنا للاستماع والمراجعة.',
+              );
+            }
+            return Column(
+              children: items
+                  .map(
+                    (item) => Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: _ParentRecordingCard(
+                        item: item,
+                        reviewerId: reviewerId,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class _ParentRecordingCard extends ConsumerStatefulWidget {
+  final ParentRecordingItem item;
+  final String? reviewerId;
+
+  const _ParentRecordingCard({
+    required this.item,
+    required this.reviewerId,
+  });
+
+  @override
+  ConsumerState<_ParentRecordingCard> createState() =>
+      _ParentRecordingCardState();
+}
+
+class _ParentRecordingCardState extends ConsumerState<_ParentRecordingCard> {
+  bool _busy = false;
+
+  Future<void> _play() async {
+    setState(() => _busy = true);
+    try {
+      final player = ref.read(audioPlayerServiceProvider);
+      await player.load(widget.item.recording.filePath);
+      await player.playWhole();
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('تعذّر تشغيل التسجيل على هذا الجهاز.')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _review(ParentVerdict verdict) async {
+    final reviewerId = widget.reviewerId;
+    if (reviewerId == null || _busy) return;
+    setState(() => _busy = true);
+    try {
+      await ref.read(parentReviewStoreProvider).addReview(
+            recording: widget.item.recording,
+            reviewerId: reviewerId,
+            verdict: verdict,
+          );
+      ref.invalidate(parentRecordingFeedProvider);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _delete() async {
+    if (_busy) return;
+    setState(() => _busy = true);
+    try {
+      await ref.read(recordingStoreProvider).delete(widget.item.recording.id);
+      ref.invalidate(parentRecordingFeedProvider);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final recording = widget.item.recording;
+    final review = widget.item.latestReview;
+    final date = '${recording.recordedAt.day}/${recording.recordedAt.month}/${recording.recordedAt.year}';
+    final durationSeconds = (recording.durationMs / 1000).ceil();
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: AppColors.olive.withValues(alpha: 0.14)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${widget.item.child.displayName} · سورة ${recording.surah} · آية ${recording.ayah}',
+            style: const TextStyle(
+              color: AppColors.navy,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            '$date · $durationSeconds ثانية',
+            style: TextStyle(color: AppColors.navy.withValues(alpha: 0.62)),
+          ),
+          if (review != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              review.verdict == ParentVerdict.good
+                  ? 'حكم الوالد: تمام'
+                  : 'حكم الوالد: محتاج مراجعة',
+              style: TextStyle(
+                color: review.verdict == ParentVerdict.good
+                    ? AppColors.olive
+                    : AppColors.error,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              OutlinedButton.icon(
+                onPressed: _busy ? null : _play,
+                icon: const Icon(Icons.play_arrow_rounded),
+                label: const Text('استمع'),
+              ),
+              FilledButton(
+                onPressed: _busy || widget.reviewerId == null
+                    ? null
+                    : () => _review(ParentVerdict.good),
+                style: FilledButton.styleFrom(backgroundColor: AppColors.olive),
+                child: const Text('تمام'),
+              ),
+              OutlinedButton(
+                onPressed: _busy || widget.reviewerId == null
+                    ? null
+                    : () => _review(ParentVerdict.needsWork),
+                child: const Text('محتاج مراجعة'),
+              ),
+              IconButton(
+                tooltip: 'حذف التسجيل من هذا الجهاز',
+                onPressed: _busy ? null : _delete,
+                icon: const Icon(Icons.delete_outline_rounded),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
