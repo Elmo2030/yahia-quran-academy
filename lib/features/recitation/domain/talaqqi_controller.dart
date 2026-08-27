@@ -1,9 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../core/audio/audio_player_service.dart';
 import '../../../core/audio/audio_recording_service.dart';
@@ -57,17 +54,21 @@ final talaqqiProvider =
 /// Segment practice is unavailable until both a production playback URL and
 /// trusted ayah timings are present in the audio manifest.
 class TalaqqiController extends StateNotifier<TalaqqiState> {
-  final AudioPlayerService player;
-  final AudioRecordingService recorder;
+  final AudioPlayback player;
+  final AudioRecording recorder;
   final QuranContentRepository quranContent;
   final AudioAssetRepository audioAssets;
   final PracticeSessionSink? sessionSink;
   final String? profileId;
   final int _surah;
   Timer? _progressTimer;
+  StreamSubscription<Duration>? _positionSubscription;
+  StreamSubscription<bool>? _playingSubscription;
 
   AudioAsset? _audioAsset;
+  VerifiedSurahTiming? _verifiedTiming;
   List<AyahSegment> _segments = [];
+  RecitationId _recitationId;
   bool _contentLoaded = false;
   bool _segmentsLoaded = false;
   String? _sessionId;
@@ -83,8 +84,12 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     this.sessionSink,
     this.profileId,
     int surah = 1,
+    RecitationId recitationId = defaultRecitationId,
   })  : _surah = surah,
-        super(TalaqqiState(surah: surah)) {
+        _recitationId = recitationId,
+        super(TalaqqiState(surah: surah, recitationId: recitationId)) {
+    _positionSubscription = player.positionStream.listen(_onPlaybackPosition);
+    _playingSubscription = player.playingStream.listen(_onPlayingChanged);
     unawaited(_ensurePracticeContentLoaded());
   }
 
@@ -97,7 +102,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     try {
       final results = await Future.wait([
         quranContent.getSurah(_surah),
-        audioAssets.getForSurah(_surah),
+        audioAssets.getForSurah(_surah, recitationId: _recitationId),
       ]);
       final content = results[0] as QuranSurahContent;
       final audioAsset = results[1] as AudioAsset;
@@ -110,6 +115,9 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
         totalAyahs: content.ayahCount,
         ayahTexts: content.ayahs.map((ayah) => ayah.text).toList(),
         sourceAudioAvailability: _audioAvailability(audioAsset),
+        recitationId: _recitationId,
+        isWholeSurahPlaying: false,
+        clearActiveTiming: true,
         isContentLoading: false,
         contentError: '',
       );
@@ -139,25 +147,27 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
   Future<bool> _ensureSegmentsLoaded() async {
     if (_segmentsLoaded) return _segments.isNotEmpty;
 
-    final segmentsUri = _audioAsset?.ayahSegmentsUri;
-    if (segmentsUri == null) return false;
+    final audioAsset = _audioAsset;
+    if (audioAsset == null ||
+        audioAsset.recitationId != RecitationId.husaryMuallimTimed) {
+      return false;
+    }
 
     try {
-      final response = await http.get(segmentsUri);
-      if (response.statusCode != 200) {
-        throw HttpException('HTTP ${response.statusCode}');
-      }
-      final decoded = jsonDecode(response.body);
-      if (decoded is! List) throw const FormatException('Expected timing list');
-
-      final segments = decoded
-          .whereType<Map<String, dynamic>>()
-          .map(AyahSegment.fromJson)
-          .where(
-            (segment) =>
-                segment.surah == state.surah &&
-                segment.ayahNumber >= 1 &&
-                segment.endMs > segment.startMs,
+      final timing = await audioAssets.loadVerifiedTiming(
+        state.surah,
+        recitationId: audioAsset.recitationId,
+      );
+      if (timing == null) return false;
+      _verifiedTiming = timing;
+      final segments = timing.ayahs
+          .map(
+            (segment) => AyahSegment(
+              surah: segment.surah,
+              ayahNumber: segment.ayahNumber,
+              startMs: segment.startMs,
+              endMs: segment.endMs,
+            ),
           )
           .toList()
         ..sort((a, b) => a.ayahNumber.compareTo(b.ayahNumber));
@@ -171,9 +181,50 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     }
   }
 
+  Future<void> selectRecitation(RecitationId recitationId) async {
+    if (_recitationId == recitationId) return;
+    _progressTimer?.cancel();
+    await player.stopAndReset();
+    _recitationId = recitationId;
+    _audioAsset = null;
+    _verifiedTiming = null;
+    _segments = [];
+    _segmentsLoaded = false;
+    _contentLoaded = false;
+    if (!mounted) return;
+    state = TalaqqiState(surah: _surah, recitationId: recitationId);
+    await _ensurePracticeContentLoaded();
+  }
+
+  void _onPlaybackPosition(Duration position) {
+    if (!mounted ||
+        !state.isWholeSurahPlaying ||
+        _recitationId != RecitationId.husaryMuallimTimed ||
+        _verifiedTiming == null) {
+      return;
+    }
+    final active = _verifiedTiming!.activeAt(position);
+    state = state.copyWith(
+      activeTimedAyah: active?.ayahNumber,
+      activeTimedWord: active?.wordNumber,
+      clearActiveTiming: active == null,
+    );
+  }
+
+  void _onPlayingChanged(bool isPlaying) {
+    if (!mounted || isPlaying || !state.isWholeSurahPlaying) return;
+    state = state.copyWith(
+      isWholeSurahPlaying: false,
+      clearActiveTiming: true,
+    );
+  }
+
   /// Starts one child-led practice attempt for the current ayah.
   Future<void> startTalaqqiSession() async {
     if (state.isActive || state.phase == TalaqqiPhase.selfReview) return;
+    if (state.isWholeSurahPlaying) {
+      await pauseWholeSurah();
+    }
     if (!await _ensurePracticeContentLoaded()) {
       _setError('تعذّر تحميل محتوى التدريب. تحقق من اتصالك ثم حاول مجددًا.');
       return;
@@ -247,18 +298,36 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
       return;
     }
     try {
+      if (_recitationId == RecitationId.husaryMuallimTimed &&
+          !await _ensureSegmentsLoaded()) {
+        _setError('تعذّر التحقق من توقيتات الشيخ لهذه السورة.');
+        return;
+      }
       await player.load(playbackUri.toString());
       await player.playWhole();
       if (mounted) {
         state = state.copyWith(
           phase: TalaqqiPhase.idle,
-          mascotMessage:
-              'يعمل الآن تسجيل السورة كاملة؛ لا توجد توقيتات للآيات بعد.',
+          isWholeSurahPlaying: true,
+          clearActiveTiming: true,
+          mascotMessage: _recitationId == RecitationId.husaryMuallimTimed
+              ? 'استمع إلى الشيخ؛ يضيء النص وفق التوقيتات المتحققة.'
+              : 'يعمل الآن مصحف التعلّم مع الأطفال؛ لا تظهر مزامنة زمنية.',
         );
       }
     } catch (_) {
       _setError('تعذّر تشغيل السورة كاملة. حاول مرة أخرى.');
     }
+  }
+
+  Future<void> pauseWholeSurah() async {
+    await player.pause();
+    if (!mounted) return;
+    state = state.copyWith(
+      isWholeSurahPlaying: false,
+      clearActiveTiming: true,
+      mascotMessage: 'توقفت التلاوة. يمكنك المتابعة أو اختيار مصحف آخر.',
+    );
   }
 
   /// Replays the child recording for a self-directed comparison.
@@ -350,6 +419,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
       sourceAudioAvailability: _contentLoaded
           ? state.sourceAudioAvailability
           : SourceAudioAvailability.loading,
+      recitationId: _recitationId,
     );
   }
 
@@ -409,6 +479,8 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
       phaseProgress: 0.0,
       mascotMessage: message,
       verificationStatus: VerificationStatus.unavailable,
+      isWholeSurahPlaying: false,
+      clearActiveTiming: true,
     );
   }
 
@@ -443,6 +515,8 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
   @override
   void dispose() {
     _progressTimer?.cancel();
+    _positionSubscription?.cancel();
+    _playingSubscription?.cancel();
     super.dispose();
   }
 }
