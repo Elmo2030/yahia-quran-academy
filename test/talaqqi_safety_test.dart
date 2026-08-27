@@ -1,5 +1,6 @@
 import 'package:faras_quran_ai/features/gamification/gamification_controller.dart';
 import 'package:faras_quran_ai/features/journey_map/domain/journey_state.dart';
+import 'package:faras_quran_ai/features/recitation/data/audio_asset_repository.dart';
 import 'package:faras_quran_ai/features/recitation/domain/talaqqi_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -25,6 +26,32 @@ void main() {
     expect(missingDuration.hasRecording, isFalse);
     expect(ready.hasRecording, isTrue);
     expect(ready.lastScore, isNull);
+  });
+
+  test('only verified teacher playback may replace the displayed ayah', () {
+    expect(
+      displayedAyahNumber(
+        recitationId: RecitationId.husaryMuallimTimed,
+        practiceAyah: 1,
+        activeTimedAyah: 4,
+      ),
+      4,
+    );
+    expect(
+      displayedAyahNumber(
+        recitationId: RecitationId.husaryMuallimChildren,
+        practiceAyah: 1,
+        activeTimedAyah: 4,
+      ),
+      1,
+    );
+    expect(
+      displayedAyahNumber(
+        recitationId: RecitationId.husaryMuallimTimed,
+        practiceAyah: 3,
+      ),
+      3,
+    );
   });
 
   test('a level only changes after an explicit trusted confirmation', () {
