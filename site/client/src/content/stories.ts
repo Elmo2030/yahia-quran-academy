@@ -31,8 +31,8 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "prophets", titleAr: "قصص الأنبياء", titleEn: "Stories of the Prophets",
-    descriptionAr: "سبع عشرة قصة من آدم إلى محمد ﷺ، كل واحدة تسلّم التي بعدها.",
-    descriptionEn: "Seventeen stories from Adam to Muhammad, each handing over to the next.",
+    descriptionAr: "سبع عشرة قصة من آدم إلى محمد ﷺ.",
+    descriptionEn: "Seventeen stories from Adam to Muhammad.",
     cover: "/stories/prophets/cover.jpg", available: true,
   },
   {
@@ -63,6 +63,7 @@ export type Story = {
 export const stories: Story[] = [
   {
     chapter: "prophets", slug: "adam",
+    image: "/stories/prophets/adam.jpg",
     title: "قصة سيدنا آدم (أبو البشر)",
     surahName: "",
     hook: "هل سألتم أنفسكم يوماً كيف بدأ وجود الإنسان على الأرض؟ ومن هو أول إنسان خلقه الله؟ تعالوا نسافر بالزمن إلى البداية تماماً، لنتعرف على قصة أبينا سيدنا آدم، أول إنسان وأول نبي!",
@@ -73,6 +74,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "idris",
+    image: "/stories/prophets/idris.jpg",
     title: "قصة سيدنا إدريس",
     surahName: "",
     hook: "هل تحبون قول الصدق دائماً؟ نبينا اليوم كان مشهوراً جداً بصدقه، وكان يعلم الناس أشياء مفيدة جداً في حياتهم. فمن هو هذا النبي الطيب؟ تعالوا نتعرف على سيدنا إدريس.",
@@ -83,6 +85,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "nuh",
+    image: "/stories/prophets/nuh.jpg",
     title: "قصة سيدنا نوح (شيخ المرسلين)",
     surahName: "",
     hook: "تخيلوا معي.. رجل عجوز وطيب جداً، يجمع الأخشاب ويبني سفينة عملاااااقة في وسط الصحراء الرملية! لا يوجد بحر ولا نهر! وكلما مر عليه الناس ضحكوا منه.. فهل كان مخطئاً؟ تعالوا نتعرف على قصة شيخ المرسلين، سيدنا نوح.",
@@ -93,6 +96,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "hud",
+    image: "/stories/prophets/hud.jpg",
     title: "قصة سيدنا هود وقوم عاد",
     surahName: "",
     hook: "هل رأيتم أبطالاً خارقين في القصص يمتلكون قوة بدنية هائلة؟ في الماضي، كانت هناك قبيلة حقيقية قوية جداً، طوال القامة ويبنون بيوتاً ضخمة، لكنهم اغتروا بقوتهم وقالوا 'من أشد منا قوة؟'. فماذا حدث لهم؟ تعالوا نسمع قصة سيدنا هود.",
@@ -103,6 +107,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "saleh",
+    image: "/stories/prophets/saleh.jpg",
     title: "قصة سيدنا صالح وقوم ثمود",
     surahName: "",
     hook: "هل تستطيعون الحفر في صخرة صلبة؟ هناك قوم في الماضي كانوا ينحتون بيوتاً كاملة وجميلة داخل الجبال الصخرية! لكنهم طلبوا من نبيهم أن يخرج لهم حيواناً كبيراً حياً من وسط الصخرة! كيف حدثت هذه المعجزة؟",
@@ -113,6 +118,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "shuaib",
+    image: "/stories/prophets/shuaib.jpg",
     title: "قصة سيدنا شعيب (خطيب الأنبياء)",
     surahName: "",
     hook: "تخيلوا أن تذهبوا إلى السوق لتشتروا عشر تفاحات، فيقوم البائع بخداعكم ويعطيكم ثماني تفاحات فقط ويأخذ ثمن العشرة! هذا غش وتصرف سيء جداً، أليس كذلك؟ نبينا اليوم جاء ليعلم الناس كيف يكونون صادقين في البيع والشراء.",
@@ -123,6 +129,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "ibrahim",
+    image: "/stories/prophets/ibrahim.jpg",
     title: "قصة سيدنا إبراهيم (خليل الرحمن)",
     surahName: "",
     hook: "هل أنتم شجعان؟ هل تخافون من النار؟ بطل قصتنا اليوم هو شاب شجاع جداً، واجه ملكاً جباراً، ورُمي في نار ضخمة جداً، ولكن حدثت مفاجأة مذهلة جعلته يخرج منها سليماً يبتسم!",
@@ -133,6 +140,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "lut",
+    image: "/stories/prophets/lut.jpg",
     title: "قصة سيدنا لوط",
     surahName: "",
     hook: "إذا رأيتم مجموعة من الناس يفعلون أفعالاً سيئة جداً، هل تقلدونهم أم تبتعدون عنهم وتنصحونهم؟ نبينا اليوم كان يعيش في قرية كل أهلها يفعلون الشر، فكيف تصرف معهم؟",
@@ -143,6 +151,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "yusuf",
+    image: "/stories/prophets/yusuf.jpg",
     title: "قصة سيدنا يوسف (أحسن القصص)",
     surahName: "",
     hook: "هل تحبون قصص المغامرات؟ قصتنا اليوم هي الوحيدة في القرآن الكريم التي ذُكرت كاملة في سورة واحدة، وفيها أحداث مشوقة جداً تبدأ بحلم جميل وتنتهي بأن يصبح البطل وزيراً كبيراً!",
@@ -153,6 +162,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "ayoub",
+    image: "/stories/prophets/ayoub.jpg",
     title: "قصة سيدنا أيوب",
     surahName: "",
     hook: "عندما نمرض ونتناول الدواء المر، قد نبكي ونغضب. لكن ماذا لو أخبرتكم عن نبي مرض لسنوات طويلة جداً، وفقد أمواله، ومع ذلك كان دائماً يبتسم ويشكر الله؟ تعالوا نتعرف على بطل الصبر، سيدنا أيوب.",
@@ -163,6 +173,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "musa-and-harun",
+    image: "/stories/prophets/musa-and-harun.jpg",
     title: "قصة سيدنا موسى وأخيه هارون",
     surahName: "",
     hook: "تخيلوا طفلاً رضيعاً تضعه أمه في صندوق خشبي، ثم تلقيه في مياه النهر الواسع! هل سيغرق؟ لا، بل سيأخذه النهر مباشرة إلى قصر الملك الشرير الذي يبحث عنه ليقتله.. ولكنه سيعيش هناك كأمير! كيف حدث ذلك؟",
@@ -173,6 +184,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "yusha",
+    image: "/stories/prophets/yusha.jpg",
     title: "قصة سيدنا يوشع بن نون",
     surahName: "",
     hook: "هل حدث وأن كنتم تلعبون مباراة مهمة، واقتربت الشمس من الغروب والوقت كاد ينتهي قبل أن تفوزوا؟ تمنيتم لو تتوقف الشمس قليلاً.. نبينا اليوم حدثت له هذه المعجزة وتوقفت الشمس من أجله!",
@@ -183,6 +195,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "dawud",
+    image: "/stories/prophets/dawud.jpg",
     title: "قصة سيدنا داود",
     surahName: "",
     hook: "تخيلوا جبلاً ضخماً وطيوراً جميلة تغني وتسبح الله معكم كلما قرأتم القرآن! وتخيلوا أن تمسكوا بقطعة حديد صلبة، فتصبح في أيديكم لينة كالصلصال! هذه كانت حياة نبي وملك عظيم.. سيدنا داود.",
@@ -193,6 +206,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "sulaiman",
+    image: "/stories/prophets/sulaiman.jpg",
     title: "قصة سيدنا سليمان",
     surahName: "",
     hook: "إذا كان بإمكانكم أن تطلبوا أمنية واحدة فقط، فماذا ستكون؟ سيدنا سليمان طلب من الله مملكة عجيبة لا يستطيع أحد أن يصنع مثلها أبداً! ماذا كان يوجد في هذه المملكة؟",
@@ -203,6 +217,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "zakariya-and-yahya",
+    image: "/stories/prophets/zakariya-and-yahya.jpg",
     title: "قصة سيدنا زكريا وابنه يحيى",
     surahName: "",
     hook: "هل رأيتم رجلاً عجوزاً جداً شعره أبيض بالكامل يرزق بطفل صغير؟ هذه معجزة! نبينا اليوم كان يحب الأطفال كثيراً وتمنى أن يكون له طفل يعلمه الخير، فهل حقق الله أمنيته؟",
@@ -213,6 +228,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "isa",
+    image: "/stories/prophets/isa.jpg",
     title: "قصة سيدنا عيسى ابن مريم",
     surahName: "",
     hook: "هل سمعتم يوماً طفلاً رضيعاً لم يتعلم المشي بعد، يتحدث بطلاقة ويدافع عن أمه؟ هذه معجزة لا يصدقها العقل، لكنها حدثت مع نبي عظيم خلقه الله بطريقة فريدة وعجيبة جداً! تعالوا نتعرف على سيدنا عيسى.",
@@ -223,6 +239,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "muhammad",
+    image: "/stories/prophets/muhammad.jpg",
     title: "قصة سيدنا محمد (خاتم الأنبياء)",
     surahName: "",
     hook: "بعد أن سافرنا عبر الزمن وتعرفنا على قصص كل الأنبياء، وصلنا الآن إلى مسك الختام. نبيٌ أُرسل رحمة للعالمين جميعاً، ولم يكتفِ القرآن بسرد قصص من قبله، بل كان يسجل بطولاته وبطولات أصحابه لحظة بلحظة ليصنع أعظم أمة!",
