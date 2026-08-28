@@ -95,111 +95,6 @@
 }
 
 
-/* ---- Stories of the women named in the Quran ---- */
-
-.section--stories .section-heading { margin-bottom: 2.4rem; }
-.story-language-note { font-size: .9rem; opacity: .7; }
-
-.story-grid {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  counter-reset: story;
-}
-.story-card {
-  display: flex; flex-direction: column; gap: .5rem; height: 100%;
-  padding: 1.35rem 1.4rem 1.5rem;
-  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-  border-radius: 1rem; text-decoration: none; color: inherit;
-  background: color-mix(in srgb, currentColor 3%, transparent);
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
-}
-.story-card:hover, .story-card:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, currentColor 28%, transparent);
-  background: color-mix(in srgb, currentColor 6%, transparent);
-}
-.story-card__index {
-  font-variant-numeric: tabular-nums; font-size: .78rem; letter-spacing: .12em;
-  opacity: .55;
-}
-.story-card b { font-size: 1.12rem; line-height: 1.4; }
-.story-card small { font-size: .88rem; line-height: 1.7; opacity: .72; }
-.story-card__cta {
-  margin-top: auto; padding-top: .7rem; display: inline-flex; align-items: center;
-  gap: .4rem; font-size: .88rem; font-weight: 600;
-}
-
-.story-body { max-width: 42rem; }
-.story-body h1 { margin: .5rem 0 1.2rem; line-height: 1.25; }
-.story-body h2 {
-  display: flex; align-items: center; gap: .5rem;
-  font-size: 1.15rem; margin: 2.2rem 0 .6rem;
-}
-.story-body p { line-height: 1.95; }
-.story-hook {
-  font-size: 1.08rem; line-height: 1.9;
-  padding-inline-start: .9rem;
-  border-inline-start: 3px solid color-mix(in srgb, currentColor 25%, transparent);
-}
-
-.story-ayah {
-  margin: 2rem 0; padding: 1.4rem 1.5rem;
-  border-radius: 1rem;
-  background: color-mix(in srgb, currentColor 4%, transparent);
-  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-}
-.story-ayah__label {
-  display: flex; align-items: center; gap: .45rem;
-  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; opacity: .6;
-  margin-bottom: .9rem;
-}
-.story-ayah__text {
-  margin: 0; font-size: 1.35rem; line-height: 2.5;
-  text-align: center; text-wrap: balance;
-}
-.story-ayah__meta {
-  margin-top: 1rem; padding-top: .9rem;
-  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-  display: flex; flex-wrap: wrap; gap: .6rem 1rem;
-  align-items: center; justify-content: space-between;
-  font-size: .88rem;
-}
-.story-ayah__meta cite { font-style: normal; opacity: .7; }
-
-.story-teaser {
-  margin-top: 2.4rem; padding: 1.4rem 1.5rem; border-radius: 1rem;
-  background: color-mix(in srgb, currentColor 5%, transparent);
-  display: flex; flex-direction: column; gap: .6rem; align-items: flex-start;
-}
-.story-teaser b { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
-.story-teaser p { margin: 0; }
-
-.story-pager {
-  margin-top: 2.2rem; padding-top: 1.2rem;
-  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-  display: flex; flex-wrap: wrap; gap: .8rem 1.4rem;
-  align-items: center; justify-content: space-between;
-  font-size: .9rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .story-card { transition: none; }
-  .story-card:hover, .story-card:focus-visible { transform: none; }
-}
-
-.stories-hero, .story-art {
-  display: block; width: 100%; height: auto;
-  border-radius: 1.1rem; margin-bottom: 2.2rem;
-  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-}
-.story-art { margin: 1.4rem 0 2rem; }
-.story-card { padding: 0 0 1.5rem; overflow: hidden; }
-.story-card > :not(.story-card__art) { margin-inline: 1.4rem; }
-.story-card__art {
-  display: block; width: 100%; aspect-ratio: 16 / 9;
-  object-fit: cover; margin-bottom: .9rem;
-}
 
 /* ---- Reader: restore the two-column ayah layout ----
    The recovered archive carries an older single-column reader: the
@@ -283,53 +178,6 @@
   .ayah__word, .recitation-chip { transition: none; }
 }
 
-/* ---- Story chapters, library and print ---- */
-
-.chapter-grid {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-}
-.chapter-card {
-  display: flex; flex-direction: column; gap: .45rem; height: 100%;
-  padding: 0 0 1.4rem; overflow: hidden;
-  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-  border-radius: 1rem; text-decoration: none; color: inherit;
-  background: color-mix(in srgb, currentColor 3%, transparent);
-  transition: transform .18s ease, border-color .18s ease;
-}
-.chapter-card > :not(.chapter-card__art) { margin-inline: 1.3rem; }
-a.chapter-card:hover, a.chapter-card:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, currentColor 28%, transparent);
-}
-.chapter-card__art { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: .8rem; }
-.chapter-card__art--empty { background: color-mix(in srgb, currentColor 7%, transparent); }
-.chapter-card b { font-size: 1.1rem; line-height: 1.4; }
-.chapter-card small { font-size: .88rem; line-height: 1.65; opacity: .72; }
-.chapter-card__meta {
-  margin-top: auto; padding-top: .7rem; display: inline-flex; align-items: center;
-  gap: .4rem; font-size: .86rem; font-weight: 600;
-}
-.chapter-card.is-soon { opacity: .55; }
-.chapter-card.is-soon .chapter-card__meta { font-weight: 500; }
-
-.story-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1.4rem; }
-.story-actions .button { display: inline-flex; align-items: center; gap: .45rem; }
-.story-actions .button.is-active {
-  color: #26421b; background: #d9f2a3;
-  border-color: color-mix(in srgb, currentColor 25%, transparent);
-}
-
-.story-ayah__prose { margin: 0; line-height: 2; }
-
-@media print {
-  .no-print, .site-header, .site-footer, .story-actions { display: none !important; }
-  .story-body { max-width: none; }
-  .story-art { max-height: 9cm; object-fit: cover; }
-  .story-teaser { break-inside: avoid; }
-  body { background: white; }
-}
 
 /* ---- Hero: stop the two floating cards colliding ----
    The cards deliberately overlap the character — that is the design, and the
@@ -339,3 +187,110 @@ a.chapter-card:hover, a.chapter-card:focus-visible {
 
 .hero-visual .mini-note--parent { z-index: 4; top: 6%; bottom: auto; right: -1%; }
 .site-shell[dir="ltr"] .hero-visual .mini-note--parent { left: 1%; right: auto; }
+
+/* ---- Story pages ----
+   Ported from the CSS of the deployed build so the two read the same:
+   a hero, a sticky rail of section links, and numbered reading sections. */
+
+.stories-list-hero { padding: 3.2rem 0 3.5rem; background: linear-gradient(135deg,#001F3F,#19375a); color: #fff; }
+.stories-list-hero__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,.9fr); align-items: center; gap: clamp(1.5rem,4vw,3.5rem); }
+.stories-list-hero h1 { color: #fff; font-size: clamp(2.35rem,5vw,4.2rem); font-weight: 850; letter-spacing: -.06em; line-height: 1.08; margin: .95rem 0 1.15rem; max-width: 680px; }
+.stories-list-hero p { color: #c5d6ee; max-width: 650px; font-size: 1.03rem; line-height: 2.05; }
+.stories-hero__library-link { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.15rem; color: #fff; font-size: .82rem; font-weight: 800; }
+.animals-collection-cover { margin: 0; border-radius: 26px; overflow: hidden; border: 7px solid rgb(255 255 255 / 22%); box-shadow: 0 18px 40px rgb(0 31 63 / 26%); }
+.animals-collection-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.stories-section { padding: 3.4rem 0 4.5rem; background: #fcfbf6; }
+.stories-section__heading { max-width: 700px; margin-bottom: 2rem; }
+.stories-section__heading h2 { color: #001F3F; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.9rem,3.5vw,2.8rem); font-weight: 850; margin: .75rem 0 .5rem; }
+.stories-section__heading p { color: #60789d; line-height: 1.9; }
+
+.story-category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem,1fr)); gap: 1.35rem; list-style: none; margin: 0; padding: 0; }
+.story-category-card {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start;
+  min-height: 270px; padding: 1.25rem; overflow: hidden;
+  color: #001F3F; background: #fff; border: 1px solid #e9dfbd; border-radius: 24px;
+  box-shadow: 0 10px 26px rgb(0 31 63 / 5%); text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.story-category-card--available:hover { transform: translateY(-5px); box-shadow: 0 19px 34px rgb(0 31 63 / 13%); }
+.story-category-card--soon { opacity: .72; }
+.story-category-card__icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: auto; color: #556B2F; background: #e6efd4; border-radius: 17px; }
+.story-category-card h3 { margin: 1.25rem 0 .45rem; font-family: "Noto Naskh Arabic", serif; font-size: 1.55rem; font-weight: 800; }
+.story-category-card p { margin: 0; color: #60789d; font-size: .82rem; line-height: 1.85; }
+.story-category-card__link, .story-category-card__status { display: inline-flex; align-items: center; gap: .3rem; margin-top: 1rem; font-size: .77rem; font-weight: 800; }
+.story-category-card__link { color: #556B2F; }
+.story-category-card__status { color: #99861f; }
+
+.story-list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem,1fr)); gap: 1.35rem; list-style: none; margin: 0; padding: 0; }
+.story-list-card {
+  display: flex; flex-direction: column; height: 100%; overflow: hidden; text-decoration: none;
+  color: #001F3F; background: #fff; border: 1px solid #e8dfc7; border-radius: 22px;
+  box-shadow: 0 10px 28px rgb(0 31 63 / 6%); transition: transform .18s ease, box-shadow .18s ease;
+}
+.story-list-card:hover { transform: translateY(-5px); box-shadow: 0 19px 36px rgb(0 31 63 / 14%); }
+.story-list-card:hover .story-image img { transform: scale(1.035); }
+.story-list-card__body { display: flex; flex-direction: column; gap: .4rem; padding: 1.1rem 1.2rem 1.3rem; }
+.story-list-card__body > span { color: #d4af37; font-size: .67rem; font-weight: 800; }
+.story-list-card h3 { margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.28rem; font-weight: 800; }
+.story-list-card p { margin: 0; color: #60789d; font-size: .78rem; line-height: 1.85; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.story-read-pill { margin-top: auto; padding-top: .6rem; display: inline-flex; align-items: center; gap: .35rem; color: #556B2F; font-size: .76rem; font-weight: 800; }
+
+.story-image { position: relative; display: flex; min-height: 178px; align-items: flex-end; overflow: hidden; aspect-ratio: 16/9; padding: 1rem; }
+.story-image img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+
+.story-detail-hero { padding: 2.5rem 0 4rem; background: #fcfbf6; }
+.story-back-link { display: inline-flex; align-items: center; gap: .35rem; margin-bottom: 1.3rem; color: #99861f; font-size: .8rem; font-weight: 800; }
+.story-detail-hero__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,.85fr); align-items: center; gap: clamp(1.5rem,4vw,3rem); }
+.story-detail-hero h1 { color: #001F3F; margin: .95rem 0 1.15rem; font-size: clamp(2.4rem,5vw,4.6rem); font-weight: 850; letter-spacing: -.06em; line-height: 1.08; }
+.story-detail-hero__count { color: #d4af37; font-size: .72rem; font-weight: 800; }
+.story-detail-hero__hook { color: #476083; max-width: 650px; font-size: 1.03rem; line-height: 2.05; }
+.story-detail-hero .story-image { border: 7px solid rgb(255 255 255 / 66%); border-radius: 26px; box-shadow: 0 18px 40px rgb(0 31 63 / 12%); min-height: 210px; }
+.story-detail-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.4rem; }
+
+.story-article { padding: 4rem 0 6rem; background: #fcfbf6; }
+.story-article__layout { display: grid; grid-template-columns: 190px minmax(0,1fr); gap: 2.4rem; align-items: start; }
+.story-article__rail { position: sticky; top: 104px; display: grid; gap: .5rem; padding: 1rem; color: #60789d; border-right: 2px solid #e5d49d; }
+.story-article__rail a { font-size: .75rem; transition: color .16s ease; }
+.story-article__rail a:hover { color: #001F3F; }
+.story-article__content { display: grid; gap: 2.1rem; }
+
+.story-section-number { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #385051; background: #e6efd4; font-family: "Plus Jakarta Sans", sans-serif; font-size: .8rem; font-weight: 800; }
+.story-section-label { color: #556B2F; font-size: .72rem; font-weight: 800; letter-spacing: .04em; }
+.story-reading-section { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; }
+.story-reading-section--hook { background: #eef3dd; border-radius: 24px; padding: 1.6rem; }
+.story-reading-section h2, .story-lesson-card h2, .story-bridge h2 { color: #001F3F; margin: 0 0 .65rem; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.7rem,3vw,2.35rem); line-height: 1.3; }
+.story-reading-section p, .story-reading-section__lead { color: #385051; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.16rem; line-height: 2.1; }
+.story-quran-connection, .story-lesson-card { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; }
+.story-quran-connection .story-section-number { color: #735c00; background: #d4af37; }
+.story-quran-connection__heading { display: inline-flex; align-items: center; gap: .4rem; }
+.story-quran-connection__heading svg { color: #d4af37; }
+.story-quran-connection blockquote { margin: .6rem 0 .5rem; font-family: "Noto Naskh Arabic", serif; font-size: 1.35rem; line-height: 2.4; text-align: center; color: #001F3F; }
+.story-quran-connection__note { margin: 0; color: #806e3f; font-size: .75rem; }
+.story-lesson-card p { color: #385051; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.16rem; line-height: 2.1; }
+.story-bridge { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding: 1.6rem; background: #eef3dd; border-radius: 24px; }
+.story-bridge h2 { margin-top: .5rem; }
+.story-bridge p { color: #385051; margin: 0; line-height: 2; }
+
+.story-library-hero { padding: 3.2rem 0 3.5rem; background: linear-gradient(135deg,#001F3F,#19375a); color: #fff; }
+.story-library-hero p { max-width: 660px; color: #c5d6ee; line-height: 1.9; }
+.story-library__empty { display: grid; justify-items: start; gap: .5rem; max-width: 600px; padding: 1.6rem; border: 1px dashed #c7cfad; border-radius: 20px; color: #60789d; background: rgb(255 255 255 / 72%); }
+.story-library__empty h3 { margin: 0; color: #001F3F; font-family: "Noto Naskh Arabic", serif; font-size: 1.45rem; }
+.story-icon-button { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #a03022; background: #fff5f2; }
+.story-icon-button:hover { background: #fff0eb; }
+.story-not-found { padding: 4rem 0; }
+
+@media (max-width: 900px) {
+  .stories-list-hero__grid, .story-detail-hero__grid { grid-template-columns: 1fr; }
+  .story-article__layout { display: block; }
+  .story-article__rail { display: none; }
+}
+@media print {
+  .no-print, .site-header, .site-footer, .story-detail-actions, .story-article__rail, .story-back-link { display: none !important; }
+  .story-detail-hero, .story-article { background: #fff !important; padding: 1.1rem 0 0 !important; }
+  .story-detail-hero__grid, .story-article__layout { display: block !important; }
+  .story-detail-hero__hook { font-size: 12pt; }
+  .story-article__content > .story-image { display: none; }
+  .story-reading-section, .story-quran-connection, .story-lesson-card, .story-bridge { margin: 1.1rem 0; break-inside: avoid; }
+  body { background: #fff; }
+}

@@ -1,5 +1,5 @@
 import { Link, useRoute } from "wouter";
-import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Compass, Heart, Library, Printer, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Compass, Heart, Library, PawPrint, Printer, Sparkles, Trash2, Users } from "lucide-react";
 import { chapters, stories, type Story } from "@/content/stories";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
@@ -18,7 +18,7 @@ const copy = {
     notFound: "لم نجد هذه القصة.", backToChapter: "كل قصص الباب",
     save: "أضفها إلى مكتبتي", saved: "في مكتبتي", myLibrary: "مكتبتي",
     print: "اطبع القصة", emptyLibrary: "مكتبتك فارغة. افتح أي قصة واحفظها لتظهر هنا.",
-    libraryCount: "قصة محفوظة", onlyArabic: null as string | null,
+    libraryCount: "قصة محفوظة", back: "العودة إلى القصص", sections: "أقسام القصة", storyCount: "قصة", exploreAll: "اكتشف كل القصص", keptStories: "القصص التي اخترت الاحتفاظ بها", emptyTitle: "لا توجد قصص محفوظة بعد", remove: "إزالة من مكتبتي", onlyArabic: null as string | null,
   },
   en: {
     home: "Back to home", eyebrow: "Stories", title: "Stories from the Quran",
@@ -31,7 +31,7 @@ const copy = {
     notFound: "That story could not be found.", backToChapter: "All stories in this chapter",
     save: "Add to my library", saved: "In my library", myLibrary: "My library",
     print: "Print the story", emptyLibrary: "Your library is empty. Open any story and save it to see it here.",
-    libraryCount: "saved", onlyArabic: "These stories are written in Arabic.",
+    libraryCount: "saved", back: "Back to stories", sections: "In this story", storyCount: "stories", exploreAll: "Explore all stories", keptStories: "The stories you chose to keep", emptyTitle: "Nothing saved yet", remove: "Remove from my library", onlyArabic: "These stories are written in Arabic.",
   },
 } as const;
 
@@ -71,12 +71,14 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
   const t = copy[locale];
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
-    <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-card">
-      <img className="story-card__art" src={story.image} alt="" loading="lazy" width={1200} height={670} />
-      <span className="story-card__index">{String(index + 1).padStart(2, "0")}</span>
-      <b lang="ar" dir="rtl">{story.title}</b>
-      <small lang="ar" dir="rtl">{story.hook}</small>
-      <span className="story-card__cta">{t.read} <Arrow size={16} aria-hidden="true" /></span>
+    <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
+      <figure className="story-image"><img src={story.image} alt="" loading="lazy" width={1200} height={670} /></figure>
+      <div className="story-list-card__body" lang="ar" dir="rtl">
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <h3>{story.title}</h3>
+        <p>{story.hook}</p>
+        <span className="story-read-pill">{t.read} <Arrow size={15} aria-hidden="true" /></span>
+      </div>
     </Link>
   );
 }
@@ -95,19 +97,41 @@ export default function Stories() {
     const saved = stories.filter(s => slugs.includes(s.slug));
     return (
       <Chrome>
-        <section className="section section--stories"><div className="container">
-          <div className="section-heading">
+        <section className="story-library-hero" lang="ar" dir="rtl">
+          <div className="container">
+            <Link href="/stories" className="story-back-link"><ArrowRight size={15} aria-hidden="true" /> {t.allStories}</Link>
             <span className="eyebrow eyebrow--gold"><Library size={15} aria-hidden="true" /> {t.myLibrary}</span>
-            <h1>{t.myLibrary}</h1>
-            <p>{saved.length > 0 ? `${saved.length} ${t.libraryCount}` : t.emptyLibrary}</p>
+            <h1 style={{ margin: ".7rem 0 .6rem", fontSize: "clamp(2rem,4vw,3.2rem)", fontWeight: 850 }}>{t.myLibrary}</h1>
+            <p>{t.keptStories}</p>
           </div>
-          {saved.length > 0 && (
-            <ol className="story-grid">
-              {saved.map((story, index) => <li key={story.slug}><StoryCard story={story} index={index} /></li>)}
-            </ol>
-          )}
-          <Link href="/stories" className="text-link">{t.allStories} <Arrow size={18} aria-hidden="true" /></Link>
-        </div></section>
+        </section>
+        <section className="stories-section">
+          <div className="container">
+            {saved.length === 0 ? (
+              <div className="story-library__empty" lang="ar" dir="rtl">
+                <h3>{t.emptyTitle}</h3>
+                <p>{t.emptyLibrary}</p>
+                <Link href="/stories" className="button button--primary">{t.exploreAll} <Arrow size={16} aria-hidden="true" /></Link>
+              </div>
+            ) : (
+              <>
+                <div className="stories-section__heading" lang="ar" dir="rtl"><h2>{saved.length} {t.libraryCount}</h2></div>
+                <ol className="story-list-grid">
+                  {saved.map((story, index) => (
+                    <li key={story.slug}>
+                      <StoryCard story={story} index={index} />
+                      <div className="story-library-card__actions" style={{ marginTop: ".6rem" }}>
+                        <button type="button" className="story-icon-button" onClick={() => toggle(story.slug)} aria-label={t.remove}>
+                          <Trash2 size={17} aria-hidden="true" />
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            )}
+          </div>
+        </section>
       </Chrome>
     );
   }
@@ -131,62 +155,99 @@ export default function Stories() {
 
     return (
       <Chrome>
-        <article className="section section--story" lang="ar" dir="rtl">
-          <div className="container story-body">
-            <span className="eyebrow eyebrow--gold">{t.storyOf} {index + 1} / {chapterStories.length}</span>
-            <h1>{story.title}</h1>
-
-            <div className="story-actions no-print">
-              <button type="button" className={`button button--soft${inLibrary ? " is-active" : ""}`} onClick={() => toggle(story.slug)} aria-pressed={inLibrary}>
-                {inLibrary ? <BookmarkCheck size={17} aria-hidden="true" /> : <BookmarkPlus size={17} aria-hidden="true" />}
-                {inLibrary ? t.saved : t.save}
-              </button>
-              <button type="button" className="button button--soft" onClick={() => window.print()}>
-                <Printer size={17} aria-hidden="true" /> {t.print}
-              </button>
-            </div>
-
-            <img className="story-art" src={story.image} alt="" width={1200} height={670} />
-            <p className="story-hook">{story.hook}</p>
-
-            <h2><Compass size={17} aria-hidden="true" /> {t.events}</h2>
-            <p>{story.events}</p>
-
-            {story.ayah && (
-              <figure className="story-ayah">
-                <figcaption className="story-ayah__label"><BookOpen size={15} aria-hidden="true" /> {t.ayah}</figcaption>
-                <blockquote lang="ar" dir="rtl" className="story-ayah__text">{story.ayah.text}</blockquote>
-                <div className="story-ayah__meta">
-                  <cite>{t.surahLabel} {getSurahName(story.ayah.surah)} · {story.ayah.number}</cite>
-                  <Link href={`/read/${story.ayah.surah}`} className="text-link no-print">{t.openInReader}</Link>
+        <section className="story-detail-hero" lang="ar" dir="rtl">
+          <div className="container">
+            <Link href={`/stories/${story.chapter}`} className="story-back-link"><ArrowRight size={15} aria-hidden="true" /> {t.back}</Link>
+            <div className="story-detail-hero__grid">
+              <div>
+                <span className="story-detail-hero__count">{t.storyOf} {index + 1} / {chapterStories.length}</span>
+                <h1>{story.title}</h1>
+                <p className="story-detail-hero__hook">{story.hook}</p>
+                <div className="story-detail-actions no-print">
+                  <button type="button" className={`button button--soft${inLibrary ? " is-active" : ""}`} onClick={() => toggle(story.slug)} aria-pressed={inLibrary}>
+                    {inLibrary ? <BookmarkCheck size={17} aria-hidden="true" /> : <BookmarkPlus size={17} aria-hidden="true" />}
+                    {inLibrary ? t.saved : t.save}
+                  </button>
+                  <button type="button" className="button button--soft" onClick={() => window.print()}>
+                    <Printer size={17} aria-hidden="true" /> {t.print}
+                  </button>
                 </div>
-              </figure>
-            )}
-            {story.quranProse && (
-              <figure className="story-ayah">
-                <figcaption className="story-ayah__label"><BookOpen size={15} aria-hidden="true" /> {t.ayah}</figcaption>
-                <p className="story-ayah__prose">{story.quranProse}</p>
-              </figure>
-            )}
+              </div>
+              <figure className="story-image"><img src={story.image} alt="" width={1200} height={670} /></figure>
+            </div>
+          </div>
+        </section>
 
-            <h2><Heart size={17} aria-hidden="true" /> {t.lesson}</h2>
-            <p>{story.lesson}</p>
-
-            <aside className="story-teaser">
-              <b>{t.next}</b>
-              <p>{story.next}</p>
-              {following && (
-                <Link href={`/stories/${story.chapter}/${following.slug}`} className="button button--primary no-print">
-                  {following.title} <ArrowLeft size={17} aria-hidden="true" />
-                </Link>
-              )}
-            </aside>
-
-            <nav className="story-pager no-print" aria-label={t.allStories}>
-              {previous ? <Link href={`/stories/${story.chapter}/${previous.slug}`} className="text-link">{t.prev}: {previous.title}</Link> : <span />}
-              <Link href={`/stories/${story.chapter}`} className="text-link">{t.backToChapter}</Link>
-              {following ? <Link href={`/stories/${story.chapter}/${following.slug}`} className="text-link">{t.nextStory}: {following.title}</Link> : <span />}
+        <article className="story-article story-article--printable" lang="ar" dir="rtl">
+          <div className="container story-article__layout">
+            <nav className="story-article__rail no-print" aria-label={t.sections}>
+              <span className="story-section-label">{t.sections}</span>
+              <a href="#story-events">{t.events}</a>
+              {(story.ayah || story.quranProse) && <a href="#story-ayah">{t.ayah}</a>}
+              <a href="#story-lesson">{t.lesson}</a>
             </nav>
+
+            <div className="story-article__content">
+              <section className="story-reading-section story-reading-section--hook">
+                <span className="story-section-number">1</span>
+                <div>
+                  <span className="story-section-label">{t.hook}</span>
+                  <p className="story-reading-section__lead">{story.hook}</p>
+                </div>
+              </section>
+
+              <section className="story-reading-section" id="story-events">
+                <span className="story-section-number">2</span>
+                <div>
+                  <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.events}</span>
+                  <h2>{t.events}</h2>
+                  <p>{story.events}</p>
+                </div>
+              </section>
+
+              {(story.ayah || story.quranProse) && (
+                <section className="story-quran-connection" id="story-ayah">
+                  <span className="story-section-number">3</span>
+                  <div>
+                    <span className="story-quran-connection__heading story-section-label"><BookOpen size={14} aria-hidden="true" /> {t.ayah}</span>
+                    {story.ayah && <>
+                      <blockquote lang="ar" dir="rtl">{story.ayah.text}</blockquote>
+                      <p className="story-quran-connection__note">
+                        {t.surahLabel} {getSurahName(story.ayah.surah)} · {story.ayah.number}
+                        {" — "}
+                        <Link href={`/read/${story.ayah.surah}`} className="no-print">{t.openInReader}</Link>
+                      </p>
+                    </>}
+                    {story.quranProse && <p>{story.quranProse}</p>}
+                  </div>
+                </section>
+              )}
+
+              <section className="story-lesson-card" id="story-lesson">
+                <span className="story-section-number">{story.ayah || story.quranProse ? 4 : 3}</span>
+                <div>
+                  <span className="story-section-label"><Heart size={13} aria-hidden="true" /> {t.lesson}</span>
+                  <h2>{t.lesson}</h2>
+                  <p>{story.lesson}</p>
+                </div>
+              </section>
+
+              <aside className="story-bridge">
+                <span className="eyebrow eyebrow--gold">{t.next}</span>
+                <p>{story.next}</p>
+                {following && (
+                  <Link href={`/stories/${story.chapter}/${following.slug}`} className="button button--primary no-print">
+                    {following.title} <ArrowLeft size={17} aria-hidden="true" />
+                  </Link>
+                )}
+              </aside>
+
+              <nav className="story-pager no-print" aria-label={t.allStories}>
+                {previous ? <Link href={`/stories/${story.chapter}/${previous.slug}`} className="text-link">{t.prev}: {previous.title}</Link> : <span />}
+                <Link href={`/stories/${story.chapter}`} className="text-link">{t.backToChapter}</Link>
+                {following ? <Link href={`/stories/${story.chapter}/${following.slug}`} className="text-link">{t.nextStory}: {following.title}</Link> : <span />}
+              </nav>
+            </div>
           </div>
         </article>
       </Chrome>
@@ -207,59 +268,81 @@ export default function Stories() {
     }
     return (
       <Chrome>
-        <section className="section section--stories"><div className="container">
-          <div className="section-heading">
-            <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
-            <h1>{locale === "en" ? chapter.titleEn : chapter.titleAr}</h1>
-            <p>{locale === "en" ? chapter.descriptionEn : chapter.descriptionAr}</p>
-            {t.onlyArabic && <p className="story-language-note" lang="en">{t.onlyArabic}</p>}
+        <section className="stories-list-hero" lang="ar" dir="rtl">
+          <div className="container stories-list-hero__grid">
+            <div>
+              <Link href="/stories" className="story-back-link"><ArrowRight size={15} aria-hidden="true" /> {t.allStories}</Link>
+              <span className="eyebrow eyebrow--gold">{t.eyebrow}</span>
+              <h1>{locale === "en" ? chapter.titleEn : chapter.titleAr}</h1>
+              <p>{locale === "en" ? chapter.descriptionEn : chapter.descriptionAr}</p>
+              <Link href="/stories/library" className="stories-hero__library-link"><Library size={16} aria-hidden="true" /> {t.myLibrary}</Link>
+            </div>
+            {chapter.cover && (
+              <figure className="animals-collection-cover">
+                <img src={chapter.cover} alt="" width={1600} height={893} />
+              </figure>
+            )}
           </div>
-          {chapter.cover && <img className="stories-hero" src={chapter.cover} alt="" width={1600} height={893} />}
-          <ol className="story-grid">
-            {list.map((story, index) => <li key={story.slug}><StoryCard story={story} index={index} /></li>)}
-          </ol>
-          <Link href="/stories" className="text-link">{t.allStories} <Arrow size={18} aria-hidden="true" /></Link>
-        </div></section>
+        </section>
+        <section className="stories-section stories-section--list">
+          <div className="container">
+            <div className="stories-section__heading" lang="ar" dir="rtl">
+              <h2>{list.length} {t.storyCount}</h2>
+              {t.onlyArabic && <p lang="en">{t.onlyArabic}</p>}
+            </div>
+            <ol className="story-list-grid">
+              {list.map((story, index) => <li key={story.slug}><StoryCard story={story} index={index} /></li>)}
+            </ol>
+          </div>
+        </section>
       </Chrome>
     );
   }
 
-  // ---- chapter index ----------------------------------------------------
+  // ---- chapter index ----
   return (
     <Chrome>
-      <section className="section section--stories"><div className="container">
-        <div className="section-heading">
-          <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
-          <h1>{t.title}</h1>
-          <p>{t.intro}</p>
+      <section className="stories-list-hero" lang="ar" dir="rtl">
+        <div className="container stories-list-hero__grid">
+          <div>
+            <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
+            <h1>{t.title}</h1>
+            <p>{t.intro}</p>
+            <Link href="/stories/library" className="stories-hero__library-link"><Library size={16} aria-hidden="true" /> {t.myLibrary}</Link>
+          </div>
+          <figure className="animals-collection-cover">
+            <img src="/stories/animals/cover.jpg" alt="" width={1600} height={893} loading="lazy" />
+          </figure>
         </div>
-        <ul className="chapter-grid" aria-label={t.chooseChapter}>
-          {chapters.map(chapter => {
-            const count = stories.filter(s => s.chapter === chapter.slug).length;
-            const label = locale === "en" ? chapter.titleEn : chapter.titleAr;
-            const body = (
-              <>
-                {chapter.cover
-                  ? <img className="chapter-card__art" src={chapter.cover} alt="" loading="lazy" width={1600} height={893} />
-                  : <span className="chapter-card__art chapter-card__art--empty" aria-hidden="true" />}
-                <b>{label}</b>
-                <small>{locale === "en" ? chapter.descriptionEn : chapter.descriptionAr}</small>
-                <span className="chapter-card__meta">
-                  {chapter.available ? `${count} ${t.storiesCount}` : t.soon}
-                  {chapter.available && <Arrow size={16} aria-hidden="true" />}
-                </span>
-              </>
-            );
-            return (
-              <li key={chapter.slug}>
-                {chapter.available
-                  ? <Link href={`/stories/${chapter.slug}`} className="chapter-card">{body}</Link>
-                  : <div className="chapter-card is-soon" aria-disabled="true">{body}</div>}
-              </li>
-            );
-          })}
-        </ul>
-      </div></section>
+      </section>
+      <section className="stories-section">
+        <div className="container">
+          <div className="stories-section__heading" lang="ar" dir="rtl"><h2>{t.chooseChapter}</h2></div>
+          <ul className="story-category-grid">
+            {chapters.map(chapter => {
+              const count = stories.filter(s => s.chapter === chapter.slug).length;
+              const Icon = chapter.slug === "animals" ? PawPrint : chapter.slug === "women" ? Users : BookOpen;
+              const body = (
+                <>
+                  <span className="story-category-card__icon"><Icon size={24} aria-hidden="true" /></span>
+                  <h3 lang="ar" dir="rtl">{locale === "en" ? chapter.titleEn : chapter.titleAr}</h3>
+                  <p lang="ar" dir="rtl">{locale === "en" ? chapter.descriptionEn : chapter.descriptionAr}</p>
+                  {chapter.available
+                    ? <span className="story-category-card__link">{count} {t.storyCount} <Arrow size={15} aria-hidden="true" /></span>
+                    : <span className="story-category-card__status">{t.soon}</span>}
+                </>
+              );
+              return (
+                <li key={chapter.slug}>
+                  {chapter.available
+                    ? <Link href={`/stories/${chapter.slug}`} className="story-category-card story-category-card--available">{body}</Link>
+                    : <div className="story-category-card story-category-card--soon" aria-disabled="true">{body}</div>}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
     </Chrome>
   );
 }
