@@ -200,3 +200,37 @@
   display: block; width: 100%; aspect-ratio: 16 / 9;
   object-fit: cover; margin-bottom: .9rem;
 }
+
+/* ---- Reader: restore the two-column ayah layout ----
+   The recovered archive carries an older single-column reader: the
+   transliteration sat under the Arabic, and .ayah reserved a 3.3rem gutter on
+   the left while .ayah__number was absolutely positioned on the right — so on
+   an RTL line the number landed on top of the first word.
+
+   Modelled on the final deployed build, which this archive predates: Arabic and
+   transliteration sit side by side on a wide screen, and the number moves into
+   the gutter that was already reserved for it. Narrow screens stay stacked so
+   the Arabic never gets squeezed into one word per line. */
+
+.ayah {
+  padding: 1rem 3.3rem 1rem 1.25rem;
+  scroll-margin-block: 6.5rem;
+}
+.ayah__arabic { min-width: 0; text-align: right; }
+/* the gutter sits at the start of the line, which is the right in RTL */
+.ayah__number { right: auto; left: auto; inset-inline-end: .75rem; }
+
+@media (min-width: 900px) {
+  .ayah {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+    column-gap: 1.5rem;
+    row-gap: .15rem;
+    align-items: baseline;
+  }
+  .ayah__arabic { grid-column: 1; }
+  .ayah__transliteration {
+    grid-column: 2; margin-top: .35rem;
+    color: #667085; font-size: .86rem; line-height: 1.6; text-align: left;
+  }
+}
