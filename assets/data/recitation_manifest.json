@@ -4570,9 +4570,7 @@
           "duration_ms": 1761000,
           "ayah_count": 83,
           "timed_ayah_count": 82,
-          "unavailable_timing_ayahs": [
-            40
-          ],
+          "unavailable_timing_ayahs": [],
           "complete_word_timing_ayahs": 61,
           "partial_word_timing_ayahs": [
             "36:11",

@@ -30,18 +30,9 @@
       "qul_declared_size_bytes": 7044554
     },
     "expected_ayah_count": 83,
-    "timed_ayah_count": 82,
-    "unavailable_timing_ayahs": [
-      40
-    ],
-    "unavailable_timing_details": [
-      {
-        "ayah_key": "36:40",
-        "reason": "unusable_source_ayah_window",
-        "source_timestamp_from": 798839,
-        "source_timestamp_to": 798839
-      }
-    ],
+    "timed_ayah_count": 83,
+    "unavailable_timing_ayahs": [],
+    "unavailable_timing_details": [],
     "ayahs": [
       {
         "ayah": 1,
@@ -6320,6 +6311,46 @@
         "accepted_word_pass_count": 2,
         "excluded_outside_ayah_window_count": 1,
         "invalid_source_word_segment_count": 1
+      },
+      {
+        "ayah": 40,
+        "ayah_key": "36:40",
+        "start_ms": 798839,
+        "end_ms": 831823,
+        "source_timestamp_to": 831823,
+        "timestamp_repair": {
+          "kind": "derived_from_neighbour_boundaries",
+          "reason": "unusable_source_ayah_window",
+          "derived_start_from": "36:39.end_ms",
+          "derived_end_from": "36:41.start_ms",
+          "note": "Ayah window only. The source published no usable timestamps for this ayah, so it is bounded by its neighbours rather than aligned. Word timings are deliberately absent, not inferred."
+        },
+        "word_timing_status": "partial",
+        "missing_word_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "text_word_count": 16,
+        "source_word_segment_count": 0,
+        "display_word_segment_count": 0,
+        "accepted_word_pass_count": 0,
+        "excluded_outside_ayah_window_count": 0,
+        "invalid_source_word_segment_count": 0,
+        "words": []
       },
       {
         "ayah": 41,
