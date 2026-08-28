@@ -6448,9 +6448,7 @@
           "duration_ms": 104000,
           "ayah_count": 11,
           "timed_ayah_count": 10,
-          "unavailable_timing_ayahs": [
-            3
-          ],
+          "unavailable_timing_ayahs": [],
           "complete_word_timing_ayahs": 10,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "effb6ad773b514fa0675f7906c71287c248cef735b74e81ffaf9e0cf59bd1168",
