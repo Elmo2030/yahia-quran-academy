@@ -294,3 +294,12 @@
   .story-reading-section, .story-quran-connection, .story-lesson-card, .story-bridge { margin: 1.1rem 0; break-inside: avoid; }
   body { background: #fff; }
 }
+
+/* Drawn stand-in for stories whose chapter ships a cover instead of per-story art. */
+.story-image-placeholder { position: relative; min-height: 190px; overflow: hidden; }
+.story-image-placeholder--leaf { background: linear-gradient(145deg,#dce9b8,#71965f); }
+.story-image-placeholder__sun { position: absolute; top: 18%; left: 18%; width: 40px; aspect-ratio: 1; border-radius: 50%; background: rgb(255 250 214 / 90%); box-shadow: 0 0 0 10px rgb(255 249 214 / 15%); }
+.story-image-placeholder__hill { position: absolute; right: -14%; bottom: -34%; width: 88%; aspect-ratio: 2; border-radius: 50%; background: rgb(255 255 255 / 22%); }
+.story-image-placeholder__hill--two { left: -18%; right: auto; bottom: -36%; width: 83%; background: rgb(255 255 255 / 19%); transform: rotate(9deg); }
+.story-image-placeholder small { position: absolute; right: 1rem; bottom: .85rem; z-index: 2; max-width: 62%; color: rgb(255 255 255 / 91%); font-family: "Noto Naskh Arabic", serif; font-size: .8rem; line-height: 1.45; text-align: right; }
+.story-article__content > .story-image-placeholder { border-radius: 24px; min-height: 270px; box-shadow: 0 14px 32px rgb(0 31 63 / 8%); }

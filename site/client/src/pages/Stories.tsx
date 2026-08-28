@@ -66,13 +66,34 @@ function Chrome({ children }: { children: React.ReactNode }) {
   );
 }
 
+
+/** The prophets chapter ships one cover rather than 17 pictures, so stories
+ *  without art get the drawn placeholder the original design already defines. */
+function StoryArt({ story, className }: { story: Story; className?: string }) {
+  if (story.image) {
+    return (
+      <figure className={`story-image ${className ?? ""}`}>
+        <img src={story.image} alt="" loading="lazy" width={1200} height={670} />
+      </figure>
+    );
+  }
+  return (
+    <figure className={`story-image story-image-placeholder story-image-placeholder--leaf ${className ?? ""}`} aria-hidden="true">
+      <span className="story-image-placeholder__sun" />
+      <span className="story-image-placeholder__hill" />
+      <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
+      <small lang="ar" dir="rtl">{story.title}</small>
+    </figure>
+  );
+}
+
 function StoryCard({ story, index }: { story: Story; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
-      <figure className="story-image"><img src={story.image} alt="" loading="lazy" width={1200} height={670} /></figure>
+      <StoryArt story={story} />
       <div className="story-list-card__body" lang="ar" dir="rtl">
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{story.title}</h3>
@@ -173,7 +194,7 @@ export default function Stories() {
                   </button>
                 </div>
               </div>
-              <figure className="story-image"><img src={story.image} alt="" width={1200} height={670} /></figure>
+              <StoryArt story={story} />
             </div>
           </div>
         </section>
