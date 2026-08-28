@@ -217,13 +217,14 @@
   scroll-margin-block: 6.5rem;
 }
 .ayah__arabic { min-width: 0; text-align: right; }
-/* the gutter sits at the start of the line, which is the right in RTL */
-.ayah__number { right: auto; left: auto; inset-inline-end: .75rem; }
+/* padding-right is the reserved gutter, so the number belongs there:
+   in RTL that is the start of the line, clear of both text columns */
+.ayah__number { left: auto; right: .75rem; }
 
 @media (min-width: 900px) {
   .ayah {
     display: grid;
-    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
     column-gap: 1.5rem;
     row-gap: .15rem;
     align-items: baseline;
@@ -233,4 +234,51 @@
     grid-column: 2; margin-top: .35rem;
     color: #667085; font-size: .86rem; line-height: 1.6; text-align: left;
   }
+}
+
+/* ---- Recitation picker and synchronised highlighting ---- */
+
+.recitation-picker { display: grid; gap: .45rem; min-width: min(100%, 270px); }
+.recitation-picker__label { color: #d4e3ff; font-size: .74rem; }
+.recitation-picker__options { display: flex; flex-wrap: wrap; gap: .4rem; }
+.recitation-chip {
+  flex: 1 1 8rem; min-width: 0;
+  display: grid; gap: .12rem; padding: .5rem .6rem;
+  border-radius: 12px; text-align: start;
+  color: #d4e3ff; background: rgb(255 255 255 / 9%);
+  border: 1px solid rgb(255 255 255 / 14%);
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+.recitation-chip:hover { background: rgb(255 255 255 / 15%); }
+.recitation-chip b { font-size: .74rem; font-weight: 700; line-height: 1.35;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recitation-chip small { font-size: .6rem; opacity: .72; line-height: 1.3;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recitation-chip.is-active {
+  color: #001F3F; background: #e0fbaf; border-color: #d4af37;
+}
+.recitation-chip:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
+
+/* The ayah being recited right now. */
+.ayah--active {
+  background: linear-gradient(90deg, #fffdf5, #f6fbe6);
+  box-shadow: inset 0 0 0 1px #e6dfc9;
+  border-radius: 14px;
+}
+.ayah--active .ayah__number { border-color: #556B2F; color: #556B2F; }
+
+/* The word inside it. Padding is negative-margined back so highlighting a word
+   never nudges the line and shifts the rest of the ayah sideways. */
+.ayah__word {
+  border-radius: .4rem;
+  transition: color .14s ease, background .14s ease;
+}
+.ayah__word--active {
+  color: #26421b;
+  background: #d9f2a3;
+  box-shadow: 0 0 0 .18em #d9f2a3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ayah__word, .recitation-chip { transition: none; }
 }
