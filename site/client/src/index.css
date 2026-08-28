@@ -282,3 +282,51 @@
 @media (prefers-reduced-motion: reduce) {
   .ayah__word, .recitation-chip { transition: none; }
 }
+
+/* ---- Story chapters, library and print ---- */
+
+.chapter-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+.chapter-card {
+  display: flex; flex-direction: column; gap: .45rem; height: 100%;
+  padding: 0 0 1.4rem; overflow: hidden;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 1rem; text-decoration: none; color: inherit;
+  background: color-mix(in srgb, currentColor 3%, transparent);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.chapter-card > :not(.chapter-card__art) { margin-inline: 1.3rem; }
+a.chapter-card:hover, a.chapter-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, currentColor 28%, transparent);
+}
+.chapter-card__art { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: .8rem; }
+.chapter-card__art--empty { background: color-mix(in srgb, currentColor 7%, transparent); }
+.chapter-card b { font-size: 1.1rem; line-height: 1.4; }
+.chapter-card small { font-size: .88rem; line-height: 1.65; opacity: .72; }
+.chapter-card__meta {
+  margin-top: auto; padding-top: .7rem; display: inline-flex; align-items: center;
+  gap: .4rem; font-size: .86rem; font-weight: 600;
+}
+.chapter-card.is-soon { opacity: .55; }
+.chapter-card.is-soon .chapter-card__meta { font-weight: 500; }
+
+.story-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1.4rem; }
+.story-actions .button { display: inline-flex; align-items: center; gap: .45rem; }
+.story-actions .button.is-active {
+  color: #26421b; background: #d9f2a3;
+  border-color: color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.story-ayah__prose { margin: 0; line-height: 2; }
+
+@media print {
+  .no-print, .site-header, .site-footer, .story-actions { display: none !important; }
+  .story-body { max-width: none; }
+  .story-art { max-height: 9cm; object-fit: cover; }
+  .story-teaser { break-inside: avoid; }
+  body { background: white; }
+}
