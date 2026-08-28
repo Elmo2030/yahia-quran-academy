@@ -90,7 +90,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Yehia',
+                  'Yahia',
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.w700,
@@ -112,17 +112,28 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 const SizedBox(height: 40),
 
                 if (_isSignUp)
-                  _Field(controller: _nameCtrl, hint: 'Full Name', icon: Icons.person_outline_rounded),
+                  _Field(
+                      controller: _nameCtrl,
+                      hint: 'Full Name',
+                      icon: Icons.person_outline_rounded),
                 if (_isSignUp) const SizedBox(height: 12),
-                _Field(controller: _emailCtrl, hint: 'Email', icon: Icons.email_outlined),
+                _Field(
+                    controller: _emailCtrl,
+                    hint: 'Email',
+                    icon: Icons.email_outlined),
                 const SizedBox(height: 12),
-                _Field(controller: _passwordCtrl, hint: 'Password', icon: Icons.lock_outline_rounded, obscure: true),
+                _Field(
+                    controller: _passwordCtrl,
+                    hint: 'Password',
+                    icon: Icons.lock_outline_rounded,
+                    obscure: true),
 
                 if (_error != null) ...[
                   const SizedBox(height: 12),
                   Text(
                     _error!,
-                    style: const TextStyle(color: AppColors.error, fontSize: 13),
+                    style:
+                        const TextStyle(color: AppColors.error, fontSize: 13),
                     textAlign: TextAlign.center,
                   ),
                 ],

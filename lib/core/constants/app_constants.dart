@@ -1,4 +1,5 @@
 abstract final class AppConstants {
+  static const academyName = 'Yahia Quran Academy';
   // ponytail: env vars via --dart-define at build time, no .env lib needed
   static const supabaseUrl = String.fromEnvironment(
     'SUPABASE_URL',

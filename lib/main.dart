@@ -19,11 +19,11 @@ Future<void> main() async {
     debugPrint('Supabase init failed: $e — app will run in offline mode');
   }
 
-  runApp(const ProviderScope(child: YehiaQuranApp()));
+  runApp(const ProviderScope(child: YahiaQuranApp()));
 }
 
-class YehiaQuranApp extends ConsumerWidget {
-  const YehiaQuranApp({super.key});
+class YahiaQuranApp extends ConsumerWidget {
+  const YahiaQuranApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,7 +31,7 @@ class YehiaQuranApp extends ConsumerWidget {
     ref.watch(syncEngineProvider);
 
     return MaterialApp.router(
-      title: 'Yehia Quran Academy',
+      title: AppConstants.academyName,
       theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
       routerConfig: router,
@@ -101,7 +101,7 @@ class _SplashGateState extends State<_SplashGate> {
                     ),
                     const SizedBox(height: 24),
                     const Text(
-                      'Yehia',
+                      'Yahia',
                       style: TextStyle(
                         fontSize: 42,
                         fontWeight: FontWeight.w700,

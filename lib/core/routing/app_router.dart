@@ -5,6 +5,7 @@ import '../../features/auth/data/auth_repository.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/journey_map/presentation/journey_map_screen.dart';
 import '../../features/parent_dashboard/presentation/parent_dashboard_screen.dart';
+import '../../features/review/presentation/review_queue_screen.dart';
 import '../../features/recitation/presentation/recitation_room_screen.dart';
 import '../../shared/models/profile.dart';
 
@@ -34,6 +35,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/journey',
         builder: (context, state) => const JourneyMapScreen(),
+      ),
+      GoRoute(
+        path: '/review',
+        builder: (context, state) => const ReviewQueueScreen(),
       ),
       GoRoute(
         path: '/recitation',

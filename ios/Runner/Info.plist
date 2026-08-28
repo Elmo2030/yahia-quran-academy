@@ -8,13 +8,13 @@
 		<true/>
 	</dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Yehia Quran Academy needs microphone access so Yahya can hear you recite the Quran.</string>
+	<string>Yahia Quran Academy needs microphone access so Yahia can hear you recite the Quran.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Yehia Quran Academy</string>
+	<string>Yahia Quran Academy</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

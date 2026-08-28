@@ -7,6 +7,8 @@ import '../../../core/audio/audio_player_service.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../auth/data/auth_repository.dart';
 import '../../recitation/data/recording_repository.dart';
+import '../../review/data/review_queue_repository.dart';
+import '../../review/domain/review_schedule.dart';
 import '../domain/dashboard_state.dart';
 import '../domain/parent_dashboard_controller.dart';
 import '../domain/parent_recording_feed.dart';
@@ -103,6 +105,8 @@ class _DashboardContent extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         const _ChildProfilePanel(),
+        const SizedBox(height: 24),
+        const _DueReviewSummary(),
         const SizedBox(height: 24),
         KpiCard(
           title: 'وقت التدريب هذا الأسبوع',
@@ -216,7 +220,9 @@ class _ChildProfilePanel extends ConsumerWidget {
                 Text(
                   'ملفات الأطفال',
                   style: TextStyle(
-                      color: AppColors.navy, fontWeight: FontWeight.w700,),
+                    color: AppColors.navy,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             ),
@@ -326,6 +332,62 @@ class _ChildProfilePanel extends ConsumerWidget {
         );
       }
     }
+  }
+}
+
+class _DueReviewSummary extends ConsumerWidget {
+  const _DueReviewSummary();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final queue = ref.watch(dueReviewItemsProvider);
+    return queue.when(
+      loading: () => const SizedBox(
+        height: 72,
+        child: Center(child: CircularProgressIndicator(color: AppColors.olive)),
+      ),
+      error: (_, __) => const _MessageCard(
+        title: 'مراجعة اليوم',
+        body: 'ستظهر الآيات المستحقة عند توفر القائمة المحلية.',
+      ),
+      data: (items) => Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: AppColors.navy,
+          borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.replay_rounded, color: AppColors.gold, size: 30),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'آيات تحتاج مراجعة · ${items.length}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    items.isEmpty
+                        ? 'لا توجد مراجعات مستحقة الآن.'
+                        : 'يمكنك الاستماع إلى تسجيل الطفل ثم اختيار الحكم المناسب.',
+                    style:
+                        TextStyle(color: Colors.white.withValues(alpha: 0.72)),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -550,7 +612,8 @@ class _RecentRecordingsSection extends ConsumerWidget {
             if (items.isEmpty) {
               return const _MessageCard(
                 title: 'لا توجد تسجيلات محفوظة بعد',
-                body: 'بعد أن يتدرّب الطفل على آية، ستظهر آخر تلاوة هنا للاستماع والمراجعة.',
+                body:
+                    'بعد أن يتدرّب الطفل على آية، ستظهر آخر تلاوة هنا للاستماع والمراجعة.',
               );
             }
             return Column(
@@ -617,7 +680,17 @@ class _ParentRecordingCardState extends ConsumerState<_ParentRecordingCard> {
             reviewerId: reviewerId,
             verdict: verdict,
           );
+      await ref.read(reviewQueueStoreProvider).applyVerdict(
+            profileId: widget.item.recording.profileId,
+            surah: widget.item.recording.surah,
+            ayah: widget.item.recording.ayah,
+            verdict: verdict == ParentVerdict.good
+                ? ReviewVerdict.good
+                : ReviewVerdict.needsWork,
+            eventAt: DateTime.now().toUtc(),
+          );
       ref.invalidate(parentRecordingFeedProvider);
+      ref.invalidate(dueReviewItemsProvider);
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -638,7 +711,8 @@ class _ParentRecordingCardState extends ConsumerState<_ParentRecordingCard> {
   Widget build(BuildContext context) {
     final recording = widget.item.recording;
     final review = widget.item.latestReview;
-    final date = '${recording.recordedAt.day}/${recording.recordedAt.month}/${recording.recordedAt.year}';
+    final date =
+        '${recording.recordedAt.day}/${recording.recordedAt.month}/${recording.recordedAt.year}';
     final durationSeconds = (recording.durationMs / 1000).ceil();
     return Container(
       width: double.infinity,
