@@ -62,3 +62,6 @@ backend/__pycache__/
 # Site build output
 site/dist/
 site/node_modules/
+
+# Generated beside the function at build time
+site/functions/page-data.js

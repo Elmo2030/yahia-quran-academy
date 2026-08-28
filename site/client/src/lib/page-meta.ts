@@ -9,8 +9,10 @@
  * correctly in one place and generically in the other.
  */
 
-import { chapters, stories } from "@/content/stories";
-import { surahNames } from "@/lib/quran-content";
+// Relative, not aliased: the Cloudflare function imports this module too,
+// and its esbuild pass does not know about the "@" alias.
+import { chapters, stories } from "../content/stories";
+import { surahNames } from "./quran-content";
 
 export const SITE_NAME = "أكاديمية يحيى لتعليم القرآن للأطفال";
 export const SITE_DESCRIPTION =
