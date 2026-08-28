@@ -6,6 +6,7 @@ import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/models/practice_session_record.dart';
 import '../domain/journey_state.dart';
+import '../../review/data/review_queue_repository.dart';
 
 /// Child journey built from actual self-review sessions, not points or unlocks.
 class JourneyMapScreen extends ConsumerWidget {
@@ -88,6 +89,8 @@ class _JourneyContent extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         _PracticeTotals(summary: summary),
+        const SizedBox(height: 18),
+        const _ReviewTodayEntry(),
         const SizedBox(height: 24),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -139,6 +142,96 @@ class _JourneyContent extends StatelessWidget {
                     ),
         ),
       ],
+    );
+  }
+}
+
+class _ReviewTodayEntry extends ConsumerWidget {
+  const _ReviewTodayEntry();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final queue = ref.watch(dueReviewItemsProvider);
+    return queue.when(
+      loading: () => const SizedBox(
+        height: 72,
+        child: Center(child: CircularProgressIndicator(color: AppColors.olive)),
+      ),
+      error: (_, __) => _ReviewEntryCard(
+        title: 'مراجعة اليوم',
+        message: 'تعذّر قراءة القائمة الآن. حاول فتحها مرة أخرى.',
+        onTap: () => context.push('/review'),
+      ),
+      data: (items) => _ReviewEntryCard(
+        title: items.isEmpty
+            ? 'مراجعة اليوم'
+            : 'مراجعة اليوم · ${items.length} آيات',
+        message: items.isEmpty
+            ? 'لا توجد آيات مستحقة الآن. ستظهر هنا عند حلول موعدها.'
+            : 'ابدأ بآية واحدة، واستمع ثم كرّر وسجّل وراجع نفسك.',
+        onTap: () => context.push('/review'),
+      ),
+    );
+  }
+}
+
+class _ReviewEntryCard extends StatelessWidget {
+  final String title;
+  final String message;
+  final VoidCallback onTap;
+
+  const _ReviewEntryCard({
+    required this.title,
+    required this.message,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: title,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+        child: Ink(
+          width: double.infinity,
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            color: AppColors.navy,
+            borderRadius: BorderRadius.circular(AppConstants.cornerRadiusLarge),
+          ),
+          child: Row(
+            children: [
+              const Icon(Icons.replay_rounded, color: AppColors.gold, size: 32),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      message,
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.72),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_left_rounded, color: Colors.white),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

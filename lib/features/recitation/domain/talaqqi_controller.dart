@@ -10,6 +10,7 @@ import '../data/audio_asset_repository.dart';
 import '../data/memorization_repository.dart';
 import '../data/quran_content_repository.dart';
 import '../data/recording_repository.dart';
+import '../../review/data/review_queue_repository.dart';
 import 'talaqqi_state.dart';
 
 /// Metadata for a verified ayah segment supplied by a future timing asset.
@@ -39,6 +40,7 @@ class AyahSegment {
 final talaqqiProvider =
     StateNotifierProvider.autoDispose<TalaqqiController, TalaqqiState>((ref) {
   final profile = ref.watch(activeLearnerProfileProvider);
+  final reviewTarget = ref.watch(reviewTargetProvider);
   return TalaqqiController(
     player: ref.watch(audioPlayerServiceProvider),
     recorder: ref.watch(audioRecordingServiceProvider),
@@ -46,7 +48,10 @@ final talaqqiProvider =
     audioAssets: ref.watch(audioAssetRepositoryProvider),
     sessionSink: ref.watch(memorizationRepositoryProvider),
     recordingStore: ref.watch(recordingStoreProvider),
+    reviewQueueStore: ref.watch(reviewQueueStoreProvider),
     profileId: profile?.id,
+    surah: reviewTarget?.surah ?? 1,
+    initialAyah: reviewTarget?.ayah ?? 1,
   );
 });
 
@@ -62,6 +67,7 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
   final AudioAssetRepository audioAssets;
   final PracticeSessionSink? sessionSink;
   final RecordingStore? recordingStore;
+  final ReviewQueueStore? reviewQueueStore;
   final String? profileId;
   final int _surah;
   Timer? _progressTimer;
@@ -86,12 +92,20 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     required this.audioAssets,
     this.sessionSink,
     this.recordingStore,
+    this.reviewQueueStore,
     this.profileId,
     int surah = 1,
+    int initialAyah = 1,
     RecitationId recitationId = defaultRecitationId,
   })  : _surah = surah,
         _recitationId = recitationId,
-        super(TalaqqiState(surah: surah, recitationId: recitationId)) {
+        super(
+          TalaqqiState(
+            surah: surah,
+            currentAyah: initialAyah < 1 ? 1 : initialAyah,
+            recitationId: recitationId,
+          ),
+        ) {
     _positionSubscription = player.positionStream.listen(_onPlaybackPosition);
     _playingSubscription = player.playingStream.listen(_onPlayingChanged);
     unawaited(_ensurePracticeContentLoaded());
@@ -457,29 +471,38 @@ class TalaqqiController extends StateNotifier<TalaqqiState> {
     final startedAt = _sessionStartedAt;
     final childProfileId = profileId;
     final sink = sessionSink;
-    if (id == null ||
-        startedAt == null ||
-        childProfileId == null ||
-        sink == null) {
+    final reviewQueue = reviewQueueStore;
+    if (id == null || startedAt == null || childProfileId == null) {
       _clearSession();
       return;
     }
 
     final endedAt = DateTime.now().toUtc();
     try {
-      await sink.logPracticeSession(
-        PracticeSession(
-          id: id,
+      if (sink != null) {
+        await sink.logPracticeSession(
+          PracticeSession(
+            id: id,
+            profileId: childProfileId,
+            surah: state.surah,
+            ayahStart: _sessionStartAyah,
+            ayahEnd: state.totalAyahs,
+            durationSeconds: endedAt.difference(startedAt).inSeconds,
+            attemptCount: _sessionAttemptCount,
+            startedAt: startedAt,
+            endedAt: endedAt,
+          ),
+        );
+      }
+      if (reviewQueue != null) {
+        await reviewQueue.enqueueSession(
           profileId: childProfileId,
           surah: state.surah,
           ayahStart: _sessionStartAyah,
           ayahEnd: state.totalAyahs,
-          durationSeconds: endedAt.difference(startedAt).inSeconds,
-          attemptCount: _sessionAttemptCount,
-          startedAt: startedAt,
-          endedAt: endedAt,
-        ),
-      );
+          eventAt: endedAt,
+        );
+      }
     } finally {
       _clearSession();
     }
