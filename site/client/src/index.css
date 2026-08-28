@@ -187,3 +187,16 @@
   .story-card { transition: none; }
   .story-card:hover, .story-card:focus-visible { transform: none; }
 }
+
+.stories-hero, .story-art {
+  display: block; width: 100%; height: auto;
+  border-radius: 1.1rem; margin-bottom: 2.2rem;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+}
+.story-art { margin: 1.4rem 0 2rem; }
+.story-card { padding: 0 0 1.5rem; overflow: hidden; }
+.story-card > :not(.story-card__art) { margin-inline: 1.4rem; }
+.story-card__art {
+  display: block; width: 100%; aspect-ratio: 16 / 9;
+  object-fit: cover; margin-bottom: .9rem;
+}

@@ -110,10 +110,12 @@ export default function Stories() {
               <p>{t.intro}</p>
               {t.onlyArabic && <p className="story-language-note" lang="en">{t.onlyArabic}</p>}
             </div>
+            <img className="stories-hero" src="/stories/hero.jpg" alt="" width={1600} height={893} />
             <ol className="story-grid">
               {stories.map((story, index) => (
                 <li key={story.slug}>
                   <Link href={`/stories/${story.slug}`} className="story-card">
+                    <img className="story-card__art" src={story.image} alt="" loading="lazy" width={1200} height={670} />
                     <span className="story-card__index">{String(index + 1).padStart(2, "0")}</span>
                     <b lang="ar" dir="rtl">{story.title}</b>
                     <small lang="ar" dir="rtl">{story.hook}</small>
@@ -150,6 +152,8 @@ export default function Stories() {
         <div className="container story-body">
           <span className="eyebrow eyebrow--gold">{t.storyOf} {index + 1} / {stories.length}</span>
           <h1>{story.title}</h1>
+
+          <img className="story-art" src={story.image} alt="" width={1200} height={670} />
 
           <p className="story-hook">{story.hook}</p>
 

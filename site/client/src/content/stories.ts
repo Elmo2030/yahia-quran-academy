@@ -13,12 +13,14 @@ export type Story = {
   events: string;
   lesson: string;
   next: string;
+  image: string;
   ayah: { ref: string; surah: number; number: number; text: string };
 };
 
 export const stories: Story[] = [
   {
     slug: "maryam",
+    image: "/stories/maryam.jpg",
     title: "مريم ابنة عمران",
     surahName: "آل عمران",
     hook: "هل تعرفون قصة طفلة صغيرة عاشت في المسجد، وكان يأتيها طعام لذيذ من السماء؟ كيف حدث ذلك؟ ومن هي هذه الفتاة الطيبة؟",
@@ -29,6 +31,7 @@ export const stories: Story[] = [
   },
   {
     slug: "asiya",
+    image: "/stories/asiya.jpg",
     title: "آسية امرأة فرعون",
     surahName: "التحريم",
     hook: "تخيلوا أن تعيشوا في قصر كبير مليء بالذهب والألعاب، لكن الحاكم هناك شرير جدًا! ماذا ستفعلون؟ هل ستكونون أشرارًا مثله أم تختارون طريق الخير؟",
@@ -39,6 +42,7 @@ export const stories: Story[] = [
   },
   {
     slug: "hawwa",
+    image: "/stories/hawwa.jpg",
     title: "السيدة حواء",
     surahName: "البقرة",
     hook: "هل سألتم أنفسكم يومًا من أين جاء كل هؤلاء الناس في العالم؟ من كان أول رجل وأول امرأة على الأرض؟",
@@ -49,6 +53,7 @@ export const stories: Story[] = [
   },
   {
     slug: "sarah",
+    image: "/stories/sarah.jpg",
     title: "السيدة سارة",
     surahName: "هود",
     hook: "هل يمكن لشجرة قديمة جدًا أن تثمر فجأة تفاحًا لذيذًا؟ هذا مستحيل! لكن الله قادر على كل شيء.",
@@ -59,6 +64,7 @@ export const stories: Story[] = [
   },
   {
     slug: "hajar",
+    image: "/stories/hajar.jpg",
     title: "السيدة هاجر",
     surahName: "إبراهيم",
     hook: "تخيلوا أنفسكم في صحراء حارة جدًا، لا يوجد بها شجر ولا ماء ولا أصدقاء تلعبون معهم. وفجأة، يبكي طفل صغير من العطش! ماذا ستفعل أمه؟",
@@ -69,6 +75,7 @@ export const stories: Story[] = [
   },
   {
     slug: "bilqis",
+    image: "/stories/bilqis.jpg",
     title: "ملكة سبأ",
     surahName: "النمل",
     hook: "هل تحبون القصص عن الملوك والملكات والقلاع الكبيرة؟ اليوم لدينا قصة عن ملكة ذكية جدًا، وصلتها رسالة من ملك بعيد، لم يحضرها ساعي البريد، بل أحضرها طائر!",
@@ -79,6 +86,7 @@ export const stories: Story[] = [
   },
   {
     slug: "imraat_alaziz",
+    image: "/stories/imraat_alaziz.jpg",
     title: "امرأة العزيز",
     surahName: "يوسف",
     hook: "هل حدث وأن اتهمكم أحد بشيء لم تفعلوه؟ إنه شعور سيء جدًا! في قصتنا اليوم، هناك شاب طيب جدًا اتُهم ظلمًا…",
@@ -89,6 +97,7 @@ export const stories: Story[] = [
   },
   {
     slug: "nuh_lut",
+    image: "/stories/nuh_lut.jpg",
     title: "امرأة نوح وامرأة لوط",
     surahName: "التحريم",
     hook: "تخيلوا أن يكون زوجكم نبيًا يعلمه الله كل شيء، ويدل الناس على طريق الجنة… هل يعقل ألا تسمعوا كلامه؟",
