@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yahia-quran-academy.pages.dev/sitemap.xml

@@ -1,0 +1,19 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; media-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; connect-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+# Vite fingerprints these, so a change ships under a new name.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Story art and covers change rarely and are not fingerprinted.
+/stories/*
+  Cache-Control: public, max-age=604800
+
+# Quran text, manifests and transliteration.
+/manus-storage/*
+  Cache-Control: public, max-age=86400
