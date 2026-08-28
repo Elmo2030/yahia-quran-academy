@@ -1,0 +1,1148 @@
+{
+  "schema_version": "source-r2-range-hash-audit-v1",
+  "checked_at": "2026-08-27T10:29:09.779Z",
+  "policy": "Each byte range is requested from the source with an exact Content-Range assertion. The streamed SHA-256 is compared with the full R2 SHA-256 recorded after upload.",
+  "range_size_bytes": 4194304,
+  "entries": {
+    "100": {
+      "status": "verified",
+      "surah": 100,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/100.mp3",
+      "source_size_bytes": 1511553,
+      "ranges_checked": 1,
+      "source_sha256": "a2358f2f91c5ce2e91f7f35acfb47fc8121cffdffed2bb0a29588ae7348af7bb",
+      "r2_sha256": "a2358f2f91c5ce2e91f7f35acfb47fc8121cffdffed2bb0a29588ae7348af7bb",
+      "sha256_match": true
+    },
+    "101": {
+      "status": "verified",
+      "surah": 101,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/101.mp3",
+      "source_size_bytes": 1326815,
+      "ranges_checked": 1,
+      "source_sha256": "ef92bcc53deac4dff0760aca0618691ba492bb7cc683b045b383ed2b56bd29ea",
+      "r2_sha256": "ef92bcc53deac4dff0760aca0618691ba492bb7cc683b045b383ed2b56bd29ea",
+      "sha256_match": true
+    },
+    "102": {
+      "status": "verified",
+      "surah": 102,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/102.mp3",
+      "source_size_bytes": 1009585,
+      "ranges_checked": 1,
+      "source_sha256": "e174a0f2ecda25b8e93a9558a54ae86b504481684d3719d137b857b73fa40cba",
+      "r2_sha256": "e174a0f2ecda25b8e93a9558a54ae86b504481684d3719d137b857b73fa40cba",
+      "sha256_match": true
+    },
+    "103": {
+      "status": "verified",
+      "surah": 103,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/103.mp3",
+      "source_size_bytes": 590786,
+      "ranges_checked": 1,
+      "source_sha256": "d662c4b8e9403360f2c254185dc836199e3a6df6ac5a0002a011b0d18b8082af",
+      "r2_sha256": "d662c4b8e9403360f2c254185dc836199e3a6df6ac5a0002a011b0d18b8082af",
+      "sha256_match": true
+    },
+    "104": {
+      "status": "verified",
+      "surah": 104,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/104.mp3",
+      "source_size_bytes": 1369029,
+      "ranges_checked": 1,
+      "source_sha256": "f648536af6f8ab2889c5bc34c18ee1cb9662a5d7615750ee42c5a772c234d7ac",
+      "r2_sha256": "f648536af6f8ab2889c5bc34c18ee1cb9662a5d7615750ee42c5a772c234d7ac",
+      "sha256_match": true
+    },
+    "105": {
+      "status": "verified",
+      "surah": 105,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/105.mp3",
+      "source_size_bytes": 825260,
+      "ranges_checked": 1,
+      "source_sha256": "97267369ac99f6df6fc16af27c01790ea89e97ff724743aab2247bdba45453a9",
+      "r2_sha256": "97267369ac99f6df6fc16af27c01790ea89e97ff724743aab2247bdba45453a9",
+      "sha256_match": true
+    },
+    "106": {
+      "status": "verified",
+      "surah": 106,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/106.mp3",
+      "source_size_bytes": 679811,
+      "ranges_checked": 1,
+      "source_sha256": "7c7c70c0b0f64affe8bd2308f4666f1bf9a786756767f494d462950b6a66bc1a",
+      "r2_sha256": "7c7c70c0b0f64affe8bd2308f4666f1bf9a786756767f494d462950b6a66bc1a",
+      "sha256_match": true
+    },
+    "107": {
+      "status": "verified",
+      "surah": 107,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/107.mp3",
+      "source_size_bytes": 992864,
+      "ranges_checked": 1,
+      "source_sha256": "b24b407122aedaae9266f7ce9d0c4892cac1260b64bae8041c0710d8c62df9db",
+      "r2_sha256": "b24b407122aedaae9266f7ce9d0c4892cac1260b64bae8041c0710d8c62df9db",
+      "sha256_match": true
+    },
+    "108": {
+      "status": "verified",
+      "surah": 108,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/108.mp3",
+      "source_size_bytes": 401035,
+      "ranges_checked": 1,
+      "source_sha256": "5e09ddfdde0e0618b423d579d6515cd155b5c043a00b6c49a2b16cf21a8bbaab",
+      "r2_sha256": "5e09ddfdde0e0618b423d579d6515cd155b5c043a00b6c49a2b16cf21a8bbaab",
+      "sha256_match": true
+    },
+    "109": {
+      "status": "verified",
+      "surah": 109,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/109.mp3",
+      "source_size_bytes": 884614,
+      "ranges_checked": 1,
+      "source_sha256": "9a301031a023f30b1ddc5272380d1009b2bc21407f9438e6098d5e9eb47a0fbc",
+      "r2_sha256": "9a301031a023f30b1ddc5272380d1009b2bc21407f9438e6098d5e9eb47a0fbc",
+      "sha256_match": true
+    },
+    "110": {
+      "status": "verified",
+      "surah": 110,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/110.mp3",
+      "source_size_bytes": 661003,
+      "ranges_checked": 1,
+      "source_sha256": "187d1a7026c4140ccf1a7be40e79a60c152d0bdef2b1828401e5b2c04fccf8d7",
+      "r2_sha256": "187d1a7026c4140ccf1a7be40e79a60c152d0bdef2b1828401e5b2c04fccf8d7",
+      "sha256_match": true
+    },
+    "111": {
+      "status": "verified",
+      "surah": 111,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/111.mp3",
+      "source_size_bytes": 690261,
+      "ranges_checked": 1,
+      "source_sha256": "b142c442d17b0cec26df83cdac53633b8ce01207a39ea965844e1da62aacf8e9",
+      "r2_sha256": "b142c442d17b0cec26df83cdac53633b8ce01207a39ea965844e1da62aacf8e9",
+      "sha256_match": true
+    },
+    "112": {
+      "status": "verified",
+      "surah": 112,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/112.mp3",
+      "source_size_bytes": 424440,
+      "ranges_checked": 1,
+      "source_sha256": "a2f5e2b13381a1ba07a238400e5a26830a090afc6392bdf87fb9fe7215d40717",
+      "r2_sha256": "a2f5e2b13381a1ba07a238400e5a26830a090afc6392bdf87fb9fe7215d40717",
+      "sha256_match": true
+    },
+    "113": {
+      "status": "verified",
+      "surah": 113,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/113.mp3",
+      "source_size_bytes": 602908,
+      "ranges_checked": 1,
+      "source_sha256": "3bf698a792d991a57597c6b9b13b4ce0ba034bf07724e1a3c44249f303e53555",
+      "r2_sha256": "3bf698a792d991a57597c6b9b13b4ce0ba034bf07724e1a3c44249f303e53555",
+      "sha256_match": true
+    },
+    "114": {
+      "status": "verified",
+      "surah": 114,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/114.mp3",
+      "source_size_bytes": 749191,
+      "ranges_checked": 1,
+      "source_sha256": "44a45f138e00f66656ac88361748f422cca563b26208a28d3b670a80041feb37",
+      "r2_sha256": "44a45f138e00f66656ac88361748f422cca563b26208a28d3b670a80041feb37",
+      "sha256_match": true
+    },
+    "001": {
+      "status": "verified",
+      "surah": 1,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/001.mp3",
+      "source_size_bytes": 1037585,
+      "ranges_checked": 1,
+      "source_sha256": "58f9cf8f0d6f0459ca6a2fcd598e310092d20c34d3b4f5e3cf019e9ba7e94239",
+      "r2_sha256": "58f9cf8f0d6f0459ca6a2fcd598e310092d20c34d3b4f5e3cf019e9ba7e94239",
+      "sha256_match": true
+    },
+    "002": {
+      "status": "verified",
+      "surah": 2,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/002.mp3",
+      "source_size_bytes": 222904939,
+      "ranges_checked": 54,
+      "source_sha256": "0de2098c1e29a361ba0766a7a8a01f0f3e8ea012fd34da9bc0573a956c622200",
+      "r2_sha256": "0de2098c1e29a361ba0766a7a8a01f0f3e8ea012fd34da9bc0573a956c622200",
+      "sha256_match": true
+    },
+    "003": {
+      "status": "verified",
+      "surah": 3,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/003.mp3",
+      "source_size_bytes": 127043502,
+      "ranges_checked": 31,
+      "source_sha256": "c306f1e547eba8d9740c91b91a989e9d776fa605529e5c05b76c4797dd8d6aae",
+      "r2_sha256": "c306f1e547eba8d9740c91b91a989e9d776fa605529e5c05b76c4797dd8d6aae",
+      "sha256_match": true
+    },
+    "004": {
+      "status": "verified",
+      "surah": 4,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/004.mp3",
+      "source_size_bytes": 111498449,
+      "ranges_checked": 27,
+      "source_sha256": "7f19de40385a66cc97e510182927ce71f3fbc9ce16f3fbc425fea7ae7f6653bb",
+      "r2_sha256": "7f19de40385a66cc97e510182927ce71f3fbc9ce16f3fbc425fea7ae7f6653bb",
+      "sha256_match": true
+    },
+    "005": {
+      "status": "verified",
+      "surah": 5,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/005.mp3",
+      "source_size_bytes": 104970232,
+      "ranges_checked": 26,
+      "source_sha256": "f35c799c1d9194d4299e503ce0ce426c44b45e6f4efeb594979de9cc18ce58c9",
+      "r2_sha256": "f35c799c1d9194d4299e503ce0ce426c44b45e6f4efeb594979de9cc18ce58c9",
+      "sha256_match": true
+    },
+    "006": {
+      "status": "verified",
+      "surah": 6,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/006.mp3",
+      "source_size_bytes": 107956976,
+      "ranges_checked": 26,
+      "source_sha256": "30fb0600e36771ef0916d3a8350f4bd538a78ca9c75d27cbd55f0933926fd39f",
+      "r2_sha256": "30fb0600e36771ef0916d3a8350f4bd538a78ca9c75d27cbd55f0933926fd39f",
+      "sha256_match": true
+    },
+    "007": {
+      "status": "verified",
+      "surah": 7,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/007.mp3",
+      "source_size_bytes": 109313671,
+      "ranges_checked": 27,
+      "source_sha256": "bafe149fa0b905f38a55b4a0f0c260e85c796d8ceb53b11eaab2ab87f559d680",
+      "r2_sha256": "bafe149fa0b905f38a55b4a0f0c260e85c796d8ceb53b11eaab2ab87f559d680",
+      "sha256_match": true
+    },
+    "008": {
+      "status": "verified",
+      "surah": 8,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/008.mp3",
+      "source_size_bytes": 46353972,
+      "ranges_checked": 12,
+      "source_sha256": "e11c77f0058f44dc296a376bec612f9150f8d31d05d45a71a2a7153914ae86bb",
+      "r2_sha256": "e11c77f0058f44dc296a376bec612f9150f8d31d05d45a71a2a7153914ae86bb",
+      "sha256_match": true
+    },
+    "009": {
+      "status": "verified",
+      "surah": 9,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/009.mp3",
+      "source_size_bytes": 92031478,
+      "ranges_checked": 22,
+      "source_sha256": "e6edfee8c89e3c072ee21b7d726b7ff1f5358140bd5ca7faf77bff175078697e",
+      "r2_sha256": "e6edfee8c89e3c072ee21b7d726b7ff1f5358140bd5ca7faf77bff175078697e",
+      "sha256_match": true
+    },
+    "010": {
+      "status": "verified",
+      "surah": 10,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/010.mp3",
+      "source_size_bytes": 63608161,
+      "ranges_checked": 16,
+      "source_sha256": "c0360deb3b1597767c452eba81c6293a4af2ed7272408da7454f22117e1b399c",
+      "r2_sha256": "c0360deb3b1597767c452eba81c6293a4af2ed7272408da7454f22117e1b399c",
+      "sha256_match": true
+    },
+    "011": {
+      "status": "verified",
+      "surah": 11,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/011.mp3",
+      "source_size_bytes": 68531718,
+      "ranges_checked": 17,
+      "source_sha256": "313b8627473e7e281f433d9d4c8f724b4ec2c3d68b21e88607d4859ab0f2783d",
+      "r2_sha256": "313b8627473e7e281f433d9d4c8f724b4ec2c3d68b21e88607d4859ab0f2783d",
+      "sha256_match": true
+    },
+    "012": {
+      "status": "verified",
+      "surah": 12,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/012.mp3",
+      "source_size_bytes": 61453999,
+      "ranges_checked": 15,
+      "source_sha256": "a216011c5096541043206379c392bef0502a14c80411c6d2c25342156ccbcbda",
+      "r2_sha256": "a216011c5096541043206379c392bef0502a14c80411c6d2c25342156ccbcbda",
+      "sha256_match": true
+    },
+    "013": {
+      "status": "verified",
+      "surah": 13,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/013.mp3",
+      "source_size_bytes": 28756636,
+      "ranges_checked": 7,
+      "source_sha256": "65f6e76cb44cca1b04970c6b80967456fdd956aabb2183995600279a3b31f3f1",
+      "r2_sha256": "65f6e76cb44cca1b04970c6b80967456fdd956aabb2183995600279a3b31f3f1",
+      "sha256_match": true
+    },
+    "014": {
+      "status": "verified",
+      "surah": 14,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/014.mp3",
+      "source_size_bytes": 31211311,
+      "ranges_checked": 8,
+      "source_sha256": "0d862df7ebd2274d3f477d1d5e69a85a39734f051c3f4b6cbf8e6c8683e33d53",
+      "r2_sha256": "0d862df7ebd2274d3f477d1d5e69a85a39734f051c3f4b6cbf8e6c8683e33d53",
+      "sha256_match": true
+    },
+    "015": {
+      "status": "verified",
+      "surah": 15,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/015.mp3",
+      "source_size_bytes": 24915591,
+      "ranges_checked": 6,
+      "source_sha256": "61a01a404087f934121fbfadaed577d246844a9df4e44be586f278852c01f5e7",
+      "r2_sha256": "61a01a404087f934121fbfadaed577d246844a9df4e44be586f278852c01f5e7",
+      "sha256_match": true
+    },
+    "016": {
+      "status": "verified",
+      "surah": 16,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/016.mp3",
+      "source_size_bytes": 63353208,
+      "ranges_checked": 16,
+      "source_sha256": "b2575b9ebe2ae4c0a673104b8a503223d0ee913050f914371daefdcf0386ba35",
+      "r2_sha256": "b2575b9ebe2ae4c0a673104b8a503223d0ee913050f914371daefdcf0386ba35",
+      "sha256_match": true
+    },
+    "017": {
+      "status": "verified",
+      "surah": 17,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/017.mp3",
+      "source_size_bytes": 55463827,
+      "ranges_checked": 14,
+      "source_sha256": "0436d7188bb8d5d2c17a076fae91945ff29dd4d416269d959a0fb8a8fb8245ce",
+      "r2_sha256": "0436d7188bb8d5d2c17a076fae91945ff29dd4d416269d959a0fb8a8fb8245ce",
+      "sha256_match": true
+    },
+    "018": {
+      "status": "verified",
+      "surah": 18,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/018.mp3",
+      "source_size_bytes": 54577319,
+      "ranges_checked": 14,
+      "source_sha256": "bc2ec11336190815092e5281406be810c86ad3ec5994fd7b3c6e9dbeb22357e4",
+      "r2_sha256": "bc2ec11336190815092e5281406be810c86ad3ec5994fd7b3c6e9dbeb22357e4",
+      "sha256_match": true
+    },
+    "019": {
+      "status": "verified",
+      "surah": 19,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/019.mp3",
+      "source_size_bytes": 35130095,
+      "ranges_checked": 9,
+      "source_sha256": "834a669dbdb0233ffeca6fca67374c97b0f3a7d7814d76f4fff510d7f922cdd7",
+      "r2_sha256": "834a669dbdb0233ffeca6fca67374c97b0f3a7d7814d76f4fff510d7f922cdd7",
+      "sha256_match": true
+    },
+    "020": {
+      "status": "verified",
+      "surah": 20,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/020.mp3",
+      "source_size_bytes": 44891112,
+      "ranges_checked": 11,
+      "source_sha256": "1ab514459f5dfefac596cbbce070f1251b8202010285823b21a6e04c0b4596b0",
+      "r2_sha256": "1ab514459f5dfefac596cbbce070f1251b8202010285823b21a6e04c0b4596b0",
+      "sha256_match": true
+    },
+    "021": {
+      "status": "verified",
+      "surah": 21,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/021.mp3",
+      "source_size_bytes": 40820611,
+      "ranges_checked": 10,
+      "source_sha256": "7c2e487b279cee5b35740ef3cc5064306e8a90e933e104009b2997248ea6b2cf",
+      "r2_sha256": "7c2e487b279cee5b35740ef3cc5064306e8a90e933e104009b2997248ea6b2cf",
+      "sha256_match": true
+    },
+    "022": {
+      "status": "verified",
+      "surah": 22,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/022.mp3",
+      "source_size_bytes": 44601051,
+      "ranges_checked": 11,
+      "source_sha256": "e3ec77df3f0a16de7d1cbc8ab41f252921270f129732ea20fc3ddececf28f56f",
+      "r2_sha256": "e3ec77df3f0a16de7d1cbc8ab41f252921270f129732ea20fc3ddececf28f56f",
+      "sha256_match": true
+    },
+    "023": {
+      "status": "verified",
+      "surah": 23,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/023.mp3",
+      "source_size_bytes": 37606926,
+      "ranges_checked": 9,
+      "source_sha256": "3eb61ed92e06a59af6d96d3f78d04b72890d33af9fa97d4fceb6a838da8990a6",
+      "r2_sha256": "3eb61ed92e06a59af6d96d3f78d04b72890d33af9fa97d4fceb6a838da8990a6",
+      "sha256_match": true
+    },
+    "024": {
+      "status": "verified",
+      "surah": 24,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/024.mp3",
+      "source_size_bytes": 49271744,
+      "ranges_checked": 12,
+      "source_sha256": "882dcd33088c5584fc76826298ee71df60a8062975c56ef3835f973de697116a",
+      "r2_sha256": "882dcd33088c5584fc76826298ee71df60a8062975c56ef3835f973de697116a",
+      "sha256_match": true
+    },
+    "025": {
+      "status": "verified",
+      "surah": 25,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/025.mp3",
+      "source_size_bytes": 30162235,
+      "ranges_checked": 8,
+      "source_sha256": "de416f9838f23e8de0a87f5f5ec5f7916033d596aad35cfcad7a42ca456080d2",
+      "r2_sha256": "de416f9838f23e8de0a87f5f5ec5f7916033d596aad35cfcad7a42ca456080d2",
+      "sha256_match": true
+    },
+    "026": {
+      "status": "verified",
+      "surah": 26,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/026.mp3",
+      "source_size_bytes": 52530577,
+      "ranges_checked": 13,
+      "source_sha256": "ef121f7e21249390810673dc4b5d52fc4a520523d259f8b6ecfb83ab6268cce5",
+      "r2_sha256": "ef121f7e21249390810673dc4b5d52fc4a520523d259f8b6ecfb83ab6268cce5",
+      "sha256_match": true
+    },
+    "027": {
+      "status": "verified",
+      "surah": 27,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/027.mp3",
+      "source_size_bytes": 40928862,
+      "ranges_checked": 10,
+      "source_sha256": "4d93964dac3d5cd8f78ce17d5628e4adc029223ec5e2b4e01624f9bc738e335e",
+      "r2_sha256": "4d93964dac3d5cd8f78ce17d5628e4adc029223ec5e2b4e01624f9bc738e335e",
+      "sha256_match": true
+    },
+    "028": {
+      "status": "verified",
+      "surah": 28,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/028.mp3",
+      "source_size_bytes": 49078292,
+      "ranges_checked": 12,
+      "source_sha256": "bd184b70043aa86408f269d1df4a816c92f785f3f3fc30705365cbe52cc8bfba",
+      "r2_sha256": "bd184b70043aa86408f269d1df4a816c92f785f3f3fc30705365cbe52cc8bfba",
+      "sha256_match": true
+    },
+    "029": {
+      "status": "verified",
+      "surah": 29,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/029.mp3",
+      "source_size_bytes": 35091648,
+      "ranges_checked": 9,
+      "source_sha256": "8df33733a7c07cf29c3bdf81fdd938cd03a79ea9153454957e8c7856d8992575",
+      "r2_sha256": "8df33733a7c07cf29c3bdf81fdd938cd03a79ea9153454957e8c7856d8992575",
+      "sha256_match": true
+    },
+    "030": {
+      "status": "verified",
+      "surah": 30,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/030.mp3",
+      "source_size_bytes": 27552077,
+      "ranges_checked": 7,
+      "source_sha256": "002ef7fa76fdcb250476fa0d380aa546fde592f6a708afd00ff426be9506fee4",
+      "r2_sha256": "002ef7fa76fdcb250476fa0d380aa546fde592f6a708afd00ff426be9506fee4",
+      "sha256_match": true
+    },
+    "031": {
+      "status": "verified",
+      "surah": 31,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/031.mp3",
+      "source_size_bytes": 17332557,
+      "ranges_checked": 5,
+      "source_sha256": "aa66151bf3d455090f27ceffafba244bb200152432edc655a520895b6dd5299b",
+      "r2_sha256": "aa66151bf3d455090f27ceffafba244bb200152432edc655a520895b6dd5299b",
+      "sha256_match": true
+    },
+    "032": {
+      "status": "verified",
+      "surah": 32,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/032.mp3",
+      "source_size_bytes": 12807734,
+      "ranges_checked": 4,
+      "source_sha256": "7d838681de79f3ea2a85f2136ffcf165e18587489fae4f521f4c70c2a54fa1e0",
+      "r2_sha256": "7d838681de79f3ea2a85f2136ffcf165e18587489fae4f521f4c70c2a54fa1e0",
+      "sha256_match": true
+    },
+    "033": {
+      "status": "verified",
+      "surah": 33,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/033.mp3",
+      "source_size_bytes": 43839112,
+      "ranges_checked": 11,
+      "source_sha256": "78f1e4ecd8ba156871caf974293a89109098609c0435caed50c1d8f3bfd7c22f",
+      "r2_sha256": "78f1e4ecd8ba156871caf974293a89109098609c0435caed50c1d8f3bfd7c22f",
+      "sha256_match": true
+    },
+    "034": {
+      "status": "verified",
+      "surah": 34,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/034.mp3",
+      "source_size_bytes": 28912532,
+      "ranges_checked": 7,
+      "source_sha256": "a521494ff945e94e87d0d6891e6768c0886cb6c1c47b6067f072c5bc0a3189e3",
+      "r2_sha256": "a521494ff945e94e87d0d6891e6768c0886cb6c1c47b6067f072c5bc0a3189e3",
+      "sha256_match": true
+    },
+    "035": {
+      "status": "verified",
+      "surah": 35,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/035.mp3",
+      "source_size_bytes": 28429372,
+      "ranges_checked": 7,
+      "source_sha256": "14336fc8c9f80d75d5575c26276f802270f0f8b8c6f79cd06c2d36cd329ff593",
+      "r2_sha256": "14336fc8c9f80d75d5575c26276f802270f0f8b8c6f79cd06c2d36cd329ff593",
+      "sha256_match": true
+    },
+    "036": {
+      "status": "verified",
+      "surah": 36,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/036.mp3",
+      "source_size_bytes": 25318503,
+      "ranges_checked": 7,
+      "source_sha256": "bc1d2a3d6c537d926668b8e18b10a04ac762c80b000c6598ec57dd8929d0aa33",
+      "r2_sha256": "bc1d2a3d6c537d926668b8e18b10a04ac762c80b000c6598ec57dd8929d0aa33",
+      "sha256_match": true
+    },
+    "037": {
+      "status": "verified",
+      "surah": 37,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/037.mp3",
+      "source_size_bytes": 33375923,
+      "ranges_checked": 8,
+      "source_sha256": "2feee8eae2bbb45514db762f0adc771617fd00d3a0cf0edb9f5f59dda74412d1",
+      "r2_sha256": "2feee8eae2bbb45514db762f0adc771617fd00d3a0cf0edb9f5f59dda74412d1",
+      "sha256_match": true
+    },
+    "038": {
+      "status": "verified",
+      "surah": 38,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/038.mp3",
+      "source_size_bytes": 26648864,
+      "ranges_checked": 7,
+      "source_sha256": "982b25cd9b5569a876a65f5e8d5614611edba459aa9a76fb6cf70068d60b5fb6",
+      "r2_sha256": "982b25cd9b5569a876a65f5e8d5614611edba459aa9a76fb6cf70068d60b5fb6",
+      "sha256_match": true
+    },
+    "039": {
+      "status": "verified",
+      "surah": 39,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/039.mp3",
+      "source_size_bytes": 41261140,
+      "ranges_checked": 10,
+      "source_sha256": "4f0b65aa11dd94773545281a4ca12868133a360712837a1dae5ec45c25a3577f",
+      "r2_sha256": "4f0b65aa11dd94773545281a4ca12868133a360712837a1dae5ec45c25a3577f",
+      "sha256_match": true
+    },
+    "040": {
+      "status": "verified",
+      "surah": 40,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/040.mp3",
+      "source_size_bytes": 37942542,
+      "ranges_checked": 10,
+      "source_sha256": "1879a8caf7ad12de8c3496cacbaf6136753863e74d268deec93aeb5fc25645b2",
+      "r2_sha256": "1879a8caf7ad12de8c3496cacbaf6136753863e74d268deec93aeb5fc25645b2",
+      "sha256_match": true
+    },
+    "041": {
+      "status": "verified",
+      "surah": 41,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/041.mp3",
+      "source_size_bytes": 26730789,
+      "ranges_checked": 7,
+      "source_sha256": "9ba1e25dc25bd62c9434c3084a08054044e9ecefff5acf3e77a57f28a14bb15b",
+      "r2_sha256": "9ba1e25dc25bd62c9434c3084a08054044e9ecefff5acf3e77a57f28a14bb15b",
+      "sha256_match": true
+    },
+    "042": {
+      "status": "verified",
+      "surah": 42,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/042.mp3",
+      "source_size_bytes": 30741945,
+      "ranges_checked": 8,
+      "source_sha256": "72570945d87c4f65809c5776dd85eb9d859819e3814e1add7bbe27d29c5d730d",
+      "r2_sha256": "72570945d87c4f65809c5776dd85eb9d859819e3814e1add7bbe27d29c5d730d",
+      "sha256_match": true
+    },
+    "043": {
+      "status": "verified",
+      "surah": 43,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/043.mp3",
+      "source_size_bytes": 28322710,
+      "ranges_checked": 7,
+      "source_sha256": "eecffe83baa17d786c116d365f9e64fe1205ac5f982c7849596474380707d22e",
+      "r2_sha256": "eecffe83baa17d786c116d365f9e64fe1205ac5f982c7849596474380707d22e",
+      "sha256_match": true
+    },
+    "044": {
+      "status": "verified",
+      "surah": 44,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/044.mp3",
+      "source_size_bytes": 11602005,
+      "ranges_checked": 3,
+      "source_sha256": "c639e19c4b94da36ec790565a3431c5f6d08dccc62c00eb25d47f36e37d06c61",
+      "r2_sha256": "c639e19c4b94da36ec790565a3431c5f6d08dccc62c00eb25d47f36e37d06c61",
+      "sha256_match": true
+    },
+    "045": {
+      "status": "verified",
+      "surah": 45,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/045.mp3",
+      "source_size_bytes": 14907095,
+      "ranges_checked": 4,
+      "source_sha256": "574db7845545caf0492b1a56c4fd3091957e7b4825d7ccc35970d554196e7708",
+      "r2_sha256": "574db7845545caf0492b1a56c4fd3091957e7b4825d7ccc35970d554196e7708",
+      "sha256_match": true
+    },
+    "046": {
+      "status": "verified",
+      "surah": 46,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/046.mp3",
+      "source_size_bytes": 20522005,
+      "ranges_checked": 5,
+      "source_sha256": "55c0c96324bc53021231870cc7b95112fd74d1d1dab39c17ac58cfc4d923c2f2",
+      "r2_sha256": "55c0c96324bc53021231870cc7b95112fd74d1d1dab39c17ac58cfc4d923c2f2",
+      "sha256_match": true
+    },
+    "047": {
+      "status": "verified",
+      "surah": 47,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/047.mp3",
+      "source_size_bytes": 18542551,
+      "ranges_checked": 5,
+      "source_sha256": "98ef9d42d8b36cd666ca48679d04c9d6d77c631055c5c01fc2a7383817be25dc",
+      "r2_sha256": "98ef9d42d8b36cd666ca48679d04c9d6d77c631055c5c01fc2a7383817be25dc",
+      "sha256_match": true
+    },
+    "048": {
+      "status": "verified",
+      "surah": 48,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/048.mp3",
+      "source_size_bytes": 19075448,
+      "ranges_checked": 5,
+      "source_sha256": "d46ce528eac40129eca372cc64dd3ed8c236f27973585c2b2f15b35ef655ec95",
+      "r2_sha256": "d46ce528eac40129eca372cc64dd3ed8c236f27973585c2b2f15b35ef655ec95",
+      "sha256_match": true
+    },
+    "049": {
+      "status": "verified",
+      "surah": 49,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/049.mp3",
+      "source_size_bytes": 11890732,
+      "ranges_checked": 3,
+      "source_sha256": "09e59cae78ecf1ce7f70bd454d172ba96e60c10cc98194a628d4d042f807b1fa",
+      "r2_sha256": "09e59cae78ecf1ce7f70bd454d172ba96e60c10cc98194a628d4d042f807b1fa",
+      "sha256_match": true
+    },
+    "050": {
+      "status": "verified",
+      "surah": 50,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/050.mp3",
+      "source_size_bytes": 13366957,
+      "ranges_checked": 4,
+      "source_sha256": "af3b4451228dc4f61c968408907ac6ff323ec2748f14819606fdadaf26420912",
+      "r2_sha256": "af3b4451228dc4f61c968408907ac6ff323ec2748f14819606fdadaf26420912",
+      "sha256_match": true
+    },
+    "051": {
+      "status": "verified",
+      "surah": 51,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/051.mp3",
+      "source_size_bytes": 12058754,
+      "ranges_checked": 3,
+      "source_sha256": "5de165fec48c9746680e3bd1c9f24c877f325d94eb8d581ae2ed492f5fedf85e",
+      "r2_sha256": "5de165fec48c9746680e3bd1c9f24c877f325d94eb8d581ae2ed492f5fedf85e",
+      "sha256_match": true
+    },
+    "052": {
+      "status": "verified",
+      "surah": 52,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/052.mp3",
+      "source_size_bytes": 10853354,
+      "ranges_checked": 3,
+      "source_sha256": "ef74b01e18e925370532e13df3c85e572b539f5affb189d9a5423971570f8f15",
+      "r2_sha256": "ef74b01e18e925370532e13df3c85e572b539f5affb189d9a5423971570f8f15",
+      "sha256_match": true
+    },
+    "053": {
+      "status": "verified",
+      "surah": 53,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/053.mp3",
+      "source_size_bytes": 12979931,
+      "ranges_checked": 4,
+      "source_sha256": "304367ae0ffe43b33d0bd2977cffa0104753a563bb96ef2ea918d95fadef9a3d",
+      "r2_sha256": "304367ae0ffe43b33d0bd2977cffa0104753a563bb96ef2ea918d95fadef9a3d",
+      "sha256_match": true
+    },
+    "054": {
+      "status": "verified",
+      "surah": 54,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/054.mp3",
+      "source_size_bytes": 12160314,
+      "ranges_checked": 3,
+      "source_sha256": "f930bf15b440fc2a486f816334388a4445845fb3f30d0e83264cea48591e81d4",
+      "r2_sha256": "f930bf15b440fc2a486f816334388a4445845fb3f30d0e83264cea48591e81d4",
+      "sha256_match": true
+    },
+    "055": {
+      "status": "verified",
+      "surah": 55,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/055.mp3",
+      "source_size_bytes": 15263637,
+      "ranges_checked": 4,
+      "source_sha256": "5b7e9cca5b2b6aba6896e34ce8a3ee7eee383c7412a1bfbea8668ef7959c090e",
+      "r2_sha256": "5b7e9cca5b2b6aba6896e34ce8a3ee7eee383c7412a1bfbea8668ef7959c090e",
+      "sha256_match": true
+    },
+    "056": {
+      "status": "verified",
+      "surah": 56,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/056.mp3",
+      "source_size_bytes": 14636950,
+      "ranges_checked": 4,
+      "source_sha256": "af759847c126d7fe336254ba60c740f8fcc09ed40e62ad5d5c4d2b3feb30cbd2",
+      "r2_sha256": "af759847c126d7fe336254ba60c740f8fcc09ed40e62ad5d5c4d2b3feb30cbd2",
+      "sha256_match": true
+    },
+    "057": {
+      "status": "verified",
+      "surah": 57,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/057.mp3",
+      "source_size_bytes": 17732546,
+      "ranges_checked": 5,
+      "source_sha256": "a29755b69592154fe29d92d101b97cd852f08179a8547fd73c408661bf928fd7",
+      "r2_sha256": "a29755b69592154fe29d92d101b97cd852f08179a8547fd73c408661bf928fd7",
+      "sha256_match": true
+    },
+    "058": {
+      "status": "verified",
+      "surah": 58,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/058.mp3",
+      "source_size_bytes": 17567873,
+      "ranges_checked": 5,
+      "source_sha256": "6079629c44b1b49009cffdeec52f78a9b947fafac5362709531c1778ebbc4bca",
+      "r2_sha256": "6079629c44b1b49009cffdeec52f78a9b947fafac5362709531c1778ebbc4bca",
+      "sha256_match": true
+    },
+    "059": {
+      "status": "verified",
+      "surah": 59,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/059.mp3",
+      "source_size_bytes": 15287903,
+      "ranges_checked": 4,
+      "source_sha256": "8093e141534fe84928bcf879fc7a39c143417f898142ee13c4c739be67110347",
+      "r2_sha256": "8093e141534fe84928bcf879fc7a39c143417f898142ee13c4c739be67110347",
+      "sha256_match": true
+    },
+    "060": {
+      "status": "verified",
+      "surah": 60,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/060.mp3",
+      "source_size_bytes": 11743196,
+      "ranges_checked": 3,
+      "source_sha256": "b2057899fb5ab814bd510633010d60a1c0a7cb51cf60c7c572aeb20357f61305",
+      "r2_sha256": "b2057899fb5ab814bd510633010d60a1c0a7cb51cf60c7c572aeb20357f61305",
+      "sha256_match": true
+    },
+    "061": {
+      "status": "verified",
+      "surah": 61,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/061.mp3",
+      "source_size_bytes": 6987231,
+      "ranges_checked": 2,
+      "source_sha256": "65e6fd59b6637d93b9326d8dc380746f3bfb40b8f9229c17997c9b9e568445b4",
+      "r2_sha256": "65e6fd59b6637d93b9326d8dc380746f3bfb40b8f9229c17997c9b9e568445b4",
+      "sha256_match": true
+    },
+    "062": {
+      "status": "verified",
+      "surah": 62,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/062.mp3",
+      "source_size_bytes": 4897857,
+      "ranges_checked": 2,
+      "source_sha256": "dcd11985a06e3fdd3d5fbb4895e34bb4774dd71a6e26d3de10937edcff2866c3",
+      "r2_sha256": "dcd11985a06e3fdd3d5fbb4895e34bb4774dd71a6e26d3de10937edcff2866c3",
+      "sha256_match": true
+    },
+    "063": {
+      "status": "verified",
+      "surah": 63,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/063.mp3",
+      "source_size_bytes": 5885915,
+      "ranges_checked": 2,
+      "source_sha256": "a4d18a8d08157caee0fb122c7733dac9f3ac07ab7ede3888f2fbf98adbe0af50",
+      "r2_sha256": "a4d18a8d08157caee0fb122c7733dac9f3ac07ab7ede3888f2fbf98adbe0af50",
+      "sha256_match": true
+    },
+    "064": {
+      "status": "verified",
+      "surah": 64,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/064.mp3",
+      "source_size_bytes": 8022103,
+      "ranges_checked": 2,
+      "source_sha256": "2a679d2cb1376ca74c0039f66919d27959870e061850d7031d3c7064e7759596",
+      "r2_sha256": "2a679d2cb1376ca74c0039f66919d27959870e061850d7031d3c7064e7759596",
+      "sha256_match": true
+    },
+    "065": {
+      "status": "verified",
+      "surah": 65,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/065.mp3",
+      "source_size_bytes": 9996957,
+      "ranges_checked": 3,
+      "source_sha256": "b654625287cc020e93fe52c2bc7109463278ab59a7e6fbf2e847be026749f157",
+      "r2_sha256": "b654625287cc020e93fe52c2bc7109463278ab59a7e6fbf2e847be026749f157",
+      "sha256_match": true
+    },
+    "066": {
+      "status": "verified",
+      "surah": 66,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/066.mp3",
+      "source_size_bytes": 8705464,
+      "ranges_checked": 3,
+      "source_sha256": "4b6681992d25f95d660cf45c901de9ab66a492d4286d9854c306d79a3fa5bde1",
+      "r2_sha256": "4b6681992d25f95d660cf45c901de9ab66a492d4286d9854c306d79a3fa5bde1",
+      "sha256_match": true
+    },
+    "067": {
+      "status": "verified",
+      "surah": 67,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/067.mp3",
+      "source_size_bytes": 9634387,
+      "ranges_checked": 3,
+      "source_sha256": "38e9a3cc12d7acfa7fdb18dafc07af6420f77ed2c45b048d89b57442408c517d",
+      "r2_sha256": "38e9a3cc12d7acfa7fdb18dafc07af6420f77ed2c45b048d89b57442408c517d",
+      "sha256_match": true
+    },
+    "068": {
+      "status": "verified",
+      "surah": 68,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/068.mp3",
+      "source_size_bytes": 11735250,
+      "ranges_checked": 3,
+      "source_sha256": "cc214f0acca14b671743d3eb73eec2921736d201e241069d53a87c714a4c6736",
+      "r2_sha256": "cc214f0acca14b671743d3eb73eec2921736d201e241069d53a87c714a4c6736",
+      "sha256_match": true
+    },
+    "069": {
+      "status": "verified",
+      "surah": 69,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/069.mp3",
+      "source_size_bytes": 10116913,
+      "ranges_checked": 3,
+      "source_sha256": "b732509099b1b0859a383f0c139a6dc629139a6e5c71e32d2e6d05f305ca2310",
+      "r2_sha256": "b732509099b1b0859a383f0c139a6dc629139a6e5c71e32d2e6d05f305ca2310",
+      "sha256_match": true
+    },
+    "070": {
+      "status": "verified",
+      "surah": 70,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/070.mp3",
+      "source_size_bytes": 7590350,
+      "ranges_checked": 2,
+      "source_sha256": "9bf00e1088fd8f9069710f2d91a020c957ea9f06ddedb80d1b594411c5aa6741",
+      "r2_sha256": "9bf00e1088fd8f9069710f2d91a020c957ea9f06ddedb80d1b594411c5aa6741",
+      "sha256_match": true
+    },
+    "071": {
+      "status": "verified",
+      "surah": 71,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/071.mp3",
+      "source_size_bytes": 7945191,
+      "ranges_checked": 2,
+      "source_sha256": "1eefea74fdb985f5b29a69527624106ba6681cf0bd59c1e3e323a816cc3a2706",
+      "r2_sha256": "1eefea74fdb985f5b29a69527624106ba6681cf0bd59c1e3e323a816cc3a2706",
+      "sha256_match": true
+    },
+    "072": {
+      "status": "verified",
+      "surah": 72,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/072.mp3",
+      "source_size_bytes": 8798667,
+      "ranges_checked": 3,
+      "source_sha256": "4968d7c68aaf378e015b58cd5569007c190ed848889ac7340e0476852a3bea02",
+      "r2_sha256": "4968d7c68aaf378e015b58cd5569007c190ed848889ac7340e0476852a3bea02",
+      "sha256_match": true
+    },
+    "073": {
+      "status": "verified",
+      "surah": 73,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/073.mp3",
+      "source_size_bytes": 6819636,
+      "ranges_checked": 2,
+      "source_sha256": "0ed06736e39ca14f70d3ea13d00917c147cbbf82456515b6b22ea0ac09c6d707",
+      "r2_sha256": "0ed06736e39ca14f70d3ea13d00917c147cbbf82456515b6b22ea0ac09c6d707",
+      "sha256_match": true
+    },
+    "074": {
+      "status": "verified",
+      "surah": 74,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/074.mp3",
+      "source_size_bytes": 9627069,
+      "ranges_checked": 3,
+      "source_sha256": "ffa730bf2e3e6cd40574bfd2efbcfe1dcd971ddee6236c66b916880c0a02f7f1",
+      "r2_sha256": "ffa730bf2e3e6cd40574bfd2efbcfe1dcd971ddee6236c66b916880c0a02f7f1",
+      "sha256_match": true
+    },
+    "075": {
+      "status": "verified",
+      "surah": 75,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/075.mp3",
+      "source_size_bytes": 5981625,
+      "ranges_checked": 2,
+      "source_sha256": "269296b5057280af6829315b4d7df8cc2a65faef022283cad7759ea3ee3e7c3b",
+      "r2_sha256": "269296b5057280af6829315b4d7df8cc2a65faef022283cad7759ea3ee3e7c3b",
+      "sha256_match": true
+    },
+    "076": {
+      "status": "verified",
+      "surah": 76,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/076.mp3",
+      "source_size_bytes": 8188030,
+      "ranges_checked": 2,
+      "source_sha256": "ca18949603e804eb705fb94adf46cf26e66f6c5ea8bf97c48bf76d53a34e9a46",
+      "r2_sha256": "ca18949603e804eb705fb94adf46cf26e66f6c5ea8bf97c48bf76d53a34e9a46",
+      "sha256_match": true
+    },
+    "077": {
+      "status": "verified",
+      "surah": 77,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/077.mp3",
+      "source_size_bytes": 7643850,
+      "ranges_checked": 2,
+      "source_sha256": "314358e1cd66dd42ed155b30ca2b3a40507693e3ae938ff78e263559bb4e2b8d",
+      "r2_sha256": "314358e1cd66dd42ed155b30ca2b3a40507693e3ae938ff78e263559bb4e2b8d",
+      "sha256_match": true
+    },
+    "078": {
+      "status": "verified",
+      "surah": 78,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/078.mp3",
+      "source_size_bytes": 7388055,
+      "ranges_checked": 2,
+      "source_sha256": "12a7fa5fc6bc39452271e11e94576b214408059c792585edf5dd4399a3250ae3",
+      "r2_sha256": "12a7fa5fc6bc39452271e11e94576b214408059c792585edf5dd4399a3250ae3",
+      "sha256_match": true
+    },
+    "079": {
+      "status": "verified",
+      "surah": 79,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/079.mp3",
+      "source_size_bytes": 6962158,
+      "ranges_checked": 2,
+      "source_sha256": "9046661bd204e3cd4da0a50bb9d060b6c77194ffa388018e1a930fe758d8af5d",
+      "r2_sha256": "9046661bd204e3cd4da0a50bb9d060b6c77194ffa388018e1a930fe758d8af5d",
+      "sha256_match": true
+    },
+    "080": {
+      "status": "verified",
+      "surah": 80,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/080.mp3",
+      "source_size_bytes": 5864175,
+      "ranges_checked": 2,
+      "source_sha256": "1e3ee3f1f702f51203f1e1cf865fac4a689fce660323d06d5148635d7a89f3e1",
+      "r2_sha256": "1e3ee3f1f702f51203f1e1cf865fac4a689fce660323d06d5148635d7a89f3e1",
+      "sha256_match": true
+    },
+    "081": {
+      "status": "verified",
+      "surah": 81,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/081.mp3",
+      "source_size_bytes": 4109585,
+      "ranges_checked": 1,
+      "source_sha256": "9876db04d7b8e98ae8efc8f8198e25d34268585baf0a7ed9d258eb5d23865eba",
+      "r2_sha256": "9876db04d7b8e98ae8efc8f8198e25d34268585baf0a7ed9d258eb5d23865eba",
+      "sha256_match": true
+    },
+    "082": {
+      "status": "verified",
+      "surah": 82,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/082.mp3",
+      "source_size_bytes": 2952675,
+      "ranges_checked": 1,
+      "source_sha256": "27a2e1aad4e085d6624103e180f3732417760fc1408fad8cd3012d1735f18f53",
+      "r2_sha256": "27a2e1aad4e085d6624103e180f3732417760fc1408fad8cd3012d1735f18f53",
+      "sha256_match": true
+    },
+    "083": {
+      "status": "verified",
+      "surah": 83,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/083.mp3",
+      "source_size_bytes": 6516616,
+      "ranges_checked": 2,
+      "source_sha256": "9166cd9a7399d8301cd6f8e167ee4d17e48361713b9e41a7a22ab9f43946d6a4",
+      "r2_sha256": "9166cd9a7399d8301cd6f8e167ee4d17e48361713b9e41a7a22ab9f43946d6a4",
+      "sha256_match": true
+    },
+    "084": {
+      "status": "verified",
+      "surah": 84,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/084.mp3",
+      "source_size_bytes": 3970825,
+      "ranges_checked": 1,
+      "source_sha256": "0748f0e346476dfb8bcbbc4e80c6add0f5bfd43d20ec23de094f8b48039f9eb2",
+      "r2_sha256": "0748f0e346476dfb8bcbbc4e80c6add0f5bfd43d20ec23de094f8b48039f9eb2",
+      "sha256_match": true
+    },
+    "085": {
+      "status": "verified",
+      "surah": 85,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/085.mp3",
+      "source_size_bytes": 4046890,
+      "ranges_checked": 1,
+      "source_sha256": "376b68814a9d4353175e4776bbe8b85c32c1f304e18cccc52f30fa9c6488de80",
+      "r2_sha256": "376b68814a9d4353175e4776bbe8b85c32c1f304e18cccc52f30fa9c6488de80",
+      "sha256_match": true
+    },
+    "086": {
+      "status": "verified",
+      "surah": 86,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/086.mp3",
+      "source_size_bytes": 2311106,
+      "ranges_checked": 1,
+      "source_sha256": "48e9b127807451c7bff60afd7fec0bdd89f6d6a73a408e82bb0c912415e69335",
+      "r2_sha256": "48e9b127807451c7bff60afd7fec0bdd89f6d6a73a408e82bb0c912415e69335",
+      "sha256_match": true
+    },
+    "087": {
+      "status": "verified",
+      "surah": 87,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/087.mp3",
+      "source_size_bytes": 2668460,
+      "ranges_checked": 1,
+      "source_sha256": "8cb2acc5a6c99b9fe6a7080a3b6987dcc9e7fd419e0aad8e422592f476d96575",
+      "r2_sha256": "8cb2acc5a6c99b9fe6a7080a3b6987dcc9e7fd419e0aad8e422592f476d96575",
+      "sha256_match": true
+    },
+    "088": {
+      "status": "verified",
+      "surah": 88,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/088.mp3",
+      "source_size_bytes": 3491427,
+      "ranges_checked": 1,
+      "source_sha256": "b8b4e33eeaacbde4c39674003f4804ccf327a95a3586607f642a0c6f7740ef56",
+      "r2_sha256": "b8b4e33eeaacbde4c39674003f4804ccf327a95a3586607f642a0c6f7740ef56",
+      "sha256_match": true
+    },
+    "089": {
+      "status": "verified",
+      "surah": 89,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/089.mp3",
+      "source_size_bytes": 5069636,
+      "ranges_checked": 2,
+      "source_sha256": "c6cd2da8fef95101ad503ae34805d1a0214a8f704e249c937bb6fd5759bd50cf",
+      "r2_sha256": "c6cd2da8fef95101ad503ae34805d1a0214a8f704e249c937bb6fd5759bd50cf",
+      "sha256_match": true
+    },
+    "090": {
+      "status": "verified",
+      "surah": 90,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/090.mp3",
+      "source_size_bytes": 2714854,
+      "ranges_checked": 1,
+      "source_sha256": "a42ed0a1cae6fee4205ad190613b18fcc8cf130071d5afe40cf5a4743f8a9c61",
+      "r2_sha256": "a42ed0a1cae6fee4205ad190613b18fcc8cf130071d5afe40cf5a4743f8a9c61",
+      "sha256_match": true
+    },
+    "091": {
+      "status": "verified",
+      "surah": 91,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/091.mp3",
+      "source_size_bytes": 2249667,
+      "ranges_checked": 1,
+      "source_sha256": "3d84bc1054c3aed99916364d40588b34196d06ea3cea746d001c927c20c39d21",
+      "r2_sha256": "3d84bc1054c3aed99916364d40588b34196d06ea3cea746d001c927c20c39d21",
+      "sha256_match": true
+    },
+    "092": {
+      "status": "verified",
+      "surah": 92,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/092.mp3",
+      "source_size_bytes": 2808058,
+      "ranges_checked": 1,
+      "source_sha256": "d5c6a0c22ede71166907262d88fdccafae4c1c0148e141003c25b8f848326b2f",
+      "r2_sha256": "d5c6a0c22ede71166907262d88fdccafae4c1c0148e141003c25b8f848326b2f",
+      "sha256_match": true
+    },
+    "093": {
+      "status": "verified",
+      "surah": 93,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/093.mp3",
+      "source_size_bytes": 1570900,
+      "ranges_checked": 1,
+      "source_sha256": "0e88557477e3a027360e2e9db5173bb7a620d8bb0887afdb1922ffcbf5bf2c79",
+      "r2_sha256": "0e88557477e3a027360e2e9db5173bb7a620d8bb0887afdb1922ffcbf5bf2c79",
+      "sha256_match": true
+    },
+    "094": {
+      "status": "verified",
+      "surah": 94,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/094.mp3",
+      "source_size_bytes": 876671,
+      "ranges_checked": 1,
+      "source_sha256": "0017876ae8822ba9a32efce624f43e3f11a2ec5d9855d124c562054957c3cee8",
+      "r2_sha256": "0017876ae8822ba9a32efce624f43e3f11a2ec5d9855d124c562054957c3cee8",
+      "sha256_match": true
+    },
+    "095": {
+      "status": "verified",
+      "surah": 95,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/095.mp3",
+      "source_size_bytes": 1184704,
+      "ranges_checked": 1,
+      "source_sha256": "c02262730b47426ebb223f8fbceb13db59f9ee5a69d1546743447c6ad08114fe",
+      "r2_sha256": "c02262730b47426ebb223f8fbceb13db59f9ee5a69d1546743447c6ad08114fe",
+      "sha256_match": true
+    },
+    "096": {
+      "status": "verified",
+      "surah": 96,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/096.mp3",
+      "source_size_bytes": 2540148,
+      "ranges_checked": 1,
+      "source_sha256": "e2e0bb1c6a37f4e989c2b872c1a031d724b80fd0923dc308cc48eca77f50c0f1",
+      "r2_sha256": "e2e0bb1c6a37f4e989c2b872c1a031d724b80fd0923dc308cc48eca77f50c0f1",
+      "sha256_match": true
+    },
+    "097": {
+      "status": "verified",
+      "surah": 97,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/097.mp3",
+      "source_size_bytes": 1004564,
+      "ranges_checked": 1,
+      "source_sha256": "d536b19e3561a6bee2d12b3034b804308e55ce7ecade1aed04aa9f318409fe92",
+      "r2_sha256": "d536b19e3561a6bee2d12b3034b804308e55ce7ecade1aed04aa9f318409fe92",
+      "sha256_match": true
+    },
+    "098": {
+      "status": "verified",
+      "surah": 98,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/098.mp3",
+      "source_size_bytes": 3257368,
+      "ranges_checked": 1,
+      "source_sha256": "3e1f64e627b8700aff19c5195fcdfaed49486097cb56e74b3825a05f48dfcf53",
+      "r2_sha256": "3e1f64e627b8700aff19c5195fcdfaed49486097cb56e74b3825a05f48dfcf53",
+      "sha256_match": true
+    },
+    "099": {
+      "status": "verified",
+      "surah": 99,
+      "source_url": "https://audio-cdn.tarteel.ai/quran/surah/husary/muallim/mp3/099.mp3",
+      "source_size_bytes": 1392435,
+      "ranges_checked": 1,
+      "source_sha256": "20c8d7546892ffdf49eaefbf096da9946b0eada52fdb56bf175ac4f4bcae089d",
+      "r2_sha256": "20c8d7546892ffdf49eaefbf096da9946b0eada52fdb56bf175ac4f4bcae089d",
+      "sha256_match": true
+    }
+  }
+}

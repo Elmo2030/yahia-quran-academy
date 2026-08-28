@@ -1,0 +1,1149 @@
+{
+  "schema_version": "minshawi-muallim-kids-source-r2-range-hash-audit-v1",
+  "checked_at": "2026-08-27T13:20:45.349Z",
+  "policy": "Each byte range is fetched from the QUL-declared source with exact Content-Range validation. The streamed source SHA-256 must equal the complete R2 SHA-256.",
+  "range_size_bytes": 4194304,
+  "expected_files": 114,
+  "entries": {
+    "100": {
+      "status": "verified",
+      "surah": 100,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/100.mp3",
+      "source_size_bytes": 447486,
+      "ranges_checked": 1,
+      "source_sha256": "83df07929153c53b7731515e221ffd4da577bddeb65ec527f0dbf7966f1e5c17",
+      "r2_sha256": "83df07929153c53b7731515e221ffd4da577bddeb65ec527f0dbf7966f1e5c17",
+      "sha256_match": true
+    },
+    "101": {
+      "status": "verified",
+      "surah": 101,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/101.mp3",
+      "source_size_bytes": 416871,
+      "ranges_checked": 1,
+      "source_sha256": "9392fe2c82fa9bcfc707e79c6c8cc44c6ff3cacb3313984dee554e19b863c8ea",
+      "r2_sha256": "9392fe2c82fa9bcfc707e79c6c8cc44c6ff3cacb3313984dee554e19b863c8ea",
+      "sha256_match": true
+    },
+    "102": {
+      "status": "verified",
+      "surah": 102,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/102.mp3",
+      "source_size_bytes": 321472,
+      "ranges_checked": 1,
+      "source_sha256": "a7b86453a24139e5467969a1104527ce288fb11b750a236ccaf5a85c2b60c2e8",
+      "r2_sha256": "a7b86453a24139e5467969a1104527ce288fb11b750a236ccaf5a85c2b60c2e8",
+      "sha256_match": true
+    },
+    "103": {
+      "status": "verified",
+      "surah": 103,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/103.mp3",
+      "source_size_bytes": 157527,
+      "ranges_checked": 1,
+      "source_sha256": "d19f904fc8ae05423e2623d242c8c1d82bf1f55438c0f6cfe1280c2658f5f087",
+      "r2_sha256": "d19f904fc8ae05423e2623d242c8c1d82bf1f55438c0f6cfe1280c2658f5f087",
+      "sha256_match": true
+    },
+    "104": {
+      "status": "verified",
+      "surah": 104,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/104.mp3",
+      "source_size_bytes": 364939,
+      "ranges_checked": 1,
+      "source_sha256": "91f6794f4294737f57254e40489643c27280a976709df676c7ce229a668b4356",
+      "r2_sha256": "91f6794f4294737f57254e40489643c27280a976709df676c7ce229a668b4356",
+      "sha256_match": true
+    },
+    "105": {
+      "status": "verified",
+      "surah": 105,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/105.mp3",
+      "source_size_bytes": 237671,
+      "ranges_checked": 1,
+      "source_sha256": "4c36fcabc1f654e81ebeb37fb44a3e4cd670739a39011e12c8a2a050602d545c",
+      "r2_sha256": "4c36fcabc1f654e81ebeb37fb44a3e4cd670739a39011e12c8a2a050602d545c",
+      "sha256_match": true
+    },
+    "106": {
+      "status": "verified",
+      "surah": 106,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/106.mp3",
+      "source_size_bytes": 210921,
+      "ranges_checked": 1,
+      "source_sha256": "c18098d8a91f981b119c5f20fa6bda0ddb12149ba2ea71eaf163a4fb2ea8c49b",
+      "r2_sha256": "c18098d8a91f981b119c5f20fa6bda0ddb12149ba2ea71eaf163a4fb2ea8c49b",
+      "sha256_match": true
+    },
+    "107": {
+      "status": "verified",
+      "surah": 107,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/107.mp3",
+      "source_size_bytes": 271526,
+      "ranges_checked": 1,
+      "source_sha256": "626dad825725cf6568acea43e554e8a84309c32842d18e08eb8b9e7effae967a",
+      "r2_sha256": "626dad825725cf6568acea43e554e8a84309c32842d18e08eb8b9e7effae967a",
+      "sha256_match": true
+    },
+    "108": {
+      "status": "verified",
+      "surah": 108,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/108.mp3",
+      "source_size_bytes": 116358,
+      "ranges_checked": 1,
+      "source_sha256": "fcf3e2ed163799084b2a2aa041aa6cf1f6f46c553d0459fbd531a0416bd771a3",
+      "r2_sha256": "fcf3e2ed163799084b2a2aa041aa6cf1f6f46c553d0459fbd531a0416bd771a3",
+      "sha256_match": true
+    },
+    "109": {
+      "status": "verified",
+      "surah": 109,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/109.mp3",
+      "source_size_bytes": 299947,
+      "ranges_checked": 1,
+      "source_sha256": "29cba61b12ca0893146f52cc62fb506f77801094365c3839264f41e5cb3e4e61",
+      "r2_sha256": "29cba61b12ca0893146f52cc62fb506f77801094365c3839264f41e5cb3e4e61",
+      "sha256_match": true
+    },
+    "110": {
+      "status": "verified",
+      "surah": 110,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/110.mp3",
+      "source_size_bytes": 199741,
+      "ranges_checked": 1,
+      "source_sha256": "a372e16e4095138c491204f3a2806a0aaee384c1a3a1a778fd95e42866b3080c",
+      "r2_sha256": "a372e16e4095138c491204f3a2806a0aaee384c1a3a1a778fd95e42866b3080c",
+      "sha256_match": true
+    },
+    "111": {
+      "status": "verified",
+      "surah": 111,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/111.mp3",
+      "source_size_bytes": 226490,
+      "ranges_checked": 1,
+      "source_sha256": "684e3daa3069d77694c50880b2f7c4a5a84eea45a5ba86b56c502fe5eaadfbb9",
+      "r2_sha256": "684e3daa3069d77694c50880b2f7c4a5a84eea45a5ba86b56c502fe5eaadfbb9",
+      "sha256_match": true
+    },
+    "112": {
+      "status": "verified",
+      "surah": 112,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/112.mp3",
+      "source_size_bytes": 100162,
+      "ranges_checked": 1,
+      "source_sha256": "1ebad6db1b009a42a16c9dea7e5c580abd3b2e0bd150e9a9be86318c36b51c30",
+      "r2_sha256": "1ebad6db1b009a42a16c9dea7e5c580abd3b2e0bd150e9a9be86318c36b51c30",
+      "sha256_match": true
+    },
+    "113": {
+      "status": "verified",
+      "surah": 113,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/113.mp3",
+      "source_size_bytes": 185112,
+      "ranges_checked": 1,
+      "source_sha256": "b5d60c7294337df4154a022fa8c56d7f6500af2bd62e2cce1ebc7f97ec9f1c86",
+      "r2_sha256": "b5d60c7294337df4154a022fa8c56d7f6500af2bd62e2cce1ebc7f97ec9f1c86",
+      "sha256_match": true
+    },
+    "114": {
+      "status": "verified",
+      "surah": 114,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/114.mp3",
+      "source_size_bytes": 207848,
+      "ranges_checked": 1,
+      "source_sha256": "5b59a733cecc2eb18aef5d75fd8cb4da12bdbcb3823cf34734d3f619042a8007",
+      "r2_sha256": "5b59a733cecc2eb18aef5d75fd8cb4da12bdbcb3823cf34734d3f619042a8007",
+      "sha256_match": true
+    },
+    "001": {
+      "status": "verified",
+      "surah": 1,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/1.mp3",
+      "source_size_bytes": 446110,
+      "ranges_checked": 1,
+      "source_sha256": "593f950b5c6592a8c705555b4cba9273c4294c93c0e145fdc34fb3f50f83197a",
+      "r2_sha256": "593f950b5c6592a8c705555b4cba9273c4294c93c0e145fdc34fb3f50f83197a",
+      "sha256_match": true
+    },
+    "002": {
+      "status": "verified",
+      "surah": 2,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/2.mp3",
+      "source_size_bytes": 60586484,
+      "ranges_checked": 15,
+      "source_sha256": "7cface66a1369fcd8c77cdd679d754f6f6497167577d6f1dddd4510e398e22b4",
+      "r2_sha256": "7cface66a1369fcd8c77cdd679d754f6f6497167577d6f1dddd4510e398e22b4",
+      "sha256_match": true
+    },
+    "003": {
+      "status": "verified",
+      "surah": 3,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/3.mp3",
+      "source_size_bytes": 37187561,
+      "ranges_checked": 9,
+      "source_sha256": "4d122f185772719c3395619e807b75da830add79b411819211a469009ce9f868",
+      "r2_sha256": "4d122f185772719c3395619e807b75da830add79b411819211a469009ce9f868",
+      "sha256_match": true
+    },
+    "004": {
+      "status": "verified",
+      "surah": 4,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/4.mp3",
+      "source_size_bytes": 37659663,
+      "ranges_checked": 9,
+      "source_sha256": "10d3cfb18a1d7c89cb5167be049c54db8edfff69716cc201a766f6fc2f9ce20c",
+      "r2_sha256": "10d3cfb18a1d7c89cb5167be049c54db8edfff69716cc201a766f6fc2f9ce20c",
+      "sha256_match": true
+    },
+    "005": {
+      "status": "verified",
+      "surah": 5,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/5.mp3",
+      "source_size_bytes": 29298285,
+      "ranges_checked": 7,
+      "source_sha256": "8f5949f422badfa7f4f34f6dee1ea344de89afb4b054b8efe4e33cf1de3b16ed",
+      "r2_sha256": "8f5949f422badfa7f4f34f6dee1ea344de89afb4b054b8efe4e33cf1de3b16ed",
+      "sha256_match": true
+    },
+    "006": {
+      "status": "verified",
+      "surah": 6,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/6.mp3",
+      "source_size_bytes": 28987324,
+      "ranges_checked": 7,
+      "source_sha256": "f5f1ca06eb51c9158edb415973c24a20d4226c307c74ce050303b19753f90c7c",
+      "r2_sha256": "f5f1ca06eb51c9158edb415973c24a20d4226c307c74ce050303b19753f90c7c",
+      "sha256_match": true
+    },
+    "007": {
+      "status": "verified",
+      "surah": 7,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/7.mp3",
+      "source_size_bytes": 31815863,
+      "ranges_checked": 8,
+      "source_sha256": "b1815f592fbfc72a42539081775c8eab3d2c5c8afa45e2c9308e87a8aa516146",
+      "r2_sha256": "b1815f592fbfc72a42539081775c8eab3d2c5c8afa45e2c9308e87a8aa516146",
+      "sha256_match": true
+    },
+    "008": {
+      "status": "verified",
+      "surah": 8,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/8.mp3",
+      "source_size_bytes": 13052674,
+      "ranges_checked": 4,
+      "source_sha256": "d19d7419079ac6bb93bb5ac1987d94ff738d0ee403e63b8ade76186c23d6fd9b",
+      "r2_sha256": "d19d7419079ac6bb93bb5ac1987d94ff738d0ee403e63b8ade76186c23d6fd9b",
+      "sha256_match": true
+    },
+    "009": {
+      "status": "verified",
+      "surah": 9,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/9.mp3",
+      "source_size_bytes": 23964186,
+      "ranges_checked": 6,
+      "source_sha256": "fc532f2edff3b583887d75c152d83e8a0d111bda54a4a06e10483d5b4633234e",
+      "r2_sha256": "fc532f2edff3b583887d75c152d83e8a0d111bda54a4a06e10483d5b4633234e",
+      "sha256_match": true
+    },
+    "010": {
+      "status": "verified",
+      "surah": 10,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/10.mp3",
+      "source_size_bytes": 19487408,
+      "ranges_checked": 5,
+      "source_sha256": "9439289b49d5126c76729e18416cad04f56769d6cd0bebe8e78e0f291c2d8225",
+      "r2_sha256": "9439289b49d5126c76729e18416cad04f56769d6cd0bebe8e78e0f291c2d8225",
+      "sha256_match": true
+    },
+    "011": {
+      "status": "verified",
+      "surah": 11,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/11.mp3",
+      "source_size_bytes": 21386406,
+      "ranges_checked": 6,
+      "source_sha256": "1117d699f64d70e67a787d1a4825e12b72df68cd56806c679e07d1221b6b08cf",
+      "r2_sha256": "1117d699f64d70e67a787d1a4825e12b72df68cd56806c679e07d1221b6b08cf",
+      "sha256_match": true
+    },
+    "012": {
+      "status": "verified",
+      "surah": 12,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/12.mp3",
+      "source_size_bytes": 19939535,
+      "ranges_checked": 5,
+      "source_sha256": "bcbf72e70e8146bfcdd470d109547bef593f3efc0122b4bce6f532f0fdc29736",
+      "r2_sha256": "bcbf72e70e8146bfcdd470d109547bef593f3efc0122b4bce6f532f0fdc29736",
+      "sha256_match": true
+    },
+    "013": {
+      "status": "verified",
+      "surah": 13,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/13.mp3",
+      "source_size_bytes": 8424028,
+      "ranges_checked": 3,
+      "source_sha256": "d6d91c5470daf067f134bdcdcb61a4ecf1988326e834db5c3e1bcb5ba9cdb991",
+      "r2_sha256": "d6d91c5470daf067f134bdcdcb61a4ecf1988326e834db5c3e1bcb5ba9cdb991",
+      "sha256_match": true
+    },
+    "014": {
+      "status": "verified",
+      "surah": 14,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/14.mp3",
+      "source_size_bytes": 8181508,
+      "ranges_checked": 2,
+      "source_sha256": "3ae8a56c673f47442ed5c11cc955c91c2c72bb5cbce244e3fb6ccf7de276546b",
+      "r2_sha256": "3ae8a56c673f47442ed5c11cc955c91c2c72bb5cbce244e3fb6ccf7de276546b",
+      "sha256_match": true
+    },
+    "015": {
+      "status": "verified",
+      "surah": 15,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/15.mp3",
+      "source_size_bytes": 6261299,
+      "ranges_checked": 2,
+      "source_sha256": "693fbdbc1fae0cb13e5717010347de31db99ffb840025aa9d9d755a641b75264",
+      "r2_sha256": "693fbdbc1fae0cb13e5717010347de31db99ffb840025aa9d9d755a641b75264",
+      "sha256_match": true
+    },
+    "016": {
+      "status": "verified",
+      "surah": 16,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/16.mp3",
+      "source_size_bytes": 16200577,
+      "ranges_checked": 4,
+      "source_sha256": "698610949cd6a4f14ee6227f22258b7e20d23520eb4771493230f11faf37624f",
+      "r2_sha256": "698610949cd6a4f14ee6227f22258b7e20d23520eb4771493230f11faf37624f",
+      "sha256_match": true
+    },
+    "017": {
+      "status": "verified",
+      "surah": 17,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/17.mp3",
+      "source_size_bytes": 13947568,
+      "ranges_checked": 4,
+      "source_sha256": "c68e2fce9079e1bc6af0a95bb6eccd702c12f6c06a099117f7e7917ae3f54bab",
+      "r2_sha256": "c68e2fce9079e1bc6af0a95bb6eccd702c12f6c06a099117f7e7917ae3f54bab",
+      "sha256_match": true
+    },
+    "018": {
+      "status": "verified",
+      "surah": 18,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/18.mp3",
+      "source_size_bytes": 15178458,
+      "ranges_checked": 4,
+      "source_sha256": "725d05ab27b403f78b885c76e88333677857c4319f7faa4651d7ea319f3aa35d",
+      "r2_sha256": "725d05ab27b403f78b885c76e88333677857c4319f7faa4651d7ea319f3aa35d",
+      "sha256_match": true
+    },
+    "019": {
+      "status": "verified",
+      "surah": 19,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/19.mp3",
+      "source_size_bytes": 8922236,
+      "ranges_checked": 3,
+      "source_sha256": "a924ef40d049d28950c73325ba686685e01c70e425dc45ba922aeb5438bcf5f2",
+      "r2_sha256": "a924ef40d049d28950c73325ba686685e01c70e425dc45ba922aeb5438bcf5f2",
+      "sha256_match": true
+    },
+    "020": {
+      "status": "verified",
+      "surah": 20,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/20.mp3",
+      "source_size_bytes": 11770941,
+      "ranges_checked": 3,
+      "source_sha256": "bc94471b5a5d5c19cd00f5353b4b63121d87775b27cfb01e19bd7359ffe993ba",
+      "r2_sha256": "bc94471b5a5d5c19cd00f5353b4b63121d87775b27cfb01e19bd7359ffe993ba",
+      "sha256_match": true
+    },
+    "021": {
+      "status": "verified",
+      "surah": 21,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/21.mp3",
+      "source_size_bytes": 12532045,
+      "ranges_checked": 3,
+      "source_sha256": "a9fe6dfb811d477a7ab56e895b4602b7b01dcf813c97ab4324a54d0bf4be97d1",
+      "r2_sha256": "a9fe6dfb811d477a7ab56e895b4602b7b01dcf813c97ab4324a54d0bf4be97d1",
+      "sha256_match": true
+    },
+    "022": {
+      "status": "verified",
+      "surah": 22,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/22.mp3",
+      "source_size_bytes": 12097890,
+      "ranges_checked": 3,
+      "source_sha256": "6aa9938d2146873381b21b55e71eb1be3c3a3bd9d415f9411def6d28c0cbde3e",
+      "r2_sha256": "6aa9938d2146873381b21b55e71eb1be3c3a3bd9d415f9411def6d28c0cbde3e",
+      "sha256_match": true
+    },
+    "023": {
+      "status": "verified",
+      "surah": 23,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/23.mp3",
+      "source_size_bytes": 10384675,
+      "ranges_checked": 3,
+      "source_sha256": "d4e8c2a0815daa4b9606cdbd6f3f0e69dbd11ee8e0797c92905c7623d0180470",
+      "r2_sha256": "d4e8c2a0815daa4b9606cdbd6f3f0e69dbd11ee8e0797c92905c7623d0180470",
+      "sha256_match": true
+    },
+    "024": {
+      "status": "verified",
+      "surah": 24,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/24.mp3",
+      "source_size_bytes": 12992949,
+      "ranges_checked": 4,
+      "source_sha256": "ceb79e80c7b67bd50f0e942636741d4908307d61a868e119c4791264ebffef1c",
+      "r2_sha256": "ceb79e80c7b67bd50f0e942636741d4908307d61a868e119c4791264ebffef1c",
+      "sha256_match": true
+    },
+    "025": {
+      "status": "verified",
+      "surah": 25,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/25.mp3",
+      "source_size_bytes": 7996143,
+      "ranges_checked": 2,
+      "source_sha256": "028471d326603d68a55094a4d65ebae30135020b418ea44f2eb3ec60c038dbe0",
+      "r2_sha256": "028471d326603d68a55094a4d65ebae30135020b418ea44f2eb3ec60c038dbe0",
+      "sha256_match": true
+    },
+    "026": {
+      "status": "verified",
+      "surah": 26,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/26.mp3",
+      "source_size_bytes": 11836682,
+      "ranges_checked": 3,
+      "source_sha256": "a7dc4ef35a379444f0d5fb7a31f23279486bf4a14647b5ab31245a060020ba3b",
+      "r2_sha256": "a7dc4ef35a379444f0d5fb7a31f23279486bf4a14647b5ab31245a060020ba3b",
+      "sha256_match": true
+    },
+    "027": {
+      "status": "verified",
+      "surah": 27,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/27.mp3",
+      "source_size_bytes": 10651019,
+      "ranges_checked": 3,
+      "source_sha256": "567321bd8ec5f52adad0b09c902d77d4cc4dc47f71074f930d542c6859b278ec",
+      "r2_sha256": "567321bd8ec5f52adad0b09c902d77d4cc4dc47f71074f930d542c6859b278ec",
+      "sha256_match": true
+    },
+    "028": {
+      "status": "verified",
+      "surah": 28,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/28.mp3",
+      "source_size_bytes": 12973514,
+      "ranges_checked": 4,
+      "source_sha256": "7898622fc2142f50352664cccbb03f89ae00fc42ed2d3473e9543158ed2b0270",
+      "r2_sha256": "7898622fc2142f50352664cccbb03f89ae00fc42ed2d3473e9543158ed2b0270",
+      "sha256_match": true
+    },
+    "029": {
+      "status": "verified",
+      "surah": 29,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/29.mp3",
+      "source_size_bytes": 9037609,
+      "ranges_checked": 3,
+      "source_sha256": "af5f3040ed71fda29e61334dfcdcb5ae12c33cae913ad6e4f84ac26d573862ad",
+      "r2_sha256": "af5f3040ed71fda29e61334dfcdcb5ae12c33cae913ad6e4f84ac26d573862ad",
+      "sha256_match": true
+    },
+    "030": {
+      "status": "verified",
+      "surah": 30,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/30.mp3",
+      "source_size_bytes": 7602948,
+      "ranges_checked": 2,
+      "source_sha256": "ff94e797baddb4c6a4bcf666e35ba25f91ddc196b2bddae934f63ba30abcabe6",
+      "r2_sha256": "ff94e797baddb4c6a4bcf666e35ba25f91ddc196b2bddae934f63ba30abcabe6",
+      "sha256_match": true
+    },
+    "031": {
+      "status": "verified",
+      "surah": 31,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/31.mp3",
+      "source_size_bytes": 4638154,
+      "ranges_checked": 2,
+      "source_sha256": "9b7c5351886cce943612a67a2005e19531e160a84fe34f4b3ad84f95cd7d5ea3",
+      "r2_sha256": "9b7c5351886cce943612a67a2005e19531e160a84fe34f4b3ad84f95cd7d5ea3",
+      "sha256_match": true
+    },
+    "032": {
+      "status": "verified",
+      "surah": 32,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/32.mp3",
+      "source_size_bytes": 3306762,
+      "ranges_checked": 1,
+      "source_sha256": "5af4f6b059edfffdb4c389ea931e7c9fa92f84b499115a9c8f539299c287c775",
+      "r2_sha256": "5af4f6b059edfffdb4c389ea931e7c9fa92f84b499115a9c8f539299c287c775",
+      "sha256_match": true
+    },
+    "033": {
+      "status": "verified",
+      "surah": 33,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/33.mp3",
+      "source_size_bytes": 51023908,
+      "ranges_checked": 13,
+      "source_sha256": "fb27e4b64529d5be2dd6e8ea86d01c2754acdb017c18386b2ed33249c1ec425e",
+      "r2_sha256": "fb27e4b64529d5be2dd6e8ea86d01c2754acdb017c18386b2ed33249c1ec425e",
+      "sha256_match": true
+    },
+    "034": {
+      "status": "verified",
+      "surah": 34,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/34.mp3",
+      "source_size_bytes": 7986233,
+      "ranges_checked": 2,
+      "source_sha256": "5c667ea244e92ea2549c042b91fa143290ff0662503168e4602f0d5eb7bfd0f5",
+      "r2_sha256": "5c667ea244e92ea2549c042b91fa143290ff0662503168e4602f0d5eb7bfd0f5",
+      "sha256_match": true
+    },
+    "035": {
+      "status": "verified",
+      "surah": 35,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/35.mp3",
+      "source_size_bytes": 7382892,
+      "ranges_checked": 2,
+      "source_sha256": "243a9b8d15a31c2ab4937ce2553db5b29ef6b47103470ed54b08b7fa9b15589c",
+      "r2_sha256": "243a9b8d15a31c2ab4937ce2553db5b29ef6b47103470ed54b08b7fa9b15589c",
+      "sha256_match": true
+    },
+    "036": {
+      "status": "verified",
+      "surah": 36,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/36.mp3",
+      "source_size_bytes": 7044554,
+      "ranges_checked": 2,
+      "source_sha256": "bcc19e760769f4b0aae932f859015d0f1cbf5583981bc7dbfe8b188872585ab3",
+      "r2_sha256": "bcc19e760769f4b0aae932f859015d0f1cbf5583981bc7dbfe8b188872585ab3",
+      "sha256_match": true
+    },
+    "037": {
+      "status": "verified",
+      "surah": 37,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/37.mp3",
+      "source_size_bytes": 9296117,
+      "ranges_checked": 3,
+      "source_sha256": "3c0203ca025cf69a01575f04be961a5fab7112ba512a1ccc85235c9074a5afa1",
+      "r2_sha256": "3c0203ca025cf69a01575f04be961a5fab7112ba512a1ccc85235c9074a5afa1",
+      "sha256_match": true
+    },
+    "038": {
+      "status": "verified",
+      "surah": 38,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/38.mp3",
+      "source_size_bytes": 7411418,
+      "ranges_checked": 2,
+      "source_sha256": "0a168f26a88330f5a60438d10cad5100ca80dc2ae5cebc0a8107e571a82b2e96",
+      "r2_sha256": "0a168f26a88330f5a60438d10cad5100ca80dc2ae5cebc0a8107e571a82b2e96",
+      "sha256_match": true
+    },
+    "039": {
+      "status": "verified",
+      "surah": 39,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/39.mp3",
+      "source_size_bytes": 10901812,
+      "ranges_checked": 3,
+      "source_sha256": "c2193e0973ae50bdb8be704d43530d4af4ec274ad52057d80412458ed5264bd8",
+      "r2_sha256": "c2193e0973ae50bdb8be704d43530d4af4ec274ad52057d80412458ed5264bd8",
+      "sha256_match": true
+    },
+    "040": {
+      "status": "verified",
+      "surah": 40,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/40.mp3",
+      "source_size_bytes": 10565564,
+      "ranges_checked": 3,
+      "source_sha256": "58641ba0640f6b8ff7fc8775ac48c9c234f3e0400faf4de905ac30f7956ee6ac",
+      "r2_sha256": "58641ba0640f6b8ff7fc8775ac48c9c234f3e0400faf4de905ac30f7956ee6ac",
+      "sha256_match": true
+    },
+    "041": {
+      "status": "verified",
+      "surah": 41,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/41.mp3",
+      "source_size_bytes": 7121772,
+      "ranges_checked": 2,
+      "source_sha256": "2ad11b66766ef93537a54fc3a374797195652724bbe2c4cc8f1028018e61e770",
+      "r2_sha256": "2ad11b66766ef93537a54fc3a374797195652724bbe2c4cc8f1028018e61e770",
+      "sha256_match": true
+    },
+    "042": {
+      "status": "verified",
+      "surah": 42,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/42.mp3",
+      "source_size_bytes": 7433152,
+      "ranges_checked": 2,
+      "source_sha256": "d9b69bc68870161c844a3a61fd009f7a645722b007b459acc767f91ffcf5c4e6",
+      "r2_sha256": "d9b69bc68870161c844a3a61fd009f7a645722b007b459acc767f91ffcf5c4e6",
+      "sha256_match": true
+    },
+    "043": {
+      "status": "verified",
+      "surah": 43,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/43.mp3",
+      "source_size_bytes": 7544555,
+      "ranges_checked": 2,
+      "source_sha256": "4466bb522afc0f33c0e51aaf3fb3ce58247da0b96d84ae32c2cbdc342a2bf3ac",
+      "r2_sha256": "4466bb522afc0f33c0e51aaf3fb3ce58247da0b96d84ae32c2cbdc342a2bf3ac",
+      "sha256_match": true
+    },
+    "044": {
+      "status": "verified",
+      "surah": 44,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/44.mp3",
+      "source_size_bytes": 3139143,
+      "ranges_checked": 1,
+      "source_sha256": "7509823d1adf77e32109c8fae0df62b87c7809b7aba8895277262c332ab0cb84",
+      "r2_sha256": "7509823d1adf77e32109c8fae0df62b87c7809b7aba8895277262c332ab0cb84",
+      "sha256_match": true
+    },
+    "045": {
+      "status": "verified",
+      "surah": 45,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/45.mp3",
+      "source_size_bytes": 4181429,
+      "ranges_checked": 1,
+      "source_sha256": "90b142753341eb54fec12739a47444ca5e5feab83e65c291885f4d385ce0ea40",
+      "r2_sha256": "90b142753341eb54fec12739a47444ca5e5feab83e65c291885f4d385ce0ea40",
+      "sha256_match": true
+    },
+    "046": {
+      "status": "verified",
+      "surah": 46,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/46.mp3",
+      "source_size_bytes": 5353596,
+      "ranges_checked": 2,
+      "source_sha256": "90278433c0afea8c5b5559e613e40366177294d74804999f3ddb5a1be8f6cd29",
+      "r2_sha256": "90278433c0afea8c5b5559e613e40366177294d74804999f3ddb5a1be8f6cd29",
+      "sha256_match": true
+    },
+    "047": {
+      "status": "verified",
+      "surah": 47,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/47.mp3",
+      "source_size_bytes": 4770769,
+      "ranges_checked": 2,
+      "source_sha256": "bad3a3cd0e3fa7229b3346ab8eed40dae0e067c3b2aae0256ccfce083af808a0",
+      "r2_sha256": "bad3a3cd0e3fa7229b3346ab8eed40dae0e067c3b2aae0256ccfce083af808a0",
+      "sha256_match": true
+    },
+    "048": {
+      "status": "verified",
+      "surah": 48,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/48.mp3",
+      "source_size_bytes": 5184636,
+      "ranges_checked": 2,
+      "source_sha256": "f440eb68e83a4bcbe1a50f1bb2e70b82d582692d71ae8265821d5c75d380bea0",
+      "r2_sha256": "f440eb68e83a4bcbe1a50f1bb2e70b82d582692d71ae8265821d5c75d380bea0",
+      "sha256_match": true
+    },
+    "049": {
+      "status": "verified",
+      "surah": 49,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/49.mp3",
+      "source_size_bytes": 3346869,
+      "ranges_checked": 1,
+      "source_sha256": "1e2315c675fcdde8b7d2657d8ce99a88b71bd5a263cfbd3db454c88fe3f59ca2",
+      "r2_sha256": "1e2315c675fcdde8b7d2657d8ce99a88b71bd5a263cfbd3db454c88fe3f59ca2",
+      "sha256_match": true
+    },
+    "050": {
+      "status": "verified",
+      "surah": 50,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/50.mp3",
+      "source_size_bytes": 3173312,
+      "ranges_checked": 1,
+      "source_sha256": "142ec564446890242ec71c7b6034d563e3a04ecc006b62e2d1d4e8b1b20e2140",
+      "r2_sha256": "142ec564446890242ec71c7b6034d563e3a04ecc006b62e2d1d4e8b1b20e2140",
+      "sha256_match": true
+    },
+    "051": {
+      "status": "verified",
+      "surah": 51,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/51.mp3",
+      "source_size_bytes": 3149801,
+      "ranges_checked": 1,
+      "source_sha256": "9e6cf22a9a4c123a3009bc4c297b18d4416f0f5ce8f1882694f1d4d8365d70e9",
+      "r2_sha256": "9e6cf22a9a4c123a3009bc4c297b18d4416f0f5ce8f1882694f1d4d8365d70e9",
+      "sha256_match": true
+    },
+    "052": {
+      "status": "verified",
+      "surah": 52,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/52.mp3",
+      "source_size_bytes": 2678448,
+      "ranges_checked": 1,
+      "source_sha256": "82682b0ca6458fbf61d5df3882ab618568499cadecb61e12311a393283b0e27e",
+      "r2_sha256": "82682b0ca6458fbf61d5df3882ab618568499cadecb61e12311a393283b0e27e",
+      "sha256_match": true
+    },
+    "053": {
+      "status": "verified",
+      "surah": 53,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/53.mp3",
+      "source_size_bytes": 3018353,
+      "ranges_checked": 1,
+      "source_sha256": "cbafd037405fb7764503fbe78e8d7d30f16fa41642265091911ecd79a266ccf5",
+      "r2_sha256": "cbafd037405fb7764503fbe78e8d7d30f16fa41642265091911ecd79a266ccf5",
+      "sha256_match": true
+    },
+    "054": {
+      "status": "verified",
+      "surah": 54,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/54.mp3",
+      "source_size_bytes": 3108737,
+      "ranges_checked": 1,
+      "source_sha256": "2a295fb2e72f9d518eab74273a150c942e82b64cca19d589efa480980a5af153",
+      "r2_sha256": "2a295fb2e72f9d518eab74273a150c942e82b64cca19d589efa480980a5af153",
+      "sha256_match": true
+    },
+    "055": {
+      "status": "verified",
+      "surah": 55,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/55.mp3",
+      "source_size_bytes": 3766500,
+      "ranges_checked": 1,
+      "source_sha256": "6a9fcd54c406ee4bbec91795ace22d9e073fa2156003a559c9135dff4788cd50",
+      "r2_sha256": "6a9fcd54c406ee4bbec91795ace22d9e073fa2156003a559c9135dff4788cd50",
+      "sha256_match": true
+    },
+    "056": {
+      "status": "verified",
+      "surah": 56,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/56.mp3",
+      "source_size_bytes": 4498138,
+      "ranges_checked": 2,
+      "source_sha256": "c6009f044147a2bf0968d1466dcd096fdeef4752bbfcfc0bc7237ce91eee5d50",
+      "r2_sha256": "c6009f044147a2bf0968d1466dcd096fdeef4752bbfcfc0bc7237ce91eee5d50",
+      "sha256_match": true
+    },
+    "057": {
+      "status": "verified",
+      "surah": 57,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/57.mp3",
+      "source_size_bytes": 6138958,
+      "ranges_checked": 2,
+      "source_sha256": "6bd8c198f0950bfad39cec02847d95295c4cdd480b896115dfa4359b4e5f70a0",
+      "r2_sha256": "6bd8c198f0950bfad39cec02847d95295c4cdd480b896115dfa4359b4e5f70a0",
+      "sha256_match": true
+    },
+    "058": {
+      "status": "verified",
+      "surah": 58,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/58.mp3",
+      "source_size_bytes": 4381005,
+      "ranges_checked": 2,
+      "source_sha256": "5d082940e569460244c82f319410b46600b377ca3dc6f42dba9f0d9a14577d48",
+      "r2_sha256": "5d082940e569460244c82f319410b46600b377ca3dc6f42dba9f0d9a14577d48",
+      "sha256_match": true
+    },
+    "059": {
+      "status": "verified",
+      "surah": 59,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/59.mp3",
+      "source_size_bytes": 4231271,
+      "ranges_checked": 2,
+      "source_sha256": "f6cd81bdba01894638c65f05dfc4ed7574e8cd43f4aa8837bb54ccf46a2aec61",
+      "r2_sha256": "f6cd81bdba01894638c65f05dfc4ed7574e8cd43f4aa8837bb54ccf46a2aec61",
+      "sha256_match": true
+    },
+    "060": {
+      "status": "verified",
+      "surah": 60,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/60.mp3",
+      "source_size_bytes": 3497543,
+      "ranges_checked": 1,
+      "source_sha256": "9508f8762dc8c0a7b54ec7e5b1a394b43996c0e058a00800ff05b9e4848780e7",
+      "r2_sha256": "9508f8762dc8c0a7b54ec7e5b1a394b43996c0e058a00800ff05b9e4848780e7",
+      "sha256_match": true
+    },
+    "061": {
+      "status": "verified",
+      "surah": 61,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/61.mp3",
+      "source_size_bytes": 1979411,
+      "ranges_checked": 1,
+      "source_sha256": "dfa5009ed18ae41620035c218df491e0ad44437ab9b9b19510e66801adc89d20",
+      "r2_sha256": "dfa5009ed18ae41620035c218df491e0ad44437ab9b9b19510e66801adc89d20",
+      "sha256_match": true
+    },
+    "062": {
+      "status": "verified",
+      "surah": 62,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/62.mp3",
+      "source_size_bytes": 1526448,
+      "ranges_checked": 1,
+      "source_sha256": "0bd45590b3b653cd06e97a6455bef3fef593ee7699f9a15dee58041920cd4816",
+      "r2_sha256": "0bd45590b3b653cd06e97a6455bef3fef593ee7699f9a15dee58041920cd4816",
+      "sha256_match": true
+    },
+    "063": {
+      "status": "verified",
+      "surah": 63,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/63.mp3",
+      "source_size_bytes": 1663643,
+      "ranges_checked": 1,
+      "source_sha256": "40bf72a2087a114496b5202441cc33c2cff8f65414849a32d5644ba9e5cb9e09",
+      "r2_sha256": "40bf72a2087a114496b5202441cc33c2cff8f65414849a32d5644ba9e5cb9e09",
+      "sha256_match": true
+    },
+    "064": {
+      "status": "verified",
+      "surah": 64,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/64.mp3",
+      "source_size_bytes": 2091738,
+      "ranges_checked": 1,
+      "source_sha256": "7c9778e2647ca1a3760b1f7c610004ca83e5c15b98cc5e971fcebb01aabbee76",
+      "r2_sha256": "7c9778e2647ca1a3760b1f7c610004ca83e5c15b98cc5e971fcebb01aabbee76",
+      "sha256_match": true
+    },
+    "065": {
+      "status": "verified",
+      "surah": 65,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/65.mp3",
+      "source_size_bytes": 2680120,
+      "ranges_checked": 1,
+      "source_sha256": "ac1e8cb9a8924f7679ef93ff1d8da4c5fee7139d3d04572b59e26211eeb9b8d5",
+      "r2_sha256": "ac1e8cb9a8924f7679ef93ff1d8da4c5fee7139d3d04572b59e26211eeb9b8d5",
+      "sha256_match": true
+    },
+    "066": {
+      "status": "verified",
+      "surah": 66,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/66.mp3",
+      "source_size_bytes": 2547836,
+      "ranges_checked": 1,
+      "source_sha256": "a2ba585bd62047e31e8ae4f517911bd75eff91631f0145f1d198bef9a297dfe6",
+      "r2_sha256": "a2ba585bd62047e31e8ae4f517911bd75eff91631f0145f1d198bef9a297dfe6",
+      "sha256_match": true
+    },
+    "067": {
+      "status": "verified",
+      "surah": 67,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/67.mp3",
+      "source_size_bytes": 2929014,
+      "ranges_checked": 1,
+      "source_sha256": "be3d35218aaf592c1ad743e900edf9faf4c512e0be2a40cea2b7ec477aa2d481",
+      "r2_sha256": "be3d35218aaf592c1ad743e900edf9faf4c512e0be2a40cea2b7ec477aa2d481",
+      "sha256_match": true
+    },
+    "068": {
+      "status": "verified",
+      "surah": 68,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/68.mp3",
+      "source_size_bytes": 3010517,
+      "ranges_checked": 1,
+      "source_sha256": "111e65a3b05333667d8caaeb25ac180c3c5e790913097d71371c7d2a9ad76120",
+      "r2_sha256": "111e65a3b05333667d8caaeb25ac180c3c5e790913097d71371c7d2a9ad76120",
+      "sha256_match": true
+    },
+    "069": {
+      "status": "verified",
+      "surah": 69,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/69.mp3",
+      "source_size_bytes": 2874680,
+      "ranges_checked": 1,
+      "source_sha256": "bcdea26bcb3acb28b806bdf975a5ddea73b5a0c85e8dbc3561a2a3009611e83e",
+      "r2_sha256": "bcdea26bcb3acb28b806bdf975a5ddea73b5a0c85e8dbc3561a2a3009611e83e",
+      "sha256_match": true
+    },
+    "070": {
+      "status": "verified",
+      "surah": 70,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/70.mp3",
+      "source_size_bytes": 2400714,
+      "ranges_checked": 1,
+      "source_sha256": "9ddb7878866e63097b184370b7a8c2180a42ed004c1e2eff6a9fe84cf8a36cef",
+      "r2_sha256": "9ddb7878866e63097b184370b7a8c2180a42ed004c1e2eff6a9fe84cf8a36cef",
+      "sha256_match": true
+    },
+    "071": {
+      "status": "verified",
+      "surah": 71,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/71.mp3",
+      "source_size_bytes": 2457766,
+      "ranges_checked": 1,
+      "source_sha256": "222cf5ec92adb9667acefe9b29563548c9145f8ee16626278e1c013c61147c7e",
+      "r2_sha256": "222cf5ec92adb9667acefe9b29563548c9145f8ee16626278e1c013c61147c7e",
+      "sha256_match": true
+    },
+    "072": {
+      "status": "verified",
+      "surah": 72,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/72.mp3",
+      "source_size_bytes": 2752009,
+      "ranges_checked": 1,
+      "source_sha256": "acc1e000fa2a62b40534bd9ec6c6cd2a6f893dc12871997138aecd05980dfb02",
+      "r2_sha256": "acc1e000fa2a62b40534bd9ec6c6cd2a6f893dc12871997138aecd05980dfb02",
+      "sha256_match": true
+    },
+    "073": {
+      "status": "verified",
+      "surah": 73,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/73.mp3",
+      "source_size_bytes": 1988920,
+      "ranges_checked": 1,
+      "source_sha256": "ab7b05be01db25227498e1e3d0370bc5a2f330439d3ad6f3c8df89b91f4123a8",
+      "r2_sha256": "ab7b05be01db25227498e1e3d0370bc5a2f330439d3ad6f3c8df89b91f4123a8",
+      "sha256_match": true
+    },
+    "074": {
+      "status": "verified",
+      "surah": 74,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/74.mp3",
+      "source_size_bytes": 2680120,
+      "ranges_checked": 1,
+      "source_sha256": "a15372c105b91349aeb33a6020ac80346ebbb9e7fd3753d4f39f06e3af313e3c",
+      "r2_sha256": "a15372c105b91349aeb33a6020ac80346ebbb9e7fd3753d4f39f06e3af313e3c",
+      "sha256_match": true
+    },
+    "075": {
+      "status": "verified",
+      "surah": 75,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/75.mp3",
+      "source_size_bytes": 1680048,
+      "ranges_checked": 1,
+      "source_sha256": "d80f78b362b4f86e1ae826ab1c95df3c8152719afe8043bcf16fe8926b347d30",
+      "r2_sha256": "d80f78b362b4f86e1ae826ab1c95df3c8152719afe8043bcf16fe8926b347d30",
+      "sha256_match": true
+    },
+    "076": {
+      "status": "verified",
+      "surah": 76,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/76.mp3",
+      "source_size_bytes": 2906654,
+      "ranges_checked": 1,
+      "source_sha256": "2e8201a0b8e770fdaca41a57352716147b600848e856ffb0bef58ffe34f8c728",
+      "r2_sha256": "2e8201a0b8e770fdaca41a57352716147b600848e856ffb0bef58ffe34f8c728",
+      "sha256_match": true
+    },
+    "077": {
+      "status": "verified",
+      "surah": 77,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/77.mp3",
+      "source_size_bytes": 2200930,
+      "ranges_checked": 1,
+      "source_sha256": "3df8b8151a9b01126c9ea29298e52b82e928918c943789dce4ed0a442c5ddbb1",
+      "r2_sha256": "3df8b8151a9b01126c9ea29298e52b82e928918c943789dce4ed0a442c5ddbb1",
+      "sha256_match": true
+    },
+    "078": {
+      "status": "verified",
+      "surah": 78,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/78.mp3",
+      "source_size_bytes": 2259444,
+      "ranges_checked": 1,
+      "source_sha256": "be2b34cbbed68ac475bed720aa8a8a9ed96fcc2690cb603c97e97ae5e525cb49",
+      "r2_sha256": "be2b34cbbed68ac475bed720aa8a8a9ed96fcc2690cb603c97e97ae5e525cb49",
+      "sha256_match": true
+    },
+    "079": {
+      "status": "verified",
+      "surah": 79,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/79.mp3",
+      "source_size_bytes": 2108665,
+      "ranges_checked": 1,
+      "source_sha256": "8f43fbb0922f41ddb500ddb36295a3f5ae2f975fd3583c064a721112043658ec",
+      "r2_sha256": "8f43fbb0922f41ddb500ddb36295a3f5ae2f975fd3583c064a721112043658ec",
+      "sha256_match": true
+    },
+    "080": {
+      "status": "verified",
+      "surah": 80,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/80.mp3",
+      "source_size_bytes": 1638252,
+      "ranges_checked": 1,
+      "source_sha256": "9dbda0679cab50722c8ecda8331c2d4f1f4dc8fa9c4e10d1ce79338c2f628d14",
+      "r2_sha256": "9dbda0679cab50722c8ecda8331c2d4f1f4dc8fa9c4e10d1ce79338c2f628d14",
+      "sha256_match": true
+    },
+    "081": {
+      "status": "verified",
+      "surah": 81,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/81.mp3",
+      "source_size_bytes": 1141612,
+      "ranges_checked": 1,
+      "source_sha256": "2c3893a6d71758ebb746bd53f334666c5240db03c66b8a928741138b4e90d074",
+      "r2_sha256": "2c3893a6d71758ebb746bd53f334666c5240db03c66b8a928741138b4e90d074",
+      "sha256_match": true
+    },
+    "082": {
+      "status": "verified",
+      "surah": 82,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/82.mp3",
+      "source_size_bytes": 888956,
+      "ranges_checked": 1,
+      "source_sha256": "8c4a101e54a4c17502ad25a80ad66a493794717fc141d38af8d1b82afe7ba08e",
+      "r2_sha256": "8c4a101e54a4c17502ad25a80ad66a493794717fc141d38af8d1b82afe7ba08e",
+      "sha256_match": true
+    },
+    "083": {
+      "status": "verified",
+      "surah": 83,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/83.mp3",
+      "source_size_bytes": 2040224,
+      "ranges_checked": 1,
+      "source_sha256": "51b8f93794295f6edfb1229388f816bffce8e7ec92e2fd5f296b899f4e767b73",
+      "r2_sha256": "51b8f93794295f6edfb1229388f816bffce8e7ec92e2fd5f296b899f4e767b73",
+      "sha256_match": true
+    },
+    "084": {
+      "status": "verified",
+      "surah": 84,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/84.mp3",
+      "source_size_bytes": 1256969,
+      "ranges_checked": 1,
+      "source_sha256": "22993108f03400dc95cf85ab111b1c1458960e05a5ed88f31d6966c203494eac",
+      "r2_sha256": "22993108f03400dc95cf85ab111b1c1458960e05a5ed88f31d6966c203494eac",
+      "sha256_match": true
+    },
+    "085": {
+      "status": "verified",
+      "surah": 85,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/85.mp3",
+      "source_size_bytes": 1273792,
+      "ranges_checked": 1,
+      "source_sha256": "dc9e01d79c860f231274e0dcf14cc03ab7b33f0f0772dcbea2799b4202b0ce93",
+      "r2_sha256": "dc9e01d79c860f231274e0dcf14cc03ab7b33f0f0772dcbea2799b4202b0ce93",
+      "sha256_match": true
+    },
+    "086": {
+      "status": "verified",
+      "surah": 86,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/86.mp3",
+      "source_size_bytes": 728207,
+      "ranges_checked": 1,
+      "source_sha256": "d81058488b4410ad6bdd15fb65f092a51288c69a9f0270d57cfb0c90f5bd7a90",
+      "r2_sha256": "d81058488b4410ad6bdd15fb65f092a51288c69a9f0270d57cfb0c90f5bd7a90",
+      "sha256_match": true
+    },
+    "087": {
+      "status": "verified",
+      "surah": 87,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/87.mp3",
+      "source_size_bytes": 810588,
+      "ranges_checked": 1,
+      "source_sha256": "50aebeae2f9e35d84f342eb292276e341c5ad87f3b0185bdaed6b2025605a9b7",
+      "r2_sha256": "50aebeae2f9e35d84f342eb292276e341c5ad87f3b0185bdaed6b2025605a9b7",
+      "sha256_match": true
+    },
+    "088": {
+      "status": "verified",
+      "surah": 88,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/88.mp3",
+      "source_size_bytes": 1044228,
+      "ranges_checked": 1,
+      "source_sha256": "647cec4fa28e0bd382c04ac2db8b1a58f8caff7e2b6dce2f507bc4cbbeceb663",
+      "r2_sha256": "647cec4fa28e0bd382c04ac2db8b1a58f8caff7e2b6dce2f507bc4cbbeceb663",
+      "sha256_match": true
+    },
+    "089": {
+      "status": "verified",
+      "surah": 89,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/89.mp3",
+      "source_size_bytes": 1608368,
+      "ranges_checked": 1,
+      "source_sha256": "bab44a4518b2e6037b0459c845c59b979cd55dd905162d5211bcacebc056f23c",
+      "r2_sha256": "bab44a4518b2e6037b0459c845c59b979cd55dd905162d5211bcacebc056f23c",
+      "sha256_match": true
+    },
+    "090": {
+      "status": "verified",
+      "surah": 90,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/90.mp3",
+      "source_size_bytes": 918108,
+      "ranges_checked": 1,
+      "source_sha256": "f6a9721e0697af85a0e3bdf7fc4bd247815985ddb003569df887527fb14b5849",
+      "r2_sha256": "f6a9721e0697af85a0e3bdf7fc4bd247815985ddb003569df887527fb14b5849",
+      "sha256_match": true
+    },
+    "091": {
+      "status": "verified",
+      "surah": 91,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/91.mp3",
+      "source_size_bytes": 692515,
+      "ranges_checked": 1,
+      "source_sha256": "eaeef28f01f4bc1b863c35863dd0172222fb28f77b18f5c5e9c8429f57cd537a",
+      "r2_sha256": "eaeef28f01f4bc1b863c35863dd0172222fb28f77b18f5c5e9c8429f57cd537a",
+      "sha256_match": true
+    },
+    "092": {
+      "status": "verified",
+      "surah": 92,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/92.mp3",
+      "source_size_bytes": 911317,
+      "ranges_checked": 1,
+      "source_sha256": "7d1afabadb2bb2aea8d8c8c3ec7bbd8c1ec5a309e0ccd7a887c076e63e403520",
+      "r2_sha256": "7d1afabadb2bb2aea8d8c8c3ec7bbd8c1ec5a309e0ccd7a887c076e63e403520",
+      "sha256_match": true
+    },
+    "093": {
+      "status": "verified",
+      "surah": 93,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/93.mp3",
+      "source_size_bytes": 471937,
+      "ranges_checked": 1,
+      "source_sha256": "61f697dff2b96e1d7b09dc1267def69289c069e7253b0ca93e43a6789b97cfc8",
+      "r2_sha256": "61f697dff2b96e1d7b09dc1267def69289c069e7253b0ca93e43a6789b97cfc8",
+      "sha256_match": true
+    },
+    "094": {
+      "status": "verified",
+      "surah": 94,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/94.mp3",
+      "source_size_bytes": 275810,
+      "ranges_checked": 1,
+      "source_sha256": "f573af4cfd96e32e6d79f8c009f3529c2ac2bfecd65e997e6ec7ba753afc12ca",
+      "r2_sha256": "f573af4cfd96e32e6d79f8c009f3529c2ac2bfecd65e997e6ec7ba753afc12ca",
+      "sha256_match": true
+    },
+    "095": {
+      "status": "verified",
+      "surah": 95,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/95.mp3",
+      "source_size_bytes": 377792,
+      "ranges_checked": 1,
+      "source_sha256": "dd05f0eb30eeff468b2cc2a7a4de5d6c40a765226fc403a96d3626df64d1b9c0",
+      "r2_sha256": "dd05f0eb30eeff468b2cc2a7a4de5d6c40a765226fc403a96d3626df64d1b9c0",
+      "sha256_match": true
+    },
+    "096": {
+      "status": "verified",
+      "surah": 96,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/96.mp3",
+      "source_size_bytes": 786451,
+      "ranges_checked": 1,
+      "source_sha256": "9cab6234b2f7f568a2c49d29385284f48ca61fb45b17340503b88222631457db",
+      "r2_sha256": "9cab6234b2f7f568a2c49d29385284f48ca61fb45b17340503b88222631457db",
+      "sha256_match": true
+    },
+    "097": {
+      "status": "verified",
+      "surah": 97,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/97.mp3",
+      "source_size_bytes": 318337,
+      "ranges_checked": 1,
+      "source_sha256": "c654db6ccd926b0f459dbb4ae7ca411e13c47dfd88d9786ebfeb301fd97a99fe",
+      "r2_sha256": "c654db6ccd926b0f459dbb4ae7ca411e13c47dfd88d9786ebfeb301fd97a99fe",
+      "sha256_match": true
+    },
+    "098": {
+      "status": "verified",
+      "surah": 98,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/98.mp3",
+      "source_size_bytes": 1094383,
+      "ranges_checked": 1,
+      "source_sha256": "ef87d2ec6d4df1bf6d2d9e7409511060e0be870ba62323601b66bec4bb61275b",
+      "r2_sha256": "ef87d2ec6d4df1bf6d2d9e7409511060e0be870ba62323601b66bec4bb61275b",
+      "sha256_match": true
+    },
+    "099": {
+      "status": "verified",
+      "surah": 99,
+      "source_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/99.mp3",
+      "source_size_bytes": 420528,
+      "ranges_checked": 1,
+      "source_sha256": "9c3825f7f7b91059d55e2d91418ede3e8818c077d23b56ec5082e44462d236d8",
+      "r2_sha256": "9c3825f7f7b91059d55e2d91418ede3e8818c077d23b56ec5082e44462d236d8",
+      "sha256_match": true
+    }
+  }
+}
