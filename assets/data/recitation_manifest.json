@@ -6,7 +6,7 @@
     "status": "verified",
     "expected_surahs": 114,
     "verified_surahs": 114,
-    "audit_report_url": "https://quranread-maphrvqk.manus.space/manus-storage/source_r2_range_hash_audit_v1_1df5237f.json",
+    "audit_report_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/audit/source_r2_range_hash_audit_v1_1df5237f.json",
     "audit_report_sha256": "15bb356817bb31b38fcb3963f4272fdce98109d5e21186077274222e94506c07"
   },
   "recitations": {
@@ -31,7 +31,7 @@
           "sha256": "58f9cf8f0d6f0459ca6a2fcd598e310092d20c34d3b4f5e3cf019e9ba7e94239",
           "duration_ms": 64000,
           "ayah_count": 7,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_001_83039769.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_001_83039769.json"
         },
         "2": {
           "surah": 2,
@@ -44,7 +44,7 @@
           "sha256": "0de2098c1e29a361ba0766a7a8a01f0f3e8ea012fd34da9bc0573a956c622200",
           "duration_ms": 13931000,
           "ayah_count": 286,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_002_bcc56363.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_002_bcc56363.json"
         },
         "3": {
           "surah": 3,
@@ -57,7 +57,7 @@
           "sha256": "c306f1e547eba8d9740c91b91a989e9d776fa605529e5c05b76c4797dd8d6aae",
           "duration_ms": 7940000,
           "ayah_count": 200,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_003_60e9c8be.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_003_60e9c8be.json"
         },
         "4": {
           "surah": 4,
@@ -70,7 +70,7 @@
           "sha256": "7f19de40385a66cc97e510182927ce71f3fbc9ce16f3fbc425fea7ae7f6653bb",
           "duration_ms": 6968000,
           "ayah_count": 176,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_004_5e46db34.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_004_5e46db34.json"
         },
         "5": {
           "surah": 5,
@@ -83,7 +83,7 @@
           "sha256": "f35c799c1d9194d4299e503ce0ce426c44b45e6f4efeb594979de9cc18ce58c9",
           "duration_ms": 6560000,
           "ayah_count": 120,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_005_a3c8f4ac.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_005_a3c8f4ac.json"
         },
         "6": {
           "surah": 6,
@@ -96,7 +96,7 @@
           "sha256": "30fb0600e36771ef0916d3a8350f4bd538a78ca9c75d27cbd55f0933926fd39f",
           "duration_ms": 6747000,
           "ayah_count": 165,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_006_094c686a.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_006_094c686a.json"
         },
         "7": {
           "surah": 7,
@@ -109,7 +109,7 @@
           "sha256": "bafe149fa0b905f38a55b4a0f0c260e85c796d8ceb53b11eaab2ab87f559d680",
           "duration_ms": 6832000,
           "ayah_count": 206,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_007_3e7d8676.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_007_3e7d8676.json"
         },
         "8": {
           "surah": 8,
@@ -122,7 +122,7 @@
           "sha256": "e11c77f0058f44dc296a376bec612f9150f8d31d05d45a71a2a7153914ae86bb",
           "duration_ms": 2897000,
           "ayah_count": 75,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_008_e03ef758.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_008_e03ef758.json"
         },
         "9": {
           "surah": 9,
@@ -135,7 +135,7 @@
           "sha256": "e6edfee8c89e3c072ee21b7d726b7ff1f5358140bd5ca7faf77bff175078697e",
           "duration_ms": 5751000,
           "ayah_count": 129,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_009_174d8dfb.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_009_174d8dfb.json"
         },
         "10": {
           "surah": 10,
@@ -148,7 +148,7 @@
           "sha256": "c0360deb3b1597767c452eba81c6293a4af2ed7272408da7454f22117e1b399c",
           "duration_ms": 3975000,
           "ayah_count": 109,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_010_3cf0e3f7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_010_3cf0e3f7.json"
         },
         "11": {
           "surah": 11,
@@ -161,7 +161,7 @@
           "sha256": "313b8627473e7e281f433d9d4c8f724b4ec2c3d68b21e88607d4859ab0f2783d",
           "duration_ms": 4283000,
           "ayah_count": 123,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_011_c0e17f74.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_011_c0e17f74.json"
         },
         "12": {
           "surah": 12,
@@ -174,7 +174,7 @@
           "sha256": "a216011c5096541043206379c392bef0502a14c80411c6d2c25342156ccbcbda",
           "duration_ms": 3840000,
           "ayah_count": 111,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_012_cb9638ad.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_012_cb9638ad.json"
         },
         "13": {
           "surah": 13,
@@ -187,7 +187,7 @@
           "sha256": "65f6e76cb44cca1b04970c6b80967456fdd956aabb2183995600279a3b31f3f1",
           "duration_ms": 1797000,
           "ayah_count": 43,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_013_3cca81d2.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_013_3cca81d2.json"
         },
         "14": {
           "surah": 14,
@@ -200,7 +200,7 @@
           "sha256": "0d862df7ebd2274d3f477d1d5e69a85a39734f051c3f4b6cbf8e6c8683e33d53",
           "duration_ms": 1950000,
           "ayah_count": 52,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_014_cbed4f94.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_014_cbed4f94.json"
         },
         "15": {
           "surah": 15,
@@ -213,7 +213,7 @@
           "sha256": "61a01a404087f934121fbfadaed577d246844a9df4e44be586f278852c01f5e7",
           "duration_ms": 1557000,
           "ayah_count": 99,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_015_d16650e1.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_015_d16650e1.json"
         },
         "16": {
           "surah": 16,
@@ -226,7 +226,7 @@
           "sha256": "b2575b9ebe2ae4c0a673104b8a503223d0ee913050f914371daefdcf0386ba35",
           "duration_ms": 3959000,
           "ayah_count": 128,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_016_1175aa4c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_016_1175aa4c.json"
         },
         "17": {
           "surah": 17,
@@ -239,7 +239,7 @@
           "sha256": "0436d7188bb8d5d2c17a076fae91945ff29dd4d416269d959a0fb8a8fb8245ce",
           "duration_ms": 3466000,
           "ayah_count": 111,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_017_db7ecf9d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_017_db7ecf9d.json"
         },
         "18": {
           "surah": 18,
@@ -252,7 +252,7 @@
           "sha256": "bc2ec11336190815092e5281406be810c86ad3ec5994fd7b3c6e9dbeb22357e4",
           "duration_ms": 3411000,
           "ayah_count": 110,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_018_6481f472.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_018_6481f472.json"
         },
         "19": {
           "surah": 19,
@@ -265,7 +265,7 @@
           "sha256": "834a669dbdb0233ffeca6fca67374c97b0f3a7d7814d76f4fff510d7f922cdd7",
           "duration_ms": 2195000,
           "ayah_count": 98,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_019_2600b14c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_019_2600b14c.json"
         },
         "20": {
           "surah": 20,
@@ -278,7 +278,7 @@
           "sha256": "1ab514459f5dfefac596cbbce070f1251b8202010285823b21a6e04c0b4596b0",
           "duration_ms": 2805000,
           "ayah_count": 135,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_020_39860050.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_020_39860050.json"
         },
         "21": {
           "surah": 21,
@@ -291,7 +291,7 @@
           "sha256": "7c2e487b279cee5b35740ef3cc5064306e8a90e933e104009b2997248ea6b2cf",
           "duration_ms": 2551000,
           "ayah_count": 112,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_021_30ae06f5.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_021_30ae06f5.json"
         },
         "22": {
           "surah": 22,
@@ -304,7 +304,7 @@
           "sha256": "e3ec77df3f0a16de7d1cbc8ab41f252921270f129732ea20fc3ddececf28f56f",
           "duration_ms": 2787000,
           "ayah_count": 78,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_022_a803b6bc.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_022_a803b6bc.json"
         },
         "23": {
           "surah": 23,
@@ -317,7 +317,7 @@
           "sha256": "3eb61ed92e06a59af6d96d3f78d04b72890d33af9fa97d4fceb6a838da8990a6",
           "duration_ms": 2350000,
           "ayah_count": 118,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_023_93847485.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_023_93847485.json"
         },
         "24": {
           "surah": 24,
@@ -330,7 +330,7 @@
           "sha256": "882dcd33088c5584fc76826298ee71df60a8062975c56ef3835f973de697116a",
           "duration_ms": 3079000,
           "ayah_count": 64,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_024_c8189c12.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_024_c8189c12.json"
         },
         "25": {
           "surah": 25,
@@ -343,7 +343,7 @@
           "sha256": "de416f9838f23e8de0a87f5f5ec5f7916033d596aad35cfcad7a42ca456080d2",
           "duration_ms": 1885000,
           "ayah_count": 77,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_025_dbccb589.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_025_dbccb589.json"
         },
         "26": {
           "surah": 26,
@@ -356,7 +356,7 @@
           "sha256": "ef121f7e21249390810673dc4b5d52fc4a520523d259f8b6ecfb83ab6268cce5",
           "duration_ms": 3283000,
           "ayah_count": 227,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_026_3323e519.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_026_3323e519.json"
         },
         "27": {
           "surah": 27,
@@ -369,7 +369,7 @@
           "sha256": "4d93964dac3d5cd8f78ce17d5628e4adc029223ec5e2b4e01624f9bc738e335e",
           "duration_ms": 2558000,
           "ayah_count": 93,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_027_9612fdcf.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_027_9612fdcf.json"
         },
         "28": {
           "surah": 28,
@@ -382,7 +382,7 @@
           "sha256": "bd184b70043aa86408f269d1df4a816c92f785f3f3fc30705365cbe52cc8bfba",
           "duration_ms": 3067000,
           "ayah_count": 88,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_028_b2041056.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_028_b2041056.json"
         },
         "29": {
           "surah": 29,
@@ -395,7 +395,7 @@
           "sha256": "8df33733a7c07cf29c3bdf81fdd938cd03a79ea9153454957e8c7856d8992575",
           "duration_ms": 2193000,
           "ayah_count": 69,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_029_6c6baec4.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_029_6c6baec4.json"
         },
         "30": {
           "surah": 30,
@@ -408,7 +408,7 @@
           "sha256": "002ef7fa76fdcb250476fa0d380aa546fde592f6a708afd00ff426be9506fee4",
           "duration_ms": 1721000,
           "ayah_count": 60,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_030_62445e4b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_030_62445e4b.json"
         },
         "31": {
           "surah": 31,
@@ -421,7 +421,7 @@
           "sha256": "aa66151bf3d455090f27ceffafba244bb200152432edc655a520895b6dd5299b",
           "duration_ms": 1083000,
           "ayah_count": 34,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_031_038a147d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_031_038a147d.json"
         },
         "32": {
           "surah": 32,
@@ -434,7 +434,7 @@
           "sha256": "7d838681de79f3ea2a85f2136ffcf165e18587489fae4f521f4c70c2a54fa1e0",
           "duration_ms": 800000,
           "ayah_count": 30,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_032_fdecc19b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_032_fdecc19b.json"
         },
         "33": {
           "surah": 33,
@@ -447,7 +447,7 @@
           "sha256": "78f1e4ecd8ba156871caf974293a89109098609c0435caed50c1d8f3bfd7c22f",
           "duration_ms": 2739000,
           "ayah_count": 73,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_033_fb19bf78.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_033_fb19bf78.json"
         },
         "34": {
           "surah": 34,
@@ -460,7 +460,7 @@
           "sha256": "a521494ff945e94e87d0d6891e6768c0886cb6c1c47b6067f072c5bc0a3189e3",
           "duration_ms": 1806000,
           "ayah_count": 54,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_034_81020234.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_034_81020234.json"
         },
         "35": {
           "surah": 35,
@@ -473,7 +473,7 @@
           "sha256": "14336fc8c9f80d75d5575c26276f802270f0f8b8c6f79cd06c2d36cd329ff593",
           "duration_ms": 1776000,
           "ayah_count": 45,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_035_25b4f439.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_035_25b4f439.json"
         },
         "36": {
           "surah": 36,
@@ -486,7 +486,7 @@
           "sha256": "bc1d2a3d6c537d926668b8e18b10a04ac762c80b000c6598ec57dd8929d0aa33",
           "duration_ms": 1582000,
           "ayah_count": 83,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_036_fca5317e.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_036_fca5317e.json"
         },
         "37": {
           "surah": 37,
@@ -499,7 +499,7 @@
           "sha256": "2feee8eae2bbb45514db762f0adc771617fd00d3a0cf0edb9f5f59dda74412d1",
           "duration_ms": 2085000,
           "ayah_count": 182,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_037_55bfa914.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_037_55bfa914.json"
         },
         "38": {
           "surah": 38,
@@ -512,7 +512,7 @@
           "sha256": "982b25cd9b5569a876a65f5e8d5614611edba459aa9a76fb6cf70068d60b5fb6",
           "duration_ms": 1665000,
           "ayah_count": 88,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_038_0ecfb011.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_038_0ecfb011.json"
         },
         "39": {
           "surah": 39,
@@ -525,7 +525,7 @@
           "sha256": "4f0b65aa11dd94773545281a4ca12868133a360712837a1dae5ec45c25a3577f",
           "duration_ms": 2578000,
           "ayah_count": 75,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_039_f5faa719.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_039_f5faa719.json"
         },
         "40": {
           "surah": 40,
@@ -538,7 +538,7 @@
           "sha256": "1879a8caf7ad12de8c3496cacbaf6136753863e74d268deec93aeb5fc25645b2",
           "duration_ms": 2371000,
           "ayah_count": 85,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_040_b588748b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_040_b588748b.json"
         },
         "41": {
           "surah": 41,
@@ -551,7 +551,7 @@
           "sha256": "9ba1e25dc25bd62c9434c3084a08054044e9ecefff5acf3e77a57f28a14bb15b",
           "duration_ms": 1670000,
           "ayah_count": 54,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_041_df73821a.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_041_df73821a.json"
         },
         "42": {
           "surah": 42,
@@ -564,7 +564,7 @@
           "sha256": "72570945d87c4f65809c5776dd85eb9d859819e3814e1add7bbe27d29c5d730d",
           "duration_ms": 1921000,
           "ayah_count": 53,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_042_a200254f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_042_a200254f.json"
         },
         "43": {
           "surah": 43,
@@ -577,7 +577,7 @@
           "sha256": "eecffe83baa17d786c116d365f9e64fe1205ac5f982c7849596474380707d22e",
           "duration_ms": 1770000,
           "ayah_count": 89,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_043_a7ecb61e.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_043_a7ecb61e.json"
         },
         "44": {
           "surah": 44,
@@ -590,7 +590,7 @@
           "sha256": "c639e19c4b94da36ec790565a3431c5f6d08dccc62c00eb25d47f36e37d06c61",
           "duration_ms": 725000,
           "ayah_count": 59,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_044_a2389872.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_044_a2389872.json"
         },
         "45": {
           "surah": 45,
@@ -603,7 +603,7 @@
           "sha256": "574db7845545caf0492b1a56c4fd3091957e7b4825d7ccc35970d554196e7708",
           "duration_ms": 931000,
           "ayah_count": 37,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_045_62597729.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_045_62597729.json"
         },
         "46": {
           "surah": 46,
@@ -616,7 +616,7 @@
           "sha256": "55c0c96324bc53021231870cc7b95112fd74d1d1dab39c17ac58cfc4d923c2f2",
           "duration_ms": 1282000,
           "ayah_count": 35,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_046_f0f615b5.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_046_f0f615b5.json"
         },
         "47": {
           "surah": 47,
@@ -629,7 +629,7 @@
           "sha256": "98ef9d42d8b36cd666ca48679d04c9d6d77c631055c5c01fc2a7383817be25dc",
           "duration_ms": 1158000,
           "ayah_count": 38,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_047_06bd2fcf.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_047_06bd2fcf.json"
         },
         "48": {
           "surah": 48,
@@ -642,7 +642,7 @@
           "sha256": "d46ce528eac40129eca372cc64dd3ed8c236f27973585c2b2f15b35ef655ec95",
           "duration_ms": 1192000,
           "ayah_count": 29,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_048_1e4ac9f4.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_048_1e4ac9f4.json"
         },
         "49": {
           "surah": 49,
@@ -655,7 +655,7 @@
           "sha256": "09e59cae78ecf1ce7f70bd454d172ba96e60c10cc98194a628d4d042f807b1fa",
           "duration_ms": 743000,
           "ayah_count": 18,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_049_4e869843.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_049_4e869843.json"
         },
         "50": {
           "surah": 50,
@@ -668,7 +668,7 @@
           "sha256": "af3b4451228dc4f61c968408907ac6ff323ec2748f14819606fdadaf26420912",
           "duration_ms": 835000,
           "ayah_count": 45,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_050_d48b73ce.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_050_d48b73ce.json"
         },
         "51": {
           "surah": 51,
@@ -681,7 +681,7 @@
           "sha256": "5de165fec48c9746680e3bd1c9f24c877f325d94eb8d581ae2ed492f5fedf85e",
           "duration_ms": 753000,
           "ayah_count": 60,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_051_0b4df043.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_051_0b4df043.json"
         },
         "52": {
           "surah": 52,
@@ -694,7 +694,7 @@
           "sha256": "ef74b01e18e925370532e13df3c85e572b539f5affb189d9a5423971570f8f15",
           "duration_ms": 678000,
           "ayah_count": 49,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_052_e5c0936c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_052_e5c0936c.json"
         },
         "53": {
           "surah": 53,
@@ -707,7 +707,7 @@
           "sha256": "304367ae0ffe43b33d0bd2977cffa0104753a563bb96ef2ea918d95fadef9a3d",
           "duration_ms": 811000,
           "ayah_count": 62,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_053_b410cdff.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_053_b410cdff.json"
         },
         "54": {
           "surah": 54,
@@ -720,7 +720,7 @@
           "sha256": "f930bf15b440fc2a486f816334388a4445845fb3f30d0e83264cea48591e81d4",
           "duration_ms": 759000,
           "ayah_count": 55,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_054_395d7d3b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_054_395d7d3b.json"
         },
         "55": {
           "surah": 55,
@@ -733,7 +733,7 @@
           "sha256": "5b7e9cca5b2b6aba6896e34ce8a3ee7eee383c7412a1bfbea8668ef7959c090e",
           "duration_ms": 953000,
           "ayah_count": 78,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_055_70b925aa.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_055_70b925aa.json"
         },
         "56": {
           "surah": 56,
@@ -746,7 +746,7 @@
           "sha256": "af759847c126d7fe336254ba60c740f8fcc09ed40e62ad5d5c4d2b3feb30cbd2",
           "duration_ms": 914000,
           "ayah_count": 96,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_056_4668aa86.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_056_4668aa86.json"
         },
         "57": {
           "surah": 57,
@@ -759,7 +759,7 @@
           "sha256": "a29755b69592154fe29d92d101b97cd852f08179a8547fd73c408661bf928fd7",
           "duration_ms": 1108000,
           "ayah_count": 29,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_057_690b6c18.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_057_690b6c18.json"
         },
         "58": {
           "surah": 58,
@@ -772,7 +772,7 @@
           "sha256": "6079629c44b1b49009cffdeec52f78a9b947fafac5362709531c1778ebbc4bca",
           "duration_ms": 1097000,
           "ayah_count": 22,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_058_57bb3977.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_058_57bb3977.json"
         },
         "59": {
           "surah": 59,
@@ -785,7 +785,7 @@
           "sha256": "8093e141534fe84928bcf879fc7a39c143417f898142ee13c4c739be67110347",
           "duration_ms": 955000,
           "ayah_count": 24,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_059_3c3de94f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_059_3c3de94f.json"
         },
         "60": {
           "surah": 60,
@@ -798,7 +798,7 @@
           "sha256": "b2057899fb5ab814bd510633010d60a1c0a7cb51cf60c7c572aeb20357f61305",
           "duration_ms": 733000,
           "ayah_count": 13,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_060_347d7599.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_060_347d7599.json"
         },
         "61": {
           "surah": 61,
@@ -811,7 +811,7 @@
           "sha256": "65e6fd59b6637d93b9326d8dc380746f3bfb40b8f9229c17997c9b9e568445b4",
           "duration_ms": 436000,
           "ayah_count": 14,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_061_112869bb.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_061_112869bb.json"
         },
         "62": {
           "surah": 62,
@@ -824,7 +824,7 @@
           "sha256": "dcd11985a06e3fdd3d5fbb4895e34bb4774dd71a6e26d3de10937edcff2866c3",
           "duration_ms": 306000,
           "ayah_count": 11,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_062_dfd8f2ec.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_062_dfd8f2ec.json"
         },
         "63": {
           "surah": 63,
@@ -837,7 +837,7 @@
           "sha256": "a4d18a8d08157caee0fb122c7733dac9f3ac07ab7ede3888f2fbf98adbe0af50",
           "duration_ms": 367000,
           "ayah_count": 11,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_063_7ba57a83.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_063_7ba57a83.json"
         },
         "64": {
           "surah": 64,
@@ -850,7 +850,7 @@
           "sha256": "2a679d2cb1376ca74c0039f66919d27959870e061850d7031d3c7064e7759596",
           "duration_ms": 501000,
           "ayah_count": 18,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_064_5b1107ea.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_064_5b1107ea.json"
         },
         "65": {
           "surah": 65,
@@ -863,7 +863,7 @@
           "sha256": "b654625287cc020e93fe52c2bc7109463278ab59a7e6fbf2e847be026749f157",
           "duration_ms": 624000,
           "ayah_count": 12,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_065_832d09d0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_065_832d09d0.json"
         },
         "66": {
           "surah": 66,
@@ -876,7 +876,7 @@
           "sha256": "4b6681992d25f95d660cf45c901de9ab66a492d4286d9854c306d79a3fa5bde1",
           "duration_ms": 544000,
           "ayah_count": 12,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_066_f72869e4.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_066_f72869e4.json"
         },
         "67": {
           "surah": 67,
@@ -889,7 +889,7 @@
           "sha256": "38e9a3cc12d7acfa7fdb18dafc07af6420f77ed2c45b048d89b57442408c517d",
           "duration_ms": 602000,
           "ayah_count": 30,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_067_e44bad56.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_067_e44bad56.json"
         },
         "68": {
           "surah": 68,
@@ -902,7 +902,7 @@
           "sha256": "cc214f0acca14b671743d3eb73eec2921736d201e241069d53a87c714a4c6736",
           "duration_ms": 733000,
           "ayah_count": 52,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_068_3fac666f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_068_3fac666f.json"
         },
         "69": {
           "surah": 69,
@@ -915,7 +915,7 @@
           "sha256": "b732509099b1b0859a383f0c139a6dc629139a6e5c71e32d2e6d05f305ca2310",
           "duration_ms": 632000,
           "ayah_count": 52,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_069_6bcc61d3.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_069_6bcc61d3.json"
         },
         "70": {
           "surah": 70,
@@ -928,7 +928,7 @@
           "sha256": "9bf00e1088fd8f9069710f2d91a020c957ea9f06ddedb80d1b594411c5aa6741",
           "duration_ms": 474000,
           "ayah_count": 44,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_070_28c8edcf.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_070_28c8edcf.json"
         },
         "71": {
           "surah": 71,
@@ -941,7 +941,7 @@
           "sha256": "1eefea74fdb985f5b29a69527624106ba6681cf0bd59c1e3e323a816cc3a2706",
           "duration_ms": 496000,
           "ayah_count": 28,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_071_6f1e861e.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_071_6f1e861e.json"
         },
         "72": {
           "surah": 72,
@@ -954,7 +954,7 @@
           "sha256": "4968d7c68aaf378e015b58cd5569007c190ed848889ac7340e0476852a3bea02",
           "duration_ms": 549000,
           "ayah_count": 28,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_072_8be8eb14.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_072_8be8eb14.json"
         },
         "73": {
           "surah": 73,
@@ -967,7 +967,7 @@
           "sha256": "0ed06736e39ca14f70d3ea13d00917c147cbbf82456515b6b22ea0ac09c6d707",
           "duration_ms": 426000,
           "ayah_count": 20,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_073_f30bd4d6.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_073_f30bd4d6.json"
         },
         "74": {
           "surah": 74,
@@ -980,7 +980,7 @@
           "sha256": "ffa730bf2e3e6cd40574bfd2efbcfe1dcd971ddee6236c66b916880c0a02f7f1",
           "duration_ms": 601000,
           "ayah_count": 56,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_074_c64f60e2.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_074_c64f60e2.json"
         },
         "75": {
           "surah": 75,
@@ -993,7 +993,7 @@
           "sha256": "269296b5057280af6829315b4d7df8cc2a65faef022283cad7759ea3ee3e7c3b",
           "duration_ms": 373000,
           "ayah_count": 40,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_075_1a1f68ef.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_075_1a1f68ef.json"
         },
         "76": {
           "surah": 76,
@@ -1006,7 +1006,7 @@
           "sha256": "ca18949603e804eb705fb94adf46cf26e66f6c5ea8bf97c48bf76d53a34e9a46",
           "duration_ms": 511000,
           "ayah_count": 31,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_076_0011ed4d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_076_0011ed4d.json"
         },
         "77": {
           "surah": 77,
@@ -1019,7 +1019,7 @@
           "sha256": "314358e1cd66dd42ed155b30ca2b3a40507693e3ae938ff78e263559bb4e2b8d",
           "duration_ms": 477000,
           "ayah_count": 50,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_077_c3523ba7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_077_c3523ba7.json"
         },
         "78": {
           "surah": 78,
@@ -1032,7 +1032,7 @@
           "sha256": "12a7fa5fc6bc39452271e11e94576b214408059c792585edf5dd4399a3250ae3",
           "duration_ms": 461000,
           "ayah_count": 40,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_078_42414ed6.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_078_42414ed6.json"
         },
         "79": {
           "surah": 79,
@@ -1045,7 +1045,7 @@
           "sha256": "9046661bd204e3cd4da0a50bb9d060b6c77194ffa388018e1a930fe758d8af5d",
           "duration_ms": 435000,
           "ayah_count": 46,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_079_975215c7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_079_975215c7.json"
         },
         "80": {
           "surah": 80,
@@ -1058,7 +1058,7 @@
           "sha256": "1e3ee3f1f702f51203f1e1cf865fac4a689fce660323d06d5148635d7a89f3e1",
           "duration_ms": 366000,
           "ayah_count": 42,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_080_3b2b5bf1.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_080_3b2b5bf1.json"
         },
         "81": {
           "surah": 81,
@@ -1071,7 +1071,7 @@
           "sha256": "9876db04d7b8e98ae8efc8f8198e25d34268585baf0a7ed9d258eb5d23865eba",
           "duration_ms": 256000,
           "ayah_count": 29,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_081_33c41063.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_081_33c41063.json"
         },
         "82": {
           "surah": 82,
@@ -1084,7 +1084,7 @@
           "sha256": "27a2e1aad4e085d6624103e180f3732417760fc1408fad8cd3012d1735f18f53",
           "duration_ms": 184000,
           "ayah_count": 19,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_082_d50278c0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_082_d50278c0.json"
         },
         "83": {
           "surah": 83,
@@ -1097,7 +1097,7 @@
           "sha256": "9166cd9a7399d8301cd6f8e167ee4d17e48361713b9e41a7a22ab9f43946d6a4",
           "duration_ms": 407000,
           "ayah_count": 36,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_083_80372f0d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_083_80372f0d.json"
         },
         "84": {
           "surah": 84,
@@ -1110,7 +1110,7 @@
           "sha256": "0748f0e346476dfb8bcbbc4e80c6add0f5bfd43d20ec23de094f8b48039f9eb2",
           "duration_ms": 248000,
           "ayah_count": 25,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_084_2120fc24.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_084_2120fc24.json"
         },
         "85": {
           "surah": 85,
@@ -1123,7 +1123,7 @@
           "sha256": "376b68814a9d4353175e4776bbe8b85c32c1f304e18cccc52f30fa9c6488de80",
           "duration_ms": 252000,
           "ayah_count": 22,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_085_48f7deb8.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_085_48f7deb8.json"
         },
         "86": {
           "surah": 86,
@@ -1136,7 +1136,7 @@
           "sha256": "48e9b127807451c7bff60afd7fec0bdd89f6d6a73a408e82bb0c912415e69335",
           "duration_ms": 144000,
           "ayah_count": 17,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_086_48e8e959.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_086_48e8e959.json"
         },
         "87": {
           "surah": 87,
@@ -1149,7 +1149,7 @@
           "sha256": "8cb2acc5a6c99b9fe6a7080a3b6987dcc9e7fd419e0aad8e422592f476d96575",
           "duration_ms": 166000,
           "ayah_count": 19,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_087_4cf10a9f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_087_4cf10a9f.json"
         },
         "88": {
           "surah": 88,
@@ -1162,7 +1162,7 @@
           "sha256": "b8b4e33eeaacbde4c39674003f4804ccf327a95a3586607f642a0c6f7740ef56",
           "duration_ms": 218000,
           "ayah_count": 26,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_088_674ade5d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_088_674ade5d.json"
         },
         "89": {
           "surah": 89,
@@ -1175,7 +1175,7 @@
           "sha256": "c6cd2da8fef95101ad503ae34805d1a0214a8f704e249c937bb6fd5759bd50cf",
           "duration_ms": 316000,
           "ayah_count": 30,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_089_9b861ad0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_089_9b861ad0.json"
         },
         "90": {
           "surah": 90,
@@ -1188,7 +1188,7 @@
           "sha256": "a42ed0a1cae6fee4205ad190613b18fcc8cf130071d5afe40cf5a4743f8a9c61",
           "duration_ms": 169000,
           "ayah_count": 20,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_090_2aebca7e.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_090_2aebca7e.json"
         },
         "91": {
           "surah": 91,
@@ -1201,7 +1201,7 @@
           "sha256": "3d84bc1054c3aed99916364d40588b34196d06ea3cea746d001c927c20c39d21",
           "duration_ms": 140000,
           "ayah_count": 15,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_091_e4b94946.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_091_e4b94946.json"
         },
         "92": {
           "surah": 92,
@@ -1214,7 +1214,7 @@
           "sha256": "d5c6a0c22ede71166907262d88fdccafae4c1c0148e141003c25b8f848326b2f",
           "duration_ms": 175000,
           "ayah_count": 21,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_092_e8a8f136.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_092_e8a8f136.json"
         },
         "93": {
           "surah": 93,
@@ -1227,7 +1227,7 @@
           "sha256": "0e88557477e3a027360e2e9db5173bb7a620d8bb0887afdb1922ffcbf5bf2c79",
           "duration_ms": 98000,
           "ayah_count": 11,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_093_37812fbc.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_093_37812fbc.json"
         },
         "94": {
           "surah": 94,
@@ -1240,7 +1240,7 @@
           "sha256": "0017876ae8822ba9a32efce624f43e3f11a2ec5d9855d124c562054957c3cee8",
           "duration_ms": 54000,
           "ayah_count": 8,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_094_a68284c8.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_094_a68284c8.json"
         },
         "95": {
           "surah": 95,
@@ -1253,7 +1253,7 @@
           "sha256": "c02262730b47426ebb223f8fbceb13db59f9ee5a69d1546743447c6ad08114fe",
           "duration_ms": 74000,
           "ayah_count": 8,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_095_648e32cb.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_095_648e32cb.json"
         },
         "96": {
           "surah": 96,
@@ -1266,7 +1266,7 @@
           "sha256": "e2e0bb1c6a37f4e989c2b872c1a031d724b80fd0923dc308cc48eca77f50c0f1",
           "duration_ms": 158000,
           "ayah_count": 19,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_096_4b69dd5a.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_096_4b69dd5a.json"
         },
         "97": {
           "surah": 97,
@@ -1279,7 +1279,7 @@
           "sha256": "d536b19e3561a6bee2d12b3034b804308e55ce7ecade1aed04aa9f318409fe92",
           "duration_ms": 62000,
           "ayah_count": 5,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_097_f57b2a27.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_097_f57b2a27.json"
         },
         "98": {
           "surah": 98,
@@ -1292,7 +1292,7 @@
           "sha256": "3e1f64e627b8700aff19c5195fcdfaed49486097cb56e74b3825a05f48dfcf53",
           "duration_ms": 203000,
           "ayah_count": 8,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_098_d3630def.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_098_d3630def.json"
         },
         "99": {
           "surah": 99,
@@ -1305,7 +1305,7 @@
           "sha256": "20c8d7546892ffdf49eaefbf096da9946b0eada52fdb56bf175ac4f4bcae089d",
           "duration_ms": 86000,
           "ayah_count": 8,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_099_d7e41547.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_099_d7e41547.json"
         },
         "100": {
           "surah": 100,
@@ -1318,7 +1318,7 @@
           "sha256": "a2358f2f91c5ce2e91f7f35acfb47fc8121cffdffed2bb0a29588ae7348af7bb",
           "duration_ms": 94000,
           "ayah_count": 11,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_100_bbd543fc.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_100_bbd543fc.json"
         },
         "101": {
           "surah": 101,
@@ -1331,7 +1331,7 @@
           "sha256": "ef92bcc53deac4dff0760aca0618691ba492bb7cc683b045b383ed2b56bd29ea",
           "duration_ms": 82000,
           "ayah_count": 11,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_101_cc39385f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_101_cc39385f.json"
         },
         "102": {
           "surah": 102,
@@ -1344,7 +1344,7 @@
           "sha256": "e174a0f2ecda25b8e93a9558a54ae86b504481684d3719d137b857b73fa40cba",
           "duration_ms": 63000,
           "ayah_count": 8,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_102_695faf76.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_102_695faf76.json"
         },
         "103": {
           "surah": 103,
@@ -1357,7 +1357,7 @@
           "sha256": "d662c4b8e9403360f2c254185dc836199e3a6df6ac5a0002a011b0d18b8082af",
           "duration_ms": 36000,
           "ayah_count": 3,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_103_464b719b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_103_464b719b.json"
         },
         "104": {
           "surah": 104,
@@ -1370,7 +1370,7 @@
           "sha256": "f648536af6f8ab2889c5bc34c18ee1cb9662a5d7615750ee42c5a772c234d7ac",
           "duration_ms": 85000,
           "ayah_count": 9,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_104_fc3f7299.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_104_fc3f7299.json"
         },
         "105": {
           "surah": 105,
@@ -1383,7 +1383,7 @@
           "sha256": "97267369ac99f6df6fc16af27c01790ea89e97ff724743aab2247bdba45453a9",
           "duration_ms": 51000,
           "ayah_count": 5,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_105_e78f6a38.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_105_e78f6a38.json"
         },
         "106": {
           "surah": 106,
@@ -1396,7 +1396,7 @@
           "sha256": "7c7c70c0b0f64affe8bd2308f4666f1bf9a786756767f494d462950b6a66bc1a",
           "duration_ms": 42000,
           "ayah_count": 4,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_106_6ba26e6c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_106_6ba26e6c.json"
         },
         "107": {
           "surah": 107,
@@ -1409,7 +1409,7 @@
           "sha256": "b24b407122aedaae9266f7ce9d0c4892cac1260b64bae8041c0710d8c62df9db",
           "duration_ms": 62000,
           "ayah_count": 7,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_107_3d00f488.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_107_3d00f488.json"
         },
         "108": {
           "surah": 108,
@@ -1422,7 +1422,7 @@
           "sha256": "5e09ddfdde0e0618b423d579d6515cd155b5c043a00b6c49a2b16cf21a8bbaab",
           "duration_ms": 25000,
           "ayah_count": 3,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_108_ff35ba1d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_108_ff35ba1d.json"
         },
         "109": {
           "surah": 109,
@@ -1435,7 +1435,7 @@
           "sha256": "9a301031a023f30b1ddc5272380d1009b2bc21407f9438e6098d5e9eb47a0fbc",
           "duration_ms": 55000,
           "ayah_count": 6,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_109_3fcc1336.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_109_3fcc1336.json"
         },
         "110": {
           "surah": 110,
@@ -1448,7 +1448,7 @@
           "sha256": "187d1a7026c4140ccf1a7be40e79a60c152d0bdef2b1828401e5b2c04fccf8d7",
           "duration_ms": 41000,
           "ayah_count": 3,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_110_50d5bbcc.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_110_50d5bbcc.json"
         },
         "111": {
           "surah": 111,
@@ -1461,7 +1461,7 @@
           "sha256": "b142c442d17b0cec26df83cdac53633b8ce01207a39ea965844e1da62aacf8e9",
           "duration_ms": 43000,
           "ayah_count": 5,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_111_f4788e73.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_111_f4788e73.json"
         },
         "112": {
           "surah": 112,
@@ -1474,7 +1474,7 @@
           "sha256": "a2f5e2b13381a1ba07a238400e5a26830a090afc6392bdf87fb9fe7215d40717",
           "duration_ms": 26000,
           "ayah_count": 4,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_112_8eb20158.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_112_8eb20158.json"
         },
         "113": {
           "surah": 113,
@@ -1487,7 +1487,7 @@
           "sha256": "3bf698a792d991a57597c6b9b13b4ce0ba034bf07724e1a3c44249f303e53555",
           "duration_ms": 37000,
           "ayah_count": 5,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_113_b1375598.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_113_b1375598.json"
         },
         "114": {
           "surah": 114,
@@ -1500,7 +1500,7 @@
           "sha256": "44a45f138e00f66656ac88361748f422cca563b26208a28d3b670a80041feb37",
           "duration_ms": 46000,
           "ayah_count": 6,
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/husary_muallim_timed_v1_114_800bc669.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/husary_muallim_timed/husary_muallim_timed_v1_114_800bc669.json"
         }
       }
     },
@@ -1527,13 +1527,13 @@
         "status": "verified",
         "expected_surahs": 114,
         "verified_surahs": 114,
-        "audit_report_url": "https://quranread-maphrvqk.manus.space/manus-storage/source_r2_range_hash_audit_5e214429.json",
+        "audit_report_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/audit/source_r2_range_hash_audit_5e214429.json",
         "audit_report_sha256": "b4a064fcec3cd5f665340eddb77936b9a7d30f1ca17f4dc10eaf00d23e683324"
       },
       "timing_payload_validation": {
         "schema_version": "minshawi-muallim-kids-timing-validation-v1",
         "status": "verified",
-        "audit_report_url": "https://quranread-maphrvqk.manus.space/manus-storage/timing_payload_validation_6f9d11f2.json"
+        "audit_report_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/audit/timing_payload_validation_6f9d11f2.json"
       },
       "unavailable_timing_ayahs": [
         "33:7",
@@ -1609,7 +1609,7 @@
           "complete_word_timing_ayahs": 7,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "b506d42cf9a7d63744d5790eefe11fb7550d43d78972c9bb0b5cae6ceab556ce",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_001_22f4835e.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_001_22f4835e.json"
         },
         "2": {
           "surah": 2,
@@ -1857,7 +1857,7 @@
             "2:286"
           ],
           "timing_sha256": "04d05f033b796969862474110197e942d76a5b2ef6e910a2864dfc297ba846e7",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_002_4a8c07f0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_002_4a8c07f0.json"
         },
         "3": {
           "surah": 3,
@@ -2019,7 +2019,7 @@
             "3:199"
           ],
           "timing_sha256": "61965e489a722431a5e41607dc250f84476eeafa0aa41105f46aa0e2cbe3ad7a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_003_353d7583.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_003_353d7583.json"
         },
         "4": {
           "surah": 4,
@@ -2190,7 +2190,7 @@
             "4:176"
           ],
           "timing_sha256": "0d866bd74e8e9f11b676e6a41c0dcd97259b85963eb00b10794b293b5fb3bc5e",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_004_9b700214.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_004_9b700214.json"
         },
         "5": {
           "surah": 5,
@@ -2314,7 +2314,7 @@
             "5:120"
           ],
           "timing_sha256": "cb481cd125f67a5742a5534eb495bff7c94a74b940898d4aebd60d1d69e7b2e7",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_005_525a62ab.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_005_525a62ab.json"
         },
         "6": {
           "surah": 6,
@@ -2466,7 +2466,7 @@
             "6:165"
           ],
           "timing_sha256": "1849fe0d3c4614f9d3e62d170c30d4fed0e644bd664c7bad6867eae53150b81b",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_006_ad94e8d2.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_006_ad94e8d2.json"
         },
         "7": {
           "surah": 7,
@@ -2613,7 +2613,7 @@
             "7:206"
           ],
           "timing_sha256": "c531e97777d523803b125f25b285fbbded731239f8add544dbbd071682270c3b",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_007_f7769579.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_007_f7769579.json"
         },
         "8": {
           "surah": 8,
@@ -2688,7 +2688,7 @@
             "8:75"
           ],
           "timing_sha256": "4566b723cc88fd001b3b4562b1ee0aa4360a6a92f27cf4e1cb9919400ed3b770",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_008_309ec1ef.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_008_309ec1ef.json"
         },
         "9": {
           "surah": 9,
@@ -2811,7 +2811,7 @@
             "9:129"
           ],
           "timing_sha256": "c66b4780e86b4e2424f001ce8fc25c0d6f2e1f29b2994f036c2c5d05fc67f967",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_009_5487f6f6.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_009_5487f6f6.json"
         },
         "10": {
           "surah": 10,
@@ -2905,7 +2905,7 @@
             "10:109"
           ],
           "timing_sha256": "ce26aef0d2b941fa2d963646a5e0ed432854b23d8a76068ff03d46ed8cd71186",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_010_80e205a1.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_010_80e205a1.json"
         },
         "11": {
           "surah": 11,
@@ -3017,7 +3017,7 @@
             "11:123"
           ],
           "timing_sha256": "d822da4a1e48b3c98091afa7cf1fcc24ccc4f44f52bb08eea335649d7cd125a4",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_011_d1aab6a5.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_011_d1aab6a5.json"
         },
         "12": {
           "surah": 12,
@@ -3123,7 +3123,7 @@
             "12:111"
           ],
           "timing_sha256": "61cc2aa27deab98a0a4b2bc7b8641feace3c093491874014da23f951e85a8592",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_012_d80d3555.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_012_d80d3555.json"
         },
         "13": {
           "surah": 13,
@@ -3178,7 +3178,7 @@
             "13:43"
           ],
           "timing_sha256": "8c9093ce6ee2dd91d153c1e4a79fb2279ec924e892f07727125855ff31e351ae",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_013_8ec6204b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_013_8ec6204b.json"
         },
         "14": {
           "surah": 14,
@@ -3236,7 +3236,7 @@
             "14:51"
           ],
           "timing_sha256": "9bc6bff1a9ef8ccf65242d3c196b7c5ce108837ba65a843165039cfaa6e55deb",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_014_7db2f925.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_014_7db2f925.json"
         },
         "15": {
           "surah": 15,
@@ -3263,7 +3263,7 @@
             "15:96"
           ],
           "timing_sha256": "d681130d0de3463700550330c19c3ef04f51cd72aac3b40eb51d47a19d70caee",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_015_ac499413.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_015_ac499413.json"
         },
         "16": {
           "surah": 16,
@@ -3374,7 +3374,7 @@
             "16:127"
           ],
           "timing_sha256": "0d04275558c6a5ce1ea597c7807e946bcffea1dda0535f21af51bf184e7937f6",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_016_b5fb9b2d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_016_b5fb9b2d.json"
         },
         "17": {
           "surah": 17,
@@ -3460,7 +3460,7 @@
             "17:111"
           ],
           "timing_sha256": "c6f5823499a00116655f4bb7ebeca4ebc3102c10ab23f1d28ef0a3eb7ad1b86a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_017_606946ea.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_017_606946ea.json"
         },
         "18": {
           "surah": 18,
@@ -3531,7 +3531,7 @@
             "18:110"
           ],
           "timing_sha256": "d8d4e8976f9a86981ca192c1b8e78a9032898218220dfab8a02cad3df0fdc1c3",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_018_18197836.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_018_18197836.json"
         },
         "19": {
           "surah": 19,
@@ -3585,7 +3585,7 @@
             "19:84"
           ],
           "timing_sha256": "9821ba5a4401a930ae5320267091d67454e641bf7b1bab970237fe205b338376",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_019_f2fc3386.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_019_f2fc3386.json"
         },
         "20": {
           "surah": 20,
@@ -3651,7 +3651,7 @@
             "20:135"
           ],
           "timing_sha256": "57fff6a1949f3652810f05d0f703bc9123bc90e3d742121d5b4481a644a80ea4",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_020_9877dd94.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_020_9877dd94.json"
         },
         "21": {
           "surah": 21,
@@ -3719,7 +3719,7 @@
             "21:112"
           ],
           "timing_sha256": "fa9bde66e59999d783f34efdb547f3d7367943951e5c831235f3fb86a3a564ae",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_021_20d80a96.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_021_20d80a96.json"
         },
         "22": {
           "surah": 22,
@@ -3787,7 +3787,7 @@
             "22:78"
           ],
           "timing_sha256": "732abd95f9ef163204afe318bc6792c9b6267f006efdbf0111f58995c999d6f1",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_022_362f0fe2.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_022_362f0fe2.json"
         },
         "23": {
           "surah": 23,
@@ -3838,7 +3838,7 @@
             "23:117"
           ],
           "timing_sha256": "0b7d6f8c9a4050db1f479c43ac28104c57e3b11299b19eb49fed591ce244da17",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_023_ea66d851.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_023_ea66d851.json"
         },
         "24": {
           "surah": 24,
@@ -3902,7 +3902,7 @@
             "24:64"
           ],
           "timing_sha256": "51e8fd5e5aeb9b7c62b0e05b121c16b770858313ce1d34e4e1e33bae652b144f",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_024_561b19e7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_024_561b19e7.json"
         },
         "25": {
           "surah": 25,
@@ -3955,7 +3955,7 @@
             "25:77"
           ],
           "timing_sha256": "7aca94ef97915f1bac863adfe0ac614c9bbf5c7d2398fc4bf4d2241938c6fbdc",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_025_182a868b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_025_182a868b.json"
         },
         "26": {
           "surah": 26,
@@ -4003,7 +4003,7 @@
             "26:227"
           ],
           "timing_sha256": "ce30f96abddd5da6f10372aacbbb00b0f2ae669fc0b7410aa0763e6103a2564d",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_026_6980b8d1.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_026_6980b8d1.json"
         },
         "27": {
           "surah": 27,
@@ -4066,7 +4066,7 @@
             "27:93"
           ],
           "timing_sha256": "f1a2a6f9931ebc9a2cc278939996a5230a02f5bd1c2c8050373b36ba403ec43d",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_027_490e54d4.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_027_490e54d4.json"
         },
         "28": {
           "surah": 28,
@@ -4147,7 +4147,7 @@
             "28:88"
           ],
           "timing_sha256": "7068701a46b56320091750b612bc5f2fe528181b80abf55c8901d663035b54dc",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_028_ca2cff54.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_028_ca2cff54.json"
         },
         "29": {
           "surah": 29,
@@ -4216,7 +4216,7 @@
             "29:69"
           ],
           "timing_sha256": "2bd4b01e90006429758707c7cc13031141182e55dc72b2c63a95873d323beb23",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_029_427ca463.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_029_427ca463.json"
         },
         "30": {
           "surah": 30,
@@ -4273,7 +4273,7 @@
             "30:60"
           ],
           "timing_sha256": "f1b28495547fea016f87e3658bd39cd1f25a552a13ea60528fb8ccbc0279c5eb",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_030_a905f2aa.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_030_a905f2aa.json"
         },
         "31": {
           "surah": 31,
@@ -4319,7 +4319,7 @@
             "31:34"
           ],
           "timing_sha256": "bac057e267ed3017d5b52fbcbf9e0bec5f4bd6baf95a58cec11aeb068a705e74",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_031_923bd1a6.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_031_923bd1a6.json"
         },
         "32": {
           "surah": 32,
@@ -4353,7 +4353,7 @@
             "32:27"
           ],
           "timing_sha256": "80d9affcfe22195b6b7d8d021aa0da0443d9dc576262a15a94fa420a24883053",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_032_6048a209.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_032_6048a209.json"
         },
         "33": {
           "surah": 33,
@@ -4446,7 +4446,7 @@
             "33:22"
           ],
           "timing_sha256": "ec4484f3aa98f267e23717c88cbafc4cd46052fed042bc0ebcd699880d54fd09",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_033_5d225ab0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_033_5d225ab0.json"
         },
         "34": {
           "surah": 34,
@@ -4500,7 +4500,7 @@
             "34:54"
           ],
           "timing_sha256": "858c892d53434040c4560c16d9feceff0429bf2423d455998b03c65cebab5b76",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_034_18b0bcbd.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_034_18b0bcbd.json"
         },
         "35": {
           "surah": 35,
@@ -4556,7 +4556,7 @@
             "35:45"
           ],
           "timing_sha256": "9669b7b58b41a9a79c43fe6a1b316c6099703f4ab15859f945a25c11d0503d37",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_035_1670df49.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_035_1670df49.json"
         },
         "36": {
           "surah": 36,
@@ -4598,7 +4598,7 @@
             "36:81"
           ],
           "timing_sha256": "286e2c195af6bf658c5c4470063ff1b93743a8ddcf9a2d592d281819fa04eb40",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_036_d4157100.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_036_d4157100.json"
         },
         "37": {
           "surah": 37,
@@ -4633,7 +4633,7 @@
             "37:170"
           ],
           "timing_sha256": "16e88507c197f54564fae7522e8d34ac2e55dd3e8084a18306217e03dc609704",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_037_2958833e.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_037_2958833e.json"
         },
         "38": {
           "surah": 38,
@@ -4682,7 +4682,7 @@
             "38:76"
           ],
           "timing_sha256": "3967c3adf6ac7a04226c21ed297efdaaa7ad694a45a1cfbb73f75dc242b378f6",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_038_b4e8e460.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_038_b4e8e460.json"
         },
         "39": {
           "surah": 39,
@@ -4748,7 +4748,7 @@
             "39:75"
           ],
           "timing_sha256": "12da9db1b3de490e069fa82892efceecf6d2b6e5bfafde5d76d53f19e496d278",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_039_c2145072.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_039_c2145072.json"
         },
         "40": {
           "surah": 40,
@@ -4815,7 +4815,7 @@
             "40:85"
           ],
           "timing_sha256": "6deb7e4cf53c2fdd99cf9b42a6e7914f9d7a59da82506b35312fa8da2e488f16",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_040_dcbb90e4.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_040_dcbb90e4.json"
         },
         "41": {
           "surah": 41,
@@ -4865,7 +4865,7 @@
             "41:54"
           ],
           "timing_sha256": "928e458343d7b5b708fa63eb5d6afb133ac492600a2c34f5e4fe6779e30bca9a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_041_b4387773.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_041_b4387773.json"
         },
         "42": {
           "surah": 42,
@@ -4923,7 +4923,7 @@
             "42:53"
           ],
           "timing_sha256": "9cf3747918ca5d461d30776ddaee79b2b8b9d7d37169892cec01f5f329d2fd5a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_042_4d8e9e0d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_042_4d8e9e0d.json"
         },
         "43": {
           "surah": 43,
@@ -4971,7 +4971,7 @@
             "43:89"
           ],
           "timing_sha256": "963f44b02479f834c24090c58762826240a1e97455b6b6dc8e6b57a754082acb",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_043_61915580.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_043_61915580.json"
         },
         "44": {
           "surah": 44,
@@ -5007,7 +5007,7 @@
             "44:57"
           ],
           "timing_sha256": "5ad8385f86c2687d8d4fb874f7b504feba1273922330b40659b05c72fb60357f",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_044_aa405df7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_044_aa405df7.json"
         },
         "45": {
           "surah": 45,
@@ -5049,7 +5049,7 @@
             "45:37"
           ],
           "timing_sha256": "f5afaeda05c50acf25fa351b36af829da764471edad215ff1505a88214905296",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_045_1ff4d55f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_045_1ff4d55f.json"
         },
         "46": {
           "surah": 46,
@@ -5091,7 +5091,7 @@
             "46:35"
           ],
           "timing_sha256": "df1da3a8dc598d876cbe05fe538d4aa3ea1a86b51e119bc411f26db2bbb8717d",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_046_93fc135d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_046_93fc135d.json"
         },
         "47": {
           "surah": 47,
@@ -5128,7 +5128,7 @@
             "47:38"
           ],
           "timing_sha256": "3447c09a658ae3b356a5575b647a499b255d888745f77b27744884e3aeb9778b",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_047_6cedf4fe.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_047_6cedf4fe.json"
         },
         "48": {
           "surah": 48,
@@ -5169,7 +5169,7 @@
             "48:29"
           ],
           "timing_sha256": "09fcc779d87c3c013b93d2d772f8e5c3b246d9b283862190240f6d52c4a3f72a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_048_1ae3f87f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_048_1ae3f87f.json"
         },
         "49": {
           "surah": 49,
@@ -5205,7 +5205,7 @@
             "49:18"
           ],
           "timing_sha256": "ea8a3ba4259d4427d60002f2b7e8629e4e3b4d5461a1f8106a86785e004c647c",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_049_9475f2ef.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_049_9475f2ef.json"
         },
         "50": {
           "surah": 50,
@@ -5238,7 +5238,7 @@
             "50:45"
           ],
           "timing_sha256": "9cf14aaf029c2628e5fed6a7a40de8bb35fc3782085e5b62d118ab98010b7ba5",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_050_25256fba.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_050_25256fba.json"
         },
         "51": {
           "surah": 51,
@@ -5267,7 +5267,7 @@
             "51:53"
           ],
           "timing_sha256": "da25b91c2a00544c720089d76bf36fe9746d8642e85194167a1530ec0ae82b11",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_051_b7ec2a69.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_051_b7ec2a69.json"
         },
         "52": {
           "surah": 52,
@@ -5298,7 +5298,7 @@
             "52:48"
           ],
           "timing_sha256": "0be3e96be02b5f06a2f7f016b6623cb80f3f6741a03db94606b7064e6bb3e1ab",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_052_b2a8f243.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_052_b2a8f243.json"
         },
         "53": {
           "surah": 53,
@@ -5324,7 +5324,7 @@
             "53:62"
           ],
           "timing_sha256": "82e71338331d7248506fe670618cfd54b92d5d85bcf80b5d1e3f1d2d186ebffa",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_053_7cb60413.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_053_7cb60413.json"
         },
         "54": {
           "surah": 54,
@@ -5351,7 +5351,7 @@
             "54:35"
           ],
           "timing_sha256": "3ea7f0622dd5033223f60de6d3df6c0c6925c81d50ce3a5738e2d60355d8a2ad",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_054_af7adebe.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_054_af7adebe.json"
         },
         "55": {
           "surah": 55,
@@ -5373,7 +5373,7 @@
             "55:54"
           ],
           "timing_sha256": "58d698faf2d11fab7767e0dbd15e8e6a25f3cf20d1dc316224a4b66ae7a6de50",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_055_1a6636a8.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_055_1a6636a8.json"
         },
         "56": {
           "surah": 56,
@@ -5393,7 +5393,7 @@
             "56:75"
           ],
           "timing_sha256": "c159496274ce709ea5349f87297c09e02156b101688ec014b77712669130f07c",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_056_dff38fea.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_056_dff38fea.json"
         },
         "57": {
           "surah": 57,
@@ -5439,7 +5439,7 @@
             "57:29"
           ],
           "timing_sha256": "5045aa78178b41c142c1fbc4fb5f0f2a3433187dae508001b18707d62b1f3248",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_057_7829dd51.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_057_7829dd51.json"
         },
         "58": {
           "surah": 58,
@@ -5478,7 +5478,7 @@
             "58:22"
           ],
           "timing_sha256": "d7efb3a1a44a7fdc5e5de0564df67ff1335ead80b5d4891f390145446237c8b8",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_058_4602fee0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_058_4602fee0.json"
         },
         "59": {
           "surah": 59,
@@ -5519,7 +5519,7 @@
             "59:24"
           ],
           "timing_sha256": "74eb6e28469ac006f20f91d32a350e44bb7e74ff85cd4fef61a767d8024d4427",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_059_a3dcc3a0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_059_a3dcc3a0.json"
         },
         "60": {
           "surah": 60,
@@ -5549,7 +5549,7 @@
             "60:12"
           ],
           "timing_sha256": "7e0413dc54570d8de7f0825e66430598943ed756d19255238812243e1b4f90bb",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_060_faa0755a.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_060_faa0755a.json"
         },
         "61": {
           "surah": 61,
@@ -5577,7 +5577,7 @@
             "61:14"
           ],
           "timing_sha256": "66f69e06e736aec46b4e0d2c78d752d9203d1f083ee64a1e43ede249cf9790a8",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_061_28c70372.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_061_28c70372.json"
         },
         "62": {
           "surah": 62,
@@ -5605,7 +5605,7 @@
             "62:11"
           ],
           "timing_sha256": "e688f4eae98abca3e515e2e5a66a02394a93c3e236e8ad7b14efcfe1980e70e1",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_062_94c33088.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_062_94c33088.json"
         },
         "63": {
           "surah": 63,
@@ -5633,7 +5633,7 @@
             "63:11"
           ],
           "timing_sha256": "a350c92d876f64533d88b20c77521988e6ba5eed7505152767a4218e314b5df8",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_063_e52174e2.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_063_e52174e2.json"
         },
         "64": {
           "surah": 64,
@@ -5668,7 +5668,7 @@
             "64:17"
           ],
           "timing_sha256": "cd54e99661931a436a8131a7034ca345772af46673ecd6cea0b5c8912bd85ed2",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_064_6d1bff4b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_064_6d1bff4b.json"
         },
         "65": {
           "surah": 65,
@@ -5697,7 +5697,7 @@
             "65:11"
           ],
           "timing_sha256": "0538539dc9d1ffab31378d42b20400db0c3ccade5ccc970f0b0e62bf1b0ec2cc",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_065_63aeb15c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_065_63aeb15c.json"
         },
         "66": {
           "surah": 66,
@@ -5728,7 +5728,7 @@
             "66:12"
           ],
           "timing_sha256": "5ba10bb61e91f9e1a7664506308d3496f8c6dacc72664bd3062f6bd258d1f661",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_066_861c5166.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_066_861c5166.json"
         },
         "67": {
           "surah": 67,
@@ -5761,7 +5761,7 @@
             "67:29"
           ],
           "timing_sha256": "3f176c012c356e488cc67d2b81ac37c477fcee525014eb482e35f93c5f6b6815",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_067_8e89683b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_067_8e89683b.json"
         },
         "68": {
           "surah": 68,
@@ -5785,7 +5785,7 @@
             "68:45"
           ],
           "timing_sha256": "b9c88fe3b9334edff4abe359cfa9dcfb19ed65bf68b76b3db783fbae496f74dd",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_068_b1a50f7c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_068_b1a50f7c.json"
         },
         "69": {
           "surah": 69,
@@ -5808,7 +5808,7 @@
             "69:42"
           ],
           "timing_sha256": "906433906a8ef9806bc4c45e6f9ba08e92980666e0e082ea6ba376e11a8a11d7",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_069_7d86f646.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_069_7d86f646.json"
         },
         "70": {
           "surah": 70,
@@ -5832,7 +5832,7 @@
             "70:44"
           ],
           "timing_sha256": "fc93930880e2737a9a7481864d6fe5f2bd68243f900a4b655350b68abce27ea2",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_070_00870246.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_070_00870246.json"
         },
         "71": {
           "surah": 71,
@@ -5854,7 +5854,7 @@
             "71:24"
           ],
           "timing_sha256": "4fc8a607c458ccf78c710a29bbba954cd3d08d9287d73df854a0ac3cc7cad1d9",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_071_3121a56f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_071_3121a56f.json"
         },
         "72": {
           "surah": 72,
@@ -5880,7 +5880,7 @@
             "72:23"
           ],
           "timing_sha256": "c5d479bfc82130a01795c29a14a5079e672400aa8b7b5ec223f46b76ca65d689",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_072_45897b15.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_072_45897b15.json"
         },
         "73": {
           "surah": 73,
@@ -5902,7 +5902,7 @@
             "73:20"
           ],
           "timing_sha256": "d5054186e9f3f54c1e4493fffc25de99ffda8c126b94ce245658ac481747ffbe",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_073_25d912ac.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_073_25d912ac.json"
         },
         "74": {
           "surah": 74,
@@ -5925,7 +5925,7 @@
             "74:56"
           ],
           "timing_sha256": "4ed365b7d711e3d83d65f67524d013158b92b97963875c562c0afade29befb1a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_074_4b70eb35.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_074_4b70eb35.json"
         },
         "75": {
           "surah": 75,
@@ -5945,7 +5945,7 @@
             "75:27"
           ],
           "timing_sha256": "2a466e923e69c965db17c6d3fa97f0dbf137994e7027cc052070b93b724a7552",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_075_8b50766a.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_075_8b50766a.json"
         },
         "76": {
           "surah": 76,
@@ -5971,7 +5971,7 @@
             "76:31"
           ],
           "timing_sha256": "8ca67b2dfc51deaed79976f305a2c6098a94224259889f6af8f75293c26ce770",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_076_2fed677b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_076_2fed677b.json"
         },
         "77": {
           "surah": 77,
@@ -5991,7 +5991,7 @@
             "77:38"
           ],
           "timing_sha256": "87bda0b8d67b2bd32fc5f8767b79f1857a08018f167cc8e80664cec38ab60f80",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_077_378631fd.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_077_378631fd.json"
         },
         "78": {
           "surah": 78,
@@ -6014,7 +6014,7 @@
             "78:40"
           ],
           "timing_sha256": "f154c7b91940734531eb8acdcbc6ade9f5cf0ae7704ca6db2d394cb4a1315777",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_078_82947533.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_078_82947533.json"
         },
         "79": {
           "surah": 79,
@@ -6034,7 +6034,7 @@
             "79:27"
           ],
           "timing_sha256": "00e041551757813389f2e846fa836c27951ff741977244b437cac608d6b8dab3",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_079_59f2a93f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_079_59f2a93f.json"
         },
         "80": {
           "surah": 80,
@@ -6052,7 +6052,7 @@
           "complete_word_timing_ayahs": 42,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "f4202b2dd36fd2dbe48be5fb2fbd71b2bc436f13338ba5145017a86651bf68a7",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_080_0b5c07f7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_080_0b5c07f7.json"
         },
         "81": {
           "surah": 81,
@@ -6070,7 +6070,7 @@
           "complete_word_timing_ayahs": 29,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "b0cc9755ab4c98d02bdf10d88c1a46c0b0286cb3736f266ff425bcbaae3f44ff",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_081_7536bb03.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_081_7536bb03.json"
         },
         "82": {
           "surah": 82,
@@ -6090,7 +6090,7 @@
             "82:19"
           ],
           "timing_sha256": "ede8c09099d4daf11da06eaad003d74ab356d021711dca6ef55fdf0a81926f29",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_082_7b34e3ae.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_082_7b34e3ae.json"
         },
         "83": {
           "surah": 83,
@@ -6111,7 +6111,7 @@
             "83:26"
           ],
           "timing_sha256": "9d8ea621e084bdd941f21d0cdc59985fd8ebf406ed571f8331db6572b69957a3",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_083_8b16623d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_083_8b16623d.json"
         },
         "84": {
           "surah": 84,
@@ -6131,7 +6131,7 @@
             "84:21"
           ],
           "timing_sha256": "a7189a95f1f9cef2c8693388a5b31e5526505d638b18b1901a3e7fb8eb7618b1",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_084_61bdf0f1.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_084_61bdf0f1.json"
         },
         "85": {
           "surah": 85,
@@ -6153,7 +6153,7 @@
             "85:11"
           ],
           "timing_sha256": "5ff2b1ed0a63e30a5a778f92c006509197d884b380f07945d225e686f1741279",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_085_5deb3f82.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_085_5deb3f82.json"
         },
         "86": {
           "surah": 86,
@@ -6171,7 +6171,7 @@
           "complete_word_timing_ayahs": 17,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "1fc53f6db232f95258590c5890a8fef77732d157cfacd3aefd23d40f9c405e0a",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_086_1ff2caeb.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_086_1ff2caeb.json"
         },
         "87": {
           "surah": 87,
@@ -6191,7 +6191,7 @@
             "87:7"
           ],
           "timing_sha256": "1bcb7666d85386b4df0719a340ddf94c09530b66a63d3fe82a945c6979ddedf2",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_087_7feea3e1.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_087_7feea3e1.json"
         },
         "88": {
           "surah": 88,
@@ -6209,7 +6209,7 @@
           "complete_word_timing_ayahs": 26,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "ab072909bb353bd04f625d5e1c1afb3be1e5ea042129653ec7fd177c085a12ed",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_088_6b0b0269.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_088_6b0b0269.json"
         },
         "89": {
           "surah": 89,
@@ -6230,7 +6230,7 @@
             "89:23"
           ],
           "timing_sha256": "e4c9440f11bcfd23463229aa0f6b91d13380bfd33b809b923ae9259812005ffa",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_089_73d1c0da.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_089_73d1c0da.json"
         },
         "90": {
           "surah": 90,
@@ -6248,7 +6248,7 @@
           "complete_word_timing_ayahs": 20,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "929257351fb70a95ca1c11687174a5b95f27ef674b1f272ee318ec01697e93b4",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_090_4048fc32.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_090_4048fc32.json"
         },
         "91": {
           "surah": 91,
@@ -6266,7 +6266,7 @@
           "complete_word_timing_ayahs": 15,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "15bee404e4ec3254abc1fb67918da87d7daea0b5b57c71c301fe9c6b2ce4b57e",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_091_c490701a.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_091_c490701a.json"
         },
         "92": {
           "surah": 92,
@@ -6284,7 +6284,7 @@
           "complete_word_timing_ayahs": 21,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "38c3e5119e74b5c881f7bd71381eae70f881f2a8d573c80328ef18955ec2161c",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_092_1178992b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_092_1178992b.json"
         },
         "93": {
           "surah": 93,
@@ -6302,7 +6302,7 @@
           "complete_word_timing_ayahs": 11,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "f1c7d42b560f909f4e596f9a529343b4b2b0705c627aa80a6ea136f36bef9823",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_093_580eac0f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_093_580eac0f.json"
         },
         "94": {
           "surah": 94,
@@ -6320,7 +6320,7 @@
           "complete_word_timing_ayahs": 8,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "8cdc03788c70a7c8c3ded3ddf4035d85dd0e15592d88a4cec4b7232076da89cf",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_094_6f9d2f7d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_094_6f9d2f7d.json"
         },
         "95": {
           "surah": 95,
@@ -6338,7 +6338,7 @@
           "complete_word_timing_ayahs": 8,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "4910ca60a51492df94ab95d8d73179f73795545cedfd7681bc639dd63ef6841e",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_095_12b7f2f5.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_095_12b7f2f5.json"
         },
         "96": {
           "surah": 96,
@@ -6358,7 +6358,7 @@
             "96:19"
           ],
           "timing_sha256": "c4cea403559542ab3e0975735102c7e77b76ec52e5a89eddd89a6595b722eb44",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_096_a3376d76.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_096_a3376d76.json"
         },
         "97": {
           "surah": 97,
@@ -6376,7 +6376,7 @@
           "complete_word_timing_ayahs": 5,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "a86184b151b463310fdef5c8b45f593a08b3ffbe15926d46d7d077db33f869ad",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_097_b1dbfbd2.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_097_b1dbfbd2.json"
         },
         "98": {
           "surah": 98,
@@ -6398,7 +6398,7 @@
             "98:8"
           ],
           "timing_sha256": "6c3ab02069b5a8fab99ecc0b27eef082dd7efd44b58b7603d550f51b4a31e1dd",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_098_2c198471.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_098_2c198471.json"
         },
         "99": {
           "surah": 99,
@@ -6416,7 +6416,7 @@
           "complete_word_timing_ayahs": 8,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "cc3d2d118e934cfdaf1effab7320560743e5ebbaf32427828427057ccaae96d9",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_099_ae879042.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_099_ae879042.json"
         },
         "100": {
           "surah": 100,
@@ -6434,7 +6434,7 @@
           "complete_word_timing_ayahs": 11,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "d2e6d7bdd32dd6e147d9d3d96fd2314f9d728437f724d59985f2193e7b071e75",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_100_4e78c771.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_100_4e78c771.json"
         },
         "101": {
           "surah": 101,
@@ -6454,7 +6454,7 @@
           "complete_word_timing_ayahs": 10,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "effb6ad773b514fa0675f7906c71287c248cef735b74e81ffaf9e0cf59bd1168",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_101_f0f12255.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_101_f0f12255.json"
         },
         "102": {
           "surah": 102,
@@ -6472,7 +6472,7 @@
           "complete_word_timing_ayahs": 8,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "f11369520ca639e0077c72023b941f85ee2649b76bed1a36f580af45babd5c20",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_102_2e73cba7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_102_2e73cba7.json"
         },
         "103": {
           "surah": 103,
@@ -6490,7 +6490,7 @@
           "complete_word_timing_ayahs": 3,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "c181570318d0b9e56f75994bab9421765cfdff075fe1d88c70da5afe084ab853",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_103_599ad19c.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_103_599ad19c.json"
         },
         "104": {
           "surah": 104,
@@ -6510,7 +6510,7 @@
             "104:4"
           ],
           "timing_sha256": "efb31f701980b5a80f914493a02f27e42398dc8460b5ff5465849df4c5968a53",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_104_880e89fa.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_104_880e89fa.json"
         },
         "105": {
           "surah": 105,
@@ -6528,7 +6528,7 @@
           "complete_word_timing_ayahs": 5,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "36ce12cc42f80a857c6b3e75ec1dc04a5ab0656b6119bc9b20a61325f6ffcb1b",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_105_e8a2eb3f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_105_e8a2eb3f.json"
         },
         "106": {
           "surah": 106,
@@ -6546,7 +6546,7 @@
           "complete_word_timing_ayahs": 4,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "b678c70448b862c1ada48071c648580068c9dbe5c5d5cdc1a4a455db17147597",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_106_80ef449d.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_106_80ef449d.json"
         },
         "107": {
           "surah": 107,
@@ -6564,7 +6564,7 @@
           "complete_word_timing_ayahs": 7,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "4afa30e73c9369944a620fe2f05ff80eb0d7d6bf889edcaaeabbc5b6147d871d",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_107_06222c88.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_107_06222c88.json"
         },
         "108": {
           "surah": 108,
@@ -6582,7 +6582,7 @@
           "complete_word_timing_ayahs": 3,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "77e58cefec72c814fa8341c87dd740c0511f0ee3b335d0083dbe8132d3749a00",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_108_7cb668d9.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_108_7cb668d9.json"
         },
         "109": {
           "surah": 109,
@@ -6600,7 +6600,7 @@
           "complete_word_timing_ayahs": 6,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "13de3aaf3de48e63817e42c322e75b61a02d3ed1138ae12fcfc584332f30bd71",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_109_61b9403b.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_109_61b9403b.json"
         },
         "110": {
           "surah": 110,
@@ -6620,7 +6620,7 @@
             "110:3"
           ],
           "timing_sha256": "4eee30b73986066466e272bc4ba28dca96a43dd4735d184c022a18dc7a7b62a7",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_110_a165d0fc.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_110_a165d0fc.json"
         },
         "111": {
           "surah": 111,
@@ -6638,7 +6638,7 @@
           "complete_word_timing_ayahs": 5,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "76498bbe8e0ad002fbf0c0d216d38d28d90d730be9113c12b6571a9598040360",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_111_a830335f.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_111_a830335f.json"
         },
         "112": {
           "surah": 112,
@@ -6656,7 +6656,7 @@
           "complete_word_timing_ayahs": 4,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "7844084219b0195810f89fdd918f5b2c08d029c13e3780533cbaaa4bf1679852",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_112_f5c2dfe7.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_112_f5c2dfe7.json"
         },
         "113": {
           "surah": 113,
@@ -6676,7 +6676,7 @@
             "113:4"
           ],
           "timing_sha256": "652ae62e364d23763de022b9dbc29690b3b0734e20d663661c630d2032d0094c",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_113_58c3b8a0.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_113_58c3b8a0.json"
         },
         "114": {
           "surah": 114,
@@ -6694,7 +6694,7 @@
           "complete_word_timing_ayahs": 6,
           "partial_word_timing_ayahs": [],
           "timing_sha256": "4b5a570ad009069397edd95ea395fe4241c427c0666e53569907548725eb7943",
-          "timing_url": "https://quranread-maphrvqk.manus.space/manus-storage/minshawi_muallim_kids_timed_v1_114_43cb2958.json"
+          "timing_url": "https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev/timing/minshawi_muallim_kids_timed/minshawi_muallim_kids_timed_v1_114_43cb2958.json"
         }
       }
     }
