@@ -58,3 +58,7 @@ backend/__pycache__/
 
 # Wrangler local state (Cloudflare CLI)
 .wrangler/
+
+# Site build output
+site/dist/
+site/node_modules/
