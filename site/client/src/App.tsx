@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { LocaleProvider } from "./contexts/LocaleContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Stories from "@/pages/Stories";
 import Reader from "./pages/Reader";
 
 function Router() {
@@ -15,6 +16,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/read"} component={Reader} />
       <Route path={"/read/:surah"} component={Reader} />
+      <Route path={"/stories"} component={Stories} />
+      <Route path={"/stories/:slug"} component={Stories} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

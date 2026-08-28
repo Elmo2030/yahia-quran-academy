@@ -58,7 +58,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></Link>
-          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><a href="#about">{t.about}</a><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
+          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><a href="#about">{t.about}</a><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a><Link href="/stories">{locale === "ar" ? "القصص" : "Stories"}</Link></nav>
           <div className="header-actions"><LanguageToggle compact /><Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
         </div>
       </header>

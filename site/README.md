@@ -39,3 +39,17 @@ means replacing what `server/_core` provides, not rewriting the product.
 
 Secrets are read from `process.env` throughout; nothing is hardcoded. See
 `.gitignore` for the env files it expects.
+
+## Stories
+
+`client/src/content/stories.ts` holds the children's stories. Every `ayah.text`
+in it is a **literal substring of the Tanzil Uthmani corpus** the reader itself
+uses — the excerpts were extracted from `assets/data/quran_text.json`
+programmatically and each was asserted to appear verbatim in its ayah. None was
+typed by hand.
+
+If you add or edit a story, take the verse from that corpus the same way rather
+than pasting it from elsewhere. Quotes written in modern imlaa'i spelling
+(`سُلَيْمَانَ`, `الْعَالَمِينَ`) will not match the Uthmani rasm the rest of the
+site renders (`سُلَيْمَٰنَ`, `ٱلْعَٰلَمِينَ`), and the page would then show a
+different script from the reader it links to.
