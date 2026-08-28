@@ -74,6 +74,52 @@ void main() {
     );
   });
 
+  test('re-practising a scheduled ayah does not reset its ladder rung',
+      () async {
+    await store.enqueueSession(
+      profileId: 'child-1',
+      surah: 2,
+      ayahStart: 10,
+      ayahEnd: 10,
+      eventAt: base,
+    );
+
+    // Parent confirms it twice, walking the ayah up to rung 2 (7 days).
+    await store.applyVerdict(
+      profileId: 'child-1',
+      surah: 2,
+      ayah: 10,
+      verdict: ReviewVerdict.good,
+      eventAt: base.add(const Duration(days: 1)),
+    );
+    await store.applyVerdict(
+      profileId: 'child-1',
+      surah: 2,
+      ayah: 10,
+      verdict: ReviewVerdict.good,
+      eventAt: base.add(const Duration(days: 4)),
+    );
+    expect(
+      (await store.find(profileId: 'child-1', surah: 2, ayah: 10))!.rung,
+      2,
+    );
+
+    // A review session is itself a practice session and enqueues again.
+    // That must not knock the ayah back to rung 0 — only a parent verdict
+    // moves it along the ladder.
+    await store.enqueueSession(
+      profileId: 'child-1',
+      surah: 2,
+      ayahStart: 10,
+      ayahEnd: 10,
+      eventAt: base.add(const Duration(days: 11)),
+    );
+
+    final entry = await store.find(profileId: 'child-1', surah: 2, ayah: 10);
+    expect(entry!.rung, 2);
+    expect(entry.dueAt, base.add(const Duration(days: 11)));
+  });
+
   test('needs work returns the ayah tomorrow at rung zero', () async {
     await store.enqueueSession(
       profileId: 'child-1',

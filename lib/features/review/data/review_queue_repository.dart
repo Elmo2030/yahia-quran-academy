@@ -118,21 +118,29 @@ class LocalReviewQueueStore implements ReviewQueueStore {
     final current = await _read();
     final event = eventAt.toUtc();
     for (var ayah = ayahStart; ayah <= ayahEnd; ayah++) {
-      final entry = ReviewScheduleEntry.fromRecording(
-        recordingId:
-            'session-$profileId-$surah-$ayah-${event.microsecondsSinceEpoch}',
-        profileId: profileId,
-        surah: surah,
-        ayah: ayah,
-        recordedAt: event,
-      );
-      current.removeWhere(
+      // Practising an ayah must not disturb a schedule it already has.
+      // A review session is itself a practice session, so re-inserting at
+      // rung 0 here would reset the ladder every time the child reviewed,
+      // capping the rung at 1 and making the 7/14/30-day intervals dead.
+      // Only a parent verdict moves an ayah along the ladder.
+      final alreadyTracked = current.any(
         (item) =>
             item.profileId == profileId &&
             item.surah == surah &&
             item.ayah == ayah,
       );
-      current.add(entry);
+      if (alreadyTracked) continue;
+
+      current.add(
+        ReviewScheduleEntry.fromRecording(
+          recordingId:
+              'session-$profileId-$surah-$ayah-${event.microsecondsSinceEpoch}',
+          profileId: profileId,
+          surah: surah,
+          ayah: ayah,
+          recordedAt: event,
+        ),
+      );
     }
     await _write(current);
   }
