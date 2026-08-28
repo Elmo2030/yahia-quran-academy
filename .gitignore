@@ -55,3 +55,6 @@ backend/__pycache__/
 
 # Env files (never commit real secrets)
 .env
+
+# Wrangler local state (Cloudflare CLI)
+.wrangler/
