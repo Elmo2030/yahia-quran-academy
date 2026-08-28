@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import { PageMeta } from "@/components/PageMeta";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { LocaleProvider } from "./contexts/LocaleContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -41,6 +42,7 @@ function App() {
         <LocaleProvider>
           <TooltipProvider>
             <Toaster />
+            <PageMeta />
             <Router />
           </TooltipProvider>
         </LocaleProvider>
