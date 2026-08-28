@@ -14,7 +14,7 @@ const featuredEnglishNames: Record<number, string> = {
 
 const copy = {
   ar: {
-    homeLabel: "Yahia Quran Academy الرئيسية", about: "عن الأكاديمية", journey: "طريق التلقّي", apps: "التطبيقات", reader: "افتح القارئ",
+    homeLabel: "Yahia Quran Academy الرئيسية", about: "عن الأكاديمية", stories: "قصص القرآن", exploreStories: "استكشف القصص", journey: "طريق التلقّي", apps: "التطبيقات", reader: "افتح القارئ",
     eyebrow: "مكان هادئ للقرآن والتلقّي", titleLineOne: "رحلة قرآنية", titleLineTwo: "تنمو مع الطفل",
     intro: "تساعد Yahia Quran Academy الطفل على الاستماع والتكرار والتسجيل والمراجعة الذاتية، برفقة وليّ الأمر وخطوات عملية واضحة.",
     startReading: "ابدأ القراءة الآن", howItWorks: "كيف تعمل الأكاديمية؟", safety: "لا نعرض درجة إتقان آلية ولا نفتح مراحل تلقائيًا.",
@@ -27,7 +27,7 @@ const copy = {
     steps: [["١", "استمع", "ابدأ بسماع السورة كاملة"], ["٢", "كرّر", "خذ وقتك مع التكرار"], ["٣", "سجّل", "سجّل عندما تكون مستعدًا"], ["٤", "راجع ذاتيًا", "ارجع للسماع والمراجعة"]],
   },
   en: {
-    homeLabel: "Yahia Quran Academy home", about: "About", journey: "Learning path", apps: "Apps", reader: "Open reader",
+    homeLabel: "Yahia Quran Academy home", about: "About", stories: "Quran stories", exploreStories: "Explore stories", journey: "Learning path", apps: "Apps", reader: "Open reader",
     eyebrow: "A calm space for Quran learning", titleLineOne: "A Quran journey", titleLineTwo: "that grows with your child",
     intro: "Yahia Quran Academy supports listening, repetition, recording, and self-review—alongside parents and through clear, practical steps.",
     startReading: "Start reading", howItWorks: "How it works", safety: "No automatic mastery score. No stages unlock on their own.",
@@ -58,7 +58,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></Link>
-          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><a href="#about">{t.about}</a><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a><Link href="/stories">{locale === "ar" ? "القصص" : "Stories"}</Link></nav>
+          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><a href="#about">{t.about}</a><Link href="/stories">{t.stories}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
           <div className="header-actions"><LanguageToggle compact /><Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
         </div>
       </header>
@@ -66,7 +66,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-orbit hero-orbit--one" /><div className="hero-orbit hero-orbit--two" />
         <div className="container hero-grid">
-          <div className="hero-copy"><span className="eyebrow"><Sparkles size={15} /> {t.eyebrow}</span><h1>{t.titleLineOne}<br /><em>{t.titleLineTwo}</em></h1><p>{t.intro}</p><div className="hero-actions"><Link href="/read/1" className="button button--primary">{t.startReading} <Arrow size={18} /></Link><a href="#journey" className="button button--soft">{t.howItWorks}</a></div><p className="hero-footnote"><LockKeyhole size={15} /> {t.safety}</p></div>
+          <div className="hero-copy"><span className="eyebrow"><Sparkles size={15} /> {t.eyebrow}</span><h1>{t.titleLineOne}<br /><em>{t.titleLineTwo}</em></h1><p>{t.intro}</p><div className="hero-actions"><Link href="/read/1" className="button button--primary">{t.startReading} <Arrow size={18} /></Link><Link href="/stories" className="button button--soft"><BookOpen size={17} aria-hidden="true" /> {t.exploreStories}</Link><a href="#journey" className="button button--soft">{t.howItWorks}</a></div><p className="hero-footnote"><LockKeyhole size={15} /> {t.safety}</p></div>
           <div className="hero-visual" aria-label={t.visualLabel}><div className="hero-moon" /><div className="yahya-character-frame"><img src={yahiaCharacterUrl} alt={t.imageAlt} /><div className="yahya-character-frame__shade" aria-hidden="true" /></div><div className="journey-card journey-card--large"><span className="journey-card__label"><Compass size={14} /> {t.map}</span><b>{t.startWhere}</b><div className="journey-card__path" aria-hidden="true"><span className="path-dot path-dot--listen" /><i /><span className="path-dot path-dot--repeat" /><i /><span className="path-dot path-dot--review" /></div><div className="journey-card__caption"><Heart size={15} fill="currentColor" /> {t.noUnlock}</div></div><div className="mini-note mini-note--audio"><Headphones size={18} /><span>{t.audio}<br /><b>{t.nowAvailable}</b></span></div><div className="mini-note mini-note--parent"><Avatar className="mini-note__avatar"><AvatarImage src={yahiaCharacterUrl} alt="" /><AvatarFallback>ي</AvatarFallback></Avatar><span>{t.withYahia}<br /><b>{t.stepByStep}</b></span></div></div>
         </div>
       </section>
