@@ -1,0 +1,67 @@
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useRoute } from "wouter";
+import { ArrowLeft, ArrowRight, Check, Headphones, Heart, Loader2, Mic, Pause, Play, Volume2 } from "lucide-react";
+import { getEnglishSurahName, getSurahName, loadSurahAudio, loadSurahWithTransliteration, surahNames, type SurahAudio, type TransliteratedAyah } from "@/lib/quran-content";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLocale } from "@/contexts/LocaleContext";
+
+const yahiaCharacterUrl = "/manus-storage/yahia-hero_24faa0fd.png";
+
+const copy = {
+  ar: {
+    home: "العودة للرئيسية", reader: "قارئ الأكاديمية", title: "اقرأ واستمع بهدوء", subtitle: "النص العثماني كما هو، والاستماع للسورة كاملة بصوت موثّق.", select: "اختر السورة", surah: "سورة", preparing: "جارٍ تجهيز السورة…", ayahs: "آية", wholeSurah: "تشغيل السورة كاملة", noTimings: "مزامنة الكلمات تتطلب توقيتات موثقة مطابقة لهذا التسجيل، وهي غير متاحة بعد.", verified: "نص عثماني موثّق", room: "غرفة التلقّي مع يحيى", companion: "استمع، كرّر، سجّل، ثم راجع ذاتيًا", steps: ["استمع", "كرّر", "سجّل", "راجع"], pause: "إيقاف الاستماع", play: "بدء الاستماع", playing: "يتم تشغيل السورة", listen: "استمع إلى السورة", narration: "تلاوة كاملة من مكتبة الأكاديمية", audioUnavailable: "الصوت غير متاح مؤقتًا لهذه السورة.", loading: "جارٍ تحميل النص…", noAyahs: "لا توجد آيات متاحة لهذه السورة الآن. حاول اختيار سورة أخرى.", contentFailure: "تعذر تحميل السورة الآن.", audioFailure: "تعذر تشغيل الملف الصوتي الآن. حاول مرة أخرى لاحقًا.",
+  },
+  en: {
+    home: "Back to home", reader: "Academy reader", title: "Read and listen with calm", subtitle: "Uthmani text is kept intact, with verified full-surah audio.", select: "Choose a surah", surah: "Surah", preparing: "Preparing the surah…", ayahs: "ayahs", wholeSurah: "Play the complete surah", noTimings: "Word sync needs verified timings matched to this exact recitation; they are not available yet.", verified: "Verified Uthmani text", room: "Yahia’s talaqqi room", companion: "Listen, repeat, record, then self-review", steps: ["Listen", "Repeat", "Record", "Review"], pause: "Pause listening", play: "Start listening", playing: "The surah is playing", listen: "Listen to the surah", narration: "Complete recitation from the academy library", audioUnavailable: "Audio is temporarily unavailable for this surah.", loading: "Loading the Quran text…", noAyahs: "No ayahs are available for this surah right now. Choose another surah.", contentFailure: "The surah could not be loaded right now.", audioFailure: "The audio file could not be played right now. Please try again later.",
+  },
+} as const;
+
+function parseSurah(value: string | undefined) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed >= 1 && parsed <= 114 ? parsed : 1;
+}
+
+export default function Reader() {
+  const [, params] = useRoute("/read/:surah");
+  const [, setLocation] = useLocation();
+  const { direction, locale } = useLocale();
+  const t = copy[locale];
+  const selectedSurah = parseSurah(params?.surah);
+  const [ayahs, setAyahs] = useState<TransliteratedAyah[]>([]);
+  const [audio, setAudio] = useState<SurahAudio | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [playing, setPlaying] = useState(false);
+  const playerRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(null);
+    Promise.all([loadSurahWithTransliteration(selectedSurah), loadSurahAudio(selectedSurah)])
+      .then(([loadedAyahs, loadedAudio]) => { if (active) { setAyahs(loadedAyahs); setAudio(loadedAudio); } })
+      .catch(() => { if (active) setError(t.contentFailure); })
+      .finally(() => active && setLoading(false));
+    return () => { active = false; playerRef.current?.pause(); };
+  }, [locale, selectedSurah, t.contentFailure]);
+
+  const goToSurah = (surah: number) => { setPlaying(false); setLocation(`/read/${surah}`); };
+  const togglePlayback = async () => { const player = playerRef.current; if (!player || !audio?.playback_url) return; if (player.paused) await player.play(); else player.pause(); };
+  const hasPlayback = Boolean(audio?.playback_url && audio?.availability === "migrated");
+  const BackArrow = locale === "ar" ? ArrowRight : ArrowLeft;
+
+  return (
+    <main className="reader-page" dir={direction}>
+      <header className="reader-header"><div className="container reader-header__inner"><Link href="/" className="brand-mark" aria-label={t.home}><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></Link><div className="header-actions"><LanguageToggle compact /><Link href="/" className="text-link"><BackArrow size={18} /> {t.home}</Link></div></div></header>
+      <section className="reader-hero"><div className="container reader-hero__inner"><div><span className="eyebrow eyebrow--gold">{t.reader}</span><h1>{t.title}</h1><p>{t.subtitle}</p></div><div className="reader-selector"><label htmlFor="surah">{t.select}</label><select id="surah" value={selectedSurah} onChange={(event) => goToSurah(Number(event.target.value))}>{surahNames.map((name, index) => <option key={name} value={index + 1}>{String(index + 1).padStart(3, "0")} — {locale === "en" ? getEnglishSurahName(index + 1) : name}{locale === "en" ? ` — ${name}` : ""}</option>)}</select></div></div></section>
+      <section className="container reader-layout" aria-live="polite"><aside className="reader-sidecard"><span className="sidecard__number">{String(selectedSurah).padStart(3, "0")}</span><h2>{locale === "en" ? <>{getEnglishSurahName(selectedSurah)} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></> : <>{t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></>}</h2><p>{loading ? t.preparing : `${ayahs.length} ${t.ayahs}`}</p><div className="sidecard__rule" /><div className="whole-surah-note"><Volume2 size={17} /><span>{t.wholeSurah}</span></div><p className="sidecard__microcopy">{t.noTimings}</p></aside>
+        <article className="quran-card"><div className="quran-card__topline"><span>{locale === "en" ? getEnglishSurahName(selectedSurah) : t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></span><span className="verified-pill">{t.verified}</span></div>
+          <section className="recitation-companion" aria-label={t.room}><Avatar className="recitation-companion__avatar"><AvatarImage src={yahiaCharacterUrl} alt="" /><AvatarFallback>ي</AvatarFallback></Avatar><div className="recitation-companion__copy"><span>{t.room}</span><b>{t.companion}</b></div><div className="recitation-companion__steps" aria-label={t.room}><span><Headphones size={13} /> {t.steps[0]}</span><span><Heart size={13} /> {t.steps[1]}</span><span><Mic size={13} /> {t.steps[2]}</span><span><Check size={13} /> {t.steps[3]}</span></div></section>
+          {hasPlayback ? <div className="audio-deck"><button className="play-button" onClick={togglePlayback} aria-label={playing ? t.pause : t.play}>{playing ? <Pause fill="currentColor" size={22} /> : <Play fill="currentColor" size={22} />}</button><div><b>{playing ? t.playing : t.listen}</b><span>{t.narration}</span></div><Headphones className="audio-deck__icon" size={24} /><audio ref={playerRef} src={audio?.playback_url} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} onError={() => setError(t.audioFailure)} /></div> : <div className="audio-deck audio-deck--unavailable"><Volume2 size={24} /><span>{t.audioUnavailable}</span></div>}
+          {loading && <div className="reader-loading"><Loader2 className="animate-spin" size={24} /> {t.loading}</div>}{error && <div className="reader-error" role="alert">{error}</div>}{!loading && !error && ayahs.length === 0 && <div className="reader-loading">{t.noAyahs}</div>}{!loading && !error && ayahs.length > 0 && <div className="ayah-list" dir="rtl" lang="ar">{ayahs.map((ayah) => <p key={ayah.number} className="ayah"><span className="ayah__number">{ayah.number}</span><span className="ayah__arabic">{ayah.text}</span>{locale === "en" && <span className="ayah__transliteration" dir="ltr" lang="en">{ayah.transliteration}</span>}</p>)}</div>}
+        </article>
+      </section>
+    </main>
+  );
+}
