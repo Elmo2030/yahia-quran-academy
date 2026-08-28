@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Quran memorization for children: listen to a verified reciter, repeat, record, and review with a parent.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
