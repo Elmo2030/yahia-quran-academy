@@ -74,6 +74,9 @@ function ProfileBody() {
         progress: "تقدّمك في الحفظ",
         progressBody: "ستظهر هنا السور والآيات التي وصلت إليها بعد ربط حسابك. الميزة ستُفعّل في الإصدار التالي بإذن الله.",
         notConfigured: "إدارة الحساب غير مفعّلة الآن.",
+        authMethod: "طريقة تسجيل الدخول",
+        authProviderEmail: "البريد الإلكتروني وكلمة المرور",
+        changePassword: "تغيير كلمة المرور",
         arOption: "العربية",
         enOption: "English",
       }
@@ -100,6 +103,9 @@ function ProfileBody() {
         progress: "Memorization progress",
         progressBody: "Surahs and ayahs you have read will appear here once feature/progress-tracking ships.",
         notConfigured: "Account management is disabled right now.",
+        authMethod: "Sign-in method",
+        authProviderEmail: "Email & password",
+        changePassword: "Change password",
         arOption: "العربية",
         enOption: "English",
       };
@@ -238,6 +244,27 @@ function ProfileBody() {
               )}
             </div>
           </form>
+        </section>
+
+        <section className="rounded-lg border border-[var(--brand-navy)]/10 bg-white/60 p-5" aria-labelledby="profile-auth-method-title">
+          <h2 id="profile-auth-method-title" className="text-base font-semibold text-[var(--brand-navy)]">{copy.authMethod}</h2>
+          <p className="mt-2 text-sm text-[var(--brand-navy)]/70" data-testid="profile-auth-provider">
+            {profile?.auth_provider === "google"
+              ? "Google"
+              : profile?.auth_provider === "apple"
+                ? "Apple"
+                : copy.authProviderEmail}
+          </p>
+          {profile?.auth_provider === "email" && (
+            <Button
+              variant="outline"
+              className="mt-3"
+              onClick={() => navigate("/forgot-password")}
+              data-testid="profile-change-password"
+            >
+              {copy.changePassword}
+            </Button>
+          )}
         </section>
 
         <section className="rounded-lg border border-[var(--brand-navy)]/10 bg-white/60 p-5" aria-labelledby="profile-progress-title">

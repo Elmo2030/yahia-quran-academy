@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 
 export default function Login() {
   const { locale } = useLocale();
@@ -38,6 +39,7 @@ export default function Login() {
         submit: "دخول",
         submitting: "جارٍ الدخول…",
         forgot: "نسيت كلمة السر؟",
+        or: "أو",
         newHere: "ليس لديك حساب؟",
         create: "أنشئ حسابًا جديدًا",
         notConfigured: "تسجيل الدخول غير مفعّل حاليًا.",
@@ -50,6 +52,7 @@ export default function Login() {
         submit: "Sign in",
         submitting: "Signing in…",
         forgot: "Forgot password?",
+        or: "or",
         newHere: "New here?",
         create: "Create an account",
         notConfigured: "Sign-in is currently disabled.",
@@ -80,7 +83,16 @@ export default function Login() {
             {copy.notConfigured}
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4" data-testid="login-form" noValidate>
+          <>
+            <div className="mt-6">
+              <SocialLoginButtons next={next} />
+              <div className="my-4 flex items-center gap-3 text-xs text-[var(--brand-navy)]/50" aria-hidden="true">
+                <span className="h-px flex-1 bg-[var(--brand-navy)]/15" />
+                {copy.or}
+                <span className="h-px flex-1 bg-[var(--brand-navy)]/15" />
+              </div>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4" data-testid="login-form" noValidate>
             <div className="space-y-1.5">
               <Label htmlFor="login-email">{copy.email}</Label>
               <Input
@@ -127,7 +139,8 @@ export default function Login() {
             </div>
             {/* Forgot-password page lives in feature/social-login; the link is
                 in place so the page is reachable once that PR merges. */}
-          </form>
+            </form>
+          </>
         )}
       </main>
       <SiteFooter />

@@ -31,6 +31,7 @@ type Profile = {
   auth_user_id: string;
   display_name: string;
   preferred_locale: Locale;
+  auth_provider: string;
 };
 
 type SignUpInput = {
@@ -44,6 +45,8 @@ type SignInInput = {
   email: string;
   password: string;
 };
+
+export type SocialProvider = "google" | "apple";
 
 export type AuthErrorCode =
   | "invalid_email"
@@ -90,6 +93,9 @@ type AuthState = {
 type AuthApi = AuthState & {
   signUp: (input: SignUpInput) => Promise<void>;
   signIn: (input: SignInInput) => Promise<void>;
+  signInWithProvider: (provider: SocialProvider, redirectTo?: string) => Promise<void>;
+  sendPasswordReset: (email: string) => Promise<void>;
+  updatePassword: (password: string) => Promise<void>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
   updateProfile: (patch: Partial<Pick<Profile, "display_name" | "preferred_locale">>) => Promise<void>;
@@ -184,7 +190,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!client) return null;
     const { data, error } = await client
       .from("profiles")
-      .select("id, auth_user_id, display_name, preferred_locale")
+      .select("id, auth_user_id, display_name, preferred_locale, auth_provider")
       .eq("auth_user_id", authUserId)
       .maybeSingle();
     if (error) {
@@ -282,6 +288,62 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  const signInWithProvider = useCallback(async (provider: SocialProvider, redirectTo?: string) => {
+    const client = getSupabase();
+    if (!client) {
+      throw new AuthError(
+        "not_configured",
+        "تسجيل الدخول عبر المزوّد غير متاح مؤقتًا.",
+        "Provider sign-in is temporarily unavailable.",
+      );
+    }
+    const target = redirectTo && redirectTo.startsWith("/")
+      ? `${window.location.origin}${redirectTo}`
+      : redirectTo || `${window.location.origin}/profile`;
+    const { error } = await client.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: target },
+    });
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+  }, []);
+
+  const sendPasswordReset = useCallback(async (email: string) => {
+    const client = getSupabase();
+    if (!client) {
+      throw new AuthError(
+        "not_configured",
+        "استعادة كلمة المرور غير متاحة مؤقتًا.",
+        "Password reset is temporarily unavailable.",
+      );
+    }
+    const { error } = await client.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+  }, []);
+
+  const updatePassword = useCallback(async (password: string) => {
+    const client = getSupabase();
+    if (!client) {
+      throw new AuthError(
+        "not_configured",
+        "تحديث كلمة المرور غير متاح مؤقتًا.",
+        "Password update is temporarily unavailable.",
+      );
+    }
+    const { error } = await client.auth.updateUser({ password });
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+  }, []);
+
   const signUp = useCallback(async (input: SignUpInput) => {
     const client = getSupabase();
     if (!client) throw new AuthError("not_configured", "إنشاء الحسابات غير متاح مؤقتًا.", "Sign-up is temporarily unavailable.");
@@ -316,7 +378,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .from("profiles")
       .update(patch)
       .eq("auth_user_id", userId)
-      .select("id, auth_user_id, display_name, preferred_locale")
+      .select("id, auth_user_id, display_name, preferred_locale, auth_provider")
       .single();
     if (error) {
       const f = friendlyForSupabaseError(error.message);
@@ -329,10 +391,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     ...state,
     signUp,
     signIn,
+    signInWithProvider,
+    sendPasswordReset,
+    updatePassword,
     signOut,
     refreshProfile,
     updateProfile,
-  }), [state, signUp, signIn, signOut, refreshProfile, updateProfile]);
+  }), [state, signUp, signIn, signInWithProvider, sendPasswordReset, updatePassword, signOut, refreshProfile, updateProfile]);
 
   return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
 }
