@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLocale } from "@/contexts/LocaleContext";
 import { getSurahName } from "@/lib/quran-content";
+import { useReadingProgress } from "@/lib/progress";
 
 const featuredSurahs = [1, 2, 18, 55, 67, 108];
 const yahiaCharacterUrl = "/manus-storage/yahia-hero_24faa0fd.png";
@@ -20,7 +21,7 @@ const copy = {
     startReading: "ابدأ القراءة الآن", howItWorks: "كيف تعمل الأكاديمية؟", safety: "لا نعرض درجة إتقان آلية ولا نفتح مراحل تلقائيًا.",
     visualLabel: "تصميم ترحيبي يعرّف بشخصية يحيى وخريطة التلقّي", imageAlt: "يحيى يحمل المصحف في بطاقة ترحيبية", map: "خريطة التلقّي", startWhere: "ابدأ من حيث يناسبك", noUnlock: "لا توجد مراحل تُفتح تلقائيًا", audio: "صوت السور", nowAvailable: "متاح الآن", withYahia: "مع يحيى", stepByStep: "خطوة بخطوة",
     textProof: "النص العثماني", unchanged: "كما هو", surahs: "114 سورة", listening: "للاستماع", selfReview: "مراجعة ذاتية", noAutoJudgement: "بلا حكم آلي",
-    readerEyebrow: "القارئ", readerTitle: "افتح القرآن، واستمع إلى السورة التي تختارها", readerIntro: "قارئ عام يناسب الجوال وسطح المكتب، بالنص العثماني وروابط الصوت المتحققة.", readListen: "قراءة واستماع", allSurahs: "عرض جميع السور",
+    readerEyebrow: "القارئ", readerTitle: "افتح القرآن، واستمع إلى السورة التي تختارها", readerIntro: "قارئ عام يناسب الجوال وسطح المكتب، بالنص العثماني وروابط الصوت المتحققة.", readListen: "قراءة واستماع", allSurahs: "عرض جميع السور", continueReading: "واصل القراءة", continueReadingOf: "من حيث توقفت", continueReadingAyah: "آية",
     journeyEyebrow: "منهج التلقّي", journeyTitle: "أربع خطوات مفهومة، بلا ادعاء معرفة ما يتقنه الطفل", mapDescription: "خريطة توضيحية لمسار التلقّي من الاستماع إلى المراجعة الذاتية؛ لا تمثل تقدم طفل حقيقي", mapNote: "تصوّر للمسار، وليس لوحة إنجاز.",
     familyEyebrow: "للأسرة", familyTitle: "وليّ الأمر يرى النشاط، لا حكمًا على الطفل", familyBody: "تصميم مساحة وليّ الأمر يركز على ما يحدث فعلًا. عند ربط الحساب ستظهر الجلسات ومدتها وآخر المراجعات من النشاط الحقيقي فقط.", familyCardOne: "سجل الجلسات", familyCardOneValue: "من النشاط الحقيقي", familyCardTwo: "ملفات الأطفال", familyCardTwoValue: "باختيار وليّ الأمر", familyProfile: "سيظهر ملف يحيى عند ربط الحساب",
     appsEyebrow: "التطبيقات", appsTitle: "تابع الرحلة من هاتفك", appsBody: "سنضيف روابط التنزيل الرسمية فور جاهزية إصدارات Android وiOS. إلى ذلك الحين، يمكنك البدء من القارئ على الويب.", openReader: "افتح القارئ الآن", comingSoon: "سيُتاح قريبًا", soon: "قريبًا", footer: "رحلة هادئة للقرآن والتلقّي والمراجعة الذاتية.",
@@ -33,7 +34,7 @@ const copy = {
     startReading: "Start reading", howItWorks: "How it works", safety: "No automatic mastery score. No stages unlock on their own.",
     visualLabel: "A welcome composition introducing Yahia and the learning path", imageAlt: "Yahia holding the Quran in a welcome card", map: "Learning path", startWhere: "Begin where you are", noUnlock: "Nothing unlocks automatically", audio: "Surah audio", nowAvailable: "Available now", withYahia: "With Yahia", stepByStep: "One step at a time",
     textProof: "Uthmani text", unchanged: "kept intact", surahs: "114 surahs", listening: "for listening", selfReview: "Self-review", noAutoJudgement: "without automation",
-    readerEyebrow: "The reader", readerTitle: "Open the Quran and listen to the surah you choose", readerIntro: "A public reader for desktop and mobile, with Uthmani text and verified audio links.", readListen: "Read & listen", allSurahs: "Browse all surahs",
+    readerEyebrow: "The reader", readerTitle: "Open the Quran and listen to the surah you choose", readerIntro: "A public reader for desktop and mobile, with Uthmani text and verified audio links.", readListen: "Read & listen", allSurahs: "Browse all surahs", continueReading: "Continue reading", continueReadingOf: "Where you left off", continueReadingAyah: "ayah",
     journeyEyebrow: "Talaqqi method", journeyTitle: "Four understandable steps—with no claim to know what a child has mastered", mapDescription: "An explanatory talaqqi path from listening to self-review; it does not show a child’s real progress", mapNote: "A learning guide, not an achievement board.",
     familyEyebrow: "For families", familyTitle: "Parents see activity—not a verdict on the child", familyBody: "The parent-space design focuses on what really happened. Once an account is connected, it will show real sessions, duration, and the latest reviews only.", familyCardOne: "Session history", familyCardOneValue: "From real activity", familyCardTwo: "Child profiles", familyCardTwoValue: "Chosen by parents", familyProfile: "Yahia’s profile appears after account linking",
     appsEyebrow: "Apps", appsTitle: "Continue from your phone", appsBody: "Official Android and iOS links will be added when the apps are ready. Until then, start with the web reader.", openReader: "Open the reader", comingSoon: "Coming soon", soon: "Soon", footer: "A calm journey for Quran learning and self-review.",
@@ -52,6 +53,7 @@ export default function Home() {
   const { direction, locale } = useLocale();
   const t = copy[locale];
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
+  const { progress } = useReadingProgress();
 
   return (
     <main className="site-shell" dir={direction}>
@@ -73,7 +75,20 @@ export default function Home() {
 
       <section className="trust-strip" id="about"><div className="container trust-strip__inner"><div><BookOpen size={21} /><span><b>{t.textProof}</b> {t.unchanged}</span></div><div><Headphones size={21} /><span><b>{t.surahs}</b> {t.listening}</span></div><div><Heart size={21} /><span><b>{t.selfReview}</b> {t.noAutoJudgement}</span></div></div></section>
 
-      <section className="section section--reader" aria-labelledby="reader-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold">{t.readerEyebrow}</span><h2 id="reader-title">{t.readerTitle}</h2><p>{t.readerIntro}</p></div><div className="surah-grid">{featuredSurahs.map((surah) => <Link href={`/read/${surah}`} key={surah} className="surah-card"><span>{String(surah).padStart(3, "0")}</span><b lang="ar" dir="rtl">{getSurahName(surah)}</b>{locale === "en" && <small className="surah-card__translation">{featuredEnglishNames[surah]}</small>}<CirclePlay size={22} /><small>{t.readListen}</small></Link>)}</div><Link href="/read/1" className="text-link text-link--center">{t.allSurahs} <Arrow size={18} /></Link></div></section>
+      <section className="section section--reader" aria-labelledby="reader-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold">{t.readerEyebrow}</span><h2 id="reader-title">{t.readerTitle}</h2><p>{t.readerIntro}</p></div>{progress && (
+          <Link
+            href={`/read/${progress.surah}`}
+            className="mx-auto mb-6 flex max-w-md items-center gap-3 rounded-xl border border-[var(--brand-navy)]/10 bg-white/70 px-4 py-3 shadow-sm transition-colors hover:bg-white"
+            data-testid="continue-reading"
+          >
+            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--brand-navy)] text-[var(--brand-ivory)]"><CirclePlay size={18} aria-hidden="true" /></span>
+            <span className="flex-1">
+              <b className="block text-sm font-semibold text-[var(--brand-navy)]">{t.continueReading}</b>
+              <small lang="ar" dir="rtl" className="block text-xs text-[var(--brand-navy)]/60">{getSurahName(progress.surah)}{progress.ayah > 0 ? ` · ${t.continueReadingAyah} ${progress.ayah}` : ` · ${t.continueReadingOf}`}</small>
+            </span>
+            <Arrow size={18} className="text-[var(--brand-navy)]/50" aria-hidden="true" />
+          </Link>
+        )}<div className="surah-grid">{featuredSurahs.map((surah) => <Link href={`/read/${surah}`} key={surah} className="surah-card"><span>{String(surah).padStart(3, "0")}</span><b lang="ar" dir="rtl">{getSurahName(surah)}</b>{locale === "en" && <small className="surah-card__translation">{featuredEnglishNames[surah]}</small>}<CirclePlay size={22} /><small>{t.readListen}</small></Link>)}</div><Link href="/read/1" className="text-link text-link--center">{t.allSurahs} <Arrow size={18} /></Link></div></section>
 
       <section className="section journey-section" id="journey" aria-labelledby="journey-title"><div className="container journey-grid"><div className="journey-illustration" role="img" aria-label={t.mapDescription}><span className="journey-illustration__sun">✦</span><span className="journey-illustration__cloud journey-illustration__cloud--one" aria-hidden="true" /><span className="journey-illustration__cloud journey-illustration__cloud--two" aria-hidden="true" /><div className="journey-illustration__path" aria-hidden="true" />{t.steps.map(([number, title], index) => { const Icon = stepIcons[index]; return <div className={`journey-map-stop journey-map-stop--${index + 1}`} key={title}><span className="journey-map-stop__number">{number}</span><Icon size={17} aria-hidden="true" /><span>{title}</span></div>; })}<div className="journey-illustration__child"><Avatar><AvatarImage src={yahiaCharacterUrl} alt="" /><AvatarFallback>ي</AvatarFallback></Avatar></div><p className="journey-illustration__note">{t.mapNote}</p></div><div><span className="eyebrow eyebrow--gold">{t.journeyEyebrow}</span><h2 id="journey-title">{t.journeyTitle}</h2><div className="step-list">{t.steps.map(([number, title, detail], index) => { const Icon = stepIcons[index]; return <div key={title}><span>{number}</span><div><b><Icon size={15} aria-hidden="true" /> {title}</b><p>{detail}</p></div></div>; })}</div></div></div></section>
 

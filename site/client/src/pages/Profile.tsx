@@ -7,12 +7,14 @@
 // =============================================================================
 
 import { useEffect, useState } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Loader2 } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { useAuth, AuthError } from "@/hooks/useAuth";
 import { getSupabase } from "@/lib/supabase";
+import { useReadingProgress } from "@/lib/progress";
+import { getSurahName } from "@/lib/quran-content";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,9 +30,28 @@ export default function Profile() {
   );
 }
 
+const progressCopy = {
+  ar: {
+    last: "آخر ما قرأت",
+    ayah: "آية",
+    streak: "أيام متتالية",
+    saved: "قصص محفوظة",
+    empty: "لم تسجّل قراءة بعد — افتح القارئ وابدأ.",
+  },
+  en: {
+    last: "Last read",
+    ayah: "ayah",
+    streak: "Days in a row",
+    saved: "Saved stories",
+    empty: "No reading recorded yet — open the reader and begin.",
+  },
+} as const;
+
 function ProfileBody() {
   const { locale } = useLocale();
   const { session, profile, signOut, updateProfile, configured } = useAuth();
+  const { summary } = useReadingProgress();
+  const pc = progressCopy[locale];
   const [, navigate] = useLocation();
 
   const [name, setName] = useState(profile?.display_name ?? "");
@@ -269,7 +290,26 @@ function ProfileBody() {
 
         <section className="rounded-lg border border-[var(--brand-navy)]/10 bg-white/60 p-5" aria-labelledby="profile-progress-title">
           <h2 id="profile-progress-title" className="text-base font-semibold text-[var(--brand-navy)]">{copy.progress}</h2>
-          <p className="mt-2 text-sm text-[var(--brand-navy)]/70">{copy.progressBody}</p>
+          {summary.lastSurah ? (
+            <dl className="mt-3 grid grid-cols-3 gap-3 text-center" data-testid="profile-progress-summary">
+              <div className="rounded-md bg-[var(--brand-cream)]/70 p-3">
+                <dt className="text-xs text-[var(--brand-navy)]/60">{pc.last}</dt>
+                <dd className="mt-1 text-sm font-semibold text-[var(--brand-navy)]">
+                  <Link href={`/read/${summary.lastSurah}`} className="hover:underline">{getSurahName(summary.lastSurah)}{summary.lastAyah ? ` · ${pc.ayah} ${summary.lastAyah}` : ""}</Link>
+                </dd>
+              </div>
+              <div className="rounded-md bg-[var(--brand-cream)]/70 p-3">
+                <dt className="text-xs text-[var(--brand-navy)]/60">{pc.streak}</dt>
+                <dd className="mt-1 text-sm font-semibold text-[var(--brand-navy)]">{summary.streakDays}</dd>
+              </div>
+              <div className="rounded-md bg-[var(--brand-cream)]/70 p-3">
+                <dt className="text-xs text-[var(--brand-navy)]/60">{pc.saved}</dt>
+                <dd className="mt-1 text-sm font-semibold text-[var(--brand-navy)]">{summary.savedStoriesCount}</dd>
+              </div>
+            </dl>
+          ) : (
+            <p className="mt-2 text-sm text-[var(--brand-navy)]/70">{pc.empty}</p>
+          )}
         </section>
 
         <section className="rounded-lg border border-red-200 bg-red-50/50 p-5" aria-labelledby="profile-danger-title">
