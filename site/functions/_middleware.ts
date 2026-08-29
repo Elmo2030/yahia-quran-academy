@@ -143,13 +143,22 @@ const robotsFor = (meta: ReturnType<typeof metaForPath>) =>
   meta.noindex ? "<meta name=\"robots\" content=\"noindex,nofollow\" />" : "";
 
 export const onRequest: PagesFunction = async (context) => {
-  const response = await context.next();
+  const url = new URL(context.request.url);
+  const pathname = url.pathname;
+
+  let response = await context.next();
+
+  // SPA fallback: أي مسار بيرجع 404 ومش ملف ثابت (مفيهوش نقطة = مفيش امتداد)
+  // نجيب له index.html — وReact Router بيتولى عرض الصفحة الصحيحة.
+  const looksLikeFile = /\.[a-zA-Z0-9]+$/.test(pathname);
+  if (response.status === 404 && !looksLikeFile) {
+    response = await context.env.ASSETS.fetch(new URL("/index.html", url));
+  }
 
   const type = response.headers.get("content-type") ?? "";
   if (!type.includes("text/html")) return response;
 
-  const url = new URL(context.request.url);
-  const meta = metaForPath(url.pathname);
+  const meta = metaForPath(pathname);
   const canonical = `${ORIGIN}${meta.path}`;
   const image = meta.image.startsWith("http") ? meta.image : `${ORIGIN}${meta.image}`;
   const isHome = meta.path === "/";
@@ -158,10 +167,6 @@ export const onRequest: PagesFunction = async (context) => {
   const description = escapeHtml(meta.description);
   const robots = escapeHtml(robotsFor(meta));
 
-  // Both client and worker render the same `<title>` etc. into the
-  // <!--meta:start--> / <!--meta:end--> region. data-default lets the
-  // hydrated React element strip its siblings by attribute instead of by
-  // position.
   const block = `<!--meta:start-->
     <title data-default>${title}</title>
     <meta data-default name="description" content="${description}" />
