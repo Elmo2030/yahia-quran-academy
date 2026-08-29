@@ -9,6 +9,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 import Stories from "@/pages/Stories";
+import Seerah from "@/pages/Seerah";
 import Reader from "./pages/Reader";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -27,6 +28,8 @@ function Router() {
       <Route path={"/stories"} component={Stories} />
       <Route path={"/stories/:chapter"} component={Stories} />
       <Route path={"/stories/:chapter/:slug"} component={Stories} />
+      <Route path={"/seerah"} component={Seerah} />
+      <Route path={"/seerah/:slug"} component={Seerah} />
       <Route path={"/login"} component={Login} />
       <Route path={"/register"} component={Register} />
       <Route path={"/forgot-password"} component={ForgotPassword} />
