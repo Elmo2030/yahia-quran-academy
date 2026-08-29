@@ -114,6 +114,37 @@ export const termsMeta: Meta = {
   },
 };
 
+export const forgotPasswordMeta: Meta = {
+  path: "/forgot-password",
+  title: "استعادة كلمة المرور — Yahia Quran Academy",
+  description:
+    "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahia Quran Academy.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Reset password — Yahia Quran Academy",
+      description:
+        "Enter your email to reset your Yahia Quran Academy password.",
+    },
+  },
+};
+
+export const resetPasswordMeta: Meta = {
+  path: "/reset-password",
+  title: "تعيين كلمة مرور جديدة — Yahia Quran Academy",
+  description: "عيّن كلمة مرور جديدة لحسابك على Yahia Quran Academy.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Set a new password — Yahia Quran Academy",
+      description:
+        "Set a new password for your Yahia Quran Academy account.",
+    },
+  },
+};
+
 // ---------------------------------------------------------------------------
 // Static routes (read + stories) keep the per-path logic that already shipped.
 // PR1 only adds the auth entries below; no existing path changes.
@@ -130,9 +161,9 @@ export type LookupBundle = ReadonlyArray<SurahLookup> & {
 // Static-typed lookup constructors the worker and the React side both call.
 // Pulled out so the worker (which only sees compiled JS) does not need any
 // runtime JSON import.
-const surahsByNumber: ReadonlyMap<number, string> = new Map(); // populated below
-const chapterBySlug: ReadonlyMap<string, ChapterLookup> = new Map();
-const storiesBySlug: ReadonlyMap<string, StoryLookup> = new Map();
+const surahsByNumber: Map<number, string> = new Map(); // populated below
+const chapterBySlug: Map<string, ChapterLookup> = new Map();
+const storiesBySlug: Map<string, StoryLookup> = new Map();
 
 const ensureSurahEntry = (n: number, nameAr: string) => {
   if (!surahsByNumber.has(n)) surahsByNumber.set(n, nameAr);
@@ -167,6 +198,8 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "profile") return profileMeta;
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;
+  if (head === "forgot-password") return forgotPasswordMeta;
+  if (head === "reset-password") return resetPasswordMeta;
 
   if (head === "read") {
     if (!parts[1]) {

@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 
 const MIN_PASSWORD = 8;
 
@@ -66,6 +67,7 @@ export default function Register() {
         submit: "إنشاء الحساب",
         submitting: "جارٍ الإنشاء…",
         notConfigured: "إنشاء الحسابات غير مفعّل حاليًا.",
+        or: "أو",
         haveAccount: "لديك حساب؟",
         signIn: "سجّل دخولك",
         mismatch: "كلمتا المرور غير متطابقتين.",
@@ -84,6 +86,7 @@ export default function Register() {
         submit: "Create account",
         submitting: "Creating…",
         notConfigured: "Account creation is currently disabled.",
+        or: "or",
         haveAccount: "Already have an account?",
         signIn: "Sign in",
         mismatch: "Passwords don't match.",
@@ -162,7 +165,16 @@ export default function Register() {
             {copy.notConfigured}
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4" data-testid="register-form" noValidate>
+          <>
+            <div className="mt-6">
+              <SocialLoginButtons next={next} />
+              <div className="my-4 flex items-center gap-3 text-xs text-[var(--brand-navy)]/50" aria-hidden="true">
+                <span className="h-px flex-1 bg-[var(--brand-navy)]/15" />
+                {copy.or}
+                <span className="h-px flex-1 bg-[var(--brand-navy)]/15" />
+              </div>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4" data-testid="register-form" noValidate>
             <div className="space-y-1.5">
               <Label htmlFor="register-name">{copy.name}</Label>
               <Input
@@ -236,7 +248,8 @@ export default function Register() {
                 {copy.signIn}
               </Link>
             </p>
-          </form>
+            </form>
+          </>
         )}
       </main>
       <SiteFooter />
