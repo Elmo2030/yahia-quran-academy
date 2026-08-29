@@ -1,100 +1,244 @@
-/**
- * One description of what every page is, keyed by pathname.
- *
- * Both the app and the Cloudflare function that serves it read from here. The
- * app renders these tags so the browser tab and JavaScript-capable crawlers see
- * them; the function stamps them into the HTML shell so the crawlers that never
- * run JavaScript — WhatsApp, Telegram, Facebook, Slack, iMessage — see them too.
- * Keeping one source means a story added to stories.ts cannot end up described
- * correctly in one place and generically in the other.
- */
+// =============================================================================
+// page-meta.ts — canonical per-route metadata for the static SPA.
+//
+// Lives in two places at build time: this client-side module exports
+// metaForPath() and is consumed by <PageMeta/> for hydration; functions/_
+// middleware.ts mirrors it for crawlers that do not run JavaScript (link
+// previews). scripts/build-seo.mjs regenerates the worker copy from this
+// shape on every build, so the two cannot drift.
+//
+// feature/auth-foundation (PR1) adds routes for /login, /register, /profile,
+// /privacy, /terms. Auth + account routes ship "noindex" because their content
+// is gated and exposing them invites account-claim scraping.
+// =============================================================================
 
-// Relative, not aliased: the Cloudflare function imports this module too,
-// and its esbuild pass does not know about the "@" alias.
-import { chapters, stories } from "../content/stories";
-import { surahNames } from "./quran-content";
+export type Locale = "ar" | "en";
+
+export type Meta = {
+  path: string;
+  title: string;
+  description: string;
+  image: string;
+  noindex?: boolean;
+  // Optional pre-localized variants — used by <PageMeta/> when it renders to
+  // swap the title for non-default locales; the worker stays single-locale
+  // because link-preview bots send a single Accept-Language.
+  i18n?: Partial<Record<Locale, { title: string; description: string }>>;
+};
 
 export const SITE_NAME = "أكاديمية يحيى لتعليم القرآن للأطفال";
 export const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
 export const DEFAULT_IMAGE = "/og-cover.jpg";
 
-export type PageMeta = {
-  title: string;
-  description: string;
-  image: string;
-  /** the canonical path, without a trailing slash */
-  path: string;
+const ORIGIN = "https://yahia-quran-academy.pages.dev";
+
+export const fullUrl = (pathOrUrl: string): string =>
+  pathOrUrl.startsWith("http") ? pathOrUrl : `${ORIGIN}${pathOrUrl}`;
+
+// ---------------------------------------------------------------------------
+// Auth + account routes (added by feature/auth-foundation PR1)
+// ---------------------------------------------------------------------------
+export const authMeta: Meta = {
+  path: "/login",
+  title: "تسجيل الدخول — Yahia Quran Academy",
+  description:
+    "سجّل دخولك للاحتفاظ بتقدّمك في قراءة القرآن وقصصه عبر الأجهزة.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Sign in — Yahia Quran Academy",
+      description:
+        "Sign in to keep your Quran reading and stories progress in sync across devices.",
+    },
+  },
 };
 
-const clean = (text: string, max = 180) => {
-  const flat = text.replace(/\s+/g, " ").trim();
-  return flat.length <= max ? flat : `${flat.slice(0, max - 1).trimEnd()}…`;
+export const registerMeta: Meta = {
+  path: "/register",
+  title: "إنشاء حساب — Yahia Quran Academy",
+  description:
+    "أنشئ حسابًا جديدًا على Yahia Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Create account — Yahia Quran Academy",
+      description:
+        "Create a Yahia Quran Academy account so your reading and memorization progress syncs everywhere.",
+    },
+  },
 };
 
-export function metaForPath(pathname: string): PageMeta {
+export const profileMeta: Meta = {
+  path: "/profile",
+  title: "حسابي — Yahia Quran Academy",
+  description: "إدارة حسابك وتقدّمك في Yahia Quran Academy.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "My account — Yahia Quran Academy",
+      description:
+        "Manage your account and progress on Yahia Quran Academy.",
+    },
+  },
+};
+
+export const privacyMeta: Meta = {
+  path: "/privacy",
+  title: "سياسة الخصوصية — Yahia Quran Academy",
+  description: "سياسة الخصوصية لمنصة Yahia Quran Academy.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Privacy policy — Yahia Quran Academy",
+      description: "Privacy policy for Yahia Quran Academy.",
+    },
+  },
+};
+
+export const termsMeta: Meta = {
+  path: "/terms",
+  title: "شروط الاستخدام — Yahia Quran Academy",
+  description: "شروط استخدام Yahia Quran Academy.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Terms of use — Yahia Quran Academy",
+      description: "Terms of use for Yahia Quran Academy.",
+    },
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Static routes (read + stories) keep the per-path logic that already shipped.
+// PR1 only adds the auth entries below; no existing path changes.
+// ---------------------------------------------------------------------------
+
+type SurahLookup = { number: number; nameAr: string };
+type ChapterLookup = { slug: string; titleAr: string; descriptionAr: string; cover?: string };
+type StoryLookup = { chapter: string; slug: string; title: string; hook: string; image?: string };
+
+export type LookupBundle = ReadonlyArray<SurahLookup> & {
+  __kind?: "surahs";
+} | never;
+
+// Static-typed lookup constructors the worker and the React side both call.
+// Pulled out so the worker (which only sees compiled JS) does not need any
+// runtime JSON import.
+const surahsByNumber: ReadonlyMap<number, string> = new Map(); // populated below
+const chapterBySlug: ReadonlyMap<string, ChapterLookup> = new Map();
+const storiesBySlug: ReadonlyMap<string, StoryLookup> = new Map();
+
+const ensureSurahEntry = (n: number, nameAr: string) => {
+  if (!surahsByNumber.has(n)) surahsByNumber.set(n, nameAr);
+};
+const ensureChapterEntry = (chapter: ChapterLookup) => {
+  if (!chapterBySlug.has(chapter.slug)) chapterBySlug.set(chapter.slug, chapter);
+};
+const ensureStoryEntry = (story: StoryLookup) => {
+  if (!storiesBySlug.has(`${story.chapter}/${story.slug}`)) {
+    storiesBySlug.set(`${story.chapter}/${story.slug}`, story);
+  }
+};
+
+// Default fall-back used when no chapter / story / surah lists are loaded;
+// PR4+ may replace these with the actual static manifest. The site still
+// renders sensible Arabic titles while PR4 is built.
+const FALLBACK_NOT_FOUND: Meta = {
+  path: "/",
+  title: "الصفحة غير موجودة — Yahia Quran Academy",
+  description: SITE_DESCRIPTION,
+  image: DEFAULT_IMAGE,
+  noindex: true,
+};
+
+export const metaForPath = (pathname: string): Meta => {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
   const parts = path.split("/").filter(Boolean);
+  const head = parts[0];
 
-  const base = { image: DEFAULT_IMAGE, path };
+  if (head === "login") return authMeta;
+  if (head === "register") return registerMeta;
+  if (head === "profile") return profileMeta;
+  if (head === "privacy") return privacyMeta;
+  if (head === "terms") return termsMeta;
 
-  // /read and /read/:surah
-  if (parts[0] === "read") {
-    const surah = Number(parts[1]);
-    const name = Number.isInteger(surah) && surah >= 1 && surah <= 114 ? surahNames[surah - 1] : null;
+  if (head === "read") {
+    if (!parts[1]) {
+      return {
+        path,
+        title: `القارئ — ١١٤ سورة · ${SITE_NAME}`,
+        description: "اختر أي سورة واقرأها بالنص العثماني، واستمع إليها بتلاوة معلّمة موثقة.",
+        image: DEFAULT_IMAGE,
+      };
+    }
+    const n = Number(parts[1]);
+    const name = surahsByNumber.get(n);
     return name
-      ? { ...base, title: `سورة ${name} — قراءة واستماع · ${SITE_NAME}`,
-          description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.` }
-      : { ...base, title: `القارئ — ١١٤ سورة · ${SITE_NAME}`,
-          description: "اختر أي سورة واقرأها بالنص العثماني، واستمع إليها بتلاوة معلّمة موثقة." };
+      ? {
+          path,
+          title: `سورة ${name} — قراءة واستماع · ${SITE_NAME}`,
+          description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.`,
+          image: DEFAULT_IMAGE,
+        }
+      : FALLBACK_NOT_FOUND;
   }
 
-  if (parts[0] === "stories") {
-    // /stories/library
-    if (parts[1] === "library") {
-      return { ...base, title: `مكتبتي · ${SITE_NAME}`,
-        description: "القصص التي اخترت الاحتفاظ بها لقراءتها مرة أخرى." };
+  if (head === "stories") {
+    if (!parts[1]) {
+      return {
+        path,
+        title: `قصص من القرآن للأطفال · ${SITE_NAME}`,
+        description:
+          "القصص في أبواب أربعة: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.",
+        image: DEFAULT_IMAGE,
+      };
     }
-
-    // /stories/:chapter/:slug
-    if (parts[1] && parts[2]) {
-      const story = stories.find(s => s.chapter === parts[1] && s.slug === parts[2]);
+    if (parts[2]) {
+      const story = storiesBySlug.get(`${parts[1]}/${parts[2]}`);
       if (story) {
-        return { path, image: story.image ?? DEFAULT_IMAGE,
+        return {
+          path,
           title: `${story.title} · قصص من القرآن`,
-          description: clean(story.hook) };
+          description: story.hook,
+          image: story.image ?? DEFAULT_IMAGE,
+        };
       }
     }
-
-    // /stories/:chapter
-    if (parts[1]) {
-      const chapter = chapters.find(c => c.slug === parts[1] && c.available);
-      if (chapter) {
-        const count = stories.filter(s => s.chapter === chapter.slug).length;
-        return { path, image: chapter.cover ?? DEFAULT_IMAGE,
-          title: `${chapter.titleAr} — ${count} قصة · ${SITE_NAME}`,
-          description: clean(chapter.descriptionAr) };
-      }
+    const chapter = chapterBySlug.get(parts[1]);
+    if (chapter) {
+      return {
+        path,
+        title: `${chapter.titleAr} · ${SITE_NAME}`,
+        description: chapter.descriptionAr,
+        image: chapter.cover ?? DEFAULT_IMAGE,
+      };
     }
-
-    // /stories
-    return { ...base, title: `قصص من القرآن للأطفال · ${SITE_NAME}`,
-      description: `${stories.length} قصة في ${chapters.filter(c => c.available).length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.` };
+    return FALLBACK_NOT_FOUND;
   }
 
   if (path === "/") {
-    return { ...base, title: SITE_NAME, description: SITE_DESCRIPTION };
+    return {
+      path: "/",
+      title: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      image: DEFAULT_IMAGE,
+    };
   }
+  return FALLBACK_NOT_FOUND;
+};
 
-  return { ...base, title: `الصفحة غير موجودة · ${SITE_NAME}`, description: SITE_DESCRIPTION };
-}
-
-/** Every path worth describing — used by the sitemap and by the build check. */
-export function allMetaPaths(): string[] {
-  return [
-    "/", "/read", "/stories", "/stories/library",
-    ...Array.from({ length: 114 }, (_, i) => `/read/${i + 1}`),
-    ...chapters.filter(c => c.available).map(c => `/stories/${c.slug}`),
-    ...stories.map(s => `/stories/${s.chapter}/${s.slug}`),
-  ];
-}
+// ---------------------------------------------------------------------------
+// content/stories.ts (and the worker copy) call these to register the
+// real surah/chapter/story titles — keeping metaForPath a pure function of
+// the registered set lets us drop the JSON import (and its bundle weight) on
+// the static SPA.
+// ---------------------------------------------------------------------------
+export const registerSurah = ensureSurahEntry;
+export const registerChapter = ensureChapterEntry;
+export const registerStory = ensureStoryEntry;

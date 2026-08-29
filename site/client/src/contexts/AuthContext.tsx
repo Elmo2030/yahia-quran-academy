@@ -1,0 +1,350 @@
+// =============================================================================
+// AuthContext — single source of truth for the signed-in user.
+//
+// Mirrors the ThemeContext pattern: a Provider that owns state and exposes a
+// hook (`useAuth`) descendants call. Children re-render whenever the session
+// changes so navigation chrome (header avatar, library sync) keeps in step.
+//
+// The provider is resilient to Supabase being unconfigured: it sets
+// `configured: false` instead of throwing, so the UI can render a friendly
+// message rather than a blank screen on environments that forgot to set the
+// environment variables.
+// =============================================================================
+
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
+
+type Locale = "ar" | "en";
+
+type Profile = {
+  id: string;
+  auth_user_id: string;
+  display_name: string;
+  preferred_locale: Locale;
+};
+
+type SignUpInput = {
+  email: string;
+  password: string;
+  displayName: string;
+  preferredLocale: Locale;
+};
+
+type SignInInput = {
+  email: string;
+  password: string;
+};
+
+export type AuthErrorCode =
+  | "invalid_email"
+  | "weak_password"
+  | "email_taken"
+  | "invalid_credentials"
+  | "email_not_confirmed"
+  | "rate_limited"
+  | "network"
+  | "server"
+  | "not_configured";
+
+export class AuthError extends Error {
+  readonly code: AuthErrorCode;
+  readonly friendlyAr: string;
+  readonly friendlyEn: string;
+
+  constructor(
+    code: AuthErrorCode,
+    friendlyAr: string,
+    friendlyEn: string,
+    cause?: unknown,
+  ) {
+    super(friendlyEn);
+    this.name = "AuthError";
+    this.code = code;
+    this.friendlyAr = friendlyAr;
+    this.friendlyEn = friendlyEn;
+    if (cause !== undefined) {
+      (this as Error & { cause?: unknown }).cause = cause;
+    }
+  }
+}
+
+type AuthState = {
+  configured: boolean;
+  loading: boolean;
+  initialized: boolean;
+  session: { user: { id: string; email: string | null } } | null;
+  profile: Profile | null;
+  emailVerified: boolean;
+};
+
+type AuthApi = AuthState & {
+  signUp: (input: SignUpInput) => Promise<void>;
+  signIn: (input: SignInInput) => Promise<void>;
+  signOut: () => Promise<void>;
+  refreshProfile: () => Promise<void>;
+  updateProfile: (patch: Partial<Pick<Profile, "display_name" | "preferred_locale">>) => Promise<void>;
+};
+
+const emptyState: AuthState = {
+  configured: isSupabaseConfigured(),
+  loading: true,
+  initialized: false,
+  session: null,
+  profile: null,
+  emailVerified: false,
+};
+
+const AuthContext = createContext<AuthApi | null>(null);
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+const friendlyForSupabaseError = (message: string): { ar: string; en: string; code: AuthErrorCode } => {
+  const lowered = message.toLowerCase();
+  if (lowered.includes("already registered") || lowered.includes("user already")) {
+    return {
+      code: "email_taken",
+      ar: "هذا البريد مسجل من قبل. جرّب تسجيل الدخول.",
+      en: "This email is already registered. Try signing in instead.",
+    };
+  }
+  if (lowered.includes("invalid login") || lowered.includes("invalid credentials")) {
+    return {
+      code: "invalid_credentials",
+      ar: "البريد أو كلمة المرور غير صحيحة.",
+      en: "Invalid email or password.",
+    };
+  }
+  if (lowered.includes("email not confirmed") || lowered.includes("not confirmed")) {
+    return {
+      code: "email_not_confirmed",
+      ar: "تحتاج لتأكيد بريدك أولاً. تحقّق من صندوق الوارد.",
+      en: "Please confirm your email first — check your inbox.",
+    };
+  }
+  if (lowered.includes("password") && (lowered.includes("short") || lowered.includes("at least"))) {
+    return {
+      code: "weak_password",
+      ar: "كلمة المرور قصيرة جدًا. استخدم 8 أحرف على الأقل.",
+      en: "Password is too short — use at least 8 characters.",
+    };
+  }
+  if (lowered.includes("rate") || lowered.includes("too many")) {
+    return {
+      code: "rate_limited",
+      ar: "محاولات كثيرة جدًا. انتظر لحظة وحاول مرة أخرى.",
+      en: "Too many attempts. Please wait a moment and try again.",
+    };
+  }
+  if (lowered.includes("invalid email") || lowered.includes("email is invalid")) {
+    return {
+      code: "invalid_email",
+      ar: "صيغة البريد الإلكتروني غير صحيحة.",
+      en: "That email address looks invalid.",
+    };
+  }
+  if (lowered.includes("fetch") || lowered.includes("network")) {
+    return {
+      code: "network",
+      ar: "تعذّر الاتصال بالخادم. تحقق من الإنترنت.",
+      en: "Could not reach the server. Check your connection.",
+    };
+  }
+  return {
+    code: "server",
+    ar: "حدث خطأ غير متوقع. أعد المحاولة لاحقًا.",
+    en: "Something went wrong. Please try again later.",
+  };
+};
+
+// ---------------------------------------------------------------------------
+// Provider
+// ---------------------------------------------------------------------------
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [state, setState] = useState<AuthState>(emptyState);
+
+  // Cache the last user-id we fetched a profile for, so consecutive onAuthStateChange
+  // fires for the same session don't refetch.
+  const lastFetchedUserIdRef = useRef<string | null>(null);
+
+  const fetchProfile = useCallback(async (authUserId: string): Promise<Profile | null> => {
+    const client = getSupabase();
+    if (!client) return null;
+    const { data, error } = await client
+      .from("profiles")
+      .select("id, auth_user_id, display_name, preferred_locale")
+      .eq("auth_user_id", authUserId)
+      .maybeSingle();
+    if (error) {
+      // The profile is created by the on_auth_user_created trigger, so an
+      // error here usually means the row hasn't been written yet (race) or
+      // RLS blocked it. We log to the console in dev for debugging and
+      // surface the loading=false flag to the UI without throwing.
+      // eslint-disable-next-line no-console
+      console.warn("[auth] profile fetch failed:", error.message);
+      return null;
+    }
+    if (!data) return null;
+    return data as Profile;
+  }, []);
+
+  const refreshProfile = useCallback(async () => {
+    const client = getSupabase();
+    const userId = state.session?.user.id;
+    if (!client || !userId) {
+      setState((s) => ({ ...s, profile: null }));
+      return;
+    }
+    const profile = await fetchProfile(userId);
+    lastFetchedUserIdRef.current = userId;
+    setState((s) => ({ ...s, profile }));
+  }, [state.session?.user.id, fetchProfile]);
+
+  // Initial subscription + auth state changes.
+  useEffect(() => {
+    const client = getSupabase();
+    if (!client) {
+      setState({ ...emptyState, configured: false, loading: false, initialized: true });
+      return;
+    }
+    let cancelled = false;
+
+    client.auth.getSession().then(({ data }) => {
+      if (cancelled) return;
+      const session = data.session
+        ? { user: { id: data.session.user.id, email: data.session.user.email ?? null } }
+        : null;
+      const verified = !!data.session?.user?.email_confirmed_at;
+      setState((s) => ({ ...s, session, emailVerified: verified, loading: false, initialized: true }));
+      if (session) {
+        lastFetchedUserIdRef.current = session.user.id;
+        fetchProfile(session.user.id).then((profile) => {
+          if (!cancelled) setState((s) => ({ ...s, profile }));
+        });
+      }
+    });
+
+    const { data: sub } = client.auth.onAuthStateChange((_event, newSession) => {
+      if (cancelled) return;
+      const session = newSession
+        ? { user: { id: newSession.user.id, email: newSession.user.email ?? null } }
+        : null;
+      const verified = !!newSession?.user?.email_confirmed_at;
+      setState((s) => ({ ...s, session, emailVerified: verified }));
+      // Email-verification notice: Supabase fires SIGNED → sign-in succeeded
+      // regardless of email confirmation. Track it in state so the UI can
+      // show a banner prompting the user to check their inbox.
+      if (session && session.user.id !== lastFetchedUserIdRef.current) {
+        lastFetchedUserIdRef.current = session.user.id;
+        fetchProfile(session.user.id).then((profile) => {
+          if (!cancelled) setState((s) => ({ ...s, profile }));
+        });
+      } else if (!session) {
+        lastFetchedUserIdRef.current = null;
+        setState((s) => ({ ...s, profile: null }));
+      }
+    });
+
+    return () => {
+      cancelled = true;
+      sub.subscription.unsubscribe();
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // -------------------------------------------------------------------------
+  // Public API
+  // -------------------------------------------------------------------------
+
+  const signIn = useCallback(async (input: SignInInput) => {
+    const client = getSupabase();
+    if (!client) throw new AuthError("not_configured", "تسجيل الدخول غير متاح مؤقتًا.", "Sign-in is temporarily unavailable.");
+    const { error } = await client.auth.signInWithPassword({
+      email: input.email.trim(),
+      password: input.password,
+    });
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+  }, []);
+
+  const signUp = useCallback(async (input: SignUpInput) => {
+    const client = getSupabase();
+    if (!client) throw new AuthError("not_configured", "إنشاء الحسابات غير متاح مؤقتًا.", "Sign-up is temporarily unavailable.");
+    const { error } = await client.auth.signUp({
+      email: input.email.trim(),
+      password: input.password,
+      options: {
+        data: {
+          display_name: input.displayName.trim(),
+          preferred_locale: input.preferredLocale,
+        },
+      },
+    });
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+  }, []);
+
+  const signOut = useCallback(async () => {
+    const client = getSupabase();
+    if (!client) return;
+    await client.auth.signOut();
+    // The onAuthStateChange listener above will clear session + profile.
+  }, []);
+
+  const updateProfile = useCallback<AuthApi["updateProfile"]>(async (patch) => {
+    const client = getSupabase();
+    const userId = state.session?.user.id;
+    if (!client || !userId) throw new AuthError("not_configured", "تعذّر التحديث.", "Update not available.");
+    const { data, error } = await client
+      .from("profiles")
+      .update(patch)
+      .eq("auth_user_id", userId)
+      .select("id, auth_user_id, display_name, preferred_locale")
+      .single();
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+    setState((s) => ({ ...s, profile: data as Profile }));
+  }, [state.session?.user.id]);
+
+  const api = useMemo<AuthApi>(() => ({
+    ...state,
+    signUp,
+    signIn,
+    signOut,
+    refreshProfile,
+    updateProfile,
+  }), [state, signUp, signIn, signOut, refreshProfile, updateProfile]);
+
+  return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth(): AuthApi {
+  const ctx = useContext(AuthContext);
+  if (!ctx) {
+    throw new Error("useAuth must be used inside <AuthProvider>.");
+  }
+  return ctx;
+}
+
+// Re-export for ergonomics — `import useAuth from "@/hooks/useAuth"` reads
+// better than reaching into the contexts folder from a page module.
+export { useAuth as default } from "@/contexts/AuthContext";
