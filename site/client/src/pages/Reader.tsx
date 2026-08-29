@@ -6,6 +6,7 @@ import { activeAt, defaultRecitationId, listRecitations, loadSurahSource, loadTi
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLocale } from "@/contexts/LocaleContext";
+import { useReadingProgress } from "@/lib/progress";
 
 const yahiaCharacterUrl = "/manus-storage/yahia-hero_24faa0fd.png";
 
@@ -39,6 +40,30 @@ export default function Reader() {
   const [error, setError] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
   const playerRef = useRef<HTMLAudioElement>(null);
+  const { recordReading } = useReadingProgress();
+  const recordedSurahRef = useRef<number | null>(null);
+  const recordedAyahRef = useRef<number | null>(null);
+
+  // Record the surah opening (ayah 0) once per surah when the text loads.
+  useEffect(() => {
+    if (ayahs.length > 0 && recordedSurahRef.current !== selectedSurah) {
+      recordedSurahRef.current = selectedSurah;
+      recordedAyahRef.current = null;
+      void recordReading(selectedSurah, 0);
+    }
+  }, [ayahs.length, selectedSurah, recordReading]);
+
+  // Record the first ayah that becomes active during playback/selection.
+  useEffect(() => {
+    if (
+      active.ayah &&
+      recordedAyahRef.current !== active.ayah &&
+      recordedSurahRef.current === selectedSurah
+    ) {
+      recordedAyahRef.current = active.ayah;
+      void recordReading(selectedSurah, active.ayah);
+    }
+  }, [active.ayah, selectedSurah, recordReading]);
 
   // catalogue of recitations, loaded once
   useEffect(() => {
