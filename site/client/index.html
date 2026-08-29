@@ -43,10 +43,9 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <!-- Optional Umami analytics: re-add one line here only after setting
+         VITE_ANALYTICS_ENDPOINT + VITE_ANALYTICS_WEBSITE_ID in Cloudflare
+         Pages, and add the endpoint to CSP connect-src in public/_headers. -->
   </body>
 
 </html>
