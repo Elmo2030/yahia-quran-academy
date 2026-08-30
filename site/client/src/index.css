@@ -69,6 +69,10 @@
   .brand-mark__seal { position: relative; isolation: isolate; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 12px 12px 12px 4px; background: linear-gradient(145deg, #607a36, #394d14); color: white; font-family: "Noto Naskh Arabic", serif; font-size: 1.4rem; line-height: 1; box-shadow: 0 8px 16px rgb(85 107 47 / 22%); }.brand-mark__seal::after { content: ""; position: absolute; z-index: -1; inset: 4px; border: 1px solid rgb(255 239 204 / 68%); border-radius: 8px 8px 8px 2px; }
   .site-nav { display: flex; gap: 1.25rem; align-items: center; font-size: .83rem; color: #385051; }
   .site-nav a { transition: color .16s ease; }.site-nav a:hover { color: #556B2F; }
+  .seerah-options { display: grid; gap: .55rem; margin: .9rem 0 0; padding: 0; list-style: none; }
+  .seerah-option { width: 100%; justify-content: flex-start; text-align: start; }
+  .seerah-option.is-correct { background: #d7f0dc; border-color: #7fb98c; }
+  .seerah-option.is-wrong { background: #fbdede; border-color: #d79b9b; }
   .header-auth-link { display: inline-flex; gap: .3rem; align-items: center; padding: .38rem .7rem; color: #001F3F; font-size: .78rem; font-weight: 800; background: rgb(255 255 255 / 78%); border: 1px solid #e7dfc9; border-radius: 10px; transition: color .16s ease, background .16s ease, transform .16s ease; }
   .header-auth-link:hover { color: #556B2F; background: #fff; transform: translateY(-1px); }
   .header-auth-link:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }

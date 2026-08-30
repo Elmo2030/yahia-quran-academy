@@ -1,13 +1,22 @@
 // =============================================================================
-// Seerah — Seerah (Prophet's Biography) interactive stories.
-// Routes: /seerah (station index) and /seerah/:slug (story view).
-// Reuses the existing story-* CSS classes so no new stylesheet is required.
+// Seerah — the Prophet's biography, as a station of illustrated child stories.
+// Routes: /seerah (station index) and /seerah/:slug (one story).
+//
+// The layout deliberately mirrors pages/Stories.tsx so the two libraries read
+// as one product: the same Chrome, the same stories-list-hero, the same
+// story-list-grid of cards, and the same rail + numbered sections inside a
+// story. Earlier this page reached for the story-* classes without the
+// structure they expect — .story-reading-section is a `44px 1fr` grid, so a
+// bare <p> as its first child landed in the 44px rail column and rendered one
+// word per line.
 // =============================================================================
 
 import { useMemo, useState } from "react";
 import { Link, useRoute } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Compass, HelpCircle, Moon, ShieldCheck, Sparkles, Trophy } from "lucide-react";
 
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLocale } from "@/contexts/LocaleContext";
 import {
   seerahStories,
   seerahStation,
@@ -15,53 +24,140 @@ import {
   type SeerahStory,
 } from "@/content/seerah";
 
+const copy = {
+  ar: {
+    home: "الرئيسية", quranStories: "قصص القرآن", eyebrow: "السيرة النبوية",
+    backToStation: "كل قصص السيرة", storyCount: "قصص", read: "اقرأ القصة",
+    sections: "أقسام القصة", story: "القصة", know: "هل تعلم؟", value: "قيمة القصة",
+    challenge: "تحدي الفهم", reward: "مكافأتك", source: "مصدر موثوق",
+    ageGroup: "اختيار الفئة العمرية", chooseStory: "اختر قصة",
+    correct: "أحسنت! إجابة صحيحة 🎉", wrong: "الإجابة الصحيحة بالأخضر — اقرأ القصة مرة أخرى وحاول مجدداً 💪",
+    missing: "هذه القصة غير موجودة.",
+  },
+  en: {
+    home: "Home", quranStories: "Quran stories", eyebrow: "The Prophet’s Seerah",
+    backToStation: "All Seerah stories", storyCount: "stories", read: "Read the story",
+    sections: "Story sections", story: "The story", know: "Did you know?", value: "The story’s value",
+    challenge: "Comprehension challenge", reward: "Your reward", source: "Trusted source",
+    ageGroup: "Choose an age group", chooseStory: "Choose a story",
+    correct: "Well done — that’s right 🎉", wrong: "The correct answer is in green — read the story again and try once more 💪",
+    missing: "This story does not exist.",
+  },
+} as const;
+
 const tierLabels: Record<AgeTier, string> = {
   tier_1_age_6_8: "٦–٨ سنوات",
   tier_2_age_9_11: "٩–١١ سنة",
 };
 
-function ChallengeCard({ story }: { story: SeerahStory }) {
+function Chrome({ children }: { children: React.ReactNode }) {
+  const { direction, locale } = useLocale();
+  const t = copy[locale];
+  return (
+    <main className="site-shell" dir={direction}>
+      <header className="site-header">
+        <div className="container site-header__inner">
+          <Link href="/" className="brand-mark" aria-label={t.home}>
+            <span className="brand-mark__seal">ي</span>
+            <span><b>Yahia</b> Quran Academy</span>
+          </Link>
+          <div className="header-actions">
+            <LanguageToggle compact />
+            <Link href="/stories" className="header-reader-link">
+              <BookOpen size={16} aria-hidden="true" /> {t.quranStories}
+            </Link>
+          </div>
+        </div>
+      </header>
+      {children}
+      <footer className="site-footer">
+        <div className="container site-footer__inner">
+          <div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></div>
+          <Link href="/" className="text-link">{t.home}</Link>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+/** Stories without artwork fall back to the drawn placeholder the design
+ *  system already defines, exactly as the prophets chapter does. */
+function SeerahArt({ story, className }: { story: SeerahStory; className?: string }) {
+  if (story.image) {
+    return (
+      <figure className={`story-image ${className ?? ""}`}>
+        <img src={story.image} alt="" loading="lazy" width={1200} height={670} />
+      </figure>
+    );
+  }
+  return (
+    <figure className={`story-image story-image-placeholder story-image-placeholder--leaf ${className ?? ""}`} aria-hidden="true">
+      <span className="story-image-placeholder__sun" />
+      <span className="story-image-placeholder__hill" />
+      <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
+      <small lang="ar" dir="rtl">{story.title}</small>
+    </figure>
+  );
+}
+
+function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
+  const { locale } = useLocale();
+  const t = copy[locale];
+  const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
+  return (
+    <Link href={`/seerah/${story.slug}`} className="story-list-card">
+      <SeerahArt story={story} />
+      <div className="story-list-card__body" lang="ar" dir="rtl">
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <h3>{story.title}</h3>
+        <p>{story.content.tier_1_age_6_8.shortLesson}</p>
+        <span className="story-read-pill">{t.read} <Arrow size={15} aria-hidden="true" /></span>
+      </div>
+    </Link>
+  );
+}
+
+function ChallengeSection({ story, number }: { story: SeerahStory; number: number }) {
+  const { locale } = useLocale();
+  const t = copy[locale];
   const [picked, setPicked] = useState<number | null>(null);
   const { challenge } = story.interactive;
   const answered = picked !== null;
   const correct = picked === challenge.correctAnswer;
 
   return (
-    <section className="story-reading-section" aria-live="polite">
-      <h2>🧩 تحدي الفهم</h2>
-      <p>{challenge.question}</p>
-      <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "0.5rem" }}>
-        {challenge.options.map((option, index) => {
-          let background = "";
-          if (answered && index === challenge.correctAnswer) background = "#d3f9d8";
-          else if (answered && index === picked) background = "#ffe3e3";
-          return (
-            <li key={option}>
-              <button
-                type="button"
-                className="button button--soft"
-                style={{ width: "100%", background: background || undefined }}
-                disabled={answered}
-                onClick={() => setPicked(index)}
-              >
-                {option}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      {answered && (
-        <p>
-          {correct
-            ? `أحسنت! إجابة صحيحة 🎉 — ${story.gamification.badge}`
-            : "الإجابة الصحيحة بالأخضر — اقرأ القصة مرة أخرى وحاول مجدداً 💪"}
-        </p>
-      )}
+    <section className="story-reading-section" id="story-challenge" aria-live="polite">
+      <span className="story-section-number">{number}</span>
+      <div>
+        <span className="story-section-label"><HelpCircle size={13} aria-hidden="true" /> {t.challenge}</span>
+        <h2>{t.challenge}</h2>
+        <p>{challenge.question}</p>
+        <ul className="seerah-options">
+          {challenge.options.map((option, index) => {
+            const state = !answered ? "" : index === challenge.correctAnswer ? " is-correct" : index === picked ? " is-wrong" : "";
+            return (
+              <li key={option}>
+                <button
+                  type="button"
+                  className={`button button--soft seerah-option${state}`}
+                  disabled={answered}
+                  onClick={() => setPicked(index)}
+                >
+                  {option}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        {answered && <p>{correct ? `${t.correct} — ${story.gamification.badge}` : t.wrong}</p>}
+      </div>
     </section>
   );
 }
 
 function SeerahStoryView({ story }: { story: SeerahStory }) {
+  const { locale } = useLocale();
+  const t = copy[locale];
   const [tier, setTier] = useState<AgeTier>("tier_1_age_6_8");
   const isTier1 = tier === "tier_1_age_6_8";
   const narrative = isTier1
@@ -71,103 +167,160 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
   const details = !isTier1 ? story.content.tier_2_age_9_11.details : null;
 
   return (
-    <article className="story-detail">
-      <header className="story-detail-hero">
-        <span className="story-detail-hero__count">{seerahStation.titleAr}</span>
-        <h1>{story.title}</h1>
-        <div role="group" aria-label="اختيار الفئة العمرية" style={{ display: "flex", gap: "0.5rem" }}>
-          {(Object.keys(tierLabels) as AgeTier[]).map((key) => (
-            <button
-              key={key}
-              type="button"
-              className={`button button--soft${tier === key ? " is-active" : ""}`}
-              aria-pressed={tier === key}
-              onClick={() => setTier(key)}
-            >
-              {tierLabels[key]}
-            </button>
-          ))}
+    <>
+      <section className="story-detail-hero" lang="ar" dir="rtl">
+        <div className="container story-detail-hero__grid">
+          <div>
+            <Link href="/seerah" className="story-back-link">
+              <ArrowRight size={15} aria-hidden="true" /> {t.backToStation}
+            </Link>
+            <span className="story-detail-hero__count">{seerahStation.titleAr}</span>
+            <h1>{story.title}</h1>
+            <p className="story-detail-hero__hook">{story.content.tier_1_age_6_8.shortLesson}</p>
+            <div className="story-detail-actions" role="group" aria-label={t.ageGroup}>
+              {(Object.keys(tierLabels) as AgeTier[]).map(key => (
+                <button
+                  key={key}
+                  type="button"
+                  className={`button ${tier === key ? "button--primary" : "button--soft"}`}
+                  aria-pressed={tier === key}
+                  onClick={() => setTier(key)}
+                >
+                  {tierLabels[key]}
+                </button>
+              ))}
+            </div>
+          </div>
+          <SeerahArt story={story} />
         </div>
-      </header>
-
-      <section className="story-reading-section">
-        <p className="story-reading-section__lead">{narrative}</p>
-        {details && <p>{details}</p>}
-        {lesson && <p>✨ {lesson}</p>}
       </section>
 
-      <section className="story-reading-section">
-        <h2>💡 هل تعلم؟</h2>
-        <p>{story.interactive.discover}</p>
-      </section>
+      <article className="story-article story-article--printable" lang="ar" dir="rtl">
+        <div className="container story-article__layout">
+          <nav className="story-article__rail no-print" aria-label={t.sections}>
+            <span className="story-section-label">{t.sections}</span>
+            <a href="#story-narrative">{t.story}</a>
+            <a href="#story-know">{t.know}</a>
+            <a href="#story-value">{t.value}</a>
+            <a href="#story-challenge">{t.challenge}</a>
+          </nav>
 
-      <section className="story-reading-section">
-        <h2>{story.interactive.value.icon} قيمة القصة: {story.interactive.value.name}</h2>
-        <p>💭 {story.interactive.thinkQuestion}</p>
-      </section>
+          <div className="story-article__content">
+            <section className="story-reading-section story-reading-section--hook" id="story-narrative">
+              <span className="story-section-number">1</span>
+              <div>
+                <span className="story-section-label">{t.story}</span>
+                <p className="story-reading-section__lead">{narrative}</p>
+                {details && <p>{details}</p>}
+                {lesson && <p>✨ {lesson}</p>}
+              </div>
+            </section>
 
-      <ChallengeCard story={story} />
+            <section className="story-reading-section" id="story-know">
+              <span className="story-section-number">2</span>
+              <div>
+                <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.know}</span>
+                <h2>{t.know}</h2>
+                <p>{story.interactive.discover}</p>
+              </div>
+            </section>
 
-      <section className="story-reading-section">
-        <h2>🏆 مكافأتك</h2>
-        <p>
-          <strong>{story.gamification.artifact.name}</strong> — {story.gamification.artifact.description}
-        </p>
-        <p>{story.gamification.badge}</p>
-      </section>
+            <section className="story-reading-section" id="story-value">
+              <span className="story-section-number">3</span>
+              <div>
+                <span className="story-section-label"><Sparkles size={13} aria-hidden="true" /> {t.value}</span>
+                <h2>{story.interactive.value.icon} {story.interactive.value.name}</h2>
+                <p>💭 {story.interactive.thinkQuestion}</p>
+              </div>
+            </section>
 
-      <footer className="story-reading-section">
-        <h2>🛡️ مصدر موثوق {story.source.reliability}</h2>
-        <p>{story.source.reference}</p>
-        <p><small>{story.source.note}</small></p>
-      </footer>
-    </article>
+            <ChallengeSection story={story} number={4} />
+
+            <section className="story-reading-section" id="story-reward">
+              <span className="story-section-number">5</span>
+              <div>
+                <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.reward}</span>
+                <h2>{t.reward}</h2>
+                <p><strong>{story.gamification.artifact.name}</strong> — {story.gamification.artifact.description}</p>
+                <p>{story.gamification.badge}</p>
+              </div>
+            </section>
+
+            <section className="story-reading-section" id="story-source">
+              <span className="story-section-number">6</span>
+              <div>
+                <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.source}</span>
+                <h2>{t.source} {story.source.reliability}</h2>
+                <p>{story.source.reference}</p>
+                <p><small>{story.source.note}</small></p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </article>
+    </>
   );
 }
 
 export default function Seerah() {
   const [isStory, params] = useRoute("/seerah/:slug");
+  const { locale } = useLocale();
+  const t = copy[locale];
   const story = useMemo(
-    () => (isStory ? seerahStories.find((s) => s.slug === params?.slug) ?? null : null),
+    () => (isStory ? seerahStories.find(s => s.slug === params?.slug) ?? null : null),
     [isStory, params?.slug],
   );
 
   if (isStory) {
     if (!story) {
       return (
-        <main className="site-shell" dir="rtl" lang="ar">
-          <p>هذه القصة غير موجودة.</p>
-          <Link href="/seerah" className="text-link">كل قصص السيرة</Link>
-        </main>
+        <Chrome>
+          <section className="section"><div className="container">
+            <p lang="ar" dir="rtl">{t.missing}</p>
+            <Link href="/seerah" className="text-link">{t.backToStation}</Link>
+          </div></section>
+        </Chrome>
       );
     }
-    return (
-      <main className="site-shell" dir="rtl" lang="ar">
-        <Link href="/seerah" className="story-back-link">
-          <ArrowRight size={15} aria-hidden="true" /> العودة لقصص السيرة
-        </Link>
-        <SeerahStoryView story={story} />
-      </main>
-    );
+    return <Chrome><SeerahStoryView story={story} /></Chrome>;
   }
 
   return (
-    <main className="site-shell" dir="rtl" lang="ar">
-      <header className="story-detail-hero">
-        <h1>السيرة النبوية ﷺ</h1>
-        <p className="story-detail-hero__hook">{seerahStation.descriptionAr}</p>
-      </header>
-      <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
-        {seerahStories.map((s, index) => (
-          <li key={s.slug}>
-            <Link href={`/seerah/${s.slug}`} className="story-list-card">
-              <span className="story-detail-hero__count">{index + 1}</span>
-              <h3>{s.title}</h3>
-              <p>{s.content.tier_1_age_6_8.shortLesson}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <Chrome>
+      <section className="stories-list-hero" lang="ar" dir="rtl">
+        <div className="container stories-list-hero__grid">
+          <div>
+            <span className="eyebrow eyebrow--gold"><Moon size={15} aria-hidden="true" /> {t.eyebrow}</span>
+            <h1>{seerahStation.titleAr}</h1>
+            <p>{seerahStation.descriptionAr}</p>
+            <Link href="/stories" className="stories-hero__library-link"><BookOpen size={16} aria-hidden="true" /> {t.quranStories}</Link>
+          </div>
+          {/* The station cover is dropped in at /stories/seerah/cover.jpg. Until
+              it lands, hide the figure rather than show a broken image. */}
+          <figure className="animals-collection-cover">
+            <img
+              src="/stories/seerah/cover.jpg"
+              alt=""
+              width={1600}
+              height={893}
+              loading="lazy"
+              onError={event => { (event.currentTarget.closest("figure") as HTMLElement | null)?.style.setProperty("display", "none"); }}
+            />
+          </figure>
+        </div>
+      </section>
+      <section className="stories-section stories-section--list">
+        <div className="container">
+          <div className="stories-section__heading" lang="ar" dir="rtl">
+            <h2>{seerahStories.length} {t.storyCount}</h2>
+          </div>
+          <ol className="story-list-grid">
+            {seerahStories.map((story, index) => (
+              <li key={story.slug}><SeerahCard story={story} index={index} /></li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    </Chrome>
   );
 }
