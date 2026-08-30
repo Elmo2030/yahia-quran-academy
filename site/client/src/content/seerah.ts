@@ -53,6 +53,7 @@ export const seerahStories: SeerahStory[] = [
   {
     storyId: "st-1-01",
     slug: "birth-of-light",
+    image: "/stories/seerah/birth-of-light.jpg",
     title: "يوم أشرقت مكة",
     content: {
       tier_1_age_6_8: {
@@ -92,6 +93,7 @@ export const seerahStories: SeerahStory[] = [
   {
     storyId: "st-1-02",
     slug: "desert-breeze",
+    image: "/stories/seerah/desert-breeze.jpg",
     title: "هواء الصحراء النقي",
     content: {
       tier_1_age_6_8: {
@@ -131,6 +133,7 @@ export const seerahStories: SeerahStory[] = [
   {
     storyId: "st-1-03",
     slug: "grandfather-love",
+    image: "/stories/seerah/grandfather-love.jpg",
     title: "في ظل الكعبة",
     content: {
       tier_1_age_6_8: {
@@ -169,6 +172,7 @@ export const seerahStories: SeerahStory[] = [
   {
     storyId: "st-1-04",
     slug: "uncle-home",
+    image: "/stories/seerah/uncle-home.jpg",
     title: "بيت العم الحنون",
     content: {
       tier_1_age_6_8: {
@@ -206,6 +210,7 @@ export const seerahStories: SeerahStory[] = [
   {
     storyId: "st-1-05",
     slug: "little-shepherd",
+    image: "/stories/seerah/little-shepherd.jpg",
     title: "الراعي الصغير",
     content: {
       tier_1_age_6_8: {

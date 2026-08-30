@@ -22,10 +22,12 @@ const seerahStation = {
   titleAr: seerahSource.match(/titleAr:\s*"([^"]+)"/)[1],
   descriptionAr: seerahSource.match(/descriptionAr:\s*\n?\s*"([^"]+)"/)[1],
 };
-// slug, title and the younger tier's opening line — enough for a link preview.
+// slug, optional artwork, title, and the younger tier's opening line — enough
+// for a link preview. `image` sits between slug and title when a story has
+// artwork, so it has to be optional here or every story stops matching.
 const seerahStories = [...seerahSource.matchAll(
-  /slug:\s*"([a-z0-9-]+)",\s*\n\s*title:\s*"([^"]+)"[\s\S]*?tier_1_age_6_8:\s*\{\s*\n?\s*narrative:\s*"([^"]+)"/g,
-)].map(([, slug, title, narrative]) => ({ slug, title, narrative }));
+  /slug:\s*"([a-z0-9-]+)",\s*\n(?:\s*image:\s*"([^"]*)",\s*\n)?\s*title:\s*"([^"]+)"[\s\S]*?tier_1_age_6_8:\s*\{\s*\n?\s*narrative:\s*"([^"]+)"/g,
+)].map(([, slug, image, title, narrative]) => (image ? { slug, image, title, narrative } : { slug, title, narrative }));
 if (seerahStories.length === 0) throw new Error("no seerah stories parsed — check seerah.ts shape");
 
 const urls = [

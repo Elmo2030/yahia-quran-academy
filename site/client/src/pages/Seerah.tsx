@@ -80,22 +80,33 @@ function Chrome({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Stories without artwork fall back to the drawn placeholder the design
- *  system already defines, exactly as the prophets chapter does. */
-function SeerahArt({ story, className }: { story: SeerahStory; className?: string }) {
-  if (story.image) {
-    return (
-      <figure className={`story-image ${className ?? ""}`}>
-        <img src={story.image} alt="" loading="lazy" width={1200} height={670} />
-      </figure>
-    );
-  }
+function Placeholder({ story, className }: { story: SeerahStory; className?: string }) {
   return (
     <figure className={`story-image story-image-placeholder story-image-placeholder--leaf ${className ?? ""}`} aria-hidden="true">
       <span className="story-image-placeholder__sun" />
       <span className="story-image-placeholder__hill" />
       <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
       <small lang="ar" dir="rtl">{story.title}</small>
+    </figure>
+  );
+}
+
+/** Artwork with the drawn placeholder as a fallback — used both when a story
+ *  declares no image and when the declared file has not been added yet, so a
+ *  missing drop-in never shows a broken image. */
+function SeerahArt({ story, className }: { story: SeerahStory; className?: string }) {
+  const [failed, setFailed] = useState(false);
+  if (!story.image || failed) return <Placeholder story={story} className={className} />;
+  return (
+    <figure className={`story-image ${className ?? ""}`}>
+      <img
+        src={story.image}
+        alt=""
+        loading="lazy"
+        width={1200}
+        height={670}
+        onError={() => setFailed(true)}
+      />
     </figure>
   );
 }
