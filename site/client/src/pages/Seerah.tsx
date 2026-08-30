@@ -171,9 +171,13 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
       <section className="story-detail-hero" lang="ar" dir="rtl">
         <div className="container story-detail-hero__grid">
           <div>
-            <Link href="/seerah" className="story-back-link">
-              <ArrowRight size={15} aria-hidden="true" /> {t.backToStation}
-            </Link>
+            {/* .story-back-link is inline-flex, so it shares a line with the
+                station label unless it gets a block of its own. */}
+            <div>
+              <Link href="/seerah" className="story-back-link">
+                <ArrowRight size={15} aria-hidden="true" /> {t.backToStation}
+              </Link>
+            </div>
             <span className="story-detail-hero__count">{seerahStation.titleAr}</span>
             <h1>{story.title}</h1>
             <p className="story-detail-hero__hook">{story.content.tier_1_age_6_8.shortLesson}</p>
@@ -203,6 +207,8 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
             <a href="#story-know">{t.know}</a>
             <a href="#story-value">{t.value}</a>
             <a href="#story-challenge">{t.challenge}</a>
+            <a href="#story-reward">{t.reward}</a>
+            <a href="#story-source">{t.source}</a>
           </nav>
 
           <div className="story-article__content">
