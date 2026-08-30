@@ -15,5 +15,8 @@ is what puts each picture on the right story. JPEG, landscape, ideally around
 | `uncle-home.jpg`      | بيت العم الحنون      | بيت حجري دافئ، نار هادئة ووعاء طعام فخاري |
 | `little-shepherd.jpg` | الراعي الصغير        | عصا راعٍ تستند إلى صخرة على تل أخضر، وأغنام في الخلفية |
 
+`cover.jpg` is currently a copy of `birth-of-light.jpg` — replace it whenever
+a dedicated station cover exists.
+
 Until a file lands, that story falls back to the drawn placeholder — nothing
 breaks, the picture is simply missing.
