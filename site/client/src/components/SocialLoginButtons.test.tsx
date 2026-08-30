@@ -1,7 +1,7 @@
 /**
- * SocialLoginButtons tests — verify both provider buttons render and that
- * clicking them delegates to AuthContext.signInWithProvider() with the right
- * provider + default redirect target.
+ * SocialLoginButtons tests — verify that only providers Supabase has enabled
+ * get a button, and that clicking one delegates to
+ * AuthContext.signInWithProvider() with the right provider + redirect target.
  */
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
@@ -19,18 +19,18 @@ vi.mock("@/hooks/useAuth", () => ({
 import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 
 describe("SocialLoginButtons", () => {
-  it("renders Google and Apple buttons", () => {
+  it("renders a button only for enabled providers", () => {
     render(<SocialLoginButtons />);
     expect(screen.getByTestId("social-google")).toBeTruthy();
-    expect(screen.getByTestId("social-apple")).toBeTruthy();
+    // Apple is not enabled on the Supabase project, so it must not render —
+    // a visible button there would fail with "provider is not enabled".
+    expect(screen.queryByTestId("social-apple")).toBeNull();
   });
 
   it("delegates to signInWithProvider with a default redirect of /profile", async () => {
     render(<SocialLoginButtons />);
     fireEvent.click(screen.getByTestId("social-google"));
     await waitFor(() => expect(signInWithProvider).toHaveBeenCalledWith("google", "/profile"));
-    fireEvent.click(screen.getByTestId("social-apple"));
-    await waitFor(() => expect(signInWithProvider).toHaveBeenCalledWith("apple", "/profile"));
   });
 
   it("honours a passed-in next destination", async () => {

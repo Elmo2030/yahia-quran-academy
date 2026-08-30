@@ -16,6 +16,17 @@ import { Button } from "@/components/ui/button";
 
 type Provider = "google" | "apple";
 
+// Which OAuth providers Supabase actually has enabled. A button for a
+// disabled provider is a dead end — Supabase answers the authorize call with
+// "provider is not enabled" and the user is bounced back with an error they
+// can do nothing about. Apple in particular needs a paid developer account,
+// so it stays off until VITE_AUTH_PROVIDERS says otherwise.
+const ENABLED_PROVIDERS: readonly Provider[] = (() => {
+  const raw = (import.meta.env.VITE_AUTH_PROVIDERS ?? "google") as string;
+  const wanted = raw.split(",").map(entry => entry.trim().toLowerCase());
+  return (["google", "apple"] as const).filter(provider => wanted.includes(provider));
+})();
+
 function GoogleIcon() {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
@@ -67,6 +78,7 @@ export function SocialLoginButtons({ next }: { next?: string | null }) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (!configured || !initialized) return null;
+  if (ENABLED_PROVIDERS.length === 0) return null;
 
   const t = copy[locale];
 
@@ -91,7 +103,7 @@ export function SocialLoginButtons({ next }: { next?: string | null }) {
 
   return (
     <div className="space-y-2" data-testid="social-buttons">
-      <Button
+      {ENABLED_PROVIDERS.includes("google") && <Button
         type="button"
         variant="outline"
         className="w-full gap-2"
@@ -105,8 +117,8 @@ export function SocialLoginButtons({ next }: { next?: string | null }) {
           <GoogleIcon />
         )}
         {t.google}
-      </Button>
-      <Button
+      </Button>}
+      {ENABLED_PROVIDERS.includes("apple") && <Button
         type="button"
         className="w-full gap-2 bg-[#111] text-white hover:bg-[#222]"
         onClick={() => handle("apple")}
@@ -119,7 +131,7 @@ export function SocialLoginButtons({ next }: { next?: string | null }) {
           <AppleIcon />
         )}
         {t.apple}
-      </Button>
+      </Button>}
       {errorMessage && (
         <p role="alert" className="text-sm text-red-700" data-testid="social-error">
           {errorMessage}
