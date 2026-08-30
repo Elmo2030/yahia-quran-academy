@@ -17,6 +17,17 @@ const pick = (name) => {
 const chapters = pick("chapters");
 const stories = pick("stories");
 
+const seerahSource = readFileSync(join(root, "client/src/content/seerah.ts"), "utf8");
+const seerahStation = {
+  titleAr: seerahSource.match(/titleAr:\s*"([^"]+)"/)[1],
+  descriptionAr: seerahSource.match(/descriptionAr:\s*\n?\s*"([^"]+)"/)[1],
+};
+// slug, title and the younger tier's opening line — enough for a link preview.
+const seerahStories = [...seerahSource.matchAll(
+  /slug:\s*"([a-z0-9-]+)",\s*\n\s*title:\s*"([^"]+)"[\s\S]*?tier_1_age_6_8:\s*\{\s*\n?\s*narrative:\s*"([^"]+)"/g,
+)].map(([, slug, title, narrative]) => ({ slug, title, narrative }));
+if (seerahStories.length === 0) throw new Error("no seerah stories parsed — check seerah.ts shape");
+
 const urls = [
   { loc: "/", priority: "1.0" },
   { loc: "/read", priority: "0.9" },
@@ -25,6 +36,8 @@ const urls = [
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/read/${i + 1}`, priority: "0.7" })),
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
   ...stories.map(s => ({ loc: `/stories/${s.chapter}/${s.slug}`, priority: "0.7" })),
+  { loc: "/seerah", priority: "0.8" },
+  ...seerahStories.map(s => ({ loc: `/seerah/${s.slug}`, priority: "0.7" })),
 ];
 
 const today = new Date().toISOString().slice(0, 10);
@@ -53,8 +66,10 @@ writeFileSync(join(root, "functions/page-data.js"),
 `export const stories = ${JSON.stringify(stories.map(s => ({
   chapter: s.chapter, slug: s.slug, title: s.title, hook: s.hook, image: s.image ?? null,
 })), null, 1)};\n` +
-`export const surahNames = ${JSON.stringify(surahNames)};\n`);
+`export const surahNames = ${JSON.stringify(surahNames)};\n` +
+`export const seerahStation = ${JSON.stringify(seerahStation)};\n` +
+`export const seerahStories = ${JSON.stringify(seerahStories, null, 1)};\n`);
 
 console.log(`  sitemap.xml: ${urls.length} URLs`);
 console.log(`  robots.txt written`);
-console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories`);
+console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories, ${seerahStories.length} seerah`);

@@ -201,6 +201,31 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "forgot-password") return forgotPasswordMeta;
   if (head === "reset-password") return resetPasswordMeta;
 
+  // The seerah section is a separate chapter of the Prophet's life, not a Quran
+  // story, so it does not live under /stories. Without this it fell through to
+  // the not-found branch and every station and story carried a "page not found"
+  // title while rendering its content perfectly.
+  if (head === "seerah") {
+    if (!parts[1]) {
+      return {
+        path,
+        title: `${seerahStation.titleAr} — السيرة النبوية · ${SITE_NAME}`,
+        description: seerahStation.descriptionAr,
+        image: DEFAULT_IMAGE,
+      };
+    }
+    const story = seerahStories.find(entry => entry.slug === parts[1]);
+    if (story) {
+      return {
+        path,
+        title: `${story.title} · السيرة النبوية`,
+        description: story.content.tier_1_age_6_8.narrative.replace(/\s+/g, " ").trim().slice(0, 180),
+        image: story.image ?? DEFAULT_IMAGE,
+      };
+    }
+    return FALLBACK_NOT_FOUND;
+  }
+
   if (head === "read") {
     if (!parts[1]) {
       return {
@@ -270,6 +295,7 @@ export const metaForPath = (pathname: string): Meta => {
 // content/stories.ts (and the worker copy) call these to register the
 // real surah/chapter/story titles — keeping metaForPath a pure function of
 // the registered set lets us drop the JSON import (and its bundle weight) on
+import { seerahStation, seerahStories } from "../content/seerah";
 // the static SPA.
 // ---------------------------------------------------------------------------
 export const registerSurah = ensureSurahEntry;

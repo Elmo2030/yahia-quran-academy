@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/build-seo.mjs && vite build && cp -R functions dist/functions",
+    "build": "node scripts/build-seo.mjs && vite build && rm -rf dist/functions && cp -R functions dist/functions",
     "preview": "vite preview",
     "check": "tsc --noEmit",
     "format": "prettier --write .",

@@ -18,7 +18,7 @@
  * English link previews show English text.
  */
 
-import { chapters, stories, surahNames } from "./page-data.js";
+import { chapters, stories, surahNames, seerahStation, seerahStories } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_DESCRIPTION =
@@ -92,6 +92,23 @@ function metaForPath(pathname: string) {
   if (head === "terms") return termsMeta;
 
   const base = { image: DEFAULT_IMAGE };
+
+  // The seerah section sits outside /stories — it is the Prophet's life, not a
+  // Quran story. Without this branch every seerah link previewed as "page not
+  // found" while the page itself rendered correctly.
+  if (head === "seerah") {
+    if (!parts[1]) {
+      return { ...base, path,
+        title: `${seerahStation.titleAr} — السيرة النبوية · ${SITE}`,
+        description: seerahStation.descriptionAr };
+    }
+    const story = seerahStories.find((entry: any) => entry.slug === parts[1]);
+    if (story) {
+      return { ...base, path,
+        title: `${story.title} · السيرة النبوية`,
+        description: clean(story.narrative) };
+    }
+  }
 
   if (head === "read") {
     if (!parts[1]) return {
