@@ -104,6 +104,12 @@ function metaForPath(pathname: string) {
 
   const base = { image: DEFAULT_IMAGE };
 
+  if (head === "quran-facts") {
+    return { ...base, path: "/quran-facts",
+      title: "في رحاب القرآن — اكتشف أسرار القرآن",
+      description: "أربعون معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
+  }
+
   if (head === "about") {
     return { ...base, path: "/about",
       title: "من نحن — موقع يحيى لتعليم الأطفال",

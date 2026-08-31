@@ -39,6 +39,7 @@ for (const story of seerahStories) {
 const urls = [
   { loc: "/", priority: "1.0" },
   { loc: "/about", priority: "0.6" },
+  { loc: "/quran-facts", priority: "0.8" },
   { loc: "/read", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
   { loc: "/stories/library", priority: "0.4" },
@@ -113,6 +114,11 @@ ${chapterLines.join("\n")}
 
 ## Seerah of the Prophet
 ${seerahLines.join("\n")}
+
+## In the Realm of the Quran
+- [Discover the Quran](${ORIGIN}/quran-facts): forty short facts about the Quran
+  for children — what it names, how it is arranged, and what is remarkable about
+  it — presented as cards a child turns over one at a time.
 
 ## Other
 - [Privacy](${ORIGIN}/privacy)

@@ -100,7 +100,15 @@ export const profileMeta: Meta = {
   },
 };
 
-export const aboutMeta: Meta = {
+export const quranFactsMeta: Meta = {
+  path: "/quran-facts",
+  title: "في رحاب القرآن — اكتشف أسرار القرآن",
+  description: "أربعون معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها.",
+  image: DEFAULT_IMAGE,
+  i18n: { en: { title: "In the Realm of the Quran — Discover the Quran", description: "Forty things worth knowing about the Quran for children, each behind a card you turn over." } },
+};
+
+const aboutMeta: Meta = {
   path: "/about",
   title: "من نحن — موقع يحيى لتعليم الأطفال",
   description:
@@ -231,6 +239,7 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  if (head === "quran-facts") return quranFactsMeta;
   if (head === "about") return aboutMeta;
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;

@@ -17,6 +17,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://yahyaquran.com/quran-facts</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts" />
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://yahyaquran.com/read</loc>
     <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/read" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/read?lang=en" />

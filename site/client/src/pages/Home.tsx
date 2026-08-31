@@ -20,7 +20,7 @@ const featuredEnglishNames: Record<number, string> = {
 const copy = {
   ar: {
     homeLabel: "Yahya Quran Academy الرئيسية", about: "عن الأكاديمية", stories: "قصص القرآن", exploreStories: "استكشف القصص", journey: "طريق التلقّي", apps: "التطبيقات", reader: "افتح القارئ",
-    seerahNav: "السيرة النبوية", seerahEyebrow: "السيرة النبوية", seerahTitle: "من طفولة النبي ﷺ", seerahStoryLabel: "قصة", station: "المحطة", seerahIntro: "رحلة في حياة النبي ﷺ، محطة بعد محطة — من مولده وطفولته إلى شبابه وأمانته بين قومه.", seerahAll: "افتح قسم السيرة", seerahBrowse: "تصفّح السيرة",
+    seerahNav: "السيرة النبوية", facts: "في رحاب القرآن", seerahEyebrow: "السيرة النبوية", seerahTitle: "من طفولة النبي ﷺ", seerahStoryLabel: "قصة", station: "المحطة", seerahIntro: "رحلة في حياة النبي ﷺ، محطة بعد محطة — من مولده وطفولته إلى شبابه وأمانته بين قومه.", seerahAll: "افتح قسم السيرة", seerahBrowse: "تصفّح السيرة",
     signIn: "تسجيل الدخول", register: "أنشئ حسابًا", account: "حسابي", accountEyebrow: "حساب الأسرة", accountTitle: "أنشئ حساب وليّ الأمر", accountBody: "الحساب اختياري بالكامل. عند إنشائه يُحفظ موضع القراءة والقصص المحفوظة على أجهزتك، ولا يُعرض أي حكم آلي على الطفل.", haveAccount: "لديك حساب بالفعل؟",
     eyebrow: "مكان هادئ للقرآن والتلقّي", titleLineOne: "رحلة قرآنية", titleLineTwo: "تنمو مع الطفل",
     intro: "تساعد Yahya Quran Academy الطفل على الاستماع والتكرار والتسجيل والمراجعة الذاتية، برفقة وليّ الأمر وخطوات عملية واضحة.",
@@ -35,7 +35,7 @@ const copy = {
   },
   en: {
     homeLabel: "Yahya Quran Academy home", about: "About", stories: "Quran stories", exploreStories: "Explore stories", journey: "Learning path", apps: "Apps", reader: "Open reader",
-    seerahNav: "Seerah", seerahEyebrow: "The Prophet’s Seerah", seerahTitle: "From the childhood of the Prophet ﷺ", seerahStoryLabel: "Story", station: "Station", seerahIntro: "A journey through the Prophet’s life, one station at a time — from his birth and childhood to his youth and the trust he earned among his people.", seerahAll: "Open the Seerah section", seerahBrowse: "Browse the Seerah",
+    seerahNav: "Seerah", facts: "In the Realm of the Quran", seerahEyebrow: "The Prophet’s Seerah", seerahTitle: "From the childhood of the Prophet ﷺ", seerahStoryLabel: "Story", station: "Station", seerahIntro: "A journey through the Prophet’s life, one station at a time — from his birth and childhood to his youth and the trust he earned among his people.", seerahAll: "Open the Seerah section", seerahBrowse: "Browse the Seerah",
     signIn: "Sign in", register: "Create an account", account: "My account", accountEyebrow: "Family account", accountTitle: "Create a parent account", accountBody: "An account is entirely optional. Creating one saves your reading position and saved stories across your devices, and never shows an automated verdict on the child.", haveAccount: "Already have an account?",
     eyebrow: "A calm space for Quran learning", titleLineOne: "A Quran journey", titleLineTwo: "that grows with your child",
     intro: "Yahya Quran Academy supports listening, repetition, recording, and self-review—alongside parents and through clear, practical steps.",
@@ -70,7 +70,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></Link>
-          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><Link href="/about">{t.about}</Link><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
+          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><Link href="/about">{t.about}</Link><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><Link href="/quran-facts">{t.facts}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
           <div className="header-actions"><LanguageToggle compact />{session ? <Link href="/profile" className="header-auth-link"><UserRound size={15} aria-hidden="true" /> {t.account}</Link> : <Link href="/register" className="header-auth-link"><LogIn size={15} aria-hidden="true" /> {t.register}</Link>}<Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
         </div>
         {/* .site-nav is hidden below 820px; without this the home page had no
@@ -79,6 +79,7 @@ export default function Home() {
           <Link href="/about">{t.about}</Link>
           <Link href="/stories">{t.stories}</Link>
           <Link href="/seerah">{t.seerahNav}</Link>
+          <Link href="/quran-facts">{t.facts}</Link>
           <a href="#journey">{t.journey}</a>
           <a href="#apps">{t.apps}</a>
         </nav>

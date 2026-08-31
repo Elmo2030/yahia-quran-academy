@@ -434,3 +434,30 @@
   .continuous-toggle { order: 3; flex: 1 1 100%; justify-content: center; margin-inline-start: 0; }
   .audio-deck__icon { order: 2; }
 }
+
+/* في رحاب القرآن — the fact cards. */
+.facts-progress { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1.1rem; margin-bottom: 1.6rem; }
+.facts-progress__count { color: #001F3F; margin: 0; font-size: .88rem; font-weight: 800; }
+.facts-progress__bar { flex: 1 1 12rem; height: 9px; min-width: 9rem; border-radius: 99px; background: #ece4cf; overflow: hidden; }
+.facts-progress__bar span { display: block; block-size: 100%; border-radius: 99px; background: linear-gradient(90deg,#7d631c,#556B2F); transition: inline-size .4s ease; }
+.facts-done { margin: 0 0 1.4rem; padding: .9rem 1.1rem; border-radius: 16px; color: #001F3F; background: #ffefcc; border: 1px solid #e9d9a8; font-size: .92rem; font-weight: 700; }
+
+.facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.1rem; margin: 0; padding: 0; list-style: none; align-items: start; }
+
+.fact-card { display: flex; width: 100%; flex-direction: column; gap: .55rem; padding: 1.15rem 1.25rem; border-radius: 22px; text-align: start; }
+.fact-card--closed { min-height: 11rem; align-items: center; justify-content: center; gap: .5rem; color: #fffdf5; background: linear-gradient(150deg,#1b3a5c,#001F3F); border: 1px solid #16324f; box-shadow: 0 14px 30px rgb(0 31 63 / 16%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
+.fact-card--closed:hover { transform: translateY(-4px); box-shadow: 0 20px 38px rgb(0 31 63 / 22%); }
+.fact-card--closed:active { transform: translateY(-1px); }
+.fact-card--closed svg { color: #d4af37; }
+.fact-card__number { font-family: "Noto Naskh Arabic", serif; font-size: 1.9rem; font-weight: 800; line-height: 1; }
+.fact-card__prompt { color: #cbd9ef; font-size: .72rem; font-weight: 700; }
+
+.fact-card--open { min-height: 11rem; background: #fffdf5; border: 1px solid #e6dfc9; box-shadow: 0 12px 26px rgb(0 31 63 / 8%); animation: fact-reveal .32s ease; }
+@keyframes fact-reveal { from { opacity: 0; transform: scale(.97) } to { opacity: 1; transform: none } }
+@media (prefers-reduced-motion: reduce) { .fact-card--open { animation: none } .fact-card--closed { transition: none } }
+.fact-card__badge { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; color: #7d631c; font-size: .7rem; font-weight: 800; }
+.fact-card--open h3 { color: #001F3F; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.18rem; font-weight: 800; line-height: 1.5; }
+.fact-card--open p { color: #385051; margin: 0; font-size: .88rem; line-height: 1.95; }
+.fact-card__ayah { margin: .3rem 0 0; padding: .7rem .85rem; border-radius: 14px; background: #eef3dd; border: 1px solid #dfe6cd; }
+.fact-card__ayah blockquote { color: #001F3F; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.08rem; line-height: 2; }
+.fact-card__ayah figcaption { color: #7d631c; margin-top: .35rem; font-size: .7rem; font-weight: 800; }

@@ -23,6 +23,7 @@ const ForgotPassword = lazyWithRetry(() => import("./pages/ForgotPassword"));
 const ResetPassword = lazyWithRetry(() => import("./pages/ResetPassword"));
 const Profile = lazyWithRetry(() => import("./pages/Profile"));
 const About = lazyWithRetry(() => import("./pages/About"));
+const QuranFacts = lazyWithRetry(() => import("./pages/QuranFacts"));
 const Privacy = lazyWithRetry(() => import("./pages/Privacy"));
 const Terms = lazyWithRetry(() => import("./pages/Terms"));
 
@@ -50,6 +51,7 @@ function Router() {
       <Route path={"/reset-password"} component={ResetPassword} />
       <Route path={"/profile"} component={Profile} />
       <Route path={"/about"} component={About} />
+      <Route path={"/quran-facts"} component={QuranFacts} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
       <Route path={"/404"} component={NotFound} />
