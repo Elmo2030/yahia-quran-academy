@@ -6,7 +6,7 @@ import { dirname, join } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
-const ORIGIN = process.env.SITE_ORIGIN ?? "https://yahia-quran-academy.pages.dev";
+const ORIGIN = process.env.SITE_ORIGIN ?? "https://yahyaquran.com";
 
 const source = readFileSync(join(root, "client/src/content/stories.ts"), "utf8");
 const pick = (name) => {

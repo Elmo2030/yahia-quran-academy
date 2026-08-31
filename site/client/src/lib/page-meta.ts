@@ -35,7 +35,7 @@ export const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
 export const DEFAULT_IMAGE = "/og-cover.jpg";
 
-const ORIGIN = "https://yahia-quran-academy.pages.dev";
+const ORIGIN = "https://yahyaquran.com";
 
 export const fullUrl = (pathOrUrl: string): string =>
   pathOrUrl.startsWith("http") ? pathOrUrl : `${ORIGIN}${pathOrUrl}`;

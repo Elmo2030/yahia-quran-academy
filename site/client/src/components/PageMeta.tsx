@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { metaForPath, SITE_NAME } from "@/lib/page-meta";
 
-const ORIGIN = "https://yahia-quran-academy.pages.dev";
+const ORIGIN = "https://yahyaquran.com";
 
 /**
  * Per-route document metadata.
