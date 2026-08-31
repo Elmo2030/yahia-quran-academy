@@ -126,6 +126,7 @@ export const seerahStations: SeerahStation[] = [
     stationId: 5,
     titleAr: "الإسراء والمعراج",
     titleEn: "The Night Journey and the Ascension",
+    cover: "/stories/seerah/station-5.jpg",
     descriptionAr:
       "خمس عشرة قصة من رحلة ليلة واحدة: من المسجد الحرام إلى المسجد الأقصى، ثم عروجٌ في السماوات السبع ولقاءُ الأنبياء فيها، فسدرة المنتهى، ففرض الصلاة، ثم العودة وصباح اليقين.",
     descriptionEn:
