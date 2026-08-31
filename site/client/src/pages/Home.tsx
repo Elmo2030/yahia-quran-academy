@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronLeft, ChevronRight, CirclePlay, Compass, Headphones, Heart, LockKeyhole, LogIn, Mic, Moon, Smartphone, Sparkles, UserRound } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { MobileMenu } from "@/components/MobileMenu";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { RecordingsOverview } from "@/components/RecordingsOverview";
@@ -72,7 +73,7 @@ export default function Home() {
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></Link>
           <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><Link href="/about">{t.about}</Link><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><Link href="/quran-facts">{t.facts}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
-          <div className="header-actions"><LanguageToggle compact />{session ? <Link href="/profile" className="header-auth-link"><UserRound size={15} aria-hidden="true" /> {t.account}</Link> : <Link href="/register" className="header-auth-link"><LogIn size={15} aria-hidden="true" /> {t.register}</Link>}<Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
+          <div className="header-actions"><MobileMenu /><LanguageToggle compact />{session ? <Link href="/profile" className="header-auth-link"><UserRound size={15} aria-hidden="true" /> {t.account}</Link> : <Link href="/register" className="header-auth-link"><LogIn size={15} aria-hidden="true" /> {t.register}</Link>}<Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
         </div>
         {/* .site-nav is hidden below 820px; without this the home page had no
             navigation at all on a phone. */}

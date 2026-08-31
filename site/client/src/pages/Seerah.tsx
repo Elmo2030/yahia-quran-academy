@@ -16,6 +16,7 @@ import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, Compass, HelpCircle, Moon, ShieldCheck, Sparkles, Trophy } from "lucide-react";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { MobileMenu } from "@/components/MobileMenu";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import {
@@ -74,7 +75,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
             <span className="brand-mark__seal">ي</span>
             <span><b>Yahya</b> Quran Academy</span>
           </Link>
-          <div className="header-actions">
+          <div className="header-actions"><MobileMenu />
             <LanguageToggle compact />
             <Link href="/stories" className="header-reader-link">
               <BookOpen size={16} aria-hidden="true" /> {t.quranStories}

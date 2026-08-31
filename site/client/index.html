@@ -34,9 +34,12 @@
     <meta name="theme-color" content="#001F3F" />
     <!-- Fonts are ours, not Google's: no DNS lookup and no TLS handshake to two
          more origins before Arabic can paint. scripts/fetch-fonts.mjs writes
-         public/fonts. naskh-1 carries the Arabic range, so it is preloaded —
-         every page on this site puts Arabic on screen. -->
+         public/fonts. naskh-1 carries the Arabic range and jakarta-9 the Latin
+         one; both are above the fold on every page — the Arabic in the body,
+         the wordmark in the header. Without preloading, the first visit paints
+         in a fallback face and reflows when the real one lands. -->
     <link rel="preload" href="/fonts/naskh-1.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jakarta-9.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/fonts/fonts.css" />
   </head>
 

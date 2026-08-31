@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { BookOpen, ChevronLeft, ChevronRight, Heart, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { MobileMenu } from "@/components/MobileMenu";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 
@@ -124,7 +125,7 @@ export default function About() {
             <Link href="/stories">{t.stories}</Link>
             <Link href="/seerah">{t.seerah}</Link>
           </nav>
-          <div className="header-actions">
+          <div className="header-actions"><MobileMenu />
             <LanguageToggle compact />
             <Link href="/read/1" className="header-reader-link">{t.reader}</Link>
           </div>

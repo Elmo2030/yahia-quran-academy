@@ -4,6 +4,7 @@ import { chapters, stories, storyTextFor, type Story } from "@/content/stories";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { MobileMenu } from "@/components/MobileMenu";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 
@@ -49,7 +50,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
             <span className="brand-mark__seal">ي</span>
             <span><b>Yahya</b> Quran Academy</span>
           </Link>
-          <div className="header-actions">
+          <div className="header-actions"><MobileMenu />
             <LanguageToggle compact />
             <Link href="/stories/library" className="header-reader-link">
               <Library size={16} aria-hidden="true" /> {t.myLibrary}{slugs.length > 0 ? ` (${slugs.length})` : ""}

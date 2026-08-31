@@ -17,7 +17,7 @@
 // the deck records what the child did, it does not grade them.
 // =============================================================================
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import {
   AlignCenter, Anchor, Apple, Archive, ArrowDownToLine, AudioLines, Baby,
@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { MobileMenu } from "@/components/MobileMenu";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { quranFacts, type QuranFact } from "@/content/quran-facts";
@@ -216,6 +217,15 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
   const [question, setQuestion] = useState<Question | null>(() => buildQuestion(pool));
   const [picked, setPicked] = useState<string | null>(null);
   const [score, setScore] = useState({ right: 0, asked: 0 });
+  const panel = useRef<HTMLElement>(null);
+
+  // On a phone the button sits near the bottom of the screen, so the panel
+  // opened below the fold: you tapped, and as far as you could tell nothing
+  // happened. Bring it into view and put focus on it.
+  useEffect(() => {
+    panel.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    panel.current?.focus();
+  }, []);
 
   const answer = (slug: string) => {
     if (picked || !question) return;
@@ -228,11 +238,10 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
     setQuestion(buildQuestion(pool, question?.fact.slug));
   };
 
-  if (!question) return null;
-  const correct = picked === question.fact.slug;
+  const correct = question !== null && picked === question.fact.slug;
 
   return (
-    <section className="facts-quiz" lang={locale} dir={dir} aria-label={t.quizTitle}>
+    <section className="facts-quiz" lang={locale} dir={dir} aria-label={t.quizTitle} ref={panel} tabIndex={-1}>
       <div className="facts-quiz__head">
         <h2>{t.quizTitle}</h2>
         <div className="facts-quiz__head-end">
@@ -243,6 +252,10 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
         </div>
       </div>
 
+      {!question ? (
+        <p className="facts-quiz__body">{t.quizLocked(QUIZ_MINIMUM)}</p>
+      ) : (
+      <>
       <p className="facts-quiz__ask">{t.quizAsk}</p>
       <p className="facts-quiz__body">{question.fact.body[locale]}</p>
 
@@ -268,6 +281,8 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
         <button type="button" className="facts-quiz__next" onClick={next}>
           {t.quizNext}
         </button>
+      )}
+      </>
       )}
     </section>
   );
@@ -343,7 +358,7 @@ export default function QuranFacts() {
             <Link href="/stories">{t.stories}</Link>
             <Link href="/seerah">{t.seerah}</Link>
           </nav>
-          <div className="header-actions">
+          <div className="header-actions"><MobileMenu />
             <LanguageToggle compact />
             <Link href="/read/1" className="header-reader-link">{t.reader}</Link>
           </div>
@@ -410,16 +425,15 @@ export default function QuranFacts() {
                 type="button"
                 className="facts-quiz__start"
                 onClick={() => setQuizOpen(true)}
-                disabled={!canQuiz || quizOpen}
-                title={canQuiz ? undefined : t.quizLocked(QUIZ_MINIMUM)}
+                disabled={quizOpen}
               >
                 <Sparkles size={15} aria-hidden="true" /> {t.quizOpen}
               </button>
             </div>
 
-            {!canQuiz && <p className="facts-quiz__hint">{t.quizLocked(QUIZ_MINIMUM)}</p>}
+            {!canQuiz && !quizOpen && <p className="facts-quiz__hint">{t.quizLocked(QUIZ_MINIMUM)}</p>}
 
-            {quizOpen && canQuiz && <Quiz pool={pool} onClose={() => setQuizOpen(false)} />}
+            {quizOpen && <Quiz pool={pool} onClose={() => setQuizOpen(false)} />}
 
             {found === total ? (
               <p className="facts-done">{t.allDone}</p>
