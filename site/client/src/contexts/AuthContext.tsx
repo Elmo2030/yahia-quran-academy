@@ -91,7 +91,10 @@ type AuthState = {
 };
 
 type AuthApi = AuthState & {
-  signUp: (input: SignUpInput) => Promise<void>;
+  /** Resolves with whether Supabase withheld the session pending email
+   *  confirmation, so the caller can say so instead of routing to a page that
+   *  needs a session. */
+  signUp: (input: SignUpInput) => Promise<{ needsEmailConfirmation: boolean }>;
   signIn: (input: SignInInput) => Promise<void>;
   signInWithProvider: (provider: SocialProvider, redirectTo?: string) => Promise<void>;
   sendPasswordReset: (email: string) => Promise<void>;
@@ -347,7 +350,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signUp = useCallback(async (input: SignUpInput) => {
     const client = getSupabase();
     if (!client) throw new AuthError("not_configured", "إنشاء الحسابات غير متاح مؤقتًا.", "Sign-up is temporarily unavailable.");
-    const { error } = await client.auth.signUp({
+    const { data, error } = await client.auth.signUp({
       email: input.email.trim(),
       password: input.password,
       options: {
@@ -361,6 +364,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const f = friendlyForSupabaseError(error.message);
       throw new AuthError(f.code, f.ar, f.en, error);
     }
+    // With "Confirm email" enabled Supabase creates the user but returns no
+    // session, and no auth-state event fires. Sign-up used to discard this and
+    // route to /profile regardless, which bounced straight back — the account
+    // was created, but the person was returned to the form with no explanation.
+    return { needsEmailConfirmation: !data.session };
   }, []);
 
   const signOut = useCallback(async () => {

@@ -35,6 +35,7 @@ export default function Register() {
   const [confirm, setConfirm] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [awaitingConfirmation, setAwaitingConfirmation] = useState(false);
 
   // If a session already exists while we are on /register (e.g. user navigated
   // here from the site header), bounce them away to avoid showing the form.
@@ -59,6 +60,10 @@ export default function Register() {
     ? {
         title: "إنشاء حساب",
         subtitle: "احفظ تقدّمك في القارئ والقصص عبر الأجهزة.",
+        checkInboxTitle: "بقيت خطوة واحدة",
+        checkInboxBody: "أنشأنا حسابك وأرسلنا رسالة تأكيد إلى بريدك. افتح الرسالة واضغط رابط التأكيد، وبعدها سجّل الدخول.",
+        checkInboxSpam: "لو لم تصلك الرسالة خلال دقائق، راجع مجلد البريد غير المرغوب فيه.",
+        goToLogin: "اذهب إلى تسجيل الدخول",
         name: "الاسم الذي يظهر للآخرين",
         email: "البريد الإلكتروني",
         password: "كلمة المرور",
@@ -78,6 +83,10 @@ export default function Register() {
     : {
         title: "Create account",
         subtitle: "Save your reading progress and library across devices.",
+        checkInboxTitle: "One step left",
+        checkInboxBody: "Your account is created. We have sent a confirmation email — open it, click the link, and then sign in.",
+        checkInboxSpam: "If it has not arrived in a few minutes, check your spam folder.",
+        goToLogin: "Go to sign in",
         name: "Display name",
         email: "Email",
         password: "Password",
@@ -118,21 +127,50 @@ export default function Register() {
 
     setSubmitting(true);
     try {
-      await signUp({
+      const { needsEmailConfirmation } = await signUp({
         email,
         password,
         displayName,
         preferredLocale: locale,
       });
-      // After a successful signUp the AuthProvider has fired the SIGNED event
-      // and the session is now available; route the user to /profile so they
-      // can see their account state and the email-verification notice.
+      // Only route on when Supabase actually handed back a session. With email
+      // confirmation on it does not, and navigating anyway sent the user
+      // straight back to this form with the account already created.
+      if (needsEmailConfirmation) {
+        setAwaitingConfirmation(true);
+        return;
+      }
       navigate(next || "/profile");
     } catch (err) {
       setErrorMessage(err instanceof AuthError ? (locale === "ar" ? err.friendlyAr : err.friendlyEn) : (locale === "ar" ? "تعذّر إنشاء الحساب." : "Sign-up failed."));
     } finally {
       setSubmitting(false);
     }
+  }
+
+  // The account exists but Supabase is holding the session until the address is
+  // confirmed. Say so; do not route to a page that needs a session.
+  if (awaitingConfirmation) {
+    return (
+      <div className="min-h-screen bg-[var(--brand-ivory)]" dir={locale === "ar" ? "rtl" : "ltr"}>
+        <SiteHeader />
+        <main id="main" className="mx-auto w-full max-w-md px-4 py-10 sm:py-14">
+          <div className="rounded-lg border border-[var(--brand-navy)]/15 bg-white p-5" role="status">
+            <h1 className="text-xl font-semibold text-[var(--brand-navy)]">{copy.checkInboxTitle}</h1>
+            <p className="mt-3 text-sm leading-7 text-[var(--brand-navy)]/80">{copy.checkInboxBody}</p>
+            <p className="mt-2 text-xs leading-6 text-[var(--brand-navy)]/60">{copy.checkInboxSpam}</p>
+            <p className="mt-3 text-sm font-medium text-[var(--brand-navy)]">{email}</p>
+            <Link
+              href={`/login${next ? `?next=${encodeURIComponent(next)}` : ""}`}
+              className="mt-5 inline-flex rounded-md bg-[var(--brand-navy)] px-4 py-2 text-sm font-medium text-[var(--brand-ivory)]"
+            >
+              {copy.goToLogin}
+            </Link>
+          </div>
+        </main>
+        <SiteFooter />
+      </div>
+    );
   }
 
   return (
