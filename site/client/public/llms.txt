@@ -19,14 +19,89 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [Stories of the Prophets — قصص الأنبياء](https://yahyaquran.com/stories/prophets): 17 stories. Seventeen stories from Adam to Muhammad.
 - [People and Nations — شخصيات وأمم](https://yahyaquran.com/stories/nations): 9 stories. Nine stories about the nations and figures the Quran names, and what became of them.
 
+
+### Animals in the Quran — حيوانات في القرآن
+- [The Caring Ant — قصة نملة سليمان](https://yahyaquran.com/stories/animals/ant-of-solomon)
+- [The Hoopoe (Hudhud) of Sulaiman — قصة هدهد سليمان](https://yahyaquran.com/stories/animals/hoopoe-of-solomon)
+- [The Whale of Prophet Yunus — قصة حوت يونس](https://yahyaquran.com/stories/animals/whale-of-yunus)
+- [The Elephant of Abraha — قصة فيل أبرهة](https://yahyaquran.com/stories/animals/elephant-of-abraha)
+- [The Loyal Dog of the Cave — قصة كلب أهل الكهف](https://yahyaquran.com/stories/animals/dog-of-the-cave)
+- [The Yellow Cow of the Children of Israel — قصة بقرة بني إسرائيل](https://yahyaquran.com/stories/animals/cow-of-israel)
+- [The Miracle Camel of Prophet Salih — قصة ناقة صالح](https://yahyaquran.com/stories/animals/camel-of-saleh)
+- [The Donkey of Uzair — قصة حمار عزير](https://yahyaquran.com/stories/animals/donkey-of-uzair)
+
+### Women in the Quran — نساء في القرآن
+- [Maryam, the Mother of Isa — مريم ابنة عمران](https://yahyaquran.com/stories/women/maryam): from آل عمران
+- [Asiya, the Wife of Pharaoh — آسية امرأة فرعون](https://yahyaquran.com/stories/women/asiya): from التحريم
+- [Hawwa (Eve), the First Woman — السيدة حواء](https://yahyaquran.com/stories/women/hawwa): from البقرة
+- [Lady Sarah and the Glad Tidings — السيدة سارة](https://yahyaquran.com/stories/women/sarah): from هود
+- [Lady Hajar and the Well of Zamzam — السيدة هاجر](https://yahyaquran.com/stories/women/hajar): from إبراهيم
+- [Bilqis, the Queen of Sheba — ملكة سبأ](https://yahyaquran.com/stories/women/bilqis): from النمل
+- [امرأة العزيز — امرأة العزيز](https://yahyaquran.com/stories/women/imraat_alaziz): from يوسف
+- [امرأة نوح وامرأة لوط — امرأة نوح وامرأة لوط](https://yahyaquran.com/stories/women/nuh_lut): from التحريم
+
+### Stories of the Prophets — قصص الأنبياء
+- [Prophet Adam, the First Human — قصة سيدنا آدم (أبو البشر)](https://yahyaquran.com/stories/prophets/adam)
+- [Prophet Idris, the First to Write — قصة سيدنا إدريس](https://yahyaquran.com/stories/prophets/idris)
+- [Prophet Nuh and the Great Ark — قصة سيدنا نوح (شيخ المرسلين)](https://yahyaquran.com/stories/prophets/nuh)
+- [Prophet Hud and the Strong Nation — قصة سيدنا هود وقوم عاد](https://yahyaquran.com/stories/prophets/hud)
+- [Prophet Salih and the Giant Camel — قصة سيدنا صالح وقوم ثمود](https://yahyaquran.com/stories/prophets/saleh)
+- [Prophet Shu'ayb and the Honest Scales — قصة سيدنا شعيب (خطيب الأنبياء)](https://yahyaquran.com/stories/prophets/shuaib)
+- [Prophet Ibrahim, the Friend of Allah — قصة سيدنا إبراهيم (خليل الرحمن)](https://yahyaquran.com/stories/prophets/ibrahim)
+- [Prophet Lut and the Ruined City — قصة سيدنا لوط](https://yahyaquran.com/stories/prophets/lut)
+- [Prophet Yusuf and the Beautiful Dream — قصة سيدنا يوسف (أحسن القصص)](https://yahyaquran.com/stories/prophets/yusuf)
+- [Prophet Ayyub, the Champion of Patience — قصة سيدنا أيوب](https://yahyaquran.com/stories/prophets/ayoub)
+- [Prophet Musa and the Parting of the Sea — قصة سيدنا موسى وأخيه هارون](https://yahyaquran.com/stories/prophets/musa-and-harun)
+- [Prophet Yusha and the Frozen Sun — قصة سيدنا يوشع بن نون](https://yahyaquran.com/stories/prophets/yusha)
+- [Prophet Dawud and the Soft Iron — قصة سيدنا داود](https://yahyaquran.com/stories/prophets/dawud)
+- [Prophet Sulaiman's Great Kingdom — قصة سيدنا سليمان](https://yahyaquran.com/stories/prophets/sulaiman)
+- [Prophet Zakariya and the Miracle Baby — قصة سيدنا زكريا وابنه يحيى](https://yahyaquran.com/stories/prophets/zakariya-and-yahya)
+- [Prophet Isa, the Miracle Child — قصة سيدنا عيسى ابن مريم](https://yahyaquran.com/stories/prophets/isa)
+- [Prophet Muhammad, the Final Messenger — قصة سيدنا محمد (خاتم الأنبياء)](https://yahyaquran.com/stories/prophets/muhammad)
+
+### People and Nations — شخصيات وأمم
+- [The People of the Cave — قصة أصحاب الكهف](https://yahyaquran.com/stories/nations/ashab-al-kahf)
+- [Luqman the Wise — قصة لقمان الحكيم](https://yahyaquran.com/stories/nations/luqman)
+- [The Story of Dhul-Qarnayn — قصة ذو القرنين](https://yahyaquran.com/stories/nations/dhul-qarnayn)
+- [The Believer of Pharaoh's Family — قصة مؤمن آل فرعون](https://yahyaquran.com/stories/nations/believer-of-pharaoh)
+- [The People of the Ditch — قصة أصحاب الأخدود](https://yahyaquran.com/stories/nations/ashab-al-ukhdud)
+- [The Story of Qarun — قصة قارون](https://yahyaquran.com/stories/nations/qarun)
+- [The Story of the Samiri — قصة السامري](https://yahyaquran.com/stories/nations/samiri)
+- [Talut and Jalut (Saul and Goliath) — قصة طالوت وجالوت](https://yahyaquran.com/stories/nations/talut-and-jalut)
+- [The People of the Well (Ashab ar-Rass) — قصة أصحاب الرس](https://yahyaquran.com/stories/nations/ashab-ar-rass)
+
 ## Seerah of the Prophet
 - [Beginnings — Seeds of Light](https://yahyaquran.com/seerah#station-1): 5 stories. Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.
 - [The Truthful, The Trustworthy](https://yahyaquran.com/seerah#station-2): 5 stories. Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.
+
+
+### Beginnings — Seeds of Light
+- [The Day Mecca Shone — يوم أشرقت مكة](https://yahyaquran.com/seerah/birth-of-light): سيرة ابن هشام، السيرة النبوية الصحيحة
+- [The Pure Desert Breeze — هواء الصحراء النقي](https://yahyaquran.com/seerah/desert-breeze): الرحيق المختوم، صحيح مسلم (أجزاء من القصة)
+- [In the Shade of the Kaaba — في ظل الكعبة](https://yahyaquran.com/seerah/grandfather-love): سيرة ابن هشام، زاد المعاد
+- [The Kind Uncle's House — بيت العم الحنون](https://yahyaquran.com/seerah/uncle-home): الطبقات الكبرى لابن سعد، السيرة النبوية
+- [The Little Shepherd — الراعي الصغير](https://yahyaquran.com/seerah/little-shepherd): صحيح البخاري (حديث رعي الغنم)
+
+### The Truthful, The Trustworthy
+- [The Honest Merchant of Mecca — تاجر مكة الأمين](https://yahyaquran.com/seerah/the-honest-merchant): السيرة النبوية لابن هشام
+- [The Righteous Wife Khadijah — الزوجة الصالحة خديجة](https://yahyaquran.com/seerah/khadijah): صحيح البخاري، سيرة ابن هشام
+- [The Wisdom of the Black Stone — حكمة الحجر الأسود](https://yahyaquran.com/seerah/the-black-stone): مسند أحمد، سيرة ابن هشام
+- [Helping the Oppressed — نصرة المظلوم](https://yahyaquran.com/seerah/hilf-al-fudul): سنن البيهقي، السيرة النبوية
+- [Solitude and Reflection — الخلوة والتفكر](https://yahyaquran.com/seerah/cave-of-hira): صحيح البخاري (حديث عائشة عن بدء الوحي)
 
 ## In the Realm of the Quran
 - [Discover the Quran](https://yahyaquran.com/quran-facts): one hundred short facts about the Quran
   for children — what it names, how it is arranged, and what is remarkable about
   it — presented as cards a child turns over one at a time.
+
+## About and provenance
+- [About the academy](https://yahyaquran.com/about): who built the site and why, in Arabic and English.
+- The Quran text is the Uthmani script; the reader plays verified teaching
+  recitations, and highlighting is shown only where the timing data covers the
+  ayah — nothing is inferred to fill a gap.
+- Each Seerah story carries its own source reference on the page.
+- Every page's full text is in the HTML that is served, so this site can be read
+  without executing JavaScript.
 
 ## Other
 - [Privacy](https://yahyaquran.com/privacy)

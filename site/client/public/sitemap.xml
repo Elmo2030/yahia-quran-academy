@@ -17,6 +17,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://yahyaquran.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/privacy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/privacy" />
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/terms</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/terms?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/terms" />
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://yahyaquran.com/quran-facts</loc>
     <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts?lang=en" />
@@ -39,14 +55,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/stories" />
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yahyaquran.com/stories/library</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/stories/library" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/stories/library?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/stories/library" />
-    <lastmod>2026-08-31</lastmod>
-    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://yahyaquran.com/read/1</loc>

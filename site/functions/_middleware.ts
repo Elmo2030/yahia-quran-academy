@@ -13,9 +13,11 @@
  *     on every build.
  *   • tests in client/src/lib/page-meta.test.ts that assert both copies agree.
  *
- * feature/auth-foundation (PR1) adds routes for /login, /register, /profile,
- * /privacy, /terms — all noindex. Auth pages have locale-aware titles so
- * English link previews show English text.
+ * Sign-in, registration, the profile and the personal story shelf are noindex:
+ * they are either private or different for every visitor. The privacy policy
+ * and terms are not — a parent should be able to find how a children's site
+ * treats their child's data. Auth pages have locale-aware titles so English
+ * link previews show English text.
  */
 
 import { chapters, stories, surahNames, seerahStations, seerahStories } from "./page-data.js";
@@ -59,12 +61,14 @@ const profileMeta = {
   noindex: true,
 };
 
+// A parent looking for how a children's site handles their child's data should
+// be able to find these; they were hidden from search along with the sign-in
+// pages, which is the opposite of the trust they exist to give.
 const privacyMeta = {
   path: "/privacy",
   title: "سياسة الخصوصية — Yahya Quran Academy",
   description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
-  noindex: true,
 };
 
 const termsMeta = {
@@ -72,7 +76,6 @@ const termsMeta = {
   title: "شروط الاستخدام — Yahya Quran Academy",
   description: "شروط استخدام Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
-  noindex: true,
 };
 
 /**
@@ -150,7 +153,9 @@ function metaForPath(pathname: string) {
 
   if (head === "stories") {
     if (parts[1] === "library") {
-      return { ...base, path, title: `مكتبتي · ${SITE}`,
+      // A personal shelf kept on the reader's own device: a crawler sees an
+      // empty page, and every visitor's is different.
+      return { ...base, path, noindex: true, title: `مكتبتي · ${SITE}`,
         description: "القصص التي اخترت الاحتفاظ بها لقراءتها مرة أخرى." };
     }
     if (parts[1] && parts[2]) {
@@ -298,6 +303,52 @@ export const onRequest: PagesFunction = async (context) => {
     });
   }
 
+  // A surah page is a page about a chapter of a specific book. Saying so lets
+  // an engine answer "where can I read Surah Al-Kahf" with this page instead of
+  // guessing from the title.
+  const surah = /^\/read\/(\d{1,3})$/.exec(meta.path);
+  if (surah) {
+    graph.push({
+      "@type": "WebPage",
+      "@id": `${canonical}#page`,
+      name: meta.title.split(/[·—]/)[0].trim(),
+      inLanguage: ["ar", "en"],
+      isAccessibleForFree: true,
+      isPartOf: { "@id": `${ORIGIN}/#website` },
+      about: {
+        "@type": "Book",
+        name: "القرآن الكريم",
+        alternateName: "The Holy Quran",
+        inLanguage: "ar",
+        hasPart: {
+          "@type": "Chapter",
+          name: meta.title.split(/[·—]/)[0].trim(),
+          position: Number(surah[1]),
+        },
+      },
+      audience: { "@type": "Audience", audienceType: "children" },
+    });
+  }
+
+  if (meta.path === "/quran-facts") {
+    graph.push({
+      "@type": "CollectionPage",
+      "@id": `${canonical}#collection`,
+      name: meta.title.split(/[·—]/)[0].trim(),
+      description: meta.description,
+      inLanguage: ["ar", "en"],
+      isAccessibleForFree: true,
+      isPartOf: { "@id": `${ORIGIN}/#website` },
+      about: { "@type": "Book", name: "القرآن الكريم", alternateName: "The Holy Quran" },
+      audience: { "@type": "Audience", audienceType: "children" },
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: 100,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+      },
+    });
+  }
+
   const isStory = /^\/(stories\/[^/]+\/[^/]+|seerah\/[^/]+)$/.test(meta.path);
   if (isStory) {
     graph.push({
@@ -306,7 +357,8 @@ export const onRequest: PagesFunction = async (context) => {
       headline: meta.title.split(/[·—]/)[0].trim(),
       description: meta.description,
       image,
-      inLanguage: "ar",
+      // Every story is on the page in both languages, at this one URL.
+      inLanguage: ["ar", "en"],
       isAccessibleForFree: true,
       isPartOf: { "@id": `${ORIGIN}/#website` },
       publisher: { "@id": `${ORIGIN}/#org` },

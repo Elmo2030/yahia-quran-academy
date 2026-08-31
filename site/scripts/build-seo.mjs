@@ -39,10 +39,11 @@ for (const story of seerahStories) {
 const urls = [
   { loc: "/", priority: "1.0" },
   { loc: "/about", priority: "0.6" },
+  { loc: "/privacy", priority: "0.3" },
+  { loc: "/terms", priority: "0.3" },
   { loc: "/quran-facts", priority: "0.8" },
   { loc: "/read", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
-  { loc: "/stories/library", priority: "0.4" },
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/read/${i + 1}`, priority: "0.7" })),
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
   ...stories.map(s => ({ loc: `/stories/${s.chapter}/${s.slug}`, priority: "0.7" })),
@@ -93,6 +94,25 @@ const chapterLines = chapters
   .map(c => `- [${c.titleEn} — ${c.titleAr}](${ORIGIN}/stories/${c.slug}): ${stories.filter(s => s.chapter === c.slug).length} stories. ${c.descriptionEn ?? c.descriptionAr}`);
 const seerahLines = seerahStations
   .map(st => `- [${st.titleEn ?? st.titleAr}](${ORIGIN}/seerah#station-${st.stationId}): ${seerahStories.filter(s => s.stationId === st.stationId).length} stories. ${st.descriptionEn ?? st.descriptionAr}`);
+
+// Chapter-level links told a model four stories existed where there are fifty.
+// Every story is named here, so a model answering "does this site cover the
+// story of Yusuf" can see that it does without crawling four index pages.
+const storyLines = chapters
+  .filter(c => c.available)
+  .flatMap(c => [
+    ``, `### ${c.titleEn} — ${c.titleAr}`,
+    ...stories
+      .filter(s => s.chapter === c.slug)
+      .map(s => `- [${s.en?.title ?? s.title} — ${s.title}](${ORIGIN}/stories/${s.chapter}/${s.slug})${s.surahName ? `: from ${s.surahName}` : ""}`),
+  ]);
+
+const seerahStoryLines = seerahStations.flatMap(st => [
+  ``, `### ${st.titleEn ?? st.titleAr}`,
+  ...seerahStories
+    .filter(s => s.stationId === st.stationId)
+    .map(s => `- [${s.en?.title ?? s.title} — ${s.title}](${ORIGIN}/seerah/${s.slug})${s.source?.reference ? `: ${s.source.reference}` : ""}`),
+]);
 writeFileSync(join(root, "client/public/llms.txt"),
 `# Yahya Quran Academy
 
@@ -112,13 +132,26 @@ stage unlocks on its own — a parent judges the child's recitation.
 ## Stories from the Quran
 ${chapterLines.join("\n")}
 
+${storyLines.join("\n")}
+
 ## Seerah of the Prophet
 ${seerahLines.join("\n")}
+
+${seerahStoryLines.join("\n")}
 
 ## In the Realm of the Quran
 - [Discover the Quran](${ORIGIN}/quran-facts): one hundred short facts about the Quran
   for children — what it names, how it is arranged, and what is remarkable about
   it — presented as cards a child turns over one at a time.
+
+## About and provenance
+- [About the academy](${ORIGIN}/about): who built the site and why, in Arabic and English.
+- The Quran text is the Uthmani script; the reader plays verified teaching
+  recitations, and highlighting is shown only where the timing data covers the
+  ayah — nothing is inferred to fill a gap.
+- Each Seerah story carries its own source reference on the page.
+- Every page's full text is in the HTML that is served, so this site can be read
+  without executing JavaScript.
 
 ## Other
 - [Privacy](${ORIGIN}/privacy)

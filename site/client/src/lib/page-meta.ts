@@ -123,7 +123,6 @@ const privacyMeta: Meta = {
   title: "سياسة الخصوصية — Yahya Quran Academy",
   description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
-  noindex: true,
   i18n: {
     en: {
       title: "Privacy policy — Yahya Quran Academy",
@@ -137,7 +136,6 @@ export const termsMeta: Meta = {
   title: "شروط الاستخدام — Yahya Quran Academy",
   description: "شروط استخدام Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
-  noindex: true,
   i18n: {
     en: {
       title: "Terms of use — Yahya Quran Academy",
@@ -299,6 +297,20 @@ export const metaForPath = (pathname: string): Meta => {
   }
 
   if (head === "stories") {
+    // A shelf kept on the reader's own device. A crawler sees an empty page,
+    // and no two visitors' are the same. Googlebot renders the app and reads
+    // the tags PageMeta writes, so the middleware saying noindex is not enough
+    // on its own — it has to be said here too.
+    if (parts[1] === "library") {
+      return {
+        path,
+        title: `مكتبتي · ${SITE_NAME}`,
+        description: "القصص التي اخترت الاحتفاظ بها لقراءتها مرة أخرى.",
+        image: DEFAULT_IMAGE,
+        noindex: true,
+        i18n: { en: { title: `My library · ${SITE_NAME_EN}`, description: "The stories you kept to read again." } },
+      };
+    }
     if (!parts[1]) {
       return {
         path,

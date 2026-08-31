@@ -64,6 +64,41 @@ describe("the Cloudflare function", () => {
     });
   }
 
+  const fetchPage = async (path: string) => {
+    const response = await onRequest({
+      request: new Request(`https://yahyaquran.com${path}`),
+      next: async () => new Response(shell, { headers: { "content-type": "text/html" } }),
+      env: { ASSETS: { fetch: async () => new Response("", { status: 404 }) } },
+    });
+    const html = await response.text();
+    const ld = /<script data-default type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
+    return { html, graph: ld ? JSON.parse(ld[1])["@graph"] : [] };
+  };
+
+  it("tells an engine that a surah page is a chapter of the Quran", async () => {
+    const { graph } = await fetchPage("/read/18");
+    const page = graph.find((node: any) => node["@type"] === "WebPage");
+    expect(page?.about?.["@type"]).toBe("Book");
+    expect(page.about.hasPart.position).toBe(18);
+  });
+
+  it("describes the facts page as a collection about the Quran", async () => {
+    const { graph } = await fetchPage("/quran-facts");
+    const collection = graph.find((node: any) => node["@type"] === "CollectionPage");
+    expect(collection?.mainEntity?.numberOfItems).toBe(100);
+  });
+
+  // Pages that are private or different for every visitor stay out of search;
+  // the pages a parent needs in order to trust the site do not.
+  it("keeps the personal shelf out of search and the policies in it", async () => {
+    const shelf = await fetchPage("/stories/library");
+    expect(shelf.html).toContain('name="robots" content="noindex');
+    for (const path of ["/privacy", "/terms"]) {
+      const page = await fetchPage(path);
+      expect(page.html, path).not.toContain('name="robots"');
+    }
+  });
+
   it("sends the pages.dev alias to the domain", async () => {
     const response = await onRequest({
       request: new Request("https://yahia-quran-academy.pages.dev/seerah"),
