@@ -538,4 +538,124 @@ export const quranFacts: QuranFact[] = [
       { text: "لَمْ يَلِدْ وَلَمْ يُولَدْ", ref: "الإخلاص: 3" },
     ],
   },
+  {
+    number: 41,
+    slug: "thirty-parts",
+    icon: "LayoutGrid",
+    title: { ar: "ثلاثون جزءاً وستون حزباً", en: "Thirty parts, sixty halves" },
+    body: {
+      ar: "القرآن مقسّم إلى ثلاثين جزءاً ليسهل ختمه في شهر، وكل جزء مقسّم إلى حزبين، فيصير المجموع ستين حزباً.",
+      en: "The Quran is divided into thirty parts so it can be finished in a month, and each part into two hizbs — sixty in all.",
+    },
+    ayahs: [],
+  },
+  {
+    number: 42,
+    slug: "verse-count",
+    icon: "Hash",
+    title: { ar: "ستة آلاف ومئتان وستٌّ وثلاثون", en: "Six thousand two hundred and thirty-six" },
+    body: {
+      ar: "عدد آيات القرآن الكريم في العدّ المعتمد في مصاحفنا اليوم هو 6236 آية.",
+      en: "By the count used in the copies we read today, the Quran has 6,236 verses.",
+    },
+    ayahs: [],
+  },
+  {
+    number: 43,
+    slug: "makki-madani",
+    icon: "Compass",
+    title: { ar: "مكية ومدنية", en: "Makki and Madani" },
+    body: {
+      ar: "سور القرآن تنقسم إلى مكية ومدنية: 87 سورة نزلت قبل الهجرة، و27 سورة نزلت بعدها.",
+      en: "The surahs divide into Makki and Madani: 87 came down before the Hijrah, and 27 after it.",
+    },
+    ayahs: [],
+  },
+  {
+    number: 44,
+    slug: "uff",
+    icon: "Heart",
+    title: { ar: "أقصر كلمة، وأثقلها ميزاناً", en: "The shortest word, and the heaviest" },
+    body: {
+      ar: "أقصر كلمة في القرآن تحمل معنى مستقلاً هي ﴿أُفٍّ﴾، واختارها الله ليعلّمنا ألا نُظهر للوالدين حتى أخفّ ضيق.",
+      en: "The shortest word in the Quran that stands on its own is ﴿uff﴾ — and it is there to teach us not to show our parents even the smallest impatience.",
+    },
+    ayahs: [
+      { text: "فَلَا تَقُل لَّهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا", ref: "الإسراء: 23" },
+    ],
+  },
+  {
+    number: 45,
+    slug: "at-teen",
+    icon: "Apple",
+    title: { ar: "سورة باسم فاكهة", en: "A surah named after a fruit" },
+    body: {
+      ar: "سورة «التين» سُمّيت باسم فاكهة، ويبدأ الله سبحانه السورة بالقسم بها وبالزيتون.",
+      en: "Surah At-Teen is named after a fruit — the fig — and it opens with an oath by it and by the olive.",
+    },
+    ayahs: [
+      { text: "وَالتِّينِ وَالزَّيْتُونِ", ref: "التين: 1" },
+    ],
+  },
+  {
+    number: 46,
+    slug: "science",
+    icon: "Microscope",
+    title: { ar: "حقائق سبقت العلماء بقرون", en: "Facts that arrived centuries early" },
+    body: {
+      ar: "ذكر القرآن حقائق دقيقة عن الفضاء والبحار ونمو الجنين قبل أن يكتشفها العلماء بمئات السنين.",
+      en: "The Quran describes the sky, the seas and the growing of a child in the womb with a precision people would not reach for hundreds of years.",
+    },
+    ayahs: [],
+  },
+  {
+    number: 47,
+    slug: "oaths",
+    icon: "Sunrise",
+    title: { ar: "خمس عشرة سورة تبدأ بقسم", en: "Fifteen surahs that open with an oath" },
+    body: {
+      ar: "خمس عشرة سورة في القرآن تبدأ بقسم، يقسم الله فيها بمخلوقاته العظيمة ليلفت انتباهنا إليها.",
+      en: "Fifteen surahs open with an oath — Allah swearing by things He made, to make us look at them properly.",
+    },
+    ayahs: [
+      { text: "وَالْفَجْرِ ۝ وَلَيَالٍ عَشْرٍ", ref: "الفجر: 1-2" },
+    ],
+  },
+  {
+    number: 48,
+    slug: "verse-endings",
+    icon: "Sparkle",
+    title: { ar: "خواتيم الآيات تناسب معناها", en: "Endings that match what came before" },
+    body: {
+      ar: "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة.",
+      en: "Many verses close with two of Allah's names chosen to fit what the verse is about: the Forgiving, the Merciful where it speaks of repentance; the Almighty, the Wise where it speaks of power.",
+    },
+    ayahs: [
+      { text: "وَاللَّهُ عَزِيزٌ حَكِيمٌ", ref: "البقرة: 220" },
+    ],
+  },
+  {
+    number: 49,
+    slug: "quran-names",
+    icon: "Tag",
+    title: { ar: "أسماء أخرى للقرآن", en: "The Quran's other names" },
+    body: {
+      ar: "للقرآن الكريم أسماء أخرى جميلة: الكتاب، والفرقان، والنور، والشفاء.",
+      en: "The Quran carries other names too: the Book, al-Furqan — the Criterion — the Light, and the Healing.",
+    },
+    ayahs: [
+      { text: "تَبَارَكَ الَّذِي نَزَّلَ الْفُرْقَانَ عَلَىٰ عَبْدِهِ لِيَكُونَ لِلْعَالَمِينَ نَذِيرًا", ref: "الفرقان: 1" },
+    ],
+  },
+  {
+    number: 50,
+    slug: "first-collection",
+    icon: "Archive",
+    title: { ar: "أول مرة جُمع في مصحف", en: "The first time it was gathered into one book" },
+    body: {
+      ar: "جُمع القرآن وكُتب في مصحف واحد لأول مرة في عهد الخليفة أبي بكر الصديق رضي الله عنه، باقتراح من عمر بن الخطاب لحفظه للأجيال.",
+      en: "The Quran was first gathered into a single book in the time of Abu Bakr as-Siddiq, on a suggestion from Umar ibn al-Khattab, so that it would be kept for everyone after them.",
+    },
+    ayahs: [],
+  },
 ];

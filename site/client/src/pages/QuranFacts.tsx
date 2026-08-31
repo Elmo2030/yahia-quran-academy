@@ -13,11 +13,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "wouter";
 import {
-  AlignCenter, Bird, BookOpen, Bug, Carrot, ChevronLeft, ChevronRight, Clock,
-  Crown, Droplet, Droplets, Feather, Flame, Gem, Heart, Hourglass, Landmark,
-  Library, Lock, MapPin, MessageCircle, Moon, Mountain, Palette, PawPrint,
-  RotateCcw, Ruler, Scale, ScrollText, Shield, ShieldCheck, Shirt, Sparkles,
-  Sprout, Star, Type, Users,
+  AlignCenter, Apple, Archive, Bird, BookOpen, Bug, Carrot, ChevronLeft,
+  ChevronRight, Clock, Compass, Crown, Droplet, Droplets, Feather, Flame,
+  Gem, Hash, Heart, Hourglass, Landmark, LayoutGrid, Library, Lock, MapPin,
+  MessageCircle, Microscope, Moon, Mountain, Palette, PawPrint, RotateCcw,
+  Ruler, Scale, ScrollText, Shield, ShieldCheck, Shirt, Sparkle, Sparkles,
+  Sprout, Star, Sunrise, Tag, Type, Users,
 } from "lucide-react";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -26,10 +27,12 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { quranFacts, type QuranFact } from "@/content/quran-facts";
 
 const ICONS: Record<string, typeof BookOpen> = {
-  AlignCenter, Bird, BookOpen, Bug, Carrot, Clock, Crown, Droplet, Droplets,
-  Feather, Flame, Gem, Heart, Hourglass, Landmark, Library, Lock, MapPin,
-  MessageCircle, Moon, Mountain, Palette, PawPrint, Ruler, Scale, ScrollText,
-  Shield, ShieldCheck, Shirt, Sparkles, Sprout, Star, Type, Users,
+  AlignCenter, Apple, Archive, Bird, BookOpen, Bug, Carrot, Clock, Compass,
+  Crown, Droplet, Droplets, Feather, Flame, Gem, Hash, Heart, Hourglass,
+  Landmark, LayoutGrid, Library, Lock, MapPin, MessageCircle, Microscope,
+  Moon, Mountain, Palette, PawPrint, Ruler, Scale, ScrollText, Shield,
+  ShieldCheck, Shirt, Sparkle, Sparkles, Sprout, Star, Sunrise, Tag, Type,
+  Users,
 };
 
 const STORE_KEY = "yahya.facts.discovered.v1";
@@ -48,7 +51,7 @@ const copy = {
     home: "الرئيسية", stories: "قصص القرآن", seerah: "السيرة النبوية", reader: "افتح القارئ",
     eyebrow: "في رحاب القرآن",
     title: "اكتشف أسرار القرآن",
-    intro: "ثلاثون معلومة عن القرآن الكريم، كل واحدة خلف بطاقة. اقلب البطاقة لتقرأها.",
+    intro: "خمسون معلومة عن القرآن الكريم، كل واحدة خلف بطاقة. اقلب البطاقة لتقرأها.",
     turn: "اقلب البطاقة",
     progress: (n: number, total: number) => `اكتشفت ${n} من ${total}`,
     allDone: "اكتشفت كل البطاقات! ما رأيك أن تحكيها لأحد في البيت؟",
@@ -59,7 +62,7 @@ const copy = {
     home: "Home", stories: "Quran stories", seerah: "The Prophet’s Seerah", reader: "Open the reader",
     eyebrow: "In the Realm of the Quran",
     title: "Discover the Quran",
-    intro: "Thirty things worth knowing about the Quran, each behind a card. Turn a card over to read it.",
+    intro: "Fifty things worth knowing about the Quran, each behind a card. Turn a card over to read it.",
     turn: "Turn the card over",
     progress: (n: number, total: number) => `You have discovered ${n} of ${total}`,
     allDone: "Every card is turned over. Who at home would like to hear one of these?",

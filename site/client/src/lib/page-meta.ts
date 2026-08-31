@@ -103,9 +103,9 @@ export const profileMeta: Meta = {
 export const quranFactsMeta: Meta = {
   path: "/quran-facts",
   title: "في رحاب القرآن — اكتشف أسرار القرآن",
-  description: "أربعون معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها.",
+  description: "خمسون معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها.",
   image: DEFAULT_IMAGE,
-  i18n: { en: { title: "In the Realm of the Quran — Discover the Quran", description: "Forty things worth knowing about the Quran for children, each behind a card you turn over." } },
+  i18n: { en: { title: "In the Realm of the Quran — Discover the Quran", description: "Fifty things worth knowing about the Quran for children, each behind a card you turn over." } },
 };
 
 const aboutMeta: Meta = {

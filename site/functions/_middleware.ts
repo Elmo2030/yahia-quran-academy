@@ -107,7 +107,7 @@ function metaForPath(pathname: string) {
   if (head === "quran-facts") {
     return { ...base, path: "/quran-facts",
       title: "في رحاب القرآن — اكتشف أسرار القرآن",
-      description: "أربعون معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
+      description: "خمسون معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
   }
 
   if (head === "about") {
