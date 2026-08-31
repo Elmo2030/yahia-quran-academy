@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ArrowLeft, ArrowRight, Check, Headphones, Heart, Loader2, Mic, Pause, Play, Volume2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Headphones, Heart, Loader2, Mic, Pause, Play, Repeat, Volume2 } from "lucide-react";
 import { getEnglishSurahName, getSurahName, loadSurahWithTransliteration, surahNames, type TransliteratedAyah } from "@/lib/quran-content";
 import { activeAt, defaultRecitationId, listRecitations, loadSurahSource, loadTiming, type Recitation, type SurahAudioSource, type TimedAyah } from "@/lib/recitations";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,12 +13,14 @@ const yahyaCharacterUrl = "/manus-storage/yahya-hero.png";
 
 const copy = {
   ar: {
-    home: "العودة للرئيسية", reader: "قارئ الأكاديمية", title: "اقرأ واستمع بهدوء", subtitle: "النص العثماني كما هو، والاستماع للسورة كاملة بصوت موثّق.", select: "اختر السورة", surah: "سورة", preparing: "جارٍ تجهيز السورة…", ayahs: "آية", wholeSurah: "تشغيل السورة كاملة", noTimings: "مزامنة الكلمات تتطلب توقيتات موثقة مطابقة لهذا التسجيل، وهي غير متاحة بعد.", verified: "نص عثماني موثّق", room: "غرفة التلقّي مع يحيى", companion: "استمع، كرّر، سجّل، ثم راجع ذاتيًا", steps: ["استمع", "كرّر", "سجّل", "راجع"], pause: "إيقاف الاستماع", play: "بدء الاستماع", playing: "يتم تشغيل السورة", listen: "استمع إلى السورة", narration: "تلاوة كاملة من مكتبة الأكاديمية", audioUnavailable: "الصوت غير متاح مؤقتًا لهذه السورة.", loading: "جارٍ تحميل النص…", noAyahs: "لا توجد آيات متاحة لهذه السورة الآن. حاول اختيار سورة أخرى.", contentFailure: "تعذر تحميل السورة الآن.", audioFailure: "تعذر تشغيل الملف الصوتي الآن. حاول مرة أخرى لاحقًا.", chooseRecitation: "اختر المصحف", timedPill: "تمييز متزامن موثّق", untimedPill: "بدون تمييز",
+    home: "العودة للرئيسية", reader: "قارئ الأكاديمية", title: "اقرأ واستمع بهدوء", subtitle: "النص العثماني كما هو، والاستماع للسورة كاملة بصوت موثّق.", select: "اختر السورة", surah: "سورة", preparing: "جارٍ تجهيز السورة…", ayahs: "آية", wholeSurah: "تشغيل السورة كاملة", noTimings: "مزامنة الكلمات تتطلب توقيتات موثقة مطابقة لهذا التسجيل، وهي غير متاحة بعد.", verified: "نص عثماني موثّق", room: "غرفة التلقّي مع يحيى", companion: "استمع، كرّر، سجّل، ثم راجع ذاتيًا", steps: ["استمع", "كرّر", "سجّل", "راجع"], pause: "إيقاف الاستماع", play: "بدء الاستماع", playing: "يتم تشغيل السورة", listen: "استمع إلى السورة", narration: "تلاوة كاملة من مكتبة الأكاديمية", audioUnavailable: "الصوت غير متاح مؤقتًا لهذه السورة.", loading: "جارٍ تحميل النص…", noAyahs: "لا توجد آيات متاحة لهذه السورة الآن. حاول اختيار سورة أخرى.", contentFailure: "تعذر تحميل السورة الآن.", audioFailure: "تعذر تشغيل الملف الصوتي الآن. حاول مرة أخرى لاحقًا.", chooseRecitation: "اختر المصحف", continuous: "تشغيل متصل", continuousOn: "عند انتهاء السورة تبدأ التي بعدها تلقائيًا.", continuousOff: "تتوقف التلاوة عند نهاية السورة.", lastSurah: "انتهت السور. هذه آخر سورة في المصحف.", timedPill: "تمييز متزامن موثّق", untimedPill: "بدون تمييز",
   },
   en: {
-    home: "Back to home", reader: "Academy reader", title: "Read and listen with calm", subtitle: "Uthmani text is kept intact, with verified full-surah audio.", select: "Choose a surah", surah: "Surah", preparing: "Preparing the surah…", ayahs: "ayahs", wholeSurah: "Play the complete surah", noTimings: "Word sync needs verified timings matched to this exact recitation; they are not available yet.", verified: "Verified Uthmani text", room: "Yahya’s talaqqi room", companion: "Listen, repeat, record, then self-review", steps: ["Listen", "Repeat", "Record", "Review"], pause: "Pause listening", play: "Start listening", playing: "The surah is playing", listen: "Listen to the surah", narration: "Complete recitation from the academy library", audioUnavailable: "Audio is temporarily unavailable for this surah.", loading: "Loading the Quran text…", noAyahs: "No ayahs are available for this surah right now. Choose another surah.", contentFailure: "The surah could not be loaded right now.", audioFailure: "The audio file could not be played right now. Please try again later.", chooseRecitation: "Choose a recitation", timedPill: "Verified synchronised highlighting", untimedPill: "No highlighting",
+    home: "Back to home", reader: "Academy reader", title: "Read and listen with calm", subtitle: "Uthmani text is kept intact, with verified full-surah audio.", select: "Choose a surah", surah: "Surah", preparing: "Preparing the surah…", ayahs: "ayahs", wholeSurah: "Play the complete surah", noTimings: "Word sync needs verified timings matched to this exact recitation; they are not available yet.", verified: "Verified Uthmani text", room: "Yahya’s talaqqi room", companion: "Listen, repeat, record, then self-review", steps: ["Listen", "Repeat", "Record", "Review"], pause: "Pause listening", play: "Start listening", playing: "The surah is playing", listen: "Listen to the surah", narration: "Complete recitation from the academy library", audioUnavailable: "Audio is temporarily unavailable for this surah.", loading: "Loading the Quran text…", noAyahs: "No ayahs are available for this surah right now. Choose another surah.", contentFailure: "The surah could not be loaded right now.", audioFailure: "The audio file could not be played right now. Please try again later.", chooseRecitation: "Choose a recitation", continuous: "Continuous play", continuousOn: "When a surah ends, the next one starts on its own.", continuousOff: "Playback stops at the end of the surah.", lastSurah: "That was the last surah in the Quran.", timedPill: "Verified synchronised highlighting", untimedPill: "No highlighting",
   },
 } as const;
+
+const CONTINUOUS_KEY = "yahya.reader.continuous";
 
 function parseSurah(value: string | undefined) {
   const parsed = Number(value);
@@ -40,7 +42,15 @@ export default function Reader() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
+  // Remembered per device: a parent who wants the whole juz' running should not
+  // have to switch it back on for every surah.
+  const [continuous, setContinuous] = useState(() => {
+    try { return localStorage.getItem(CONTINUOUS_KEY) === "1"; } catch { return false; }
+  });
+  const [reachedEnd, setReachedEnd] = useState(false);
   const playerRef = useRef<HTMLAudioElement>(null);
+  // Set only by the ended handler, so navigating by hand never starts audio.
+  const autoPlayNextRef = useRef(false);
   const { recordReading } = useReadingProgress();
   const recordedSurahRef = useRef<number | null>(null);
   const recordedAyahRef = useRef<number | null>(null);
@@ -119,7 +129,38 @@ export default function Reader() {
     };
   }, [timings]);
 
-  const goToSurah = (surah: number) => { setPlaying(false); setLocation(`/read/${surah}`); };
+  const goToSurah = (surah: number) => {
+    autoPlayNextRef.current = false;
+    setPlaying(false);
+    setReachedEnd(false);
+    setLocation(`/read/${surah}`);
+  };
+
+  const handleEnded = () => {
+    setPlaying(false);
+    if (!continuous) return;
+    if (selectedSurah >= 114) { setReachedEnd(true); return; }
+    // The <audio> element is not remounted between surahs, so it keeps the
+    // user activation from the first press and may start on its own.
+    autoPlayNextRef.current = true;
+    setLocation(`/read/${selectedSurah + 1}`);
+  };
+
+  const toggleContinuous = () => {
+    setContinuous(value => {
+      const next = !value;
+      try { localStorage.setItem(CONTINUOUS_KEY, next ? "1" : "0"); } catch { /* private mode */ }
+      return next;
+    });
+    setReachedEnd(false);
+  };
+
+  // Resume once the next surah's audio has actually arrived.
+  useEffect(() => {
+    if (!autoPlayNextRef.current || loading || !audio?.playbackUrl) return;
+    autoPlayNextRef.current = false;
+    void playerRef.current?.play().catch(() => setPlaying(false));
+  }, [audio?.playbackUrl, loading]);
   const togglePlayback = async () => { const player = playerRef.current; if (!player || !audio?.playbackUrl) return; if (player.paused) await player.play(); else player.pause(); };
   const hasPlayback = Boolean(audio?.playbackUrl);
   const chosen = recitations.find(r => r.id === recitationId) ?? null;
@@ -134,8 +175,19 @@ export default function Reader() {
       <section className="container reader-layout" aria-live="polite"><aside className="reader-sidecard"><span className="sidecard__number">{String(selectedSurah).padStart(3, "0")}</span><h2>{locale === "en" ? <>{getEnglishSurahName(selectedSurah)} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></> : <>{t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></>}</h2><p>{loading ? t.preparing : `${ayahs.length} ${t.ayahs}`}</p><div className="sidecard__rule" /><div className="whole-surah-note"><Volume2 size={17} /><span>{t.wholeSurah}</span></div><p className="sidecard__microcopy">{isTimed ? (chosen ? (locale === "en" ? chosen.nameEn : chosen.nameAr) : t.timedPill) : t.noTimings}</p></aside>
         <article className="quran-card"><div className="quran-card__topline"><span>{locale === "en" ? getEnglishSurahName(selectedSurah) : t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></span><span className="verified-pill">{t.verified}</span></div>
           <section className="recitation-companion" aria-label={t.room}><Avatar className="recitation-companion__avatar"><AvatarImage src={yahyaCharacterUrl} alt="" /><AvatarFallback>ي</AvatarFallback></Avatar><div className="recitation-companion__copy"><span>{t.room}</span><b>{t.companion}</b></div><div className="recitation-companion__steps" aria-label={t.room}><span><Headphones size={13} /> {t.steps[0]}</span><span><Heart size={13} /> {t.steps[1]}</span><span><Mic size={13} /> {t.steps[2]}</span><span><Check size={13} /> {t.steps[3]}</span></div></section>
-          {hasPlayback ? <div className="audio-deck"><button className="play-button" onClick={togglePlayback} aria-label={playing ? t.pause : t.play}>{playing ? <Pause fill="currentColor" size={22} /> : <Play fill="currentColor" size={22} />}</button><div><b>{playing ? t.playing : t.listen}</b><span>{t.narration}</span></div><Headphones className="audio-deck__icon" size={24} /><audio ref={playerRef} src={audio?.playbackUrl} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} onError={() => setError(t.audioFailure)} /></div> : <div className="audio-deck audio-deck--unavailable"><Volume2 size={24} /><span>{t.audioUnavailable}</span></div>}
+          {hasPlayback ? <div className="audio-deck"><button className="play-button" onClick={togglePlayback} aria-label={playing ? t.pause : t.play}>{playing ? <Pause fill="currentColor" size={22} /> : <Play fill="currentColor" size={22} />}</button><div><b>{playing ? t.playing : t.listen}</b><span>{t.narration}</span></div><button
+              type="button"
+              className={`continuous-toggle${continuous ? " is-on" : ""}`}
+              role="switch"
+              aria-checked={continuous}
+              onClick={toggleContinuous}
+              title={continuous ? t.continuousOn : t.continuousOff}
+            >
+              <Repeat size={15} aria-hidden="true" /> {t.continuous}
+            </button>
+            <Headphones className="audio-deck__icon" size={24} /><audio ref={playerRef} src={audio?.playbackUrl} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={handleEnded} onError={() => setError(t.audioFailure)} /></div> : <div className="audio-deck audio-deck--unavailable"><Volume2 size={24} /><span>{t.audioUnavailable}</span></div>}
           <RecitationRecorder surah={selectedSurah} />
+          {reachedEnd && <p className="reader-endnote" role="status">{t.lastSurah}</p>}
           {loading && <div className="reader-loading"><Loader2 className="animate-spin" size={24} /> {t.loading}</div>}{error && <div className="reader-error" role="alert">{error}</div>}{!loading && !error && ayahs.length === 0 && <div className="reader-loading">{t.noAyahs}</div>}{!loading && !error && ayahs.length > 0 && <div className="ayah-list" dir="rtl" lang="ar">{ayahs.map((ayah) => {
               const isActiveAyah = active.ayah === ayah.number;
               const timed = timings.find(entry => entry.number === ayah.number);
