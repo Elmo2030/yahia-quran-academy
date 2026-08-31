@@ -151,7 +151,7 @@ export default function About() {
                 <b>{father}</b>
                 <span aria-hidden="true"> {t.sadaqaAnd} </span>
                 <b>{mother}</b>
-                <span className="about-names__rahma">{t.sadaqaAfter}</span>
+                <span className="about-names__rahma">&nbsp;{t.sadaqaAfter}</span>
               </p>
               <p>{t.sadaqaBody}</p>
               <p className="about-ask">{t.sadaqaAsk}</p>
