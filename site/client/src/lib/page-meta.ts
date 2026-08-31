@@ -90,7 +90,15 @@ export const profileMeta: Meta = {
   },
 };
 
-export const privacyMeta: Meta = {
+export const aboutMeta: Meta = {
+  path: "/about",
+  title: "من نحن — موقع يحيى لتعليم الأطفال",
+  description:
+    "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله.",
+  image: DEFAULT_IMAGE,
+};
+
+const privacyMeta: Meta = {
   path: "/privacy",
   title: "سياسة الخصوصية — Yahya Quran Academy",
   description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
@@ -203,6 +211,7 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  if (head === "about") return aboutMeta;
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;
   if (head === "forgot-password") return forgotPasswordMeta;

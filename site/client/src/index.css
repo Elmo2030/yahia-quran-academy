@@ -80,6 +80,28 @@
   .site-subnav a:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
   .story-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1.6rem; margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid #ece4cf; }
   .story-pager > * { min-width: 0; }
+  .about-layout { display: grid; gap: 2.2rem; max-width: 760px; }
+  .about-lead { color: #385051; font-family: "Noto Naskh Arabic", serif; font-size: 1.16rem; line-height: 2.1; margin: 0; }
+  .about-block { display: grid; gap: .75rem; }
+  .about-block h2 { color: #001F3F; margin: .35rem 0 0; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.5rem,2.6vw,2rem); line-height: 1.35; }
+  .about-block p { color: #385051; margin: 0; font-size: .96rem; line-height: 2.05; }
+  .about-dedication { display: grid; gap: .8rem; padding: clamp(1.4rem,4vw,2.4rem); border-radius: 26px; background: linear-gradient(160deg, #fffdf5, #eef3dd); border: 1px solid #e6dfc9; box-shadow: 0 16px 38px rgb(0 31 63 / 7%); }
+  .about-dedication h2 { color: #001F3F; margin: .35rem 0 0; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.35rem,2.4vw,1.8rem); line-height: 1.6; }
+  .about-dedication p { color: #385051; margin: 0; font-size: .96rem; line-height: 2.05; }
+  .about-names { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem; font-family: "Noto Naskh Arabic", serif; font-size: 1.2rem; }
+  .about-names b { color: #001F3F; font-weight: 800; }
+  .about-names__rahma { color: #7d631c; font-size: .82rem; font-weight: 800; }
+  .about-ask { color: #001F3F !important; font-weight: 700; }
+  .about-dua { margin: .5rem 0 0; padding: 1.15rem 1.3rem; border-radius: 20px; background: rgb(255 255 255 / 78%); border: 1px solid #e7dfc9; }
+  .about-dua figcaption { color: #7d631c; font-size: .72rem; font-weight: 800; letter-spacing: .04em; margin-bottom: .5rem; }
+  .about-dua blockquote { color: #001F3F; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.2rem; line-height: 2.2; }
+  .about-dua__meaning { color: #60789d !important; margin-top: .8rem !important; font-size: .86rem !important; line-height: 1.95 !important; }
+  .about-contact .button { width: fit-content; flex-wrap: wrap; }
+  .about-contact__number { padding-inline-start: .5rem; font-size: .8rem; font-weight: 700; opacity: .85; }
+  .about-closing { color: #385051; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; line-height: 2.15; }
+  .about-plaque { margin: 0; padding: 1.1rem 1.3rem; border-radius: 18px; color: #001F3F; background: #ffefcc; border: 1px solid #e9d9a8; font-family: "Noto Naskh Arabic", serif; font-size: 1.02rem; line-height: 2; text-align: center; }
+  .about-plaque b { font-weight: 800; }
+  .about-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
   .skip-link { position: absolute; inset-inline-start: -9999px; top: 0; z-index: 100; padding: .6rem .9rem; color: #fff; background: #001F3F; border-radius: 0 0 12px 12px; font-size: .82rem; font-weight: 800; }
   .skip-link:focus-visible { inset-inline-start: .75rem; outline: 2px solid #d4af37; outline-offset: 2px; }
   .header-auth-link { display: inline-flex; gap: .3rem; align-items: center; white-space: nowrap; padding: .38rem .7rem; color: #001F3F; font-size: .78rem; font-weight: 800; background: rgb(255 255 255 / 78%); border: 1px solid #e7dfc9; border-radius: 10px; transition: color .16s ease, background .16s ease, transform .16s ease; }

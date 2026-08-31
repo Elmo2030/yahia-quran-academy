@@ -86,6 +86,7 @@ function metaForPath(pathname: string) {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  if (head === "about") return { ...base, path: "/about", title: `من نحن — موقع يحيى لتعليم الأطفال`, description: "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله." };
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;
 

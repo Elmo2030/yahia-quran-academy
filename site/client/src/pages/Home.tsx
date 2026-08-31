@@ -69,13 +69,13 @@ export default function Home() {
       <header className="site-header">
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></Link>
-          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><a href="#about">{t.about}</a><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
+          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><Link href="/about">{t.about}</Link><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
           <div className="header-actions"><LanguageToggle compact />{session ? <Link href="/profile" className="header-auth-link"><UserRound size={15} aria-hidden="true" /> {t.account}</Link> : <Link href="/register" className="header-auth-link"><LogIn size={15} aria-hidden="true" /> {t.register}</Link>}<Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
         </div>
         {/* .site-nav is hidden below 820px; without this the home page had no
             navigation at all on a phone. */}
         <nav className="container site-subnav" aria-label={locale === "ar" ? "تنقل مختصر" : "Quick navigation"}>
-          <a href="#about">{t.about}</a>
+          <Link href="/about">{t.about}</Link>
           <Link href="/stories">{t.stories}</Link>
           <Link href="/seerah">{t.seerahNav}</Link>
           <a href="#journey">{t.journey}</a>
@@ -117,7 +117,7 @@ export default function Home() {
       <section className="section account-section" id="account" aria-labelledby="account-title"><div className="container account-card"><div><span className="eyebrow eyebrow--gold">{t.accountEyebrow}</span><h2 id="account-title">{t.accountTitle}</h2><p>{t.accountBody}</p></div><div className="account-actions"><Link href="/register" className="button button--primary" data-testid="home-register"><LogIn size={17} aria-hidden="true" /> {t.register}</Link><p className="account-actions__note">{t.haveAccount} <Link href="/login" className="text-link" data-testid="home-login">{t.signIn} <Arrow size={16} /></Link></p></div></div></section>
 
       <section className="section apps-section" id="apps"><div className="container apps-grid"><div><span className="eyebrow eyebrow--gold">{t.appsEyebrow}</span><h2>{t.appsTitle}</h2><p>{t.appsBody}</p><Link href="/read/1" className="text-link">{t.openReader} <Arrow size={18} /></Link></div><div className="store-stack"><ComingSoonStoreCard platform="Android" locale={locale} /><ComingSoonStoreCard platform="iOS" locale={locale} /></div></div></section>
-      <footer className="site-footer"><div className="container site-footer__inner"><div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></div><p>{t.footer}</p><Link href="/read/1" className="text-link">{t.reader} <Arrow size={16} /></Link></div></footer>
+      <footer className="site-footer"><div className="container site-footer__inner"><div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></div><p>{t.footer}</p><Link href="/about" className="text-link">{t.about}</Link><Link href="/read/1" className="text-link">{t.reader} <Arrow size={16} /></Link></div></footer>
     </main>
   );
 }

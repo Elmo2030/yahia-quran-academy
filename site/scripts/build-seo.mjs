@@ -38,6 +38,7 @@ for (const story of seerahStories) {
 
 const urls = [
   { loc: "/", priority: "1.0" },
+  { loc: "/about", priority: "0.6" },
   { loc: "/read", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
   { loc: "/stories/library", priority: "0.4" },
