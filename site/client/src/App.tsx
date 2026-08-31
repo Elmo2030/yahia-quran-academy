@@ -1,4 +1,5 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
+import { lazyWithRetry } from "@/lib/lazyWithRetry";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -13,17 +14,17 @@ import Home from "./pages/Home";
 // Everything except the landing page loads on demand. The whole site used to
 // arrive in one 943 KB file, so a visitor reading the home page also paid for
 // the reader, every story, and the Supabase client they may never touch.
-const Stories = lazy(() => import("@/pages/Stories"));
-const Seerah = lazy(() => import("@/pages/Seerah"));
-const Reader = lazy(() => import("./pages/Reader"));
-const Login = lazy(() => import("./pages/Login"));
-const Register = lazy(() => import("./pages/Register"));
-const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
-const ResetPassword = lazy(() => import("./pages/ResetPassword"));
-const Profile = lazy(() => import("./pages/Profile"));
-const About = lazy(() => import("./pages/About"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
+const Stories = lazyWithRetry(() => import("@/pages/Stories"));
+const Seerah = lazyWithRetry(() => import("@/pages/Seerah"));
+const Reader = lazyWithRetry(() => import("./pages/Reader"));
+const Login = lazyWithRetry(() => import("./pages/Login"));
+const Register = lazyWithRetry(() => import("./pages/Register"));
+const ForgotPassword = lazyWithRetry(() => import("./pages/ForgotPassword"));
+const ResetPassword = lazyWithRetry(() => import("./pages/ResetPassword"));
+const Profile = lazyWithRetry(() => import("./pages/Profile"));
+const About = lazyWithRetry(() => import("./pages/About"));
+const Privacy = lazyWithRetry(() => import("./pages/Privacy"));
+const Terms = lazyWithRetry(() => import("./pages/Terms"));
 
 /** Shown only while a route chunk is in flight. Deliberately quiet: a spinner
  *  that flashes for 80ms is worse than a blank moment. */
