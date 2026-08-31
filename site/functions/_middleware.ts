@@ -181,13 +181,14 @@ export const onRequest: PagesFunction = async (context) => {
   const url = new URL(context.request.url);
   const pathname = url.pathname;
 
-  // Once yahyaquran.com resolves, the pages.dev alias should 301 to it so the
-  // site has one canonical origin. Enabling that before DNS existed took the
-  // site down — the alias redirected to a host that did not answer — so it
-  // stays off until the CNAMEs are in place.
-  // if (url.hostname === "yahia-quran-academy.pages.dev") {
-  //   return Response.redirect(new URL(url.pathname + url.search, ORIGIN).toString(), 301);
-  // }
+  // The project keeps its pages.dev alias after the custom domain is attached,
+  // leaving two origins serving identical pages. Send the production alias to
+  // the canonical host. Per-deployment preview hosts (<hash>.pages.dev) carry
+  // their own hostname and are left alone, so a build can still be checked
+  // before it goes out.
+  if (url.hostname === "yahia-quran-academy.pages.dev") {
+    return Response.redirect(new URL(url.pathname + url.search, ORIGIN).toString(), 301);
+  }
 
   let response = await context.next();
 
