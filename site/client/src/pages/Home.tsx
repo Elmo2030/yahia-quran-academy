@@ -79,7 +79,7 @@ export default function Home() {
           <Link href="/stories">{t.stories}</Link>
           <Link href="/seerah">{t.seerahNav}</Link>
           <a href="#journey">{t.journey}</a>
-          <Link href="/register">{t.register}</Link>
+          <a href="#apps">{t.apps}</a>
         </nav>
       </header>
 
