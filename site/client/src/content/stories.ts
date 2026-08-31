@@ -41,12 +41,6 @@ export const chapters: Chapter[] = [
     descriptionEn: "Nine stories about the nations and figures the Quran names, and what became of them.",
     cover: "/stories/nations/cover.jpg", available: true,
   },
-  {
-    slug: "seerah", titleAr: "السيرة النبوية", titleEn: "The Prophet's Biography",
-    descriptionAr: "محطات من حياة النبي ﷺ للأطفال، بقصص تفاعلية واختبارات وأوسمة.",
-    descriptionEn: "Stations from the Prophet's life for children, with interactive stories, quizzes, and badges.",
-    cover: null, available: true,
-  },
 ];
 
 /** A story's prose in one language. The Arabic lives on the story itself;

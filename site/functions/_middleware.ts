@@ -188,6 +188,12 @@ export const onRequest: PagesFunction = async (context) => {
   // before it goes out.
   // www is attached to the same project and serves the same pages, so it joins
   // the alias in redirecting to the bare domain the canonical tags name.
+  // The Seerah was briefly listed as a chapter of the Quran stories; keep the
+  // address it had working rather than leaving it to 404.
+  if (pathname === "/stories/seerah" || pathname.startsWith("/stories/seerah/")) {
+    return Response.redirect(`${ORIGIN}/seerah${pathname.slice("/stories/seerah".length)}`, 301);
+  }
+
   if (url.hostname === "yahia-quran-academy.pages.dev" || url.hostname === "www.yahyaquran.com") {
     return Response.redirect(new URL(url.pathname + url.search, ORIGIN).toString(), 301);
   }
@@ -213,11 +219,86 @@ export const onRequest: PagesFunction = async (context) => {
   const description = escapeHtml(meta.description);
   const robots = escapeHtml(robotsFor(meta));
 
+  // hreflang lived in index.html, so every page claimed the home page as its
+  // own Arabic and English alternate — a page telling search engines the
+  // wrong URL is worse than saying nothing. It is per-page now.
+  const alternates = meta.noindex
+    ? ""
+    : `<link data-default rel="alternate" hreflang="ar" href="${canonical}" />
+    <link data-default rel="alternate" hreflang="en" href="${canonical}?lang=en" />
+    <link data-default rel="alternate" hreflang="x-default" href="${canonical}" />`;
+
+  // Structured data. Search engines and the answer engines that read pages
+  // for AI summaries both parse this; without it they have to infer what the
+  // page is from the prose.
+  const crumbs = meta.path
+    .split("/")
+    .filter(Boolean)
+    .map((segment, index, all) => ({
+      "@type": "ListItem",
+      position: index + 2,
+      name: index === all.length - 1 ? meta.title.split(/[·—]/)[0].trim() : segment,
+      item: `${ORIGIN}/${all.slice(0, index + 1).join("/")}`,
+    }));
+
+  const graph: unknown[] = [
+    {
+      "@type": "WebSite",
+      "@id": `${ORIGIN}/#website`,
+      url: ORIGIN,
+      name: SITE,
+      description: SITE_DESCRIPTION,
+      inLanguage: ["ar", "en"],
+      publisher: { "@id": `${ORIGIN}/#org` },
+    },
+    {
+      "@type": "EducationalOrganization",
+      "@id": `${ORIGIN}/#org`,
+      name: SITE,
+      alternateName: "Yahya Quran Academy",
+      url: ORIGIN,
+      logo: `${ORIGIN}/apple-touch-icon.png`,
+      description: SITE_DESCRIPTION,
+    },
+  ];
+
+  if (!isHome && !meta.noindex) {
+    graph.push({
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: SITE, item: `${ORIGIN}/` },
+        ...crumbs,
+      ],
+    });
+  }
+
+  const isStory = /^\/(stories\/[^/]+\/[^/]+|seerah\/[^/]+)$/.test(meta.path);
+  if (isStory) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${canonical}#article`,
+      headline: meta.title.split(/[·—]/)[0].trim(),
+      description: meta.description,
+      image,
+      inLanguage: "ar",
+      isAccessibleForFree: true,
+      isPartOf: { "@id": `${ORIGIN}/#website` },
+      publisher: { "@id": `${ORIGIN}/#org` },
+      mainEntityOfPage: canonical,
+      audience: { "@type": "Audience", audienceType: "children" },
+    });
+  }
+
+  const jsonLd = JSON.stringify({ "@context": "https://schema.org", "@graph": graph })
+    .replace(/</g, "\\u003c");
+
   const block = `<!--meta:start-->
     <title data-default>${title}</title>
     <meta data-default name="description" content="${description}" />
     <link data-default rel="canonical" href="${canonical}" />
     ${robots ? `<meta data-default name="robots" content="${robots}" />` : ""}
+    ${alternates}
     <meta data-default property="og:type" content="${isHome ? "website" : "article"}" />
     <meta data-default property="og:site_name" content="${SITE}" />
     <meta data-default property="og:locale" content="ar_AR" />
@@ -229,6 +310,8 @@ export const onRequest: PagesFunction = async (context) => {
     <meta data-default name="twitter:title" content="${title}" />
     <meta data-default name="twitter:description" content="${description}" />
     <meta data-default name="twitter:image" content="${image}" />
+    <meta data-default property="og:locale:alternate" content="en_US" />
+    <script data-default type="application/ld+json">${jsonLd}</script>
     <!--meta:end-->`;
 
   const html = await response.text();

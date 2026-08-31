@@ -49,18 +49,74 @@ const urls = [
 ];
 
 const today = new Date().toISOString().slice(0, 10);
+// Every page is served in both languages off the same URL (?lang=en), so each
+// entry declares its own alternates. Without them the English half of the site
+// is invisible to search engines.
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.w3.org/1999/sitemap/0.9">
-${urls.map(u => `  <url><loc>${ORIGIN}${u.loc}</loc><lastmod>${today}</lastmod><priority>${u.priority}</priority></url>`).join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.map(u => `  <url>
+    <loc>${ORIGIN}${u.loc}</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="${ORIGIN}${u.loc}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${u.loc}?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${u.loc}" />
+    <lastmod>${today}</lastmod>
+    <priority>${u.priority}</priority>
+  </url>`).join("\n")}
 </urlset>
-`.replace("http://www.w3.org/1999/sitemap/0.9", "http://www.sitemaps.org/schemas/sitemap/0.9");
+`;
 
 writeFileSync(join(root, "client/public/sitemap.xml"), sitemap);
+// The answer engines are allowed explicitly rather than by the wildcard.
+// Several of them treat a missing named rule as ambiguous, and being named
+// here is what lets the stories be quoted in an AI answer with a link back.
+const AI_AGENTS = [
+  "GPTBot", "OAI-SearchBot", "ChatGPT-User",
+  "ClaudeBot", "Claude-User", "Claude-SearchBot",
+  "PerplexityBot", "Perplexity-User",
+  "Google-Extended", "Applebot-Extended", "meta-externalagent", "Bingbot",
+];
 writeFileSync(join(root, "client/public/robots.txt"),
 `User-agent: *
 Allow: /
 
+${AI_AGENTS.map(a => `User-agent: ${a}\nAllow: /\n`).join("\n")}
 Sitemap: ${ORIGIN}/sitemap.xml
+`);
+
+// llms.txt — a plain-text index of what this site holds, for models reading
+// the site directly. Cheap to keep correct because it is generated from the
+// same content the pages are.
+const chapterLines = chapters
+  .filter(c => c.available)
+  .map(c => `- [${c.titleEn} — ${c.titleAr}](${ORIGIN}/stories/${c.slug}): ${stories.filter(s => s.chapter === c.slug).length} stories. ${c.descriptionEn ?? c.descriptionAr}`);
+const seerahLines = seerahStations
+  .map(st => `- [${st.titleEn ?? st.titleAr}](${ORIGIN}/seerah#station-${st.stationId}): ${seerahStories.filter(s => s.stationId === st.stationId).length} stories. ${st.descriptionEn ?? st.descriptionAr}`);
+writeFileSync(join(root, "client/public/llms.txt"),
+`# Yahya Quran Academy
+
+> A children's Quran site in Arabic and English: the full Uthmani text with
+> verified teaching recitations, illustrated stories from the Quran, and the
+> Seerah of the Prophet Muhammad told for ages 6-11. Every page is available
+> in both languages at the same URL; append ?lang=en for English.
+
+Non-commercial and educational. No automated mastery score is shown and no
+stage unlocks on its own — a parent judges the child's recitation.
+
+## Quran reader
+- [The reader](${ORIGIN}/read): all 114 surahs in the Uthmani text, each with
+  a verified teaching recitation. Individual surahs are at ${ORIGIN}/read/1
+  through ${ORIGIN}/read/114.
+
+## Stories from the Quran
+${chapterLines.join("\n")}
+
+## Seerah of the Prophet
+${seerahLines.join("\n")}
+
+## Other
+- [Privacy](${ORIGIN}/privacy)
+- [Terms](${ORIGIN}/terms)
+- [Sitemap](${ORIGIN}/sitemap.xml)
 `);
 // The Cloudflare function is copied next to dist/ at publish time, where
 // client/src is no longer reachable. Emit the data it needs as a standalone
@@ -82,5 +138,5 @@ writeFileSync(join(root, "functions/page-data.js"),
 })), null, 1)};\n`);
 
 console.log(`  sitemap.xml: ${urls.length} URLs`);
-console.log(`  robots.txt written`);
+console.log(`  robots.txt + llms.txt written`);
 console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories, ${seerahStations.length} seerah stations, ${seerahStories.length} seerah stories`);

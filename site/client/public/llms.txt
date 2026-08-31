@@ -1,0 +1,29 @@
+# Yahya Quran Academy
+
+> A children's Quran site in Arabic and English: the full Uthmani text with
+> verified teaching recitations, illustrated stories from the Quran, and the
+> Seerah of the Prophet Muhammad told for ages 6-11. Every page is available
+> in both languages at the same URL; append ?lang=en for English.
+
+Non-commercial and educational. No automated mastery score is shown and no
+stage unlocks on its own — a parent judges the child's recitation.
+
+## Quran reader
+- [The reader](https://yahyaquran.com/read): all 114 surahs in the Uthmani text, each with
+  a verified teaching recitation. Individual surahs are at https://yahyaquran.com/read/1
+  through https://yahyaquran.com/read/114.
+
+## Stories from the Quran
+- [Animals in the Quran — حيوانات في القرآن](https://yahyaquran.com/stories/animals): 8 stories. Eight stories about animals the Quran names, and what they teach.
+- [Women in the Quran — نساء في القرآن](https://yahyaquran.com/stories/women): 8 stories. Inspiring examples of patience, faith, and wisdom from Quranic stories.
+- [Stories of the Prophets — قصص الأنبياء](https://yahyaquran.com/stories/prophets): 17 stories. Seventeen stories from Adam to Muhammad.
+- [People and Nations — شخصيات وأمم](https://yahyaquran.com/stories/nations): 9 stories. Nine stories about the nations and figures the Quran names, and what became of them.
+
+## Seerah of the Prophet
+- [Beginnings — Seeds of Light](https://yahyaquran.com/seerah#station-1): 5 stories. Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.
+- [The Truthful, The Trustworthy](https://yahyaquran.com/seerah#station-2): 5 stories. Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.
+
+## Other
+- [Privacy](https://yahyaquran.com/privacy)
+- [Terms](https://yahyaquran.com/terms)
+- [Sitemap](https://yahyaquran.com/sitemap.xml)
