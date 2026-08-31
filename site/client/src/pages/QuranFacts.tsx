@@ -116,6 +116,7 @@ const copy = {
     allDone: "اكتشفت كل البطاقات! ما رأيك أن تحكيها لأحد في البيت؟",
     reset: "أغلق كل البطاقات",
     hidden: "بطاقة لم تُقلب بعد",
+    heroAlt: "مصحف مفتوح على مرج أخضر، يخرج منه نور ذهبي يحمل فانوسًا وغصن زيتون وريشة كتابة، ونملة صغيرة تدور حوله.",
     close: "أغلق البطاقة",
     quizOpen: "اختبر معلوماتك",
     quizClose: "أغلق الاختبار",
@@ -144,6 +145,7 @@ const copy = {
     allDone: "Every card is turned over. Who at home would like to hear one of these?",
     reset: "Close every card",
     hidden: "A card not yet turned over",
+    heroAlt: "An open mushaf on green grass, golden light rising from it carrying a lantern, an olive branch and a writing quill, with a small ant circling it.",
     close: "Close the card",
     quizOpen: "Test yourself",
     quizClose: "Close the quiz",
@@ -367,10 +369,22 @@ export default function QuranFacts() {
 
       <div id={MAIN_CONTENT_ID}>
         <section className="stories-list-hero">
-          <div className="container">
-            <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
-            <h1>{t.title}</h1>
-            <p>{t.intro}</p>
+          <div className="container stories-list-hero__grid">
+            <div>
+              <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
+              <h1>{t.title}</h1>
+              <p>{t.intro}</p>
+            </div>
+            <figure className="animals-collection-cover">
+              <img
+                src="/facts/hero-960.webp"
+                srcSet="/facts/hero-640.webp 640w, /facts/hero-960.webp 960w, /facts/hero-1280.webp 1280w, /facts/hero-1600.webp 1600w"
+                sizes="(max-width: 900px) 92vw, 42vw"
+                width={1600}
+                height={900}
+                alt={t.heroAlt}
+              />
+            </figure>
           </div>
         </section>
 

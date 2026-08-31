@@ -105,7 +105,7 @@ function metaForPath(pathname: string) {
   const base = { image: DEFAULT_IMAGE };
 
   if (head === "quran-facts") {
-    return { ...base, path: "/quran-facts",
+    return { ...base, image: "/facts/share.jpg", path: "/quran-facts",
       title: "في رحاب القرآن — اكتشف أسرار القرآن",
       description: "مئة معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
   }

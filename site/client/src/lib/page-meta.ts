@@ -104,7 +104,9 @@ export const quranFactsMeta: Meta = {
   path: "/quran-facts",
   title: "في رحاب القرآن — اكتشف أسرار القرآن",
   description: "مئة معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها.",
-  image: DEFAULT_IMAGE,
+  // The section has art of its own, so a link to it does not share Yahya's
+  // portrait — it shares what the section is about.
+  image: "/facts/share.jpg",
   i18n: { en: { title: "In the Realm of the Quran — Discover the Quran", description: "A hundred things worth knowing about the Quran for children, each behind a card you turn over." } },
 };
 
