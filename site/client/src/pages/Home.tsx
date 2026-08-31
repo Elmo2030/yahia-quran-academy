@@ -72,6 +72,15 @@ export default function Home() {
           <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><a href="#about">{t.about}</a><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
           <div className="header-actions"><LanguageToggle compact />{session ? <Link href="/profile" className="header-auth-link"><UserRound size={15} aria-hidden="true" /> {t.account}</Link> : <Link href="/register" className="header-auth-link"><LogIn size={15} aria-hidden="true" /> {t.register}</Link>}<Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
         </div>
+        {/* .site-nav is hidden below 820px; without this the home page had no
+            navigation at all on a phone. */}
+        <nav className="container site-subnav" aria-label={locale === "ar" ? "تنقل مختصر" : "Quick navigation"}>
+          <a href="#about">{t.about}</a>
+          <Link href="/stories">{t.stories}</Link>
+          <Link href="/seerah">{t.seerahNav}</Link>
+          <a href="#journey">{t.journey}</a>
+          <Link href="/register">{t.register}</Link>
+        </nav>
       </header>
 
       <section id={MAIN_CONTENT_ID} className="hero-section">
