@@ -25,7 +25,7 @@ const MIN_PASSWORD = 8;
 
 export default function Register() {
   const { locale, setLocale } = useLocale();
-  const { signUp, configured, initialized, session } = useAuth();
+  const { signUp, resendConfirmation, configured, initialized, session } = useAuth();
   const [, navigate] = useLocation();
   const next = readNextParam();
 
@@ -36,6 +36,7 @@ export default function Register() {
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [awaitingConfirmation, setAwaitingConfirmation] = useState(false);
+  const [resendState, setResendState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
 
   // If a session already exists while we are on /register (e.g. user navigated
   // here from the site header), bounce them away to avoid showing the form.
@@ -64,6 +65,10 @@ export default function Register() {
         checkInboxBody: "أنشأنا حسابك وأرسلنا رسالة تأكيد إلى بريدك. افتح الرسالة واضغط رابط التأكيد، وبعدها سجّل الدخول.",
         checkInboxSpam: "لو لم تصلك الرسالة خلال دقائق، راجع مجلد البريد غير المرغوب فيه.",
         goToLogin: "اذهب إلى تسجيل الدخول",
+        resend: "لم تصلك الرسالة؟ أعد الإرسال",
+        resending: "جارٍ الإرسال…",
+        resent: "أرسلنا رسالة تأكيد جديدة.",
+        resendFailed: "تعذّر إرسال الرسالة. حاول بعد قليل.",
         name: "الاسم الذي يظهر للآخرين",
         email: "البريد الإلكتروني",
         password: "كلمة المرور",
@@ -87,6 +92,10 @@ export default function Register() {
         checkInboxBody: "Your account is created. We have sent a confirmation email — open it, click the link, and then sign in.",
         checkInboxSpam: "If it has not arrived in a few minutes, check your spam folder.",
         goToLogin: "Go to sign in",
+        resend: "Didn\u2019t get it? Send it again",
+        resending: "Sending\u2026",
+        resent: "A new confirmation email is on its way.",
+        resendFailed: "Could not send it. Try again shortly.",
         name: "Display name",
         email: "Email",
         password: "Password",
@@ -160,12 +169,32 @@ export default function Register() {
             <p className="mt-3 text-sm leading-7 text-[var(--brand-navy)]/80">{copy.checkInboxBody}</p>
             <p className="mt-2 text-xs leading-6 text-[var(--brand-navy)]/60">{copy.checkInboxSpam}</p>
             <p className="mt-3 text-sm font-medium text-[var(--brand-navy)]">{email}</p>
-            <Link
-              href={`/login${next ? `?next=${encodeURIComponent(next)}` : ""}`}
-              className="mt-5 inline-flex rounded-md bg-[var(--brand-navy)] px-4 py-2 text-sm font-medium text-[var(--brand-ivory)]"
-            >
-              {copy.goToLogin}
-            </Link>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <Link
+                href={`/login${next ? `?next=${encodeURIComponent(next)}` : ""}`}
+                className="inline-flex rounded-md bg-[var(--brand-navy)] px-4 py-2 text-sm font-medium text-[var(--brand-ivory)]"
+              >
+                {copy.goToLogin}
+              </Link>
+              <button
+                type="button"
+                disabled={resendState === "sending"}
+                onClick={async () => {
+                  setResendState("sending");
+                  try {
+                    await resendConfirmation(email);
+                    setResendState("sent");
+                  } catch {
+                    setResendState("failed");
+                  }
+                }}
+                className="text-sm font-medium text-[var(--brand-navy)] underline disabled:opacity-60"
+              >
+                {resendState === "sending" ? copy.resending : copy.resend}
+              </button>
+            </div>
+            {resendState === "sent" && <p className="mt-3 text-sm text-green-800" role="status">{copy.resent}</p>}
+            {resendState === "failed" && <p className="mt-3 text-sm text-red-700" role="alert">{copy.resendFailed}</p>}
           </div>
         </main>
         <SiteFooter />

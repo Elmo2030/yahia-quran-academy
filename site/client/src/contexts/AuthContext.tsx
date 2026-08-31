@@ -98,6 +98,9 @@ type AuthApi = AuthState & {
   signIn: (input: SignInInput) => Promise<void>;
   signInWithProvider: (provider: SocialProvider, redirectTo?: string) => Promise<void>;
   sendPasswordReset: (email: string) => Promise<void>;
+  /** Sends a fresh confirmation link. Supabase expires the original, so an
+   *  account left unconfirmed for a while has no working link at all. */
+  resendConfirmation: (email: string) => Promise<void>;
   updatePassword: (password: string) => Promise<void>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
@@ -371,6 +374,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { needsEmailConfirmation: !data.session };
   }, []);
 
+  const resendConfirmation = useCallback(async (email: string) => {
+    const client = getSupabase();
+    if (!client) throw new AuthError("not_configured", "إعادة الإرسال غير متاحة مؤقتًا.", "Resending is temporarily unavailable.");
+    const { error } = await client.auth.resend({
+      type: "signup",
+      email: email.trim(),
+      options: { emailRedirectTo: `${window.location.origin}/login` },
+    });
+    if (error) {
+      const f = friendlyForSupabaseError(error.message);
+      throw new AuthError(f.code, f.ar, f.en, error);
+    }
+  }, []);
+
   const signOut = useCallback(async () => {
     const client = getSupabase();
     if (!client) return;
@@ -401,11 +418,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signIn,
     signInWithProvider,
     sendPasswordReset,
+    resendConfirmation,
     updatePassword,
     signOut,
     refreshProfile,
     updateProfile,
-  }), [state, signUp, signIn, signInWithProvider, sendPasswordReset, updatePassword, signOut, refreshProfile, updateProfile]);
+  }), [state, signUp, signIn, signInWithProvider, sendPasswordReset, resendConfirmation, updatePassword, signOut, refreshProfile, updateProfile]);
 
   return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
 }

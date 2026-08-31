@@ -21,7 +21,7 @@ import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 
 export default function Login() {
   const { locale } = useLocale();
-  const { signIn, configured, initialized } = useAuth();
+  const { signIn, resendConfirmation, configured, initialized } = useAuth();
   const [, navigate] = useLocation();
   const next = readNextParam();
 
@@ -29,6 +29,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  // Supabase expires the original confirmation link, so an account left
+  // unconfirmed for a while cannot be rescued from the inbox alone.
+  const [unconfirmed, setUnconfirmed] = useState(false);
+  const [resendState, setResendState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
 
   const copy = locale === "ar"
     ? {
@@ -61,12 +65,14 @@ export default function Login() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErrorMessage(null);
+    setUnconfirmed(false);
     setSubmitting(true);
     try {
       await signIn({ email, password });
       navigate(next || "/profile");
     } catch (err) {
       setErrorMessage(err instanceof AuthError ? (locale === "ar" ? err.friendlyAr : err.friendlyEn) : (locale === "ar" ? "تعذّر تسجيل الدخول." : "Sign-in failed."));
+      if (err instanceof AuthError && err.code === "email_not_confirmed") setUnconfirmed(true);
     } finally {
       setSubmitting(false);
     }
@@ -119,6 +125,39 @@ export default function Login() {
                 data-testid="login-password"
               />
             </div>
+            {unconfirmed && (
+              <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+                <button
+                  type="button"
+                  disabled={resendState === "sending"}
+                  onClick={async () => {
+                    setResendState("sending");
+                    try {
+                      await resendConfirmation(email);
+                      setResendState("sent");
+                    } catch {
+                      setResendState("failed");
+                    }
+                  }}
+                  className="font-medium underline disabled:opacity-60"
+                  data-testid="login-resend"
+                >
+                  {resendState === "sending"
+                    ? (locale === "ar" ? "جارٍ الإرسال…" : "Sending…")
+                    : (locale === "ar" ? "أرسل رسالة تأكيد جديدة" : "Send a new confirmation email")}
+                </button>
+                {resendState === "sent" && (
+                  <p className="mt-2" role="status">
+                    {locale === "ar" ? "أرسلنا رسالة تأكيد جديدة إلى بريدك." : "A new confirmation email is on its way."}
+                  </p>
+                )}
+                {resendState === "failed" && (
+                  <p className="mt-2" role="alert">
+                    {locale === "ar" ? "تعذّر إرسال الرسالة. حاول بعد قليل." : "Could not send it. Try again shortly."}
+                  </p>
+                )}
+              </div>
+            )}
             {errorMessage && (
               <p role="alert" className="text-sm text-red-700" data-testid="login-error">{errorMessage}</p>
             )}
