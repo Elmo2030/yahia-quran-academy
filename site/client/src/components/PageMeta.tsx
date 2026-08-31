@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
-import { metaForPath, SITE_NAME } from "@/lib/page-meta";
+import { localizedMeta, metaForPath, SITE_NAME, SITE_NAME_EN } from "@/lib/page-meta";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const ORIGIN = "https://yahyaquran.com";
 
@@ -15,7 +16,10 @@ const ORIGIN = "https://yahyaquran.com";
  */
 export function PageMeta() {
   const [pathname] = useLocation();
-  const meta = metaForPath(pathname);
+  const { locale } = useLocale();
+  // The Meta objects carry English variants; nothing was reading them, so every
+  // tab title, bookmark and search result stayed Arabic for an English reader.
+  const meta = localizedMeta(metaForPath(pathname), locale);
   const url = `${ORIGIN}${meta.path === "/" ? "/" : meta.path}`;
   const image = meta.image.startsWith("http") ? meta.image : `${ORIGIN}${meta.image}`;
 
@@ -30,6 +34,7 @@ export function PageMeta() {
 
   return (
     <>
+      <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} />
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={url} />
@@ -38,8 +43,8 @@ export function PageMeta() {
       {meta.noindex && <meta name="robots" content="noindex,nofollow" />}
 
       <meta property="og:type" content={meta.path === "/" ? "website" : "article"} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="ar_AR" />
+      <meta property="og:site_name" content={locale === "en" ? SITE_NAME_EN : SITE_NAME} />
+      <meta property="og:locale" content={locale === "en" ? "en_US" : "ar_AR"} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:image" content={image} />

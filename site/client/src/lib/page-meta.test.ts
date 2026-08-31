@@ -9,7 +9,7 @@
  */
 import { describe, expect, it } from "vitest";
 
-import { metaForPath } from "@/lib/page-meta";
+import { localizedMeta, metaForPath } from "@/lib/page-meta";
 import { chapters, stories } from "@/content/stories";
 import { seerahStories } from "@/content/seerah";
 import { getSurahName } from "@/lib/quran-content";
@@ -55,6 +55,25 @@ describe("metaForPath", () => {
     for (const path of ["/login", "/register", "/profile"]) {
       expect(metaForPath(path).noindex, path).toBe(true);
     }
+  });
+
+  it("reads in English when the reader is in English", () => {
+    const arabic = /[؀-ۿ]/;
+    const routes = [
+      "/", "/stories", "/stories/prophets", "/stories/prophets/adam",
+      "/seerah", "/seerah/birth-of-light", "/read", "/read/1", "/read/114",
+      "/login", "/register", "/nope",
+    ];
+    for (const path of routes) {
+      const meta = localizedMeta(metaForPath(path), "en");
+      expect(arabic.test(meta.title), `${path} — title: ${meta.title}`).toBe(false);
+      expect(arabic.test(meta.description), `${path} — description`).toBe(false);
+    }
+  });
+
+  it("stays Arabic by default", () => {
+    expect(metaForPath("/read/1").title).toContain("سورة");
+    expect(localizedMeta(metaForPath("/read/1"), "ar").title).toContain("سورة");
   });
 
   it("indexes the public pages", () => {

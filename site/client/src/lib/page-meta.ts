@@ -7,7 +7,7 @@ import {
   seerahStationIndex,
   seerahStoryIndex,
 } from "./page-index.generated";
-import { surahNames } from "./quran-content";
+import { englishSurahNames, surahNames } from "./quran-content";
 
 // =============================================================================
 // page-meta.ts — canonical per-route metadata for the static SPA.
@@ -38,6 +38,9 @@ export type Meta = {
 };
 
 export const SITE_NAME = "أكاديمية يحيى لتعليم القرآن للأطفال";
+export const SITE_NAME_EN = "Yahya Quran Academy";
+export const SITE_DESCRIPTION_EN =
+  "The Quran in the Uthmani text with verified teaching recitations, and illustrated stories from the Quran for children, in four chapters.";
 export const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
 export const DEFAULT_IMAGE = "/og-cover.jpg";
@@ -172,10 +175,10 @@ export const resetPasswordMeta: Meta = {
 type SurahLookup = { number: number; nameAr: string };
 // `cover` is nullable in content/stories (a chapter awaiting art), and the
 // call sites use `?? DEFAULT_IMAGE`, which handles null as well as undefined.
-type ChapterLookup = { slug: string; titleAr: string; descriptionAr: string; cover?: string | null };
+type ChapterLookup = { slug: string; titleAr: string; descriptionAr: string; titleEn?: string | null; descriptionEn?: string | null; cover?: string | null };
 // The generated index writes null for "no artwork"; call sites use
 // `?? DEFAULT_IMAGE`, which handles both.
-type StoryLookup = { chapter: string; slug: string; title: string; hook: string; image?: string | null };
+type StoryLookup = { chapter: string; slug: string; title: string; hook: string; titleEn?: string | null; hookEn?: string | null; image?: string | null };
 
 export type LookupBundle = ReadonlyArray<SurahLookup> & {
   __kind?: "surahs";
@@ -210,6 +213,14 @@ const FALLBACK_NOT_FOUND: Meta = {
   description: SITE_DESCRIPTION,
   image: DEFAULT_IMAGE,
   noindex: true,
+  i18n: { en: { title: "Page not found — Yahya Quran Academy", description: SITE_DESCRIPTION_EN } },
+};
+
+/** The metadata as the reader's locale sees it. Falls back to Arabic for
+ *  anything with no English variant, which is what the pages do too. */
+export const localizedMeta = (meta: Meta, locale: Locale): Meta => {
+  const variant = meta.i18n?.[locale];
+  return variant ? { ...meta, title: variant.title, description: variant.description } : meta;
 };
 
 export const metaForPath = (pathname: string): Meta => {
@@ -237,6 +248,7 @@ export const metaForPath = (pathname: string): Meta => {
         title: `السيرة النبوية — ${seerahStationIndex.length} محطات · ${SITE_NAME}`,
         description: seerahStationIndex.map(station => station.titleAr).join(" · "),
         image: DEFAULT_IMAGE,
+        i18n: { en: { title: `The Prophet's Seerah — ${seerahStationIndex.length} stations · ${SITE_NAME_EN}`, description: seerahStationIndex.map(station => station.titleEn ?? station.titleAr).join(" · ") } },
       };
     }
     const story = seerahStoryIndex.find(entry => entry.slug === parts[1]);
@@ -246,6 +258,7 @@ export const metaForPath = (pathname: string): Meta => {
         title: `${story.title} · السيرة النبوية`,
         description: story.description,
         image: story.image ?? DEFAULT_IMAGE,
+        i18n: story.titleEn ? { en: { title: `${story.titleEn} · The Prophet's Seerah`, description: story.descriptionEn ?? story.description } } : undefined,
       };
     }
     return FALLBACK_NOT_FOUND;
@@ -258,6 +271,7 @@ export const metaForPath = (pathname: string): Meta => {
         title: `القارئ — ١١٤ سورة · ${SITE_NAME}`,
         description: "اختر أي سورة واقرأها بالنص العثماني، واستمع إليها بتلاوة معلّمة موثقة.",
         image: DEFAULT_IMAGE,
+        i18n: { en: { title: `The reader — all 114 surahs · ${SITE_NAME_EN}`, description: "Choose any surah, read it in the Uthmani text, and listen to a verified teaching recitation." } },
       };
     }
     const n = Number(parts[1]);
@@ -268,6 +282,7 @@ export const metaForPath = (pathname: string): Meta => {
           title: `سورة ${name} — قراءة واستماع · ${SITE_NAME}`,
           description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.`,
           image: DEFAULT_IMAGE,
+          i18n: { en: { title: `Surah ${englishSurahNames[n - 1] ?? name} — read and listen · ${SITE_NAME_EN}`, description: `Read Surah ${englishSurahNames[n - 1] ?? name} in the Uthmani text and listen to a verified teaching recitation, with the ayah and word lit up as it is recited.` } },
         }
       : FALLBACK_NOT_FOUND;
   }
@@ -280,6 +295,7 @@ export const metaForPath = (pathname: string): Meta => {
         description:
           "القصص في أبواب أربعة: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.",
         image: DEFAULT_IMAGE,
+        i18n: { en: { title: `Stories from the Quran for children · ${SITE_NAME_EN}`, description: "Four chapters: the prophets, people and nations, animals the Quran names, and women in the Quran." } },
       };
     }
     if (parts[2]) {
@@ -290,6 +306,7 @@ export const metaForPath = (pathname: string): Meta => {
           title: `${story.title} · قصص من القرآن`,
           description: story.hook,
           image: story.image ?? DEFAULT_IMAGE,
+          i18n: story.titleEn ? { en: { title: `${story.titleEn} · Stories from the Quran`, description: story.hookEn ?? story.hook } } : undefined,
         };
       }
     }
@@ -300,6 +317,7 @@ export const metaForPath = (pathname: string): Meta => {
         title: `${chapter.titleAr} · ${SITE_NAME}`,
         description: chapter.descriptionAr,
         image: chapter.cover ?? DEFAULT_IMAGE,
+        i18n: chapter.titleEn ? { en: { title: `${chapter.titleEn} · ${SITE_NAME_EN}`, description: chapter.descriptionEn ?? chapter.descriptionAr } } : undefined,
       };
     }
     return FALLBACK_NOT_FOUND;
@@ -311,6 +329,7 @@ export const metaForPath = (pathname: string): Meta => {
       title: SITE_NAME,
       description: SITE_DESCRIPTION,
       image: DEFAULT_IMAGE,
+      i18n: { en: { title: SITE_NAME_EN, description: SITE_DESCRIPTION_EN } },
     };
   }
   return FALLBACK_NOT_FOUND;
