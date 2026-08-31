@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useReadingProgress } from "@/lib/progress";
+import { RecitationRecorder } from "@/components/RecitationRecorder";
 
 const yahyaCharacterUrl = "/manus-storage/yahya-hero.png";
 
@@ -134,6 +135,7 @@ export default function Reader() {
         <article className="quran-card"><div className="quran-card__topline"><span>{locale === "en" ? getEnglishSurahName(selectedSurah) : t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></span><span className="verified-pill">{t.verified}</span></div>
           <section className="recitation-companion" aria-label={t.room}><Avatar className="recitation-companion__avatar"><AvatarImage src={yahyaCharacterUrl} alt="" /><AvatarFallback>ي</AvatarFallback></Avatar><div className="recitation-companion__copy"><span>{t.room}</span><b>{t.companion}</b></div><div className="recitation-companion__steps" aria-label={t.room}><span><Headphones size={13} /> {t.steps[0]}</span><span><Heart size={13} /> {t.steps[1]}</span><span><Mic size={13} /> {t.steps[2]}</span><span><Check size={13} /> {t.steps[3]}</span></div></section>
           {hasPlayback ? <div className="audio-deck"><button className="play-button" onClick={togglePlayback} aria-label={playing ? t.pause : t.play}>{playing ? <Pause fill="currentColor" size={22} /> : <Play fill="currentColor" size={22} />}</button><div><b>{playing ? t.playing : t.listen}</b><span>{t.narration}</span></div><Headphones className="audio-deck__icon" size={24} /><audio ref={playerRef} src={audio?.playbackUrl} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} onError={() => setError(t.audioFailure)} /></div> : <div className="audio-deck audio-deck--unavailable"><Volume2 size={24} /><span>{t.audioUnavailable}</span></div>}
+          <RecitationRecorder surah={selectedSurah} />
           {loading && <div className="reader-loading"><Loader2 className="animate-spin" size={24} /> {t.loading}</div>}{error && <div className="reader-error" role="alert">{error}</div>}{!loading && !error && ayahs.length === 0 && <div className="reader-loading">{t.noAyahs}</div>}{!loading && !error && ayahs.length > 0 && <div className="ayah-list" dir="rtl" lang="ar">{ayahs.map((ayah) => {
               const isActiveAyah = active.ayah === ayah.number;
               const timed = timings.find(entry => entry.number === ayah.number);
