@@ -1456,4 +1456,39 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/morning-of-certainty" />
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/dar-al-nadwa-dust</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/dar-al-nadwa-dust" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/dar-al-nadwa-dust?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/dar-al-nadwa-dust" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/hero-in-the-bed</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/hero-in-the-bed" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/hero-in-the-bed?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/hero-in-the-bed" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/tears-of-joy-companion</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/tears-of-joy-companion" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/tears-of-joy-companion?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/tears-of-joy-companion" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/asma-that-al-nitaqayn</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/asma-that-al-nitaqayn" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/asma-that-al-nitaqayn?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/asma-that-al-nitaqayn" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/smart-shepherd-footprints</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/smart-shepherd-footprints" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/smart-shepherd-footprints?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/smart-shepherd-footprints" />
+    <priority>0.7</priority>
+  </url>
 </urlset>

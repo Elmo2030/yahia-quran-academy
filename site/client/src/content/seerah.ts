@@ -132,6 +132,15 @@ export const seerahStations: SeerahStation[] = [
     descriptionEn:
       "Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.",
   },
+  {
+    stationId: 6,
+    titleAr: "الهجرة إلى المدينة",
+    titleEn: "The Migration to Madinah",
+    descriptionAr:
+      "الليلة التي خرج فيها النبي ﷺ من مكة ومن وقف معه: مؤامرة دار الندوة، وعليّ في الفراش، ودموع أبي بكر، ونِطاق أسماء، وغنم عامر التي محت الأثر.",
+    descriptionEn:
+      "The night the Prophet (pbuh) left Mecca, and those who stood with him: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr's tears, Asma's belt, and Amir's flock that erased the tracks.",
+  },
 ];
 
 /** A story's text in the requested language, falling back to the Arabic for
@@ -3194,6 +3203,386 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟢",
       reference: "سيرة ابن هشام، وصحيح البخاري",
       note: "وصف النبي ﷺ للمسجد الأقصى في البخاري، وخبر تلقيب أبي بكر بالصدّيق في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-6-01",
+    stationId: 6,
+    slug: "dar-al-nadwa-dust",
+    en: {
+      title: "The Plot at Dar an-Nadwa and a Handful of Dust",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The chiefs of Quraysh met at Dar an-Nadwa to plan how to be rid of the Prophet (pbuh), and agreed to take a young man from every tribe to strike him together. They surrounded his house at night, waiting for him to come out. But Allah told His Prophet what they had planned and gave him leave to go, and he walked out from among them, and not one of them saw him.",
+          shortLesson: "Allah's protection is stronger than any plan.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When Quraysh saw Islam spreading, their chiefs met at Dar an-Nadwa and debated: should they imprison him, drive him out, or kill him? They settled on what Abu Jahl proposed: take one young man from every tribe, so that they would strike him as one man and his blood would be spread among all the clans. They surrounded the Prophet's house at night, waiting. But Allah showed His Prophet their scheming and gave him leave to migrate. He walked out from among them reciting Surah Ya-Sin, and took a handful of dust and scattered it — and not one of them saw him until he had gone.",
+          details:
+            "Among what he recited: ﴿وَجَعَلْنَا مِن بَيْنِ أَيْدِيهِمْ سَدًّا وَمِنْ خَلْفِهِمْ سَدًّا فَأَغْشَيْنَاهُمْ فَهُمْ لَا يُبْصِرُونَ﴾.",
+        },
+      },
+      interactive: {
+        discover: "A verse came down about this very plot: “And when those who disbelieved plotted against you” — Surah Al-Anfal.",
+        value: { name: "Allah's protection", icon: "🛡️" },
+        thinkQuestion: "When have you felt Allah protected you from something you could not see?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Where did the chiefs of Quraysh meet to make their plan?",
+          options: ["At the Kaaba", "At Dar an-Nadwa", "At the market", "At Taif"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Handful of Dust", description: "Dust: the weakest means is enough when Allah wills it." },
+        badge: "Badge: Under Allah's Protection",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, and Surah Al-Anfal",
+        note: "The plot itself is established in the Quran in Surah Al-Anfal; the handful of dust and the recitation of Ya-Sin come from Ibn Ishaq without a full chain.",
+      },
+    },
+    title: "مؤامرة دار الندوة وحفنة التراب",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "اجتمع زعماء قريش في دار الندوة يدبّرون كيف يتخلّصون من النبي ﷺ، فاتفقوا أن يأخذوا من كل قبيلة شاباً ليضربوه معاً. وأحاطوا ببيته ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على ما دبّروا وأمره بالخروج، فخرج من بينهم ولم يبصره أحد منهم.",
+        shortLesson: "حماية الله أقوى من كل خطة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما رأت قريش الإسلام ينتشر اجتمع زعماؤها في دار الندوة يتشاورون: أيحبسونه أم يخرجونه أم يقتلونه؟ فاستقرّ رأيهم على ما أشار به أبو جهل: أن يأخذوا من كل قبيلة فتى شاباً، فيضربوه ضربة رجل واحد، حتى يتفرّق دمه في القبائل. فأحاطوا ببيت النبي ﷺ ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على مكرهم وأذن له بالهجرة، فخرج من بينهم وهو يتلو من سورة يس، وأخذ حفنة من تراب فنثرها، فما أبصره أحد منهم حتى مضى.",
+        details:
+          "وممّا تلاه عليهم قوله تعالى: ﴿وَجَعَلْنَا مِن بَيْنِ أَيْدِيهِمْ سَدًّا وَمِنْ خَلْفِهِمْ سَدًّا فَأَغْشَيْنَاهُمْ فَهُمْ لَا يُبْصِرُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "نزلت في هذه المؤامرة آية: ﴿وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا﴾ في سورة الأنفال.",
+      value: { name: "حفظ الله", icon: "🛡️" },
+      thinkQuestion:
+        "متى شعرت أن الله حماك من شيء لم تكن تراه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أين اجتمع زعماء قريش ليدبّروا أمرهم؟",
+        options: ["في الكعبة", "في دار الندوة", "في السوق", "في الطائف"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حفنة تراب", description: "تراب يذكّرك أن أضعف الأسباب تكفي إذا أراد الله." },
+      badge: "وسام: في حفظ الله",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، وسورة الأنفال",
+      note: "أصل المؤامرة ثابت بالقرآن في سورة الأنفال؛ وتفصيل حفنة التراب وتلاوة يس جاء عند ابن إسحاق مرسلاً.",
+    },
+  },
+  {
+    storyId: "st-6-02",
+    stationId: 6,
+    slug: "hero-in-the-bed",
+    en: {
+      title: "The Hero in the Bed",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Before the Prophet (pbuh) left, he asked his young cousin Ali ibn Abi Talib to sleep in his bed and cover himself with his cloak, so that anyone looking in would think the Prophet was asleep. Ali did not hesitate. And the Prophet asked him to stay behind for a few days to return the deposits people had left with him — the very people plotting against him.",
+          shortLesson: "A trust is returned even to someone who wrongs you.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Before the Prophet (pbuh) left his house, he asked his young cousin Ali ibn Abi Talib to sleep in his bed and cover himself with his green cloak, so that those watching at the door would think the Prophet was still asleep. Ali did not hesitate for a moment, knowing the danger. And that was not his only task: the Prophet asked him to remain in Mecca for some days to return the deposits to their owners — for the people of Mecca left their wealth with him because he was the truthful and trustworthy one, while at the same time plotting to kill him. When they broke into the house in the morning and found Ali, they were furious.",
+          details:
+            "Allah says of the one who gives himself: ﴿وَمِنَ النَّاسِ مَن يَشْرِي نَفْسَهُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ﴾.",
+        },
+      },
+      interactive: {
+        discover: "Ali was about twenty-three years old that night.",
+        value: { name: "Trustworthiness and sacrifice", icon: "🌙" },
+        thinkQuestion: "If someone you disagree with left something in your keeping, would you return it in full?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did Ali stay behind in Mecca after the Prophet (pbuh) left?",
+          options: ["To fight Quraysh", "To return the deposits to their owners", "To sell the house", "To wait for Hajj"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Green Cloak", description: "A cloak: sometimes courage is lying down in someone else's place." },
+        badge: "Badge: Keeper of Trusts",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah",
+        note: "Ali sleeping in the bed and returning the deposits are well known in the Seerah literature.",
+      },
+    },
+    title: "البطل النائم في الفراش",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "قبل أن يخرج النبي ﷺ طلب من ابن عمه الشاب علي بن أبي طالب أن ينام في فراشه ويتغطّى ببردته، حتى يظنّ من ينظر أن النبي نائم. فما تردّد علي رضي الله عنه. وطلب منه النبي ﷺ أن يبقى بعده أياماً ليردّ الأمانات إلى أصحابها — وهم أعداؤه الذين كانوا يأتمنونه.",
+        shortLesson: "الأمانة تُردّ حتى لمن يؤذيك.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "قبل أن يخرج النبي ﷺ من بيته طلب من ابن عمه الشاب علي بن أبي طالب رضي الله عنه أن ينام في فراشه ويتغطّى ببردته الخضراء، حتى يظنّ المتربّصون من الباب أن النبي ما زال نائماً. فلم يتردّد علي لحظة مع علمه بالخطر. ولم تكن هذه هي المهمة الوحيدة: طلب منه النبي ﷺ أن يبقى في مكة بعده أياماً ليردّ الودائع إلى أصحابها، فقد كان أهل مكة يودعون أموالهم عنده لأنه الصادق الأمين — وهم في الوقت نفسه يدبّرون لقتله. فلما اقتحموا البيت في الصباح وجدوا علياً فاغتاظوا.",
+        details:
+          "قال تعالى فيمن يبذل نفسه: ﴿وَمِنَ النَّاسِ مَن يَشْرِي نَفْسَهُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ ۗ وَاللَّهُ رَءُوفٌ بِالْعِبَادِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان عمر علي رضي الله عنه يومئذ نحو ثلاث وعشرين سنة.",
+      value: { name: "الأمانة والتضحية", icon: "🌙" },
+      thinkQuestion:
+        "لو ائتمنك شخص تختلف معه على شيء، هل تردّه إليه كاملاً؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا بقي علي رضي الله عنه في مكة بعد خروج النبي ﷺ؟",
+        options: ["ليقاتل قريشاً", "ليردّ الأمانات إلى أصحابها", "ليبيع البيت", "لينتظر الحج"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "بُردة خضراء", description: "بُردة يذكّرك أن الشجاعة أحياناً أن تنام مكان غيرك." },
+      badge: "وسام: أمين الودائع",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام",
+      note: "مبيت علي رضي الله عنه في الفراش وردّ الودائع مشهوران في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-6-03",
+    stationId: 6,
+    slug: "tears-of-joy-companion",
+    en: {
+      title: "Tears of Joy: “May I Accompany You?”",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the fierce heat of midday the Prophet (pbuh) came to Abu Bakr's house and told him Allah had given him leave to migrate. Abu Bakr said: “May I accompany you, Messenger of Allah?” He said: “Yes.” And Abu Bakr wept for joy. Aisha said: I never thought anyone could weep from joy until I saw my father weep that day.",
+          shortLesson: "A true friend is glad to share your hardship.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "At midday, the hour when no one goes out for the heat, the Prophet (pbuh) came quietly to Abu Bakr's house and told him that Allah had given him leave to depart. Abu Bakr, his eagerness ahead of his words, asked: “May I accompany you, Messenger of Allah?” He said: “Yes.” And Abu Bakr wept for sheer joy. His daughter Aisha said: “By Allah, I never thought anyone could weep from joy until I saw Abu Bakr weep that day.” He had already prepared two mounts and been feeding them for months, ready for this day.",
+          details:
+            "Allah says of this companionship: ﴿ثَانِيَ اثْنَيْنِ إِذْ هُمَا فِي الْغَارِ إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا﴾.",
+        },
+      },
+      interactive: {
+        discover: "Abu Bakr is the only companion described in the Quran as “his companion”.",
+        value: { name: "True companionship", icon: "😢" },
+        thinkQuestion: "Who is the friend you would be glad to work hard alongside? Have you told them?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet (pbuh) answer when Abu Bakr asked to come with him?",
+          options: ["Wait a while", "Yes — companionship", "Stay in Mecca", "Take the mount"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Camel's Rein", description: "A rein for the man who fed his mounts for months, waiting for one day." },
+        badge: "Badge: Companion of the Cave",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The hijrah hadith and Abu Bakr weeping for joy are established in Sahih al-Bukhari, from Aisha.",
+      },
+    },
+    title: "دموع الفرح: الصُّحبة يا رسول الله",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في شدة حرّ الظهيرة جاء النبي ﷺ إلى بيت أبي بكر رضي الله عنه فأخبره أن الله أذن له بالهجرة. فقال أبو بكر: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر من الفرح. تقول عائشة رضي الله عنها: ما كنت أظن أن أحداً يبكي من الفرح حتى رأيت أبي يبكي يومئذ.",
+        shortLesson: "الصديق الحق يفرح أن يشقى معك.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في وقت الظهيرة، وهي ساعة لا يخرج فيها أحد من شدة الحرّ، جاء النبي ﷺ متخفّياً إلى بيت أبي بكر رضي الله عنه فأخبره أن الله قد أذن له في الخروج. فقال أبو بكر ولهفته تسبق كلامه: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر رضي الله عنه من شدة الفرح. تقول ابنته عائشة رضي الله عنها: «والله ما كنت أظن أن أحداً يبكي من الفرح حتى رأيت أبا بكر يبكي يومئذ». وكان قد أعدّ راحلتين وعلفهما أشهراً استعداداً لهذا اليوم.",
+        details:
+          "قال تعالى في هذه الصحبة: ﴿ثَانِيَ اثْنَيْنِ إِذْ هُمَا فِي الْغَارِ إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا﴾.",
+      },
+    },
+    interactive: {
+      discover: "أبو بكر رضي الله عنه هو الصحابي الوحيد الذي ذُكر في القرآن بوصف «صاحبه».",
+      value: { name: "الصحبة الصادقة", icon: "😢" },
+      thinkQuestion:
+        "مَن الصديق الذي تفرح أن تتعب معه؟ وهل قلت له ذلك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ أجاب النبي ﷺ أبا بكر حين سأله الصحبة؟",
+        options: ["انتظر قليلاً", "الصُّحبة", "ابقَ في مكة", "خذ الراحلة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "زمام راحلة", description: "زمام يذكّرك بمن جهّز راحلته أشهراً انتظاراً ليوم واحد." },
+      badge: "وسام: صاحب الغار",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "حديث الهجرة وبكاء أبي بكر من الفرح ثابت في صحيح البخاري عن عائشة رضي الله عنها.",
+    },
+  },
+  {
+    storyId: "st-6-04",
+    stationId: 6,
+    slug: "asma-that-al-nitaqayn",
+    en: {
+      title: "Asma, She of the Two Belts",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "When they packed the provisions they had nothing to tie them with, so Asma bint Abi Bakr took her belt, tore it in two, tied the food with one half and her clothes with the other. The Prophet (pbuh) prayed that Allah give her two belts in Paradise, and she was called “She of the Two Belts”.",
+          shortLesson: "Sometimes the clever answer is already in your hands.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the Prophet (pbuh) and Abu Bakr had packed their provisions, they had nothing to tie the food bag and the waterskin with. So Asma bint Abi Bakr untied her nitaq — the belt she fastened her clothes with — and tore it in two: with one half she tied the provisions, and with the other she fastened her clothes. The Prophet (pbuh) prayed for her: may Allah give you two belts in their place in Paradise. From that day she was called “She of the Two Belts”. And when Abu Jahl came asking about her father, she held firm and told him nothing.",
+          details:
+            "Allah says: ﴿وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ﴾ — “the believing men and women are allies of one another.”",
+        },
+      },
+      interactive: {
+        discover: "Asma was the sister of Aisha, and the daughter of Abu Bakr as-Siddiq.",
+        value: { name: "Quick thinking", icon: "🎀" },
+        thinkQuestion: "Think of a small problem you met today: what answer was in your hands and you did not notice?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why was Asma called “She of the Two Belts”?",
+          options: ["She wore two dresses", "She tore her belt in two, and the Prophet prayed for two in Paradise", "She lived between two mountains", "She migrated twice"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "Half a Belt", description: "Half a belt that solved a problem on a journey that changed history." },
+        badge: "Badge: She of the Two Belts",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "Asma's belt is established in Sahih al-Bukhari; Abu Jahl striking her is in the Seerah literature.",
+      },
+    },
+    title: "أسماء ذات النِّطاقين",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لما جهّزوا الزاد لم يجدوا ما يربطونه به، فقامت أسماء بنت أبي بكر رضي الله عنهما فشقّت نطاقها — أي حزامها — نصفين: ربطت بنصفه الزاد، وشدّت بالآخر ثيابها. فدعا لها النبي ﷺ بنطاقين في الجنة، فسُمّيت ذات النِّطاقين.",
+        shortLesson: "الحل الذكي أحياناً في يدك أنت.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما جهّز النبي ﷺ وأبو بكر زادهما للسفر لم يجدا ما يربطان به السُّفرة وسقاء الماء. فقامت أسماء بنت أبي بكر رضي الله عنهما ففكّت نطاقها — وهو حزام تشدّ به ثيابها — وشقّته نصفين: ربطت بنصفٍ الزاد، وشدّت بالنصف الآخر ثيابها. فقال لها النبي ﷺ داعياً: أبدلك الله بهما نطاقين في الجنة، فسُمّيت من يومها «ذات النِّطاقين». ولما جاء أبو جهل يسأل عن أبيها ثبتت ولم تدلّه على شيء.",
+        details:
+          "قال تعالى: ﴿وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أسماء رضي الله عنها هي أخت عائشة أم المؤمنين، وابنة أبي بكر الصديق.",
+      value: { name: "سرعة البديهة", icon: "🎀" },
+      thinkQuestion:
+        "مشكلة صغيرة واجهتك اليوم: ما الحل الذي كان بين يديك ولم تنتبه له؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا سُمّيت أسماء رضي الله عنها «ذات النِّطاقين»؟",
+        options: ["لأنها لبست ثوبين", "لأنها شقّت نطاقها نصفين فدعا لها النبي ﷺ بنطاقين في الجنة", "لأنها سكنت بين جبلين", "لأنها هاجرت مرتين"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "نصف نِطاق", description: "نصف حزام حلّ مشكلة رحلة غيّرت التاريخ." },
+      badge: "وسام: ذات النطاقين",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "خبر نطاق أسماء رضي الله عنها ثابت في صحيح البخاري؛ وخبر لطمة أبي جهل في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-6-05",
+    stationId: 6,
+    slug: "smart-shepherd-footprints",
+    en: {
+      title: "The Shepherd Who Erased the Tracks",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over their footprints and wiped them away. The trail vanished, and no one could find their road.",
+          shortLesson: "Trusting Allah does not mean neglecting the means.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Among Quraysh were men who could read footprints in the sand with real precision, so the trail was a genuine danger. Abu Bakr arranged something careful: he told his shepherd Amir ibn Fuhayra to drive the flock along behind them, so that the sheep walked over their footprints as they grazed and blotted them out. Amir also brought them the sheep's milk at the cave. By this arrangement the trail was lost in the desert, and no one found them.",
+          details:
+            "Allah says of preparing means: ﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾ — “prepare for them whatever you are able.”",
+        },
+      },
+      interactive: {
+        discover: "Amir ibn Fuhayra was Abu Bakr's freed servant, and among the earliest to accept Islam.",
+        value: { name: "Planning alongside trust", icon: "🐑" },
+        thinkQuestion: "Before something hard: what practical step could you take instead of waiting?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How were the footprints of the Prophet (pbuh) and his companion erased?",
+          options: ["By rain", "By wind", "By Amir ibn Fuhayra's sheep walking behind them", "By a leather cover"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Sheep's Bell", description: "A small bell: a clever plan is itself an act of worship." },
+        badge: "Badge: Careful Planning",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, and Ibn Hisham's Seerah",
+        note: "Amir ibn Fuhayra bringing the sheep to the cave is in Sahih al-Bukhari; the detail of the flock covering the tracks is in the Seerah literature.",
+      },
+    },
+    title: "الراعي الذي محا الآثار",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف أحد طريقهما.",
+        shortLesson: "التوكّل لا يعني ترك الأخذ بالأسباب.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كان في قريش من يعرف قراءة آثار الأقدام على الرمل معرفة دقيقة، فكان الأثر خطراً حقيقياً. فدبّر أبو بكر رضي الله عنه أمراً محكماً: أمر راعيه عامر بن فُهَيرة رضي الله عنه أن يسوق الغنم في إثرهما، فتمشي الغنم على مواضع أقدامهما وترعى، فتطمس الأثر طمساً. وكان عامر يأتيهما بلبن الغنم في الغار. وبهذا التدبير ضاع الأثر في الصحراء فلم يهتدِ إليهما أحد.",
+        details:
+          "قال تعالى في الأخذ بالأسباب: ﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "عامر بن فُهَيرة رضي الله عنه كان مولى لأبي بكر، وهو من السابقين إلى الإسلام.",
+      value: { name: "التخطيط مع التوكل", icon: "🐑" },
+      thinkQuestion:
+        "قبل أي شيء صعب: ما الخطوة العملية التي تستطيع أن تعملها بدل الانتظار؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "كيف مُحيت آثار أقدام النبي ﷺ وصاحبه؟",
+        options: ["بالمطر", "بالريح", "بغنم عامر بن فهيرة تمشي خلفهما", "بغطاء من جلد"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "جرس غنم", description: "جرس صغير يذكّرك أن الخطة الذكية عبادة." },
+      badge: "وسام: حسن التدبير",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، وسيرة ابن هشام",
+      note: "مجيء عامر بن فهيرة بالغنم إلى الغار في صحيح البخاري، وتفصيل تعمية الأثر بالغنم في كتب السيرة.",
     },
   },
 ];

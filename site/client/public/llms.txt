@@ -76,6 +76,7 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Revelation](https://yahyaquran.com/seerah#station-3): 5 stories. Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.
 - [The Call: In Secret, Then Aloud](https://yahyaquran.com/seerah#station-4): 10 stories. Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.
 - [The Night Journey and the Ascension](https://yahyaquran.com/seerah#station-5): 15 stories. Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.
+- [The Migration to Madinah](https://yahyaquran.com/seerah#station-6): 5 stories. The night the Prophet (pbuh) left Mecca, and those who stood with him: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr's tears, Asma's belt, and Amir's flock that erased the tracks.
 
 
 ### Beginnings — Seeds of Light
@@ -127,6 +128,13 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Great Gift: The Prayer — الهدية الكبرى: الصلاة](https://yahyaquran.com/seerah/the-great-gift-prayer): صحيح البخاري ومسلم
 - [Musa's Advice: Five in Deed, Fifty in Reward — نصيحة موسى: خمسٌ في العمل وخمسون في الأجر](https://yahyaquran.com/seerah/musa-advice-reduction): صحيح البخاري ومسلم
 - [The Morning of Certainty, and the Name as-Siddiq — صباح اليقين ولقب الصدّيق](https://yahyaquran.com/seerah/morning-of-certainty): سيرة ابن هشام، وصحيح البخاري
+
+### The Migration to Madinah
+- [The Plot at Dar an-Nadwa and a Handful of Dust — مؤامرة دار الندوة وحفنة التراب](https://yahyaquran.com/seerah/dar-al-nadwa-dust): سيرة ابن هشام، وسورة الأنفال
+- [The Hero in the Bed — البطل النائم في الفراش](https://yahyaquran.com/seerah/hero-in-the-bed): سيرة ابن هشام
+- [Tears of Joy: “May I Accompany You?” — دموع الفرح: الصُّحبة يا رسول الله](https://yahyaquran.com/seerah/tears-of-joy-companion): صحيح البخاري
+- [Asma, She of the Two Belts — أسماء ذات النِّطاقين](https://yahyaquran.com/seerah/asma-that-al-nitaqayn): صحيح البخاري
+- [The Shepherd Who Erased the Tracks — الراعي الذي محا الآثار](https://yahyaquran.com/seerah/smart-shepherd-footprints): صحيح البخاري، وسيرة ابن هشام
 
 ## In the Realm of the Quran
 - [Discover the Quran](https://yahyaquran.com/quran-facts): one hundred short facts about the Quran

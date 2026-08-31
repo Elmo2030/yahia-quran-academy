@@ -446,6 +446,11 @@ export const seerahStationIndex: Station[] = [
   "stationId": 5,
   "titleAr": "الإسراء والمعراج",
   "titleEn": "The Night Journey and the Ascension"
+ },
+ {
+  "stationId": 6,
+  "titleAr": "الهجرة إلى المدينة",
+  "titleEn": "The Migration to Madinah"
  }
 ];
 
@@ -768,6 +773,46 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى أبي ",
   "titleEn": "The Morning of Certainty, and the Name as-Siddiq",
   "descriptionEn": "In the morning the Prophet (pbuh) told Quraysh of his journey, and they mocked him: we travel to Jerusalem in a month, and you go and return in one night? They asked him to describ",
+  "image": null
+ },
+ {
+  "slug": "dar-al-nadwa-dust",
+  "title": "مؤامرة دار الندوة وحفنة التراب",
+  "description": "اجتمع زعماء قريش في دار الندوة يدبّرون كيف يتخلّصون من النبي ﷺ، فاتفقوا أن يأخذوا من كل قبيلة شاباً ليضربوه معاً. وأحاطوا ببيته ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على ما دبّرو",
+  "titleEn": "The Plot at Dar an-Nadwa and a Handful of Dust",
+  "descriptionEn": "The chiefs of Quraysh met at Dar an-Nadwa to plan how to be rid of the Prophet (pbuh), and agreed to take a young man from every tribe to strike him together. They surrounded his h",
+  "image": null
+ },
+ {
+  "slug": "hero-in-the-bed",
+  "title": "البطل النائم في الفراش",
+  "description": "قبل أن يخرج النبي ﷺ طلب من ابن عمه الشاب علي بن أبي طالب أن ينام في فراشه ويتغطّى ببردته، حتى يظنّ من ينظر أن النبي نائم. فما تردّد علي رضي الله عنه. وطلب منه النبي ﷺ أن يبقى بعده ",
+  "titleEn": "The Hero in the Bed",
+  "descriptionEn": "Before the Prophet (pbuh) left, he asked his young cousin Ali ibn Abi Talib to sleep in his bed and cover himself with his cloak, so that anyone looking in would think the Prophet ",
+  "image": null
+ },
+ {
+  "slug": "tears-of-joy-companion",
+  "title": "دموع الفرح: الصُّحبة يا رسول الله",
+  "description": "في شدة حرّ الظهيرة جاء النبي ﷺ إلى بيت أبي بكر رضي الله عنه فأخبره أن الله أذن له بالهجرة. فقال أبو بكر: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر من الفرح. تقول عائشة",
+  "titleEn": "Tears of Joy: “May I Accompany You?”",
+  "descriptionEn": "In the fierce heat of midday the Prophet (pbuh) came to Abu Bakr's house and told him Allah had given him leave to migrate. Abu Bakr said: “May I accompany you, Messenger of Allah?",
+  "image": null
+ },
+ {
+  "slug": "asma-that-al-nitaqayn",
+  "title": "أسماء ذات النِّطاقين",
+  "description": "لما جهّزوا الزاد لم يجدوا ما يربطونه به، فقامت أسماء بنت أبي بكر رضي الله عنهما فشقّت نطاقها — أي حزامها — نصفين: ربطت بنصفه الزاد، وشدّت بالآخر ثيابها. فدعا لها النبي ﷺ بنطاقين في",
+  "titleEn": "Asma, She of the Two Belts",
+  "descriptionEn": "When they packed the provisions they had nothing to tie them with, so Asma bint Abi Bakr took her belt, tore it in two, tied the food with one half and her clothes with the other. ",
+  "image": null
+ },
+ {
+  "slug": "smart-shepherd-footprints",
+  "title": "الراعي الذي محا الآثار",
+  "description": "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف أحد",
+  "titleEn": "The Shepherd Who Erased the Tracks",
+  "descriptionEn": "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over th",
   "image": null
  }
 ];
