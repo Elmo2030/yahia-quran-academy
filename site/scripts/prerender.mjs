@@ -196,7 +196,11 @@ let written = 0;
 let bytes = 0;
 for (const [path, body] of pages) {
   const html = shell.replace(anchor, `<div id="root"><div id="prerendered">${body}</div></div>${style}`);
-  const file = path === "/" ? join(out, "index.html") : join(out, path.slice(1), "index.html");
+  // "<path>.html", not "<path>/index.html": Cloudflare Pages serves a directory
+  // by redirecting the bare path to one with a trailing slash, which would put
+  // a 308 in front of every link on the site, the sitemap and the canonical
+  // tags — all of which name the path without the slash.
+  const file = path === "/" ? join(out, "index.html") : join(out, `${path.slice(1)}.html`);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
   written += 1;
