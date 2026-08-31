@@ -1246,4 +1246,39 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/cave-of-hira" />
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/revelation-iqra</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/revelation-iqra" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/revelation-iqra?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/revelation-iqra" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/revelation-waraqah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/revelation-waraqah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/revelation-waraqah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/revelation-waraqah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/revelation-pause</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/revelation-pause" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/revelation-pause?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/revelation-pause" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/revelation-muddaththir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/revelation-muddaththir" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/revelation-muddaththir?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/revelation-muddaththir" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/revelation-forms</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/revelation-forms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/revelation-forms?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/revelation-forms" />
+    <priority>0.7</priority>
+  </url>
 </urlset>

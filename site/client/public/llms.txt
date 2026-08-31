@@ -73,6 +73,7 @@ stage unlocks on its own — a parent judges the child's recitation.
 ## Seerah of the Prophet
 - [Beginnings — Seeds of Light](https://yahyaquran.com/seerah#station-1): 5 stories. Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.
 - [The Truthful, The Trustworthy](https://yahyaquran.com/seerah#station-2): 5 stories. Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.
+- [The Revelation](https://yahyaquran.com/seerah#station-3): 5 stories. Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.
 
 
 ### Beginnings — Seeds of Light
@@ -88,6 +89,13 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Wisdom of the Black Stone — حكمة الحجر الأسود](https://yahyaquran.com/seerah/the-black-stone): مسند أحمد، سيرة ابن هشام
 - [Helping the Oppressed — نصرة المظلوم](https://yahyaquran.com/seerah/hilf-al-fudul): سنن البيهقي، السيرة النبوية
 - [Solitude and Reflection — الخلوة والتفكر](https://yahyaquran.com/seerah/cave-of-hira): صحيح البخاري (حديث عائشة عن بدء الوحي)
+
+### The Revelation
+- [The First Light: Cave Hira and the Word Iqra — أول النور: غار حراء وكلمة اقرأ](https://yahyaquran.com/seerah/revelation-iqra): صحيح البخاري، كتاب بدء الوحي
+- [Waraqah ibn Nawfal: The Great Secret — ورقة بن نوفل: السرّ العظيم](https://yahyaquran.com/seerah/revelation-waraqah): صحيح البخاري، كتاب بدء الوحي
+- [The Pause of Revelation and Surah Ad-Duha — انقطاع الوحي وسورة الضحى](https://yahyaquran.com/seerah/revelation-pause): سورة الضحى، وصحيح البخاري
+- [O You Wrapped in Garments: Arise and Warn — يا أيها المدثر: قم فأنذر](https://yahyaquran.com/seerah/revelation-muddaththir): صحيح البخاري، كتاب بدء الوحي
+- [How Did the Revelation Come? — كيف كان ينزل الوحي؟](https://yahyaquran.com/seerah/revelation-forms): صحيح البخاري، كتاب بدء الوحي
 
 ## In the Realm of the Quran
 - [Discover the Quran](https://yahyaquran.com/quran-facts): one hundred short facts about the Quran

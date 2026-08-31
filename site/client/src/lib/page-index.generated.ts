@@ -431,6 +431,11 @@ export const seerahStationIndex: Station[] = [
   "stationId": 2,
   "titleAr": "الصادق الأمين",
   "titleEn": "The Truthful, The Trustworthy"
+ },
+ {
+  "stationId": 3,
+  "titleAr": "الوحي",
+  "titleEn": "The Revelation"
  }
 ];
 
@@ -514,5 +519,45 @@ export const seerahStoryIndex: SeerahStory[] = [
   "titleEn": "Solitude and Reflection",
   "descriptionEn": "In the time of the Prophet (pbuh), people used to worship stone statues (idols). But Muhammad (pbuh) was very smart, and he knew that stones couldn't help or harm anyone. So, he li",
   "image": "/stories/seerah/cave-of-hira.jpg"
+ },
+ {
+  "slug": "revelation-iqra",
+  "title": "أول النور: غار حراء وكلمة اقرأ",
+  "description": "كان النبي محمد ﷺ يحب أن يجلس وحده في غار هادئ فوق الجبل اسمه «غار حراء»، يفكّر في السماء والأرض ومَن خلقهما. وفي ليلة من رمضان، وعمره أربعون سنة، جاءه المَلَك جبريل عليه السلام فجأ",
+  "titleEn": "The First Light: Cave Hira and the Word Iqra",
+  "descriptionEn": "Prophet Muhammad (pbuh) loved to sit alone in a quiet cave on a mountain called Cave Hira, thinking about the sky and the earth and who made them. One night in Ramadan, when he was",
+  "image": null
+ },
+ {
+  "slug": "revelation-waraqah",
+  "title": "ورقة بن نوفل: السرّ العظيم",
+  "description": "أخذت السيدة خديجة رضي الله عنها النبي ﷺ إلى ابن عمها ورقة بن نوفل، وكان رجلاً عجوزاً حكيماً يقرأ الكتب السماوية القديمة. ولما سمع ورقة ما حدث في الغار فرح وقال: هذا هو المَلَك الذي",
+  "titleEn": "Waraqah ibn Nawfal: The Great Secret",
+  "descriptionEn": "Lady Khadijah took the Prophet (pbuh) to her cousin Waraqah ibn Nawfal, a wise old man who read the ancient holy books. When Waraqah heard what had happened in the cave, he was del",
+  "image": null
+ },
+ {
+  "slug": "revelation-pause",
+  "title": "انقطاع الوحي وسورة الضحى",
+  "description": "بعد اللقاء الأول تأخر جبريل عليه السلام ولم ينزل على النبي ﷺ مدة، فحزن النبي ﷺ واشتاق إلى كلام الله. وبدأ بعض المشركين يسخرون ويقولون: ترك محمداً ربُّه! ثم نزل جبريل بسورة كاملة تط",
+  "titleEn": "The Pause of Revelation and Surah Ad-Duha",
+  "descriptionEn": "After that first meeting, Jibril was delayed and did not come to the Prophet (pbuh) for a while. He grew sad and missed hearing the words of Allah, and some of the idol-worshippers",
+  "image": null
+ },
+ {
+  "slug": "revelation-muddaththir",
+  "title": "يا أيها المدثر: قم فأنذر",
+  "description": "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى جبريل عليه السلام بين السماء والأرض. فرجع إلى بيته مسرعاً وهو يقول: «دثّروني دثّروني» أي غطّوني. وهو في فراشه نزل ع",
+  "titleEn": "O You Wrapped in Garments: Arise and Warn",
+  "descriptionEn": "One day as the Prophet (pbuh) was walking, he heard a voice from the sky. He looked up and saw Jibril between the sky and the earth. He hurried home saying: “Cover me, cover me!” A",
+  "image": null
+ },
+ {
+  "slug": "revelation-forms",
+  "title": "كيف كان ينزل الوحي؟",
+  "description": "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً مثل",
+  "titleEn": "How Did the Revelation Come?",
+  "descriptionEn": "The revelation did not come in only one way. At first the Prophet (pbuh) would see a dream in his sleep and it would come true in the morning. After the prophethood, Jibril would s",
+  "image": null
  }
 ];

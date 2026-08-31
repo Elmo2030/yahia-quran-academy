@@ -100,6 +100,15 @@ export const seerahStations: SeerahStation[] = [
     descriptionEn:
       "Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.",
   },
+  {
+    stationId: 3,
+    titleAr: "الوحي",
+    titleEn: "The Revelation",
+    descriptionAr:
+      "خمس قصص من بدء الوحي: أول لقاء في غار حراء، وما قاله ورقة بن نوفل، وفترة انقطاع الوحي وسورة الضحى، وأمر القيام في سورة المدثر، وأوجه نزول الوحي.",
+    descriptionEn:
+      "Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.",
+  },
 ];
 
 /** A story's text in the requested language, falling back to the Arabic for
@@ -882,6 +891,386 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟢",
       reference: "صحيح البخاري (حديث عائشة عن بدء الوحي)",
       note: "تحنثه (تعبده) في غار حراء ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-3-01",
+    stationId: 3,
+    slug: "revelation-iqra",
+    en: {
+      title: "The First Light: Cave Hira and the Word Iqra",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Prophet Muhammad (pbuh) loved to sit alone in a quiet cave on a mountain called Cave Hira, thinking about the sky and the earth and who made them. One night in Ramadan, when he was forty years old, the angel Jibril came to him suddenly and said: “Read!” The Prophet (pbuh) answered, frightened: “I cannot read.” Then Jibril recited to him the first verses of the Quran. He went home trembling, and his wife Khadijah welcomed him and comforted him: “By Allah, Allah will never disgrace you.”",
+          shortLesson: "The very first word of the Quran is “Read” — knowledge is where the road begins.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Prophet Muhammad (pbuh) loved to spend time alone. He would go to a cave at the top of a mountain called Cave Hira, sitting there for days thinking about the creation of the heavens and the earth. When he reached forty years of age, during the month of Ramadan, the angel Jibril suddenly came down to him. Jibril held him tightly and said: “Read.” The Prophet (pbuh), frightened and amazed, replied: “I cannot read.” This happened three times, and then Jibril recited the very first verses of the Quran. The Prophet (pbuh) returned home trembling from the intensity of it, and his wife Lady Khadijah welcomed him and comforted him, saying: “By Allah, Allah will never disgrace you. You keep good relations with your family, you speak the truth, and you help the weak.”",
+          details:
+            "The first verses ever revealed: ﴿اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ۝ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ﴾ — “Read, in the name of your Lord who created.”",
+        },
+      },
+      interactive: {
+        discover: "The first revelation was five verses of Surah Al-Alaq, beginning with “Read”.",
+        value: { name: "Knowledge and reading", icon: "📖" },
+        thinkQuestion: "Why do you think the first word the angel said to the Prophet (pbuh) was “Read”, and not something else?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the first word of the Quran revealed to the Prophet (pbuh)?",
+          options: ["Write", "Read", "Stand", "Listen"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Pen of Light", description: "A keepsake to remind you that knowledge is the first thing Allah commanded." },
+        badge: "Badge: First of the Readers",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, the Book of the Beginning of Revelation",
+        note: "The account of the first revelation at Cave Hira is established in Sahih al-Bukhari.",
+      },
+    },
+    title: "أول النور: غار حراء وكلمة اقرأ",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كان النبي محمد ﷺ يحب أن يجلس وحده في غار هادئ فوق الجبل اسمه «غار حراء»، يفكّر في السماء والأرض ومَن خلقهما. وفي ليلة من رمضان، وعمره أربعون سنة، جاءه المَلَك جبريل عليه السلام فجأة وقال له: «اقرأ!». فقال النبي ﷺ وهو خائف: «ما أنا بقارئ». ثم قرأ عليه جبريل أول آيات من القرآن. رجع النبي ﷺ إلى بيته يرتجف، فاستقبلته زوجته خديجة رضي الله عنها وطمأنته وقالت له: «والله لا يخزيك الله أبداً».",
+        shortLesson: "أول كلمة في القرآن هي «اقرأ» — فالعلم أول الطريق.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كان النبي ﷺ يحب الخلوة، فكان يذهب إلى غار في أعلى جبل يُسمى «غار حراء»، ويجلس فيه أياماً يتأمل في خلق السماوات والأرض. ولما بلغ الأربعين من عمره، وفي شهر رمضان، نزل عليه المَلَك جبريل عليه السلام فجأة. ضمّه جبريل بقوة وقال له: «اقرأ». فرد النبي ﷺ وهو خائف مندهش: «ما أنا بقارئ». تكرر الأمر ثلاث مرات، ثم قرأ عليه جبريل أول آيات من القرآن الكريم. وعاد النبي ﷺ إلى بيته يرتجف من شدة الموقف، فاستقبلته زوجته العظيمة السيدة خديجة رضي الله عنها وطمأنته قائلة: «والله لا يخزيك الله أبداً، إنك لتصل الرحم، وتصدق الحديث، وتساعد الضعيف».",
+        details:
+          "قال تعالى في أول آيات نزلت من القرآن الكريم: ﴿اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ۝ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أول ما نزل من القرآن خمس آيات من سورة العلق، أولها ﴿اقْرَأْ﴾.",
+      value: { name: "العلم والقراءة", icon: "📖" },
+      thinkQuestion:
+        "لماذا في رأيك كانت أول كلمة يقولها المَلَك للنبي ﷺ هي «اقرأ» وليست كلمة أخرى؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما أول كلمة نزلت من القرآن الكريم على النبي ﷺ؟",
+        options: ["اكتب", "اقرأ", "قُم", "اسمع"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قلم من نور", description: "تذكار يذكّرك بأن العلم أول ما أمر الله به." },
+      badge: "وسام: أول القُرّاء",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، كتاب بدء الوحي",
+      note: "حديث بدء الوحي في غار حراء ثابت في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-3-02",
+    stationId: 3,
+    slug: "revelation-waraqah",
+    en: {
+      title: "Waraqah ibn Nawfal: The Great Secret",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Lady Khadijah took the Prophet (pbuh) to her cousin Waraqah ibn Nawfal, a wise old man who read the ancient holy books. When Waraqah heard what had happened in the cave, he was delighted and said: this is the same angel who came to Musa! He told the Prophet (pbuh) that he was the prophet of this nation, that his people would harm him, and he wished he were young and strong enough to stand with him.",
+          shortLesson: "When something is hard to understand, we ask people of knowledge and wisdom.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Lady Khadijah took the Prophet (pbuh) to her cousin Waraqah ibn Nawfal. He was a wise man and a scholar of the ancient holy books, the Torah and the Gospel. When Waraqah heard what had happened to the Prophet (pbuh) in the cave, he was overjoyed and told him: this is the Namus — the angel Jibril — whom Allah sent down to Musa. He told him that he was the prophet of this nation, and warned him that his people would fight him and drive him out of Mecca. Waraqah wished he were a strong young man so that he could support the Prophet (pbuh) on the day people turned against him. With those words, the Prophet's heart settled and he was certain of his message.",
+          details:
+            "Allah says of the People of the Book: ﴿الَّذِينَ آتَيْنَاهُمُ الْكِتَابَ يَعْرِفُونَهُ كَمَا يَعْرِفُونَ أَبْنَاءَهُمْ﴾ — they know him as they know their own sons.",
+        },
+      },
+      interactive: {
+        discover: "Waraqah ibn Nawfal was Lady Khadijah's cousin.",
+        value: { name: "Asking those who know", icon: "🧭" },
+        thinkQuestion: "If you met a hard question you could not answer, who is the wise person at home or at school you would ask?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Waraqah call the angel who came to the Prophet (pbuh)?",
+          options: ["A king of the Arabs", "The Namus who came to Musa", "A man of Mecca", "A merchant from Sham"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An Ancient Scroll", description: "A scroll to remind you that old knowledge pointed to the truth." },
+        badge: "Badge: Seeker of Wisdom",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, the Book of the Beginning of Revelation",
+        note: "Khadijah taking the Prophet (pbuh) to Waraqah is established in Sahih al-Bukhari.",
+      },
+    },
+    title: "ورقة بن نوفل: السرّ العظيم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "أخذت السيدة خديجة رضي الله عنها النبي ﷺ إلى ابن عمها ورقة بن نوفل، وكان رجلاً عجوزاً حكيماً يقرأ الكتب السماوية القديمة. ولما سمع ورقة ما حدث في الغار فرح وقال: هذا هو المَلَك الذي نزل على موسى عليه السلام! وأخبر النبيَّ ﷺ أنه نبي هذه الأمة، وأن قومه سيؤذونه، وتمنّى لو كان شاباً قوياً لينصره.",
+        shortLesson: "لما يصعب علينا فهم أمر، نسأل أهل العلم والحكمة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "أخذت السيدة خديجة رضي الله عنها النبيَّ ﷺ إلى ابن عمها «ورقة بن نوفل»، وكان رجلاً حكيماً عالماً بالكتب السماوية القديمة كالتوراة والإنجيل. فلما سمع ورقة ما حدث للنبي ﷺ في الغار فرح فرحاً شديداً وقال له: هذا هو الناموس — يعني المَلَك جبريل — الذي أنزله الله على موسى عليه السلام. وأخبره أنه نبي هذه الأمة، وحذّره من أن قومه سيحاربونه ويخرجونه من مكة، وتمنّى ورقة لو كان شاباً قوياً لينصر النبي ﷺ يوم يعاديه الناس. وبهذه الكلمات اطمأن قلب النبي ﷺ وتأكد من رسالته.",
+        details:
+          "قال تعالى مبيّناً أن أهل الكتاب كانوا يعرفون صفة النبي: ﴿الَّذِينَ آتَيْنَاهُمُ الْكِتَابَ يَعْرِفُونَهُ كَمَا يَعْرِفُونَ أَبْنَاءَهُمْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "ورقة بن نوفل كان ابن عم السيدة خديجة رضي الله عنها.",
+      value: { name: "سؤال أهل العلم", icon: "🧭" },
+      thinkQuestion:
+        "لو واجهتك مسألة صعبة لا تفهمها، مَن الشخص الحكيم الذي تسأله في بيتك أو مدرستك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بماذا وصف ورقةُ بن نوفل المَلَكَ الذي جاء النبي ﷺ؟",
+        options: ["ملك من ملوك العرب", "الناموس الذي نزل على موسى", "رجل من أهل مكة", "تاجر من الشام"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "لفافة قديمة", description: "لفافة تذكّرك بأن العلم القديم دلّ على الحق." },
+      badge: "وسام: طالب الحكمة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، كتاب بدء الوحي",
+      note: "خبر ذهاب خديجة بالنبي ﷺ إلى ورقة ثابت في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-3-03",
+    stationId: 3,
+    slug: "revelation-pause",
+    en: {
+      title: "The Pause of Revelation and Surah Ad-Duha",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "After that first meeting, Jibril was delayed and did not come to the Prophet (pbuh) for a while. He grew sad and missed hearing the words of Allah, and some of the idol-worshippers began to mock him, saying: his Lord has left him! Then Jibril came down with a whole surah to reassure him that Allah had not left him and was not angry with him, and that what was coming was better.",
+          shortLesson: "Allah never forgets His servants, and after hardship comes ease.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "After the first meeting in the cave, the angel Jibril was delayed and did not come down to the Prophet (pbuh) for a period known as the pause of revelation. The Prophet (pbuh) became very sad and longed to hear the words of Allah. Some of the idol-worshippers began to mock him, saying: Muhammad's Lord has abandoned him and is angry with him. That made his sadness heavier — until the light returned. Jibril came down with an entire surah full of love, reassurance and comfort, telling the Prophet (pbuh) that Allah had never left him, was never angry with him, and that what lay ahead was better than what had passed.",
+          details:
+            "Allah comforts him in Surah Ad-Duha: ﴿مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ۝ وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ﴾.",
+        },
+      },
+      interactive: {
+        discover: "The whole of Surah Ad-Duha came down to comfort the Prophet (pbuh) after the pause.",
+        value: { name: "Calm after sadness", icon: "🌅" },
+        thinkQuestion: "When you feel sad, what words settle your heart? And who do you like to hear them from?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which surah came down to comfort the Prophet (pbuh) after the pause of revelation?",
+          options: ["Surah Al-Fil", "Surah Ad-Duha", "Surah Al-Kawthar", "Surah Al-Asr"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Light of Morning", description: "A ray to remind you that ease follows every hardship." },
+        badge: "Badge: A Settled Heart",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Surah Ad-Duha, and Sahih al-Bukhari",
+        note: "The occasion of Surah Ad-Duha following the pause is established in Sahih al-Bukhari.",
+      },
+    },
+    title: "انقطاع الوحي وسورة الضحى",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بعد اللقاء الأول تأخر جبريل عليه السلام ولم ينزل على النبي ﷺ مدة، فحزن النبي ﷺ واشتاق إلى كلام الله. وبدأ بعض المشركين يسخرون ويقولون: ترك محمداً ربُّه! ثم نزل جبريل بسورة كاملة تطمئنه أن الله ما تركه ولا غضب عليه، وأن ما هو آتٍ أجمل.",
+        shortLesson: "الله لا ينسى عباده أبداً، وبعد الضيق فرج.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد اللقاء الأول في الغار، تأخر المَلَك جبريل عليه السلام ولم ينزل على النبي ﷺ فترة سُميت «فترة فتور الوحي». فحزن النبي ﷺ حزناً شديداً واشتاق لسماع كلام الله. وبدأ بعض المشركين يسخرون منه ويقولون: لقد ترك محمداً ربُّه وغضب عليه! فزاد ذلك من حزنه، حتى أشرق النور من جديد: نزل جبريل عليه السلام بسورة كاملة مليئة بالحب والطمأنينة والمواساة، تؤكد للنبي ﷺ أن الله لم يتركه ولم يقلِه، وأن الآخرة خير له من الأولى.",
+        details:
+          "قال تعالى يواسي نبيه في سورة الضحى: ﴿مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ۝ وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سورة الضحى نزلت كلها مواساة للنبي ﷺ بعد فترة انقطاع الوحي.",
+      value: { name: "الطمأنينة بعد الحزن", icon: "🌅" },
+      thinkQuestion:
+        "حين تحزن، ما الكلام الذي يطمئن قلبك؟ ومن الذي تحب أن تسمعه منه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أي سورة نزلت تواسي النبي ﷺ بعد انقطاع الوحي؟",
+        options: ["سورة الفيل", "سورة الضحى", "سورة الكوثر", "سورة العصر"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ضوء الضحى", description: "شعاع يذكّرك أن بعد كل عسر يسراً." },
+      badge: "وسام: قلب مطمئن",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سورة الضحى، وصحيح البخاري",
+      note: "سبب نزول سورة الضحى بعد فترة فتور الوحي ثابت في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-3-04",
+    stationId: 3,
+    slug: "revelation-muddaththir",
+    en: {
+      title: "O You Wrapped in Garments: Arise and Warn",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "One day as the Prophet (pbuh) was walking, he heard a voice from the sky. He looked up and saw Jibril between the sky and the earth. He hurried home saying: “Cover me, cover me!” And while he lay covered, Jibril came down with verses commanding him to rise, to leave his rest, and to call people to worship Allah alone.",
+          shortLesson: "When there is important work to do, we leave our comfort and get up.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "One day as the Prophet (pbuh) was walking, he heard a voice from the sky. He raised his head and saw the angel Jibril seated on a great throne between the sky and the earth. Overwhelmed by the majesty of it, he hurried home trembling and said: “Cover me, cover me,” meaning wrap me in garments. And while he lay covered in his bed, Jibril came down with powerful verses commanding him to leave the blanket and the rest, to rise at once and begin the work: to warn the people and teach them to worship Allah alone and leave the idols. The time for rest was over, and the time to build a nation had begun.",
+          details:
+            "Allah commands him to work: ﴿يَا أَيُّهَا الْمُدَّثِّرُ ۝ قُمْ فَأَنذِرْ ۝ وَرَبَّكَ فَكَبِّرْ﴾ — “O you wrapped in garments, arise and warn.”",
+        },
+      },
+      interactive: {
+        discover: "“Al-Muddaththir” means the one wrapped up in his cloak.",
+        value: { name: "Resolve and work", icon: "🌄" },
+        thinkQuestion: "What important thing are you putting off that you could get up and do today?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet (pbuh) say when he came home after seeing Jibril?",
+          options: ["Give me water", "Cover me", "Open the door", "Leave me"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Cloak", description: "A cloak to remind you that rest ends when the work calls." },
+        badge: "Badge: The Determined",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, the Book of the Beginning of Revelation",
+        note: "The “cover me” account and the first verses of Surah Al-Muddaththir are in Sahih al-Bukhari.",
+      },
+    },
+    title: "يا أيها المدثر: قم فأنذر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى جبريل عليه السلام بين السماء والأرض. فرجع إلى بيته مسرعاً وهو يقول: «دثّروني دثّروني» أي غطّوني. وهو في فراشه نزل عليه جبريل بآيات تأمره أن يقوم ويترك الراحة، ويدعو الناس إلى عبادة الله وحده.",
+        shortLesson: "حين يكون هناك عمل مهم، نترك الراحة ونقوم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى المَلَك جبريل عليه السلام جالساً على كرسي عظيم بين السماء والأرض. ومن شدة هيبة الموقف عاد النبي ﷺ مسرعاً إلى بيته وهو يرتجف ويقول: «دثّروني دثّروني»، أي غطّوني بالثياب. وبينما هو متغطٍّ في فراشه نزل عليه جبريل بآيات قوية تأمره أن يترك الغطاء والراحة، وأن يقوم فوراً ليبدأ العمل، فينذر الناس ويعلّمهم عبادة الله وحده وترك الأصنام. لقد انتهى وقت الراحة وبدأ وقت بناء الأمة.",
+        details:
+          "قال تعالى يأمر نبيه بالعمل: ﴿يَا أَيُّهَا الْمُدَّثِّرُ ۝ قُمْ فَأَنذِرْ ۝ وَرَبَّكَ فَكَبِّرْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كلمة «المدثّر» معناها المتغطّي بثوبه.",
+      value: { name: "الهمّة والعمل", icon: "🌄" },
+      thinkQuestion:
+        "ما العمل المهم الذي تؤجّله وأنت تقدر أن تقوم به اليوم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا قال النبي ﷺ حين عاد إلى بيته بعد أن رأى جبريل عليه السلام؟",
+        options: ["اسقوني", "دثّروني", "افتحوا الباب", "اتركوني"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "رداء المدثّر", description: "رداء يذكّرك أن وقت الراحة ينتهي حين ينادي العمل." },
+      badge: "وسام: صاحب الهمّة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، كتاب بدء الوحي",
+      note: "حديث «دثّروني» ونزول أول سورة المدثر ثابت في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-3-05",
+    stationId: 3,
+    slug: "revelation-forms",
+    en: {
+      title: "How Did the Revelation Come?",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The revelation did not come in only one way. At first the Prophet (pbuh) would see a dream in his sleep and it would come true in the morning. After the prophethood, Jibril would sometimes come in the form of a man, and sometimes the revelation came powerfully like the ringing of a bell — and that was the hardest of all for him.",
+          shortLesson: "We appreciate what the Prophet (pbuh) carried so that this Quran would reach us.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The revelation did not come in only one way. In the beginning it was a true dream the Prophet (pbuh) would see in his sleep, and it would come to pass the next day like the light of morning. After the prophethood, the angel Jibril would sometimes come in the form of a man, teaching the Prophet (pbuh) gently and easily. And sometimes the revelation came powerfully, like the ringing of a bell — the hardest kind for him — so much so that he would be pouring with sweat on a bitterly cold day, from the weight and the power of the words of Allah.",
+          details:
+            "Allah says of the weight of the Quran: ﴿إِنَّا سَنُلْقِي عَلَيْكَ قَوْلًا ثَقِيلًا﴾ — “We are going to send down to you a weighty word.”",
+        },
+      },
+      interactive: {
+        discover: "The Quran came down to the Prophet (pbuh) over twenty-three years, not all at once.",
+        value: { name: "Valuing the Quran", icon: "✨" },
+        thinkQuestion: "Knowing what the Prophet (pbuh) carried so the Quran would reach you, how will you read it today?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which kind of revelation was the hardest on the Prophet (pbuh)?",
+          options: ["A dream in his sleep", "Jibril in the form of a man", "Like the ringing of a bell", "Cast into his heart"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Silver Bell", description: "A keepsake for the weight of the word that was carried for you." },
+        badge: "Badge: Keeper of the Trust",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, the Book of the Beginning of Revelation",
+        note: "The forms of revelation and the “ringing of a bell” hadith are in Sahih al-Bukhari.",
+      },
+    },
+    title: "كيف كان ينزل الوحي؟",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً مثل صوت الجرس، وكان هذا أشدّه على النبي ﷺ.",
+        shortLesson: "نقدّر تعب النبي ﷺ حتى يصلنا هذا القرآن.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لم يكن الوحي يأتي بطريقة واحدة فقط. في البداية كان الوحي رؤيا صالحة يراها النبي ﷺ في منامه فتتحقق في الواقع في اليوم التالي مثل ضوء الصباح. وبعد النبوة كان المَلَك جبريل عليه السلام يأتي أحياناً في صورة رجل ليعلّم النبي ﷺ في راحة وسهولة. وأحياناً كان الوحي يأتي قوياً مثل صلصلة الجرس، وهذا أشدّ أنواع الوحي على النبي ﷺ، حتى إنه كان يتفصّد عرقاً في اليوم شديد البرد من ثقل كلام الله وقوته.",
+        details:
+          "قال تعالى مبيّناً عظمة القرآن وثقله: ﴿إِنَّا سَنُلْقِي عَلَيْكَ قَوْلًا ثَقِيلًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "نزل القرآن على النبي ﷺ في ثلاث وعشرين سنة، لا مرة واحدة.",
+      value: { name: "تقدير القرآن", icon: "✨" },
+      thinkQuestion:
+        "لو عرفت كم تعب النبي ﷺ حتى يصلك القرآن، كيف ستقرأه اليوم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أي أنواع الوحي كان أشدّها على النبي ﷺ؟",
+        options: ["الرؤيا في المنام", "مجيء جبريل في صورة رجل", "مثل صلصلة الجرس", "الإلقاء في القلب"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "جرس من فضة", description: "تذكار يذكّرك بثقل الكلمة التي حُملت من أجلك." },
+      badge: "وسام: حافظ الأمانة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، كتاب بدء الوحي",
+      note: "أوجه نزول الوحي وحديث «مثل صلصلة الجرس» ثابتة في صحيح البخاري.",
     },
   },
 ];
