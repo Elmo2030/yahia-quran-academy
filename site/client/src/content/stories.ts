@@ -49,10 +49,24 @@ export const chapters: Chapter[] = [
   },
 ];
 
+/** A story's prose in one language. The Arabic lives on the story itself;
+ *  `en` carries the same fields for the English locale, and anything without
+ *  it falls back to Arabic — translations can land chapter by chapter. The
+ *  `ayah` excerpt is not here: it is Quran, and stays in the Uthmani text. */
+export type StoryText = {
+  title: string;
+  hook: string;
+  events: string;
+  lesson: string;
+  next: string;
+  quranProse?: string;
+};
+
 export type Story = {
   chapter: string;
   slug: string;
   title: string;
+  en?: StoryText;
   surahName: string;
   hook: string;
   events: string;
@@ -69,6 +83,19 @@ export type Story = {
 export const stories: Story[] = [
   {
     chapter: "nations", slug: "ashab-al-kahf",
+    en: {
+      title: "The People of the Cave",
+      hook:
+        "Have you ever tried sleeping and waking up to find everything around you has changed? In our story today, a group of good young men slept for a very long time... not for a day or two, but for hundreds of years! How did that happen?",
+      events:
+        "In ancient times, there was a cruel, pagan king who forced people to worship statues. But there was a group of smart young men who believed in Allah alone. Fearing for their faith and their lives from the evil king, they ran away and hid in a cave with their loyal dog. Inside the cave, Allah cast a deep sleep over them, and they slept peacefully for 309 lunar years! Allah protected their bodies all this time by turning them to the right and left. When they woke up and felt hungry, they sent one of them to buy food, only to discover that the evil king had died a long, long time ago, and their entire city now worshipped Allah!",
+      lesson:
+        "The story of the People of the Cave is a wonderful proof of Allah's power to bring the dead back to life. We also learn from it that Allah always rescues and protects the youth who choose the path of faith and monotheism.",
+      next:
+        "The People of the Cave were smart youth who chose faith. In our next story, we will meet a great man who wasn't a prophet, but was very famous for something called 'Wisdom', and he gave his son golden advice! Who is he? He is Luqman the Wise!",
+      quranProse:
+        "Allah Almighty says in the Quran about their wondrous sleep: {Therefore We covered up their (sense of) hearing in the cave for a number of years.}",
+    },
     title: "قصة أصحاب الكهف",
     surahName: "",
     hook: "هل جربتم يوماً أن تناموا وتستيقظوا لتجدوا أن كل شيء من حولكم قد تغير؟ في قصتنا اليوم، هناك مجموعة من الشباب الطيبين ناموا نومة طويلة جداً.. لم تكن ليوم أو يومين، بل لمئات السنين! كيف حدث ذلك؟",
@@ -79,6 +106,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "luqman",
+    en: {
+      title: "Luqman the Wise",
+      hook:
+        "If you want to be successful and loved, where do you get advice from? From a 'wise' person, of course! Today we will learn about a very wise father, mentioned by Allah in the Quran so we can learn from the advice he gave his son.",
+      events:
+        "Luqman was not a prophet, but a very righteous human being. Allah gave him a great blessing called 'Wisdom', which is to think correctly and say useful words at the right time. Luqman sat with his young son one day to give him great advice; he told him: O my son, never associate partners with Allah, keep up your prayers, be dutiful and obedient to your parents, do not walk among people with arrogance or pride, and speak with a calm and moderate voice.",
+      lesson:
+        "True wisdom begins with believing in Allah and thanking Him for His blessings. We learn from Luqman's advice to respect our parents, to be humble and not act arrogantly towards anyone, because Allah does not like the arrogant.",
+      next:
+        "Luqman used his wisdom in speaking kind words. But in the next story, we will meet a great king who used his power and engineering wisdom to build a massive wall of iron! Why did he build it? And who are Gog and Magog? Let's find out the story of Dhul-Qarnayn!",
+      quranProse:
+        "Allah says about giving wisdom to Luqman: {And We had certainly given Luqman wisdom [saying], 'Be grateful to Allah.' And whoever is grateful is grateful for [the benefit of] himself.}",
+    },
     title: "قصة لقمان الحكيم",
     surahName: "",
     hook: "إذا أردتم أن تكونوا ناجحين ومحبوبين، فمن أين تأخذون النصائح؟ من شخص 'حكيم' طبعاً! واليوم سنتعرف على أب حكيم جداً، ذكره الله في القرآن لنتعلم من نصائحه التي قدمها لابنه.",
@@ -89,6 +129,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "dhul-qarnayn",
+    en: {
+      title: "The Story of Dhul-Qarnayn",
+      hook:
+        "Do you love stories of powerful kings who travel to discover the world? Our hero today is a very strong and just king who traveled to very far places in the East and West to help people and spread goodness.",
+      events:
+        "Dhul-Qarnayn was a just ruler whom Allah established on earth and gave him the means (power, knowledge, and tools) to everything. Dhul-Qarnayn traveled across the eastern and western parts of the earth. On one of his journeys, he reached a weak group of people living between two mountains. They complained to him about evil people named (Gog and Magog) who were spreading corruption in the land. Dhul-Qarnayn decided to use his power and engineering to help them. He asked them to bring huge pieces of iron and molten copper, and he built for them a very massive and strong barrier that prevented the evil ones from reaching them.",
+      lesson:
+        "If Allah gives us power, money, or knowledge, we must use it to support the weak and help others, just exactly as the just ruler Dhul-Qarnayn did.",
+      next:
+        "Dhul-Qarnayn was a king who helped the weak. But what if the king is the evil oppressor? How can one person defend the truth inside the palace of this evil king? This is what we will know in the story of the brave hero: The Believer of Pharaoh's Family!",
+      quranProse:
+        "Allah says about this strong barrier built by Dhul-Qarnayn: {So they [Gog and Magog] were unable to pass over it, nor were they able [to make] a hole in it.}",
+    },
     title: "قصة ذو القرنين",
     surahName: "",
     hook: "هل تحبون قصص الملوك الأقوياء الذين يسافرون لاكتشاف العالم؟ بطلنا اليوم هو مَلِك عادل وقوي جداً، سافر إلى أماكن بعيدة جداً في الشرق والغرب لمساعدة الناس ونشر الخير.",
@@ -99,6 +152,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "believer-of-pharaoh",
+    en: {
+      title: "The Believer of Pharaoh's Family",
+      hook:
+        "Does a person need a sword to be brave? Sometimes a word is stronger than a sword! Our hero today is a single man who stood before the most dangerous and unjust king in history to speak the truth and defend the Prophet of Allah.",
+      events:
+        "In the palace of the unjust Pharaoh, who claimed to be a god, there was a good man who hid his faith and didn't tell anyone about it. When Pharaoh got angry and decided to kill Prophet Musa (Moses), this believing man did not stay silent! He stood bravely among all of Pharaoh's guards and used logic and reason to defend Musa. He told them: 'Would you kill a good man just because he says (My Lord is Allah)? And he has come to you with miracles and clear proofs?' He reminded them that injustice would lead to their destruction. So, Allah protected him from Pharaoh's anger and evil plot.",
+      lesson:
+        "True bravery is the courage to speak up and defend the oppressed and the prophets. We learn that Allah always stands with those who defend the truth, even if they are alone against an entire army.",
+      next:
+        "The believer of Pharaoh's family defended the truth bravely. But in the next story, we will learn about an entire group of believers who decided to stand firm and not give up their belief in Allah, even if they were thrown into trenches filled with fire! Who are they? They are the People of the Ditch!",
+      quranProse:
+        "Allah says, describing the bravery of this man: {And a believing man from the family of Pharaoh who concealed his faith said, 'Do you kill a man [merely] because he says, My Lord is Allah?'}",
+    },
     title: "قصة مؤمن آل فرعون",
     surahName: "",
     hook: "هل يحتاج الإنسان إلى سيف ليكون شجاعاً؟ أحياناً تكون الكلمة أقوى من السيف! بطلنا اليوم رجل واحد وقف أمام أخطر وأظلم ملك في التاريخ ليقول كلمة حق ويدافع عن نبي الله.",
@@ -109,6 +175,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "ashab-al-ukhdud",
+    en: {
+      title: "The People of the Ditch",
+      hook:
+        "What is the most precious thing you own? For the heroes in our story today, their faith in Allah was more precious than their own lives! Today's story is full of steadfastness and great challenge against a tyrant king.",
+      events:
+        "There was a tyrant and evil king who wanted people to worship only him. But the righteous believers refused to give up monotheism and their belief in the true God. The king got very angry and ordered his soldiers to dig deep trenches (ditches) in the ground and light a massive fire in them! The king gave the believers a choice: either leave your religion or be thrown into the fire. With great courage and amazing faith, the believers chose to be thrown into the fire rather than disbelieve in Allah. Even though their bodies perished, their souls triumphed and ascended to Paradise happily.",
+      lesson:
+        "We learn from this story the power of great faith; the victory of the soul and belief is much more important than the survival of the body. We also learn that Allah sees everything the evil ones do and will punish them, and He will reward the believers with Paradise.",
+      next:
+        "We saw how the believers preferred Allah over their lives. But in our next story, we will meet a man who preferred his money and gold over Allah! He claimed with 'scientific arrogance' that his wealth came only from his intelligence! So what happened to his palace and his money? It's the story of Qarun!",
+      quranProse:
+        "Allah says about them in Surah Al-Buruj: {Cursed were the companions of the trench. [Containing] the fire full of fuel.}",
+    },
     title: "قصة أصحاب الأخدود",
     surahName: "",
     hook: "ما هو أغلى شيء تملكونه؟ بالنسبة للأبطال في قصتنا اليوم، كان إيمانهم بالله أغلى من حياتهم نفسها! قصة اليوم مليئة بالصمود والتحدي العظيم أمام ملك جبار.",
@@ -119,6 +198,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "qarun",
+    en: {
+      title: "The Story of Qarun",
+      hook:
+        "Imagine someone owning so many boxes of treasure and gold that just the keys to these boxes needed very strong men to carry them! Did this much money make him a good or bad person? Let's find out in the story of Qarun.",
+      events:
+        "Qarun was a man who lived during the time of Prophet Musa (Moses). Allah had given him enormous wealth and treasures. But Qarun was afflicted with the temptation of wealth and arrogance! Instead of thanking Allah for these blessings and helping the poor, he acted arrogantly towards them. He claimed that his massive wealth came from his own effort, his pure knowledge, and because he was very smart. Good people advised him to be humble and not to be arrogant, but he refused. So, his punishment was that Allah caused the earth to swallow him and his grand palace. The earth swallowed all his money and arrogance in a single moment!",
+      lesson:
+        "Wealth and intelligence are gifts from Allah. We learn from Qarun that it is wrong to rely only on material reasons without thanking Allah (The Provider). We must be humble and help others with what Allah has given us.",
+      next:
+        "Qarun loved gold and money and became arrogant. But what if someone used gold to make a statue and deceive people with it? A strange story starring a very deceitful man... It's the Samiri!",
+      quranProse:
+        "Allah says, describing Qarun's arrogance: {He said, 'I was only given it because of knowledge I have.'}",
+    },
     title: "قصة قارون",
     surahName: "",
     hook: "تخيلوا شخصاً يملك صناديق من الكنوز والذهب كثيرة جداً، لدرجة أن مفاتيح هذه الصناديق وحدها تحتاج إلى رجال أقوياء جداً لحملها! هل هذا المال الكثير جعله إنساناً طيباً أم شريراً؟ تعالوا نتعرف على قصة قارون.",
@@ -129,6 +221,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "samiri",
+    en: {
+      title: "The Story of the Samiri",
+      hook:
+        "Can a statue made of gold speak or benefit anyone? Of course not! But in our story today, there is a deceitful man who took advantage of the Prophet's absence to make a strange statue to trick the people.",
+      events:
+        "When Prophet Musa went to receive Allah's commands, a man named 'The Samiri' took advantage of his absence to deceive the people. The Samiri gathered the jewelry and gold of the Children of Israel and made a statue in the shape of a calf (a small cow). He made it hollow in a way that let the air enter it and make a sound (a calf's body that lowed). The Samiri falsely made the people believe that this calf was their god! When Prophet Musa returned, he was extremely angry at this deviation and invention, and he destroyed the calf. As for the Samiri, his punishment was absolute social isolation in this worldly life; he lived alone and outcast, saying to anyone who came near him, 'Touch me not'.",
+      lesson:
+        "We must not believe deceivers or follow wrong ideas (innovations). Allah Almighty is not a statue; He is the Great Creator whom nothing resembles. The consequence of a deceiver is always loneliness and a bad end.",
+      next:
+        "We learned not to follow deceivers. In the next story, we will learn how to choose a true leader! Do we choose him because he is rich? Or because he is strong and smart? Let's find out the story of Talut and Jalut!",
+      quranProse:
+        "Allah says about what this deceiver did: {And he extracted for them [the statue of] a calf which had a lowing sound, and they said, 'This is your god and the god of Moses, but he forgot.'}",
+    },
     title: "قصة السامري",
     surahName: "",
     hook: "هل يمكن لتمثال مصنوع من الذهب أن يتحدث أو ينفع أحداً؟ بالطبع لا! لكن في قصتنا اليوم، هناك رجل مخادع استغل غياب النبي ليصنع تمثالاً عجيباً يخدع به الناس.",
@@ -139,6 +244,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "talut-and-jalut",
+    en: {
+      title: "Talut and Jalut (Saul and Goliath)",
+      hook:
+        "If you wanted to choose a team leader, who would you choose? Would you choose the person who has many toys, or the person who is smart and strong? Today's story will teach us how Allah chose a king to lead the army of believers.",
+      events:
+        "In ancient times, the Children of Israel asked to have a king to lead them in battle against a large polytheist army led by a giant tyrant named 'Jalut' (Goliath). So, Allah chose for them a good man named 'Talut' (Saul). The people were surprised because Talut was not rich! But Allah chose him not for his money, but because Allah gave him an increase in knowledge and bodily strength, establishing the true standards of leadership. Talut tested his soldiers with a river to separate the bad from the good, forbidding them to drink from it except a little. In the end, by the grace of Allah and then the bravery of Talut and his soldiers, the small believing group defeated the large polytheist army led by Jalut.",
+      lesson:
+        "Leadership and success require knowledge and physical strength, not just lots of money. We also learn that a small group that obeys Allah can defeat a large group by Allah's permission.",
+      next:
+        "Talut and his soldiers succeeded because they obeyed Allah. But what happens to those who stubbornly oppose the messengers and harm them? In our final story, we will meet evil people who threw their prophet into a well! They are the People of the Well.",
+      quranProse:
+        "Allah says, teaching us the reason for choosing Talut: {Indeed, Allah has chosen him over you and has increased him abundantly in knowledge and stature.}",
+    },
     title: "قصة طالوت وجالوت",
     surahName: "",
     hook: "إذا أردتم اختيار قائد للفريق، من تختارون؟ هل تختارون الشخص الذي يملك ألعاباً كثيرة، أم تختارون الشخص الذكي والقوي؟ قصة اليوم ستعلمنا كيف اختار الله ملكاً ليقود جيش المؤمنين.",
@@ -149,6 +267,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "ashab-ar-rass",
+    en: {
+      title: "The People of the Well (Ashab ar-Rass)",
+      hook:
+        "Do you remember the dark well where Prophet Yusuf was thrown? What if there were evil people who did the same thing to their prophet and refused to listen to his words? This is the scary story of the People of the Well!",
+      events:
+        "The word 'Ar-Rass' in the Arabic language means an unlined well (one without a built wall). The People of the Well were an evil nation mentioned in the Holy Quran alongside the peoples of 'Aad and Thamud. These people used to worship idols and trees instead of Allah. When Allah sent them a good prophet to teach them the path of goodness, they didn't just refuse his words, but they denied him, and historical accounts say they buried their prophet alive in the well. Because they committed this heinous act of denying and harming their messenger, Allah destroyed them completely, and the earth swallowed them.",
+      lesson:
+        "Harming good people and teachers who advise us is a very great sin. The Quranic context confirms that whoever denies the messengers and insists on harming them, Allah will punish them severely and remove their trace.",
+      next:
+        "And so, my friends, we have finished our wonderful journey with the characters and peoples of the Holy Quran. We learned from the wise and were warned against the evil. Are you ready for more exciting stories on our website? Wait for us in the other sections!",
+      quranProse:
+        "Allah says, warning of their fate: {And [We destroyed] 'Aad and Thamud and the companions of the well and many generations between them.}",
+    },
     title: "قصة أصحاب الرس",
     surahName: "",
     hook: "هل تذكرون البئر المظلمة التي أُلقي فيها سيدنا يوسف؟ ماذا لو كان هناك قوم أشرار فعلوا نفس الشيء بنبيهم ورفضوا أن يسمعوا كلامه؟ هذه هي القصة المخيفة لأصحاب الرس!",
@@ -159,6 +290,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "adam",
+    en: {
+      title: "Prophet Adam, the First Human",
+      hook:
+        "Have you ever wondered who the very first human on Earth was? How did life begin for people? Let's travel back to the very beginning to meet the father of all humanity!",
+      events:
+        "Allah created Prophet Adam from dust and breathed life into him. Allah taught Adam the names of everything, making him very smart! Allah told the angels to bow down to Adam out of respect. All the angels obeyed, but a jinn named Iblis (Satan) refused because he was arrogant. Allah let Adam and his wife Hawwa (Eve) live in a beautiful Paradise. He told them they could eat anything except from one specific tree. But Iblis tricked them into eating from it. They felt very sorry and asked Allah for forgiveness. Allah is The Most Forgiving; He forgave them and sent them to Earth to start human life and spread goodness.",
+      lesson:
+        "We learn that if we make a mistake, we should immediately say we are sorry and ask Allah for forgiveness, just like Prophet Adam did.",
+      next:
+        "Prophet Adam was the first man and prophet. In our next story, we will meet his great-grandson, a prophet who loved to read and write and was raised to a very high place! Who is he? He is Prophet Idris!",
+      quranProse:
+        "Allah says in the Quran: {And He taught Adam the names - all of them.}",
+    },
     image: "/stories/prophets/adam.jpg",
     title: "قصة سيدنا آدم (أبو البشر)",
     surahName: "",
@@ -170,6 +314,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "idris",
+    en: {
+      title: "Prophet Idris, the First to Write",
+      hook:
+        "Do you like using a pen to write or draw? Did you know there was a prophet who was the very first person in history to write with a pen? Let's discover his amazing story!",
+      events:
+        "Prophet Idris was a very smart and hardworking prophet. He loved learning and teaching people good things. He was the first person in history to write with a pen, and the first to sew clothes and wear them! Before him, people used to wear animal skins. Because he was so righteous, always remembering Allah, and working hard to spread knowledge, Allah honored him greatly and raised him to a very high place in the heavens.",
+      lesson:
+        "Allah loves those who learn new things, invent useful tools like clothes and writing, and use their knowledge to help others.",
+      next:
+        "Idris loved learning. But what happens when people forget Allah and do bad things for a very long time? In our next story, a prophet built a massive ship on top of a mountain! It's Prophet Nuh!",
+      quranProse:
+        "Allah says: {And mention in the Book, Idris. Indeed, he was a man of truth and a prophet. And We raised him to a high station.}",
+    },
     image: "/stories/prophets/idris.jpg",
     title: "قصة سيدنا إدريس",
     surahName: "",
@@ -181,6 +338,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "nuh",
+    en: {
+      title: "Prophet Nuh and the Great Ark",
+      hook:
+        "Imagine building a giant ship on a mountain where there is no water at all! People would think it's crazy, right? But our prophet today did exactly that because he trusted Allah.",
+      events:
+        "Prophet Nuh (Noah) patiently advised his people to do good and worship Allah for 950 years! But most of them were stubborn and made fun of him. Allah commanded Nuh to build a huge wooden ship (an Ark). When the time came, water poured down from the sky and gushed from the ground, causing a great flood. Nuh took the believers and a pair of every kind of animal onto the Ark. The believers and the animals were saved, while the bad people who refused to listen were washed away. The ship finally rested safely on a mountain.",
+      lesson:
+        "We must always be patient, never give up on doing good, and trust Allah's commands even if other people make fun of us.",
+      next:
+        "Nuh's ark saved the believers. In the next story, we will meet a very strong nation that built giant homes out of rocks, but they became too proud. Let's learn about Prophet Hud!",
+      quranProse:
+        "Allah describes the great flood: {And it sailed with them through waves like mountains...}",
+    },
     image: "/stories/prophets/nuh.jpg",
     title: "قصة سيدنا نوح (شيخ المرسلين)",
     surahName: "",
@@ -192,6 +362,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "hud",
+    en: {
+      title: "Prophet Hud and the Strong Nation",
+      hook:
+        "Have you ever seen super tall buildings? Today we'll talk about people who were incredibly tall and strong, and built massive stone towers. But did their strength save them?",
+      events:
+        "Prophet Hud was sent to a nation called 'Aad. They were giants, very strong, and lived in a place called Iram, full of huge stone pillars. But instead of thanking Allah for their strength, they became arrogant bullies and worshipped statues. Prophet Hud kindly advised them, saying, 'Ask Allah for forgiveness, and He will make you even stronger!' But they laughed at him. So, Allah sent a severe, freezing wind that blew for seven nights and eight days, destroying the arrogant bullies, but saving Prophet Hud and the good believers.",
+      lesson:
+        "No matter how strong or smart we are, we should never be bullies. We must always be thankful to Allah for our strength and use it for good.",
+      next:
+        "The strong people of 'Aad were destroyed by wind. Our next story features people who carved their homes directly into solid mountains! And their miracle was a giant camel! It's Prophet Salih!",
+      quranProse:
+        "Allah says: {And to 'Aad [We sent] their brother Hud. He said, 'O my people, worship Allah; you have no deity other than Him.'}",
+    },
     image: "/stories/prophets/hud.jpg",
     title: "قصة سيدنا هود وقوم عاد",
     surahName: "",
@@ -203,6 +386,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "saleh",
+    en: {
+      title: "Prophet Salih and the Giant Camel",
+      hook:
+        "Can a giant, beautiful camel come out of a solid rock? For Allah, it's easy! Let's hear the amazing story of Prophet Salih and his stubborn people.",
+      events:
+        "After the people of 'Aad, came a nation called Thamud. They were amazing builders who carved their homes right into the mountains! Prophet Salih told them to worship Allah. They said they would only believe him if he could bring a pregnant, giant camel out of a solid rock. Salih prayed, and a magical camel stepped right out of the mountain! Salih told them to share their water with her and never hurt her. But they broke the promise and harmed the camel. Because of their cruelty, a mighty blast from the sky destroyed the bad people, and Salih and the believers were saved.",
+      lesson:
+        "We learn that we must keep our promises, be kind to animals, and never challenge Allah's miracles.",
+      next:
+        "We learned about the giant camel of Salih. Next we meet a prophet who taught a whole city of traders to stop cheating with their scales. It's Prophet Shu'ayb!",
+      quranProse:
+        "Allah says: {And to Thamud [We sent] their brother Salih. He said, 'O my people, worship Allah; you have no deity other than Him.'}",
+    },
     image: "/stories/prophets/saleh.jpg",
     title: "قصة سيدنا صالح وقوم ثمود",
     surahName: "",
@@ -214,6 +410,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "shuaib",
+    en: {
+      title: "Prophet Shu'ayb and the Honest Scales",
+      hook:
+        "Imagine going to a market to buy some delicious apples, but the seller tricks you and gives you less than what you paid for! Our prophet today tried to stop this bad cheating.",
+      events:
+        "Prophet Shu'ayb was an excellent speaker. He was sent to the people of Madyan, who were rich traders but very greedy. They used to cheat people by tampering with the weighing scales, giving them less and taking more. Prophet Shu'ayb told them to worship Allah and to be honest in their trade. He said, 'Do not cheat people out of their things!' But they laughed at him and threatened to kick him out of the city. Because they refused to be honest, a terrible earthquake and a dark cloud of punishment destroyed the cheaters, while Shu'ayb and the good people were saved.",
+      lesson:
+        "We must always be honest, especially when trading or sharing things. Cheating people and being greedy is a big sin that Allah dislikes.",
+      next:
+        "Prophet Shu'ayb taught us honesty. In our next story, we will meet a brave young man who stood alone against an entire city of idol worshippers, and even a massive fire couldn't burn him! It's Prophet Ibrahim!",
+      quranProse:
+        "Allah says: {And to Madyan [We sent] their brother Shu'ayb. He said, 'O my people, worship Allah... and do not decrease from the measure and the scale.'}",
+    },
     image: "/stories/prophets/shuaib.jpg",
     title: "قصة سيدنا شعيب (خطيب الأنبياء)",
     surahName: "",
@@ -225,6 +434,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "ibrahim",
+    en: {
+      title: "Prophet Ibrahim, the Friend of Allah",
+      hook:
+        "What would you do if everyone in your town, even your own father, worshipped statues they made with their own hands? Meet the brave young man who used his smart mind to prove them wrong!",
+      events:
+        "Prophet Ibrahim (Abraham) lived among people who worshipped stone idols and stars. From a young age, Ibrahim knew that statues couldn't hear or help anyone. One day, when the people were away, he smashed all their idols except the biggest one. When they returned and asked him who did it, he smartly pointed to the big idol and said, 'Ask him, if he can speak!' They realized statues couldn't talk or protect themselves. But instead of believing him, the angry king Namrud ordered Ibrahim to be thrown into a massive, roaring fire. But a great miracle happened! Allah commanded the fire to be cool and safe for Ibrahim. He walked out completely unhurt!",
+      lesson:
+        "Using our minds helps us understand the truth. We also learn that if we rely completely on Allah, He will protect us from any harm, just as He protected Ibrahim from the fire.",
+      next:
+        "Ibrahim was saved from the fire. But what about his nephew, who was sent to a beautiful city full of people who did very bad and unnatural things? Next up is Prophet Lut!",
+      quranProse:
+        "Allah says: {We said, 'O fire, be coolness and safety upon Abraham.'}",
+    },
     image: "/stories/prophets/ibrahim.jpg",
     title: "قصة سيدنا إبراهيم (خليل الرحمن)",
     surahName: "",
@@ -236,6 +458,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "lut",
+    en: {
+      title: "Prophet Lut and the Ruined City",
+      hook:
+        "If all your friends started doing something very bad and wrong, would you join them or tell them to stop? Our prophet today stood firm against a whole city doing bad things.",
+      events:
+        "Prophet Lut (Lot) was the nephew of Prophet Ibrahim. Allah sent him to a beautiful green city called Sodom. However, the people of Sodom used to do very bad and unnatural things that no one in the world had done before. They were also very mean to strangers and travelers. Prophet Lut kindly told them to stop these bad habits and obey Allah, but they wouldn't listen and told him to leave. Finally, Allah sent angels to save Lut and his believing family, telling them to leave the city at night and never look back. In the morning, a terrible shower of stones destroyed the bad city completely.",
+      lesson:
+        "We should never copy people when they do bad or unnatural things, even if everyone else is doing them. We must always choose to be good and pure.",
+      next:
+        "Prophet Lut stood for what is pure. In our next story, we will meet a handsome young boy whose own brothers threw him into a dark well out of jealousy, but he grew up to become a great minister! It's Prophet Yusuf!",
+      quranProse:
+        "Allah says: {And [We had sent] Lot when he said to his people, 'Do you commit such immorality as no one has preceded you with from among the worlds?'}",
+    },
     image: "/stories/prophets/lut.jpg",
     title: "قصة سيدنا لوط",
     surahName: "",
@@ -247,6 +482,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "yusuf",
+    en: {
+      title: "Prophet Yusuf and the Beautiful Dream",
+      hook:
+        "Have you ever had a dream that came true? Our hero today had a dream about the sun, the moon, and stars bowing to him! Let's dive into the most beautiful story in the Quran.",
+      events:
+        "Prophet Yusuf (Joseph) was a very handsome and good boy, deeply loved by his father, Prophet Yaqub. His older brothers became very jealous of him. One day, they took him to play but threw him into a deep, dark well! Some travelers found him and sold him in Egypt. Even though Yusuf faced many hard times — like being away from his father and being put in prison unfairly — he was always patient and never stopped doing good. Allah gave him the special gift of understanding dreams. Because of this, he saved Egypt from a great famine and became a powerful minister. In the end, he forgave his brothers, and his family was reunited in a beautiful happy ending!",
+      lesson:
+        "Jealousy is a bad feeling that ruins relationships. We learn from Yusuf to be patient during hard times and to forgive those who hurt us when we become strong.",
+      next:
+        "Yusuf was patient in the well and in prison. But what if a prophet got very, very sick for many years and lost everything he owned? Let's meet the champion of patience, Prophet Ayyub!",
+      quranProse:
+        "Allah says: {We relate to you, [O Muhammad], the best of stories in what We have revealed to you of this Qur'an.}",
+    },
     image: "/stories/prophets/yusuf.jpg",
     title: "قصة سيدنا يوسف (أحسن القصص)",
     surahName: "",
@@ -258,6 +506,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "ayoub",
+    en: {
+      title: "Prophet Ayyub, the Champion of Patience",
+      hook:
+        "What do you do when you get sick? You might feel a little sad until you get better. But what if someone was very sick for many years? Today we meet a prophet whose patience was stronger than mountains!",
+      events:
+        "Prophet Ayyub (Job) was a very wealthy man with a big, happy family and lots of farms. But Allah wanted to test his faith. Suddenly, Ayyub lost all his money, his children passed away, and he became very, very sick for many years. Despite all this pain and sadness, he never complained or got angry with Allah. He just kept praying and thanking Allah for everything. Finally, he prayed for Allah's mercy. Allah answered his prayer, telling him to strike the ground with his foot. A cool spring of water gushed out. When he washed with it, he was completely healed! Allah then gave him back his wealth and a beautiful family as a reward for his amazing patience.",
+      lesson:
+        "When bad things happen or we get sick, we should not complain or be angry. We must be patient, trust Allah, and know that relief will surely come.",
+      next:
+        "Prophet Ayyub taught us ultimate patience. Next we witness the sea splitting in half for a prophet and his people. Get ready for the greatest of miracles!",
+      quranProse:
+        "Allah says: {Indeed, We found him patient, an excellent servant. Indeed, he was one repeatedly turning back [to Allah].}",
+    },
     image: "/stories/prophets/ayoub.jpg",
     title: "قصة سيدنا أيوب",
     surahName: "",
@@ -269,6 +530,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "musa-and-harun",
+    en: {
+      title: "Prophet Musa and the Parting of the Sea",
+      hook:
+        "Imagine standing in front of a huge, deep sea, and an evil army is chasing you! How could you cross without a boat? Let's witness one of the greatest miracles ever!",
+      events:
+        "Prophet Musa (Moses) and the believers were running away from the evil Pharaoh and his army. They reached the edge of the Red Sea and had nowhere to go. The people were very scared! But Musa had complete trust in Allah. He struck the water with his wooden staff, and a great miracle happened! The massive sea split into two halves, creating a safe, dry sandy path in the middle with giant walls of water on both sides! The believers crossed safely, but when Pharaoh tried to follow them, the water crashed down, and the evil army was destroyed.",
+      lesson:
+        "Trusting Allah brings miracles. Allah always saves the good believers and defeats the unjust oppressors, no matter how powerful they seem.",
+      next:
+        "Musa's staff parted the sea. But in the next story, a prophet made the sun itself stop moving in the sky! Who is he? It's Prophet Yusha!",
+      quranProse:
+        "Allah says: {And We inspired to Moses, 'Strike with your staff the sea,' and it parted, and each portion was like a great towering mountain.}",
+    },
     image: "/stories/prophets/musa-and-harun.jpg",
     title: "قصة سيدنا موسى وأخيه هارون",
     surahName: "",
@@ -280,6 +554,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "yusha",
+    en: {
+      title: "Prophet Yusha and the Frozen Sun",
+      hook:
+        "Have you ever wished the day would be just a little longer so you could finish something important? For this brave prophet, the sun actually stopped setting!",
+      events:
+        "After Musa, Prophet Yusha (Joshua) led the believers. They were trying to enter a holy city to free it from bad people. The battle was long, and the sun was about to set. If it got dark, they couldn't finish their mission, and the next day was a day of rest for them. So, Yusha looked at the sun and said, 'You are commanded by Allah, and I am commanded.' He prayed to Allah to hold the sun for them. Miraculously, the sun stopped moving and didn't set until they won the battle and freed the city!",
+      lesson:
+        "Time and the universe are completely under Allah's control. When we work hard for a good cause, Allah helps us in ways we cannot even imagine.",
+      next:
+        "The sun stopped for Yusha. In the next story, we will meet a prophet who could mold hard iron with his bare hands like soft clay! It's Prophet Dawud!",
+      quranProse:
+        "Allah says about giving them victory: {And Allah restored to them the city...} (As mentioned in the Prophetic Hadith about the sun stopping for him).",
+    },
     image: "/stories/prophets/yusha.jpg",
     title: "قصة سيدنا يوشع بن نون",
     surahName: "",
@@ -291,6 +578,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "dawud",
+    en: {
+      title: "Prophet Dawud and the Soft Iron",
+      hook:
+        "Have you ever played with soft clay? Imagine if someone could play with hard, cold iron just like clay without using any fire!",
+      events:
+        "Prophet Dawud (David) was a very brave and strong prophet. When he was young, he defeated the giant tyrant Jalut (Goliath) with just a small slingshot! Allah gave Dawud a beautiful voice; when he sang the praises of Allah (reading the Psalms/Zabur), the mountains and birds would join him in praising Allah! Allah also gave him an amazing miracle: hard iron would become soft in his bare hands, just like dough. He used this miracle to make strong shields and armor to protect the good people.",
+      lesson:
+        "True strength comes from Allah. We should use our talents and strength to protect others and always praise Allah for His blessings.",
+      next:
+        "Dawud could mold iron. But his son was given a kingdom like no other; he could talk to animals and control the wind! Let's meet Prophet Sulaiman!",
+      quranProse:
+        "Allah says: {And We certainly gave David from Us bounty. [We said], 'O mountains, repeat [Our] praises with him, and the birds [as well].' And We made pliable for him iron.}",
+    },
     image: "/stories/prophets/dawud.jpg",
     title: "قصة سيدنا داود",
     surahName: "",
@@ -302,6 +602,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "sulaiman",
+    en: {
+      title: "Prophet Sulaiman's Great Kingdom",
+      hook:
+        "Imagine being a king who can order the wind to carry you, talk to birds, and have jinn build castles for you! This was the greatest kingdom on earth.",
+      events:
+        "Prophet Sulaiman (Solomon) asked Allah for a kingdom that no one else would ever have, and Allah granted his prayer! Sulaiman could understand the languages of all animals, birds, and insects. He commanded the wind to transport him quickly across the world. He also controlled the strong Jinn, who built huge palaces, beautiful statues, and deep-sea diving ships for him. Despite all this immense power and wealth, Sulaiman was always humble, constantly praying and thanking Allah, knowing it was all a test.",
+      lesson:
+        "Power and wealth are a test from Allah. A true believer stays humble, fair, and thankful, no matter how much they own.",
+      next:
+        "Sulaiman had the greatest kingdom. But our next prophet didn't ask for a kingdom; he just asked for a child when he was very, very old. Did his prayer come true? Let's meet Prophet Zakariya!",
+      quranProse:
+        "Allah says: {He said, 'My Lord, forgive me and grant me a kingdom such as will not belong to anyone after me. Indeed, You are the Bestower.'}",
+    },
     image: "/stories/prophets/sulaiman.jpg",
     title: "قصة سيدنا سليمان",
     surahName: "",
@@ -313,6 +626,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "zakariya-and-yahya",
+    en: {
+      title: "Prophet Zakariya and the Miracle Baby",
+      hook:
+        "Can an old man whose hair is completely white have a baby? When we ask Allah, we should never lose hope!",
+      events:
+        "Prophet Zakariya (Zechariah) was a very kind and old man who worked hard in the mosque. He and his wife were very old, and they never had any children. Zakariya wanted a good son to continue teaching people after him. One day, he saw how Allah provided fresh fruits to Maryam (Mary) out of season. This gave him great hope! He prayed secretly and sincerely to Allah for a child. Allah answered his prayer and sent angels to give him the glad tidings of a boy named Yahya (John), who would be a great and pure prophet.",
+      lesson:
+        "We should never give up hope or stop praying to Allah, because Allah can make the impossible happen.",
+      next:
+        "Zakariya had a miracle son in his old age. But the next miracle is even more amazing: a baby born without a father, who spoke from his cradle! It's Prophet Isa!",
+      quranProse:
+        "Allah says: {He said, 'My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy.'}",
+    },
     image: "/stories/prophets/zakariya-and-yahya.jpg",
     title: "قصة سيدنا زكريا وابنه يحيى",
     surahName: "",
@@ -324,6 +650,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "isa",
+    en: {
+      title: "Prophet Isa, the Miracle Child",
+      hook:
+        "Have you ever heard a newborn baby speak like a grown-up? Our prophet today spoke to defend his mother when he was just a few days old!",
+      events:
+        "Prophet Isa (Jesus) was born to the pure Virgin Maryam without a father, by the great power of Allah. When Maryam brought the baby to her people, they were shocked and asked her bad questions. Maryam just pointed to her baby. The people said, 'How can we talk to a baby in a cradle?' Suddenly, baby Isa spoke clearly! He said, 'I am a servant of Allah. He has given me the Scripture and made me a prophet.' When he grew up, Allah gave him miracles like healing the sick, curing the blind, and even bringing the dead back to life by Allah's permission.",
+      lesson:
+        "Allah can create anything He wills. Isa was a great human messenger who brought love, healing, and the truth of worshipping Allah alone.",
+      next:
+        "Isa brought great miracles. But who is the final prophet? The one who brought a message for all people until the end of time? It's Prophet Muhammad (pbuh)!",
+      quranProse:
+        "Allah says: {[Jesus] said, 'Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet.'}",
+    },
     image: "/stories/prophets/isa.jpg",
     title: "قصة سيدنا عيسى ابن مريم",
     surahName: "",
@@ -335,6 +674,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "prophets", slug: "muhammad",
+    en: {
+      title: "Prophet Muhammad, the Final Messenger",
+      hook:
+        "Who is the man whose message reached every corner of the world? He brought a book that has never changed, full of light and guidance for everyone!",
+      events:
+        "Prophet Muhammad (peace be upon him) is the final prophet and messenger of Allah. He was born in Mecca and was known as 'The Honest and Trustworthy'. When he was 40 years old, Allah sent the Angel Jibril (Gabriel) to give him the Holy Quran. Prophet Muhammad faced many hardships, but he was always merciful, even to his enemies. His greatest miracle is the Quran itself, a book of wisdom that teaches us how to live in peace, love, and justice. He taught us to be kind to orphans, animals, and neighbors. His message is a mercy to all the worlds, concluding the beautiful chain of prophets.",
+      lesson:
+        "Prophet Muhammad is our greatest role model. We learn from him to be honest, merciful to all creatures, and to follow the beautiful teachings of the Quran.",
+      next:
+        "And with Prophet Muhammad (pbuh), the golden chain of prophets is complete! We have learned so many lessons from their amazing lives. Are you ready for more adventures? Check out the other sections!",
+      quranProse:
+        "Allah says: {And We have not sent you, [O Muhammad], except as a mercy to the worlds.}",
+    },
     image: "/stories/prophets/muhammad.jpg",
     title: "قصة سيدنا محمد (خاتم الأنبياء)",
     surahName: "",
@@ -346,6 +698,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "ant-of-solomon",
+    en: {
+      title: "The Caring Ant",
+      hook:
+        "If you saw a huge army marching towards you, what would you do? Meet a tiny ant who saved her whole colony with one loud warning!",
+      events:
+        "Prophet Sulaiman (Solomon) was a great king. Allah gave him a special power: he could understand the language of animals and insects! One day, his massive army of humans, jinn, and birds was marching through a valley. A tiny, smart ant saw them coming. Instead of just saving herself, she shouted to all the other ants: 'Go into your homes so Sulaiman and his army don't crush you without knowing!' Prophet Sulaiman heard her tiny voice, smiled, and thanked Allah for this blessing, making sure his army didn't step on them.",
+      lesson:
+        "We learn to care for our friends and family, just like the ant. We also learn that strong leaders are merciful and careful not to hurt the weak.",
+      next:
+        "The ant was tiny but very caring. Our next animal is a beautiful bird with a crown of feathers on his head, who worked as a special messenger for the very same king. It's the Hoopoe!",
+      quranProse:
+        "Allah says: {An ant said, 'O ants, enter your dwellings that you not be crushed by Solomon and his soldiers while they perceive not.'}",
+    },
     title: "قصة نملة سليمان",
     surahName: "",
     image: "/stories/animals/ant-of-solomon.jpg",
@@ -357,6 +722,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "hoopoe-of-solomon",
+    en: {
+      title: "The Hoopoe (Hudhud) of Sulaiman",
+      hook:
+        "Can a bird be a scout and a messenger for a king? Meet the Hoopoe, a beautiful bird who traveled to a faraway land and discovered a big secret!",
+      events:
+        "The Hoopoe (Hudhud) was a special bird in the army of Prophet Sulaiman. One day, the Hoopoe flew very far and discovered the Kingdom of Sheba. He saw that the Queen and her people were worshipping the sun instead of Allah! The Hoopoe quickly flew back and told Prophet Sulaiman everything. The Prophet gave the smart bird a letter to deliver to the Queen, inviting her to worship Allah. Thanks to the Hoopoe's discovery, the Queen eventually became a believer!",
+      lesson:
+        "Even if you are small, you can do great things for the truth. We should always share important and truthful information to help others.",
+      next:
+        "The Hoopoe crossed the sky with a message. Our next animal lives in the deep, dark ocean — and a prophet spent days inside it! Get ready to dive with the Whale of Prophet Yunus!",
+      quranProse:
+        "The Hoopoe confidently told the Prophet: {I have encompassed [in knowledge] that which you have not encompassed, and I have come to you from Sheba with certain news.}",
+    },
     title: "قصة هدهد سليمان",
     surahName: "",
     image: "/stories/animals/hoopoe-of-solomon.jpg",
@@ -368,6 +746,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "whale-of-yunus",
+    en: {
+      title: "The Whale of Prophet Yunus",
+      hook:
+        "Have you ever been in the dark and felt scared? Imagine being in the dark belly of a giant whale at the bottom of the ocean! Who was inside, and how did he get out?",
+      events:
+        "Prophet Yunus (Jonah) left his town because his people wouldn't listen to him. He got on a ship, but a huge storm hit them. Yunus ended up in the deep ocean, and Allah commanded a giant whale to swallow him without hurting him! Inside the dark belly of the whale, Yunus realized he shouldn't have left his people. He prayed sincerely to Allah, saying he was sorry. Allah heard his prayer from the bottom of the ocean and commanded the whale to safely leave him on the shore.",
+      lesson:
+        "No matter where you are — even in the darkest place — Allah can always hear your prayers. We must always ask for forgiveness when we make a mistake.",
+      next:
+        "The whale obeyed Allah in the depths of the sea. Our next animal is the largest of them all, and it refused to march against the holy Kaaba! It's the Elephant of Abraha!",
+      quranProse:
+        "Prophet Yunus prayed in the darkness: {There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.}",
+    },
     title: "قصة حوت يونس",
     surahName: "",
     image: "/stories/animals/whale-of-yunus.jpg",
@@ -379,6 +770,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "elephant-of-abraha",
+    en: {
+      title: "The Elephant of Abraha",
+      hook:
+        "Have you ever seen an elephant? They are huge and strong! But what happens when an evil king tries to force an elephant to do something bad? Let's find out!",
+      events:
+        "A long time ago, an evil king named Abraha wanted to destroy the holy Kaaba in Mecca. He brought a massive army and a huge, strong elephant named 'Mahmoud' to knock down the Kaaba. But when they pointed the elephant towards Mecca, a miracle happened! The elephant sat down and completely refused to move towards the Kaaba. If they turned him away, he would run, but towards the Kaaba, he wouldn't take a single step! Then, Allah sent flocks of birds to defeat the evil army, and the Kaaba was saved.",
+      lesson:
+        "Animals know and obey Allah. We learn that Allah always protects His holy places, and no matter how big and strong the bad guys are, Allah is always stronger.",
+      next:
+        "The elephant refused to harm the Kaaba. Our next animal guarded a group of believing youth at the mouth of a cave for hundreds of years — the Dog of the People of the Cave!",
+      quranProse:
+        "Allah says in Surah Al-Fil: {Have you not considered, [O Muhammad], how your Lord dealt with the companions of the elephant?}",
+    },
     title: "قصة فيل أبرهة",
     surahName: "",
     image: "/stories/animals/elephant-of-abraha.jpg",
@@ -412,6 +816,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "camel-of-saleh",
+    en: {
+      title: "The Miracle Camel of Prophet Salih",
+      hook:
+        "Can a giant camel walk right out of a mountain rock? It sounds impossible, but with Allah, everything is possible! Let's discover the story of the miracle camel.",
+      events:
+        "The people of Prophet Salih (Thamud) were very stubborn. They asked him for an impossible miracle to believe him: they wanted a huge, beautiful pregnant camel to come out of a solid mountain rock! Prophet Salih prayed to Allah, and the rock actually split open, and out walked the amazing camel! The Prophet told them to let her drink from the well and never harm her. But the bad people didn't listen and hurt the camel, so Allah punished them.",
+      lesson:
+        "We must always respect Allah's miracles and treat animals with great kindness and care, never hurting them.",
+      next:
+        "The camel was a sign that its people refused to respect. In our last animal story, a humble donkey becomes proof of something amazing: that Allah can bring the dead back to life!",
+      quranProse:
+        "Prophet Salih told them: {O my people, this is the she-camel of Allah - [she is] to you a sign. So let her feed upon Allah's earth, and do not touch her with harm.}",
+    },
     title: "قصة ناقة صالح",
     surahName: "",
     image: "/stories/animals/camel-of-saleh.jpg",
@@ -435,6 +852,17 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "maryam",
+    en: {
+      title: "Maryam, the Mother of Isa",
+      hook:
+        "Imagine a girl who lived inside a beautiful mosque, praying day and night, and angels brought her fresh food straight from heaven! Who is this amazing lady?",
+      events:
+        "Maryam (Mary) was a very pure and righteous girl. Her mother dedicated her to serve the mosque (Al-Aqsa) since she was born. Prophet Zakariya took care of her. Whenever he entered her room, he found fresh fruits that were completely out of season! Allah chose her above all women in the world to be the mother of a great prophet, Isa (Jesus), without a father, as a mighty miracle.",
+      lesson:
+        "We learn that purity, devotion to prayers, and completely trusting Allah brings miracles into our lives.",
+      next:
+        "Maryam was a great and pure mother. In our next story, we meet another good and very brave woman, who lived in the palace of the most unjust king on earth — and still chose Paradise. Who is she?",
+    },
     image: "/stories/maryam.jpg",
     title: "مريم ابنة عمران",
     surahName: "آل عمران",
@@ -447,6 +875,17 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "asiya",
+    en: {
+      title: "Asiya, the Wife of Pharaoh",
+      hook:
+        "If you lived in the biggest palace, with all the gold and toys in the world, but the king was evil, what would you choose? Meet a queen who chose a house in Paradise over everything else!",
+      events:
+        "Asiya was the wife of the cruel Pharaoh, but she was entirely different from him. She was kind, merciful, and a true believer in Allah. She was the one who convinced Pharaoh not to harm baby Musa and adopted him instead. When Pharaoh found out she believed in Allah, he punished her severely. But Asiya wasn't afraid of him at all. She looked up to the sky and asked Allah to build her a beautiful house in Paradise near Him.",
+      lesson:
+        "True happiness is not found in money or palaces, but in having a pure heart that loves Allah and stands for the truth.",
+      next:
+        "Asiya raised a child who was not her own. But do you know who the very first mother in human history was — the first woman Allah created to live on earth with her husband?",
+    },
     image: "/stories/asiya.jpg",
     title: "آسية امرأة فرعون",
     surahName: "التحريم",
@@ -483,6 +922,17 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "hajar",
+    en: {
+      title: "Lady Hajar and the Well of Zamzam",
+      hook:
+        "Imagine being left alone in a hot, empty desert with a crying baby and no water! What would you do? Let's discover the story of the strongest and most patient mother!",
+      events:
+        "Prophet Ibrahim (Abraham) had to leave his wife Hajar and their baby Ismail in a barren desert in Mecca by Allah's command. Hajar trusted Allah completely. When the baby got thirsty and started crying, she didn't just sit and give up; she ran between two hills (Safa and Marwa) seven times looking for help. Because of her great effort and deep trust, Allah sent an angel who struck the ground, and the blessed, cool water of Zamzam gushed out!",
+      lesson:
+        "We must always put in the effort and work hard, while fully trusting that Allah will help us and never abandon us.",
+      next:
+        "Hajar's patience brought water out of the desert. In our last story of this chapter, we meet a queen who ruled a mighty kingdom and used her mind to find the truth. Who is she? The Queen of Sheba!",
+    },
     image: "/stories/hajar.jpg",
     title: "السيدة هاجر",
     surahName: "إبراهيم",
@@ -495,6 +945,17 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "bilqis",
+    en: {
+      title: "Bilqis, the Queen of Sheba",
+      hook:
+        "Have you ever received a letter delivered by a bird? Today's story is about a very smart queen who received a special letter from a great King and Prophet!",
+      events:
+        "Bilqis was a wise queen who ruled the wealthy Kingdom of Sheba. Her people were very strong, but they worshipped the sun instead of Allah. Prophet Sulaiman (Solomon) sent her a letter with a smart bird (the Hoopoe), inviting her to worship Allah. Instead of starting a war, the wise queen decided to visit Sulaiman. When she saw his amazing kingdom and his great miracles, she used her intelligence and immediately chose to submit to Allah, the Lord of the worlds.",
+      lesson:
+        "A true leader uses their mind to seek the truth and avoid unnecessary fights. Wisdom always leads a person to the right path.",
+      next:
+        "And with this wise queen we finish the women of the Quran. Are you ready for more? Let's head to the next chapter!",
+    },
     image: "/stories/bilqis.jpg",
     title: "ملكة سبأ",
     surahName: "النمل",
@@ -529,3 +990,16 @@ export const stories: Story[] = [
     ayah: { ref: "66:10", surah: 66, number: 10, text: "ضَرَبَ ٱللَّهُ مَثَلًۭا لِّلَّذِينَ كَفَرُوا۟ ٱمْرَأَتَ نُوحٍۢ وَٱمْرَأَتَ لُوطٍۢ ۖ كَانَتَا تَحْتَ عَبْدَيْنِ مِنْ عِبَادِنَا صَـٰلِحَيْنِ فَخَانَتَاهُمَا" },
   },
 ];
+
+/** A story's prose in the requested language, falling back to Arabic. */
+export const storyTextFor = (story: Story, locale: "ar" | "en"): StoryText =>
+  locale === "en" && story.en
+    ? story.en
+    : {
+        title: story.title,
+        hook: story.hook,
+        events: story.events,
+        lesson: story.lesson,
+        next: story.next,
+        quranProse: story.quranProse,
+      };

@@ -1,6 +1,6 @@
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Compass, Heart, Library, PawPrint, Printer, Sparkles, Trash2, Users } from "lucide-react";
-import { chapters, stories, type Story } from "@/content/stories";
+import { chapters, stories, storyTextFor, type Story } from "@/content/stories";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -71,6 +71,9 @@ function Chrome({ children }: { children: React.ReactNode }) {
 
 /** The prophets chapter ships one cover rather than 17 pictures, so stories
  *  without art get the drawn placeholder the original design already defines. */
+const langAttrs = (locale: "ar" | "en") =>
+  locale === "en" ? { lang: "en", dir: "ltr" as const } : { lang: "ar", dir: "rtl" as const };
+
 function StoryArt({ story, className }: { story: Story; className?: string }) {
   if (story.image) {
     return (
@@ -84,7 +87,7 @@ function StoryArt({ story, className }: { story: Story; className?: string }) {
       <span className="story-image-placeholder__sun" />
       <span className="story-image-placeholder__hill" />
       <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
-      <small lang="ar" dir="rtl">{story.title}</small>
+      <small>{story.title}</small>
     </figure>
   );
 }
@@ -92,14 +95,15 @@ function StoryArt({ story, className }: { story: Story; className?: string }) {
 function StoryCard({ story, index }: { story: Story; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
+  const text = storyTextFor(story, locale);
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
       <StoryArt story={story} />
-      <div className="story-list-card__body" lang="ar" dir="rtl">
+      <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
-        <h3>{story.title}</h3>
-        <p>{story.hook}</p>
+        <h3>{text.title}</h3>
+        <p>{text.hook}</p>
         <span className="story-read-pill">{t.read} <Arrow size={15} aria-hidden="true" /></span>
       </div>
     </Link>
@@ -172,20 +176,21 @@ export default function Stories() {
       );
     }
     const story = chapterStories[index];
+    const text = storyTextFor(story, locale);
     const previous = index > 0 ? chapterStories[index - 1] : null;
     const following = index < chapterStories.length - 1 ? chapterStories[index + 1] : null;
     const inLibrary = has(story.slug);
 
     return (
       <Chrome>
-        <section className="story-detail-hero" lang="ar" dir="rtl">
+        <section className="story-detail-hero" {...langAttrs(locale)}>
           <div className="container">
             <Link href={`/stories/${story.chapter}`} className="story-back-link"><ArrowRight size={15} aria-hidden="true" /> {t.back}</Link>
             <div className="story-detail-hero__grid">
               <div>
                 <span className="story-detail-hero__count">{t.storyOf} {index + 1} / {chapterStories.length}</span>
-                <h1>{story.title}</h1>
-                <p className="story-detail-hero__hook">{story.hook}</p>
+                <h1>{text.title}</h1>
+                <p className="story-detail-hero__hook">{text.hook}</p>
                 <div className="story-detail-actions no-print">
                   <button type="button" className={`button button--soft${inLibrary ? " is-active" : ""}`} onClick={() => toggle(story.slug)} aria-pressed={inLibrary}>
                     {inLibrary ? <BookmarkCheck size={17} aria-hidden="true" /> : <BookmarkPlus size={17} aria-hidden="true" />}
@@ -201,12 +206,12 @@ export default function Stories() {
           </div>
         </section>
 
-        <article className="story-article story-article--printable" lang="ar" dir="rtl">
+        <article className="story-article story-article--printable" {...langAttrs(locale)}>
           <div className="container story-article__layout">
             <nav className="story-article__rail no-print" aria-label={t.sections}>
               <span className="story-section-label">{t.sections}</span>
               <a href="#story-events">{t.events}</a>
-              {(story.ayah || story.quranProse) && <a href="#story-ayah">{t.ayah}</a>}
+              {(story.ayah || text.quranProse) && <a href="#story-ayah">{t.ayah}</a>}
               <a href="#story-lesson">{t.lesson}</a>
             </nav>
 
@@ -215,7 +220,7 @@ export default function Stories() {
                 <span className="story-section-number">1</span>
                 <div>
                   <span className="story-section-label">{t.hook}</span>
-                  <p className="story-reading-section__lead">{story.hook}</p>
+                  <p className="story-reading-section__lead">{text.hook}</p>
                 </div>
               </section>
 
@@ -224,11 +229,11 @@ export default function Stories() {
                 <div>
                   <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.events}</span>
                   <h2>{t.events}</h2>
-                  <p>{story.events}</p>
+                  <p>{text.events}</p>
                 </div>
               </section>
 
-              {(story.ayah || story.quranProse) && (
+              {(story.ayah || text.quranProse) && (
                 <section className="story-quran-connection" id="story-ayah">
                   <span className="story-section-number">3</span>
                   <div>
@@ -241,23 +246,23 @@ export default function Stories() {
                         <Link href={`/read/${story.ayah.surah}`} className="no-print">{t.openInReader}</Link>
                       </p>
                     </>}
-                    {story.quranProse && <p>{story.quranProse}</p>}
+                    {text.quranProse && <p>{text.quranProse}</p>}
                   </div>
                 </section>
               )}
 
               <section className="story-lesson-card" id="story-lesson">
-                <span className="story-section-number">{story.ayah || story.quranProse ? 4 : 3}</span>
+                <span className="story-section-number">{story.ayah || text.quranProse ? 4 : 3}</span>
                 <div>
                   <span className="story-section-label"><Heart size={13} aria-hidden="true" /> {t.lesson}</span>
                   <h2>{t.lesson}</h2>
-                  <p>{story.lesson}</p>
+                  <p>{text.lesson}</p>
                 </div>
               </section>
 
               <aside className="story-bridge">
                 <span className="eyebrow eyebrow--gold">{t.next}</span>
-                <p>{story.next}</p>
+                <p>{text.next}</p>
                 {following && (
                   <Link href={`/stories/${story.chapter}/${following.slug}`} className="button button--primary no-print">
                     {following.title} <ArrowLeft size={17} aria-hidden="true" />
@@ -348,8 +353,8 @@ export default function Stories() {
               const body = (
                 <>
                   <span className="story-category-card__icon"><Icon size={24} aria-hidden="true" /></span>
-                  <h3 lang="ar" dir="rtl">{locale === "en" ? chapter.titleEn : chapter.titleAr}</h3>
-                  <p lang="ar" dir="rtl">{locale === "en" ? chapter.descriptionEn : chapter.descriptionAr}</p>
+                  <h3>{locale === "en" ? chapter.titleEn : chapter.titleAr}</h3>
+                  <p>{locale === "en" ? chapter.descriptionEn : chapter.descriptionAr}</p>
                   {chapter.available
                     ? <span className="story-category-card__link">{count} {t.storyCount} <Arrow size={15} aria-hidden="true" /></span>
                     : <span className="story-category-card__status">{t.soon}</span>}
