@@ -23,6 +23,7 @@ export default defineConfig({
     // wants jsdom anyway, so the plain setting covers it.)
     setupFiles: ["client/src/test-setup.ts"],
     include: [
+      "functions/**/*.test.{ts,tsx}",
       "server/**/*.test.{ts,tsx}",
       "server/**/*.spec.{ts,tsx}",
       "client/src/**/*.test.{ts,tsx}",
