@@ -186,7 +186,9 @@ export const onRequest: PagesFunction = async (context) => {
   // the canonical host. Per-deployment preview hosts (<hash>.pages.dev) carry
   // their own hostname and are left alone, so a build can still be checked
   // before it goes out.
-  if (url.hostname === "yahia-quran-academy.pages.dev") {
+  // www is attached to the same project and serves the same pages, so it joins
+  // the alias in redirecting to the bare domain the canonical tags name.
+  if (url.hostname === "yahia-quran-academy.pages.dev" || url.hostname === "www.yahyaquran.com") {
     return Response.redirect(new URL(url.pathname + url.search, ORIGIN).toString(), 301);
   }
 
