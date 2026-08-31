@@ -283,6 +283,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-2-01",
     stationId: 2,
     slug: "the-honest-merchant",
+    image: "/stories/seerah/the-honest-merchant.jpg",
     title: "تاجر مكة الأمين",
     content: {
       tier_1_age_6_8: {
@@ -322,6 +323,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-2-02",
     stationId: 2,
     slug: "khadijah",
+    image: "/stories/seerah/khadijah.jpg",
     title: "الزوجة الصالحة خديجة",
     content: {
       tier_1_age_6_8: {
@@ -361,6 +363,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-2-03",
     stationId: 2,
     slug: "the-black-stone",
+    image: "/stories/seerah/the-black-stone.jpg",
     title: "حكمة الحجر الأسود",
     content: {
       tier_1_age_6_8: {
@@ -400,6 +403,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-2-04",
     stationId: 2,
     slug: "hilf-al-fudul",
+    image: "/stories/seerah/hilf-al-fudul.jpg",
     title: "نصرة المظلوم",
     content: {
       tier_1_age_6_8: {
@@ -439,6 +443,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-2-05",
     stationId: 2,
     slug: "cave-of-hira",
+    image: "/stories/seerah/cave-of-hira.jpg",
     title: "الخلوة والتفكر",
     content: {
       tier_1_age_6_8: {
