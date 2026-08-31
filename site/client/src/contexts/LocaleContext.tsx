@@ -17,7 +17,7 @@ export function resolvePreferredLocale(value: string | null): SiteLocale {
 function getInitialLocale(): SiteLocale {
   try {
     const languageFromUrl = new URLSearchParams(window.location.search).get("lang");
-    return resolvePreferredLocale(languageFromUrl ?? localStorage.getItem("yahia-site-locale"));
+    return resolvePreferredLocale(languageFromUrl ?? localStorage.getItem("yahya-site-locale"));
   } catch {
     return "ar";
   }
@@ -35,7 +35,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       // The title belongs to the route, not the locale — PageMeta owns it.
       // Setting it here overwrote whatever the current page had rendered.
     try {
-      localStorage.setItem("yahia-site-locale", locale);
+      localStorage.setItem("yahya-site-locale", locale);
     } catch {
       // A preference is helpful, not required for the public reader to work.
     }

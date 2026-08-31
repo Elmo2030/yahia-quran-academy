@@ -16,8 +16,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { stories } from "@/content/stories";
 import { mergeLibrarySlugs } from "@/lib/progress";
 
-const KEY = "yahia.library.v1";
-const CHANGED = "yahia:library-changed";
+const KEY = "yahya.library.v1";
+const CHANGED = "yahya:library-changed";
 const UNKNOWN_CHAPTER = "unknown";
 
 function read(): string[] {

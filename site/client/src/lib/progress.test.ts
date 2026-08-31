@@ -36,9 +36,9 @@ describe("local progress storage", () => {
   });
 
   it("returns null for malformed entries", () => {
-    localStorage.setItem("yahia.progress.v1", JSON.stringify({ surah: "x" }));
+    localStorage.setItem("yahya.progress.v1", JSON.stringify({ surah: "x" }));
     expect(readLocalProgress()).toBeNull();
-    localStorage.setItem("yahia.progress.v1", JSON.stringify({ surah: 0, ayah: 1 }));
+    localStorage.setItem("yahya.progress.v1", JSON.stringify({ surah: 0, ayah: 1 }));
     expect(readLocalProgress()).toBeNull();
   });
 });

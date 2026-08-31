@@ -13,7 +13,7 @@ import { useCallback, useEffect, useState } from "react";
 import { getSupabase } from "@/lib/supabase";
 import { useAuth } from "@/hooks/useAuth";
 
-const LOCAL_KEY = "yahia.progress.v1";
+const LOCAL_KEY = "yahya.progress.v1";
 
 export type LocalProgress = {
   surah: number;
