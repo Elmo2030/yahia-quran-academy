@@ -34,7 +34,10 @@ export function PageMeta() {
 
   return (
     <>
-      <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} />
+      {/* No <html> tag here. React only hoists title, meta and link; an <html>
+          element rendered inside #root is dropped from the DOM and warns that
+          it cannot sit inside a div. LocaleProvider sets lang and dir on the
+          real root element, which is where they belong. */}
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={url} />

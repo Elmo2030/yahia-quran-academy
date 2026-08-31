@@ -436,10 +436,20 @@
 }
 
 /* في رحاب القرآن — the fact cards. */
+.facts-stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); gap: .55rem; margin-bottom: 1.1rem; }
+.facts-stage { display: flex; flex-direction: column; gap: .15rem; min-block-size: 48px; padding: .45rem 1rem; border: 1px solid #e0d8c0; border-radius: 16px; color: #385051; background: #fffdf5; font-family: inherit; text-align: start; cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+.facts-stage:hover { border-color: #cbbf9c; background: #f6f1e0; }
+.facts-stage__name { display: inline-flex; align-items: center; gap: .3rem; font-size: .85rem; font-weight: 800; }
+.facts-stage__count { color: #6b7b7c; font-size: .72rem; font-weight: 700; }
+.facts-stage.is-current { color: #fffdf5; background: var(--fact-from,#001F3F); border-color: var(--fact-from,#001F3F); }
+.facts-stage.is-current .facts-stage__count { color: rgb(255 255 255 / 82%); }
+.facts-stage.is-done:not(.is-current) { color: var(--fact-from,#001F3F); border-color: color-mix(in srgb, var(--fact-from,#001F3F) 45%, #fffdf5); }
+
 .facts-progress { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1.1rem; margin-bottom: 1.6rem; }
 .facts-progress__count { color: #001F3F; margin: 0; font-size: .88rem; font-weight: 800; }
 .facts-progress__bar { flex: 1 1 12rem; height: 9px; min-width: 9rem; border-radius: 99px; background: #ece4cf; overflow: hidden; }
-.facts-progress__bar span { display: block; block-size: 100%; border-radius: 99px; background: linear-gradient(90deg,#7d631c,#556B2F); transition: inline-size .4s ease; }
+.facts-progress__bar span { display: block; block-size: 100%; border-radius: 99px; background: linear-gradient(90deg, color-mix(in srgb, var(--fact-from,#7d631c) 70%, #fffdf5), var(--fact-from,#556B2F)); transition: inline-size .4s ease; }
+.facts-progress__overall { color: #6b7b7c; margin: 0; font-size: .78rem; font-weight: 700; }
 .facts-done { margin: 0 0 1.4rem; padding: .9rem 1.1rem; border-radius: 16px; color: #001F3F; background: #ffefcc; border: 1px solid #e9d9a8; font-size: .92rem; font-weight: 700; }
 
 .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.1rem; margin: 0; padding: 0; list-style: none; align-items: start; }

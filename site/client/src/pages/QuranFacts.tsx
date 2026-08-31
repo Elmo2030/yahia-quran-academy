@@ -1,6 +1,11 @@
 // =============================================================================
 // QuranFacts — "في رحاب القرآن".
 //
+// A hundred cards at once is a wall, so the deck is dealt in five stages of
+// twenty. A stage is what is on screen; the count across all five is what is
+// kept. A stage is picked up where it was left: on arrival the page opens the
+// first stage that still has a card face down.
+//
 // A hundred facts as face-down cards. Turning one over is the whole mechanic:
 // a child taps, reads, and the card stays turned. What is discovered is kept
 // on the device, so the count means something on the next visit. A card can be
@@ -17,7 +22,7 @@ import { Link } from "wouter";
 import {
   AlignCenter, Anchor, Apple, Archive, ArrowDownToLine, AudioLines, Baby,
   Ban, BellRing, Bird, BookCopy, BookOpen, Bug, Building2, CalendarClock,
-  Carrot, ChevronLeft, ChevronRight, Clock, CloudSun, Compass, Crown,
+  Carrot, Check, ChevronLeft, ChevronRight, Clock, CloudSun, Compass, Crown,
   DoorOpen, Droplet, Droplets, EyeOff, Feather, Flame, Footprints, Gem, Gift,
   GraduationCap, Handshake, Hash, Heart, HeartPulse, Home, Hourglass,
   Landmark, Languages, Layers, LayoutGrid, Library, Lightbulb, ListChecks,
@@ -61,6 +66,11 @@ const PALETTE = [
 ] as const;
 
 const hueOf = (n: number) => PALETTE[(n - 1) % PALETTE.length];
+
+const PER_STAGE = 20;
+const STAGE_COUNT = Math.ceil(quranFacts.length / PER_STAGE);
+const STAGES = Array.from({ length: STAGE_COUNT }, (_, i) =>
+  quranFacts.slice(i * PER_STAGE, (i + 1) * PER_STAGE));
 
 const shuffle = <T,>(items: T[]): T[] => {
   const out = [...items];
@@ -115,6 +125,13 @@ const copy = {
     quizWrong: (title: string) => `الإجابة الصحيحة: ${title}`,
     quizNext: "سؤال آخر",
     quizScore: (right: number, asked: number) => `${right} صحيحة من ${asked}`,
+    stages: ["المرحلة الأولى", "المرحلة الثانية", "المرحلة الثالثة", "المرحلة الرابعة", "المرحلة الخامسة"],
+    stageCount: (n: number, of: number) => `${n} من ${of}`,
+    stageRange: (from: number, to: number) => `البطاقات ${from} – ${to}`,
+    stagePick: "اختر المرحلة",
+    stageDone: "أنهيت هذه المرحلة!",
+    nextStage: "المرحلة التالية",
+    overall: (n: number, total: number) => `${n} من ${total} في كل المراحل`,
   },
   en: {
     home: "Home", stories: "Quran stories", seerah: "The Prophet’s Seerah", reader: "Open the reader",
@@ -136,6 +153,13 @@ const copy = {
     quizWrong: (title: string) => `The answer was: ${title}`,
     quizNext: "Another question",
     quizScore: (right: number, asked: number) => `${right} right out of ${asked}`,
+    stages: ["Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5"],
+    stageCount: (n: number, of: number) => `${n} of ${of}`,
+    stageRange: (from: number, to: number) => `Cards ${from} – ${to}`,
+    stagePick: "Choose a stage",
+    stageDone: "You finished this stage!",
+    nextStage: "Next stage",
+    overall: (n: number, total: number) => `${n} of ${total} across every stage`,
   },
 } as const;
 
@@ -255,7 +279,15 @@ export default function QuranFacts() {
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const [discovered, setDiscovered] = useState<string[]>([]);
 
-  useEffect(() => setDiscovered(readDiscovered()), []);
+  const [stage, setStage] = useState(0);
+
+  useEffect(() => {
+    const stored = readDiscovered();
+    setDiscovered(stored);
+    // Land on the first stage that still has something to turn over.
+    const unfinished = STAGES.findIndex(cards => cards.some(f => !stored.includes(f.slug)));
+    setStage(unfinished === -1 ? 0 : unfinished);
+  }, []);
 
   const open = useCallback((slug: string) => {
     setDiscovered(current => {
@@ -293,6 +325,11 @@ export default function QuranFacts() {
   // Closing every card ends the quiz; closing one does not.
   useEffect(() => { if (found === 0) setQuizOpen(false); }, [found]);
 
+  const cards = STAGES[stage];
+  const stageFound = cards.filter(fact => discovered.includes(fact.slug)).length;
+  const stageDone = stageFound === cards.length;
+  const [stageHue] = hueOf(stage * 2 + 1);
+
   return (
     <main className="site-shell" dir={direction}>
       <SkipLink />
@@ -324,11 +361,46 @@ export default function QuranFacts() {
 
         <section className="section">
           <div className="container">
-            <div className="facts-progress">
-              <p className="facts-progress__count">{t.progress(found, total)}</p>
-              <div className="facts-progress__bar" role="progressbar" aria-valuenow={found} aria-valuemin={0} aria-valuemax={total} aria-label={t.progress(found, total)}>
-                <span style={{ inlineSize: `${(found / total) * 100}%` }} />
+            <nav className="facts-stages" aria-label={t.stagePick}>
+              {STAGES.map((group, index) => {
+                const done = group.filter(fact => discovered.includes(fact.slug)).length;
+                const [hue] = hueOf(index * 2 + 1);
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    className={`facts-stage${index === stage ? " is-current" : ""}${done === group.length ? " is-done" : ""}`}
+                    style={{ "--fact-from": hue } as React.CSSProperties}
+                    onClick={() => setStage(index)}
+                    aria-current={index === stage ? "true" : undefined}
+                  >
+                    <span className="facts-stage__name">
+                      {done === group.length && <Check size={14} aria-hidden="true" />}
+                      {t.stages[index]}
+                    </span>
+                    <span className="facts-stage__count">{t.stageCount(done, group.length)}</span>
+                  </button>
+                );
+              })}
+            </nav>
+
+            <div className="facts-progress" style={{ "--fact-from": stageHue } as React.CSSProperties}>
+              <p className="facts-progress__count">
+                {t.stageRange(cards[0].number, cards[cards.length - 1].number)}
+                {" · "}
+                {t.stageCount(stageFound, cards.length)}
+              </p>
+              <div
+                className="facts-progress__bar"
+                role="progressbar"
+                aria-valuenow={stageFound}
+                aria-valuemin={0}
+                aria-valuemax={cards.length}
+                aria-label={`${t.stages[stage]} — ${t.stageCount(stageFound, cards.length)}`}
+              >
+                <span style={{ inlineSize: `${(stageFound / cards.length) * 100}%` }} />
               </div>
+              <p className="facts-progress__overall">{t.overall(found, total)}</p>
               {found > 0 && (
                 <button type="button" className="text-link" onClick={reset}>
                   <RotateCcw size={15} aria-hidden="true" /> {t.reset}
@@ -349,10 +421,21 @@ export default function QuranFacts() {
 
             {quizOpen && canQuiz && <Quiz pool={pool} onClose={() => setQuizOpen(false)} />}
 
-            {found === total && <p className="facts-done">{t.allDone}</p>}
+            {found === total ? (
+              <p className="facts-done">{t.allDone}</p>
+            ) : stageDone && (
+              <p className="facts-done">
+                {t.stageDone}{" "}
+                {stage + 1 < STAGE_COUNT && (
+                  <button type="button" className="text-link" onClick={() => setStage(stage + 1)}>
+                    {t.nextStage} <Arrow size={16} aria-hidden="true" />
+                  </button>
+                )}
+              </p>
+            )}
 
             <ul className="facts-grid">
-              {quranFacts.map(fact => (
+              {cards.map(fact => (
                 <li key={fact.slug}>
                   <FactCard
                     fact={fact}
