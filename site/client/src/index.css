@@ -127,6 +127,14 @@
   .reader-endnote { margin: .8rem 0 0; padding: .7rem .9rem; border-radius: 14px; color: #385051; background: #eef3dd; border: 1px solid #dfe6cd; font-size: .8rem; }
   .audio-deck__icon { margin-inline-start: 0 !important; }
 
+  .recordings-overview__count { color: #7d631c; margin: 0 0 .7rem; font-size: .76rem; font-weight: 800; }
+  .recordings-overview__list { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+  .recordings-overview__list li { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; padding: .6rem .8rem; border-radius: 14px; background: #fff; border: 1px solid #ece4cf; }
+  .recordings-overview__surah { flex: 1; min-width: 7rem; color: #001F3F; font-family: "Noto Naskh Arabic", serif; font-size: 1.02rem; font-weight: 800; }
+  .recordings-overview__surah:hover { color: #556B2F; }
+  .recordings-overview__when { color: #5a7094; font-size: .74rem; }
+  .recordings-overview__length { color: #5a7094; font-size: .74rem; font-variant-numeric: tabular-nums; }
+
   .recorder { display: grid; gap: .7rem; margin: 1.4rem 0; padding: 1.15rem 1.3rem; border-radius: 20px; background: linear-gradient(120deg,#fffdf5,#eef3dd); border: 1px solid #e6dfc9; }
   .recorder__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem; }
   .recorder__title { display: inline-flex; align-items: center; gap: .35rem; color: #001F3F; font-size: .84rem; font-weight: 800; }

@@ -38,7 +38,7 @@ const copy = {
     intro:
       "مشروع تعليمي يهدف إلى تقديم محتوى إسلامي مبسط ومناسب للأطفال، يساعدهم على التعرّف إلى دينهم وبناء أساس قوي من المعرفة الإسلامية منذ الصغر.",
     scope:
-      "يضم الموقع محتوى متنوعًا للأطفال من سن 5 إلى 10 سنوات، من القرآن الكريم وقصص القرآن، إلى السيرة النبوية، والعقيدة، وغيرها من الموضوعات التي تساعد الطفل على التعلّم والفهم بطريقة تناسب مرحلته العمرية.",
+      "يضم الموقع محتوى متنوعًا للأطفال من سن 6 إلى 11 سنة، ومعظمه يُقرأ مع وليّ الأمر للأصغر سنًا. من القرآن الكريم وقصص القرآن، إلى السيرة النبوية، والعقيدة، وغيرها من الموضوعات التي تساعد الطفل على التعلّم والفهم بطريقة تناسب مرحلته العمرية.",
     sadaqaTitle: "صدقة جارية",
     sadaqaLead: "تم إنشاء هذا الموقع صدقة جارية على روح والديّ،",
     sadaqaAnd: "و",
@@ -73,7 +73,7 @@ const copy = {
     intro:
       "An educational project dedicated to providing simple and engaging Islamic content for children, helping them learn about their faith and build a strong foundation of Islamic knowledge from an early age.",
     scope:
-      "The website offers a variety of educational content for children aged 5 to 10, including the Quran and Quranic stories, the Seerah (life of Prophet Muhammad ﷺ), Aqidah (Islamic creed), and other essential Islamic topics presented in a way that is appropriate for their age and stage of development.",
+      "The website offers a variety of educational content for children aged 6 to 11 — read together with a parent for the younger ones — including the Quran and Quranic stories, the Seerah (life of Prophet Muhammad ﷺ), Aqidah (Islamic creed), and other essential Islamic topics presented in a way that is appropriate for their age and stage of development.",
     sadaqaTitle: "A Sadaqah Jariyah",
     sadaqaLead:
       "This website was created as a Sadaqah Jariyah (ongoing charity) in memory of my parents,",

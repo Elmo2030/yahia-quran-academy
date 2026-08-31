@@ -101,6 +101,16 @@ export async function listRecordings(surah: number): Promise<RecordingSummary[]>
 }
 
 /** The stored record with its audio rebuilt as a playable Blob. */
+/** Every recording on this device, newest first. The per-surah list is what a
+ *  child uses while reciting; a parent looking for what their child has been
+ *  doing needs the whole set without opening 114 pages to find it. */
+export async function listAllRecordings(): Promise<RecordingSummary[]> {
+  const all = await run<Recording[]>("readonly", store => store.getAll());
+  return all
+    .map(({ bytes: _bytes, ...rest }) => rest)
+    .sort((a, b) => b.recordedAt - a.recordedAt);
+}
+
 export async function getRecording(
   id: string,
 ): Promise<(RecordingSummary & { blob: Blob }) | undefined> {
