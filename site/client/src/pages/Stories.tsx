@@ -124,7 +124,7 @@ export default function Stories() {
     const saved = stories.filter(s => slugs.includes(s.slug));
     return (
       <Chrome>
-        <section className="story-library-hero" lang="ar" dir="rtl">
+        <section className="story-library-hero" {...langAttrs(locale)}>
           <div className="container">
             <Link href="/stories" className="story-back-link"><ArrowRight size={15} aria-hidden="true" /> {t.allStories}</Link>
             <span className="eyebrow eyebrow--gold"><Library size={15} aria-hidden="true" /> {t.myLibrary}</span>
@@ -135,14 +135,14 @@ export default function Stories() {
         <section className="stories-section">
           <div className="container">
             {saved.length === 0 ? (
-              <div className="story-library__empty" lang="ar" dir="rtl">
+              <div className="story-library__empty" {...langAttrs(locale)}>
                 <h3>{t.emptyTitle}</h3>
                 <p>{t.emptyLibrary}</p>
                 <Link href="/stories" className="button button--primary">{t.exploreAll} <Arrow size={16} aria-hidden="true" /></Link>
               </div>
             ) : (
               <>
-                <div className="stories-section__heading" lang="ar" dir="rtl"><h2>{saved.length} {t.libraryCount}</h2></div>
+                <div className="stories-section__heading" {...langAttrs(locale)}><h2>{saved.length} {t.libraryCount}</h2></div>
                 <ol className="story-list-grid">
                   {saved.map((story, index) => (
                     <li key={story.slug}>
@@ -296,7 +296,7 @@ export default function Stories() {
     }
     return (
       <Chrome>
-        <section className="stories-list-hero" lang="ar" dir="rtl">
+        <section className="stories-list-hero" {...langAttrs(locale)}>
           <div className="container stories-list-hero__grid">
             <div>
               <Link href="/stories" className="story-back-link"><ArrowRight size={15} aria-hidden="true" /> {t.allStories}</Link>
@@ -314,7 +314,7 @@ export default function Stories() {
         </section>
         <section className="stories-section stories-section--list">
           <div className="container">
-            <div className="stories-section__heading" lang="ar" dir="rtl">
+            <div className="stories-section__heading" {...langAttrs(locale)}>
               <h2>{list.length} {t.storyCount}</h2>
               {t.onlyArabic && <p lang="en">{t.onlyArabic}</p>}
             </div>
@@ -330,7 +330,7 @@ export default function Stories() {
   // ---- chapter index ----
   return (
     <Chrome>
-      <section className="stories-list-hero" lang="ar" dir="rtl">
+      <section className="stories-list-hero" {...langAttrs(locale)}>
         <div className="container stories-list-hero__grid">
           <div>
             <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
@@ -345,7 +345,7 @@ export default function Stories() {
       </section>
       <section className="stories-section">
         <div className="container">
-          <div className="stories-section__heading" lang="ar" dir="rtl"><h2>{t.chooseChapter}</h2></div>
+          <div className="stories-section__heading" {...langAttrs(locale)}><h2>{t.chooseChapter}</h2></div>
           <ul className="story-category-grid">
             {chapters.map(chapter => {
               const count = stories.filter(s => s.chapter === chapter.slug).length;
