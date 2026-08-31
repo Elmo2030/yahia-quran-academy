@@ -165,17 +165,14 @@ function ProfileBody() {
     const client = getSupabase();
     try {
       if (!client) throw new Error("not_configured");
-      // supabase-js does not expose deleteUser on auth; the call must go
-      // through Postgres or an Edge Function. We signOut first so the
-      // session cannot be reused, then refresh the page so the user lands
-      // on / even if the server-side deletion fails silently.
-      await client.auth.signOut();
-      // eslint-disable-next-line no-console
-      console.warn(
-        "[auth] client-side signOut completed; account deletion requires a server-side handler " +
-          "(Edge Function). PR1 wires the UI only — schedule the server task in a follow-up.",
-      );
-      navigate("/", { replace: true });
+        // Deleting a user needs the service role, which the browser must never
+        // hold. delete_own_account() is SECURITY DEFINER and works only on
+        // auth.uid(), so it can delete the caller and nobody else. The profile
+        // and every row hanging off it go with the cascade.
+        const { error } = await client.rpc("delete_own_account");
+        if (error) throw error;
+        await client.auth.signOut();
+        navigate("/", { replace: true });
     } catch (err) {
       setDeleteError(locale === "ar" ? "تعذّر إكمال الحذف." : "Could not complete deletion.");
     } finally {
