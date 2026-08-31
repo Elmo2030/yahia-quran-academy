@@ -4,7 +4,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; media-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; connect-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev https://rhcfcyvxgbltdzeezryw.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; media-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; connect-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev https://rhcfcyvxgbltdzeezryw.supabase.co https://static.cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 
 # Vite fingerprints these, so a change ships under a new name.
 /assets/*

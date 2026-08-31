@@ -26,12 +26,36 @@ export type SeerahChallenge = {
   correctAnswer: number;
 };
 
+/** Everything in a story that is language-specific. The Arabic lives on the
+ *  story itself; `en` carries the same shape for the English locale. A story
+ *  without `en` falls back to Arabic, so translations can land in batches
+ *  without a half-translated page ever reaching a reader. */
+export type SeerahText = {
+  title: string;
+  content: {
+    tier_1_age_6_8: { narrative: string; shortLesson: string };
+    tier_2_age_9_11: { narrative: string; details: string };
+  };
+  interactive: {
+    discover: string;
+    value: { name: string; icon: string };
+    thinkQuestion: string;
+    challenge: SeerahChallenge;
+  };
+  gamification: {
+    artifact: { name: string; description: string };
+    badge: string;
+  };
+  source: { reliability: string; reference: string; note: string };
+};
+
 export type SeerahStory = {
   storyId: string;
   stationId: number;
   slug: string;
   title: string;
   image?: string;
+  en?: SeerahText;
   content: {
     tier_1_age_6_8: { narrative: string; shortLesson: string };
     tier_2_age_9_11: { narrative: string; details: string };
@@ -53,22 +77,43 @@ export type SeerahStation = {
   stationId: number;
   titleAr: string;
   descriptionAr: string;
+  titleEn: string;
+  descriptionEn: string;
 };
 
 export const seerahStations: SeerahStation[] = [
   {
     stationId: 1,
     titleAr: "البدايات — بذور النور",
+    titleEn: "Beginnings — Seeds of Light",
     descriptionAr:
       "خمس قصص من طفولة النبي ﷺ: مولده، ورضاعته في البادية، وحنان جده وعمه، وأول عمل في حياته.",
+    descriptionEn:
+      "Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.",
   },
   {
     stationId: 2,
     titleAr: "الصادق الأمين",
+    titleEn: "The Truthful, The Trustworthy",
     descriptionAr:
       "خمس قصص من شبابه ﷺ قبل البعثة: أمانته في التجارة، وبيته مع خديجة، وحكمته في الحجر الأسود، ووقوفه مع المظلوم، وخلوته في غار حراء.",
+    descriptionEn:
+      "Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.",
   },
 ];
+
+/** A story's text in the requested language, falling back to the Arabic for
+ *  anything not translated yet. */
+export const seerahTextFor = (story: SeerahStory, locale: "ar" | "en"): SeerahText =>
+  locale === "en" && story.en
+    ? story.en
+    : {
+        title: story.title,
+        content: story.content,
+        interactive: story.interactive,
+        gamification: story.gamification,
+        source: story.source,
+      };
 
 /** The station a story belongs to, for headings and link previews. */
 export const seerahStationOf = (story: SeerahStory): SeerahStation =>
@@ -80,6 +125,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 1,
     slug: "birth-of-light",
     image: "/stories/seerah/birth-of-light.jpg",
+    en: {
+      title: "The Day Mecca Shone",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "On a beautiful spring day, a wonderful baby named 'Muhammad' was born. Before his birth, a huge army with a giant elephant tried to destroy the Kaaba! But Allah sent brave little birds to chase the bad guys away and protect Mecca. When baby Muhammad (peace be upon him) was born, his grandfather was so happy and carried him to the Kaaba to thank Allah.",
+          shortLesson: "Allah is very powerful. He always protects His house and good children.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In the 'Year of the Elephant', an evil king named Abraha tried to destroy the Kaaba with a massive army and a giant elephant. But Allah sent flocks of birds (Ababil) carrying small stones that defeated the army and protected Mecca. In that exact same year, Mecca was blessed with the birth of Prophet Muhammad (peace be upon him). He was born an orphan because his father, Abdullah, died before his birth. His grandfather, Abdul Muttalib, was overjoyed, took him inside the Kaaba, and named him Muhammad, which means 'The highly praised one'.",
+          details:
+            "Did you know that the name 'Muhammad' was very rare in Arabia at that time? Allah inspired his grandfather to give him this beautiful name.",
+        },
+      },
+      interactive: {
+        discover: "The Prophet's father was named Abdullah, and his mother was Aminah bint Wahb.",
+        value: { name: "Allah's Protection", icon: "🛡️" },
+        thinkQuestion: "Why do you think Allah chose for the Prophet to be born in the same year the great miracle of the elephant happened?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What huge animal did the evil army use to try to destroy the Kaaba?",
+          options: ["Horse", "Lion", "Elephant", "Camel"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "Ababil Stone", description: "A souvenir to remind you that true power belongs to Allah." },
+        badge: "Badge: Child of Mecca",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah, Authentic Seerah",
+        note: "Events are confirmed by the Quran (Surah Al-Fil) and authentic Seerah.",
+      },
+    },
     title: "يوم أشرقت مكة",
     content: {
       tier_1_age_6_8: {
@@ -121,6 +202,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 1,
     slug: "desert-breeze",
     image: "/stories/seerah/desert-breeze.jpg",
+    en: {
+      title: "The Pure Desert Breeze",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "A long time ago, children used to go live in the desert to become brave and strong. Little Muhammad (pbuh) went to live with a kind lady named Halimah. The moment he entered her house, something magical happened! The house filled with joy, there was plenty of milk, and green grass grew for their animals. Halimah loved him so much!",
+          shortLesson: "A good and obedient child brings happiness and blessings to their family everywhere they go.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "It was an Arab custom to send babies to the desert (Badia) to breathe fresh air, grow strong bodies, and learn pure Arabic. A kind lady named Halimah took Prophet Muhammad (pbuh) to nurse him. Even though her family was poor and their animals were weak, the moment the Prophet arrived, amazing 'Barakah' (blessings) filled their lives! Her camel became fast, the sheep gave plenty of milk, and they lived happily the whole time he stayed with them.",
+          details:
+            "Barakah means an increase in goodness. The Prophet (pbuh) was blessed since childhood, bringing joy to everyone around him.",
+        },
+      },
+      interactive: {
+        discover: "The Prophet (pbuh) spent about four years in the desert learning the most beautiful and clear Arabic.",
+        value: { name: "Blessing & Contentment", icon: "✨" },
+        thinkQuestion: "If you went camping in the desert far away from electronics, what new skill would you like to learn?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the name of the kind lady who nursed the Prophet (pbuh) in the desert?",
+          options: ["Aminah", "Halimah", "Khadijah", "Fatimah"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "Wooden Milk Bowl", description: "Symbolizes the goodness and blessings that filled Halimah's home." },
+        badge: "Badge: Desert Speaker",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Sealed Nectar, Sahih Muslim",
+        note: "Halimah's story and the blessings are well-documented in authentic Seerah books.",
+      },
+    },
     title: "هواء الصحراء النقي",
     content: {
       tier_1_age_6_8: {
@@ -162,6 +279,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 1,
     slug: "grandfather-love",
     image: "/stories/seerah/grandfather-love.jpg",
+    en: {
+      title: "In the Shade of the Kaaba",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "When Muhammad (pbuh) was a little boy, his mother returned to Allah (passed away). He was now an orphan with no mom or dad. But his kind grandfather, Abdul Muttalib, hugged him tightly and loved him more than anyone else! His grandpa had a special rug in the shade of the Kaaba, and he only allowed little Muhammad to sit on it with him.",
+          shortLesson: "Grandparents love us very much. We must always respect them and sit with them politely.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the Prophet (pbuh) was six years old, his mother Aminah passed away in a place called Al-Abwa. His grandfather, Abdul Muttalib, the leader of Quraish, felt deep sorrow for his orphaned grandson and took him under his loving care. Abdul Muttalib had a special rug placed in the shade of the Kaaba. None of his grown sons dared to sit on it out of respect. But whenever little Muhammad (pbuh) came, his grandfather would seat him right next to him, saying: 'This son of mine will have a great future.'",
+          details:
+            "Being an orphan is not a weakness. It was Allah's way of preparing His Prophet to rely entirely on Him from a very young age.",
+        },
+      },
+      interactive: {
+        discover: "Abdul Muttalib passed away when the Prophet (pbuh) was eight years old, after giving him great love and safety.",
+        value: { name: "Family Affection", icon: "👴" },
+        thinkQuestion: "Who is the person in your family that you feel loves and spoils you just like Abdul Muttalib did?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Where did Abdul Muttalib place his special rug to sit?",
+          options: ["In the market", "In the shade of the Kaaba", "On top of a mountain", "Inside a tent"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Leader's Rug", description: "Symbolizes the high status of the Prophet (pbuh) and his grandfather's love." },
+        badge: "Badge: Grandson of the Leader",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah, Zad al-Ma'ad",
+        note: "Abdul Muttalib's care and the rug story are historically authentic.",
+      },
+    },
     title: "في ظل الكعبة",
     content: {
       tier_1_age_6_8: {
@@ -202,6 +355,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 1,
     slug: "uncle-home",
     image: "/stories/seerah/uncle-home.jpg",
+    en: {
+      title: "The Kind Uncle's House",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "After his grandfather died, Muhammad (pbuh) moved in with his uncle Abu Talib. His uncle didn't have much money and had many children, but he loved Muhammad deeply. Something magical used to happen! When Muhammad sat to eat with them, the small amount of food was always enough to make everyone full, because Allah put blessings in it.",
+          shortLesson: "Sharing our food with family and siblings makes it delicious and enough for everyone.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Before he died, Abdul Muttalib asked his son Abu Talib to take care of Muhammad (pbuh). Abu Talib didn't have much wealth but had a large family. Still, he welcomed his nephew and loved him even more than his own kids. Abu Talib noticed something amazing: when his children ate without Muhammad, they wouldn't feel full, but when he ate with them, they all felt satisfied! The Prophet (pbuh) was always content, never complained about food, and learned patience in his uncle's house, who protected him for over 40 years.",
+          details:
+            "Abu Talib didn't accept Islam, but Allah chose him to protect and defend the Prophet (pbuh) fiercely throughout his life.",
+        },
+      },
+      interactive: {
+        discover: "Ali bin Abi Talib (the great companion) is the Prophet's cousin. They grew up together in this very house.",
+        value: { name: "Contentment & Sharing", icon: "🍲" },
+        thinkQuestion: "If you have a small amount of candy and a lot of friends, how would you act like the Prophet?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Who took care of the Prophet (pbuh) after his grandfather passed away?",
+          options: ["His uncle Abu Lahab", "His uncle Abu Talib", "Abu Bakr", "His uncle Al-Abbas"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Blessed Clay Bowl", description: "Symbolizes blessings and contentment in Abu Talib's home." },
+        badge: "Badge: The Sharing Soul",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Tabaqat Ibn Sa'd, Prophetic Seerah",
+        note: "Abu Talib's guardianship is a central, authentic part of the Seerah.",
+      },
+    },
     title: "بيت العم الحنون",
     content: {
       tier_1_age_6_8: {
@@ -241,6 +430,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 1,
     slug: "little-shepherd",
     image: "/stories/seerah/little-shepherd.jpg",
+    en: {
+      title: "The Little Shepherd",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Did the Prophet (pbuh) play all day when he was little? No! He wanted to help his uncle because his uncle didn't have much money. So, he worked as a 'shepherd'. He took the fluffy sheep to the green mountains to eat and protected them from wolves. This is how he learned to be brave and responsible early on.",
+          shortLesson: "Helping our parents with small chores makes us responsible and dependable people.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "As a young boy, the Prophet (pbuh) didn't want to be a burden on his uncle Abu Talib, who was going through financial hardship. He decided to work and help out! He worked as a shepherd, tending the sheep of the people of Mecca for a small wage. This job wasn't just work; it was a 'school'. In the quiet mountains, he learned patience, mercy for weak animals, deep thinking about Allah's creation, and the courage to protect his flock.",
+          details:
+            "The Prophet (pbuh) later said: 'Allah did not send any prophet except that he shepherded sheep.' All prophets were shepherds to learn how to lead people with mercy.",
+        },
+      },
+      interactive: {
+        discover: "Shepherding teaches a person to pay attention to details. A good shepherd knows every single sheep and cares for the sick ones.",
+        value: { name: "Responsibility & Patience", icon: "🐑" },
+        thinkQuestion: "What is one small chore you can do at home today to help your family?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What job did the Prophet (pbuh) do when he was young to help his uncle?",
+          options: ["Blacksmith", "Shepherd", "Fisherman", "Farmer"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Shepherd's Staff", description: "A symbol of patience, care, and merciful leadership." },
+        badge: "Badge: The Responsible Shepherd",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Al-Bukhari (Hadith on Shepherding)",
+        note: "His work as a shepherd in Mecca is confirmed by authentic Hadith.",
+      },
+    },
     title: "الراعي الصغير",
     content: {
       tier_1_age_6_8: {
@@ -284,6 +509,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 2,
     slug: "the-honest-merchant",
     image: "/stories/seerah/the-honest-merchant.jpg",
+    en: {
+      title: "The Honest Merchant of Mecca",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "As Muhammad (pbuh) grew into a young man, he started working in trade (buying and selling). He traveled far away to sell goods. Do you know why everyone loved him? Because he always told the truth and never cheated anyone, even if it meant losing money. That's why the people of Mecca gave him a beautiful nickname: 'Al-Sadiq Al-Amin' (The Truthful and Trustworthy)!",
+          shortLesson: "An honest and trustworthy person is loved by Allah and trusted by everyone.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In his youth, the Prophet (pbuh) joined his uncle Abu Talib on trading journeys to the Levant (Sham). There, he learned the art of trade. He quickly became famous throughout Mecca for his great character. He never lied, never cheated when weighing items, and always kept people's money safe when they trusted him with it. Because of these rare morals in a society full of deception, the people of Mecca called him 'Al-Sadiq Al-Amin' (The Truthful and Trustworthy), and everyone trusted him completely.",
+          details:
+            "Honesty is not just about keeping money safe; it is about telling the truth, doing your job perfectly, and never tricking others.",
+        },
+      },
+      interactive: {
+        discover: "The Prophet (pbuh) was so famous for his honesty that even his enemies would leave their money with him for safekeeping!",
+        value: { name: "Honesty & Trust", icon: "⚖️" },
+        thinkQuestion: "If you found a beautiful pen in class and knew it belonged to your friend, what would you do to be 'trustworthy'?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What nickname did the people of Mecca give the Prophet (pbuh) for his honesty?",
+          options: ["The Brave", "The Strong", "Al-Sadiq Al-Amin", "The Leader"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Golden Scale", description: "Symbolizes fairness and honesty in dealing with people." },
+        badge: "Badge: The Honest Merchant",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah",
+        note: "The title 'Al-Sadiq Al-Amin' and his work in trade are historically confirmed facts.",
+      },
+    },
     title: "تاجر مكة الأمين",
     content: {
       tier_1_age_6_8: {
@@ -324,6 +585,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 2,
     slug: "khadijah",
     image: "/stories/seerah/khadijah.jpg",
+    en: {
+      title: "The Righteous Wife Khadijah",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "There was a very kind and smart lady in Mecca named Khadijah. She was a wealthy businesswoman. When she heard about Muhammad's (pbuh) honesty, she asked him to work for her. When she saw his great manners and success, she wished to marry him. They got married and lived a beautiful life full of love and respect.",
+          shortLesson: "Good manners are the most beautiful thing a person can have, and they make people love us.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Lady Khadijah bint Khuwaylid was one of the greatest and wealthiest women of Quraish. When she heard of 'Al-Sadiq Al-Amin', she hired the Prophet (pbuh) to trade her goods in Sham and sent her servant Maysarah with him. Maysarah returned amazed by the Prophet's manners and kindness. Khadijah was more impressed by his noble character than the profits he made, so she offered to marry him. The Prophet (pbuh) agreed, and she became his first and most important wife, always supporting him.",
+          details:
+            "The Prophet (pbuh) had all his children with Lady Khadijah (Al-Qasim, Abdullah, Zainab, Ruqayyah, Umm Kulthum, and Fatimah) except for Ibrahim.",
+        },
+      },
+      interactive: {
+        discover: "Lady Khadijah was nicknamed 'The Pure One' (Al-Tahirah) in Mecca for her high morals even before Islam.",
+        value: { name: "Respect & Love", icon: "❤️" },
+        thinkQuestion: "How can you show respect to your mother at home, just like the Prophet (pbuh) respected his family?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What is the name of the great lady the Prophet (pbuh) married after trading her goods?",
+          options: ["Halimah", "Aminah", "Khadijah", "Aishah"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "Khadijah's Lantern", description: "Symbolizes warmth, love, and support in the Prophet's family." },
+        badge: "Badge: The Loving Family",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Al-Bukhari, Ibn Hisham's Seerah",
+        note: "The Prophet's marriage to Lady Khadijah is unanimously agreed upon in sources.",
+      },
+    },
     title: "الزوجة الصالحة خديجة",
     content: {
       tier_1_age_6_8: {
@@ -364,6 +661,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 2,
     slug: "the-black-stone",
     image: "/stories/seerah/the-black-stone.jpg",
+    en: {
+      title: "The Wisdom of the Black Stone",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "One day, a part of the Kaaba was damaged, so the people worked together to rebuild it. But they had a big argument: who would get to put the 'Black Stone' back in its place? They almost started a fight! Suddenly, Muhammad (pbuh) walked in. They were happy and said, 'This is the Trustworthy one, we accept his judgment!' Muhammad used his cleverness; he put the stone on a large cloth and asked each group to hold a corner. They lifted it together, and he pushed it into place with his own hands. That's how he stopped a fight!",
+          shortLesson: "A smart person is the one who solves problems between friends so they don't fight.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the Prophet (pbuh) was 35 years old, Quraish rebuilt the Kaaba after a strong flood damaged it. The tribes worked together peacefully until it was time to place the 'Black Stone'. Every tribe wanted this great honor, and the disagreement grew so fierce that a war almost started. They agreed that the first man to enter the gate would judge between them, and it was the Prophet (pbuh). With his great wisdom, he asked for a cloak, placed the stone in the middle, and asked the leader of each tribe to hold an edge. They lifted it together, and the Prophet placed the stone in its spot, preventing a war and satisfying everyone.",
+          details:
+            "This great event proves that the Prophet (pbuh) was a leader and a peacemaker even before he received revelation.",
+        },
+      },
+      interactive: {
+        discover: "The Black Stone is located in the eastern corner of the Kaaba, and that is where the Tawaf (circumambulation) begins.",
+        value: { name: "Wisdom & Peace", icon: "🕊️" },
+        thinkQuestion: "If your friends argued over who gets to be the team captain in a game, how would you solve the problem cleverly?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet (pbuh) use to solve the problem of the Black Stone?",
+          options: ["A wooden stick", "A cloak (piece of cloth)", "A wooden box", "A sword"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Cloak of Peace", description: "Symbolizes teamwork and solving disagreements wisely." },
+        badge: "Badge: The Peacemaker",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Musnad Ahmad, Ibn Hisham's Seerah",
+        note: "The story of the Black Stone is authentic and highlights his leadership before Prophethood.",
+      },
+    },
     title: "حكمة الحجر الأسود",
     content: {
       tier_1_age_6_8: {
@@ -404,6 +737,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 2,
     slug: "hilf-al-fudul",
     image: "/stories/seerah/hilf-al-fudul.jpg",
+    en: {
+      title: "Helping the Oppressed",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "A stranger came to Mecca to sell his goods, but a bad man took his stuff and didn't pay him. The stranger cried because he was treated unfairly. So, Muhammad (pbuh) met with the good men of Mecca, and they made a great promise called 'Hilf al-Fudul'. They said: 'We must help anyone who is wronged and get their rights back.' And they did get the man's money back!",
+          shortLesson: "We must always help the weak and never side with the unfair oppressor.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "One of the leaders of Mecca wronged a stranger from Yemen by refusing to pay for his goods. The oppressed man stood on a mountain and shouted for help. The noble men of Mecca gathered in the house of a man named Abdullah bin Jud'an and made a great pact called 'Hilf al-Fudul' (The Alliance of Virtues). They agreed that if they found anyone oppressed in Mecca, they would stand with him against the oppressor until his rights were restored. The Prophet (pbuh) was in his twenties and attended this pact. Later, as a Prophet, he said: 'If I were called to it in Islam, I would respond,' because Islam supports justice.",
+          details:
+            "The Prophet (pbuh) taught us that religion and good morals always agree on helping the oppressed, no matter their background.",
+        },
+      },
+      interactive: {
+        discover: "'Hilf al-Fudul' means 'The Alliance of Virtues' because it was based on noble morals and justice.",
+        value: { name: "Justice & Helping the Weak", icon: "🤝" },
+        thinkQuestion: "If you saw an older kid bullying a younger kid at school, what would you do?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the name of the great agreement the Prophet (pbuh) attended to help the oppressed?",
+          options: ["Hilf al-Fudul", "The Pact of Mecca", "The Peace Agreement", "The Trade Contract"],
+          correctAnswer: 0,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Document of Justice", description: "Reminds you to always stand by the weak and oppressed." },
+        badge: "Badge: Defender of the Weak",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sunan Al-Bayhaqi, Prophetic Seerah",
+        note: "His attendance at Hilf al-Fudul is authentic and shows his inclination to justice.",
+      },
+    },
     title: "نصرة المظلوم",
     content: {
       tier_1_age_6_8: {
@@ -444,6 +813,42 @@ export const seerahStories: SeerahStory[] = [
     stationId: 2,
     slug: "cave-of-hira",
     image: "/stories/seerah/cave-of-hira.jpg",
+    en: {
+      title: "Solitude and Reflection",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the time of the Prophet (pbuh), people used to worship stone statues (idols). But Muhammad (pbuh) was very smart, and he knew that stones couldn't help or harm anyone. So, he liked to go to a quiet cave on top of a mountain called the 'Cave of Hira' to sit alone and think: Who created this beautiful sky? Who made the mountains? He only worshipped Allah, the Great Creator.",
+          shortLesson: "Using our minds and thinking about the sky and nature helps us know the greatness of Allah.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "As the years passed, the Prophet (pbuh) saw his people bowing down to stone idols. His heart completely rejected these actions, and he never bowed to an idol. He began to prefer solitude and quietness. He would take some water and dates and climb up to a small cave at the top of 'Mount Noor' called the 'Cave of Hira'. He would spend days and nights there looking at the stars and the vast universe, thinking about the Great Creator who made this masterpiece. Through this quiet reflection, Allah was preparing him to receive the greatest message in history.",
+          details:
+            "Reflecting on Allah's creation (the sky, the stars, the mountains) is an act of worship that increases faith in the heart.",
+        },
+      },
+      interactive: {
+        discover: "The mountain where the Cave of Hira is located is called 'Jabal al-Noor' (The Mountain of Light) because it is where the light of revelation began.",
+        value: { name: "Reflection & Meditation", icon: "🌌" },
+        thinkQuestion: "What is something in nature (like the stars, the sea, or trees) that makes you wonder about Allah's power?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What is the name of the cave where the Prophet (pbuh) used to reflect on Allah's creation?",
+          options: ["Cave of Thawr", "Cave of Hira", "Cave of Mecca", "Cave of Noor"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Simple Water Skin", description: "Symbolizes simplicity, calmness, and reflection in the Cave of Hira." },
+        badge: "Badge: The Smart Thinker",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Al-Bukhari",
+        note: "His worship and reflection in the Cave of Hira are authenticated in the two Sahihs.",
+      },
+    },
     title: "الخلوة والتفكر",
     content: {
       tier_1_age_6_8: {

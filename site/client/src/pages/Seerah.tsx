@@ -22,6 +22,7 @@ import {
   seerahStories,
   seerahStations,
   seerahStationOf,
+  seerahTextFor,
   type AgeTier,
   type SeerahStory,
 } from "@/content/seerah";
@@ -50,6 +51,11 @@ const copy = {
     missing: "This story does not exist.",
   },
 } as const;
+
+/** Arabic content is RTL; the translations are not. Nothing here may hard-code
+ *  dir="rtl", or English renders right-to-left. */
+const langAttrs = (locale: "ar" | "en") =>
+  locale === "en" ? { lang: "en", dir: "ltr" as const } : { lang: "ar", dir: "rtl" as const };
 
 const tierLabels: Record<AgeTier, string> = {
   tier_1_age_6_8: "٦–٨ سنوات",
@@ -93,7 +99,7 @@ function Placeholder({ story, className }: { story: SeerahStory; className?: str
       <span className="story-image-placeholder__sun" />
       <span className="story-image-placeholder__hill" />
       <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
-      <small lang="ar" dir="rtl">{story.title}</small>
+      <small>{story.title}</small>
     </figure>
   );
 }
@@ -121,14 +127,15 @@ function SeerahArt({ story, className }: { story: SeerahStory; className?: strin
 function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
+  const text = seerahTextFor(story, locale);
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/seerah/${story.slug}`} className="story-list-card">
       <SeerahArt story={story} />
-      <div className="story-list-card__body" lang="ar" dir="rtl">
+      <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
-        <h3>{story.title}</h3>
-        <p>{story.content.tier_1_age_6_8.shortLesson}</p>
+        <h3>{text.title}</h3>
+        <p>{text.content.tier_1_age_6_8.shortLesson}</p>
         <span className="story-read-pill">{t.read} <Arrow size={15} aria-hidden="true" /></span>
       </div>
     </Link>
@@ -139,7 +146,8 @@ function ChallengeSection({ story, number }: { story: SeerahStory; number: numbe
   const { locale } = useLocale();
   const t = copy[locale];
   const [picked, setPicked] = useState<number | null>(null);
-  const { challenge } = story.interactive;
+  const text = seerahTextFor(story, locale);
+  const { challenge } = text.interactive;
   const answered = picked !== null;
   const correct = picked === challenge.correctAnswer;
 
@@ -167,7 +175,7 @@ function ChallengeSection({ story, number }: { story: SeerahStory; number: numbe
             );
           })}
         </ul>
-        {answered && <p>{correct ? `${t.correct} — ${story.gamification.badge}` : t.wrong}</p>}
+        {answered && <p>{correct ? `${t.correct} — ${text.gamification.badge}` : t.wrong}</p>}
       </div>
     </section>
   );
@@ -177,16 +185,18 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const [tier, setTier] = useState<AgeTier>("tier_1_age_6_8");
+  const text = seerahTextFor(story, locale);
+  const station = seerahStationOf(story);
   const isTier1 = tier === "tier_1_age_6_8";
   const narrative = isTier1
-    ? story.content.tier_1_age_6_8.narrative
-    : story.content.tier_2_age_9_11.narrative;
-  const lesson = isTier1 ? story.content.tier_1_age_6_8.shortLesson : null;
-  const details = !isTier1 ? story.content.tier_2_age_9_11.details : null;
+    ? text.content.tier_1_age_6_8.narrative
+    : text.content.tier_2_age_9_11.narrative;
+  const lesson = isTier1 ? text.content.tier_1_age_6_8.shortLesson : null;
+  const details = !isTier1 ? text.content.tier_2_age_9_11.details : null;
 
   return (
     <>
-      <section className="story-detail-hero" lang="ar" dir="rtl">
+      <section className="story-detail-hero" {...langAttrs(locale)}>
         <div className="container story-detail-hero__grid">
           <div>
             {/* .story-back-link is inline-flex, so it shares a line with the
@@ -196,9 +206,9 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
                 <ArrowRight size={15} aria-hidden="true" /> {t.backToStation}
               </Link>
             </div>
-            <span className="story-detail-hero__count">{seerahStationOf(story).titleAr}</span>
-            <h1>{story.title}</h1>
-            <p className="story-detail-hero__hook">{story.content.tier_1_age_6_8.shortLesson}</p>
+            <span className="story-detail-hero__count">{locale === "en" ? station.titleEn : station.titleAr}</span>
+            <h1>{text.title}</h1>
+            <p className="story-detail-hero__hook">{text.content.tier_1_age_6_8.shortLesson}</p>
             <div className="story-detail-actions" role="group" aria-label={t.ageGroup}>
               {(Object.keys(tierLabels) as AgeTier[]).map(key => (
                 <button
@@ -217,7 +227,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
         </div>
       </section>
 
-      <article className="story-article story-article--printable" lang="ar" dir="rtl">
+      <article className="story-article story-article--printable" {...langAttrs(locale)}>
         <div className="container story-article__layout">
           <nav className="story-article__rail no-print" aria-label={t.sections}>
             <span className="story-section-label">{t.sections}</span>
@@ -245,7 +255,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               <div>
                 <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.know}</span>
                 <h2>{t.know}</h2>
-                <p>{story.interactive.discover}</p>
+                <p>{text.interactive.discover}</p>
               </div>
             </section>
 
@@ -253,8 +263,8 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               <span className="story-section-number">3</span>
               <div>
                 <span className="story-section-label"><Sparkles size={13} aria-hidden="true" /> {t.value}</span>
-                <h2>{story.interactive.value.icon} {story.interactive.value.name}</h2>
-                <p>💭 {story.interactive.thinkQuestion}</p>
+                <h2>{text.interactive.value.icon} {text.interactive.value.name}</h2>
+                <p>💭 {text.interactive.thinkQuestion}</p>
               </div>
             </section>
 
@@ -265,8 +275,8 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               <div>
                 <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.reward}</span>
                 <h2>{t.reward}</h2>
-                <p><strong>{story.gamification.artifact.name}</strong> — {story.gamification.artifact.description}</p>
-                <p>{story.gamification.badge}</p>
+                <p><strong>{text.gamification.artifact.name}</strong> — {text.gamification.artifact.description}</p>
+                <p>{text.gamification.badge}</p>
               </div>
             </section>
 
@@ -274,9 +284,9 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               <span className="story-section-number">6</span>
               <div>
                 <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.source}</span>
-                <h2>{t.source} {story.source.reliability}</h2>
-                <p>{story.source.reference}</p>
-                <p><small>{story.source.note}</small></p>
+                <h2>{t.source} {text.source.reliability}</h2>
+                <p>{text.source.reference}</p>
+                <p><small>{text.source.note}</small></p>
               </div>
             </section>
           </div>
@@ -300,7 +310,7 @@ export default function Seerah() {
       return (
         <Chrome>
           <section className="section"><div className="container">
-            <p lang="ar" dir="rtl">{t.missing}</p>
+            <p>{t.missing}</p>
             <Link href="/seerah" className="text-link">{t.backToStation}</Link>
           </div></section>
         </Chrome>
@@ -311,7 +321,7 @@ export default function Seerah() {
 
   return (
     <Chrome>
-      <section className="stories-list-hero" lang="ar" dir="rtl">
+      <section className="stories-list-hero" {...langAttrs(locale)}>
         <div className="container stories-list-hero__grid">
           <div>
             <span className="eyebrow eyebrow--gold"><Moon size={15} aria-hidden="true" /> {t.eyebrow}</span>
@@ -339,10 +349,10 @@ export default function Seerah() {
         return (
           <section className="stories-section stories-section--list" key={station.stationId} id={`station-${station.stationId}`}>
             <div className="container">
-              <div className="stories-section__heading" lang="ar" dir="rtl">
+              <div className="stories-section__heading" {...langAttrs(locale)}>
                 <span className="eyebrow eyebrow--gold">{t.station} {station.stationId}</span>
-                <h2>{station.titleAr}</h2>
-                <p>{station.descriptionAr}</p>
+                <h2>{locale === "en" ? station.titleEn : station.titleAr}</h2>
+                <p>{locale === "en" ? station.descriptionEn : station.descriptionAr}</p>
               </div>
               <ol className="story-list-grid">
                 {list.map((story, index) => (
