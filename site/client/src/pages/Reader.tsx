@@ -129,6 +129,26 @@ export default function Reader() {
     };
   }, [timings]);
 
+  // Keep the ayah being recited on screen. The highlight followed the audio
+  // correctly but the page did not follow the highlight, so a few ayahs in it
+  // was lit up somewhere below the fold and the reader lost their place.
+  // Only nudges when the ayah has actually drifted out of a comfortable band,
+  // so it does not fight a user who has scrolled somewhere deliberately.
+  const scrolledForRef = useRef<number | null>(null);
+  useEffect(() => {
+    const ayah = active.ayah;
+    if (!ayah || scrolledForRef.current === ayah) return;
+    scrolledForRef.current = ayah;
+    const node = document.querySelector<HTMLElement>(`[data-ayah="${ayah}"]`);
+    if (!node) return;
+    const box = node.getBoundingClientRect();
+    const comfortableTop = window.innerHeight * 0.25;
+    const comfortableBottom = window.innerHeight * 0.75;
+    if (box.top >= comfortableTop && box.bottom <= comfortableBottom) return;
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    node.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+  }, [active.ayah]);
+
   const goToSurah = (surah: number) => {
     autoPlayNextRef.current = false;
     setPlaying(false);
@@ -195,7 +215,7 @@ export default function Reader() {
               // coverage; otherwise the ayah renders as one run of text.
               const words = isActiveAyah && timed && timed.words.length > 0 ? ayah.text.split(/\s+/) : null;
               return (
-                <p key={ayah.number} className={`ayah${isActiveAyah ? " ayah--active" : ""}`}>
+                <p key={ayah.number} data-ayah={ayah.number} className={`ayah${isActiveAyah ? " ayah--active" : ""}`}>
                   <span className="ayah__number">{ayah.number}</span>
                   <span className="ayah__arabic">{words
                     ? words.map((word, index) => <span key={index} className={`ayah__word${active.word === index + 1 ? " ayah__word--active" : ""}`}>{word}{index < words.length - 1 ? " " : ""}</span>)
