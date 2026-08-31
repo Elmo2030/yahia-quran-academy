@@ -102,6 +102,25 @@
   .about-plaque { margin: 0; padding: 1.1rem 1.3rem; border-radius: 18px; color: #001F3F; background: #ffefcc; border: 1px solid #e9d9a8; font-family: "Noto Naskh Arabic", serif; font-size: 1.02rem; line-height: 2; text-align: center; }
   .about-plaque b { font-weight: 800; }
   .about-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+  /* The reader is a tool, not a landing page. On a phone the marketing hero,
+     the side card and the decorative step strip pushed the play button 515px
+     below the fold — a full extra screen before a parent could start audio.
+     Below 820px the deck comes first and the preamble is compressed. */
+  @media (max-width: 820px) {
+    .reader-hero { padding: 1.5rem 0; }
+    .reader-hero h1 { font-size: 1.45rem; margin: .3rem 0; }
+    .reader-hero > .container > div:first-child > p { display: none; }
+    .reader-hero__inner { gap: .9rem; }
+    .recitation-picker { gap: .3rem; }
+
+    .reader-layout { display: flex; flex-direction: column; padding-top: 1rem; }
+    .reader-sidecard { order: 2; }
+    .quran-card { order: 1; display: flex; flex-direction: column; }
+    .quran-card .audio-deck { order: -2; margin-top: .2rem; }
+    .quran-card__topline { order: -3; }
+    .quran-card .recitation-companion { order: -1; }
+  }
+
   .continuous-toggle { display: inline-flex; align-items: center; gap: .35rem; min-height: 30px; margin-inline-start: auto; padding: .32rem .62rem; border-radius: 99px; color: #5a7094; background: rgb(255 255 255 / 72%); border: 1px solid #dfe6cd; font-size: .72rem; font-weight: 800; white-space: nowrap; transition: color .16s ease, background .16s ease, border-color .16s ease; }
   .continuous-toggle:hover { color: #001F3F; }
   .continuous-toggle.is-on { color: #fff; background: #556B2F; border-color: #556B2F; }
