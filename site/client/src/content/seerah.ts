@@ -167,7 +167,7 @@ export const seerahStories: SeerahStory[] = [
         },
         tier_2_age_9_11: {
           narrative:
-            "In the 'Year of the Elephant', an evil king named Abraha tried to destroy the Kaaba with a massive army and a giant elephant. But Allah sent flocks of birds (Ababil) carrying small stones that defeated the army and protected Mecca. In that exact same year, Mecca was blessed with the birth of Prophet Muhammad (peace be upon him). He was born an orphan because his father, Abdullah, died before his birth. His grandfather, Abdul Muttalib, was overjoyed, took him inside the Kaaba, and named him Muhammad, which means 'The highly praised one'.",
+            "In the 'Year of the Elephant', an evil king named Abraha tried to destroy the Kaaba with a massive army and a giant elephant. But Allah sent birds in flock after flock — that is what ababil means — pelting them with small stones of sijjil, which destroyed the army and protected Mecca. In that exact same year, Mecca was blessed with the birth of Prophet Muhammad (peace be upon him). He was born an orphan because his father, Abdullah, died before his birth. His grandfather, Abdul Muttalib, was overjoyed, took him inside the Kaaba, and named him Muhammad, which means 'The highly praised one'.",
           details:
             "Did you know that the name 'Muhammad' was very rare in Arabia at that time? Allah inspired his grandfather to give him this beautiful name.",
         },
@@ -184,7 +184,7 @@ export const seerahStories: SeerahStory[] = [
         },
       },
       gamification: {
-        artifact: { name: "Ababil Stone", description: "A souvenir to remind you that true power belongs to Allah." },
+        artifact: { name: "A Stone of Sijjil", description: "A keepsake to remind you that true power belongs to Allah." },
         badge: "Badge: Child of Mecca",
       },
       source: {
@@ -202,7 +202,7 @@ export const seerahStories: SeerahStory[] = [
       },
       tier_2_age_9_11: {
         narrative:
-          "في عام سُمي بـ«عام الفيل»، حاول ملك شرير اسمه أبرهة هدم الكعبة بجيش عظيم يتقدمه فيل ضخم. لكن الله أرسل عليهم طيوراً (أبابيل) تحمل حجارة صغيرة دمرت الجيش وحمت مكة. وفي نفس هذا العام، أشرقت مكة بولادة النبي محمد ﷺ. كان يتيماً لأن والده «عبد الله» مات قبل ولادته. فرح جده «عبد المطلب» به جداً، ودخل به الكعبة وسماه محمداً، ليكون محموداً في الأرض والسماء.",
+          "في عام سُمي بـ«عام الفيل»، حاول ملك شرير اسمه أبرهة هدم الكعبة بجيش عظيم يتقدمه فيل ضخم. لكن الله أرسل عليهم طيراً أبابيل — أي جماعاتٍ يتبع بعضها بعضاً — ترميهم بحجارة صغيرة من سِجّيل، فدمّرت الجيش وحمت مكة. وفي نفس هذا العام، أشرقت مكة بولادة النبي محمد ﷺ. كان يتيماً لأن والده «عبد الله» مات قبل ولادته. فرح جده «عبد المطلب» به جداً، ودخل به الكعبة وسماه محمداً، ليكون محموداً في الأرض والسماء.",
         details:
           "هل تعلم أن اسم «محمد» لم يكن اسماً منتشراً بين العرب في ذلك الوقت؟ لقد ألهم الله جده بهذا الاسم الجميل.",
       },
@@ -220,7 +220,7 @@ export const seerahStories: SeerahStory[] = [
       },
     },
     gamification: {
-      artifact: { name: "حجر أبابيل", description: "حجر تذكاري يذكرك بأن القوة الحقيقية بيد الله." },
+      artifact: { name: "حجر من سِجّيل", description: "حجر تذكاري يذكّرك بأن القوة الحقيقية بيد الله." },
       badge: "وسام: طفل مكة",
     },
     source: {
