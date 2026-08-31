@@ -6,20 +6,13 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { RecordingsOverview } from "@/components/RecordingsOverview";
 import { getSurahName } from "@/lib/quran-content";
+import { yahyaAvatarUrl, yahyaHero, yahyaHeroSizes, yahyaHeroSrcSet } from "@/lib/hero-images";
 import { useReadingProgress } from "@/lib/progress";
 import { useAuth } from "@/hooks/useAuth";
 import { seerahStations, seerahStories, seerahTextFor } from "@/content/seerah";
 
 const featuredSurahs = [1, 2, 18, 55, 67, 108];
-// The source portrait is 1536x1920. It was being sent whole — 144 KB of it —
-// to a phone that paints it 276 px wide, and served as image/png although it
-// has always been a WebP. These are the sizes the frame actually asks for; the
-// source lives in site/data/ and is not deployed.
-const yahyaHero = "/hero/yahya-768.webp";
-const yahyaHeroSrcSet = [384, 576, 768, 1152].map(w => `/hero/yahya-${w}.webp ${w}w`).join(", ");
-const yahyaHeroSizes = "(max-width: 820px) 70vw, 312px";
-// The avatars paint at 29-92 px. They get a square crop of his face, not a portrait.
-const yahyaAvatarUrl = "/hero/yahya-avatar.webp";
+
 
 const featuredEnglishNames: Record<number, string> = {
   1: "Al-Fatihah", 2: "Al-Baqarah", 18: "Al-Kahf", 55: "Ar-Rahman", 67: "Al-Mulk", 108: "Al-Kawthar",

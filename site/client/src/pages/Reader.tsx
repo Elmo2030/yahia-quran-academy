@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, Check, Headphones, Heart, Loader2, Mic, Pause, Play, Repeat, Volume2 } from "lucide-react";
+import { yahyaAvatarUrl } from "@/lib/hero-images";
 import { getEnglishSurahName, getSurahName, loadSurahWithTransliteration, surahNames, type TransliteratedAyah } from "@/lib/quran-content";
 import { activeAt, defaultRecitationId, listRecitations, loadSurahSource, loadTiming, type Recitation, type SurahAudioSource, type TimedAyah } from "@/lib/recitations";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -9,7 +10,6 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { useReadingProgress } from "@/lib/progress";
 import { RecitationRecorder } from "@/components/RecitationRecorder";
 
-const yahyaCharacterUrl = "/manus-storage/yahya-hero.png";
 
 const copy = {
   ar: {
@@ -194,7 +194,7 @@ export default function Reader() {
       <section className="reader-hero"><div className="container reader-hero__inner"><div><span className="eyebrow eyebrow--gold">{t.reader}</span><h1>{t.title}</h1><p>{t.subtitle}</p></div><div className="recitation-picker" role="group" aria-label={t.chooseRecitation}><span className="recitation-picker__label">{t.chooseRecitation}</span><div className="recitation-picker__options">{recitations.map(r => <button key={r.id} type="button" className={`recitation-chip${r.id === recitationId ? " is-active" : ""}`} aria-pressed={r.id === recitationId} onClick={() => changeRecitation(r.id)}><b>{locale === "en" ? r.nameEn : r.nameAr}</b><small>{r.hasTiming ? t.timedPill : t.untimedPill}</small></button>)}</div></div><div className="reader-selector"><label htmlFor="surah">{t.select}</label><select id="surah" value={selectedSurah} onChange={(event) => goToSurah(Number(event.target.value))}>{surahNames.map((name, index) => <option key={name} value={index + 1}>{String(index + 1).padStart(3, "0")} — {locale === "en" ? getEnglishSurahName(index + 1) : name}{locale === "en" ? ` — ${name}` : ""}</option>)}</select></div></div></section>
       <section className="container reader-layout" aria-live="polite"><aside className="reader-sidecard"><span className="sidecard__number">{String(selectedSurah).padStart(3, "0")}</span><h2>{locale === "en" ? <>{getEnglishSurahName(selectedSurah)} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></> : <>{t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></>}</h2><p>{loading ? t.preparing : `${ayahs.length} ${t.ayahs}`}</p><div className="sidecard__rule" /><div className="whole-surah-note"><Volume2 size={17} /><span>{t.wholeSurah}</span></div><p className="sidecard__microcopy">{isTimed ? (chosen ? (locale === "en" ? chosen.nameEn : chosen.nameAr) : t.timedPill) : t.noTimings}</p></aside>
         <article className="quran-card"><div className="quran-card__topline"><span>{locale === "en" ? getEnglishSurahName(selectedSurah) : t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></span><span className="verified-pill">{t.verified}</span></div>
-          <section className="recitation-companion" aria-label={t.room}><Avatar className="recitation-companion__avatar"><AvatarImage src={yahyaCharacterUrl} alt="" /><AvatarFallback>ي</AvatarFallback></Avatar><div className="recitation-companion__copy"><span>{t.room}</span><b>{t.companion}</b></div><div className="recitation-companion__steps" aria-label={t.room}><span><Headphones size={13} /> {t.steps[0]}</span><span><Heart size={13} /> {t.steps[1]}</span><span><Mic size={13} /> {t.steps[2]}</span><span><Check size={13} /> {t.steps[3]}</span></div></section>
+          <section className="recitation-companion" aria-label={t.room}><Avatar className="recitation-companion__avatar"><AvatarImage src={yahyaAvatarUrl} alt="" loading="lazy" /><AvatarFallback>ي</AvatarFallback></Avatar><div className="recitation-companion__copy"><span>{t.room}</span><b>{t.companion}</b></div><div className="recitation-companion__steps" aria-label={t.room}><span><Headphones size={13} /> {t.steps[0]}</span><span><Heart size={13} /> {t.steps[1]}</span><span><Mic size={13} /> {t.steps[2]}</span><span><Check size={13} /> {t.steps[3]}</span></div></section>
           {hasPlayback ? <div className="audio-deck"><button className="play-button" onClick={togglePlayback} aria-label={playing ? t.pause : t.play}>{playing ? <Pause fill="currentColor" size={22} /> : <Play fill="currentColor" size={22} />}</button><div><b>{playing ? t.playing : t.listen}</b><span>{t.narration}</span></div><button
               type="button"
               className={`continuous-toggle${continuous ? " is-on" : ""}`}
