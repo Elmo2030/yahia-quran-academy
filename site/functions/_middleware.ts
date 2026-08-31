@@ -86,6 +86,19 @@ function metaForPath(pathname: string) {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  // Both render fine client-side, but the function did not know them, so the
+  // server answered 404 — including for the link in the password-reset email,
+  // which points straight at /reset-password.
+  if (head === "forgot-password") {
+    return { path: "/forgot-password", image: DEFAULT_IMAGE, noindex: true,
+      title: "استعادة كلمة المرور — Yahya Quran Academy",
+      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك." };
+  }
+  if (head === "reset-password") {
+    return { path: "/reset-password", image: DEFAULT_IMAGE, noindex: true,
+      title: "تعيين كلمة مرور جديدة — Yahya Quran Academy",
+      description: "عيّن كلمة مرور جديدة لحسابك." };
+  }
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;
 
