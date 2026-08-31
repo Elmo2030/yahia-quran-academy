@@ -99,6 +99,18 @@ describe("the Cloudflare function", () => {
     }
   });
 
+  // Every route without a prerendered page of its own lands here, so it must be
+  // the empty shell and not the home page, whose words index.html now carries.
+  it("falls back to the empty shell, not the home page", async () => {
+    const asked: string[] = [];
+    await onRequest({
+      request: new Request("https://yahyaquran.com/login"),
+      next: async () => new Response("", { status: 404, headers: { "content-type": "text/html" } }),
+      env: { ASSETS: { fetch: async (url: URL) => { asked.push(url.pathname); return new Response(shell, { headers: { "content-type": "text/html" } }); } } },
+    });
+    expect(asked).toEqual(["/app-shell.html"]);
+  });
+
   it("sends the pages.dev alias to the domain", async () => {
     const response = await onRequest({
       request: new Request("https://yahia-quran-academy.pages.dev/seerah"),

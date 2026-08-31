@@ -42,6 +42,26 @@ const stories = readLiteral("content/stories.ts", "stories");
 const seerahStations = readLiteral("content/seerah.ts", "seerahStations");
 const seerahStories = readLiteral("content/seerah.ts", "seerahStories");
 const facts = readLiteral("content/quran-facts.ts", "quranFacts");
+
+// About keeps its copy in one object; the policy pages pick between two with a
+// ternary. Both are read rather than restated, so the page a crawler is given
+// cannot drift from the page a reader is shown.
+const readObject = (file, name) => {
+  const src = readFileSync(join(root, "client/src", file), "utf8");
+  const m = src.match(new RegExp(`const ${name}[^=]*= (\\{[\\s\\S]*?\\n\\})( as const)?;`));
+  if (!m) throw new Error(`could not read ${name} out of ${file}`);
+  return eval(`(${m[1]})`);
+};
+const readTernaryCopy = (file) => {
+  const src = readFileSync(join(root, "client/src", file), "utf8");
+  const m = src.match(/const t = isAr\s*\?\s*(\{[\s\S]*?\n\s{4,}\})\s*:\s*(\{[\s\S]*?\n\s{4,}\});/);
+  if (!m) throw new Error(`could not read the copy out of ${file}`);
+  return { ar: eval(`(${m[1]})`), en: eval(`(${m[2]})`) };
+};
+
+const about = readObject("pages/About.tsx", "copy");
+const privacy = readTernaryCopy("pages/Privacy.tsx");
+const terms = readTernaryCopy("pages/Terms.tsx");
 const surahNames = readLiteral("lib/quran-content.ts", "surahNames");
 const englishSurahNames = readLiteral("lib/quran-content.ts", "englishSurahNames");
 // Read rather than import: the deploy builder's node may not strip types.
@@ -82,15 +102,23 @@ add("/stories", section("ar", `
   <h1>قصص من القرآن للأطفال</h1>
   <p>${esc(chapters.length)} أبواب من قصص القرآن، ${esc(stories.length)} قصة.</p>
   ${list(chapters.filter(c => c.available).map(c =>
-    `${link(`/stories/${c.slug}`, c.title)} — ${esc(c.description ?? "")}`))}
+    `${link(`/stories/${c.slug}`, c.titleAr)} — ${esc(c.descriptionAr)}`))}
+`) + section("en", `
+  <h2>Stories from the Quran for children</h2>
+  ${list(chapters.filter(c => c.available).map(c =>
+    `${link(`/stories/${c.slug}`, c.titleEn)} — ${esc(c.descriptionEn)}`))}
 `));
 
 for (const chapter of chapters.filter(c => c.available)) {
   const own = stories.filter(s => s.chapter === chapter.slug);
   add(`/stories/${chapter.slug}`, section("ar", `
-    <h1>${esc(chapter.title)}</h1>
-    ${p(chapter.description)}
+    <h1>${esc(chapter.titleAr)}</h1>
+    ${p(chapter.descriptionAr)}
     ${list(own.map(s => `${link(`/stories/${s.chapter}/${s.slug}`, s.title)}${s.surahName ? ` — ${esc(s.surahName)}` : ""}`))}
+  `) + section("en", `
+    <h2>${esc(chapter.titleEn)}</h2>
+    ${p(chapter.descriptionEn)}
+    ${list(own.filter(s => s.en).map(s => link(`/stories/${s.chapter}/${s.slug}`, s.en.title)))}
   `));
 }
 
@@ -134,9 +162,11 @@ for (const story of seerahStories) {
     ${story.source?.reference ? p(`المصدر: ${story.source.reference}`) : ""}
   `);
   const enText = story.en?.content?.tier_1_age_6_8 ?? story.en?.content?.tier_2_age_9_11;
+  const enTier2 = story.en?.content?.tier_2_age_9_11;
   const en = story.en ? section("en", `
     <h2>${esc(story.en.title ?? story.title)}</h2>
-    ${p(enText?.narrative)}${p(enText?.shortLesson ?? enText?.details)}
+    ${p(enText?.narrative)}${p(enText?.shortLesson)}
+    ${enTier2 && enTier2 !== enText ? p(enTier2.narrative) + p(enTier2.details) : ""}
   `) : "";
   add(`/seerah/${story.slug}`, ar + en);
 }
@@ -158,6 +188,31 @@ add("/quran-facts",
     <p>${esc(facts.length)} things worth knowing about the Quran, each behind a card you turn over.</p>
     ${facts.map(f => factBlock(f, "en")).join("")}
   `));
+
+// About, privacy, terms ------------------------------------------------------
+const aboutSide = (c, lang) => section(lang, `
+  <h1>${esc(c.title)}</h1>
+  ${p(c.intro)}${p(c.scope)}
+  <h2>${esc(c.sadaqaTitle)}</h2>
+  ${p(`${c.sadaqaLead} ${c.sadaqaAnd} ${c.sadaqaAfter}`)}
+  ${p(c.sadaqaBody)}${p(c.sadaqaAsk)}
+  <h2>${esc(c.accuracyTitle)}</h2>
+  ${p(c.accuracyOne)}${p(c.accuracyTwo)}${p(c.accuracyThree)}
+  ${p(c.closing)}
+`);
+add("/about", aboutSide(about.ar, "ar") + aboutSide(about.en, "en"));
+
+const policySide = (c, lang) => section(lang, `
+  <h1>${esc(c.title)}</h1>
+  ${p(c.intro)}
+  ${c.collected ? `<h2>${esc(c.collected)}</h2>${list((c.collectedItems ?? []).map(esc))}` : ""}
+  ${c.notCollected ? `<h2>${esc(c.notCollected)}</h2>${list((c.notCollectedItems ?? []).map(esc))}` : ""}
+  ${c.rules ? `<h2>${esc(c.rules)}</h2>${list((c.rulesItems ?? []).map(esc))}` : ""}
+  ${c.usage ? `<h2>${esc(c.usage)}</h2>${list((c.usageItems ?? []).map(esc))}` : ""}
+  ${c.contact ? `<h2>${esc(c.contact)}</h2>${p(c.contactBody)}` : ""}
+`);
+add("/privacy", policySide(privacy.ar, "ar") + policySide(privacy.en, "en"));
+add("/terms", policySide(terms.ar, "ar") + policySide(terms.en, "en"));
 
 // Reader ---------------------------------------------------------------------
 add("/read", section("ar", `
@@ -191,6 +246,13 @@ if (!shell.includes(anchor)) throw new Error("the built shell has no #root to fi
 // Modest styling: this is on screen only until the bundle lands, and it should
 // read as a plain page of the site rather than as something broken.
 const style = `<style>#prerendered{max-width:46rem;margin:0 auto;padding:2rem 1.25rem;font-family:"Noto Naskh Arabic",serif;color:#001F3F;background:#fffdf5}#prerendered h1{font-size:1.7rem;line-height:1.5}#prerendered h2{font-size:1.2rem;margin-top:1.6rem}#prerendered p,#prerendered li{line-height:2;font-size:.98rem}#prerendered blockquote{margin:.6rem 0;padding:.6rem .9rem;background:#eef3dd;border-radius:12px}#prerendered cite{display:block;margin-top:.3rem;font-size:.75rem;color:#7d631c;font-style:normal}#prerendered a{color:#556B2F}</style>`;
+
+// Routes with no prerendered page — sign-in, the personal shelf, anything that
+// does not exist — reach the SPA fallback in functions/_middleware.ts. That
+// fallback used to fetch index.html, which since this script runs is the home
+// page: /about briefly served the home page's words to crawlers, and so would
+// every 404. The fallback fetches this empty shell instead.
+writeFileSync(join(out, "app-shell.html"), shell);
 
 let written = 0;
 let bytes = 0;

@@ -231,10 +231,15 @@ export const onRequest: PagesFunction = async (context) => {
   let response = await context.next();
 
   // SPA fallback: أي مسار بيرجع 404 ومش ملف ثابت (مفيهوش نقطة = مفيش امتداد)
-  // نجيب له index.html — وReact Router بيتولى عرض الصفحة الصحيحة.
+  // نجيب له قشرة فاضية — وReact Router بيتولى عرض الصفحة الصحيحة.
+  //
+  // Not index.html: scripts/prerender.mjs writes the home page's own text into
+  // it, so serving it here would answer /login — and every address that does
+  // not exist — with the home page's words. app-shell.html is that same
+  // document with an empty #root.
   const looksLikeFile = /\.[a-zA-Z0-9]+$/.test(pathname);
   if (response.status === 404 && !looksLikeFile) {
-    response = await context.env.ASSETS.fetch(new URL("/index.html", url));
+    response = await context.env.ASSETS.fetch(new URL("/app-shell.html", url));
   }
 
   const type = response.headers.get("content-type") ?? "";
