@@ -794,6 +794,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "dog-of-the-cave",
+    en: {
+      title: "The Loyal Dog of the Cave",
+      hook:
+        "Have you ever had a loyal pet that always protected you? Let's meet the most famous and loyal dog in history, who slept for hundreds of years!",
+      events:
+        "When the smart young men (The People of the Cave) ran away from the evil king to protect their faith, a loyal dog followed them. The young men hid inside a dark cave, and the brave dog sat right at the entrance, stretching his paws to guard them. Allah made the young men fall into a deep sleep, and the dog slept too! They stayed like that for 309 years. Anyone who looked at the cave would be too scared to enter because the loyal dog looked like a fierce guard. Allah honored this dog by mentioning him in the Holy Quran alongside the righteous believers.",
+      lesson:
+        "Being loyal and staying with good, righteous friends brings honor and blessings, even for an animal!",
+      next:
+        "The dog was a loyal guard. In our next story, we will read about a bright yellow cow that helped solve a great mystery! It's the Cow of the Children of Israel!",
+      quranProse:
+        "Allah says: {And their dog stretched his forelegs at the entrance.}",
+    },
     title: "قصة كلب أهل الكهف",
     surahName: "",
     image: "/stories/animals/dog-of-the-cave.jpg",
@@ -805,6 +818,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "cow-of-israel",
+    en: {
+      title: "The Yellow Cow of the Children of Israel",
+      hook:
+        "Have you ever seen a bright, beautiful yellow cow? Today's story is a great mystery about a crime, and a special cow was the key to solving it!",
+      events:
+        "A long time ago, a man from the Children of Israel was killed, and no one knew who did it. They went to Prophet Musa (Moses) for help. Musa told them that Allah commands them to slaughter a cow. Instead of just obeying and picking any cow, they started asking too many stubborn questions: 'What color is it? How old is it? What does it do?' Because they made it hard on themselves, Allah made the description very rare: it had to be a bright yellow cow, not too old, not too young, and never used for farming. When they finally found it and followed the command, a miracle happened, and the mystery was solved!",
+      lesson:
+        "When we receive a clear command from Allah or our parents, we should obey immediately without arguing or asking too many unnecessary questions.",
+      next:
+        "The cow solved a mystery for people who asked too many questions. Our next animal was the answer to a question too — a giant camel that walked straight out of a mountain! It's the Camel of Prophet Salih!",
+      quranProse:
+        "Allah says describing it: {He says, 'It is a yellow cow, bright in color - pleasing to the observers.'}",
+    },
     title: "قصة بقرة بني إسرائيل",
     surahName: "",
     image: "/stories/animals/cow-of-israel.jpg",
@@ -840,6 +866,19 @@ export const stories: Story[] = [
   },
   {
     chapter: "animals", slug: "donkey-of-uzair",
+    en: {
+      title: "The Donkey of Uzair",
+      hook:
+        "How can an animal turn completely into dry bones and then come back to life in a few seconds? Get ready to witness a mind-blowing miracle!",
+      events:
+        "A righteous man named Uzair was riding his donkey when he passed by a completely ruined, dead town. He wondered, 'How will Allah bring this town back to life after its death?' To show him His immense power, Allah made Uzair die for 100 years, and then brought him back to life! Uzair's food and drink were perfectly fresh, but his poor donkey had turned into dry bones. While Uzair was watching, Allah commanded the bones of the donkey to come together, covered them with flesh, and breathed life into it. The donkey stood up alive again!",
+      lesson:
+        "This incredible miracle proves that Allah has the absolute power to bring the dead back to life, and nothing is impossible for Him.",
+      next:
+        "And with this amazing miracle, we wrap up our animal stories!",
+      quranProse:
+        "Allah says: {And look at your donkey - and that We may make you a sign for the people. And look at the bones [of this donkey] - how We raise them and then We cover them with flesh.}",
+    },
     title: "قصة حمار عزير",
     surahName: "",
     image: "/stories/animals/donkey-of-uzair.jpg",
@@ -898,6 +937,19 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "hawwa",
+    en: {
+      title: "Hawwa (Eve), the First Woman",
+      hook:
+        "Who was the very first mother on Earth? Let's travel back to the beautiful Paradise to meet the woman who started the human family!",
+      events:
+        "Hawwa (Eve) was the very first woman Allah created. She was created to be a companion and wife to Prophet Adam so they could live happily together. They lived in a beautiful Paradise and could eat from anywhere, except one tree. But the evil Iblis (Satan) whispered to them and tricked them into eating from it. They immediately felt sorry for their mistake and cried, asking Allah for forgiveness. Because Allah is The Most Merciful, He forgave them and sent them to Earth to start human life and spread goodness.",
+      lesson:
+        "Everyone makes mistakes, but the best thing to do is to quickly admit our mistake and ask Allah for forgiveness, just like our mother Hawwa did.",
+      next:
+        "Hawwa was the first mother. In our next story, we will meet a very generous lady who received the most amazing news when she was very old! It's Lady Sarah!",
+      quranProse:
+        "Allah says about their prayer for forgiveness: {They said, 'Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.'}",
+    },
     image: "/stories/hawwa.jpg",
     title: "السيدة حواء",
     surahName: "البقرة",
@@ -910,6 +962,19 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "sarah",
+    en: {
+      title: "Lady Sarah and the Glad Tidings",
+      hook:
+        "Can you imagine getting the best news ever when you are very old and have given up hope? Today we meet a generous lady who received a magical surprise from angels!",
+      events:
+        "Lady Sarah was the beautiful and righteous wife of Prophet Ibrahim. She was very old and never had any children. One day, three handsome guests visited them. Ibrahim and Sarah were very generous and quickly prepared a delicious meal for them. But the guests didn't eat! They were actually angels sent by Allah. The angels gave Ibrahim and Sarah the glad tidings that they would have a baby boy named Ishaq (Isaac). Sarah was so surprised that she laughed and touched her face, wondering how an old woman could have a baby! But with Allah, nothing is impossible.",
+      lesson:
+        "We learn to always be generous to our guests. We also learn that Allah's blessings can come at any time, and we should never lose hope in His mercy.",
+      next:
+        "Sarah welcomed her guests and was given the best of news. Our next story follows another wife of Prophet Ibrahim, left alone in an empty desert with a thirsty baby — and the well that sprang up for her. It's Lady Hajar!",
+      quranProse:
+        "Allah says: {And his wife was standing, and she smiled. Then We gave her good tidings of Isaac, and after Isaac, Jacob.}",
+    },
     image: "/stories/sarah.jpg",
     title: "السيدة سارة",
     surahName: "هود",

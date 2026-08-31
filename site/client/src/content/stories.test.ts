@@ -11,15 +11,7 @@ import { describe, expect, it } from "vitest";
 import { chapters, stories, storyTextFor } from "@/content/stories";
 
 /** Stories still awaiting an English translation. Shrink this list; do not grow it. */
-const UNTRANSLATED = [
-  "women/hawwa",
-  "women/sarah",
-  "women/imraat_alaziz",
-  "women/nuh_lut",
-  "animals/dog-of-the-cave",
-  "animals/cow-of-israel",
-  "animals/donkey-of-uzair",
-];
+const UNTRANSLATED = ["women/imraat_alaziz", "women/nuh_lut"];
 
 const key = (s: { chapter: string; slug: string }) => `${s.chapter}/${s.slug}`;
 
