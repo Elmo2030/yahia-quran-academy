@@ -441,6 +441,11 @@ export const seerahStationIndex: Station[] = [
   "stationId": 4,
   "titleAr": "الدعوة: سرًّا ثم جهرًا",
   "titleEn": "The Call: In Secret, Then Aloud"
+ },
+ {
+  "stationId": 5,
+  "titleAr": "الإسراء والمعراج",
+  "titleEn": "The Night Journey and the Ascension"
  }
 ];
 
@@ -643,6 +648,126 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق ع",
   "titleEn": "The Sad Journey to Taif",
   "descriptionEn": "After the deaths of Khadijah and Abu Talib the harm grew worse, so the Prophet (pbuh) walked to Taif to call its people. They turned him away and set boys to throw stones at him un",
+  "image": null
+ },
+ {
+  "slug": "chest-washing-zamzam",
+  "title": "استعداد القائد: شقّ الصدر وماء زمزم",
+  "description": "بينما كان النبي ﷺ نائماً قرب الكعبة، وهو حزين بعد رحلة الطائف، نزل إليه جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره في رفق وبلا ألم، وغسلا قلبه الشريف بماء زمزم في طست من ذهب، ثم ",
+  "titleEn": "Preparing the Leader: The Opening of the Chest",
+  "descriptionEn": "While the Prophet (pbuh) slept near the Kaaba, heavy with sadness after the journey to Taif, Jibril came down to him with another angel. They opened his chest gently and without pa",
+  "image": null
+ },
+ {
+  "slug": "the-amazing-buraq",
+  "title": "البُراق: دابّة أسرع من البصر",
+  "description": "أحضر جبريل عليه السلام دابّة بيضاء من الجنة تُسمّى البُراق، أكبر من الحمار وأصغر من البغل، تضع حافرها عند آخر ما يبلغه بصرها. ولما اقترب النبي ﷺ ليركبها تحرّكت، فقال لها جبريل: أبم",
+  "titleEn": "Al-Buraq: Swifter Than Sight",
+  "descriptionEn": "Jibril brought a white creature from Paradise called al-Buraq, larger than a donkey and smaller than a mule, which placed its hoof as far as its sight could reach. When the Prophet",
+  "image": null
+ },
+ {
+  "slug": "road-to-jerusalem",
+  "title": "الطريق إلى بيت المقدس",
+  "description": "في الطريق إلى بيت المقدس طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي في مواضع مباركة، منها الموضع الذي كلّم الله فيه موسى عليه السلام، والموضع الذي وُلد فيه عيسى عليه السلام. و",
+  "titleEn": "The Road to Jerusalem",
+  "descriptionEn": "On the road to Jerusalem, Jibril asked the Prophet (pbuh) to come down and pray at blessed places — among them where Allah spoke to Musa, and where Isa was born. On the way he was ",
+  "image": null
+ },
+ {
+  "slug": "leader-of-prophets",
+  "title": "إمام الأنبياء في المسجد الأقصى",
+  "description": "وصل النبي ﷺ إلى المسجد الأقصى وربط البُراق عند الباب. ولما دخل وجد الأنبياء جميعاً من آدم إلى عيسى عليهم السلام في انتظاره. فأقيمت الصلاة، وقدّمه جبريل عليه السلام ليصلّي بهم إماما",
+  "titleEn": "Leading the Prophets at al-Aqsa",
+  "descriptionEn": "The Prophet (pbuh) reached al-Aqsa Mosque and tied al-Buraq at the door. When he entered, he found all the prophets from Adam to Isa waiting for him. The prayer was called, and Jib",
+  "image": null
+ },
+ {
+  "slug": "the-first-heaven-adam",
+  "title": "السماء الأولى: لقاء آدم عليه السلام",
+  "description": "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الأولى. فاستأذن جبريل، فقيل: من؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. ففُتح لهما، فإذا آدم عليه السلام أبو البشر، فرحّب به وقال: مرحباً ",
+  "titleEn": "The First Heaven: Meeting Adam",
+  "descriptionEn": "The Prophet (pbuh) ascended with Jibril to the first heaven. Jibril asked to be let in. “Who is it?” “Jibril.” “And who is with you?” “Muhammad.” The gate opened, and there was Ada",
+  "image": null
+ },
+ {
+  "slug": "second-heaven-isa-yahya",
+  "title": "السماء الثانية: ابنا الخالة",
+  "description": "صعد النبي ﷺ وجبريل عليه السلام إلى السماء الثانية واستأذنا، ففُتح لهما، فإذا شابّان كريمان: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. فرحّبا به وقالا: مرحباً بالأ",
+  "titleEn": "The Second Heaven: The Cousins",
+  "descriptionEn": "The Prophet (pbuh) and Jibril rose to the second heaven and asked to enter. The gate opened, and there were two noble young men: Isa the son of Maryam and Yahya the son of Zakariya",
+  "image": null
+ },
+ {
+  "slug": "third-heaven-yusuf",
+  "title": "السماء الثالثة: شطر الحُسن",
+  "description": "في السماء الثالثة لقي النبي ﷺ يوسف عليه السلام، وقال عنه: «قد أُعطي شطر الحُسن». وهو النبي الذي صبر على غدر إخوته وعلى السجن، حتى مكّنه الله في الأرض. فرحّب بأخيه محمد ﷺ ودعا له.",
+  "titleEn": "The Third Heaven: Half of All Beauty",
+  "descriptionEn": "In the third heaven the Prophet (pbuh) met Yusuf, of whom he said: “He has been given half of all beauty.” This is the prophet who bore his brothers' betrayal and prison with patie",
+  "image": null
+ },
+ {
+  "slug": "fourth-heaven-idris",
+  "title": "السماء الرابعة: المكان العليّ",
+  "description": "في السماء الرابعة لقي النبي ﷺ إدريس عليه السلام، الذي رفعه الله مكاناً علياً. فرحّب به وقال ما يقوله الأنبياء: مرحباً بالأخ الصالح والنبي الصالح.",
+  "titleEn": "The Fourth Heaven: A High Place",
+  "descriptionEn": "In the fourth heaven the Prophet (pbuh) met Idris, whom Allah raised to a high place. He welcomed him with the words every prophet said: “Welcome, righteous brother and righteous p",
+  "image": null
+ },
+ {
+  "slug": "fifth-heaven-harun",
+  "title": "السماء الخامسة: النبي المحبَّب",
+  "description": "في السماء الخامسة لقي النبي ﷺ شيخاً وقوراً، فسأل جبريل: من هذا؟ قال: هذا المحبَّب في قومه، هارون بن عمران، أخو موسى عليهما السلام. وكان معروفاً بلينه ولطفه، فأحبّه قومه.",
+  "titleEn": "The Fifth Heaven: The Beloved Prophet",
+  "descriptionEn": "In the fifth heaven the Prophet (pbuh) met a dignified elder and asked Jibril: who is this? He said: this is the one beloved by his people, Harun ibn Imran, the brother of Musa. He",
+  "image": null
+ },
+ {
+  "slug": "sixth-heaven-musa",
+  "title": "السماء السادسة: دمعة الكليم",
+  "description": "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به. فلما جاوزه ليصعد بكى موسى، فقيل له: ما يبكيك؟ قال: أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن يدخلها ",
+  "titleEn": "The Sixth Heaven: The Tear of Musa",
+  "descriptionEn": "In the sixth heaven the Prophet (pbuh) met Musa, who welcomed him. When the Prophet passed him to continue his ascent, Musa wept. He was asked: what makes you weep? He said: I weep",
+  "image": null
+ },
+ {
+  "slug": "seventh-heaven-ibrahim",
+  "title": "السماء السابعة: سلام إبراهيم إلينا",
+  "description": "في السماء السابعة رأى النبي ﷺ رجلاً يشبهه، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يطوف به كل يوم سبعون ألف ملَك لا يعودون إليه. إنه إبراهيم عليه السلام، فرحّب به وأرسل مع",
+  "titleEn": "The Seventh Heaven: Ibrahim's Greeting to Us",
+  "descriptionEn": "In the seventh heaven the Prophet (pbuh) saw a man who resembled him, resting his back against al-Bayt al-Ma'mur — a House in the heavens circled each day by seventy thousand angel",
+  "image": null
+ },
+ {
+  "slug": "sidrat-al-muntaha",
+  "title": "سدرة المنتهى: حيث يقف كل شيء",
+  "description": "صعد النبي ﷺ حتى بلغ شجرة عظيمة تُسمّى سدرة المنتهى، إليها ينتهي كل صاعد ولا يتجاوزها مخلوق. وعندها وقف جبريل عليه السلام وقال: لو دنوتُ أنملة لاحترقت. ومضى النبي ﷺ وحده.",
+  "titleEn": "Sidrat al-Muntaha: Where Everything Stops",
+  "descriptionEn": "The Prophet (pbuh) rose until he reached a great tree called Sidrat al-Muntaha, where everything that ascends comes to an end and no creature passes beyond. There Jibril stopped an",
+  "image": null
+ },
+ {
+  "slug": "the-great-gift-prayer",
+  "title": "الهدية الكبرى: الصلاة",
+  "description": "بلغ النبي ﷺ مكاناً سمع فيه صريف الأقلام، وهناك كلّمه الله وفرض على أمته الصلاة: خمسين صلاة في اليوم والليلة. والصلاة هي العبادة الوحيدة التي فُرضت في السماء لا في الأرض.",
+  "titleEn": "The Great Gift: The Prayer",
+  "descriptionEn": "The Prophet (pbuh) reached a place where he heard the scratching of the pens, and there Allah spoke to him and made the prayer obligatory on his nation: fifty prayers a day and nig",
+  "image": null
+ },
+ {
+  "slug": "musa-advice-reduction",
+  "title": "نصيحة موسى: خمسٌ في العمل وخمسون في الأجر",
+  "description": "في طريق العودة سأل موسى عليه السلام النبي ﷺ: بم أُمرت؟ قال: بخمسين صلاة. فقال: إن أمتك لا تطيق ذلك، ارجع إلى ربك فاسأله التخفيف. فلم يزل النبي ﷺ يرجع حتى صارت خمساً، وقال الله: هي ",
+  "titleEn": "Musa's Advice: Five in Deed, Fifty in Reward",
+  "descriptionEn": "On the way back, Musa asked the Prophet (pbuh): what were you commanded? He said: fifty prayers. Musa said: your nation cannot bear that — go back to your Lord and ask Him to light",
+  "image": null
+ },
+ {
+  "slug": "morning-of-certainty",
+  "title": "صباح اليقين ولقب الصدّيق",
+  "description": "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى أبي ",
+  "titleEn": "The Morning of Certainty, and the Name as-Siddiq",
+  "descriptionEn": "In the morning the Prophet (pbuh) told Quraysh of his journey, and they mocked him: we travel to Jerusalem in a month, and you go and return in one night? They asked him to describ",
   "image": null
  }
 ];

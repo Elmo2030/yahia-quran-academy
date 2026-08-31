@@ -122,6 +122,15 @@ export const seerahStations: SeerahStation[] = [
     descriptionEn:
       "Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.",
   },
+  {
+    stationId: 5,
+    titleAr: "الإسراء والمعراج",
+    titleEn: "The Night Journey and the Ascension",
+    descriptionAr:
+      "خمس عشرة قصة من رحلة ليلة واحدة: من المسجد الحرام إلى المسجد الأقصى، ثم عروجٌ في السماوات السبع ولقاءُ الأنبياء فيها، فسدرة المنتهى، ففرض الصلاة، ثم العودة وصباح اليقين.",
+    descriptionEn:
+      "Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.",
+  },
 ];
 
 /** A story's text in the requested language, falling back to the Arabic for
@@ -2044,6 +2053,1146 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟢",
       reference: "صحيح البخاري ومسلم",
       note: "حديث ملك الجبال ورجوع النبي ﷺ من الطائف ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-01",
+    stationId: 5,
+    slug: "chest-washing-zamzam",
+    en: {
+      title: "Preparing the Leader: The Opening of the Chest",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "While the Prophet (pbuh) slept near the Kaaba, heavy with sadness after the journey to Taif, Jibril came down to him with another angel. They opened his chest gently and without pain, washed his noble heart with Zamzam water in a golden basin, filled it with faith and wisdom, and put it back as it was. And so the greatest night in history began.",
+          shortLesson: "A clean heart is the first thing any great work needs.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "While the Prophet (pbuh) was sleeping at night near the Kaaba, weighed down by sadness after the journey to Taif, the angel Jibril came down to him with another angel. They opened his noble chest very gently and without pain, took out his heart and washed it with pure Zamzam water in a golden basin, then filled it with faith and wisdom and strength, so that he would be ready for the great signs he was about to be shown that night. Then they returned his heart as it was, and the greatest journey in human history began.",
+          details:
+            "Allah says: ﴿أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ﴾ — “Did We not expand for you your breast?”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet's chest was opened more than once in his life; the first time was as a child in the desert of Bani Sa'd.",
+        value: { name: "Purity of heart", icon: "💛" },
+        thinkQuestion: "What will you do today to keep your own heart clear of grudges and envy?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What water was the Prophet's heart washed with that night?",
+          options: ["Rain water", "Zamzam water", "Sea water", "River water"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Golden Basin", description: "A keepsake: Allah looks at your heart before anything else." },
+        badge: "Badge: A Heart Made Ready",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The opening of the chest on the night of the Isra is established in both Sahih collections.",
+      },
+    },
+    title: "استعداد القائد: شقّ الصدر وماء زمزم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بينما كان النبي ﷺ نائماً قرب الكعبة، وهو حزين بعد رحلة الطائف، نزل إليه جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره في رفق وبلا ألم، وغسلا قلبه الشريف بماء زمزم في طست من ذهب، ثم ملآه إيماناً وحكمة، وأعاداه كما كان. وبهذا بدأت أعظم ليلة في التاريخ.",
+        shortLesson: "القلب النظيف هو أول ما نحتاجه لأي عمل عظيم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بينما كان النبي ﷺ نائماً ليلاً قرب الكعبة، بعد أن أثقله الحزن من رحلة الطائف، نزل عليه المَلَك جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره الشريف في رفق شديد ومن غير ألم، وأخرجا قلبه فغسلاه بماء زمزم الطاهر في طست من ذهب، ثم ملآه إيماناً وحكمة وقوة، ليكون مستعداً لما سيرى في تلك الليلة من آيات الله الكبرى. ثم أعادا قلبه كما كان، وبدأت أعظم رحلة في تاريخ البشرية.",
+        details:
+          "قال تعالى ممتنّاً على نبيه: ﴿أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ ۝ وَوَضَعْنَا عَنكَ وِزْرَكَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "شُقّ صدر النبي ﷺ أكثر من مرة في حياته، أولها وهو صغير في بادية بني سعد.",
+      value: { name: "طهارة القلب", icon: "💛" },
+      thinkQuestion:
+        "ما العمل الذي تفعله اليوم ليبقى قلبك نظيفاً من الغلّ والحسد؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بأي ماء غُسل قلب النبي ﷺ في تلك الليلة؟",
+        options: ["ماء المطر", "ماء زمزم", "ماء البحر", "ماء النهر"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "طست من ذهب", description: "تذكار يذكّرك أن الله ينظر إلى قلبك قبل كل شيء." },
+      badge: "وسام: قلب مستعد",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "حديث شقّ الصدر ليلة الإسراء ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-02",
+    stationId: 5,
+    slug: "the-amazing-buraq",
+    en: {
+      title: "Al-Buraq: Swifter Than Sight",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Jibril brought a white creature from Paradise called al-Buraq, larger than a donkey and smaller than a mule, which placed its hoof as far as its sight could reach. When the Prophet (pbuh) came to ride it, it stirred, and Jibril said: is it Muhammad you do this to? No one more honoured before Allah has ever ridden you. So it settled and stood still, and they set off into the night sky.",
+          shortLesson: "Allah's power is wider than anything we can picture.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Jibril brought a creature from Paradise called al-Buraq, brilliant white, larger than a donkey and smaller than a mule. The wonder of al-Buraq was its speed: it would place its hoof at the farthest point its sight could reach. When the Prophet (pbuh) drew near to ride, al-Buraq shied and stirred, and Jibril said to it: “Is it Muhammad you do this to? By Allah, no one has ever ridden you who is more honoured before Allah than he is.” Al-Buraq grew shy and broke into a sweat, then settled and stood still until the Messenger of Allah (pbuh) mounted, and away they went into the night sky.",
+          details:
+            "After naming the animals we know, Allah says: ﴿وَيَخْلُقُ مَا لَا تَعْلَمُونَ﴾ — “And He creates what you do not know.”",
+        },
+      },
+      interactive: {
+        discover: "The name “Buraq” comes from barq — lightning — for its speed.",
+        value: { name: "The reach of Allah's power", icon: "⚡" },
+        thinkQuestion: "What is the fastest thing you know? How would you picture something faster than sight itself?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What made al-Buraq remarkable?",
+          options: ["It was red", "It stepped as far as its sight could reach", "It flew with two great wings", "It never grew tired"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A White Feather", description: "A keepsake for a mount unlike anything we know." },
+        badge: "Badge: Rider of al-Buraq",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Muslim",
+        note: "The description of al-Buraq is established in Sahih Muslim in the Isra hadith.",
+      },
+    },
+    title: "البُراق: دابّة أسرع من البصر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "أحضر جبريل عليه السلام دابّة بيضاء من الجنة تُسمّى البُراق، أكبر من الحمار وأصغر من البغل، تضع حافرها عند آخر ما يبلغه بصرها. ولما اقترب النبي ﷺ ليركبها تحرّكت، فقال لها جبريل: أبمحمد تفعلين هذا؟ فما ركبك أحد أكرم على الله منه. فسكنت ووقفت له، وانطلقا في سماء الليل.",
+        shortLesson: "قدرة الله أوسع من كل ما نتخيّل.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "أحضر جبريل عليه السلام دابّة من الجنة تُسمّى البُراق، بيضاء ناصعة، أكبر من الحمار وأصغر من البغل. والعجيب في البُراق سرعته: يضع حافره عند أبعد نقطة يبلغها بصره. فلما دنا النبي ﷺ ليركبه شمس البُراق وتحرّك، فقال له جبريل عليه السلام: «أبمحمد تفعل هذا؟ فوالله ما ركبك أحد قط أكرم على الله منه». فاستحى البُراق وتصبّب عرقاً، ثم سكن ووقف حتى ركبه رسول الله ﷺ، فانطلقا في سماء الليل.",
+        details:
+          "قال تعالى بعد أن ذكر ما نعرفه من الدوابّ: ﴿وَيَخْلُقُ مَا لَا تَعْلَمُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كلمة «البُراق» من البَرق، لسرعته.",
+      value: { name: "سعة قدرة الله", icon: "⚡" },
+      thinkQuestion:
+        "ما أسرع شيء تعرفه؟ وكيف تتخيّل شيئاً أسرع من البصر نفسه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما الذي يميّز البُراق؟",
+        options: ["لونه الأحمر", "أنه يضع حافره عند منتهى بصره", "أنه يطير بجناحين كبيرين", "أنه لا يتعب أبداً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ريشة بيضاء", description: "تذكار لمركبةٍ من خلق الله لا تشبه شيئاً نعرفه." },
+      badge: "وسام: راكب البُراق",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح مسلم",
+      note: "وصف البُراق ثابت في صحيح مسلم من حديث الإسراء.",
+    },
+  },
+  {
+    storyId: "st-5-03",
+    stationId: 5,
+    slug: "road-to-jerusalem",
+    en: {
+      title: "The Road to Jerusalem",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "On the road to Jerusalem, Jibril asked the Prophet (pbuh) to come down and pray at blessed places — among them where Allah spoke to Musa, and where Isa was born. On the way he was shown strange scenes of people receiving what their deeds had earned.",
+          shortLesson: "We honour the places of all the prophets: their faith is one.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "During the swift journey towards Jerusalem, Jibril asked the Prophet (pbuh) to come down and pray two rak'ahs at blessed places: among them Mount Tur, where Allah spoke to Musa, and Bethlehem, where Isa was born. Along the way the Prophet (pbuh) was shown strange scenes of people being repaid for what they had done, and from them he learned the reward of good deeds and the consequence of bad ones.",
+          details:
+            "Allah swears by these blessed places: ﴿وَالتِّينِ وَالزَّيْتُونِ ۝ وَطُورِ سِينِينَ﴾.",
+        },
+      },
+      interactive: {
+        discover: "Jerusalem was the first qiblah of the Muslims, before it was turned to the Kaaba.",
+        value: { name: "Honouring the prophets", icon: "🕌" },
+        thinkQuestion: "Why do Muslims honour Musa and Isa as they honour Muhammad (pbuh)?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which prophet did Allah speak to at Mount Tur?",
+          options: ["Ibrahim", "Musa", "Isa", "Nuh"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An Olive Branch from Tur", description: "A branch to remind you that the prophets are brothers in one faith." },
+        badge: "Badge: Visitor of Blessed Places",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sunan an-Nasa'i, and the Seerah literature",
+        note: "The Isra itself is established in the Quran and both Sahih collections; the stops to pray at Tur and Bethlehem come in a narration in an-Nasa'i whose chain some scholars have questioned.",
+      },
+    },
+    title: "الطريق إلى بيت المقدس",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في الطريق إلى بيت المقدس طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي في مواضع مباركة، منها الموضع الذي كلّم الله فيه موسى عليه السلام، والموضع الذي وُلد فيه عيسى عليه السلام. ورأى النبي ﷺ في طريقه مشاهد عجيبة تُريه جزاء الأعمال.",
+        shortLesson: "نحترم أماكن الأنبياء جميعاً، فدينهم واحد.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "أثناء رحلته السريعة نحو بيت المقدس، طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي ركعتين في مواضع مباركة: منها طُور سيناء حيث كلّم الله موسى عليه السلام، وبيت لحم حيث وُلد عيسى عليه السلام. ورأى النبي ﷺ في طريقه مشاهد عجيبة لأقوام يُجزون بأعمالهم، فعلم من ذلك جزاء الصالح والسيّئ من العمل.",
+        details:
+          "قال تعالى مقسماً بهذه البقاع المباركة: ﴿وَالتِّينِ وَالزَّيْتُونِ ۝ وَطُورِ سِينِينَ ۝ وَهَٰذَا الْبَلَدِ الْأَمِينِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "بيت المقدس كان القبلة الأولى للمسلمين قبل أن تُحوَّل إلى الكعبة.",
+      value: { name: "توقير الأنبياء", icon: "🕌" },
+      thinkQuestion:
+        "لماذا يوقّر المسلمون موسى وعيسى عليهما السلام كما يوقّرون محمداً ﷺ؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أي نبي كلّمه الله عند الطُّور؟",
+        options: ["إبراهيم عليه السلام", "موسى عليه السلام", "عيسى عليه السلام", "نوح عليه السلام"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "غصن زيتون من الطُّور", description: "غصن يذكّرك أن الأنبياء إخوة ودينهم واحد." },
+      badge: "وسام: زائر البقاع المباركة",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سنن النسائي، وكتب السيرة",
+      note: "أصل الإسراء ثابت في القرآن والصحيحين، أما نزوله ﷺ للصلاة في الطور وبيت لحم فجاء في رواية عند النسائي تكلّم في إسنادها بعض أهل العلم.",
+    },
+  },
+  {
+    storyId: "st-5-04",
+    stationId: 5,
+    slug: "leader-of-prophets",
+    en: {
+      title: "Leading the Prophets at al-Aqsa",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet (pbuh) reached al-Aqsa Mosque and tied al-Buraq at the door. When he entered, he found all the prophets from Adam to Isa waiting for him. The prayer was called, and Jibril brought him forward to lead them.",
+          shortLesson: "Our Prophet (pbuh) is the last of the prophets, and their imam.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) reached al-Aqsa Mosque and tied al-Buraq to the ring the prophets used for their mounts. When he entered the mosque, there was the surprise: the prophets and messengers from Adam to Isa, gathered by Allah, waiting for him. The prayer was called, and Jibril took the hand of our Prophet Muhammad (pbuh) and brought him forward as imam, and he led all the prophets in prayer. That scene was an announcement that he is the seal of the prophets and their imam, and that his message is for all people.",
+          details:
+            "Allah records the journey: ﴿سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى﴾.",
+        },
+      },
+      interactive: {
+        discover: "Surah Al-Isra is named after this journey and opens with it.",
+        value: { name: "The standing of al-Aqsa", icon: "🕋" },
+        thinkQuestion: "What does it mean that all the prophets prayed behind one imam?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Where did the Prophet (pbuh) lead the prophets in prayer?",
+          options: ["The Sacred Mosque", "The Prophet's Mosque", "Al-Aqsa Mosque", "Quba Mosque"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Door Ring", description: "The ring al-Buraq was tied to at the door of al-Aqsa." },
+        badge: "Badge: Within al-Aqsa",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Muslim, and Surah Al-Isra",
+        note: "The Prophet leading the prophets in prayer at Jerusalem is established in Sahih Muslim.",
+      },
+    },
+    title: "إمام الأنبياء في المسجد الأقصى",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "وصل النبي ﷺ إلى المسجد الأقصى وربط البُراق عند الباب. ولما دخل وجد الأنبياء جميعاً من آدم إلى عيسى عليهم السلام في انتظاره. فأقيمت الصلاة، وقدّمه جبريل عليه السلام ليصلّي بهم إماماً.",
+        shortLesson: "نبينا ﷺ خاتم الأنبياء وإمامهم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "وصل النبي ﷺ إلى المسجد الأقصى، فربط البُراق في الحلقة التي كانت تربط بها الأنبياء دوابّهم. ولما دخل المسجد كانت المفاجأة: الأنبياء والرسل من آدم إلى عيسى عليهم السلام قد جمعهم الله في انتظاره. فأقيمت الصلاة، وأخذ جبريل عليه السلام بيد نبينا محمد ﷺ فقدّمه إماماً، فصلّى بالأنبياء جميعاً. وكان هذا المشهد إعلاناً بأنه خاتم النبيين وإمامهم، وأن رسالته للناس كافّة.",
+        details:
+          "قال تعالى يوثّق الرحلة: ﴿سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سورة الإسراء سُمّيت بهذه الرحلة، وتبدأ بذكرها.",
+      value: { name: "مكانة الأقصى", icon: "🕋" },
+      thinkQuestion:
+        "ماذا يعني أن يصلّي الأنبياء كلهم خلف إمام واحد؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أين صلّى النبي ﷺ إماماً بالأنبياء؟",
+        options: ["المسجد الحرام", "المسجد النبوي", "المسجد الأقصى", "مسجد قباء"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "حلقة الباب", description: "حلقة رُبط بها البُراق عند باب المسجد الأقصى." },
+      badge: "وسام: في رحاب الأقصى",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح مسلم، وسورة الإسراء",
+      note: "إمامة النبي ﷺ بالأنبياء في بيت المقدس ثابتة في صحيح مسلم.",
+    },
+  },
+  {
+    storyId: "st-5-05",
+    stationId: 5,
+    slug: "the-first-heaven-adam",
+    en: {
+      title: "The First Heaven: Meeting Adam",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet (pbuh) ascended with Jibril to the first heaven. Jibril asked to be let in. “Who is it?” “Jibril.” “And who is with you?” “Muhammad.” The gate opened, and there was Adam, the father of humanity, who welcomed him: “Welcome, righteous son and righteous prophet.”",
+          shortLesson: "We ask permission before entering — even at the gates of heaven.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) ascended with Jibril in the Mi'raj until they reached the gate of the first heaven. Jibril asked for it to be opened. “Who is this?” “Jibril.” “And who is with you?” “Muhammad.” “Has he been sent for?” “Yes.” The gate opened, and there was Adam, the father of humanity, who welcomed him and said: “Welcome, righteous son and righteous prophet.” Adam would look to his right and laugh, and to his left and weep — for on his right were the souls of the happy among his children, and on his left the souls of the wretched.",
+          details:
+            "Allah says of the heavens: ﴿الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا﴾ — “who created seven heavens in layers.”",
+        },
+      },
+      interactive: {
+        discover: "Every prophet he met in the heavens welcomed him and prayed for good for him.",
+        value: { name: "The manners of asking permission", icon: "🚪" },
+        thinkQuestion: "Your good deeds gladden Adam — what deed would you like him to see from you today?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Whom did the Prophet (pbuh) meet in the first heaven?",
+          options: ["Ibrahim", "Adam", "Musa", "Yusuf"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "Key of the First Heaven", description: "A key: the door opens for the one who asks." },
+        badge: "Badge: Guest of the First Heaven",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The Mi'raj and meeting the prophets in the heavens are established in both Sahih collections.",
+      },
+    },
+    title: "السماء الأولى: لقاء آدم عليه السلام",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الأولى. فاستأذن جبريل، فقيل: من؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. ففُتح لهما، فإذا آدم عليه السلام أبو البشر، فرحّب به وقال: مرحباً بالابن الصالح والنبي الصالح.",
+        shortLesson: "نستأذن قبل أن ندخل، حتى في السماء.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "صعد النبي ﷺ مع جبريل عليه السلام في المعراج حتى بلغا باب السماء الأولى. فاستفتح جبريل، فقيل: من هذا؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. قيل: وقد أُرسل إليه؟ قال: نعم. ففُتح لهما، فإذا هو بآدم عليه السلام أبي البشر، فرحّب به وقال: «مرحباً بالابن الصالح والنبي الصالح». وكان آدم عليه السلام ينظر عن يمينه فيضحك، وينظر عن شماله فيبكي، لأن عن يمينه أرواح أهل السعادة من ذريّته، وعن شماله أرواح أهل الشقاء.",
+        details:
+          "قال تعالى في عظمة خلق السماوات: ﴿الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا ۖ مَّا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كل نبي لقيه في السماوات رحّب به ودعا له بخير.",
+      value: { name: "أدب الاستئذان", icon: "🚪" },
+      thinkQuestion:
+        "عملك الصالح يُفرح آدم عليه السلام — فما العمل الذي تحب أن يراه منك اليوم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن لقي النبي ﷺ في السماء الأولى؟",
+        options: ["إبراهيم عليه السلام", "آدم عليه السلام", "موسى عليه السلام", "يوسف عليه السلام"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "مفتاح السماء الأولى", description: "مفتاح يذكّرك أن الباب يُفتح لمن استأذن." },
+      badge: "وسام: ضيف السماء الأولى",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "حديث المعراج ولقاء الأنبياء في السماوات ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-06",
+    stationId: 5,
+    slug: "second-heaven-isa-yahya",
+    en: {
+      title: "The Second Heaven: The Cousins",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet (pbuh) and Jibril rose to the second heaven and asked to enter. The gate opened, and there were two noble young men: Isa the son of Maryam and Yahya the son of Zakariya, who were cousins. They welcomed him and said: “Welcome, righteous brother and righteous prophet.”",
+          shortLesson: "A kind word and a bright face are the best way to receive people.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) rose with Jibril to the second heaven and asked for the gate to be opened. It opened, and there were two noble young men: Isa the son of Maryam and Yahya the son of Zakariya, who were cousins. They were glad to see him, welcomed him and said: “Welcome, righteous brother and righteous prophet,” and prayed for good for him. That is how the prophets receive one another — with love and prayer, not rivalry.",
+          details:
+            "Allah says of these prophets: ﴿وَزَكَرِيَّا وَيَحْيَىٰ وَعِيسَىٰ وَإِلْيَاسَ ۖ كُلٌّ مِّنَ الصَّالِحِينَ﴾ — “all of them among the righteous.”",
+        },
+      },
+      interactive: {
+        discover: "The mothers of Yahya and Isa were sisters, which makes them cousins.",
+        value: { name: "Welcoming well", icon: "🤝" },
+        thinkQuestion: "How do you greet a guest who comes to your home? What words do you like to hear when you arrive?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Whom did the Prophet (pbuh) meet in the second heaven?",
+          options: ["Adam and Idris", "Isa and Yahya", "Musa and Harun", "Ibrahim and Yusuf"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "Two Branches Side by Side", description: "Two branches for two who were kin in blood and in calling." },
+        badge: "Badge: Guest of the Second Heaven",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "Meeting the prophets in the heavens is established in the Mi'raj hadith in both Sahih collections.",
+      },
+    },
+    title: "السماء الثانية: ابنا الخالة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "صعد النبي ﷺ وجبريل عليه السلام إلى السماء الثانية واستأذنا، ففُتح لهما، فإذا شابّان كريمان: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. فرحّبا به وقالا: مرحباً بالأخ الصالح والنبي الصالح.",
+        shortLesson: "الكلمة الطيبة والبِشر أجمل ما نستقبل به الناس.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الثانية فاستفتحا، ففُتح لهما، فإذا هو بشابّين كريمين: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. ففرحا برؤيته ورحّبا به وقالا: «مرحباً بالأخ الصالح والنبي الصالح»، ودعوا له بالخير. وهكذا يستقبل الأنبياء بعضهم بعضاً: بالمحبة والدعاء لا بالمنافسة.",
+        details:
+          "قال تعالى في هؤلاء الأنبياء: ﴿وَزَكَرِيَّا وَيَحْيَىٰ وَعِيسَىٰ وَإِلْيَاسَ ۖ كُلٌّ مِّنَ الصَّالِحِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أمّ يحيى وأمّ عيسى عليهما السلام كانتا أختين، فهما ابنا خالة.",
+      value: { name: "حسن الاستقبال", icon: "🤝" },
+      thinkQuestion:
+        "كيف تستقبل ضيفاً يدخل بيتكم؟ وما الكلمة التي تحب أن تُقال لك حين تدخل؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن لقي النبي ﷺ في السماء الثانية؟",
+        options: ["آدم وإدريس", "عيسى ويحيى", "موسى وهارون", "إبراهيم ويوسف"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "غصنان متجاوران", description: "غصنان يذكّرانك بأخوين في النسب والدعوة." },
+      badge: "وسام: ضيف السماء الثانية",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "لقاء الأنبياء في السماوات ثابت في حديث المعراج في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-07",
+    stationId: 5,
+    slug: "third-heaven-yusuf",
+    en: {
+      title: "The Third Heaven: Half of All Beauty",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the third heaven the Prophet (pbuh) met Yusuf, of whom he said: “He has been given half of all beauty.” This is the prophet who bore his brothers' betrayal and prison with patience, until Allah gave him standing in the land. He welcomed his brother Muhammad (pbuh) and prayed for him.",
+          shortLesson: "Beauty of face is not complete without beauty of heart and patience.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) and Jibril reached the third heaven, and the gate was opened, and there was a man given beauty as no one else had been given. It was Yusuf, who as a boy faced his brothers' betrayal, then the well, then the prison — and bore it patiently until Allah placed him over the storehouses of Egypt. Our Prophet (pbuh) said of him: “He had been given half of all beauty.” Yusuf welcomed his brother Muhammad (pbuh) and prayed for good for him.",
+          details:
+            "Allah says of his story: ﴿لَّقَدْ كَانَ فِي يُوسُفَ وَإِخْوَتِهِ آيَاتٌ لِّلسَّائِلِينَ﴾ — “in Yusuf and his brothers were signs for those who ask.”",
+        },
+      },
+      interactive: {
+        discover: "Surah Yusuf is the only surah that tells one prophet's story whole, from beginning to end.",
+        value: { name: "Patience and fine character", icon: "⭐" },
+        thinkQuestion: "What made Yusuf great — his beauty, or his patience? Why?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet (pbuh) say about Yusuf's beauty?",
+          options: ["He was given half of all beauty", "He was the tallest of people", "He was the strongest", "He was the swiftest"],
+          correctAnswer: 0,
+        },
+      },
+      gamification: {
+        artifact: { name: "Yusuf's Shirt", description: "A shirt to remind you that patience brings joy back to a home." },
+        badge: "Badge: Beautiful Patience",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Muslim",
+        note: "The Prophet's words about Yusuf being given half of beauty are in Sahih Muslim.",
+      },
+    },
+    title: "السماء الثالثة: شطر الحُسن",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السماء الثالثة لقي النبي ﷺ يوسف عليه السلام، وقال عنه: «قد أُعطي شطر الحُسن». وهو النبي الذي صبر على غدر إخوته وعلى السجن، حتى مكّنه الله في الأرض. فرحّب بأخيه محمد ﷺ ودعا له.",
+        shortLesson: "جمال الوجه لا يتمّ إلا بجمال القلب والصبر.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "وصل النبي ﷺ وجبريل عليه السلام إلى السماء الثالثة، ففُتح لهما، فإذا برجل قد أُعطي من الجمال ما لم يُعطَ أحد. إنه يوسف عليه السلام، الذي واجه في صغره غدر إخوته ثم البئر ثم السجن، فصبر واحتسب حتى جعله الله على خزائن مصر. قال عنه نبينا ﷺ: «فإذا هو قد أُعطي شطر الحُسن». فرحّب يوسف بأخيه محمد ﷺ ودعا له بالخير.",
+        details:
+          "قال تعالى في قصته: ﴿لَّقَدْ كَانَ فِي يُوسُفَ وَإِخْوَتِهِ آيَاتٌ لِّلسَّائِلِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سورة يوسف هي السورة الوحيدة التي قصّت قصة نبي كاملة من أولها إلى آخرها.",
+      value: { name: "الصبر وجمال الأخلاق", icon: "⭐" },
+      thinkQuestion:
+        "ما الذي جعل يوسف عليه السلام عظيماً: جماله أم صبره؟ ولماذا؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا قال النبي ﷺ عن جمال يوسف عليه السلام؟",
+        options: ["أُعطي شطر الحُسن", "كان أطول الناس", "كان أقوى الناس", "كان أسرع الناس"],
+        correctAnswer: 0,
+      },
+    },
+    gamification: {
+      artifact: { name: "قميص يوسف", description: "قميص يذكّرك أن الصبر يعيد الفرح إلى البيوت." },
+      badge: "وسام: صابر جميل",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح مسلم",
+      note: "قول النبي ﷺ في يوسف «أُعطي شطر الحُسن» ثابت في صحيح مسلم.",
+    },
+  },
+  {
+    storyId: "st-5-08",
+    stationId: 5,
+    slug: "fourth-heaven-idris",
+    en: {
+      title: "The Fourth Heaven: A High Place",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the fourth heaven the Prophet (pbuh) met Idris, whom Allah raised to a high place. He welcomed him with the words every prophet said: “Welcome, righteous brother and righteous prophet.”",
+          shortLesson: "Useful knowledge and careful work raise the one who has them.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In the fourth heaven, after Jibril asked and the gate was opened, the Prophet (pbuh) met Idris. He is a noble prophet whom Allah praised as truthful and a prophet, and whom He raised to a high place. Idris welcomed the Prophet (pbuh) with the words every prophet he met had said: “Welcome, righteous brother and righteous prophet.”",
+          details:
+            "Allah says: ﴿وَرَفَعْنَاهُ مَكَانًا عَلِيًّا﴾ — “And We raised him to a high place.”",
+        },
+      },
+      interactive: {
+        discover: "Idris is named only twice in the Quran: in Surah Maryam and Surah Al-Anbiya.",
+        value: { name: "Knowledge and craftsmanship", icon: "📐" },
+        thinkQuestion: "What work do you do carefully, and would like to become the best at?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How does Allah describe Idris?",
+          options: ["A great king", "Truthful, a prophet, raised to a high place", "The first messenger", "The longest-lived prophet"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Pen and Tablet", description: "A keepsake for those raised by what they know and do well." },
+        badge: "Badge: Seeker of Knowledge",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim, and Surah Maryam",
+        note: "Meeting Idris during the Mi'raj is established in both Sahih collections.",
+      },
+    },
+    title: "السماء الرابعة: المكان العليّ",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السماء الرابعة لقي النبي ﷺ إدريس عليه السلام، الذي رفعه الله مكاناً علياً. فرحّب به وقال ما يقوله الأنبياء: مرحباً بالأخ الصالح والنبي الصالح.",
+        shortLesson: "العلم النافع والعمل المتقن يرفعان صاحبهما.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في السماء الرابعة، وبعد أن استأذن جبريل عليه السلام وفُتح لهما، لقي النبي ﷺ إدريس عليه السلام. وهو نبي كريم أثنى الله عليه بالصدق والنبوة، ورفعه مكاناً علياً. فرحّب إدريس بالنبي ﷺ وقال الكلمة التي قالها كل نبي لقيه: «مرحباً بالأخ الصالح والنبي الصالح».",
+        details:
+          "قال تعالى: ﴿وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ ۚ إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا ۝ وَرَفَعْنَاهُ مَكَانًا عَلِيًّا﴾.",
+      },
+    },
+    interactive: {
+      discover: "ذُكر إدريس عليه السلام في القرآن مرتين فقط: في سورة مريم وسورة الأنبياء.",
+      value: { name: "العلم والإتقان", icon: "📐" },
+      thinkQuestion:
+        "ما العمل الذي تتقنه وتحب أن تصير فيه الأفضل؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بماذا وصف الله إدريس عليه السلام؟",
+        options: ["كان ملكاً عظيماً", "كان صدّيقاً نبياً ورُفع مكاناً علياً", "كان أول الرسل", "كان أطول الأنبياء عمراً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قلم ولوح", description: "تذكار لمن يرفعه علمه وعمله." },
+      badge: "وسام: طالب علم",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم، وسورة مريم",
+      note: "لقاء إدريس عليه السلام في المعراج ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-09",
+    stationId: 5,
+    slug: "fifth-heaven-harun",
+    en: {
+      title: "The Fifth Heaven: The Beloved Prophet",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the fifth heaven the Prophet (pbuh) met a dignified elder and asked Jibril: who is this? He said: this is the one beloved by his people, Harun ibn Imran, the brother of Musa. He was known for his gentleness, and his people loved him.",
+          shortLesson: "Gentleness with people opens hearts.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) rose to the fifth heaven and met there a dignified elder with white hair and beard. He asked Jibril: “Who is this?” He said: “This is the one beloved by his people, Harun ibn Imran.” He is the brother of Musa, known for his gentleness and kindness, and his people loved him and were at ease with him. Harun welcomed Prophet Muhammad (pbuh) and prayed for him.",
+          details:
+            "Allah says of His gift to Musa: ﴿وَوَهَبْنَا لَهُ مِن رَّحْمَتِنَا أَخَاهُ هَارُونَ نَبِيًّا﴾ — “We gave him his brother Harun, a prophet.”",
+        },
+      },
+      interactive: {
+        discover: "Musa asked his Lord to make his brother Harun a helper to him, and Allah answered him.",
+        value: { name: "Gentleness", icon: "🕊️" },
+        thinkQuestion: "Who is the person you love most for being gentle with you? How can you be that for someone else?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How was Harun described in the fifth heaven?",
+          options: ["The strongest of prophets", "The one beloved by his people", "The most learned", "The wealthiest"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A White Feather", description: "A feather to remind you that gentleness wins hearts." },
+        badge: "Badge: Gentle of Heart",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "Harun being described as beloved by his people comes in the Mi'raj hadith.",
+      },
+    },
+    title: "السماء الخامسة: النبي المحبَّب",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السماء الخامسة لقي النبي ﷺ شيخاً وقوراً، فسأل جبريل: من هذا؟ قال: هذا المحبَّب في قومه، هارون بن عمران، أخو موسى عليهما السلام. وكان معروفاً بلينه ولطفه، فأحبّه قومه.",
+        shortLesson: "اللين مع الناس يفتح القلوب.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "صعد النبي ﷺ إلى السماء الخامسة، فلقي فيها شيخاً وقوراً أبيض الرأس واللحية. فسأل جبريل عليه السلام: «من هذا؟» فقال: «هذا المحبَّب في قومه، هارون بن عمران». وهو أخو موسى عليهما السلام، وكان معروفاً بلينه ورفقه، فأحبّه قومه وأنِسوا به. فرحّب هارون بالنبي محمد ﷺ ودعا له.",
+        details:
+          "قال تعالى في هبته لموسى: ﴿وَوَهَبْنَا لَهُ مِن رَّحْمَتِنَا أَخَاهُ هَارُونَ نَبِيًّا﴾.",
+      },
+    },
+    interactive: {
+      discover: "طلب موسى عليه السلام من ربه أن يجعل أخاه هارون وزيراً له، فاستجاب الله له.",
+      value: { name: "اللين والرفق", icon: "🕊️" },
+      thinkQuestion:
+        "مَن أكثر شخص تحبّه لأنه لطيف معك؟ وكيف تكون أنت كذلك مع غيرك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ وُصف هارون عليه السلام في السماء الخامسة؟",
+        options: ["أشدّ الأنبياء", "المحبَّب في قومه", "أعلمهم", "أغناهم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ريشة بيضاء", description: "ريشة تذكّرك أن الرفق يكسب القلوب." },
+      badge: "وسام: رفيق القلب",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "وصف هارون عليه السلام بالمحبَّب في قومه جاء في حديث المعراج.",
+    },
+  },
+  {
+    storyId: "st-5-10",
+    stationId: 5,
+    slug: "sixth-heaven-musa",
+    en: {
+      title: "The Sixth Heaven: The Tear of Musa",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the sixth heaven the Prophet (pbuh) met Musa, who welcomed him. When the Prophet passed him to continue his ascent, Musa wept. He was asked: what makes you weep? He said: I weep because a young man was sent after me, and more of his nation will enter Paradise than of mine.",
+          shortLesson: "The prophets are glad for us and want us saved.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In the sixth heaven the Prophet (pbuh) met Musa, to whom Allah spoke, and Musa welcomed him gladly. When the Prophet (pbuh) passed him to continue his ascent, Musa wept. He was asked: “What makes you weep?” He said: “I weep because a young man was sent after me, and more of his nation will enter Paradise than of mine.” It was never envy — the prophets are far above that — but concern for his own people, sorrow for those of them who turned away, and gladness at how many of Muhammad's nation would be saved.",
+          details:
+            "Allah says of Musa: ﴿إِنَّهُ كَانَ مُخْلَصًا وَكَانَ رَسُولًا نَّبِيًّا﴾ — “he was chosen, and he was a messenger and a prophet.”",
+        },
+      },
+      interactive: {
+        discover: "Musa is called Kalimullah — the one Allah spoke to directly.",
+        value: { name: "Caring for others", icon: "💧" },
+        thinkQuestion: "Have you ever been sad for someone else rather than for yourself? Tell us about it.",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did Musa weep as the Prophet (pbuh) passed him?",
+          options: ["He was tired", "More of Muhammad's nation would enter Paradise than his own", "He missed his people", "He was saying goodbye"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Drop of Dew", description: "A drop for a prophet who wept out of care for his people." },
+        badge: "Badge: Of Muhammad's Nation",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Muslim",
+        note: "Musa weeping during the Mi'raj is established in Sahih Muslim.",
+      },
+    },
+    title: "السماء السادسة: دمعة الكليم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به. فلما جاوزه ليصعد بكى موسى، فقيل له: ما يبكيك؟ قال: أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن يدخلها من أمتي.",
+        shortLesson: "الأنبياء يفرحون لنا ويحرصون على نجاتنا.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به وفرح بلقائه. فلما جاوزه النبي ﷺ ليكمل صعوده بكى موسى عليه السلام، فقيل له: ما يبكيك؟ قال: «أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن يدخل من أمتي». ولم يكن ذلك حسداً — والأنبياء أطهر من ذلك — وإنما حرصٌ على أمته وحزنٌ على من خالفه منهم، وفرحٌ بكثرة الناجين من أمة محمد ﷺ.",
+        details:
+          "قال تعالى في موسى عليه السلام: ﴿وَاذْكُرْ فِي الْكِتَابِ مُوسَىٰ ۚ إِنَّهُ كَانَ مُخْلَصًا وَكَانَ رَسُولًا نَّبِيًّا﴾.",
+      },
+    },
+    interactive: {
+      discover: "سُمّي موسى عليه السلام «كليم الله» لأن الله كلّمه تكليماً.",
+      value: { name: "الحرص على الناس", icon: "💧" },
+      thinkQuestion:
+        "هل حزنت مرة من أجل غيرك لا من أجل نفسك؟ حدّثنا عنها.",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا بكى موسى عليه السلام حين جاوزه النبي ﷺ؟",
+        options: ["لأنه تعب", "لأن أمة محمد ﷺ يدخل الجنة منها أكثر من أمته", "لأنه اشتاق لقومه", "لأنه ودّعه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قطرة ندى", description: "قطرة تذكّرك بنبيّ بكى شفقةً على قومه." },
+      badge: "وسام: من أمة محمد",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح مسلم",
+      note: "بكاء موسى عليه السلام في المعراج ثابت في صحيح مسلم.",
+    },
+  },
+  {
+    storyId: "st-5-11",
+    stationId: 5,
+    slug: "seventh-heaven-ibrahim",
+    en: {
+      title: "The Seventh Heaven: Ibrahim's Greeting to Us",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the seventh heaven the Prophet (pbuh) saw a man who resembled him, resting his back against al-Bayt al-Ma'mur — a House in the heavens circled each day by seventy thousand angels who never return to it. It was Ibrahim, who welcomed him and sent a greeting to his nation.",
+          shortLesson: "Remembrance of Allah plants trees for us in Paradise.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The gate of the seventh heaven opened, and the Prophet (pbuh) saw a dignified man who resembled him more than anyone, resting his back against al-Bayt al-Ma'mur — a House in the heavens which seventy thousand angels enter and circle every day, and never return to again, so many are they. It was Ibrahim, the friend of the Most Merciful. He welcomed the Prophet (pbuh) and gave him a message for his nation: “Give my greeting to your nation, and tell them that Paradise has sweet soil and fresh water, that it is a level plain, and that its planting is: Subhan Allah, al-hamdu lillah, la ilaha illa Allah, Allahu akbar.”",
+          details:
+            "He is the one who raised the foundations of the Kaaba on earth: ﴿وَإِذْ يَرْفَعُ إِبْرَاهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَإِسْمَاعِيلُ﴾.",
+        },
+      },
+      interactive: {
+        discover: "Al-Bayt al-Ma'mur in the heavens corresponds to the Kaaba on earth.",
+        value: { name: "The lasting good deeds", icon: "🌳" },
+        thinkQuestion: "If every word of praise were a tree in Paradise, how many did you plant today?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What message did Ibrahim give the Prophet (pbuh) for his nation?",
+          options: ["To build a mosque", "His greeting, and that remembrance is the planting of Paradise", "To fast", "To migrate"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Seed of Light", description: "A seed: each word of remembrance is a tree planted for you." },
+        badge: "Badge: A Planter in Paradise",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, and Sunan at-Tirmidhi",
+        note: "Meeting Ibrahim at al-Bayt al-Ma'mur is in Bukhari; the hadith of the planting of Paradise is in Tirmidhi, who graded it good.",
+      },
+    },
+    title: "السماء السابعة: سلام إبراهيم إلينا",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السماء السابعة رأى النبي ﷺ رجلاً يشبهه، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يطوف به كل يوم سبعون ألف ملَك لا يعودون إليه. إنه إبراهيم عليه السلام، فرحّب به وأرسل معه سلاماً إلى أمته.",
+        shortLesson: "ذكر الله يزرع لنا في الجنة غراساً.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "فُتح باب السماء السابعة، فرأى النبي ﷺ رجلاً مهيباً كان أشبه الناس به، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يدخله كل يوم سبعون ألف ملَك يطوفون به ثم لا يعودون إليه أبداً من كثرتهم. إنه إبراهيم عليه السلام خليل الرحمن. فرحّب بالنبي ﷺ وحمّله رسالة إلى أمته: «أَقرِئ أمتك مني السلام، وأخبرهم أن الجنة طيبة التربة عذبة الماء، وأنها قِيعان، وأن غراسها: سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر».",
+        details:
+          "وهو الذي رفع قواعد الكعبة في الأرض: ﴿وَإِذْ يَرْفَعُ إِبْرَاهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَإِسْمَاعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا﴾.",
+      },
+    },
+    interactive: {
+      discover: "البيت المعمور في السماء يقابل الكعبة في الأرض.",
+      value: { name: "الباقيات الصالحات", icon: "🌳" },
+      thinkQuestion:
+        "لو كانت كل تسبيحة شجرة في الجنة، كم شجرة زرعت اليوم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما الرسالة التي حمّلها إبراهيم عليه السلام للنبي ﷺ إلى أمته؟",
+        options: ["أن يبنوا مسجداً", "السلام، وأن غراس الجنة الذكر", "أن يصوموا", "أن يهاجروا"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "بذرة نور", description: "بذرة تذكّرك أن كلمة الذكر شجرة تُغرس لك." },
+      badge: "وسام: غارس في الجنة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، وسنن الترمذي",
+      note: "لقاء إبراهيم عليه السلام عند البيت المعمور في البخاري، وحديث غراس الجنة عند الترمذي وحسّنه.",
+    },
+  },
+  {
+    storyId: "st-5-12",
+    stationId: 5,
+    slug: "sidrat-al-muntaha",
+    en: {
+      title: "Sidrat al-Muntaha: Where Everything Stops",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet (pbuh) rose until he reached a great tree called Sidrat al-Muntaha, where everything that ascends comes to an end and no creature passes beyond. There Jibril stopped and said: if I came a fingertip nearer I would burn. And the Prophet (pbuh) went on alone.",
+          shortLesson: "Every creature has a limit — and our Prophet's standing is great.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) and Jibril rose until they reached a great and beautiful tree called Sidrat al-Muntaha, at which the knowledge of every ascending one ends and beyond which no creature passes. Its leaves are like the ears of elephants, its fruits are large, and it is covered by a light of Allah that no one can describe. There Jibril stopped and told the Prophet (pbuh), in meaning: this is my station, which I do not pass; were I to come a fingertip closer I would burn. And the Prophet (pbuh) went on alone, to where no creature had reached.",
+          details:
+            "Allah says: ﴿عِندَ سِدْرَةِ الْمُنتَهَىٰ ۝ عِندَهَا جَنَّةُ الْمَأْوَىٰ﴾ — “at the Lote Tree of the Utmost Boundary, near it is the Garden of Refuge.”",
+        },
+      },
+      interactive: {
+        discover: "It is called al-Muntaha — the end — because everything rising from the earth stops there.",
+        value: { name: "Knowing your measure", icon: "🌌" },
+        thinkQuestion: "Jibril knew his limit and stopped at it — when is stopping at a limit courage rather than weakness?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Jibril do at Sidrat al-Muntaha?",
+          options: ["He went ahead of the Prophet", "He stopped and did not pass it", "He returned to earth", "He circled it"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Lote Leaf", description: "A leaf from the tree where every ascending one stops." },
+        badge: "Badge: Reached the Boundary",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim, and Surah An-Najm",
+        note: "Sidrat al-Muntaha is named in Surah An-Najm and described in both Sahih collections.",
+      },
+    },
+    title: "سدرة المنتهى: حيث يقف كل شيء",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "صعد النبي ﷺ حتى بلغ شجرة عظيمة تُسمّى سدرة المنتهى، إليها ينتهي كل صاعد ولا يتجاوزها مخلوق. وعندها وقف جبريل عليه السلام وقال: لو دنوتُ أنملة لاحترقت. ومضى النبي ﷺ وحده.",
+        shortLesson: "لكل مخلوق حدّ يقف عنده، ومقام نبينا ﷺ عظيم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "صعد النبي ﷺ وجبريل عليه السلام حتى بلغا شجرة عظيمة جميلة تُسمّى سدرة المنتهى، إليها ينتهي علم كل صاعد ولا يجاوزها مخلوق. ورقها كآذان الفِيَلة، وثمرها كِبار، ويغشاها من نور الله ما لا يستطيع أحد أن يصفه. وعندها وقف جبريل عليه السلام فقال للنبي ﷺ ما معناه: هذا مقامي الذي لا أتجاوزه، ولو دنوتُ أنملة لاحترقت. ومضى النبي ﷺ وحده إلى حيث لم يبلغ مخلوق.",
+        details:
+          "قال تعالى: ﴿عِندَ سِدْرَةِ الْمُنتَهَىٰ ۝ عِندَهَا جَنَّةُ الْمَأْوَىٰ ۝ إِذْ يَغْشَى السِّدْرَةَ مَا يَغْشَىٰ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سُمّيت «المنتهى» لأن كل ما يصعد من الأرض ينتهي عندها.",
+      value: { name: "معرفة القدر", icon: "🌌" },
+      thinkQuestion:
+        "جبريل عليه السلام عرف حدّه ووقف عنده — متى يكون الوقوف عند الحدّ شجاعة لا ضعفاً؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل جبريل عليه السلام عند سدرة المنتهى؟",
+        options: ["تقدّم أمام النبي ﷺ", "وقف ولم يتجاوزها", "رجع إلى الأرض", "طاف حولها"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ورقة من سدر", description: "ورقة من شجرة يقف عندها كل صاعد." },
+      badge: "وسام: بلغ المنتهى",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم، وسورة النجم",
+      note: "سدرة المنتهى مذكورة في سورة النجم، ووصفها في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-13",
+    stationId: 5,
+    slug: "the-great-gift-prayer",
+    en: {
+      title: "The Great Gift: The Prayer",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet (pbuh) reached a place where he heard the scratching of the pens, and there Allah spoke to him and made the prayer obligatory on his nation: fifty prayers a day and night. The prayer is the only act of worship made obligatory in the heavens rather than on earth.",
+          shortLesson: "The prayer is a gift from the sky, and your link to your Lord.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet (pbuh) went on until he reached a level where he could hear the scratching of the pens — the pens of the angels as they write. There Allah revealed to His servant what He revealed, and made the prayer obligatory upon his nation: fifty prayers a day and night. The prayer is the only act of worship made obligatory in the heavens and not on earth, which shows how great a matter it is.",
+          details:
+            "Allah says of that station: ﴿فَأَوْحَىٰ إِلَىٰ عَبْدِهِ مَا أَوْحَىٰ ۝ مَا كَذَبَ الْفُؤَادُ مَا رَأَىٰ﴾.",
+        },
+      },
+      interactive: {
+        discover: "The prayer is the first thing a servant will be asked about on the Day of Judgement.",
+        value: { name: "The weight of the prayer", icon: "🕌" },
+        thinkQuestion: "If the prayer is a gift brought from above seven heavens, how will you receive it each day?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How many prayers were made obligatory at first?",
+          options: ["Five", "Seventeen", "Fifty", "A hundred"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Small Prayer Mat", description: "A mat for the most precious gift ever brought down from the sky." },
+        badge: "Badge: Keeper of the Prayer",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The prayer being made obligatory on the night of the Mi'raj is established in both Sahih collections.",
+      },
+    },
+    title: "الهدية الكبرى: الصلاة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بلغ النبي ﷺ مكاناً سمع فيه صريف الأقلام، وهناك كلّمه الله وفرض على أمته الصلاة: خمسين صلاة في اليوم والليلة. والصلاة هي العبادة الوحيدة التي فُرضت في السماء لا في الأرض.",
+        shortLesson: "الصلاة هديّة من السماء، وصلتك بربك.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "مضى النبي ﷺ حتى بلغ مستوى سمع فيه صريف الأقلام — أقلام الملائكة وهي تكتب. وهناك أوحى الله إلى عبده ما أوحى، وفرض على أمته الصلاة خمسين صلاة في اليوم والليلة. والصلاة هي العبادة الوحيدة التي فُرضت في السماء ولم تُفرض في الأرض، وفي ذلك دليل على عِظم شأنها.",
+        details:
+          "قال تعالى في ذلك المقام: ﴿فَأَوْحَىٰ إِلَىٰ عَبْدِهِ مَا أَوْحَىٰ ۝ مَا كَذَبَ الْفُؤَادُ مَا رَأَىٰ﴾.",
+      },
+    },
+    interactive: {
+      discover: "الصلاة أول ما يُحاسب عليه العبد يوم القيامة.",
+      value: { name: "عِظم الصلاة", icon: "🕌" },
+      thinkQuestion:
+        "لو كانت الصلاة هدية جاءت من فوق سبع سماوات، فكيف تستقبلها كل يوم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "كم صلاة فُرضت أول الأمر؟",
+        options: ["خمس", "سبع عشرة", "خمسون", "مئة"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "سجادة صغيرة", description: "سجادة تذكّرك بأغلى هدية نزلت من السماء." },
+      badge: "وسام: حافظ الصلاة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "فرض الصلاة ليلة المعراج ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-14",
+    stationId: 5,
+    slug: "musa-advice-reduction",
+    en: {
+      title: "Musa's Advice: Five in Deed, Fifty in Reward",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "On the way back, Musa asked the Prophet (pbuh): what were you commanded? He said: fifty prayers. Musa said: your nation cannot bear that — go back to your Lord and ask Him to lighten it. The Prophet kept returning until they became five, and Allah said: they are five, and they are fifty; My word does not change.",
+          shortLesson: "Allah's mercy on us is wider than we think.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "On the way back the Prophet (pbuh) passed Musa, who asked him: “What were you commanded?” He said: “Fifty prayers every day.” Musa said, out of his long experience with his own people: “Your nation cannot manage that. Go back to your Lord and ask Him to lighten it for them.” The Prophet went back, and Allah lightened it; and he returned to Musa, who sent him back again, time after time, until they became five prayers. Then Allah said: “They are five, and they are fifty. My word does not change” — five in deed, fifty in reward.",
+          details:
+            "Allah says of His mercy: ﴿يُرِيدُ اللَّهُ أَن يُخَفِّفَ عَنكُمْ﴾ — “Allah wishes to lighten your burden.”",
+        },
+      },
+      interactive: {
+        discover: "A good deed is counted tenfold, so five prayers carry the reward of fifty.",
+        value: { name: "Advice and mercy", icon: "🤍" },
+        thinkQuestion: "Who gave you advice that helped you? Did you thank them for it?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How many prayers were they after the lightening?",
+          options: ["Three", "Five", "Ten", "Seventeen"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Small Scale", description: "A scale to remind you that the reward is wider than the deed." },
+        badge: "Badge: Grateful for the Gift",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The Prophet returning to his Lord on Musa's advice is established in both Sahih collections.",
+      },
+    },
+    title: "نصيحة موسى: خمسٌ في العمل وخمسون في الأجر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في طريق العودة سأل موسى عليه السلام النبي ﷺ: بم أُمرت؟ قال: بخمسين صلاة. فقال: إن أمتك لا تطيق ذلك، ارجع إلى ربك فاسأله التخفيف. فلم يزل النبي ﷺ يرجع حتى صارت خمساً، وقال الله: هي خمس وهي خمسون، لا يُبدَّل القول لديّ.",
+        shortLesson: "رحمة الله بنا أوسع مما نظن.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في طريق العودة مرّ النبي ﷺ على موسى عليه السلام فسأله: «بم أُمرت؟» قال: «أُمرت بخمسين صلاة كل يوم». فقال موسى بخبرته الطويلة مع قومه: «إن أمتك لا تستطيع ذلك، فارجع إلى ربك فاسأله التخفيف لأمتك». فرجع النبي ﷺ فخفّف الله عنه، ثم عاد إلى موسى فأمره بالرجوع مرة بعد مرة، حتى صارت خمس صلوات. فقال الله تعالى: «هي خمسٌ وهي خمسون، لا يُبدَّل القول لديّ» — خمسٌ في العمل وخمسون في الأجر.",
+        details:
+          "قال تعالى في رحمته بنا: ﴿يُرِيدُ اللَّهُ أَن يُخَفِّفَ عَنكُمْ ۚ وَخُلِقَ الْإِنسَانُ ضَعِيفًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "الحسنة بعشر أمثالها، فخمس صلوات بأجر خمسين.",
+      value: { name: "النصيحة والرحمة", icon: "🤍" },
+      thinkQuestion:
+        "مَن نصحك نصيحة نفعتك؟ وهل شكرته عليها؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "كم صارت الصلوات بعد التخفيف؟",
+        options: ["ثلاث", "خمس", "عشر", "سبع عشرة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ميزان صغير", description: "ميزان يذكّرك أن الأجر أوسع من العمل." },
+      badge: "وسام: شاكر النعمة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "مراجعة النبي ﷺ ربه بنصيحة موسى عليه السلام ثابتة في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-5-15",
+    stationId: 5,
+    slug: "morning-of-certainty",
+    en: {
+      title: "The Morning of Certainty, and the Name as-Siddiq",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the morning the Prophet (pbuh) told Quraysh of his journey, and they mocked him: we travel to Jerusalem in a month, and you go and return in one night? They asked him to describe the mosque, and Allah showed it to him, and he described it exactly. They went to Abu Bakr to shake him, and he said: if he said it, he has told the truth. And so he was named as-Siddiq.",
+          shortLesson: "A true friend stands with you when others doubt.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When morning came, the Prophet (pbuh) sat telling Quraysh what had happened in his night, and the idol-worshippers mocked him: “We travel to Jerusalem in a month, and you go and come back in a single night?” They wanted to test him, so they asked him to describe al-Aqsa Mosque. Allah brought it before his sight, and he began describing it to them door by door, until they could not answer him a word — and still they refused. Then they went to Abu Bakr to shake his trust in his friend, and he said: “If he said it, he has told the truth. I believe him about what is further than that: I believe him about news from the heavens.” From that day he was called as-Siddiq — the one who affirms the truth.",
+          details:
+            "Allah says of the truthful: ﴿وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ ۙ أُولَٰئِكَ هُمُ الْمُتَّقُونَ﴾.",
+        },
+      },
+      interactive: {
+        discover: "Surah Al-Isra is named after this journey.",
+        value: { name: "Truthfulness and friendship", icon: "🌅" },
+        thinkQuestion: "Who is the friend you trust to believe you when no one else does? Are you that friend to someone?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was Abu Bakr called after that night?",
+          options: ["Al-Farooq", "As-Siddiq", "Al-Amin", "Dhun-Nurayn"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Small Dawn", description: "A keepsake for the morning that separated those who believed from those who would not." },
+        badge: "Badge: A Friend of Truth",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah, and Sahih al-Bukhari",
+        note: "The Prophet describing al-Aqsa is in Bukhari; Abu Bakr being named as-Siddiq is in the Seerah literature.",
+      },
+    },
+    title: "صباح اليقين ولقب الصدّيق",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى أبي بكر يشكّكونه، فقال: إن كان قال ذلك فقد صدق. فسُمّي الصدّيق.",
+        shortLesson: "الصديق الحق يقف معك حين يشكّ الناس.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما أصبح الصباح جلس النبي ﷺ يخبر قريشاً بما كان في ليلته، فسخر منه المشركون وقالوا: «نحن نضرب إلى بيت المقدس شهراً، وأنت تذهب وترجع في ليلة؟». وأرادوا أن يمتحنوه فسألوه أن يصف لهم المسجد الأقصى، فجلّاه الله لبصره فجعل يصفه لهم باباً باباً، فما استطاعوا أن يردّوا عليه شيئاً، ومع ذلك عاندوا. ثم انطلقوا إلى أبي بكر رضي الله عنه يشكّكونه في صاحبه، فقال كلمته: «إن كان قال ذلك فقد صدق، إني لأصدّقه فيما هو أبعد من ذلك: أصدّقه في خبر السماء». فسُمّي من يومئذ الصدّيق.",
+        details:
+          "قال تعالى في أهل الصدق: ﴿وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ ۙ أُولَٰئِكَ هُمُ الْمُتَّقُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سورة الإسراء نزلت في هذه الرحلة، وبها سُمّيت.",
+      value: { name: "الصدق والصحبة", icon: "🌅" },
+      thinkQuestion:
+        "مَن الصديق الذي تثق أنه سيصدّقك حين لا يصدّقك أحد؟ وهل أنت له مثل ذلك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بم لُقّب أبو بكر رضي الله عنه بعد هذه الليلة؟",
+        options: ["الفاروق", "الصدّيق", "الأمين", "ذو النورين"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "فجر صغير", description: "تذكار لصباحٍ فرّق بين من صدّق ومن عاند." },
+      badge: "وسام: صاحب صدق",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام، وصحيح البخاري",
+      note: "وصف النبي ﷺ للمسجد الأقصى في البخاري، وخبر تلقيب أبي بكر بالصدّيق في كتب السيرة.",
     },
   },
 ];
