@@ -265,15 +265,15 @@ export default function Stories() {
                 <p>{text.next}</p>
                 {following && (
                   <Link href={`/stories/${story.chapter}/${following.slug}`} className="button button--primary no-print">
-                    {following.title} <ArrowLeft size={17} aria-hidden="true" />
+                    {storyTextFor(following, locale).title} <Arrow size={17} aria-hidden="true" />
                   </Link>
                 )}
               </aside>
 
               <nav className="story-pager no-print" aria-label={t.allStories}>
-                {previous ? <Link href={`/stories/${story.chapter}/${previous.slug}`} className="text-link">{t.prev}: {previous.title}</Link> : <span />}
+                {previous ? <Link href={`/stories/${story.chapter}/${previous.slug}`} className="text-link">{t.prev}: {storyTextFor(previous, locale).title}</Link> : <span />}
                 <Link href={`/stories/${story.chapter}`} className="text-link">{t.backToChapter}</Link>
-                {following ? <Link href={`/stories/${story.chapter}/${following.slug}`} className="text-link">{t.nextStory}: {following.title}</Link> : <span />}
+                {following ? <Link href={`/stories/${story.chapter}/${following.slug}`} className="text-link">{t.nextStory}: {storyTextFor(following, locale).title}</Link> : <span />}
               </nav>
             </div>
           </div>

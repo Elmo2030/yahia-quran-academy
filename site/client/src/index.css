@@ -78,6 +78,8 @@
   .site-subnav a { flex: none; padding: .34rem .6rem; border-radius: 99px; color: #001F3F; background: rgb(255 255 255 / 72%); border: 1px solid #e7dfc9; font-size: .72rem; font-weight: 700; white-space: nowrap; }
   .site-subnav a:hover { color: #556B2F; }
   .site-subnav a:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
+  .story-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1.6rem; margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid #ece4cf; }
+  .story-pager > * { min-width: 0; }
   .skip-link { position: absolute; inset-inline-start: -9999px; top: 0; z-index: 100; padding: .6rem .9rem; color: #fff; background: #001F3F; border-radius: 0 0 12px 12px; font-size: .82rem; font-weight: 800; }
   .skip-link:focus-visible { inset-inline-start: .75rem; outline: 2px solid #d4af37; outline-offset: 2px; }
   .header-auth-link { display: inline-flex; gap: .3rem; align-items: center; white-space: nowrap; padding: .38rem .7rem; color: #001F3F; font-size: .78rem; font-weight: 800; background: rgb(255 255 255 / 78%); border: 1px solid #e7dfc9; border-radius: 10px; transition: color .16s ease, background .16s ease, transform .16s ease; }

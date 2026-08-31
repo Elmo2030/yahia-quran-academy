@@ -57,9 +57,9 @@ const copy = {
 const langAttrs = (locale: "ar" | "en") =>
   locale === "en" ? { lang: "en", dir: "ltr" as const } : { lang: "ar", dir: "rtl" as const };
 
-const tierLabels: Record<AgeTier, string> = {
-  tier_1_age_6_8: "٦–٨ سنوات",
-  tier_2_age_9_11: "٩–١١ سنة",
+const tierLabels: Record<"ar" | "en", Record<AgeTier, string>> = {
+  ar: { tier_1_age_6_8: "٦–٨ سنوات", tier_2_age_9_11: "٩–١١ سنة" },
+  en: { tier_1_age_6_8: "Ages 6–8", tier_2_age_9_11: "Ages 9–11" },
 };
 
 function Chrome({ children }: { children: React.ReactNode }) {
@@ -210,7 +210,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
             <h1>{text.title}</h1>
             <p className="story-detail-hero__hook">{text.content.tier_1_age_6_8.shortLesson}</p>
             <div className="story-detail-actions" role="group" aria-label={t.ageGroup}>
-              {(Object.keys(tierLabels) as AgeTier[]).map(key => (
+              {(Object.keys(tierLabels[locale]) as AgeTier[]).map(key => (
                 <button
                   key={key}
                   type="button"
@@ -218,7 +218,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
                   aria-pressed={tier === key}
                   onClick={() => setTier(key)}
                 >
-                  {tierLabels[key]}
+                  {tierLabels[locale][key]}
                 </button>
               ))}
             </div>
