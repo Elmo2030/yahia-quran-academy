@@ -51,7 +51,11 @@ const urls = [
   ...seerahStories.map(s => ({ loc: `/seerah/${s.slug}`, priority: "0.7" })),
 ];
 
-const today = new Date().toISOString().slice(0, 10);
+// No <lastmod>. It was the build date, stamped identically onto all 178 URLs
+// on every deploy — telling Google that every story, every surah and every
+// policy page changed the moment anything did. Google's own guidance is to
+// leave it out rather than give a date it cannot trust, and the deploy builder
+// clones shallowly, so a real per-file date is not available here either.
 // Every page is served in both languages off the same URL (?lang=en), so each
 // entry declares its own alternates. Without them the English half of the site
 // is invisible to search engines.
@@ -62,7 +66,6 @@ ${urls.map(u => `  <url>
     <xhtml:link rel="alternate" hreflang="ar" href="${ORIGIN}${u.loc}" />
     <xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${u.loc}?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${u.loc}" />
-    <lastmod>${today}</lastmod>
     <priority>${u.priority}</priority>
   </url>`).join("\n")}
 </urlset>
