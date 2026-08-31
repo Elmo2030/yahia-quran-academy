@@ -23,7 +23,7 @@ import { chapters, stories, surahNames, seerahStations, seerahStories } from "./
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
-const DEFAULT_IMAGE = "/og-cover.jpg";
+const DEFAULT_IMAGE = "/og-yahya.jpg";
 const ORIGIN = "https://yahyaquran.com";
 
 const clean = (text: string, max = 180) => {

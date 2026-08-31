@@ -43,7 +43,7 @@ export const SITE_DESCRIPTION_EN =
   "The Quran in the Uthmani text with verified teaching recitations, and illustrated stories from the Quran for children, in four chapters.";
 export const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
-export const DEFAULT_IMAGE = "/og-cover.jpg";
+export const DEFAULT_IMAGE = "/og-yahya.jpg";
 
 const ORIGIN = "https://yahyaquran.com";
 
