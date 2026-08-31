@@ -8,7 +8,7 @@ export default function Terms() {
   const t = isAr
     ? {
         title: "شروط الاستخدام",
-        intro: "باستخدامك Yahia Quran Academy فإنك توافق على الشروط التالية. الموقع مخصّص لأغراض تعليمية غير تجارية.",
+        intro: "باستخدامك Yahya Quran Academy فإنك توافق على الشروط التالية. الموقع مخصّص لأغراض تعليمية غير تجارية.",
         usage: "الاستخدام المقبول",
         usageBody: "استخدم الموقع في الاستماع والتعلّم. لا تحاول إغراق الخادم بطلبات آلية أو نسخ المحتوى لأغراض تجارية.",
         content: "دقّة المحتوى",
@@ -18,7 +18,7 @@ export default function Terms() {
       }
     : {
         title: "Terms of use",
-        intro: "By using Yahia Quran Academy you agree to the following. The site is non-commercial and educational.",
+        intro: "By using Yahya Quran Academy you agree to the following. The site is non-commercial and educational.",
         usage: "Acceptable use",
         usageBody: "Use the site for listening and learning. Don't run automated scrapers or copy content for commercial use.",
         content: "Content accuracy",

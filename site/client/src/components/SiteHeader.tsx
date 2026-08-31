@@ -88,13 +88,13 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-2 text-[var(--brand-navy)]"
-          aria-label="Yahia Quran Academy"
+          aria-label="Yahya Quran Academy"
         >
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--brand-navy)] text-[var(--brand-ivory)] shadow-sm">
             {String.fromCharCode(0x064a)}
           </span>
           <span className="hidden text-sm font-semibold sm:inline">
-            Yahia Quran Academy
+            Yahya Quran Academy
           </span>
         </Link>
         <nav className="ml-2 hidden flex-1 items-center gap-1 md:flex" aria-label="Primary">

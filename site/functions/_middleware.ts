@@ -35,7 +35,7 @@ const clean = (text: string, max = 180) => {
 
 const authMeta = {
   path: "/login",
-  title: "تسجيل الدخول — Yahia Quran Academy",
+  title: "تسجيل الدخول — Yahya Quran Academy",
   description:
     "سجّل دخولك للاحتفاظ بتقدّمك في قراءة القرآن وقصصه عبر الأجهزة.",
   image: DEFAULT_IMAGE,
@@ -44,33 +44,33 @@ const authMeta = {
 
 const registerMeta = {
   path: "/register",
-  title: "إنشاء حساب — Yahia Quran Academy",
+  title: "إنشاء حساب — Yahya Quran Academy",
   description:
-    "أنشئ حسابًا جديدًا على Yahia Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
+    "أنشئ حسابًا جديدًا على Yahya Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
   image: DEFAULT_IMAGE,
   noindex: true,
 };
 
 const profileMeta = {
   path: "/profile",
-  title: "حسابي — Yahia Quran Academy",
-  description: "إدارة حسابك وتقدّمك في Yahia Quran Academy.",
+  title: "حسابي — Yahya Quran Academy",
+  description: "إدارة حسابك وتقدّمك في Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
 };
 
 const privacyMeta = {
   path: "/privacy",
-  title: "سياسة الخصوصية — Yahia Quran Academy",
-  description: "سياسة الخصوصية لمنصة Yahia Quran Academy.",
+  title: "سياسة الخصوصية — Yahya Quran Academy",
+  description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
 };
 
 const termsMeta = {
   path: "/terms",
-  title: "شروط الاستخدام — Yahia Quran Academy",
-  description: "شروط استخدام Yahia Quran Academy.",
+  title: "شروط الاستخدام — Yahya Quran Academy",
+  description: "شروط استخدام Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
 };

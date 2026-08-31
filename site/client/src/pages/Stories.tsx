@@ -47,7 +47,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.home}>
             <span className="brand-mark__seal">ي</span>
-            <span><b>Yahia</b> Quran Academy</span>
+            <span><b>Yahya</b> Quran Academy</span>
           </Link>
           <div className="header-actions">
             <LanguageToggle compact />
@@ -60,7 +60,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
       <div id={MAIN_CONTENT_ID}>{children}</div>
       <footer className="site-footer">
         <div className="container site-footer__inner">
-          <div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></div>
+          <div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></div>
           <Link href="/" className="text-link">{t.home}</Link>
         </div>
       </footer>

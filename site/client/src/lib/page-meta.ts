@@ -45,14 +45,14 @@ export const fullUrl = (pathOrUrl: string): string =>
 // ---------------------------------------------------------------------------
 export const authMeta: Meta = {
   path: "/login",
-  title: "تسجيل الدخول — Yahia Quran Academy",
+  title: "تسجيل الدخول — Yahya Quran Academy",
   description:
     "سجّل دخولك للاحتفاظ بتقدّمك في قراءة القرآن وقصصه عبر الأجهزة.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Sign in — Yahia Quran Academy",
+      title: "Sign in — Yahya Quran Academy",
       description:
         "Sign in to keep your Quran reading and stories progress in sync across devices.",
     },
@@ -61,90 +61,90 @@ export const authMeta: Meta = {
 
 export const registerMeta: Meta = {
   path: "/register",
-  title: "إنشاء حساب — Yahia Quran Academy",
+  title: "إنشاء حساب — Yahya Quran Academy",
   description:
-    "أنشئ حسابًا جديدًا على Yahia Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
+    "أنشئ حسابًا جديدًا على Yahya Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Create account — Yahia Quran Academy",
+      title: "Create account — Yahya Quran Academy",
       description:
-        "Create a Yahia Quran Academy account so your reading and memorization progress syncs everywhere.",
+        "Create a Yahya Quran Academy account so your reading and memorization progress syncs everywhere.",
     },
   },
 };
 
 export const profileMeta: Meta = {
   path: "/profile",
-  title: "حسابي — Yahia Quran Academy",
-  description: "إدارة حسابك وتقدّمك في Yahia Quran Academy.",
+  title: "حسابي — Yahya Quran Academy",
+  description: "إدارة حسابك وتقدّمك في Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "My account — Yahia Quran Academy",
+      title: "My account — Yahya Quran Academy",
       description:
-        "Manage your account and progress on Yahia Quran Academy.",
+        "Manage your account and progress on Yahya Quran Academy.",
     },
   },
 };
 
 export const privacyMeta: Meta = {
   path: "/privacy",
-  title: "سياسة الخصوصية — Yahia Quran Academy",
-  description: "سياسة الخصوصية لمنصة Yahia Quran Academy.",
+  title: "سياسة الخصوصية — Yahya Quran Academy",
+  description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Privacy policy — Yahia Quran Academy",
-      description: "Privacy policy for Yahia Quran Academy.",
+      title: "Privacy policy — Yahya Quran Academy",
+      description: "Privacy policy for Yahya Quran Academy.",
     },
   },
 };
 
 export const termsMeta: Meta = {
   path: "/terms",
-  title: "شروط الاستخدام — Yahia Quran Academy",
-  description: "شروط استخدام Yahia Quran Academy.",
+  title: "شروط الاستخدام — Yahya Quran Academy",
+  description: "شروط استخدام Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Terms of use — Yahia Quran Academy",
-      description: "Terms of use for Yahia Quran Academy.",
+      title: "Terms of use — Yahya Quran Academy",
+      description: "Terms of use for Yahya Quran Academy.",
     },
   },
 };
 
 export const forgotPasswordMeta: Meta = {
   path: "/forgot-password",
-  title: "استعادة كلمة المرور — Yahia Quran Academy",
+  title: "استعادة كلمة المرور — Yahya Quran Academy",
   description:
-    "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahia Quran Academy.",
+    "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Reset password — Yahia Quran Academy",
+      title: "Reset password — Yahya Quran Academy",
       description:
-        "Enter your email to reset your Yahia Quran Academy password.",
+        "Enter your email to reset your Yahya Quran Academy password.",
     },
   },
 };
 
 export const resetPasswordMeta: Meta = {
   path: "/reset-password",
-  title: "تعيين كلمة مرور جديدة — Yahia Quran Academy",
-  description: "عيّن كلمة مرور جديدة لحسابك على Yahia Quran Academy.",
+  title: "تعيين كلمة مرور جديدة — Yahya Quran Academy",
+  description: "عيّن كلمة مرور جديدة لحسابك على Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Set a new password — Yahia Quran Academy",
+      title: "Set a new password — Yahya Quran Academy",
       description:
-        "Set a new password for your Yahia Quran Academy account.",
+        "Set a new password for your Yahya Quran Academy account.",
     },
   },
 };
@@ -189,7 +189,7 @@ const storiesBySlug: Map<string, StoryLookup> = new Map(
 // Returned for a path that matches no surah, chapter, story or static page.
 const FALLBACK_NOT_FOUND: Meta = {
   path: "/",
-  title: "الصفحة غير موجودة — Yahia Quran Academy",
+  title: "الصفحة غير موجودة — Yahya Quran Academy",
   description: SITE_DESCRIPTION,
   image: DEFAULT_IMAGE,
   noindex: true,

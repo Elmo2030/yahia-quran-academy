@@ -202,7 +202,7 @@
 /* ---- Hero: stop the two floating cards colliding ----
    The cards deliberately overlap the character — that is the design, and the
    deployed build overlaps it by the same amounts. What the archive was missing
-   is the rule that lifts the "with Yahia" note to the top of the visual. Without
+   is the rule that lifts the "with Yahya" note to the top of the visual. Without
    it the note stays at bottom:23% and lands on the journey card. */
 
 .hero-visual .mini-note--parent { z-index: 4; top: 6%; bottom: auto; right: -1%; }

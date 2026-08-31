@@ -9,7 +9,7 @@ export default function Privacy() {
     ? {
         title: "سياسة الخصوصية",
         intro:
-          "تحترم Yahia Quran Academy خصوصيتك. تحفظ المنصة فقط البيانات الضرورية لتشغيل حسابك وحفظ تقدّمك في القرآن والقصص.",
+          "تحترم Yahya Quran Academy خصوصيتك. تحفظ المنصة فقط البيانات الضرورية لتشغيل حسابك وحفظ تقدّمك في القرآن والقصص.",
         collected: "ما الذي نجمعه؟",
         collectedItems: [
           "البريد الإلكتروني وكلمة المرور (مشفّرة في Supabase).",
@@ -28,7 +28,7 @@ export default function Privacy() {
     : {
         title: "Privacy policy",
         intro:
-          "Yahia Quran Academy respects your privacy. The store only keeps the data we need to run your account and remember your reading progress.",
+          "Yahya Quran Academy respects your privacy. The store only keeps the data we need to run your account and remember your reading progress.",
         collected: "What we collect",
         collectedItems: [
           "Your email and password (encrypted by Supabase).",
