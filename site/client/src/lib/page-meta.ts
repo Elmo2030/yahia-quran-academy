@@ -1,5 +1,12 @@
-import { chapters, stories } from "../content/stories";
-import { seerahStations, seerahStories } from "../content/seerah";
+// A generated index of just the titles and descriptions, not the story text.
+// Importing the content modules here dragged every narrative in both languages
+// into the entry chunk, for metadata that needs a line of each.
+import {
+  chapterIndex,
+  storyIndex,
+  seerahStationIndex,
+  seerahStoryIndex,
+} from "./page-index.generated";
 import { surahNames } from "./quran-content";
 
 // =============================================================================
@@ -166,7 +173,9 @@ type SurahLookup = { number: number; nameAr: string };
 // `cover` is nullable in content/stories (a chapter awaiting art), and the
 // call sites use `?? DEFAULT_IMAGE`, which handles null as well as undefined.
 type ChapterLookup = { slug: string; titleAr: string; descriptionAr: string; cover?: string | null };
-type StoryLookup = { chapter: string; slug: string; title: string; hook: string; image?: string };
+// The generated index writes null for "no artwork"; call sites use
+// `?? DEFAULT_IMAGE`, which handles both.
+type StoryLookup = { chapter: string; slug: string; title: string; hook: string; image?: string | null };
 
 export type LookupBundle = ReadonlyArray<SurahLookup> & {
   __kind?: "surahs";
@@ -188,10 +197,10 @@ const surahsByNumber: Map<number, string> = new Map(
   surahNames.map((name, index) => [index + 1, name] as const),
 );
 const chapterBySlug: Map<string, ChapterLookup> = new Map(
-  chapters.map(chapter => [chapter.slug, chapter] as const),
+  chapterIndex.map(chapter => [chapter.slug, chapter] as const),
 );
 const storiesBySlug: Map<string, StoryLookup> = new Map(
-  stories.map(story => [`${story.chapter}/${story.slug}`, story] as const),
+  storyIndex.map(story => [`${story.chapter}/${story.slug}`, story] as const),
 );
 
 // Returned for a path that matches no surah, chapter, story or static page.
@@ -225,17 +234,17 @@ export const metaForPath = (pathname: string): Meta => {
     if (!parts[1]) {
       return {
         path,
-        title: `السيرة النبوية — ${seerahStations.length} محطات · ${SITE_NAME}`,
-        description: seerahStations.map(station => station.titleAr).join(" · "),
+        title: `السيرة النبوية — ${seerahStationIndex.length} محطات · ${SITE_NAME}`,
+        description: seerahStationIndex.map(station => station.titleAr).join(" · "),
         image: DEFAULT_IMAGE,
       };
     }
-    const story = seerahStories.find(entry => entry.slug === parts[1]);
+    const story = seerahStoryIndex.find(entry => entry.slug === parts[1]);
     if (story) {
       return {
         path,
         title: `${story.title} · السيرة النبوية`,
-        description: story.content.tier_1_age_6_8.narrative.replace(/\s+/g, " ").trim().slice(0, 180),
+        description: story.description,
         image: story.image ?? DEFAULT_IMAGE,
       };
     }

@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -8,20 +9,31 @@ import { LocaleProvider } from "./contexts/LocaleContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
-import Stories from "@/pages/Stories";
-import Seerah from "@/pages/Seerah";
-import Reader from "./pages/Reader";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
-import Profile from "./pages/Profile";
-import About from "./pages/About";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
+
+// Everything except the landing page loads on demand. The whole site used to
+// arrive in one 943 KB file, so a visitor reading the home page also paid for
+// the reader, every story, and the Supabase client they may never touch.
+const Stories = lazy(() => import("@/pages/Stories"));
+const Seerah = lazy(() => import("@/pages/Seerah"));
+const Reader = lazy(() => import("./pages/Reader"));
+const Login = lazy(() => import("./pages/Login"));
+const Register = lazy(() => import("./pages/Register"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const Profile = lazy(() => import("./pages/Profile"));
+const About = lazy(() => import("./pages/About"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+
+/** Shown only while a route chunk is in flight. Deliberately quiet: a spinner
+ *  that flashes for 80ms is worse than a blank moment. */
+function RouteFallback() {
+  return <div style={{ minHeight: "60vh" }} aria-busy="true" />;
+}
 
 function Router() {
   return (
+    <Suspense fallback={<RouteFallback />}>
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/read"} component={Reader} />
@@ -43,6 +55,7 @@ function Router() {
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
+    </Suspense>
   );
 }
 
