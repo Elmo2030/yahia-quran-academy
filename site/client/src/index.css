@@ -445,19 +445,45 @@
 .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.1rem; margin: 0; padding: 0; list-style: none; align-items: start; }
 
 .fact-card { display: flex; width: 100%; flex-direction: column; gap: .55rem; padding: 1.15rem 1.25rem; border-radius: 22px; text-align: start; }
-.fact-card--closed { min-height: 11rem; align-items: center; justify-content: center; gap: .5rem; color: #fffdf5; background: linear-gradient(150deg,#1b3a5c,#001F3F); border: 1px solid #16324f; box-shadow: 0 14px 30px rgb(0 31 63 / 16%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
+.fact-card--closed { min-height: 11rem; align-items: center; justify-content: center; gap: .5rem; color: #fffdf5; background: linear-gradient(150deg, var(--fact-from,#1b3a5c), var(--fact-to,#001F3F)); border: 1px solid rgb(0 0 0 / 18%); box-shadow: 0 14px 30px rgb(0 31 63 / 16%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
 .fact-card--closed:hover { transform: translateY(-4px); box-shadow: 0 20px 38px rgb(0 31 63 / 22%); }
 .fact-card--closed:active { transform: translateY(-1px); }
-.fact-card--closed svg { color: #d4af37; }
+.fact-card--closed svg { color: #f0d484; }
 .fact-card__number { font-family: "Noto Naskh Arabic", serif; font-size: 1.9rem; font-weight: 800; line-height: 1; }
-.fact-card__prompt { color: #cbd9ef; font-size: .72rem; font-weight: 700; }
+.fact-card__prompt { color: rgb(255 255 255 / 85%); font-size: .72rem; font-weight: 700; }
 
-.fact-card--open { min-height: 11rem; background: #fffdf5; border: 1px solid #e6dfc9; box-shadow: 0 12px 26px rgb(0 31 63 / 8%); animation: fact-reveal .32s ease; }
+.fact-card--open { min-height: 11rem; background: #fffdf5; border: 1px solid #e6dfc9; border-top: 4px solid var(--fact-from,#1b3a5c); box-shadow: 0 12px 26px rgb(0 31 63 / 8%); animation: fact-reveal .32s ease; }
 @keyframes fact-reveal { from { opacity: 0; transform: scale(.97) } to { opacity: 1; transform: none } }
 @media (prefers-reduced-motion: reduce) { .fact-card--open { animation: none } .fact-card--closed { transition: none } }
-.fact-card__badge { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; color: #7d631c; font-size: .7rem; font-weight: 800; }
+.fact-card__badge { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; color: var(--fact-from,#7d631c); font-size: .7rem; font-weight: 800; }
 .fact-card--open h3 { color: #001F3F; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.18rem; font-weight: 800; line-height: 1.5; }
 .fact-card--open p { color: #385051; margin: 0; font-size: .88rem; line-height: 1.95; }
 .fact-card__ayah { margin: .3rem 0 0; padding: .7rem .85rem; border-radius: 14px; background: #eef3dd; border: 1px solid #dfe6cd; }
 .fact-card__ayah blockquote { color: #001F3F; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.08rem; line-height: 2; }
 .fact-card__ayah figcaption { color: #7d631c; margin-top: .35rem; font-size: .7rem; font-weight: 800; }
+
+.fact-card__head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.fact-card__close { display: inline-grid; place-items: center; inline-size: 32px; block-size: 32px; margin: -.35rem; border: 0; border-radius: 50%; color: #6b7b7c; background: transparent; cursor: pointer; transition: background .15s ease, color .15s ease; }
+.fact-card__close:hover { color: #001F3F; background: #efe9d6; }
+
+.facts-quiz__start { display: inline-flex; align-items: center; gap: .4rem; min-block-size: 40px; padding: .45rem 1rem; border: 1px solid #d8c894; border-radius: 99px; color: #4d3c0e; background: #ffefcc; font-family: inherit; font-size: .82rem; font-weight: 800; cursor: pointer; transition: background .15s ease; }
+.facts-quiz__start:hover:not(:disabled) { background: #ffe6ad; }
+.facts-quiz__start:disabled { opacity: .5; cursor: not-allowed; }
+.facts-quiz__hint { color: #5c6c6d; margin: 0 0 1.4rem; font-size: .82rem; }
+
+.facts-quiz { margin: 0 0 1.6rem; padding: 1.3rem 1.4rem; border: 1px solid #e6dfc9; border-radius: 22px; background: #fffdf5; box-shadow: 0 12px 26px rgb(0 31 63 / 8%); }
+.facts-quiz__head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-bottom: .8rem; }
+.facts-quiz__head h2 { color: #001F3F; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.15rem; font-weight: 800; }
+.facts-quiz__head-end { display: flex; align-items: center; gap: .6rem; }
+.facts-quiz__score { color: #7d631c; font-size: .78rem; font-weight: 800; }
+.facts-quiz__ask { color: #7d631c; margin: 0 0 .5rem; font-size: .78rem; font-weight: 800; }
+.facts-quiz__body { color: #001F3F; margin: 0 0 1rem; padding: .85rem 1rem; border-radius: 16px; background: #eef3dd; border: 1px solid #dfe6cd; font-size: .92rem; line-height: 1.95; }
+.facts-quiz__options { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .6rem; margin: 0 0 .9rem; padding: 0; list-style: none; }
+.facts-quiz__option { inline-size: 100%; min-block-size: 48px; padding: .6rem .9rem; border: 1px solid #e0d8c0; border-radius: 14px; color: #001F3F; background: #fff; font-family: "Noto Naskh Arabic", serif; font-size: .95rem; font-weight: 700; line-height: 1.6; text-align: start; cursor: pointer; transition: background .15s ease, border-color .15s ease; }
+.facts-quiz__option:hover:not(:disabled) { background: #f6f1e0; border-color: #cbbf9c; }
+.facts-quiz__option:disabled { cursor: default; }
+.facts-quiz__option.is-right { color: #1f3d16; background: #dcefcf; border-color: #93c07c; }
+.facts-quiz__option.is-wrong { color: #5b1d1d; background: #f6dcdc; border-color: #d59c9c; }
+.facts-quiz__result { color: #001F3F; margin: 0; min-block-size: 1.4rem; font-size: .88rem; font-weight: 800; }
+.facts-quiz__next { min-block-size: 44px; margin-top: .7rem; padding: .5rem 1.2rem; border: 0; border-radius: 99px; color: #fffdf5; background: #001F3F; font-family: inherit; font-size: .85rem; font-weight: 800; cursor: pointer; }
+.facts-quiz__next:hover { background: #16324f; }

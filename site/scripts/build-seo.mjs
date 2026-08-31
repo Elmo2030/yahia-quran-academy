@@ -116,7 +116,7 @@ ${chapterLines.join("\n")}
 ${seerahLines.join("\n")}
 
 ## In the Realm of the Quran
-- [Discover the Quran](${ORIGIN}/quran-facts): fifty short facts about the Quran
+- [Discover the Quran](${ORIGIN}/quran-facts): one hundred short facts about the Quran
   for children — what it names, how it is arranged, and what is remarkable about
   it — presented as cards a child turns over one at a time.
 
