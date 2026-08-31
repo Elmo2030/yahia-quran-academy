@@ -17,11 +17,10 @@ export default defineConfig({
     },
   },
   test: {
-    environment: "node",
-    // Component tests are written as .tsx; without the tsx globs below they
-    // were silently collected by nothing and never ran. They also need a DOM,
-    // hence the per-directory jsdom override.
-    environmentMatchGlobs: [["client/src/**", "jsdom"]],
+    environment: "jsdom",
+    // Everything under client/ is browser code and needs a DOM. (This was
+    // environmentMatchGlobs, which vitest 3 deprecates; the whole client tree
+    // wants jsdom anyway, so the plain setting covers it.)
     setupFiles: ["client/src/test-setup.ts"],
     include: [
       "server/**/*.test.{ts,tsx}",

@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronLeft, ChevronRight, Circ
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLocale } from "@/contexts/LocaleContext";
+import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { getSurahName } from "@/lib/quran-content";
 import { useReadingProgress } from "@/lib/progress";
 import { useAuth } from "@/hooks/useAuth";
@@ -64,6 +65,7 @@ export default function Home() {
 
   return (
     <main className="site-shell" dir={direction}>
+      <SkipLink />
       <header className="site-header">
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></Link>
@@ -72,7 +74,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="hero-section">
+      <section id={MAIN_CONTENT_ID} className="hero-section">
         <div className="hero-orbit hero-orbit--one" /><div className="hero-orbit hero-orbit--two" />
         <div className="container hero-grid">
           <div className="hero-copy"><span className="eyebrow"><Sparkles size={15} /> {t.eyebrow}</span><h1>{t.titleLineOne}<br /><em>{t.titleLineTwo}</em></h1><p>{t.intro}</p><div className="hero-actions"><Link href="/read/1" className="button button--primary">{t.startReading} <Arrow size={18} /></Link><Link href="/stories" className="button button--soft"><BookOpen size={17} aria-hidden="true" /> {t.exploreStories}</Link><a href="#journey" className="button button--soft">{t.howItWorks}</a></div><p className="hero-footnote"><LockKeyhole size={15} /> {t.safety}</p></div>

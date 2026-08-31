@@ -33,6 +33,9 @@ export function PageMeta() {
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={url} />
+      {/* Auth, account and not-found routes ask to stay out of the index.
+          Without this the flag was declared and never acted on. */}
+      {meta.noindex && <meta name="robots" content="noindex,nofollow" />}
 
       <meta property="og:type" content={meta.path === "/" ? "website" : "article"} />
       <meta property="og:site_name" content={SITE_NAME} />

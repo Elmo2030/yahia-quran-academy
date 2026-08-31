@@ -17,6 +17,7 @@ import { ArrowLeft, ArrowRight, BookOpen, Compass, HelpCircle, Moon, ShieldCheck
 
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLocale } from "@/contexts/LocaleContext";
+import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import {
   seerahStories,
   seerahStation,
@@ -55,6 +56,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
   const t = copy[locale];
   return (
     <main className="site-shell" dir={direction}>
+      <SkipLink />
       <header className="site-header">
         <div className="container site-header__inner">
           <Link href="/" className="brand-mark" aria-label={t.home}>
@@ -69,7 +71,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </header>
-      {children}
+      <div id={MAIN_CONTENT_ID}>{children}</div>
       <footer className="site-footer">
         <div className="container site-footer__inner">
           <div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahia</b> Quran Academy</span></div>

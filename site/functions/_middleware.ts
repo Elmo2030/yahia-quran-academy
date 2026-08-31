@@ -33,8 +33,6 @@ const clean = (text: string, max = 180) => {
 
 // --- Auth + account + utility routes (feature/auth-foundation) -----------
 
-const noindex = { title: SITE, description: SITE_DESCRIPTION };
-
 const authMeta = {
   path: "/login",
   title: "تسجيل الدخول — Yahia Quran Academy",
@@ -145,19 +143,39 @@ function metaForPath(pathname: string) {
           title: `${chapter.titleAr} — ${count} قصة · ${SITE}`, description: clean(chapter.descriptionAr) };
       }
     }
+    // A chapter or story slug that matched nothing is not the stories index.
+    if (parts[1]) return notFound(path);
     return { ...base, path, title: `قصص من القرآن للأطفال · ${SITE}`,
       description: `${stories.length} قصة في ${chapters.filter((c: any) => c.available).length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.` };
   }
 
   if (path === "/") return { ...base, path: "/", title: SITE, description: SITE_DESCRIPTION };
-  return { ...base, path, title: `الصفحة غير موجودة · ${SITE}`, description: SITE_DESCRIPTION };
+  return notFound(path);
+}
+
+// Marked noindex so crawlers drop it, and flagged so the response can carry a
+// real 404 status instead of a 200 with "page not found" written on it.
+function notFound(path: string) {
+  return {
+    path,
+    image: DEFAULT_IMAGE,
+    title: `الصفحة غير موجودة · ${SITE}`,
+    description: SITE_DESCRIPTION,
+    noindex: true,
+    missing: true,
+  };
 }
 
 const escapeHtml = (value: string) =>
   value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+// Returns the directive, not a whole tag: the tag is built once below. The
+// earlier version returned `<meta ...>` here, which was then escaped and
+// placed inside another meta's content="", producing
+// content="&lt;meta name=&quot;robots&quot;..." — not a directive any crawler
+// understands, so every noindex page was indexable.
 const robotsFor = (meta: ReturnType<typeof metaForPath>) =>
-  meta.noindex ? "<meta name=\"robots\" content=\"noindex,nofollow\" />" : "";
+  meta.noindex ? "noindex,nofollow" : "";
 
 export const onRequest: PagesFunction = async (context) => {
   const url = new URL(context.request.url);
@@ -211,5 +229,9 @@ export const onRequest: PagesFunction = async (context) => {
 
   const headers = new Headers(response.headers);
   headers.delete("content-length");
-  return new Response(patched, { status: response.status, statusText: response.statusText, headers });
+  // A path that matches no route still gets the app shell — React renders the
+  // NotFound page from it — but it must not be advertised as 200, or crawlers
+  // index an unbounded set of URLs that all say "page not found".
+  const status = meta.missing ? 404 : response.status;
+  return new Response(patched, { status, statusText: response.statusText, headers });
 };

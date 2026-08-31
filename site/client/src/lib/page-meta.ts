@@ -1,3 +1,7 @@
+import { chapters, stories } from "../content/stories";
+import { seerahStation, seerahStories } from "../content/seerah";
+import { surahNames } from "./quran-content";
+
 // =============================================================================
 // page-meta.ts — canonical per-route metadata for the static SPA.
 //
@@ -151,35 +155,38 @@ export const resetPasswordMeta: Meta = {
 // ---------------------------------------------------------------------------
 
 type SurahLookup = { number: number; nameAr: string };
-type ChapterLookup = { slug: string; titleAr: string; descriptionAr: string; cover?: string };
+// `cover` is nullable in content/stories (a chapter awaiting art), and the
+// call sites use `?? DEFAULT_IMAGE`, which handles null as well as undefined.
+type ChapterLookup = { slug: string; titleAr: string; descriptionAr: string; cover?: string | null };
 type StoryLookup = { chapter: string; slug: string; title: string; hook: string; image?: string };
 
 export type LookupBundle = ReadonlyArray<SurahLookup> & {
   __kind?: "surahs";
 } | never;
 
-// Static-typed lookup constructors the worker and the React side both call.
-// Pulled out so the worker (which only sees compiled JS) does not need any
-// runtime JSON import.
-const surahsByNumber: Map<number, string> = new Map(); // populated below
-const chapterBySlug: Map<string, ChapterLookup> = new Map();
-const storiesBySlug: Map<string, StoryLookup> = new Map();
+// Title lookups, built once at module load from the same content modules the
+// pages render from.
+//
+// These used to be empty maps filled by exported register* helpers — which
+// nothing ever called, so every /read/:surah, /stories/:chapter and
+// /stories/:chapter/:slug page fell through to "الصفحة غير موجودة" the moment
+// React replaced the (correct) title the Cloudflare function had rendered.
+// Reading the content directly removes the chance of that happening again.
+//
+// Cost is nil: surahNames is a 114-entry string array (the Quran text itself
+// is fetched at runtime, not imported), and content/stories is already in the
+// bundle because the Stories page imports it.
+const surahsByNumber: Map<number, string> = new Map(
+  surahNames.map((name, index) => [index + 1, name] as const),
+);
+const chapterBySlug: Map<string, ChapterLookup> = new Map(
+  chapters.map(chapter => [chapter.slug, chapter] as const),
+);
+const storiesBySlug: Map<string, StoryLookup> = new Map(
+  stories.map(story => [`${story.chapter}/${story.slug}`, story] as const),
+);
 
-const ensureSurahEntry = (n: number, nameAr: string) => {
-  if (!surahsByNumber.has(n)) surahsByNumber.set(n, nameAr);
-};
-const ensureChapterEntry = (chapter: ChapterLookup) => {
-  if (!chapterBySlug.has(chapter.slug)) chapterBySlug.set(chapter.slug, chapter);
-};
-const ensureStoryEntry = (story: StoryLookup) => {
-  if (!storiesBySlug.has(`${story.chapter}/${story.slug}`)) {
-    storiesBySlug.set(`${story.chapter}/${story.slug}`, story);
-  }
-};
-
-// Default fall-back used when no chapter / story / surah lists are loaded;
-// PR4+ may replace these with the actual static manifest. The site still
-// renders sensible Arabic titles while PR4 is built.
+// Returned for a path that matches no surah, chapter, story or static page.
 const FALLBACK_NOT_FOUND: Meta = {
   path: "/",
   title: "الصفحة غير موجودة — Yahia Quran Academy",
@@ -290,14 +297,3 @@ export const metaForPath = (pathname: string): Meta => {
   }
   return FALLBACK_NOT_FOUND;
 };
-
-// ---------------------------------------------------------------------------
-// content/stories.ts (and the worker copy) call these to register the
-// real surah/chapter/story titles — keeping metaForPath a pure function of
-// the registered set lets us drop the JSON import (and its bundle weight) on
-import { seerahStation, seerahStories } from "../content/seerah";
-// the static SPA.
-// ---------------------------------------------------------------------------
-export const registerSurah = ensureSurahEntry;
-export const registerChapter = ensureChapterEntry;
-export const registerStory = ensureStoryEntry;
