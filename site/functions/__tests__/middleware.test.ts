@@ -48,6 +48,9 @@ beforeAll(async () => {
 afterAll(() => rmSync(bundle, { force: true }));
 
 const shell = "<!doctype html><head><!--meta:start--><!--meta:end--></head>";
+// What Cloudflare Pages actually returns for an unknown path: index.html, at
+// status 200, carrying the home page's prerendered words.
+const homeShell = `${shell}<body><div id="root"><!--prerendered:start--><div id="prerendered"><h1>الرئيسية</h1></div><!--prerendered:end--></div></body>`;
 
 describe("the Cloudflare function", () => {
   for (const route of ROUTES) {
@@ -101,6 +104,31 @@ describe("the Cloudflare function", () => {
 
   // Every route without a prerendered page of its own lands here, so it must be
   // the empty shell and not the home page, whose words index.html now carries.
+  // Pages answers an unknown path with index.html at 200, so the 404 fallback
+  // never fires for it and the home page's words arrive on a page that is not
+  // the home page.
+  it("takes the home page's words back off a page that is not it", async () => {
+    for (const path of ["/login", "/stories/library", "/nope"]) {
+      const response = await onRequest({
+        request: new Request(`https://yahyaquran.com${path}`),
+        next: async () => new Response(homeShell, { headers: { "content-type": "text/html" } }),
+        env: { ASSETS: { fetch: async () => new Response("", { status: 404 }) } },
+      });
+      const html = await response.text();
+      expect(html, path).not.toContain("prerendered");
+      expect(html, path).toContain('<div id="root"></div>');
+    }
+  });
+
+  it("leaves a page its own prerendered words", async () => {
+    const response = await onRequest({
+      request: new Request("https://yahyaquran.com/quran-facts"),
+      next: async () => new Response(homeShell, { headers: { "content-type": "text/html" } }),
+      env: { ASSETS: { fetch: async () => new Response("", { status: 404 }) } },
+    });
+    expect(await response.text()).toContain("prerendered");
+  });
+
   it("falls back to the empty shell, not the home page", async () => {
     const asked: string[] = [];
     await onRequest({

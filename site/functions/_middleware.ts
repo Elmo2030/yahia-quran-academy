@@ -396,7 +396,21 @@ export const onRequest: PagesFunction = async (context) => {
     <script data-default type="application/ld+json">${jsonLd}</script>
     <!--meta:end-->`;
 
-  const html = await response.text();
+  let html = await response.text();
+
+  // Cloudflare Pages answers an unknown path with index.html at status 200, so
+  // the 404 fallback above never fires for it — and index.html now carries the
+  // home page's prerendered words. A page that is not its own prerendered page
+  // must not read as the home page, so the block comes back out for anything
+  // private or missing.
+  if (meta.noindex || meta.missing) {
+    const from = html.indexOf("<!--prerendered:start-->");
+    const to = html.indexOf("<!--prerendered:end-->");
+    if (from !== -1 && to !== -1) {
+      html = html.slice(0, from) + html.slice(to + "<!--prerendered:end-->".length);
+    }
+  }
+
   const start = html.indexOf("<!--meta:start-->");
   const end = html.indexOf("<!--meta:end-->");
   if (start === -1 || end === -1) return new Response(html, response);

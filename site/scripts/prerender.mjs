@@ -257,7 +257,12 @@ writeFileSync(join(out, "app-shell.html"), shell);
 let written = 0;
 let bytes = 0;
 for (const [path, body] of pages) {
-  const html = shell.replace(anchor, `<div id="root"><div id="prerendered">${body}</div></div>${style}`);
+  // Marked so functions/_middleware.ts can take it back out: Cloudflare Pages
+  // answers an unknown path with index.html at status 200, which since this
+  // script runs carries the home page's words. Without the markers, /login and
+  // every address that does not exist would read as the home page.
+  const html = shell.replace(anchor,
+    `<div id="root"><!--prerendered:start--><div id="prerendered">${body}</div><!--prerendered:end--></div>${style}`);
   // "<path>.html", not "<path>/index.html": Cloudflare Pages serves a directory
   // by redirecting the bare path to one with a trailing slash, which would put
   // a 308 in front of every link on the site, the sitemap and the canonical
