@@ -426,4 +426,11 @@
   .quran-card .audio-deck { order: -2; margin-top: .2rem; }
   .quran-card__topline { order: -3; }
   .quran-card .recitation-companion { order: -1; }
+
+  /* The continuous-play toggle squeezed the deck's text into five wrapped
+     lines on a narrow screen. Let the deck wrap instead. */
+  .audio-deck { flex-wrap: wrap; row-gap: .6rem; }
+  .audio-deck > div { flex: 1 1 8rem; min-width: 0; }
+  .continuous-toggle { order: 3; flex: 1 1 100%; justify-content: center; margin-inline-start: 0; }
+  .audio-deck__icon { order: 2; }
 }
