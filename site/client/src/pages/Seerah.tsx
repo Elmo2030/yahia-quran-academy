@@ -20,7 +20,8 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import {
   seerahStories,
-  seerahStation,
+  seerahStations,
+  seerahStationOf,
   type AgeTier,
   type SeerahStory,
 } from "@/content/seerah";
@@ -29,6 +30,8 @@ const copy = {
   ar: {
     home: "الرئيسية", quranStories: "قصص القرآن", eyebrow: "السيرة النبوية",
     backToStation: "كل قصص السيرة", storyCount: "قصص", read: "اقرأ القصة",
+    station: "المحطة", stationsTitle: "السيرة النبوية ﷺ",
+    stationsIntro: "رحلة في حياة النبي ﷺ، محطة بعد محطة — من مولده وطفولته إلى شبابه وأمانته بين قومه.",
     sections: "أقسام القصة", story: "القصة", know: "هل تعلم؟", value: "قيمة القصة",
     challenge: "تحدي الفهم", reward: "مكافأتك", source: "مصدر موثوق",
     ageGroup: "اختيار الفئة العمرية", chooseStory: "اختر قصة",
@@ -38,6 +41,8 @@ const copy = {
   en: {
     home: "Home", quranStories: "Quran stories", eyebrow: "The Prophet’s Seerah",
     backToStation: "All Seerah stories", storyCount: "stories", read: "Read the story",
+    station: "Station", stationsTitle: "The Prophet’s Seerah ﷺ",
+    stationsIntro: "A journey through the Prophet’s life, one station at a time — from his birth and childhood to his youth and the trust he earned among his people.",
     sections: "Story sections", story: "The story", know: "Did you know?", value: "The story’s value",
     challenge: "Comprehension challenge", reward: "Your reward", source: "Trusted source",
     ageGroup: "Choose an age group", chooseStory: "Choose a story",
@@ -191,7 +196,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
                 <ArrowRight size={15} aria-hidden="true" /> {t.backToStation}
               </Link>
             </div>
-            <span className="story-detail-hero__count">{seerahStation.titleAr}</span>
+            <span className="story-detail-hero__count">{seerahStationOf(story).titleAr}</span>
             <h1>{story.title}</h1>
             <p className="story-detail-hero__hook">{story.content.tier_1_age_6_8.shortLesson}</p>
             <div className="story-detail-actions" role="group" aria-label={t.ageGroup}>
@@ -310,8 +315,8 @@ export default function Seerah() {
         <div className="container stories-list-hero__grid">
           <div>
             <span className="eyebrow eyebrow--gold"><Moon size={15} aria-hidden="true" /> {t.eyebrow}</span>
-            <h1>{seerahStation.titleAr}</h1>
-            <p>{seerahStation.descriptionAr}</p>
+            <h1>{t.stationsTitle}</h1>
+            <p>{t.stationsIntro}</p>
             <Link href="/stories" className="stories-hero__library-link"><BookOpen size={16} aria-hidden="true" /> {t.quranStories}</Link>
           </div>
           {/* The station cover is dropped in at /stories/seerah/cover.jpg. Until
@@ -328,18 +333,26 @@ export default function Seerah() {
           </figure>
         </div>
       </section>
-      <section className="stories-section stories-section--list">
-        <div className="container">
-          <div className="stories-section__heading" lang="ar" dir="rtl">
-            <h2>{seerahStories.length} {t.storyCount}</h2>
-          </div>
-          <ol className="story-list-grid">
-            {seerahStories.map((story, index) => (
-              <li key={story.slug}><SeerahCard story={story} index={index} /></li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {seerahStations.map(station => {
+        const list = seerahStories.filter(story => story.stationId === station.stationId);
+        if (list.length === 0) return null;
+        return (
+          <section className="stories-section stories-section--list" key={station.stationId} id={`station-${station.stationId}`}>
+            <div className="container">
+              <div className="stories-section__heading" lang="ar" dir="rtl">
+                <span className="eyebrow eyebrow--gold">{t.station} {station.stationId}</span>
+                <h2>{station.titleAr}</h2>
+                <p>{station.descriptionAr}</p>
+              </div>
+              <ol className="story-list-grid">
+                {list.map((story, index) => (
+                  <li key={story.slug}><SeerahCard story={story} index={index} /></li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        );
+      })}
     </Chrome>
   );
 }

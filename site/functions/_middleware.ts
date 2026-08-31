@@ -18,7 +18,7 @@
  * English link previews show English text.
  */
 
-import { chapters, stories, surahNames, seerahStation, seerahStories } from "./page-data.js";
+import { chapters, stories, surahNames, seerahStations, seerahStories } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_DESCRIPTION =
@@ -97,8 +97,8 @@ function metaForPath(pathname: string) {
   if (head === "seerah") {
     if (!parts[1]) {
       return { ...base, path,
-        title: `${seerahStation.titleAr} — السيرة النبوية · ${SITE}`,
-        description: seerahStation.descriptionAr };
+        title: `السيرة النبوية — ${seerahStations.length} محطات · ${SITE}`,
+        description: seerahStations.map((s: any) => s.titleAr).join(" · ") };
     }
     const story = seerahStories.find((entry: any) => entry.slug === parts[1]);
     if (story) {

@@ -18,17 +18,23 @@ const chapters = pick("chapters");
 const stories = pick("stories");
 
 const seerahSource = readFileSync(join(root, "client/src/content/seerah.ts"), "utf8");
-const seerahStation = {
-  titleAr: seerahSource.match(/titleAr:\s*"([^"]+)"/)[1],
-  descriptionAr: seerahSource.match(/descriptionAr:\s*\n?\s*"([^"]+)"/)[1],
+// Same eval-the-literal trick as stories.ts. This replaced a hand-written
+// regex that assumed `title` sat on the line after `slug` and that there was
+// exactly one station — both assumptions broke the moment the content grew.
+const pickFrom = (src, name, file) => {
+  const m = src.match(new RegExp(`export const ${name}[^=]*= (\\[[\\s\\S]*?\\n\\]);`));
+  if (!m) throw new Error(`could not read ${name} out of ${file}`);
+  return eval(m[1]);
 };
-// slug, optional artwork, title, and the younger tier's opening line — enough
-// for a link preview. `image` sits between slug and title when a story has
-// artwork, so it has to be optional here or every story stops matching.
-const seerahStories = [...seerahSource.matchAll(
-  /slug:\s*"([a-z0-9-]+)",\s*\n(?:\s*image:\s*"([^"]*)",\s*\n)?\s*title:\s*"([^"]+)"[\s\S]*?tier_1_age_6_8:\s*\{\s*\n?\s*narrative:\s*"([^"]+)"/g,
-)].map(([, slug, image, title, narrative]) => (image ? { slug, image, title, narrative } : { slug, title, narrative }));
+const seerahStations = pickFrom(seerahSource, "seerahStations", "seerah.ts");
+const seerahStories = pickFrom(seerahSource, "seerahStories", "seerah.ts");
 if (seerahStories.length === 0) throw new Error("no seerah stories parsed — check seerah.ts shape");
+if (seerahStations.length === 0) throw new Error("no seerah stations parsed — check seerah.ts shape");
+for (const story of seerahStories) {
+  if (!seerahStations.some(s => s.stationId === story.stationId)) {
+    throw new Error(`seerah story ${story.slug} points at unknown station ${story.stationId}`);
+  }
+}
 
 const urls = [
   { loc: "/", priority: "1.0" },
@@ -69,9 +75,12 @@ writeFileSync(join(root, "functions/page-data.js"),
   chapter: s.chapter, slug: s.slug, title: s.title, hook: s.hook, image: s.image ?? null,
 })), null, 1)};\n` +
 `export const surahNames = ${JSON.stringify(surahNames)};\n` +
-`export const seerahStation = ${JSON.stringify(seerahStation)};\n` +
-`export const seerahStories = ${JSON.stringify(seerahStories, null, 1)};\n`);
+`export const seerahStations = ${JSON.stringify(seerahStations)};\n` +
+`export const seerahStories = ${JSON.stringify(seerahStories.map(s => ({
+  stationId: s.stationId, slug: s.slug, title: s.title, image: s.image ?? null,
+  narrative: s.content.tier_1_age_6_8.narrative,
+})), null, 1)};\n`);
 
 console.log(`  sitemap.xml: ${urls.length} URLs`);
 console.log(`  robots.txt written`);
-console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories, ${seerahStories.length} seerah`);
+console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories, ${seerahStations.length} seerah stations, ${seerahStories.length} seerah stories`);

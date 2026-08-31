@@ -1,5 +1,5 @@
 import { chapters, stories } from "../content/stories";
-import { seerahStation, seerahStories } from "../content/seerah";
+import { seerahStations, seerahStories } from "../content/seerah";
 import { surahNames } from "./quran-content";
 
 // =============================================================================
@@ -216,8 +216,8 @@ export const metaForPath = (pathname: string): Meta => {
     if (!parts[1]) {
       return {
         path,
-        title: `${seerahStation.titleAr} — السيرة النبوية · ${SITE_NAME}`,
-        description: seerahStation.descriptionAr,
+        title: `السيرة النبوية — ${seerahStations.length} محطات · ${SITE_NAME}`,
+        description: seerahStations.map(station => station.titleAr).join(" · "),
         image: DEFAULT_IMAGE,
       };
     }
