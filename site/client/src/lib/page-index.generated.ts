@@ -436,6 +436,11 @@ export const seerahStationIndex: Station[] = [
   "stationId": 3,
   "titleAr": "الوحي",
   "titleEn": "The Revelation"
+ },
+ {
+  "stationId": 4,
+  "titleAr": "الدعوة: سرًّا ثم جهرًا",
+  "titleEn": "The Call: In Secret, Then Aloud"
  }
 ];
 
@@ -558,6 +563,86 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً مثل",
   "titleEn": "How Did the Revelation Come?",
   "descriptionEn": "The revelation did not come in only one way. At first the Prophet (pbuh) would see a dream in his sleep and it would come true in the morning. After the prophethood, Jibril would s",
+  "image": null
+ },
+ {
+  "slug": "dar-al-arqam",
+  "title": "السرّ العظيم ودار الأرقم",
+  "description": "لما أمر الله نبيه ﷺ أن يدعو الناس، بدأ بأقرب الناس إليه سراً. فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وزيد بن حارثة. وكان المسلمون الأوائل ",
+  "titleEn": "The Great Secret and Dar al-Arqam",
+  "descriptionEn": "When Allah commanded the Prophet (pbuh) to call people, he began quietly with those closest to him. His wife Khadijah believed, and his friend Abu Bakr, his young cousin Ali ibn Ab",
+  "image": null
+ },
+ {
+  "slug": "mount-safa-call",
+  "title": "جبل الصفا والنداء الكبير",
+  "description": "أمر الله نبيه ﷺ أن يعلن دعوته للجميع، فصعد على جبل الصفا ونادى بأعلى صوته حتى اجتمعت قبائل قريش. سألهم: لو قلت لكم إن جيشاً وراء هذا الجبل يريد أن يهاجمكم، أتصدّقونني؟ قالوا: نعم، ",
+  "titleEn": "Mount Safa and the Great Call",
+  "descriptionEn": "Allah commanded the Prophet (pbuh) to announce his call to everyone, so he climbed Mount Safa and called out at the top of his voice until the tribes of Quraysh gathered. He asked ",
+  "image": null
+ },
+ {
+  "slug": "heroes-of-patience",
+  "title": "أبطال لا يستسلمون: بلال وآل ياسر",
+  "description": "لما أعلن النبي ﷺ دعوته، بدأ المشركون يؤذون المسلمين الضعفاء. أخذوا بلال بن رباح وألقوه على رمل الصحراء الحار ووضعوا صخرة على صدره ليترك دينه، فكان يردّد كلمة واحدة: «أحدٌ.. أحدٌ». ",
+  "titleEn": "Heroes Who Never Give Up: Bilal and the Family of Yasir",
+  "descriptionEn": "When the Prophet (pbuh) announced his call, the idol-worshippers began to harm the weakest Muslims. They took Bilal ibn Rabah, threw him on the burning desert sand and put a rock o",
+  "image": null
+ },
+ {
+  "slug": "migration-to-abyssinia",
+  "title": "رحلة إلى أرض الملك العادل",
+  "description": "لما اشتدّ الأذى على المسلمين قال لهم النبي ﷺ: اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد. فسافر بعضهم وعبروا البحر. أرسلت قريش هدايا إلى الملك النجاشي ليردّهم، فرفض حتى",
+  "titleEn": "Journey to the Land of the Just King",
+  "descriptionEn": "When the harm grew heavy, the Prophet (pbuh) told the Muslims: go to the land of Abyssinia, for there is a king there under whom no one is wronged. Some travelled and crossed the s",
+  "image": null
+ },
+ {
+  "slug": "year-of-sorrow",
+  "title": "الحصار الظالم وعام الحزن",
+  "description": "اتفقت قريش على مقاطعة النبي ﷺ وكل من يقف معه، وكتبوا صحيفة ظالمة علّقوها في الكعبة. فعاش المسلمون في شِعب بين الجبال ثلاث سنوات حتى أكلوا ورق الشجر من الجوع، ثم مزّق الصحيفةَ رجالٌ",
+  "titleEn": "The Unjust Siege and the Year of Sorrow",
+  "descriptionEn": "Quraysh agreed to boycott the Prophet (pbuh) and everyone who stood with him, writing an unjust document and hanging it in the Kaaba. The Muslims lived in a narrow valley between t",
+  "image": null
+ },
+ {
+  "slug": "islam-of-heroes",
+  "title": "إسلام الأبطال: حمزة وعمر",
+  "description": "كان المسلمون يصلّون سراً خوفاً من أذى قريش، حتى غضب حمزة بن عبد المطلب عمّ النبي الشجاع وأعلن إسلامه دفاعاً عن ابن أخيه. وبعده بأيام أسلم عمر بن الخطاب، وكان خارجاً بسيفه ليؤذي الن",
+  "titleEn": "The Islam of Heroes: Hamza and Umar",
+  "descriptionEn": "The Muslims prayed in secret, fearing harm from Quraysh — until the day the Prophet's brave uncle Hamza ibn Abd al-Muttalib grew angry and announced his Islam to defend his nephew.",
+  "image": null
+ },
+ {
+  "slug": "sun-and-moon",
+  "title": "الشمس في يميني والقمر في يساري",
+  "description": "أرسلت قريش زعماءها إلى النبي ﷺ يعرضون عليه المال والملك بشرط أن يترك دينه. فردّ عليهم ردّه المشهور: والله لو وضعوا الشمس في يميني والقمر في يساري على أن أترك هذا الأمر ما تركته.",
+  "titleEn": "The Sun in My Right Hand, the Moon in My Left",
+  "descriptionEn": "Quraysh sent their leaders to the Prophet (pbuh) offering him wealth and kingship on one condition: that he leave his religion. He gave the answer we still remember: by Allah, if t",
+  "image": null
+ },
+ {
+  "slug": "splitting-of-the-moon",
+  "title": "معجزة في السماء: انشقاق القمر",
+  "description": "طلب كفار قريش من النبي ﷺ معجزة يرونها بأعينهم، فقالوا: اشقق لنا القمر. فدعا النبي ﷺ ربه، فانشقّ القمر نصفين أمام الناس، نصف فوق جبل ونصف فوق جبل آخر. ومع ذلك قالوا: سحرنا محمد، ولم",
+  "titleEn": "A Miracle in the Sky: The Splitting of the Moon",
+  "descriptionEn": "The disbelievers of Quraysh asked the Prophet (pbuh) for a miracle they could see with their own eyes: split the moon for us. He prayed to his Lord, and the moon split in two befor",
+  "image": null
+ },
+ {
+  "slug": "cotton-in-ears",
+  "title": "القطن في الأذن وقصة الشاعر الذكي",
+  "description": "جاء إلى مكة شاعر حكيم اسمه الطُّفيل بن عمرو الدَّوسي، فحذّرته قريش من سماع كلام النبي ﷺ، فوضع القطن في أذنيه. ثم فكّر وقال: أنا رجل أفهم الكلام، فلماذا لا أسمع؟ فنزع القطن وسمع الق",
+  "titleEn": "Cotton in the Ears: The Clever Poet",
+  "descriptionEn": "A wise poet named at-Tufayl ibn Amr ad-Dawsi came to Mecca. Quraysh warned him not to hear a word from the Prophet (pbuh), so he put cotton in his ears. Then he thought again: I am",
+  "image": null
+ },
+ {
+  "slug": "journey-to-taif",
+  "title": "الرحلة الحزينة إلى الطائف",
+  "description": "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق ع",
+  "titleEn": "The Sad Journey to Taif",
+  "descriptionEn": "After the deaths of Khadijah and Abu Talib the harm grew worse, so the Prophet (pbuh) walked to Taif to call its people. They turned him away and set boys to throw stones at him un",
   "image": null
  }
 ];

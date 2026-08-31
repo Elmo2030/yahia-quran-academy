@@ -355,6 +355,11 @@ export default function Seerah() {
                 <h2>{locale === "en" ? station.titleEn : station.titleAr}</h2>
                 <p>{locale === "en" ? station.descriptionEn : station.descriptionAr}</p>
               </div>
+              {station.cover && (
+                <figure className="seerah-station-cover">
+                  <img src={station.cover} alt="" width={1600} height={893} loading="lazy" />
+                </figure>
+              )}
               <ol className="story-list-grid">
                 {list.map((story, index) => (
                   <li key={story.slug}><SeerahCard story={story} index={index} /></li>

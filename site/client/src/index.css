@@ -529,3 +529,7 @@
      row of height above the fold on every page. */
   .site-subnav { display: none; }
 }
+
+/* A station's own artwork, above its list of stories. */
+.seerah-station-cover { margin: 0 0 1.6rem; border-radius: 24px; overflow: hidden; border: 1px solid #e6dfc9; box-shadow: 0 14px 32px rgb(0 31 63 / 12%); }
+.seerah-station-cover img { display: block; width: 100%; height: auto; }

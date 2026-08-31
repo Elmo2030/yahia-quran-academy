@@ -1281,4 +1281,74 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/revelation-forms" />
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/dar-al-arqam</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/dar-al-arqam" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/dar-al-arqam?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/dar-al-arqam" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/mount-safa-call</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/mount-safa-call" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/mount-safa-call?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/mount-safa-call" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/heroes-of-patience</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/heroes-of-patience" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/heroes-of-patience?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/heroes-of-patience" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/migration-to-abyssinia</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/migration-to-abyssinia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/migration-to-abyssinia?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/migration-to-abyssinia" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/year-of-sorrow</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/year-of-sorrow" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/year-of-sorrow?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/year-of-sorrow" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/islam-of-heroes</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/islam-of-heroes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/islam-of-heroes?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/islam-of-heroes" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/sun-and-moon</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/sun-and-moon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/sun-and-moon?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/sun-and-moon" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/splitting-of-the-moon</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/splitting-of-the-moon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/splitting-of-the-moon?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/splitting-of-the-moon" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/cotton-in-ears</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/cotton-in-ears" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/cotton-in-ears?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/cotton-in-ears" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/journey-to-taif</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/journey-to-taif" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/journey-to-taif?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/journey-to-taif" />
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -74,6 +74,7 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [Beginnings — Seeds of Light](https://yahyaquran.com/seerah#station-1): 5 stories. Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.
 - [The Truthful, The Trustworthy](https://yahyaquran.com/seerah#station-2): 5 stories. Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.
 - [The Revelation](https://yahyaquran.com/seerah#station-3): 5 stories. Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.
+- [The Call: In Secret, Then Aloud](https://yahyaquran.com/seerah#station-4): 10 stories. Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.
 
 
 ### Beginnings — Seeds of Light
@@ -96,6 +97,18 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Pause of Revelation and Surah Ad-Duha — انقطاع الوحي وسورة الضحى](https://yahyaquran.com/seerah/revelation-pause): سورة الضحى، وصحيح البخاري
 - [O You Wrapped in Garments: Arise and Warn — يا أيها المدثر: قم فأنذر](https://yahyaquran.com/seerah/revelation-muddaththir): صحيح البخاري، كتاب بدء الوحي
 - [How Did the Revelation Come? — كيف كان ينزل الوحي؟](https://yahyaquran.com/seerah/revelation-forms): صحيح البخاري، كتاب بدء الوحي
+
+### The Call: In Secret, Then Aloud
+- [The Great Secret and Dar al-Arqam — السرّ العظيم ودار الأرقم](https://yahyaquran.com/seerah/dar-al-arqam): سيرة ابن هشام، الطبقات الكبرى لابن سعد
+- [Mount Safa and the Great Call — جبل الصفا والنداء الكبير](https://yahyaquran.com/seerah/mount-safa-call): صحيح البخاري، وسورة المسد
+- [Heroes Who Never Give Up: Bilal and the Family of Yasir — أبطال لا يستسلمون: بلال وآل ياسر](https://yahyaquran.com/seerah/heroes-of-patience): سيرة ابن هشام، وصحيح البخاري
+- [Journey to the Land of the Just King — رحلة إلى أرض الملك العادل](https://yahyaquran.com/seerah/migration-to-abyssinia): مسند أحمد، وسيرة ابن هشام
+- [The Unjust Siege and the Year of Sorrow — الحصار الظالم وعام الحزن](https://yahyaquran.com/seerah/year-of-sorrow): سيرة ابن هشام
+- [The Islam of Heroes: Hamza and Umar — إسلام الأبطال: حمزة وعمر](https://yahyaquran.com/seerah/islam-of-heroes): سيرة ابن هشام، الطبقات الكبرى لابن سعد
+- [The Sun in My Right Hand, the Moon in My Left — الشمس في يميني والقمر في يساري](https://yahyaquran.com/seerah/sun-and-moon): سيرة ابن هشام
+- [A Miracle in the Sky: The Splitting of the Moon — معجزة في السماء: انشقاق القمر](https://yahyaquran.com/seerah/splitting-of-the-moon): القرآن (سورة القمر)، وصحيح البخاري ومسلم
+- [Cotton in the Ears: The Clever Poet — القطن في الأذن وقصة الشاعر الذكي](https://yahyaquran.com/seerah/cotton-in-ears): سيرة ابن هشام
+- [The Sad Journey to Taif — الرحلة الحزينة إلى الطائف](https://yahyaquran.com/seerah/journey-to-taif): صحيح البخاري ومسلم
 
 ## In the Realm of the Quran
 - [Discover the Quran](https://yahyaquran.com/quran-facts): one hundred short facts about the Quran

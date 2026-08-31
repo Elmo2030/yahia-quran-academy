@@ -79,6 +79,9 @@ export type SeerahStation = {
   descriptionAr: string;
   titleEn: string;
   descriptionEn: string;
+  /** Station artwork, shown above its stories. Optional: a station without
+   *  art simply shows none. */
+  cover?: string;
 };
 
 export const seerahStations: SeerahStation[] = [
@@ -108,6 +111,16 @@ export const seerahStations: SeerahStation[] = [
       "خمس قصص من بدء الوحي: أول لقاء في غار حراء، وما قاله ورقة بن نوفل، وفترة انقطاع الوحي وسورة الضحى، وأمر القيام في سورة المدثر، وأوجه نزول الوحي.",
     descriptionEn:
       "Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.",
+  },
+  {
+    stationId: 4,
+    titleAr: "الدعوة: سرًّا ثم جهرًا",
+    titleEn: "The Call: In Secret, Then Aloud",
+    cover: "/stories/seerah/station-4.jpg",
+    descriptionAr:
+      "عشر قصص من سنوات الدعوة في مكة: دار الأرقم، ونداء الصفا، وصبر بلال وآل ياسر، والهجرة إلى الحبشة، وحصار الشِّعب وعام الحزن، وإسلام حمزة وعمر، وردّه على عرض المال والملك، وانشقاق القمر، وقصة الطفيل، ورحلة الطائف.",
+    descriptionEn:
+      "Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.",
   },
 ];
 
@@ -1271,6 +1284,766 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟢",
       reference: "صحيح البخاري، كتاب بدء الوحي",
       note: "أوجه نزول الوحي وحديث «مثل صلصلة الجرس» ثابتة في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-4-01",
+    stationId: 4,
+    slug: "dar-al-arqam",
+    en: {
+      title: "The Great Secret and Dar al-Arqam",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "When Allah commanded the Prophet (pbuh) to call people, he began quietly with those closest to him. His wife Khadijah believed, and his friend Abu Bakr, his young cousin Ali ibn Abi Talib, and Zaid ibn Harithah. The first Muslims would gather in the house of a brave young man named al-Arqam ibn Abi al-Arqam, learning the Quran and praying away from the harm of Quraysh.",
+          shortLesson: "A small beginning, kept quiet, can raise the greatest generation.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "After Allah commanded His Prophet Muhammad (pbuh) to call people to Islam, he began secretly with those closest to him. His wife Khadijah believed, and his friend Abu Bakr, his young cousin Ali ibn Abi Talib, and Zaid ibn Harithah. Because Quraysh worshipped idols and refused change, the first Muslims had to meet in secret to learn the Quran and pray. So the Prophet (pbuh) chose a house out of sight belonging to a brave young man named al-Arqam ibn Abi al-Arqam. From that quiet house came a generation that changed the course of history.",
+          details:
+            "Allah says of the first forerunners: ﴿وَالسَّابِقُونَ الْأَوَّلُونَ مِنَ الْمُهَاجِرِينَ وَالْأَنصَارِ﴾ — Allah is pleased with them, and they with Him.",
+        },
+      },
+      interactive: {
+        discover: "This quiet stage of the call lasted about three years.",
+        value: { name: "Good planning", icon: "🏠" },
+        thinkQuestion: "Why do you think the Prophet (pbuh) chose a young man's house to meet in, rather than a well-known elder's?",
+        challenge: {
+          type: "multiple_choice",
+          question: "In whose house did the first Muslims meet in secret?",
+          options: ["Abu Bakr's house", "The house of al-Arqam ibn Abi al-Arqam", "Khadijah's house", "Ali's house"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The Key of Dar al-Arqam", description: "A key to remind you that the greatest beginnings start somewhere small." },
+        badge: "Badge: One of the Forerunners",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah, Ibn Sa'd's Tabaqat",
+        note: "The first Muslims gathering at Dar al-Arqam is well known in the Seerah literature.",
+      },
+    },
+    title: "السرّ العظيم ودار الأرقم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لما أمر الله نبيه ﷺ أن يدعو الناس، بدأ بأقرب الناس إليه سراً. فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وزيد بن حارثة. وكان المسلمون الأوائل يجتمعون في بيت شاب شجاع اسمه الأرقم بن أبي الأرقم، يتعلمون القرآن ويصلّون بعيداً عن أذى قريش.",
+        shortLesson: "البداية الصغيرة في السرّ يمكن أن تصنع أعظم جيل.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد أن أمر الله نبيه محمداً ﷺ بالدعوة، بدأ بأقرب الناس إليه سراً، فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وخادمه زيد بن حارثة. ولأن قريشاً كانت تعبد الأصنام وترفض التغيير، كان على المسلمين الأوائل أن يجتمعوا سراً ليتعلموا القرآن ويصلّوا. فاختار النبي ﷺ بيتاً بعيداً عن الأنظار لشاب شجاع يُدعى الأرقم بن أبي الأرقم. ومن هذا البيت السري تخرّج جيل غيّر مجرى التاريخ.",
+        details:
+          "قال تعالى في السابقين الأولين: ﴿وَالسَّابِقُونَ الْأَوَّلُونَ مِنَ الْمُهَاجِرِينَ وَالْأَنصَارِ وَالَّذِينَ اتَّبَعُوهُم بِإِحْسَانٍ رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "دام هذا الطور السرّي من الدعوة نحو ثلاث سنوات.",
+      value: { name: "حسن التخطيط", icon: "🏠" },
+      thinkQuestion:
+        "لماذا في رأيك اختار النبي ﷺ بيتاً لشاب صغير مكاناً للاجتماع، لا بيت رجل كبير معروف؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "في بيت مَن كان المسلمون الأوائل يجتمعون سراً؟",
+        options: ["بيت أبي بكر", "بيت الأرقم بن أبي الأرقم", "بيت خديجة", "بيت علي"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "مفتاح دار الأرقم", description: "مفتاح يذكّرك أن أعظم البدايات تبدأ في مكان صغير." },
+      badge: "وسام: من السابقين",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام، الطبقات الكبرى لابن سعد",
+      note: "اجتماع المسلمين الأوائل في دار الأرقم مشهور في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-4-02",
+    stationId: 4,
+    slug: "mount-safa-call",
+    en: {
+      title: "Mount Safa and the Great Call",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Allah commanded the Prophet (pbuh) to announce his call to everyone, so he climbed Mount Safa and called out at the top of his voice until the tribes of Quraysh gathered. He asked them: if I told you an army behind this mountain was about to attack you, would you believe me? They said: yes — we have never known you to lie. So he called them to worship Allah alone. His uncle Abu Lahab grew angry, and Allah sent down a whole surah in reply.",
+          shortLesson: "An honest person is believed, even by those who disagree.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Allah commanded His Prophet (pbuh) to announce Islam to everyone. He climbed Mount Safa and called out at the top of his voice, and all the tribes of Quraysh gathered. He asked them: “If I told you that an army behind this mountain was about to attack you, would you believe me?” They all said: “Yes — we have never known you to tell a lie. You are the truthful, the trustworthy.” He said: “Then I am a warner to you before a severe punishment. Worship Allah alone.” His uncle Abu Lahab grew angry and shouted in his face, and Allah sent down an entire surah defending His Prophet and answering that unjust uncle.",
+          details:
+            "Allah commands the open call: ﴿فَاصْدَعْ بِمَا تُؤْمَرُ﴾, and says of Abu Lahab: ﴿تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ﴾.",
+        },
+      },
+      interactive: {
+        discover: "Surah Al-Masad was revealed about Abu Lahab, the Prophet's own uncle.",
+        value: { name: "Courage in speaking the truth", icon: "📣" },
+        thinkQuestion: "Why did the Prophet (pbuh) ask them about his honesty before delivering his message?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the people of Mecca call the Prophet (pbuh) before he delivered his message?",
+          options: ["The poet", "The truthful, the trustworthy", "The horseman", "The merchant"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Stone from Safa", description: "A stone for the first call made openly in Mecca." },
+        badge: "Badge: Voice of Truth",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, and Surah Al-Masad",
+        note: "The Prophet's call from Mount Safa is established in Sahih al-Bukhari.",
+      },
+    },
+    title: "جبل الصفا والنداء الكبير",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "أمر الله نبيه ﷺ أن يعلن دعوته للجميع، فصعد على جبل الصفا ونادى بأعلى صوته حتى اجتمعت قبائل قريش. سألهم: لو قلت لكم إن جيشاً وراء هذا الجبل يريد أن يهاجمكم، أتصدّقونني؟ قالوا: نعم، ما جرّبنا عليك كذباً قط. فدعاهم إلى عبادة الله وحده. فغضب عمه أبو لهب، فأنزل الله سورة كاملة تردّ عليه.",
+        shortLesson: "الصادق يُصدَّق حتى ممن يخالفه.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "أمر الله نبيه ﷺ أن يعلن الإسلام للجميع، فصعد على جبل الصفا ونادى بأعلى صوته: «يا صباحاه!»، فاجتمعت قبائل قريش كلها. فسألهم: «لو أخبرتكم أن جيشاً خلف هذا الجبل يريد أن يهجم عليكم، أكنتم مصدّقيّ؟» فقالوا جميعاً: «نعم، ما جرّبنا عليك كذباً قط، أنت الصادق الأمين». فقال لهم: «فإني نذير لكم بين يدي عذاب شديد، اعبدوا الله وحده». فغضب عمه أبو لهب وصاح في وجهه، فأنزل الله سورة كاملة تدافع عن نبيه ﷺ وتردّ على عمه الظالم.",
+        details:
+          "قال تعالى آمراً بالجهر: ﴿فَاصْدَعْ بِمَا تُؤْمَرُ وَأَعْرِضْ عَنِ الْمُشْرِكِينَ﴾، وقال في أبي لهب: ﴿تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سورة المسد نزلت في أبي لهب، وهو عمّ النبي ﷺ.",
+      value: { name: "الشجاعة في قول الحق", icon: "📣" },
+      thinkQuestion:
+        "لماذا بدأ النبي ﷺ بسؤالهم عن صدقه قبل أن يبلّغهم رسالته؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بماذا وصف أهل مكة النبي ﷺ قبل أن يبلّغهم رسالته؟",
+        options: ["الشاعر", "الصادق الأمين", "الفارس", "التاجر"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حجر من الصفا", description: "حجر يذكّرك بأول نداء جهر به الحق في مكة." },
+      badge: "وسام: صوت الحق",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، وسورة المسد",
+      note: "حديث نداء النبي ﷺ على الصفا ثابت في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-4-03",
+    stationId: 4,
+    slug: "heroes-of-patience",
+    en: {
+      title: "Heroes Who Never Give Up: Bilal and the Family of Yasir",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "When the Prophet (pbuh) announced his call, the idol-worshippers began to harm the weakest Muslims. They took Bilal ibn Rabah, threw him on the burning desert sand and put a rock on his chest to make him leave his faith — and he kept repeating one word: “Ahad… Ahad.” They tortured Ammar ibn Yasir and his father and his mother Sumayyah, and the Prophet (pbuh) would pass by them and say: “Be patient, family of Yasir — your promise is Paradise.”",
+          shortLesson: "Faith gives the heart a strength that cannot be beaten.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the Prophet (pbuh) announced his call, the idol-worshippers began to torture the weakest Muslims, those with no clan to protect them. They took Bilal ibn Rabah, who was a slave, threw him onto the burning desert sand and placed a great rock on his chest so that he would abandon Islam. Brave Bilal kept repeating one word that infuriated them: “Ahad… Ahad” — Allah is One. They also tortured Ammar ibn Yasir, his father, and his mother Sumayyah, who became the first martyr in Islam. The Prophet (pbuh) would pass them as they were being tortured and say: “Be patient, family of Yasir — your promise is Paradise.”",
+          details:
+            "Allah promises the patient: ﴿إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ﴾ — their reward without measure.",
+        },
+      },
+      interactive: {
+        discover: "Abu Bakr bought Bilal and set him free.",
+        value: { name: "Patience and firmness", icon: "🔥" },
+        thinkQuestion: "What is the hardest thing you have had to be patient about? What helped you?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which word did Bilal keep repeating under torture?",
+          options: ["Ahad, Ahad (One, One)", "Patience", "Rescue", "Mercy"],
+          correctAnswer: 0,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Grain of Meccan Sand", description: "A keepsake for those who held firm when holding firm was hardest." },
+        badge: "Badge: An Unbeaten Heart",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah, and Sahih al-Bukhari",
+        note: "The torture of Bilal and the family of Yasir is established in the Seerah; Bukhari records Bilal's story and Abu Bakr freeing him.",
+      },
+    },
+    title: "أبطال لا يستسلمون: بلال وآل ياسر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لما أعلن النبي ﷺ دعوته، بدأ المشركون يؤذون المسلمين الضعفاء. أخذوا بلال بن رباح وألقوه على رمل الصحراء الحار ووضعوا صخرة على صدره ليترك دينه، فكان يردّد كلمة واحدة: «أحدٌ.. أحدٌ». وعذّبوا عمار بن ياسر وأباه وأمه سمية، وكان النبي ﷺ يمرّ عليهم فيقول: «صبراً آل ياسر، فإن موعدكم الجنة».",
+        shortLesson: "الإيمان يعطي القلب قوة لا تُهزم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما أعلن النبي ﷺ دعوته، بدأ المشركون بتعذيب المسلمين الضعفاء الذين لا عشيرة تحميهم. أخذوا بلال بن رباح، وكان عبداً، فألقوه على رمال الصحراء الحارقة ووضعوا صخرة ضخمة على صدره ليترك الإسلام، فكان بلال الشجاع يردّد كلمة واحدة تغيظهم: «أحدٌ.. أحدٌ»، أي أن الله واحد. وعذّبوا كذلك عمار بن ياسر وأباه وأمه سمية رضي الله عنهم، وكانت سمية أول شهيدة في الإسلام. وكان النبي ﷺ يمرّ عليهم وهم يُعذَّبون فيقول لهم: «صبراً آل ياسر، فإن موعدكم الجنة».",
+        details:
+          "قال تعالى مبشّراً الصابرين: ﴿إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أبو بكر رضي الله عنه اشترى بلالاً وأعتقه.",
+      value: { name: "الصبر والثبات", icon: "🔥" },
+      thinkQuestion:
+        "ما أصعب موقف صبرت فيه؟ وما الذي أعانك على الصبر؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما الكلمة التي كان بلال رضي الله عنه يردّدها تحت التعذيب؟",
+        options: ["أحدٌ أحد", "الصبر", "النجاة", "الرحمة"],
+        correctAnswer: 0,
+      },
+    },
+    gamification: {
+      artifact: { name: "حصاة من رمل مكة", description: "حصاة تذكّرك بمن ثبتوا حين كان الثبات أصعب شيء." },
+      badge: "وسام: قلب لا يُهزم",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام، وصحيح البخاري",
+      note: "تعذيب بلال وآل ياسر ثابت في كتب السيرة، وذكر البخاري خبر بلال وشراء أبي بكر له.",
+    },
+  },
+  {
+    storyId: "st-4-04",
+    stationId: 4,
+    slug: "migration-to-abyssinia",
+    en: {
+      title: "Journey to the Land of the Just King",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "When the harm grew heavy, the Prophet (pbuh) told the Muslims: go to the land of Abyssinia, for there is a king there under whom no one is wronged. Some travelled and crossed the sea. Quraysh sent gifts to King an-Najashi to have them sent back, but he refused until he had heard them. Ja'far ibn Abi Talib stepped forward, spoke about Islam and recited verses from Surah Maryam. The king wept, refused to hand them over, and gave them safety.",
+          shortLesson: "Justice protects the stranger before the neighbour.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the torture became too heavy, the Prophet (pbuh) told the Muslims: “Go to the land of Abyssinia, for there is a king there under whom no one is wronged.” Some travelled quietly and crossed the sea into Africa. Quraysh heard of it and sent gifts to King an-Najashi so that he would send the Muslims back, but the just king refused until he had heard from them first. Ja'far ibn Abi Talib stepped forward and spoke, bravely and courteously, about Islam and its manners, then recited verses from the opening of Surah Maryam. An-Najashi wept and said: “This and what Jesus brought come from one and the same lamp.” He refused to hand them over and gave them safety in his land.",
+          details:
+            "Ja'far recited the opening of Surah Maryam: ﴿وَاذْكُرْ فِي الْكِتَابِ مَرْيَمَ﴾ — “And mention in the Book, Maryam.”",
+        },
+      },
+      interactive: {
+        discover: "Abyssinia was the first migration in Islam, before the migration to Madinah.",
+        value: { name: "Justice and dialogue", icon: "⛵" },
+        thinkQuestion: "Why did the king insist on hearing both sides before deciding?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which surah did Ja'far recite before an-Najashi?",
+          options: ["Surah Yusuf", "Surah Maryam", "Surah Al-Kahf", "Surah Taha"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Small Sail", description: "A sail for the first journey made across the sea for the faith." },
+        badge: "Badge: First of the Migrants",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Musnad Ahmad, Ibn Hisham's Seerah",
+        note: "The migration to Abyssinia and Ja'far's speech are reported in Musnad Ahmad and the Seerah literature.",
+      },
+    },
+    title: "رحلة إلى أرض الملك العادل",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لما اشتدّ الأذى على المسلمين قال لهم النبي ﷺ: اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد. فسافر بعضهم وعبروا البحر. أرسلت قريش هدايا إلى الملك النجاشي ليردّهم، فرفض حتى يسمع منهم. فتقدّم جعفر بن أبي طالب وتكلّم عن الإسلام وقرأ آيات من سورة مريم، فبكى الملك ورفض أن يسلّمهم وأعطاهم الأمان.",
+        shortLesson: "العدل يحمي الغريب قبل القريب.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما اشتدّ العذاب على المسلمين قال لهم النبي ﷺ: «اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد». فسافر بعض المسلمين سراً وعبروا البحر إلى أفريقيا. فعلمت قريش وأرسلت هدايا إلى الملك النجاشي ليردّ إليهم المسلمين، لكن الملك العادل رفض حتى يسمع منهم أولاً. فتقدّم جعفر بن أبي طالب رضي الله عنه وتحدّث بشجاعة وأدب عن الإسلام وأخلاقه، ثم قرأ آيات من أول سورة مريم. فبكى النجاشي وقال: «إن هذا والذي جاء به عيسى ليخرج من مشكاة واحدة»، ورفض أن يسلّمهم، وأعطاهم الأمان في أرضه.",
+        details:
+          "قرأ جعفر رضي الله عنه أول سورة مريم، ومنها: ﴿وَاذْكُرْ فِي الْكِتَابِ مَرْيَمَ إِذِ انتَبَذَتْ مِنْ أَهْلِهَا مَكَانًا شَرْقِيًّا﴾.",
+      },
+    },
+    interactive: {
+      discover: "هجرة الحبشة هي أول هجرة في الإسلام، قبل الهجرة إلى المدينة.",
+      value: { name: "العدل والحوار", icon: "⛵" },
+      thinkQuestion:
+        "لماذا أصرّ النجاشي أن يسمع من الطرفين قبل أن يحكم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أي سورة قرأها جعفر بن أبي طالب أمام النجاشي؟",
+        options: ["سورة يوسف", "سورة مريم", "سورة الكهف", "سورة طه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "شراع صغير", description: "شراع يذكّرك بأول رحلة عبرت البحر من أجل الدين." },
+      badge: "وسام: مهاجر أول",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "مسند أحمد، وسيرة ابن هشام",
+      note: "خبر هجرة الحبشة وكلام جعفر أمام النجاشي مروي في مسند أحمد وكتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-4-05",
+    stationId: 4,
+    slug: "year-of-sorrow",
+    en: {
+      title: "The Unjust Siege and the Year of Sorrow",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Quraysh agreed to boycott the Prophet (pbuh) and everyone who stood with him, writing an unjust document and hanging it in the Kaaba. The Muslims lived in a narrow valley between the mountains for three years, until they ate the leaves of trees from hunger. Then honourable men tore the document up and the siege ended. Shortly after, Lady Khadijah died, and so did Abu Talib — which is why that year is called the Year of Sorrow.",
+          shortLesson: "However long injustice lasts, it does not last forever.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The tribes of Quraysh agreed to boycott the Prophet (pbuh) and everyone who supported him. They wrote an unjust document and hung it inside the Kaaba, forbidding marriage or trade with them. The Muslims were forced to live in a narrow valley between the mountains called the Valley of Abu Talib for three years, until they ate the leaves of trees from sheer hunger. Then Allah relieved them: honourable men of Quraysh rose and tore the document up, and the siege ended. But shortly after came something heavier still — the great Lady Khadijah died, and so did Abu Talib, the uncle who had defended him. That year is called the Year of Sorrow.",
+          details:
+            "Allah teaches him patience: ﴿وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ﴾ — “Be patient, and your patience is only through Allah.”",
+        },
+      },
+      interactive: {
+        discover: "A shi'b is a narrow pass between two mountains — this one belonged to Abu Talib.",
+        value: { name: "Endurance and standing together", icon: "⛰️" },
+        thinkQuestion: "What makes people hold together through a hard time?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How long did the siege in the valley last?",
+          options: ["One year", "Two years", "Three years", "Five years"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Tree Leaf", description: "A leaf for those who endured when there was nothing to eat." },
+        badge: "Badge: Steadfast of the Valley",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah",
+        note: "The document, the siege in the valley, and the deaths of Khadijah and Abu Talib are well known in the Seerah.",
+      },
+    },
+    title: "الحصار الظالم وعام الحزن",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "اتفقت قريش على مقاطعة النبي ﷺ وكل من يقف معه، وكتبوا صحيفة ظالمة علّقوها في الكعبة. فعاش المسلمون في شِعب بين الجبال ثلاث سنوات حتى أكلوا ورق الشجر من الجوع، ثم مزّق الصحيفةَ رجالٌ شرفاء فانتهى الحصار. وبعده بقليل ماتت السيدة خديجة ومات أبو طالب، فسُمي ذلك العام عام الحزن.",
+        shortLesson: "الظلم مهما طال لا يدوم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "اتفقت قبائل قريش على مقاطعة النبي ﷺ وكل من يؤيده، وكتبوا صحيفة ظالمة علّقوها داخل الكعبة، تمنع أن يزوّجوهم أو يبيعوهم. فاضطر المسلمون إلى العيش في مكان بين الجبال يُسمى شِعب أبي طالب ثلاث سنوات، حتى أكلوا ورق الشجر من شدة الجوع. ثم منّ الله عليهم، فقام رجال شرفاء من قريش فمزّقوا الصحيفة وانتهى الحصار. لكن بعده بقليل حدث ما هو أشدّ: توفيت السيدة العظيمة خديجة رضي الله عنها، وتوفي أبو طالب عمّ النبي الذي كان يدافع عنه، فسُمي ذلك العام «عام الحزن».",
+        details:
+          "قال تعالى يعلّم نبيه الصبر: ﴿وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ ۚ وَلَا تَحْزَنْ عَلَيْهِمْ وَلَا تَكُ فِي ضَيْقٍ مِّمَّا يَمْكُرُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سُمي المكان شِعب أبي طالب، والشِّعب طريق ضيق بين جبلين.",
+      value: { name: "الصمود والترابط", icon: "⛰️" },
+      thinkQuestion:
+        "ما الذي يجعل الناس يصمدون معاً في الأزمات؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "كم سنة استمر حصار المسلمين في الشِّعب؟",
+        options: ["سنة واحدة", "سنتان", "ثلاث سنوات", "خمس سنوات"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "ورقة شجر", description: "ورقة تذكّرك بمن صبروا حين لم يجدوا ما يأكلون." },
+      badge: "وسام: صامد الشِّعب",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام",
+      note: "خبر الصحيفة والحصار في الشِّعب ووفاة خديجة وأبي طالب مشهور في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-4-06",
+    stationId: 4,
+    slug: "islam-of-heroes",
+    en: {
+      title: "The Islam of Heroes: Hamza and Umar",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Muslims prayed in secret, fearing harm from Quraysh — until the day the Prophet's brave uncle Hamza ibn Abd al-Muttalib grew angry and announced his Islam to defend his nephew. Days later Umar ibn al-Khattab, who had set out with his sword to harm the Prophet (pbuh), heard verses of Surah Taha and believed. The Muslims grew strong and prayed openly at the Kaaba for the first time.",
+          shortLesson: "Allah guides hearts, however hard they look.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Muslims were praying in secret, afraid of the harm of Quraysh, until the day the Prophet's brave uncle Hamza ibn Abd al-Muttalib grew angry and announced his Islam to defend his nephew. A few days later came the greater surprise: Umar ibn al-Khattab, who had gone out with his sword to harm the Prophet (pbuh), heard verses from Surah Taha, and his heart shook, and he believed there and then. With Hamza and Umar, the Muslims became strong, and for the first time they walked out in two rows saying “Allahu Akbar” through the streets of Mecca until they reached the Kaaba — and Quraysh did not dare to touch them.",
+          details:
+            "Allah says: ﴿يَا أَيُّهَا النَّبِيُّ حَسْبُكَ اللَّهُ وَمَنِ اتَّبَعَكَ مِنَ الْمُؤْمِنِينَ﴾ — “Allah is sufficient for you, and for the believers who follow you.”",
+        },
+      },
+      interactive: {
+        discover: "Umar was called al-Farooq — the one by whom truth was distinguished from falsehood.",
+        value: { name: "The guiding of hearts", icon: "🗡️" },
+        thinkQuestion: "What changed Umar's heart in a single moment?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which surah did Umar ibn al-Khattab hear before he believed?",
+          options: ["Surah Ya-Sin", "Surah Taha", "Surah Ar-Rahman", "Surah An-Nur"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Sheathed Sword", description: "A sword returned to its sheath when truth won over anger." },
+        badge: "Badge: A Heart Guided",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah, Ibn Sa'd's Tabaqat",
+        note: "The Islam of Hamza and Umar is well known in the Seerah literature.",
+      },
+    },
+    title: "إسلام الأبطال: حمزة وعمر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كان المسلمون يصلّون سراً خوفاً من أذى قريش، حتى غضب حمزة بن عبد المطلب عمّ النبي الشجاع وأعلن إسلامه دفاعاً عن ابن أخيه. وبعده بأيام أسلم عمر بن الخطاب، وكان خارجاً بسيفه ليؤذي النبي ﷺ، فسمع آيات من سورة طه فآمن. فقوي المسلمون وخرجوا لأول مرة يصلّون عند الكعبة.",
+        shortLesson: "الله يهدي القلوب مهما بدت قاسية.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كان المسلمون يصلّون سراً خائفين من أذى قريش، حتى جاء اليوم الذي غضب فيه حمزة بن عبد المطلب عمّ النبي الشجاع، فأعلن إسلامه ليدافع عن ابن أخيه. وبعده بأيام قليلة حدثت المفاجأة الكبرى: عمر بن الخطاب، الذي خرج بسيفه ليؤذي النبي ﷺ، سمع آيات من سورة طه فارتجّ قلبه وآمن من ساعته. وبإسلام حمزة وعمر رضي الله عنهما قوي المسلمون، وخرجوا لأول مرة في صفّين يكبّرون في شوارع مكة حتى بلغوا الكعبة، فلم تجرؤ قريش على أذاهم.",
+        details:
+          "قال تعالى: ﴿يَا أَيُّهَا النَّبِيُّ حَسْبُكَ اللَّهُ وَمَنِ اتَّبَعَكَ مِنَ الْمُؤْمِنِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "لُقّب عمر بن الخطاب رضي الله عنه بالفاروق، لأن الله فرّق به بين الحق والباطل.",
+      value: { name: "هداية القلوب", icon: "🗡️" },
+      thinkQuestion:
+        "ما الذي غيّر قلب عمر رضي الله عنه في لحظة واحدة؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أي سورة سمعها عمر بن الخطاب فآمن؟",
+        options: ["سورة يس", "سورة طه", "سورة الرحمن", "سورة النور"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "سيف مغمود", description: "سيف عاد إلى غمده حين انتصر الحق على الغضب." },
+      badge: "وسام: قلب اهتدى",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام، الطبقات الكبرى لابن سعد",
+      note: "خبر إسلام حمزة وعمر رضي الله عنهما مشهور في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-4-07",
+    stationId: 4,
+    slug: "sun-and-moon",
+    en: {
+      title: "The Sun in My Right Hand, the Moon in My Left",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Quraysh sent their leaders to the Prophet (pbuh) offering him wealth and kingship on one condition: that he leave his religion. He gave the answer we still remember: by Allah, if they put the sun in my right hand and the moon in my left so that I would leave this, I would not leave it.",
+          shortLesson: "Truth is worth more than anything that can be bought.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Quraysh sent their leaders to the Prophet (pbuh), saying: “If you want wealth, we will gather it for you until you are the richest of us; if you want kingship, we will make you our king — on one condition: that you leave this religion.” The offer would have tempted anyone, but the Prophet (pbuh) was not seeking money or power. He gave the decisive answer we still remember: “By Allah, if they put the sun in my right hand and the moon in my left so that I would abandon this matter until Allah makes it prevail, or I perish in it, I would not abandon it.”",
+          details:
+            "Allah says: ﴿قُل لَّا أَتَّبِعُ أَهْوَاءَكُمْ﴾ — “Say: I do not follow your desires.”",
+        },
+      },
+      interactive: {
+        discover: "They offered him wealth, kingship, and a doctor if he were ill — he refused all three.",
+        value: { name: "Standing by a principle", icon: "☀️" },
+        thinkQuestion: "What is the one thing you would not trade, whatever you were offered?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How did the Prophet (pbuh) answer the offer of wealth and kingship?",
+          options: ["He asked for time", "He accepted with conditions", "Not even for the sun and the moon", "He said nothing"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Golden Scale", description: "A scale to remind you that some things have no price." },
+        badge: "Badge: Firm on the Truth",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah",
+        note: "This account is well known in the Seerah, reported by Ibn Ishaq without a full chain.",
+      },
+    },
+    title: "الشمس في يميني والقمر في يساري",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "أرسلت قريش زعماءها إلى النبي ﷺ يعرضون عليه المال والملك بشرط أن يترك دينه. فردّ عليهم ردّه المشهور: والله لو وضعوا الشمس في يميني والقمر في يساري على أن أترك هذا الأمر ما تركته.",
+        shortLesson: "الحق أغلى من كل ما يُشترى.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "أرسلت قريش زعماءها إلى النبي ﷺ فقالوا له: «إن كنت تريد مالاً جمعنا لك حتى تكون أغنانا، وإن كنت تريد ملكاً ملّكناك علينا، بشرط واحد: أن تترك هذا الدين». كان العرض مغرياً لأي إنسان، لكن النبي ﷺ لم يكن يطلب مالاً ولا سلطاناً، فردّ ردّه الحاسم الذي نذكره إلى اليوم: «والله لو وضعوا الشمس في يميني والقمر في يساري على أن أترك هذا الأمر حتى يظهره الله أو أهلك فيه، ما تركته».",
+        details:
+          "قال تعالى: ﴿قُلْ إِنِّي نُهِيتُ أَنْ أَعْبُدَ الَّذِينَ تَدْعُونَ مِن دُونِ اللَّهِ ۚ قُل لَّا أَتَّبِعُ أَهْوَاءَكُمْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "عرضوا عليه المال والملك والطبّ إن كان به مرض — فرفض الثلاثة.",
+      value: { name: "الثبات على المبدأ", icon: "☀️" },
+      thinkQuestion:
+        "ما الشيء الذي لا تبيعه مهما عُرض عليك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بماذا ردّ النبي ﷺ على عرض المال والملك؟",
+        options: ["طلب مهلة للتفكير", "قبل بشرط", "لو وضعوا الشمس في يميني ما تركته", "سكت"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "ميزان ذهبي", description: "ميزان يذكّرك أن بعض الأشياء لا ثمن لها." },
+      badge: "وسام: ثابت على الحق",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام",
+      note: "هذا الخبر مشهور في كتب السيرة، ورواه ابن إسحاق مرسلاً.",
+    },
+  },
+  {
+    storyId: "st-4-08",
+    stationId: 4,
+    slug: "splitting-of-the-moon",
+    en: {
+      title: "A Miracle in the Sky: The Splitting of the Moon",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The disbelievers of Quraysh asked the Prophet (pbuh) for a miracle they could see with their own eyes: split the moon for us. He prayed to his Lord, and the moon split in two before the people — half over one mountain and half over another. Even so they said: Muhammad has bewitched us, and they did not believe.",
+          shortLesson: "Signs are no use to a heart full of pride.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The disbelievers of Quraysh challenged the Prophet (pbuh): “We will not believe you until you bring a miracle we can see. Split this moon for us.” He prayed to his Lord, and suddenly, before everyone's eyes, the moon split in two: half above one mountain and half above another. The people of Mecca saw it, and so did travellers in the desert. Yet for all the clarity of it, the leaders of Quraysh dug in and said: “Muhammad has bewitched us.” What kept them from believing was not weak evidence but proud hearts.",
+          details:
+            "The Quran records it: ﴿اقْتَرَبَتِ السَّاعَةُ وَانشَقَّ الْقَمَرُ﴾ — “The Hour has drawn near, and the moon has split.”",
+        },
+      },
+      interactive: {
+        discover: "Surah Al-Qamar is named after this event and opens with it.",
+        value: { name: "Humility before the truth", icon: "🌙" },
+        thinkQuestion: "Why did they not believe, even having seen the miracle themselves?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Which surah opens by mentioning the splitting of the moon?",
+          options: ["Surah An-Najm", "Surah Al-Qamar", "Surah Ash-Shams", "Surah Al-Layl"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Half Moon", description: "A keepsake for a sign people saw, and turned away from." },
+        badge: "Badge: Witness to the Sign",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran (Surah Al-Qamar), Sahih al-Bukhari and Muslim",
+        note: "The splitting of the moon is established in the Quran and both Sahih collections.",
+      },
+    },
+    title: "معجزة في السماء: انشقاق القمر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "طلب كفار قريش من النبي ﷺ معجزة يرونها بأعينهم، فقالوا: اشقق لنا القمر. فدعا النبي ﷺ ربه، فانشقّ القمر نصفين أمام الناس، نصف فوق جبل ونصف فوق جبل آخر. ومع ذلك قالوا: سحرنا محمد، ولم يؤمنوا.",
+        shortLesson: "القلب المتكبّر لا تنفع معه الآيات.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "تحدّى كفار قريش النبي ﷺ فقالوا: «لن نؤمن لك حتى تأتينا بمعجزة نراها، اشقق لنا هذا القمر». فدعا النبي ﷺ ربه، وفجأة وأمام أعين الجميع انشقّ القمر نصفين: نصف فوق جبل ونصف فوق جبل آخر، ورآه أهل مكة والمسافرون في الصحراء. ومع وضوح هذه المعجزة عاند زعماء قريش وقالوا: «سحرنا محمد»، فلم يمنعهم من الإيمان ضعف الدليل، بل كِبر القلوب.",
+        details:
+          "وثّق القرآن هذه المعجزة: ﴿اقْتَرَبَتِ السَّاعَةُ وَانشَقَّ الْقَمَرُ ۝ وَإِن يَرَوْا آيَةً يُعْرِضُوا وَيَقُولُوا سِحْرٌ مُّسْتَمِرٌّ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سورة القمر سُمّيت بهذه الحادثة، وتبدأ بذكرها.",
+      value: { name: "التواضع لقبول الحق", icon: "🌙" },
+      thinkQuestion:
+        "لماذا لم يؤمنوا وقد رأوا المعجزة بأعينهم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "أي سورة ذكرت انشقاق القمر في أولها؟",
+        options: ["سورة النجم", "سورة القمر", "سورة الشمس", "سورة الليل"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "نصف قمر", description: "تذكار لآية رآها الناس ثم أعرضوا عنها." },
+      badge: "وسام: شاهد الآية",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن (سورة القمر)، وصحيح البخاري ومسلم",
+      note: "حادثة انشقاق القمر ثابتة في القرآن والصحيحين.",
+    },
+  },
+  {
+    storyId: "st-4-09",
+    stationId: 4,
+    slug: "cotton-in-ears",
+    en: {
+      title: "Cotton in the Ears: The Clever Poet",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "A wise poet named at-Tufayl ibn Amr ad-Dawsi came to Mecca. Quraysh warned him not to hear a word from the Prophet (pbuh), so he put cotton in his ears. Then he thought again: I am a man who understands words — why should I not listen? He took the cotton out, heard the Quran, and became Muslim, saying: by Allah, I have never heard anything better.",
+          shortLesson: "Do not judge a thing before you have heard it yourself.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "A wise poet named at-Tufayl ibn Amr ad-Dawsi came to Mecca. The leaders of Quraysh warned him: “Do not hear a single word from Muhammad — his speech is like magic that splits a man from his own family.” At-Tufayl was afraid and put cotton in his ears while he circled the Kaaba. Then he thought it over: “I am a poet who knows fine speech from foul. What stops me from listening? If it is good, I will accept it.” He took the cotton out, heard the Quran from the Prophet (pbuh), and became Muslim on the spot, saying: “By Allah, I have never heard anything better than this.”",
+          details:
+            "Allah says of the Quran's effect: ﴿تَرَىٰ أَعْيُنَهُمْ تَفِيضُ مِنَ الدَّمْعِ مِمَّا عَرَفُوا مِنَ الْحَقِّ﴾ — their eyes overflow at the truth they recognise.",
+        },
+      },
+      interactive: {
+        discover: "At-Tufayl went back to his people, Daws, and called them — and they later became Muslim.",
+        value: { name: "Checking before judging", icon: "👂" },
+        thinkQuestion: "Have you ever believed something about someone and then found it untrue? What should you have done?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did at-Tufayl put in his ears at first?",
+          options: ["Wax", "Cotton", "Clay", "Cloth"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A Tuft of Cotton", description: "Cotton to remind you to listen for yourself before you judge." },
+        badge: "Badge: The Clever Listener",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Ibn Hisham's Seerah",
+        note: "The story of at-Tufayl ibn Amr ad-Dawsi is well known in the Seerah literature.",
+      },
+    },
+    title: "القطن في الأذن وقصة الشاعر الذكي",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاء إلى مكة شاعر حكيم اسمه الطُّفيل بن عمرو الدَّوسي، فحذّرته قريش من سماع كلام النبي ﷺ، فوضع القطن في أذنيه. ثم فكّر وقال: أنا رجل أفهم الكلام، فلماذا لا أسمع؟ فنزع القطن وسمع القرآن، فأسلم وقال: والله ما سمعت كلاماً أحسن من هذا قط.",
+        shortLesson: "لا تحكم على شيء قبل أن تسمعه بنفسك.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "قدِم إلى مكة شاعر حكيم يُدعى الطُّفيل بن عمرو الدَّوسي، فحذّره زعماء قريش وقالوا له: «لا تسمع من محمد كلمة واحدة، فإن كلامه كالسحر يفرّق بين الرجل وأهله». فخاف الطفيل ووضع القطن في أذنيه وهو يطوف بالكعبة. ثم راجع نفسه وقال: «أنا رجل شاعر لبيب أعرف الحسن من القبيح، فما يمنعني أن أسمع؟ فإن كان حسناً قبلته». فنزع القطن وسمع القرآن من النبي ﷺ، فأسلم من ساعته وقال: «والله ما سمعت كلاماً أحسن من هذا قط».",
+        details:
+          "قال تعالى في أثر القرآن على القلوب: ﴿وَإِذَا سُمِعُوا مَا أُنزِلَ إِلَى الرَّسُولِ تَرَىٰ أَعْيُنَهُمْ تَفِيضُ مِنَ الدَّمْعِ مِمَّا عَرَفُوا مِنَ الْحَقِّ﴾.",
+      },
+    },
+    interactive: {
+      discover: "رجع الطفيل إلى قومه دَوس يدعوهم، فأسلموا بعد ذلك.",
+      value: { name: "التثبّت قبل الحكم", icon: "👂" },
+      thinkQuestion:
+        "هل صدّقت مرة كلاماً عن أحد ثم عرفت أنه غير صحيح؟ ماذا كان يجب أن تفعل؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا وضع الطفيل بن عمرو في أذنيه أول الأمر؟",
+        options: ["الشمع", "القطن", "الطين", "القماش"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "خصلة قطن", description: "قطنة تذكّرك أن تسمع بنفسك قبل أن تحكم." },
+      badge: "وسام: المستمع الذكي",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سيرة ابن هشام",
+      note: "قصة إسلام الطفيل بن عمرو الدوسي مشهورة في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-4-10",
+    stationId: 4,
+    slug: "journey-to-taif",
+    en: {
+      title: "The Sad Journey to Taif",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "After the deaths of Khadijah and Abu Talib the harm grew worse, so the Prophet (pbuh) walked to Taif to call its people. They turned him away and set boys to throw stones at him until his feet bled. He sat and prayed, and the Angel of the Mountains came asking permission to crush them between the two mountains. He refused, saying: rather, I hope Allah brings from their children people who worship Him alone.",
+          shortLesson: "The greatest strength is to forgive when you could strike.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "After the deaths of Lady Khadijah and his uncle Abu Talib, the harm from Quraysh grew worse, so the Prophet (pbuh) decided to walk on foot to the city of Taif, hoping its people would believe and stand with him. But they were hard: they refused his call and set the boys to throw stones at him until blood ran from his noble feet. He sat down, sad and exhausted, and prayed to his Lord. Then the Angel of the Mountains came down and asked his permission to crush them between the two mountains. The Prophet of Mercy refused, and said: “Rather, I hope that Allah will bring forth from their descendants those who worship Allah alone and associate nothing with Him.”",
+          details:
+            "Allah says of his mercy: ﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ﴾ — “We sent you only as a mercy to the worlds.”",
+        },
+      },
+      interactive: {
+        discover: "The people of Taif became Muslim years later, and companions came from among them.",
+        value: { name: "Mercy when you have the power", icon: "🤲" },
+        thinkQuestion: "When someone hurts you and you could hit back, what makes you choose to forgive?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet (pbuh) answer the Angel of the Mountains?",
+          options: ["He agreed", "He asked for time", "He refused, hoping for their children", "He said nothing"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "An Olive Branch", description: "A branch to remind you that mercy is stronger than revenge." },
+        badge: "Badge: A Mercy to the Worlds",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The Angel of the Mountains and the return from Taif are established in both Sahih collections.",
+      },
+    },
+    title: "الرحلة الحزينة إلى الطائف",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق عليهم الجبلين، فرفض وقال: بل أرجو أن يخرج الله من ذريّتهم من يعبد الله وحده.",
+        shortLesson: "أعظم القوة أن تعفو وأنت قادر.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد وفاة السيدة خديجة وعمّه أبي طالب اشتدّ أذى قريش، فقرر النبي ﷺ أن يمشي على قدميه إلى مدينة الطائف لعلّ أهلها يؤمنون وينصرونه. لكنهم كانوا قساة، فردّوا دعوته وأمروا الصبيان أن يرموه بالحجارة حتى سال الدم من قدميه الشريفتين. فجلس النبي ﷺ حزيناً متعباً يدعو ربه. فنزل عليه ملك الجبال واستأذنه أن يطبق عليهم الأخشبين — أي الجبلين — فرفض نبي الرحمة وقال: «بل أرجو أن يخرج الله من أصلابهم من يعبد الله وحده لا يشرك به شيئاً».",
+        details:
+          "قال تعالى في رحمته ﷺ: ﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أهل الطائف أسلموا بعد سنوات، وصار منهم صحابة كرام.",
+      value: { name: "الرحمة عند المقدرة", icon: "🤲" },
+      thinkQuestion:
+        "حين يؤذيك أحد وتستطيع أن تردّ، ما الذي يجعلك تختار العفو؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بماذا ردّ النبي ﷺ على ملك الجبال حين استأذنه في إهلاك أهل الطائف؟",
+        options: ["وافق", "طلب المهلة", "رفض ورجا هداية ذريّتهم", "سكت"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "غصن زيتون", description: "غصن يذكّرك أن الرحمة أقوى من الانتقام." },
+      badge: "وسام: رحمة للعالمين",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "حديث ملك الجبال ورجوع النبي ﷺ من الطائف ثابت في الصحيحين.",
     },
   },
 ];
