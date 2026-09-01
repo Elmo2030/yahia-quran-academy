@@ -71,12 +71,13 @@ function StoryArt({ story, className }: { story: Story; className?: string }) {
       </figure>
     );
   }
+  const { locale } = useLocale();
   return (
     <figure className={`story-image story-image-placeholder story-image-placeholder--leaf ${className ?? ""}`} aria-hidden="true">
       <span className="story-image-placeholder__sun" />
       <span className="story-image-placeholder__hill" />
       <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
-      <small>{story.title}</small>
+      <small>{storyTextFor(story, locale).title}</small>
     </figure>
   );
 }

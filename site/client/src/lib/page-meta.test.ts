@@ -82,3 +82,20 @@ describe("metaForPath", () => {
     }
   });
 });
+
+// A number that names no surah is a wrong address. The function already said
+// so; the reader used to disagree with it by opening Al-Fatiha.
+describe("addresses that name no surah", () => {
+  it.each(["/read/0", "/read/115", "/read/200", "/read/abc", "/read/-1"])(
+    "keeps %s out of the index",
+    (path) => {
+      expect(metaForPath(path).noindex).toBe(true);
+    },
+  );
+
+  it("still names every real surah", () => {
+    for (const surah of [1, 18, 114]) {
+      expect(metaForPath(`/read/${surah}`).noindex).toBeFalsy();
+    }
+  });
+});

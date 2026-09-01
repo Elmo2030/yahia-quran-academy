@@ -7,6 +7,7 @@ import { activeAt, defaultRecitationId, listRecitations, loadSurahSource, loadTi
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
+import NotFound from "@/pages/NotFound";
 import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useReadingProgress } from "@/lib/progress";
@@ -24,9 +25,17 @@ const copy = {
 
 const CONTINUOUS_KEY = "yahya.reader.continuous";
 
+/**
+ * The surah in the address, or null if there is no such surah.
+ *
+ * This used to fall back to Al-Fatiha, so /read/200 and /read/abc opened a
+ * working reader on surah 1 while the tab said "page not found" and the server
+ * answered 404 — the page disagreeing with its own title. A number that names
+ * no surah is a wrong address, and says so.
+ */
 function parseSurah(value: string | undefined) {
   const parsed = Number(value);
-  return Number.isInteger(parsed) && parsed >= 1 && parsed <= 114 ? parsed : 1;
+  return Number.isInteger(parsed) && parsed >= 1 && parsed <= 114 ? parsed : null;
 }
 
 export default function Reader() {
@@ -34,7 +43,8 @@ export default function Reader() {
   const [, setLocation] = useLocation();
   const { direction, locale } = useLocale();
   const t = copy[locale];
-  const selectedSurah = parseSurah(params?.surah);
+  const requestedSurah = parseSurah(params?.surah);
+  const selectedSurah = requestedSurah ?? 1;
   const [ayahs, setAyahs] = useState<TransliteratedAyah[]>([]);
   const [audio, setAudio] = useState<SurahAudioSource | null>(null);
   const [recitations, setRecitations] = useState<Recitation[]>([]);
@@ -189,6 +199,8 @@ export default function Reader() {
   const isTimed = timings.length > 0;
   const changeRecitation = (id: string) => { playerRef.current?.pause(); setPlaying(false); setRecitationId(id); };
   const BackArrow = locale === "ar" ? ArrowRight : ArrowLeft;
+
+  if (requestedSurah === null) return <NotFound />;
 
   return (
     <main className="reader-page" dir={direction}>
