@@ -11,7 +11,12 @@
  * level only. Nothing is inferred to fill a gap.
  */
 
-const MANIFEST_URL = "/manus-storage/recitation_manifest.json";
+// Written by scripts/build-recitation-data.mjs. The catalogue is what the
+// chooser needs; a surah file is what playing one surah needs. The reader used
+// to download all 250 KB of the manifest — three recitations times 114 surahs
+// of URLs, checksums and byte counts — to play a single surah.
+const CATALOGUE_URL = "/recitations/index.json";
+const surahUrl = (surah: number) => `/recitations/surah-${String(surah).padStart(3, "0")}.json`;
 
 export type RecitationId = string;
 
@@ -41,17 +46,17 @@ export type TimedAyah = {
   words: TimedWord[];
 };
 
-type Manifest = {
+type Catalogue = {
   default_recitation_id?: string;
-  recitations: Record<string, RawRecitation>;
+  recitations: {
+    id: string;
+    display_name_ar: string;
+    display_name_en: string;
+    timing_status: string;
+    has_surahs: boolean;
+  }[];
 };
-type RawRecitation = {
-  id: string;
-  display_name_ar: string;
-  display_name_en: string;
-  timing_status: string;
-  surahs?: Record<string, RawSurah>;
-};
+type SurahFile = { surah: number; recitations: Record<string, RawSurah> };
 type RawSurah = {
   playback_url: string;
   duration_ms: number;
@@ -60,7 +65,8 @@ type RawSurah = {
   unavailable_timing_ayahs?: number[];
 };
 
-let manifestPromise: Promise<Manifest> | null = null;
+let cataloguePromise: Promise<Catalogue> | null = null;
+const surahFiles = new Map<number, Promise<SurahFile>>();
 
 async function loadJson<T>(url: string): Promise<T> {
   const response = await fetch(url);
@@ -68,32 +74,57 @@ async function loadJson<T>(url: string): Promise<T> {
   return (await response.json()) as T;
 }
 
-function loadManifest() {
-  manifestPromise ??= loadJson<Manifest>(MANIFEST_URL);
-  return manifestPromise;
+function loadCatalogue() {
+  cataloguePromise ??= loadJson<Catalogue>(CATALOGUE_URL);
+  return cataloguePromise;
+}
+
+/**
+ * One surah's sources, checked on arrival.
+ *
+ * The corpus-wide checks — every recitation covering all 114 surahs, every
+ * playback URL over https — run at build time. What is left to confirm here is
+ * that the file that came back is the surah that was asked for, so a wrong or
+ * truncated response is an error rather than silence where a recitation should
+ * be.
+ */
+function loadSurahFile(surah: number) {
+  let pending = surahFiles.get(surah);
+  if (!pending) {
+    pending = loadJson<SurahFile>(surahUrl(surah))
+      .then(file => {
+        if (file?.surah !== surah) throw new Error(`asked for surah ${surah}, received ${file?.surah}`);
+        return file;
+      })
+      // A failure must not be remembered as one: opening the surah again
+      // should try the network again rather than replay the error.
+      .catch(error => { surahFiles.delete(surah); throw error; });
+    surahFiles.set(surah, pending);
+  }
+  return pending;
 }
 
 export async function listRecitations(): Promise<Recitation[]> {
-  const manifest = await loadManifest();
-  return Object.values(manifest.recitations).map(r => ({
+  const catalogue = await loadCatalogue();
+  return catalogue.recitations.map(r => ({
     id: r.id,
     nameAr: r.display_name_ar,
     nameEn: r.display_name_en,
-    hasTiming: r.timing_status !== "unavailable" && Boolean(r.surahs),
+    hasTiming: r.timing_status !== "unavailable" && r.has_surahs,
   }));
 }
 
 export async function defaultRecitationId(): Promise<RecitationId> {
-  const manifest = await loadManifest();
-  return manifest.default_recitation_id ?? Object.keys(manifest.recitations)[0];
+  const catalogue = await loadCatalogue();
+  return catalogue.default_recitation_id ?? catalogue.recitations[0]?.id;
 }
 
 export async function loadSurahSource(
   recitationId: RecitationId,
   surah: number,
 ): Promise<SurahAudioSource | null> {
-  const manifest = await loadManifest();
-  const raw = manifest.recitations[recitationId]?.surahs?.[String(surah)];
+  const file = await loadSurahFile(surah);
+  const raw = file.recitations[recitationId];
   if (!raw?.playback_url) return null;
   return {
     playbackUrl: raw.playback_url,

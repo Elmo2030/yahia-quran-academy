@@ -23,6 +23,11 @@
 /quran/*
   Cache-Control: public, max-age=604800
 
-# Audio and recitation manifests.
+# Which recitations exist, and where one surah's audio lives. Changed only when
+# a recitation is added.
+/recitations/*
+  Cache-Control: public, max-age=604800
+
+# Audio manifest.
 /manus-storage/*
   Cache-Control: public, max-age=86400

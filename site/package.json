@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/build-surah-data.mjs && node scripts/build-seo.mjs && vite build && node scripts/prerender.mjs && rm -rf dist/functions && cp -R functions dist/functions",
+    "build": "node scripts/build-surah-data.mjs && node scripts/build-recitation-data.mjs && node scripts/build-seo.mjs && vite build && node scripts/prerender.mjs && rm -rf dist/functions && cp -R functions dist/functions",
     "preview": "vite preview",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
-    "pretest": "node scripts/build-surah-data.mjs && node scripts/build-seo.mjs",
+    "pretest": "node scripts/build-surah-data.mjs && node scripts/build-recitation-data.mjs && node scripts/build-seo.mjs",
     "test": "vitest run",
     "audit": "npm_config_cache=./node_modules/.cache/npm COREPACK_HOME=./node_modules/.cache/corepack XDG_CACHE_HOME=./node_modules/.cache npx --yes pnpm@10 audit --prod"
   },
