@@ -11,10 +11,10 @@
 // `configured: false` flag the UI can read.
 // =============================================================================
 
-import {
-  createClient,
-  type SupabaseClient,
-} from "@supabase/supabase-js";
+// The library itself is fetched only when something actually needs it. It is
+// 213 KB of the entry bundle, and a child who opens a surah and never signs in
+// was downloading all of it. The type import costs nothing at runtime.
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 const url = import.meta.env.VITE_SUPABASE_URL ?? "";
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY ?? "";
@@ -22,12 +22,36 @@ const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY ?? "";
 export const isSupabaseConfigured = (): boolean =>
   url.length > 0 && anonKey.length > 0;
 
-let _client: SupabaseClient | null = null;
+/**
+ * Is there a stored session for this project?
+ *
+ * supabase-js keeps it in localStorage under a key derived from the project
+ * ref, and it is the only reason the library has to load for a reader who is
+ * just reading. Asking this first means a signed-out visitor never downloads
+ * it at all. A sign-in returning from Google or Apple carries its session in
+ * the URL instead, so that counts too.
+ */
+export const mightHaveSession = (): boolean => {
+  if (!isSupabaseConfigured()) return false;
+  try {
+    const ref = new URL(url).hostname.split(".")[0];
+    if (localStorage.getItem(`sb-${ref}-auth-token`)) return true;
+  } catch {
+    // Private mode, or a URL we cannot parse: fall through and let the caller
+    // load the library rather than wrongly reporting nobody is signed in.
+    return true;
+  }
+  const { hash, search } = window.location;
+  return hash.includes("access_token") || hash.includes("error=") || search.includes("code=");
+};
 
-export const getSupabase = (): SupabaseClient | null => {
+let pending: Promise<SupabaseClient | null> | null = null;
+
+/** Resolves to the client, loading the library on first use. */
+export const getSupabase = async (): Promise<SupabaseClient | null> => {
   if (!isSupabaseConfigured()) return null;
-  if (!_client) {
-    _client = createClient(url, anonKey, {
+  pending ??= import("@supabase/supabase-js").then(({ createClient }) =>
+    createClient(url, anonKey, {
       auth: {
         // We persist the session in localStorage so the user stays signed in
         // across page navigation on the static SPA. PKCE is the default for
@@ -37,19 +61,9 @@ export const getSupabase = (): SupabaseClient | null => {
         autoRefreshToken: true,
         detectSessionInUrl: true,
       },
-    });
-  }
-  return _client;
+    }),
+  );
+  return pending;
 };
-
-// Convenience export for code that imports the client directly. Most call
-// sites should prefer `getSupabase()` so the fallback path is explicit.
-export const supabase = (() => {
-  try {
-    return getSupabase();
-  } catch {
-    return null;
-  }
-})();
 
 export type ConfiguredSupabaseClient = SupabaseClient;

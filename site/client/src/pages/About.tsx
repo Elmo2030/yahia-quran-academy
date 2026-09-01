@@ -12,6 +12,7 @@ import { BookOpen, ChevronLeft, ChevronRight, Heart, MessageCircle, ShieldCheck,
 
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
+import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 
@@ -115,22 +116,7 @@ export default function About() {
   return (
     <main className="site-shell" dir={direction}>
       <SkipLink />
-      <header className="site-header">
-        <div className="container site-header__inner">
-          <Link href="/" className="brand-mark" aria-label={t.home}>
-            <span className="brand-mark__seal">ي</span>
-            <span><b>Yahya</b> Quran Academy</span>
-          </Link>
-          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav">
-            <Link href="/stories">{t.stories}</Link>
-            <Link href="/seerah">{t.seerah}</Link>
-          </nav>
-          <div className="header-actions"><MobileMenu />
-            <LanguageToggle compact />
-            <Link href="/read/1" className="header-reader-link">{t.reader}</Link>
-          </div>
-        </div>
-      </header>
+      <SiteChrome />
 
       <div id={MAIN_CONTENT_ID}>
         <section className="stories-list-hero">

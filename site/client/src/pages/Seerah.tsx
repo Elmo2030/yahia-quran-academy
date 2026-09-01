@@ -17,6 +17,7 @@ import { ArrowLeft, ArrowRight, BookOpen, Compass, HelpCircle, Moon, ShieldCheck
 
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
+import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import {
@@ -69,20 +70,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
   return (
     <main className="site-shell" dir={direction}>
       <SkipLink />
-      <header className="site-header">
-        <div className="container site-header__inner">
-          <Link href="/" className="brand-mark" aria-label={t.home}>
-            <span className="brand-mark__seal">ي</span>
-            <span><b>Yahya</b> Quran Academy</span>
-          </Link>
-          <div className="header-actions"><MobileMenu />
-            <LanguageToggle compact />
-            <Link href="/stories" className="header-reader-link">
-              <BookOpen size={16} aria-hidden="true" /> {t.quranStories}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SiteChrome />
       <div id={MAIN_CONTENT_ID}>{children}</div>
       <footer className="site-footer">
         <div className="container site-footer__inner">

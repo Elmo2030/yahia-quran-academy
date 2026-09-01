@@ -90,10 +90,11 @@ export function useReadingProgress() {
   // When a profile becomes available, hydrate the summary + latest progress
   // from Supabase and prefer whichever copy is newer.
   useEffect(() => {
-    const client = getSupabase();
-    if (!client || !profileId) return;
+    if (!profileId) return;
     let live = true;
     (async () => {
+      const client = await getSupabase();
+      if (!client) return;
       try {
         const { data } = await client.rpc("get_progress_summary", {
           p_profile_id: profileId,
@@ -141,7 +142,7 @@ export function useReadingProgress() {
       const value: LocalProgress = { surah, ayah, updatedAt: Date.now() };
       writeLocalProgress(value);
       setProgress(value);
-      const client = getSupabase();
+      const client = await getSupabase();
       if (!client || !profileId) return;
       try {
         await client.rpc("record_reading", {

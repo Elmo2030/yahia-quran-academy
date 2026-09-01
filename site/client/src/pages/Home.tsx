@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronLeft, ChevronRight, Circ
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
+import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { RecordingsOverview } from "@/components/RecordingsOverview";
@@ -69,23 +70,7 @@ export default function Home() {
   return (
     <main className="site-shell" dir={direction}>
       <SkipLink />
-      <header className="site-header">
-        <div className="container site-header__inner">
-          <Link href="/" className="brand-mark" aria-label={t.homeLabel}><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></Link>
-          <nav aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"} className="site-nav"><Link href="/about">{t.about}</Link><Link href="/stories">{t.stories}</Link><Link href="/seerah">{t.seerahNav}</Link><Link href="/quran-facts">{t.facts}</Link><a href="#journey">{t.journey}</a><a href="#apps">{t.apps}</a></nav>
-          <div className="header-actions"><MobileMenu /><LanguageToggle compact />{session ? <Link href="/profile" className="header-auth-link"><UserRound size={15} aria-hidden="true" /> {t.account}</Link> : <Link href="/register" className="header-auth-link"><LogIn size={15} aria-hidden="true" /> {t.register}</Link>}<Link href="/read/1" className="header-reader-link">{t.reader} {locale === "ar" ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}</Link></div>
-        </div>
-        {/* .site-nav is hidden below 820px; without this the home page had no
-            navigation at all on a phone. */}
-        <nav className="container site-subnav" aria-label={locale === "ar" ? "تنقل مختصر" : "Quick navigation"}>
-          <Link href="/about">{t.about}</Link>
-          <Link href="/stories">{t.stories}</Link>
-          <Link href="/seerah">{t.seerahNav}</Link>
-          <Link href="/quran-facts">{t.facts}</Link>
-          <a href="#journey">{t.journey}</a>
-          <a href="#apps">{t.apps}</a>
-        </nav>
-      </header>
+      <SiteChrome />
 
       <section id={MAIN_CONTENT_ID} className="hero-section">
         <div className="hero-orbit hero-orbit--one" /><div className="hero-orbit hero-orbit--two" />

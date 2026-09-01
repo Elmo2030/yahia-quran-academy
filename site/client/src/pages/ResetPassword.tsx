@@ -17,7 +17,7 @@ import useAuth, { AuthError } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 
 const MIN_PASSWORD = 8;
@@ -103,7 +103,7 @@ export default function ResetPassword() {
 
   return (
     <div className="min-h-screen bg-[var(--brand-ivory)]" dir={locale === "ar" ? "rtl" : "ltr"}>
-      <SiteHeader />
+      <SiteChrome />
       <main id="main" className="mx-auto w-full max-w-md px-4 py-10 sm:py-14">
         {!initialized ? (
           <div className="flex items-center justify-center py-10" role="status" aria-live="polite">

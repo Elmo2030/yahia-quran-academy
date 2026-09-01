@@ -1,5 +1,5 @@
 import { useLocale } from "@/contexts/LocaleContext";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Privacy() {
@@ -46,7 +46,7 @@ export default function Privacy() {
       };
   return (
     <div className="min-h-screen bg-[var(--brand-ivory)]" dir={isAr ? "rtl" : "ltr"}>
-      <SiteHeader />
+      <SiteChrome />
       <main id="main" className="mx-auto w-full max-w-2xl space-y-6 px-4 py-10 sm:py-14">
         <h1 className="text-2xl font-semibold text-[var(--brand-navy)]">{t.title}</h1>
         <p className="text-sm leading-7 text-[var(--brand-navy)]/80">{t.intro}</p>

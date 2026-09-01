@@ -22,7 +22,7 @@ import {
   type ReactNode,
 } from "react";
 
-import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
+import { getSupabase, isSupabaseConfigured, mightHaveSession } from "@/lib/supabase";
 
 type Locale = "ar" | "en";
 
@@ -192,7 +192,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const lastFetchedUserIdRef = useRef<string | null>(null);
 
   const fetchProfile = useCallback(async (authUserId: string): Promise<Profile | null> => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) return null;
     const { data, error } = await client
       .from("profiles")
@@ -213,7 +213,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const refreshProfile = useCallback(async () => {
-    const client = getSupabase();
+    const client = await getSupabase();
     const userId = state.session?.user.id;
     if (!client || !userId) {
       setState((s) => ({ ...s, profile: null }));
@@ -226,12 +226,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Initial subscription + auth state changes.
   useEffect(() => {
-    const client = getSupabase();
+    let cancelled = false;
+    let unsubscribe = () => {};
+
+    void (async () => {
+    // Nobody signed in and nothing coming back from a provider: there is no
+    // session to restore, so the library is not fetched. It loads the moment
+    // anything actually needs it — signing in, or opening the account page.
+    if (isSupabaseConfigured() && !mightHaveSession()) {
+      setState((s) => ({ ...s, configured: true, session: null, profile: null, loading: false, initialized: true }));
+      return;
+    }
+
+    const client = await getSupabase();
     if (!client) {
       setState({ ...emptyState, configured: false, loading: false, initialized: true });
       return;
     }
-    let cancelled = false;
 
     client.auth.getSession().then(({ data }) => {
       if (cancelled) return;
@@ -269,9 +280,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     });
 
+    unsubscribe = () => sub.subscription.unsubscribe();
+    })();
+
     return () => {
       cancelled = true;
-      sub.subscription.unsubscribe();
+      unsubscribe();
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -282,7 +296,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // -------------------------------------------------------------------------
 
   const signIn = useCallback(async (input: SignInInput) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) throw new AuthError("not_configured", "تسجيل الدخول غير متاح مؤقتًا.", "Sign-in is temporarily unavailable.");
     const { error } = await client.auth.signInWithPassword({
       email: input.email.trim(),
@@ -295,7 +309,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithProvider = useCallback(async (provider: SocialProvider, redirectTo?: string) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) {
       throw new AuthError(
         "not_configured",
@@ -324,7 +338,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const sendPasswordReset = useCallback(async (email: string) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) {
       throw new AuthError(
         "not_configured",
@@ -342,7 +356,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updatePassword = useCallback(async (password: string) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) {
       throw new AuthError(
         "not_configured",
@@ -358,7 +372,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (input: SignUpInput) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) throw new AuthError("not_configured", "إنشاء الحسابات غير متاح مؤقتًا.", "Sign-up is temporarily unavailable.");
     const { data, error } = await client.auth.signUp({
       email: input.email.trim(),
@@ -382,7 +396,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const resendConfirmation = useCallback(async (email: string) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) throw new AuthError("not_configured", "إعادة الإرسال غير متاحة مؤقتًا.", "Resending is temporarily unavailable.");
     const { error } = await client.auth.resend({
       type: "signup",
@@ -396,14 +410,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = useCallback(async () => {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client) return;
     await client.auth.signOut();
     // The onAuthStateChange listener above will clear session + profile.
   }, []);
 
   const updateProfile = useCallback<AuthApi["updateProfile"]>(async (patch) => {
-    const client = getSupabase();
+    const client = await getSupabase();
     const userId = state.session?.user.id;
     if (!client || !userId) throw new AuthError("not_configured", "تعذّر التحديث.", "Update not available.");
     const { data, error } = await client

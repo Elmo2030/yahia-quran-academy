@@ -7,6 +7,7 @@ import { activeAt, defaultRecitationId, listRecitations, loadSurahSource, loadTi
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
+import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useReadingProgress } from "@/lib/progress";
 import { RecitationRecorder } from "@/components/RecitationRecorder";
@@ -191,7 +192,7 @@ export default function Reader() {
 
   return (
     <main className="reader-page" dir={direction}>
-      <header className="reader-header"><div className="container reader-header__inner"><Link href="/" className="brand-mark" aria-label={t.home}><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></Link><div className="header-actions"><MobileMenu /><LanguageToggle compact /><Link href="/" className="text-link"><BackArrow size={18} /> {t.home}</Link></div></div></header>
+      <SiteChrome variant="reader" />
       <section className="reader-hero"><div className="container reader-hero__inner"><div><span className="eyebrow eyebrow--gold">{t.reader}</span><h1>{t.title}</h1><p>{t.subtitle}</p></div><div className="recitation-picker" role="group" aria-label={t.chooseRecitation}><span className="recitation-picker__label">{t.chooseRecitation}</span><div className="recitation-picker__options">{recitations.map(r => <button key={r.id} type="button" className={`recitation-chip${r.id === recitationId ? " is-active" : ""}`} aria-pressed={r.id === recitationId} onClick={() => changeRecitation(r.id)}><b>{locale === "en" ? r.nameEn : r.nameAr}</b><small>{r.hasTiming ? t.timedPill : t.untimedPill}</small></button>)}</div></div><div className="reader-selector"><label htmlFor="surah">{t.select}</label><select id="surah" value={selectedSurah} onChange={(event) => goToSurah(Number(event.target.value))}>{surahNames.map((name, index) => <option key={name} value={index + 1}>{String(index + 1).padStart(3, "0")} — {locale === "en" ? getEnglishSurahName(index + 1) : name}{locale === "en" ? ` — ${name}` : ""}</option>)}</select></div></div></section>
       <section className="container reader-layout" aria-live="polite"><aside className="reader-sidecard"><span className="sidecard__number">{String(selectedSurah).padStart(3, "0")}</span><h2>{locale === "en" ? <>{getEnglishSurahName(selectedSurah)} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></> : <>{t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></>}</h2><p>{loading ? t.preparing : `${ayahs.length} ${t.ayahs}`}</p><div className="sidecard__rule" /><div className="whole-surah-note"><Volume2 size={17} /><span>{t.wholeSurah}</span></div><p className="sidecard__microcopy">{isTimed ? (chosen ? (locale === "en" ? chosen.nameEn : chosen.nameAr) : t.timedPill) : t.noTimings}</p></aside>
         <article className="quran-card"><div className="quran-card__topline"><span>{locale === "en" ? getEnglishSurahName(selectedSurah) : t.surah} <span lang="ar" dir="rtl">{getSurahName(selectedSurah)}</span></span><span className="verified-pill">{t.verified}</span></div>

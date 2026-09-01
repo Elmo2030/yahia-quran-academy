@@ -18,7 +18,7 @@ import { getSurahName } from "@/lib/quran-content";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RequireAuth } from "@/components/RequireAuth";
 
@@ -149,7 +149,7 @@ function ProfileBody() {
   }
 
   async function handleResendVerification() {
-    const client = getSupabase();
+    const client = await getSupabase();
     if (!client || !session?.user.email) return;
     await client.auth.resend({
       type: "signup",
@@ -162,7 +162,7 @@ function ProfileBody() {
     if (deleteConfirmText !== "DELETE") return;
     setDeleteError(null);
     setDeleting(true);
-    const client = getSupabase();
+    const client = await getSupabase();
     try {
       if (!client) throw new Error("not_configured");
         // Deleting a user needs the service role, which the browser must never
@@ -183,7 +183,7 @@ function ProfileBody() {
   if (!configured) {
     return (
       <div className="min-h-screen bg-[var(--brand-ivory)]" dir={locale === "ar" ? "rtl" : "ltr"}>
-        <SiteHeader />
+        <SiteChrome />
         <main id="main" className="mx-auto w-full max-w-md px-4 py-10">
           <div className="rounded-md border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900" role="alert">
             {copy.notConfigured}
@@ -196,7 +196,7 @@ function ProfileBody() {
 
   return (
     <div className="min-h-screen bg-[var(--brand-ivory)]" dir={locale === "ar" ? "rtl" : "ltr"}>
-      <SiteHeader />
+      <SiteChrome />
       <main id="main" className="mx-auto w-full max-w-2xl space-y-8 px-4 py-10 sm:py-14">
         <header>
           <h1 className="text-2xl font-semibold text-[var(--brand-navy)]">{copy.title}</h1>

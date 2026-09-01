@@ -61,10 +61,11 @@ export function useLibrary() {
 
   // Merge remote saved_stories into the local library when signed in.
   useEffect(() => {
-    const client = getSupabase();
-    if (!client || !profileId) return;
+    if (!profileId) return;
     let live = true;
     (async () => {
+      const client = await getSupabase();
+      if (!client) return;
       try {
         const { data, error } = await client
           .from("saved_stories")
@@ -96,8 +97,10 @@ export function useLibrary() {
         ? current.filter((s) => s !== slug)
         : [...current, slug];
       write(next);
-      const client = getSupabase();
-      if (!client || !profileId) return;
+      if (!profileId) return;
+      void (async () => {
+      const client = await getSupabase();
+      if (!client) return;
       if (next.includes(slug)) {
         client
           .from("saved_stories")
@@ -120,6 +123,7 @@ export function useLibrary() {
             () => undefined,
           );
       }
+      })();
     },
     [profileId],
   );

@@ -13,7 +13,7 @@ describe("supabase client", () => {
     vi.resetModules();
     const mod1 = await import("@/lib/supabase");
     expect(mod1.isSupabaseConfigured()).toBe(false);
-    expect(mod1.getSupabase()).toBeNull();
+    await expect(mod1.getSupabase()).resolves.toBeNull();
   });
 
   it("returns the same client instance across calls (singleton)", async () => {
@@ -24,8 +24,10 @@ describe("supabase client", () => {
     );
     vi.resetModules();
     const mod = await import("@/lib/supabase");
-    const a = mod.getSupabase();
-    const b = mod.getSupabase();
+    // The library is fetched on first use, so this resolves rather than
+    // returning; asking twice must not fetch or construct it twice.
+    const a = await mod.getSupabase();
+    const b = await mod.getSupabase();
     expect(a).not.toBeNull();
     expect(a).toBe(b);
     expect(mod.isSupabaseConfigured()).toBe(true);

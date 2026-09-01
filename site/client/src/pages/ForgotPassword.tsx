@@ -17,7 +17,7 @@ import useAuth, { AuthError } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export default function ForgotPassword() {
@@ -85,7 +85,7 @@ export default function ForgotPassword() {
 
   return (
     <div className="min-h-screen bg-[var(--brand-ivory)]" dir={locale === "ar" ? "rtl" : "ltr"}>
-      <SiteHeader />
+      <SiteChrome />
       <main id="main" className="mx-auto w-full max-w-md px-4 py-10 sm:py-14">
         {sent ? (
           <div className="rounded-lg border border-emerald-200 bg-emerald-50/60 p-6 text-center" role="status" data-testid="forgot-sent">

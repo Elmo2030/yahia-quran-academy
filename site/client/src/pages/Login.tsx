@@ -15,7 +15,7 @@ import { useAuth, AuthError } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 
@@ -80,7 +80,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-[var(--brand-ivory)]" dir={locale === "ar" ? "rtl" : "ltr"}>
-      <SiteHeader />
+      <SiteChrome />
       <main id="main" className="mx-auto w-full max-w-md px-4 py-10 sm:py-14">
         <h1 className="text-2xl font-semibold tracking-tight text-[var(--brand-navy)]">{copy.title}</h1>
         <p className="mt-2 text-sm text-[var(--brand-navy)]/70">{copy.subtitle}</p>

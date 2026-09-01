@@ -10,7 +10,13 @@ import { renderHook, act } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const signInWithOAuth = vi.fn(async () => ({ error: null }));
+import { AuthProvider } from "@/contexts/AuthContext";
+import useAuth from "@/hooks/useAuth";
+
+type OAuthCall = { provider: string; options?: { redirectTo?: string } };
+const signInWithOAuth = vi.fn<(input: OAuthCall) => Promise<{ error: null }>>(
+  async () => ({ error: null }),
+);
 
 vi.mock("@/lib/supabase", () => ({
   isSupabaseConfigured: () => true,
@@ -23,11 +29,8 @@ vi.mock("@/lib/supabase", () => ({
   }),
 }));
 
-const { AuthProvider } = await import("@/contexts/AuthContext");
-const { default: useAuth } = await import("@/hooks/useAuth");
-
 const wrapper = ({ children }: { children: ReactNode }) => <AuthProvider>{children}</AuthProvider>;
-const landedOn = () => signInWithOAuth.mock.calls.at(-1)?.[0]?.options?.redirectTo as string;
+const landedOn = () => signInWithOAuth.mock.calls.at(-1)?.[0].options?.redirectTo;
 
 describe("the OAuth landing address", () => {
   beforeEach(() => signInWithOAuth.mockClear());
