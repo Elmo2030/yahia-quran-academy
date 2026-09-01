@@ -27,6 +27,8 @@ const ROUTES = [
   { path: "/privacy", status: 200 },
   { path: "/forgot-password", status: 200 },
   { path: "/reset-password", status: 200 },
+  { path: "/read/200", status: 404 },
+  { path: "/read/abc", status: 404 },
   { path: "/nope", status: 404 },
   { path: "/stories/nope", status: 404 },
 ];

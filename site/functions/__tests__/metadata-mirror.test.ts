@@ -64,6 +64,9 @@ const ROUTES = [
   ...storyIndex.slice(0, 6).map(story => `/stories/${story.chapter}/${story.slug}`),
   ...seerahStoryIndex.slice(0, 6).map(story => `/seerah/${story.slug}`),
   "/read/1", "/read/18", "/read/114",
+  // Addresses that name no surah: this is where the two copies drifted once,
+  // the function answering 200 to a page whose title said it did not exist.
+  "/read/0", "/read/115", "/read/200", "/read/abc",
 ];
 
 describe("the app and the crawler are told the same thing", () => {

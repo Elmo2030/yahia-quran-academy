@@ -148,7 +148,7 @@ function metaForPath(pathname: string) {
     return name
       ? { ...base, path, title: `سورة ${name} — قراءة واستماع · ${SITE}`,
           description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.` }
-      : { ...base, path, title: `الصفحة غير موجودة · ${SITE}`, description: SITE_DESCRIPTION };
+      : notFound(path);
   }
 
   if (head === "stories") {
