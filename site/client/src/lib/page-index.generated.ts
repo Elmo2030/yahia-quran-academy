@@ -45,9 +45,9 @@ export const storyIndex: Story[] = [
   "chapter": "nations",
   "slug": "ashab-al-kahf",
   "title": "قصة أصحاب الكهف",
-  "hook": "هل جربتم يوماً أن تناموا وتستيقظوا لتجدوا أن كل شيء من حولكم قد تغير؟ في قصتنا اليوم، هناك مجموعة من الشباب الطيبين ناموا نومة طويلة جداً.. لم تكن ليوم أو يومين، بل لمئات السنين! ك",
+  "hook": "هل جربتم يوماً أن تناموا وتستيقظوا لتجدوا أن كل شيء من حولكم قد تغير؟ في قصتنا اليوم، هناك مجموعة من الشباب الطيبين ناموا نومة طويلة جداً.. لم تكن ليوم أو يومين، بل لمئات السنين!…",
   "titleEn": "The People of the Cave",
-  "hookEn": "Have you ever tried sleeping and waking up to find everything around you has changed? In our story today, a group of good young men slept for a very long time... not for a day or t",
+  "hookEn": "Have you ever tried sleeping and waking up to find everything around you has changed? In our story today, a group of good young men slept for a very long time... not for a day or…",
   "image": null
  },
  {
@@ -56,7 +56,7 @@ export const storyIndex: Story[] = [
   "title": "قصة لقمان الحكيم",
   "hook": "إذا أردتم أن تكونوا ناجحين ومحبوبين، فمن أين تأخذون النصائح؟ من شخص 'حكيم' طبعاً! واليوم سنتعرف على أب حكيم جداً، ذكره الله في القرآن لنتعلم من نصائحه التي قدمها لابنه.",
   "titleEn": "Luqman the Wise",
-  "hookEn": "If you want to be successful and loved, where do you get advice from? From a 'wise' person, of course! Today we will learn about a very wise father, mentioned by Allah in the Quran",
+  "hookEn": "If you want to be successful and loved, where do you get advice from? From a 'wise' person, of course! Today we will learn about a very wise father, mentioned by Allah in the…",
   "image": null
  },
  {
@@ -65,7 +65,7 @@ export const storyIndex: Story[] = [
   "title": "قصة ذو القرنين",
   "hook": "هل تحبون قصص الملوك الأقوياء الذين يسافرون لاكتشاف العالم؟ بطلنا اليوم هو مَلِك عادل وقوي جداً، سافر إلى أماكن بعيدة جداً في الشرق والغرب لمساعدة الناس ونشر الخير.",
   "titleEn": "The Story of Dhul-Qarnayn",
-  "hookEn": "Do you love stories of powerful kings who travel to discover the world? Our hero today is a very strong and just king who traveled to very far places in the East and West to help p",
+  "hookEn": "Do you love stories of powerful kings who travel to discover the world? Our hero today is a very strong and just king who traveled to very far places in the East and West to help…",
   "image": null
  },
  {
@@ -74,7 +74,7 @@ export const storyIndex: Story[] = [
   "title": "قصة مؤمن آل فرعون",
   "hook": "هل يحتاج الإنسان إلى سيف ليكون شجاعاً؟ أحياناً تكون الكلمة أقوى من السيف! بطلنا اليوم رجل واحد وقف أمام أخطر وأظلم ملك في التاريخ ليقول كلمة حق ويدافع عن نبي الله.",
   "titleEn": "The Believer of Pharaoh's Family",
-  "hookEn": "Does a person need a sword to be brave? Sometimes a word is stronger than a sword! Our hero today is a single man who stood before the most dangerous and unjust king in history to ",
+  "hookEn": "Does a person need a sword to be brave? Sometimes a word is stronger than a sword! Our hero today is a single man who stood before the most dangerous and unjust king in history…",
   "image": null
  },
  {
@@ -83,16 +83,16 @@ export const storyIndex: Story[] = [
   "title": "قصة أصحاب الأخدود",
   "hook": "ما هو أغلى شيء تملكونه؟ بالنسبة للأبطال في قصتنا اليوم، كان إيمانهم بالله أغلى من حياتهم نفسها! قصة اليوم مليئة بالصمود والتحدي العظيم أمام ملك جبار.",
   "titleEn": "The People of the Ditch",
-  "hookEn": "What is the most precious thing you own? For the heroes in our story today, their faith in Allah was more precious than their own lives! Today's story is full of steadfastness and ",
+  "hookEn": "What is the most precious thing you own? For the heroes in our story today, their faith in Allah was more precious than their own lives! Today's story is full of steadfastness…",
   "image": null
  },
  {
   "chapter": "nations",
   "slug": "qarun",
   "title": "قصة قارون",
-  "hook": "تخيلوا شخصاً يملك صناديق من الكنوز والذهب كثيرة جداً، لدرجة أن مفاتيح هذه الصناديق وحدها تحتاج إلى رجال أقوياء جداً لحملها! هل هذا المال الكثير جعله إنساناً طيباً أم شريراً؟ تعالوا",
+  "hook": "تخيلوا شخصاً يملك صناديق من الكنوز والذهب كثيرة جداً، لدرجة أن مفاتيح هذه الصناديق وحدها تحتاج إلى رجال أقوياء جداً لحملها! هل هذا المال الكثير جعله إنساناً طيباً أم شريراً؟…",
   "titleEn": "The Story of Qarun",
-  "hookEn": "Imagine someone owning so many boxes of treasure and gold that just the keys to these boxes needed very strong men to carry them! Did this much money make him a good or bad person?",
+  "hookEn": "Imagine someone owning so many boxes of treasure and gold that just the keys to these boxes needed very strong men to carry them! Did this much money make him a good or bad…",
   "image": null
  },
  {
@@ -101,7 +101,7 @@ export const storyIndex: Story[] = [
   "title": "قصة السامري",
   "hook": "هل يمكن لتمثال مصنوع من الذهب أن يتحدث أو ينفع أحداً؟ بالطبع لا! لكن في قصتنا اليوم، هناك رجل مخادع استغل غياب النبي ليصنع تمثالاً عجيباً يخدع به الناس.",
   "titleEn": "The Story of the Samiri",
-  "hookEn": "Can a statue made of gold speak or benefit anyone? Of course not! But in our story today, there is a deceitful man who took advantage of the Prophet's absence to make a strange sta",
+  "hookEn": "Can a statue made of gold speak or benefit anyone? Of course not! But in our story today, there is a deceitful man who took advantage of the Prophet's absence to make a strange…",
   "image": null
  },
  {
@@ -110,7 +110,7 @@ export const storyIndex: Story[] = [
   "title": "قصة طالوت وجالوت",
   "hook": "إذا أردتم اختيار قائد للفريق، من تختارون؟ هل تختارون الشخص الذي يملك ألعاباً كثيرة، أم تختارون الشخص الذكي والقوي؟ قصة اليوم ستعلمنا كيف اختار الله ملكاً ليقود جيش المؤمنين.",
   "titleEn": "Talut and Jalut (Saul and Goliath)",
-  "hookEn": "If you wanted to choose a team leader, who would you choose? Would you choose the person who has many toys, or the person who is smart and strong? Today's story will teach us how A",
+  "hookEn": "If you wanted to choose a team leader, who would you choose? Would you choose the person who has many toys, or the person who is smart and strong? Today's story will teach us how…",
   "image": null
  },
  {
@@ -119,7 +119,7 @@ export const storyIndex: Story[] = [
   "title": "قصة أصحاب الرس",
   "hook": "هل تذكرون البئر المظلمة التي أُلقي فيها سيدنا يوسف؟ ماذا لو كان هناك قوم أشرار فعلوا نفس الشيء بنبيهم ورفضوا أن يسمعوا كلامه؟ هذه هي القصة المخيفة لأصحاب الرس!",
   "titleEn": "The People of the Well (Ashab ar-Rass)",
-  "hookEn": "Do you remember the dark well where Prophet Yusuf was thrown? What if there were evil people who did the same thing to their prophet and refused to listen to his words? This is the",
+  "hookEn": "Do you remember the dark well where Prophet Yusuf was thrown? What if there were evil people who did the same thing to their prophet and refused to listen to his words? This is…",
   "image": null
  },
  {
@@ -144,7 +144,7 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "nuh",
   "title": "قصة سيدنا نوح (شيخ المرسلين)",
-  "hook": "تخيلوا معي.. رجل عجوز وطيب جداً، يجمع الأخشاب ويبني سفينة عملاااااقة في وسط الصحراء الرملية! لا يوجد بحر ولا نهر! وكلما مر عليه الناس ضحكوا منه.. فهل كان مخطئاً؟ تعالوا نتعرف على ق",
+  "hook": "تخيلوا معي.. رجل عجوز وطيب جداً، يجمع الأخشاب ويبني سفينة عملاااااقة في وسط الصحراء الرملية! لا يوجد بحر ولا نهر! وكلما مر عليه الناس ضحكوا منه.. فهل كان مخطئاً؟ تعالوا نتعرف على…",
   "titleEn": "Prophet Nuh and the Great Ark",
   "hookEn": "Imagine building a giant ship on a mountain where there is no water at all! People would think it's crazy, right? But our prophet today did exactly that because he trusted Allah.",
   "image": "/stories/prophets/nuh.jpg"
@@ -153,7 +153,7 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "hud",
   "title": "قصة سيدنا هود وقوم عاد",
-  "hook": "هل رأيتم أبطالاً خارقين في القصص يمتلكون قوة بدنية هائلة؟ في الماضي، كانت هناك قبيلة حقيقية قوية جداً، طوال القامة ويبنون بيوتاً ضخمة، لكنهم اغتروا بقوتهم وقالوا 'من أشد منا قوة؟'.",
+  "hook": "هل رأيتم أبطالاً خارقين في القصص يمتلكون قوة بدنية هائلة؟ في الماضي، كانت هناك قبيلة حقيقية قوية جداً، طوال القامة ويبنون بيوتاً ضخمة، لكنهم اغتروا بقوتهم وقالوا 'من أشد منا…",
   "titleEn": "Prophet Hud and the Strong Nation",
   "hookEn": "Have you ever seen super tall buildings? Today we'll talk about people who were incredibly tall and strong, and built massive stone towers. But did their strength save them?",
   "image": "/stories/prophets/hud.jpg"
@@ -162,7 +162,7 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "saleh",
   "title": "قصة سيدنا صالح وقوم ثمود",
-  "hook": "هل تستطيعون الحفر في صخرة صلبة؟ هناك قوم في الماضي كانوا ينحتون بيوتاً كاملة وجميلة داخل الجبال الصخرية! لكنهم طلبوا من نبيهم أن يخرج لهم حيواناً كبيراً حياً من وسط الصخرة! كيف حدث",
+  "hook": "هل تستطيعون الحفر في صخرة صلبة؟ هناك قوم في الماضي كانوا ينحتون بيوتاً كاملة وجميلة داخل الجبال الصخرية! لكنهم طلبوا من نبيهم أن يخرج لهم حيواناً كبيراً حياً من وسط الصخرة! كيف…",
   "titleEn": "Prophet Salih and the Giant Camel",
   "hookEn": "Can a giant, beautiful camel come out of a solid rock? For Allah, it's easy! Let's hear the amazing story of Prophet Salih and his stubborn people.",
   "image": "/stories/prophets/saleh.jpg"
@@ -171,7 +171,7 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "shuaib",
   "title": "قصة سيدنا شعيب (خطيب الأنبياء)",
-  "hook": "تخيلوا أن تذهبوا إلى السوق لتشتروا عشر تفاحات، فيقوم البائع بخداعكم ويعطيكم ثماني تفاحات فقط ويأخذ ثمن العشرة! هذا غش وتصرف سيء جداً، أليس كذلك؟ نبينا اليوم جاء ليعلم الناس كيف يكو",
+  "hook": "تخيلوا أن تذهبوا إلى السوق لتشتروا عشر تفاحات، فيقوم البائع بخداعكم ويعطيكم ثماني تفاحات فقط ويأخذ ثمن العشرة! هذا غش وتصرف سيء جداً، أليس كذلك؟ نبينا اليوم جاء ليعلم الناس كيف…",
   "titleEn": "Prophet Shu'ayb and the Honest Scales",
   "hookEn": "Imagine going to a market to buy some delicious apples, but the seller tricks you and gives you less than what you paid for! Our prophet today tried to stop this bad cheating.",
   "image": "/stories/prophets/shuaib.jpg"
@@ -182,7 +182,7 @@ export const storyIndex: Story[] = [
   "title": "قصة سيدنا إبراهيم (خليل الرحمن)",
   "hook": "هل أنتم شجعان؟ هل تخافون من النار؟ بطل قصتنا اليوم هو شاب شجاع جداً، واجه ملكاً جباراً، ورُمي في نار ضخمة جداً، ولكن حدثت مفاجأة مذهلة جعلته يخرج منها سليماً يبتسم!",
   "titleEn": "Prophet Ibrahim, the Friend of Allah",
-  "hookEn": "What would you do if everyone in your town, even your own father, worshipped statues they made with their own hands? Meet the brave young man who used his smart mind to prove them ",
+  "hookEn": "What would you do if everyone in your town, even your own father, worshipped statues they made with their own hands? Meet the brave young man who used his smart mind to prove…",
   "image": "/stories/prophets/ibrahim.jpg"
  },
  {
@@ -207,16 +207,16 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "ayoub",
   "title": "قصة سيدنا أيوب",
-  "hook": "عندما نمرض ونتناول الدواء المر، قد نبكي ونغضب. لكن ماذا لو أخبرتكم عن نبي مرض لسنوات طويلة جداً، وفقد أمواله، ومع ذلك كان دائماً يبتسم ويشكر الله؟ تعالوا نتعرف على بطل الصبر، سيدنا",
+  "hook": "عندما نمرض ونتناول الدواء المر، قد نبكي ونغضب. لكن ماذا لو أخبرتكم عن نبي مرض لسنوات طويلة جداً، وفقد أمواله، ومع ذلك كان دائماً يبتسم ويشكر الله؟ تعالوا نتعرف على بطل الصبر،…",
   "titleEn": "Prophet Ayyub, the Champion of Patience",
-  "hookEn": "What do you do when you get sick? You might feel a little sad until you get better. But what if someone was very sick for many years? Today we meet a prophet whose patience was str",
+  "hookEn": "What do you do when you get sick? You might feel a little sad until you get better. But what if someone was very sick for many years? Today we meet a prophet whose patience was…",
   "image": "/stories/prophets/ayoub.jpg"
  },
  {
   "chapter": "prophets",
   "slug": "musa-and-harun",
   "title": "قصة سيدنا موسى وأخيه هارون",
-  "hook": "تخيلوا طفلاً رضيعاً تضعه أمه في صندوق خشبي، ثم تلقيه في مياه النهر الواسع! هل سيغرق؟ لا، بل سيأخذه النهر مباشرة إلى قصر الملك الشرير الذي يبحث عنه ليقتله.. ولكنه سيعيش هناك كأمير! ",
+  "hook": "تخيلوا طفلاً رضيعاً تضعه أمه في صندوق خشبي، ثم تلقيه في مياه النهر الواسع! هل سيغرق؟ لا، بل سيأخذه النهر مباشرة إلى قصر الملك الشرير الذي يبحث عنه ليقتله.. ولكنه سيعيش هناك…",
   "titleEn": "Prophet Musa and the Parting of the Sea",
   "hookEn": "Imagine standing in front of a huge, deep sea, and an evil army is chasing you! How could you cross without a boat? Let's witness one of the greatest miracles ever!",
   "image": "/stories/prophets/musa-and-harun.jpg"
@@ -261,7 +261,7 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "isa",
   "title": "قصة سيدنا عيسى ابن مريم",
-  "hook": "هل سمعتم يوماً طفلاً رضيعاً لم يتعلم المشي بعد، يتحدث بطلاقة ويدافع عن أمه؟ هذه معجزة لا يصدقها العقل، لكنها حدثت مع نبي عظيم خلقه الله بطريقة فريدة وعجيبة جداً! تعالوا نتعرف على س",
+  "hook": "هل سمعتم يوماً طفلاً رضيعاً لم يتعلم المشي بعد، يتحدث بطلاقة ويدافع عن أمه؟ هذه معجزة لا يصدقها العقل، لكنها حدثت مع نبي عظيم خلقه الله بطريقة فريدة وعجيبة جداً! تعالوا نتعرف على…",
   "titleEn": "Prophet Isa, the Miracle Child",
   "hookEn": "Have you ever heard a newborn baby speak like a grown-up? Our prophet today spoke to defend his mother when he was just a few days old!",
   "image": "/stories/prophets/isa.jpg"
@@ -270,7 +270,7 @@ export const storyIndex: Story[] = [
   "chapter": "prophets",
   "slug": "muhammad",
   "title": "قصة سيدنا محمد (خاتم الأنبياء)",
-  "hook": "بعد أن سافرنا عبر الزمن وتعرفنا على قصص كل الأنبياء، وصلنا الآن إلى مسك الختام. نبيٌ أُرسل رحمة للعالمين جميعاً، ولم يكتفِ القرآن بسرد قصص من قبله، بل كان يسجل بطولاته وبطولات أصحا",
+  "hook": "بعد أن سافرنا عبر الزمن وتعرفنا على قصص كل الأنبياء، وصلنا الآن إلى مسك الختام. نبيٌ أُرسل رحمة للعالمين جميعاً، ولم يكتفِ القرآن بسرد قصص من قبله، بل كان يسجل بطولاته وبطولات…",
   "titleEn": "Prophet Muhammad, the Final Messenger",
   "hookEn": "Who is the man whose message reached every corner of the world? He brought a book that has never changed, full of light and guidance for everyone!",
   "image": "/stories/prophets/muhammad.jpg"
@@ -279,7 +279,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "ant-of-solomon",
   "title": "قصة نملة سليمان",
-  "hook": "هل جربتم يوماً أن تستمعوا إلى صوت نملة وهي تتحدث؟ نعم، نملة صغيرة جداً! تخيلوا جيشاً كبيراً جداً يقترب، ونملة شجاعة تقف لتنقذ أصدقاءها.. من سمعها؟ وكيف أنقذت النمل؟ تعالوا نعرف قصة",
+  "hook": "هل جربتم يوماً أن تستمعوا إلى صوت نملة وهي تتحدث؟ نعم، نملة صغيرة جداً! تخيلوا جيشاً كبيراً جداً يقترب، ونملة شجاعة تقف لتنقذ أصدقاءها.. من سمعها؟ وكيف أنقذت النمل؟ تعالوا نعرف…",
   "titleEn": "The Caring Ant",
   "hookEn": "If you saw a huge army marching towards you, what would you do? Meet a tiny ant who saved her whole colony with one loud warning!",
   "image": "/stories/animals/ant-of-solomon.jpg"
@@ -288,7 +288,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "hoopoe-of-solomon",
   "title": "قصة هدهد سليمان",
-  "hook": "هل تحبون الاستكشاف ومعرفة الأماكن الجديدة؟ تخيلوا طائراً جميلاً له تاج من الريش على رأسه، يطير لمسافات بعيدة جداً ليجمع الأخبار العجيبة لملك عظيم.. أين ذهب هذا الطائر؟ وماذا رأى؟ ت",
+  "hook": "هل تحبون الاستكشاف ومعرفة الأماكن الجديدة؟ تخيلوا طائراً جميلاً له تاج من الريش على رأسه، يطير لمسافات بعيدة جداً ليجمع الأخبار العجيبة لملك عظيم.. أين ذهب هذا الطائر؟ وماذا رأى؟…",
   "titleEn": "The Hoopoe (Hudhud) of Sulaiman",
   "hookEn": "Can a bird be a scout and a messenger for a king? Meet the Hoopoe, a beautiful bird who traveled to a faraway land and discovered a big secret!",
   "image": "/stories/animals/hoopoe-of-solomon.jpg"
@@ -297,7 +297,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "whale-of-yunus",
   "title": "قصة حوت يونس",
-  "hook": "تخيلوا أنفسكم في سفينة في وسط البحر المظلم، وفجأة تهب عاصفة قوية، وهناك حيوان بحري ضخم جداً يفتح فمه الكبير.. ليحمي نبياً من الغرق! كيف حدث ذلك؟ وهل عاش النبي داخل بطن الحوت؟ تعالو",
+  "hook": "تخيلوا أنفسكم في سفينة في وسط البحر المظلم، وفجأة تهب عاصفة قوية، وهناك حيوان بحري ضخم جداً يفتح فمه الكبير.. ليحمي نبياً من الغرق! كيف حدث ذلك؟ وهل عاش النبي داخل بطن الحوت؟…",
   "titleEn": "The Whale of Prophet Yunus",
   "hookEn": "Have you ever been in the dark and felt scared? Imagine being in the dark belly of a giant whale at the bottom of the ocean! Who was inside, and how did he get out?",
   "image": "/stories/animals/whale-of-yunus.jpg"
@@ -306,7 +306,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "elephant-of-abraha",
   "title": "قصة فيل أبرهة",
-  "hook": "هل رأيتم فيلاً من قبل؟ إنه حيوان ضخم وقوي جداً. تخيلوا أن ملكاً شريراً أراد أن يستخدم هذا الفيل الضخم لهدم مكان مقدس نحبه جميعاً.. الكعبة! ولكن الفيل العجيب فاجأ الجميع وفعل شيئاً ",
+  "hook": "هل رأيتم فيلاً من قبل؟ إنه حيوان ضخم وقوي جداً. تخيلوا أن ملكاً شريراً أراد أن يستخدم هذا الفيل الضخم لهدم مكان مقدس نحبه جميعاً.. الكعبة! ولكن الفيل العجيب فاجأ الجميع وفعل…",
   "titleEn": "The Elephant of Abraha",
   "hookEn": "Have you ever seen an elephant? They are huge and strong! But what happens when an evil king tries to force an elephant to do something bad? Let's find out!",
   "image": "/stories/animals/elephant-of-abraha.jpg"
@@ -315,7 +315,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "dog-of-the-cave",
   "title": "قصة كلب أهل الكهف",
-  "hook": "هل لديكم حيوان أليف تحبونه ويحبكم؟ ماذا لو كان لديكم كلب وفي جداً، يذهب معكم في مغامرة للهروب من ملك ظالم، ثم ينام معكم في كهف لمئات السنين وهو يحرسكم! قصة خيالية؟ لا، إنها قصة حقي",
+  "hook": "هل لديكم حيوان أليف تحبونه ويحبكم؟ ماذا لو كان لديكم كلب وفي جداً، يذهب معكم في مغامرة للهروب من ملك ظالم، ثم ينام معكم في كهف لمئات السنين وهو يحرسكم! قصة خيالية؟ لا، إنها قصة…",
   "titleEn": "The Loyal Dog of the Cave",
   "hookEn": "Have you ever had a loyal pet that always protected you? Let's meet the most famous and loyal dog in history, who slept for hundreds of years!",
   "image": "/stories/animals/dog-of-the-cave.jpg"
@@ -324,7 +324,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "cow-of-israel",
   "title": "قصة بقرة بني إسرائيل",
-  "hook": "هل تحبون حل الألغاز؟ تخيلوا أن هناك جريمة غامضة لا أحد يعرف من قام بها، والحل الوحيد لحل هذا اللغز يكمن في.. بقرة! نعم، بقرة صفراء جميلة جداً. كيف ساعدت هذه البقرة في كشف الحقيقة؟ ",
+  "hook": "هل تحبون حل الألغاز؟ تخيلوا أن هناك جريمة غامضة لا أحد يعرف من قام بها، والحل الوحيد لحل هذا اللغز يكمن في.. بقرة! نعم، بقرة صفراء جميلة جداً. كيف ساعدت هذه البقرة في كشف…",
   "titleEn": "The Yellow Cow of the Children of Israel",
   "hookEn": "Have you ever seen a bright, beautiful yellow cow? Today's story is a great mystery about a crime, and a special cow was the key to solving it!",
   "image": "/stories/animals/cow-of-israel.jpg"
@@ -333,7 +333,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "camel-of-saleh",
   "title": "قصة ناقة صالح",
-  "hook": "هل يمكن لحيوان كبير أن يخرج من صخرة قاسية في الجبل؟ الأشرار طلبوا هذا الطلب المستحيل لتعجيز النبي، لكن الله أخرج لهم معجزة مدهشة، ناقة ضخمة وجميلة خرجت من الحجر! ماذا حدث لهذه النا",
+  "hook": "هل يمكن لحيوان كبير أن يخرج من صخرة قاسية في الجبل؟ الأشرار طلبوا هذا الطلب المستحيل لتعجيز النبي، لكن الله أخرج لهم معجزة مدهشة، ناقة ضخمة وجميلة خرجت من الحجر! ماذا حدث لهذه…",
   "titleEn": "The Miracle Camel of Prophet Salih",
   "hookEn": "Can a giant camel walk right out of a mountain rock? It sounds impossible, but with Allah, everything is possible! Let's discover the story of the miracle camel.",
   "image": "/stories/animals/camel-of-saleh.jpg"
@@ -342,7 +342,7 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "donkey-of-uzair",
   "title": "قصة حمار عزير",
-  "hook": "تخيلوا أن تناموا لفترة طويلة جداً، مائة عام كاملة! وعندما تستيقظون، تجدون طعامكم طازجاً كما تركتموه، لكن حماركم الذي كان بجواركم أصبح مجرد عظام! قصة غريبة جداً توضح لنا قدرة الله ا",
+  "hook": "تخيلوا أن تناموا لفترة طويلة جداً، مائة عام كاملة! وعندما تستيقظون، تجدون طعامكم طازجاً كما تركتموه، لكن حماركم الذي كان بجواركم أصبح مجرد عظام! قصة غريبة جداً توضح لنا قدرة الله…",
   "titleEn": "The Donkey of Uzair",
   "hookEn": "How can an animal turn completely into dry bones and then come back to life in a few seconds? Get ready to witness a mind-blowing miracle!",
   "image": "/stories/animals/donkey-of-uzair.jpg"
@@ -362,7 +362,7 @@ export const storyIndex: Story[] = [
   "title": "آسية امرأة فرعون",
   "hook": "تخيلوا أن تعيشوا في قصر كبير مليء بالذهب والألعاب، لكن الحاكم هناك شرير جدًا! ماذا ستفعلون؟ هل ستكونون أشرارًا مثله أم تختارون طريق الخير؟",
   "titleEn": "Asiya, the Wife of Pharaoh",
-  "hookEn": "If you lived in the biggest palace, with all the gold and toys in the world, but the king was evil, what would you choose? Meet a queen who chose a house in Paradise over everythin",
+  "hookEn": "If you lived in the biggest palace, with all the gold and toys in the world, but the king was evil, what would you choose? Meet a queen who chose a house in Paradise over…",
   "image": "/stories/asiya.jpg"
  },
  {
@@ -458,169 +458,169 @@ export const seerahStoryIndex: SeerahStory[] = [
  {
   "slug": "birth-of-light",
   "title": "يوم أشرقت مكة",
-  "description": "في يوم جميل من فصل الربيع، ولِد طفل صغير وجميل جداً اسمه «محمد». قبل ولادته، حاول جيش كبير معه فيل ضخم أن يهدم الكعبة، لكن الله أرسل طيوراً صغيرة شجاعة طردت الأشرار وحمت مكة! وعندم",
+  "description": "في يوم جميل من فصل الربيع، ولِد طفل صغير وجميل جداً اسمه «محمد». قبل ولادته، حاول جيش كبير معه فيل ضخم أن يهدم الكعبة، لكن الله أرسل طيوراً صغيرة شجاعة طردت الأشرار وحمت مكة!…",
   "titleEn": "The Day Mecca Shone",
-  "descriptionEn": "On a beautiful spring day, a wonderful baby named 'Muhammad' was born. Before his birth, a huge army with a giant elephant tried to destroy the Kaaba! But Allah sent brave little b",
+  "descriptionEn": "On a beautiful spring day, a wonderful baby named 'Muhammad' was born. Before his birth, a huge army with a giant elephant tried to destroy the Kaaba! But Allah sent brave little…",
   "image": "/stories/seerah/birth-of-light.jpg"
  },
  {
   "slug": "desert-breeze",
   "title": "هواء الصحراء النقي",
-  "description": "في الماضي، كان الأطفال يذهبون للعيش في الصحراء ليتعلموا الشجاعة ويصبحوا أقوياء. ذهب محمد ﷺ للعيش مع سيدة طيبة اسمها «حليمة السعدية». ومنذ أن دخل بيتها، امتلأ البيت بالخير، وكثر الح",
+  "description": "في الماضي، كان الأطفال يذهبون للعيش في الصحراء ليتعلموا الشجاعة ويصبحوا أقوياء. ذهب محمد ﷺ للعيش مع سيدة طيبة اسمها «حليمة السعدية». ومنذ أن دخل بيتها، امتلأ البيت بالخير، وكثر…",
   "titleEn": "The Pure Desert Breeze",
-  "descriptionEn": "A long time ago, children used to go live in the desert to become brave and strong. Little Muhammad (pbuh) went to live with a kind lady named Halimah. The moment he entered her ho",
+  "descriptionEn": "A long time ago, children used to go live in the desert to become brave and strong. Little Muhammad (pbuh) went to live with a kind lady named Halimah. The moment he entered her…",
   "image": "/stories/seerah/desert-breeze.jpg"
  },
  {
   "slug": "grandfather-love",
   "title": "في ظل الكعبة",
-  "description": "بعد أن عادت والدة النبي ﷺ إلى الله (توفيت)، أصبح محمد يتيماً بلا أب ولا أم. لكن جده الطيب «عبد المطلب» ضمه إليه وأحبه حباً كبيراً جداً أكثر من كل أبنائه. كان الجد يفرش سجادة خاصة ل",
+  "description": "بعد أن عادت والدة النبي ﷺ إلى الله (توفيت)، أصبح محمد يتيماً بلا أب ولا أم. لكن جده الطيب «عبد المطلب» ضمه إليه وأحبه حباً كبيراً جداً أكثر من كل أبنائه. كان الجد يفرش سجادة خاصة…",
   "titleEn": "In the Shade of the Kaaba",
-  "descriptionEn": "When Muhammad (pbuh) was a little boy, his mother returned to Allah (passed away). He was now an orphan with no mom or dad. But his kind grandfather, Abdul Muttalib, hugged him tig",
+  "descriptionEn": "When Muhammad (pbuh) was a little boy, his mother returned to Allah (passed away). He was now an orphan with no mom or dad. But his kind grandfather, Abdul Muttalib, hugged him…",
   "image": "/stories/seerah/grandfather-love.jpg"
  },
  {
   "slug": "uncle-home",
   "title": "بيت العم الحنون",
-  "description": "بعد وفاة جده، انتقل محمد ﷺ ليعيش مع عمه «أبو طالب». كان عمه فقيراً ولديه أطفال كثر، لكنه أحب محمداً جداً. وكان هناك شيء عجيب يحدث! عندما كان محمد يجلس ليأكل معهم، كان الطعام القليل",
+  "description": "بعد وفاة جده، انتقل محمد ﷺ ليعيش مع عمه «أبو طالب». كان عمه فقيراً ولديه أطفال كثر، لكنه أحب محمداً جداً. وكان هناك شيء عجيب يحدث! عندما كان محمد يجلس ليأكل معهم، كان الطعام…",
   "titleEn": "The Kind Uncle's House",
-  "descriptionEn": "After his grandfather died, Muhammad (pbuh) moved in with his uncle Abu Talib. His uncle didn't have much money and had many children, but he loved Muhammad deeply. Something magic",
+  "descriptionEn": "After his grandfather died, Muhammad (pbuh) moved in with his uncle Abu Talib. His uncle didn't have much money and had many children, but he loved Muhammad deeply. Something…",
   "image": "/stories/seerah/uncle-home.jpg"
  },
  {
   "slug": "little-shepherd",
   "title": "الراعي الصغير",
-  "description": "هل كان النبي ﷺ يلعب طوال اليوم وهو صغير؟ لا! لقد أراد أن يساعد عمه لأنه كان فقيراً. فعمل في «رعي الأغنام». كان يأخذ الخراف الصغيرة إلى الجبال الخضراء لتأكل، ويحميها من الذئاب. هكذا",
+  "description": "هل كان النبي ﷺ يلعب طوال اليوم وهو صغير؟ لا! لقد أراد أن يساعد عمه لأنه كان فقيراً. فعمل في «رعي الأغنام». كان يأخذ الخراف الصغيرة إلى الجبال الخضراء لتأكل، ويحميها من الذئاب.…",
   "titleEn": "The Little Shepherd",
-  "descriptionEn": "Did the Prophet (pbuh) play all day when he was little? No! He wanted to help his uncle because his uncle didn't have much money. So, he worked as a 'shepherd'. He took the fluffy ",
+  "descriptionEn": "Did the Prophet (pbuh) play all day when he was little? No! He wanted to help his uncle because his uncle didn't have much money. So, he worked as a 'shepherd'. He took the…",
   "image": "/stories/seerah/little-shepherd.jpg"
  },
  {
   "slug": "the-honest-merchant",
   "title": "تاجر مكة الأمين",
-  "description": "عندما كبر محمد ﷺ وأصبح شاباً، بدأ يعمل في التجارة (البيع والشراء). كان يسافر إلى أماكن بعيدة ليبيع البضائع. هل تعلمون لماذا أحبه كل الناس؟ لأنه كان يخبرهم بالحقيقة دائماً ولا يغش أ",
+  "description": "عندما كبر محمد ﷺ وأصبح شاباً، بدأ يعمل في التجارة (البيع والشراء). كان يسافر إلى أماكن بعيدة ليبيع البضائع. هل تعلمون لماذا أحبه كل الناس؟ لأنه كان يخبرهم بالحقيقة دائماً ولا يغش…",
   "titleEn": "The Honest Merchant of Mecca",
-  "descriptionEn": "As Muhammad (pbuh) grew into a young man, he started working in trade (buying and selling). He traveled far away to sell goods. Do you know why everyone loved him? Because he alway",
+  "descriptionEn": "As Muhammad (pbuh) grew into a young man, he started working in trade (buying and selling). He traveled far away to sell goods. Do you know why everyone loved him? Because he…",
   "image": "/stories/seerah/the-honest-merchant.jpg"
  },
  {
   "slug": "khadijah",
   "title": "الزوجة الصالحة خديجة",
-  "description": "كانت هناك سيدة طيبة وذكية جداً في مكة اسمها «خديجة». كانت خديجة سيدة غنية، وعندما سمعت عن أمانة محمد ﷺ وصدقه، طلبت منه أن يعمل في تجارتها. ولما رأت أخلاقه العظيمة ونجاحه، تمنت أن ت",
+  "description": "كانت هناك سيدة طيبة وذكية جداً في مكة اسمها «خديجة». كانت خديجة سيدة غنية، وعندما سمعت عن أمانة محمد ﷺ وصدقه، طلبت منه أن يعمل في تجارتها. ولما رأت أخلاقه العظيمة ونجاحه، تمنت أن…",
   "titleEn": "The Righteous Wife Khadijah",
-  "descriptionEn": "There was a very kind and smart lady in Mecca named Khadijah. She was a wealthy businesswoman. When she heard about Muhammad's (pbuh) honesty, she asked him to work for her. When s",
+  "descriptionEn": "There was a very kind and smart lady in Mecca named Khadijah. She was a wealthy businesswoman. When she heard about Muhammad's (pbuh) honesty, she asked him to work for her. When…",
   "image": "/stories/seerah/khadijah.jpg"
  },
  {
   "slug": "the-black-stone",
   "title": "حكمة الحجر الأسود",
-  "description": "في يوم من الأيام، تهدم جزء من الكعبة، فتعاون الناس لبنائها. لكنهم اختلفوا بشدة: مَن سيضع «الحجر الأسود» في مكانه؟ كادوا أن يتشاجروا! وفجأة دخل محمد ﷺ، ففرحوا وقالوا: «هذا الأمين، ر",
+  "description": "في يوم من الأيام، تهدم جزء من الكعبة، فتعاون الناس لبنائها. لكنهم اختلفوا بشدة: مَن سيضع «الحجر الأسود» في مكانه؟ كادوا أن يتشاجروا! وفجأة دخل محمد ﷺ، ففرحوا وقالوا: «هذا الأمين،…",
   "titleEn": "The Wisdom of the Black Stone",
-  "descriptionEn": "One day, a part of the Kaaba was damaged, so the people worked together to rebuild it. But they had a big argument: who would get to put the 'Black Stone' back in its place? They a",
+  "descriptionEn": "One day, a part of the Kaaba was damaged, so the people worked together to rebuild it. But they had a big argument: who would get to put the 'Black Stone' back in its place? They…",
   "image": "/stories/seerah/the-black-stone.jpg"
  },
  {
   "slug": "hilf-al-fudul",
   "title": "نصرة المظلوم",
-  "description": "جاء رجل غريب إلى مكة ليبيع بضائعه، لكن رجلاً سيئاً أخذ بضاعته ولم يعطه نقوده. بكى الرجل الغريب لأنه مظلوم. فاجتمع محمد ﷺ مع رجال مكة الطيبين، وتعاهدوا على عهد عظيم اسمه (حلف الفضول",
+  "description": "جاء رجل غريب إلى مكة ليبيع بضائعه، لكن رجلاً سيئاً أخذ بضاعته ولم يعطه نقوده. بكى الرجل الغريب لأنه مظلوم. فاجتمع محمد ﷺ مع رجال مكة الطيبين، وتعاهدوا على عهد عظيم اسمه (حلف…",
   "titleEn": "Helping the Oppressed",
-  "descriptionEn": "A stranger came to Mecca to sell his goods, but a bad man took his stuff and didn't pay him. The stranger cried because he was treated unfairly. So, Muhammad (pbuh) met with the go",
+  "descriptionEn": "A stranger came to Mecca to sell his goods, but a bad man took his stuff and didn't pay him. The stranger cried because he was treated unfairly. So, Muhammad (pbuh) met with the…",
   "image": "/stories/seerah/hilf-al-fudul.jpg"
  },
  {
   "slug": "cave-of-hira",
   "title": "الخلوة والتفكر",
-  "description": "كان الناس في زمان النبي ﷺ يعبدون تماثيل من الحجارة (الأصنام). لكن محمداً ﷺ كان ذكياً جداً، وكان يعرف أن الحجارة لا تضر ولا تنفع. لذلك، كان يحب أن يذهب إلى كهف هادئ في قمة جبل اسمه ",
+  "description": "كان الناس في زمان النبي ﷺ يعبدون تماثيل من الحجارة (الأصنام). لكن محمداً ﷺ كان ذكياً جداً، وكان يعرف أن الحجارة لا تضر ولا تنفع. لذلك، كان يحب أن يذهب إلى كهف هادئ في قمة جبل…",
   "titleEn": "Solitude and Reflection",
-  "descriptionEn": "In the time of the Prophet (pbuh), people used to worship stone statues (idols). But Muhammad (pbuh) was very smart, and he knew that stones couldn't help or harm anyone. So, he li",
+  "descriptionEn": "In the time of the Prophet (pbuh), people used to worship stone statues (idols). But Muhammad (pbuh) was very smart, and he knew that stones couldn't help or harm anyone. So, he…",
   "image": "/stories/seerah/cave-of-hira.jpg"
  },
  {
   "slug": "revelation-iqra",
   "title": "أول النور: غار حراء وكلمة اقرأ",
-  "description": "كان النبي محمد ﷺ يحب أن يجلس وحده في غار هادئ فوق الجبل اسمه «غار حراء»، يفكّر في السماء والأرض ومَن خلقهما. وفي ليلة من رمضان، وعمره أربعون سنة، جاءه المَلَك جبريل عليه السلام فجأ",
+  "description": "كان النبي محمد ﷺ يحب أن يجلس وحده في غار هادئ فوق الجبل اسمه «غار حراء»، يفكّر في السماء والأرض ومَن خلقهما. وفي ليلة من رمضان، وعمره أربعون سنة، جاءه المَلَك جبريل عليه السلام…",
   "titleEn": "The First Light: Cave Hira and the Word Iqra",
-  "descriptionEn": "Prophet Muhammad (pbuh) loved to sit alone in a quiet cave on a mountain called Cave Hira, thinking about the sky and the earth and who made them. One night in Ramadan, when he was",
+  "descriptionEn": "Prophet Muhammad (pbuh) loved to sit alone in a quiet cave on a mountain called Cave Hira, thinking about the sky and the earth and who made them. One night in Ramadan, when he…",
   "image": null
  },
  {
   "slug": "revelation-waraqah",
   "title": "ورقة بن نوفل: السرّ العظيم",
-  "description": "أخذت السيدة خديجة رضي الله عنها النبي ﷺ إلى ابن عمها ورقة بن نوفل، وكان رجلاً عجوزاً حكيماً يقرأ الكتب السماوية القديمة. ولما سمع ورقة ما حدث في الغار فرح وقال: هذا هو المَلَك الذي",
+  "description": "أخذت السيدة خديجة رضي الله عنها النبي ﷺ إلى ابن عمها ورقة بن نوفل، وكان رجلاً عجوزاً حكيماً يقرأ الكتب السماوية القديمة. ولما سمع ورقة ما حدث في الغار فرح وقال: هذا هو المَلَك…",
   "titleEn": "Waraqah ibn Nawfal: The Great Secret",
-  "descriptionEn": "Lady Khadijah took the Prophet (pbuh) to her cousin Waraqah ibn Nawfal, a wise old man who read the ancient holy books. When Waraqah heard what had happened in the cave, he was del",
+  "descriptionEn": "Lady Khadijah took the Prophet (pbuh) to her cousin Waraqah ibn Nawfal, a wise old man who read the ancient holy books. When Waraqah heard what had happened in the cave, he was…",
   "image": null
  },
  {
   "slug": "revelation-pause",
   "title": "انقطاع الوحي وسورة الضحى",
-  "description": "بعد اللقاء الأول تأخر جبريل عليه السلام ولم ينزل على النبي ﷺ مدة، فحزن النبي ﷺ واشتاق إلى كلام الله. وبدأ بعض المشركين يسخرون ويقولون: ترك محمداً ربُّه! ثم نزل جبريل بسورة كاملة تط",
+  "description": "بعد اللقاء الأول تأخر جبريل عليه السلام ولم ينزل على النبي ﷺ مدة، فحزن النبي ﷺ واشتاق إلى كلام الله. وبدأ بعض المشركين يسخرون ويقولون: ترك محمداً ربُّه! ثم نزل جبريل بسورة كاملة…",
   "titleEn": "The Pause of Revelation and Surah Ad-Duha",
-  "descriptionEn": "After that first meeting, Jibril was delayed and did not come to the Prophet (pbuh) for a while. He grew sad and missed hearing the words of Allah, and some of the idol-worshippers",
+  "descriptionEn": "After that first meeting, Jibril was delayed and did not come to the Prophet (pbuh) for a while. He grew sad and missed hearing the words of Allah, and some of the…",
   "image": null
  },
  {
   "slug": "revelation-muddaththir",
   "title": "يا أيها المدثر: قم فأنذر",
-  "description": "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى جبريل عليه السلام بين السماء والأرض. فرجع إلى بيته مسرعاً وهو يقول: «دثّروني دثّروني» أي غطّوني. وهو في فراشه نزل ع",
+  "description": "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى جبريل عليه السلام بين السماء والأرض. فرجع إلى بيته مسرعاً وهو يقول: «دثّروني دثّروني» أي غطّوني. وهو في فراشه نزل…",
   "titleEn": "O You Wrapped in Garments: Arise and Warn",
-  "descriptionEn": "One day as the Prophet (pbuh) was walking, he heard a voice from the sky. He looked up and saw Jibril between the sky and the earth. He hurried home saying: “Cover me, cover me!” A",
+  "descriptionEn": "One day as the Prophet (pbuh) was walking, he heard a voice from the sky. He looked up and saw Jibril between the sky and the earth. He hurried home saying: “Cover me, cover me!”…",
   "image": null
  },
  {
   "slug": "revelation-forms",
   "title": "كيف كان ينزل الوحي؟",
-  "description": "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً مثل",
+  "description": "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً…",
   "titleEn": "How Did the Revelation Come?",
-  "descriptionEn": "The revelation did not come in only one way. At first the Prophet (pbuh) would see a dream in his sleep and it would come true in the morning. After the prophethood, Jibril would s",
+  "descriptionEn": "The revelation did not come in only one way. At first the Prophet (pbuh) would see a dream in his sleep and it would come true in the morning. After the prophethood, Jibril would…",
   "image": null
  },
  {
   "slug": "dar-al-arqam",
   "title": "السرّ العظيم ودار الأرقم",
-  "description": "لما أمر الله نبيه ﷺ أن يدعو الناس، بدأ بأقرب الناس إليه سراً. فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وزيد بن حارثة. وكان المسلمون الأوائل ",
+  "description": "لما أمر الله نبيه ﷺ أن يدعو الناس، بدأ بأقرب الناس إليه سراً. فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وزيد بن حارثة. وكان المسلمون…",
   "titleEn": "The Great Secret and Dar al-Arqam",
-  "descriptionEn": "When Allah commanded the Prophet (pbuh) to call people, he began quietly with those closest to him. His wife Khadijah believed, and his friend Abu Bakr, his young cousin Ali ibn Ab",
+  "descriptionEn": "When Allah commanded the Prophet (pbuh) to call people, he began quietly with those closest to him. His wife Khadijah believed, and his friend Abu Bakr, his young cousin Ali ibn…",
   "image": null
  },
  {
   "slug": "mount-safa-call",
   "title": "جبل الصفا والنداء الكبير",
-  "description": "أمر الله نبيه ﷺ أن يعلن دعوته للجميع، فصعد على جبل الصفا ونادى بأعلى صوته حتى اجتمعت قبائل قريش. سألهم: لو قلت لكم إن جيشاً وراء هذا الجبل يريد أن يهاجمكم، أتصدّقونني؟ قالوا: نعم، ",
+  "description": "أمر الله نبيه ﷺ أن يعلن دعوته للجميع، فصعد على جبل الصفا ونادى بأعلى صوته حتى اجتمعت قبائل قريش. سألهم: لو قلت لكم إن جيشاً وراء هذا الجبل يريد أن يهاجمكم، أتصدّقونني؟ قالوا:…",
   "titleEn": "Mount Safa and the Great Call",
-  "descriptionEn": "Allah commanded the Prophet (pbuh) to announce his call to everyone, so he climbed Mount Safa and called out at the top of his voice until the tribes of Quraysh gathered. He asked ",
+  "descriptionEn": "Allah commanded the Prophet (pbuh) to announce his call to everyone, so he climbed Mount Safa and called out at the top of his voice until the tribes of Quraysh gathered. He…",
   "image": null
  },
  {
   "slug": "heroes-of-patience",
   "title": "أبطال لا يستسلمون: بلال وآل ياسر",
-  "description": "لما أعلن النبي ﷺ دعوته، بدأ المشركون يؤذون المسلمين الضعفاء. أخذوا بلال بن رباح وألقوه على رمل الصحراء الحار ووضعوا صخرة على صدره ليترك دينه، فكان يردّد كلمة واحدة: «أحدٌ.. أحدٌ». ",
+  "description": "لما أعلن النبي ﷺ دعوته، بدأ المشركون يؤذون المسلمين الضعفاء. أخذوا بلال بن رباح وألقوه على رمل الصحراء الحار ووضعوا صخرة على صدره ليترك دينه، فكان يردّد كلمة واحدة: «أحدٌ..…",
   "titleEn": "Heroes Who Never Give Up: Bilal and the Family of Yasir",
-  "descriptionEn": "When the Prophet (pbuh) announced his call, the idol-worshippers began to harm the weakest Muslims. They took Bilal ibn Rabah, threw him on the burning desert sand and put a rock o",
+  "descriptionEn": "When the Prophet (pbuh) announced his call, the idol-worshippers began to harm the weakest Muslims. They took Bilal ibn Rabah, threw him on the burning desert sand and put a rock…",
   "image": null
  },
  {
   "slug": "migration-to-abyssinia",
   "title": "رحلة إلى أرض الملك العادل",
-  "description": "لما اشتدّ الأذى على المسلمين قال لهم النبي ﷺ: اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد. فسافر بعضهم وعبروا البحر. أرسلت قريش هدايا إلى الملك النجاشي ليردّهم، فرفض حتى",
+  "description": "لما اشتدّ الأذى على المسلمين قال لهم النبي ﷺ: اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد. فسافر بعضهم وعبروا البحر. أرسلت قريش هدايا إلى الملك النجاشي ليردّهم، فرفض…",
   "titleEn": "Journey to the Land of the Just King",
-  "descriptionEn": "When the harm grew heavy, the Prophet (pbuh) told the Muslims: go to the land of Abyssinia, for there is a king there under whom no one is wronged. Some travelled and crossed the s",
+  "descriptionEn": "When the harm grew heavy, the Prophet (pbuh) told the Muslims: go to the land of Abyssinia, for there is a king there under whom no one is wronged. Some travelled and crossed the…",
   "image": null
  },
  {
   "slug": "year-of-sorrow",
   "title": "الحصار الظالم وعام الحزن",
-  "description": "اتفقت قريش على مقاطعة النبي ﷺ وكل من يقف معه، وكتبوا صحيفة ظالمة علّقوها في الكعبة. فعاش المسلمون في شِعب بين الجبال ثلاث سنوات حتى أكلوا ورق الشجر من الجوع، ثم مزّق الصحيفةَ رجالٌ",
+  "description": "اتفقت قريش على مقاطعة النبي ﷺ وكل من يقف معه، وكتبوا صحيفة ظالمة علّقوها في الكعبة. فعاش المسلمون في شِعب بين الجبال ثلاث سنوات حتى أكلوا ورق الشجر من الجوع، ثم مزّق الصحيفةَ…",
   "titleEn": "The Unjust Siege and the Year of Sorrow",
-  "descriptionEn": "Quraysh agreed to boycott the Prophet (pbuh) and everyone who stood with him, writing an unjust document and hanging it in the Kaaba. The Muslims lived in a narrow valley between t",
+  "descriptionEn": "Quraysh agreed to boycott the Prophet (pbuh) and everyone who stood with him, writing an unjust document and hanging it in the Kaaba. The Muslims lived in a narrow valley between…",
   "image": null
  },
  {
   "slug": "islam-of-heroes",
   "title": "إسلام الأبطال: حمزة وعمر",
-  "description": "كان المسلمون يصلّون سراً خوفاً من أذى قريش، حتى غضب حمزة بن عبد المطلب عمّ النبي الشجاع وأعلن إسلامه دفاعاً عن ابن أخيه. وبعده بأيام أسلم عمر بن الخطاب، وكان خارجاً بسيفه ليؤذي الن",
+  "description": "كان المسلمون يصلّون سراً خوفاً من أذى قريش، حتى غضب حمزة بن عبد المطلب عمّ النبي الشجاع وأعلن إسلامه دفاعاً عن ابن أخيه. وبعده بأيام أسلم عمر بن الخطاب، وكان خارجاً بسيفه ليؤذي…",
   "titleEn": "The Islam of Heroes: Hamza and Umar",
-  "descriptionEn": "The Muslims prayed in secret, fearing harm from Quraysh — until the day the Prophet's brave uncle Hamza ibn Abd al-Muttalib grew angry and announced his Islam to defend his nephew.",
+  "descriptionEn": "The Muslims prayed in secret, fearing harm from Quraysh — until the day the Prophet's brave uncle Hamza ibn Abd al-Muttalib grew angry and announced his Islam to defend his…",
   "image": null
  },
  {
@@ -628,79 +628,79 @@ export const seerahStoryIndex: SeerahStory[] = [
   "title": "الشمس في يميني والقمر في يساري",
   "description": "أرسلت قريش زعماءها إلى النبي ﷺ يعرضون عليه المال والملك بشرط أن يترك دينه. فردّ عليهم ردّه المشهور: والله لو وضعوا الشمس في يميني والقمر في يساري على أن أترك هذا الأمر ما تركته.",
   "titleEn": "The Sun in My Right Hand, the Moon in My Left",
-  "descriptionEn": "Quraysh sent their leaders to the Prophet (pbuh) offering him wealth and kingship on one condition: that he leave his religion. He gave the answer we still remember: by Allah, if t",
+  "descriptionEn": "Quraysh sent their leaders to the Prophet (pbuh) offering him wealth and kingship on one condition: that he leave his religion. He gave the answer we still remember: by Allah, if…",
   "image": null
  },
  {
   "slug": "splitting-of-the-moon",
   "title": "معجزة في السماء: انشقاق القمر",
-  "description": "طلب كفار قريش من النبي ﷺ معجزة يرونها بأعينهم، فقالوا: اشقق لنا القمر. فدعا النبي ﷺ ربه، فانشقّ القمر نصفين أمام الناس، نصف فوق جبل ونصف فوق جبل آخر. ومع ذلك قالوا: سحرنا محمد، ولم",
+  "description": "طلب كفار قريش من النبي ﷺ معجزة يرونها بأعينهم، فقالوا: اشقق لنا القمر. فدعا النبي ﷺ ربه، فانشقّ القمر نصفين أمام الناس، نصف فوق جبل ونصف فوق جبل آخر. ومع ذلك قالوا: سحرنا محمد،…",
   "titleEn": "A Miracle in the Sky: The Splitting of the Moon",
-  "descriptionEn": "The disbelievers of Quraysh asked the Prophet (pbuh) for a miracle they could see with their own eyes: split the moon for us. He prayed to his Lord, and the moon split in two befor",
+  "descriptionEn": "The disbelievers of Quraysh asked the Prophet (pbuh) for a miracle they could see with their own eyes: split the moon for us. He prayed to his Lord, and the moon split in two…",
   "image": null
  },
  {
   "slug": "cotton-in-ears",
   "title": "القطن في الأذن وقصة الشاعر الذكي",
-  "description": "جاء إلى مكة شاعر حكيم اسمه الطُّفيل بن عمرو الدَّوسي، فحذّرته قريش من سماع كلام النبي ﷺ، فوضع القطن في أذنيه. ثم فكّر وقال: أنا رجل أفهم الكلام، فلماذا لا أسمع؟ فنزع القطن وسمع الق",
+  "description": "جاء إلى مكة شاعر حكيم اسمه الطُّفيل بن عمرو الدَّوسي، فحذّرته قريش من سماع كلام النبي ﷺ، فوضع القطن في أذنيه. ثم فكّر وقال: أنا رجل أفهم الكلام، فلماذا لا أسمع؟ فنزع القطن وسمع…",
   "titleEn": "Cotton in the Ears: The Clever Poet",
-  "descriptionEn": "A wise poet named at-Tufayl ibn Amr ad-Dawsi came to Mecca. Quraysh warned him not to hear a word from the Prophet (pbuh), so he put cotton in his ears. Then he thought again: I am",
+  "descriptionEn": "A wise poet named at-Tufayl ibn Amr ad-Dawsi came to Mecca. Quraysh warned him not to hear a word from the Prophet (pbuh), so he put cotton in his ears. Then he thought again: I…",
   "image": null
  },
  {
   "slug": "journey-to-taif",
   "title": "الرحلة الحزينة إلى الطائف",
-  "description": "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق ع",
+  "description": "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق…",
   "titleEn": "The Sad Journey to Taif",
-  "descriptionEn": "After the deaths of Khadijah and Abu Talib the harm grew worse, so the Prophet (pbuh) walked to Taif to call its people. They turned him away and set boys to throw stones at him un",
+  "descriptionEn": "After the deaths of Khadijah and Abu Talib the harm grew worse, so the Prophet (pbuh) walked to Taif to call its people. They turned him away and set boys to throw stones at him…",
   "image": null
  },
  {
   "slug": "chest-washing-zamzam",
   "title": "استعداد القائد: شقّ الصدر وماء زمزم",
-  "description": "بينما كان النبي ﷺ نائماً قرب الكعبة، وهو حزين بعد رحلة الطائف، نزل إليه جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره في رفق وبلا ألم، وغسلا قلبه الشريف بماء زمزم في طست من ذهب، ثم ",
+  "description": "بينما كان النبي ﷺ نائماً قرب الكعبة، وهو حزين بعد رحلة الطائف، نزل إليه جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره في رفق وبلا ألم، وغسلا قلبه الشريف بماء زمزم في طست من ذهب،…",
   "titleEn": "Preparing the Leader: The Opening of the Chest",
-  "descriptionEn": "While the Prophet (pbuh) slept near the Kaaba, heavy with sadness after the journey to Taif, Jibril came down to him with another angel. They opened his chest gently and without pa",
+  "descriptionEn": "While the Prophet (pbuh) slept near the Kaaba, heavy with sadness after the journey to Taif, Jibril came down to him with another angel. They opened his chest gently and without…",
   "image": null
  },
  {
   "slug": "the-amazing-buraq",
   "title": "البُراق: دابّة أسرع من البصر",
-  "description": "أحضر جبريل عليه السلام دابّة بيضاء من الجنة تُسمّى البُراق، أكبر من الحمار وأصغر من البغل، تضع حافرها عند آخر ما يبلغه بصرها. ولما اقترب النبي ﷺ ليركبها تحرّكت، فقال لها جبريل: أبم",
+  "description": "أحضر جبريل عليه السلام دابّة بيضاء من الجنة تُسمّى البُراق، أكبر من الحمار وأصغر من البغل، تضع حافرها عند آخر ما يبلغه بصرها. ولما اقترب النبي ﷺ ليركبها تحرّكت، فقال لها جبريل:…",
   "titleEn": "Al-Buraq: Swifter Than Sight",
-  "descriptionEn": "Jibril brought a white creature from Paradise called al-Buraq, larger than a donkey and smaller than a mule, which placed its hoof as far as its sight could reach. When the Prophet",
+  "descriptionEn": "Jibril brought a white creature from Paradise called al-Buraq, larger than a donkey and smaller than a mule, which placed its hoof as far as its sight could reach. When the…",
   "image": null
  },
  {
   "slug": "road-to-jerusalem",
   "title": "الطريق إلى بيت المقدس",
-  "description": "في الطريق إلى بيت المقدس طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي في مواضع مباركة، منها الموضع الذي كلّم الله فيه موسى عليه السلام، والموضع الذي وُلد فيه عيسى عليه السلام. و",
+  "description": "في الطريق إلى بيت المقدس طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي في مواضع مباركة، منها الموضع الذي كلّم الله فيه موسى عليه السلام، والموضع الذي وُلد فيه عيسى عليه السلام.…",
   "titleEn": "The Road to Jerusalem",
-  "descriptionEn": "On the road to Jerusalem, Jibril asked the Prophet (pbuh) to come down and pray at blessed places — among them where Allah spoke to Musa, and where Isa was born. On the way he was ",
+  "descriptionEn": "On the road to Jerusalem, Jibril asked the Prophet (pbuh) to come down and pray at blessed places — among them where Allah spoke to Musa, and where Isa was born. On the way he…",
   "image": null
  },
  {
   "slug": "leader-of-prophets",
   "title": "إمام الأنبياء في المسجد الأقصى",
-  "description": "وصل النبي ﷺ إلى المسجد الأقصى وربط البُراق عند الباب. ولما دخل وجد الأنبياء جميعاً من آدم إلى عيسى عليهم السلام في انتظاره. فأقيمت الصلاة، وقدّمه جبريل عليه السلام ليصلّي بهم إماما",
+  "description": "وصل النبي ﷺ إلى المسجد الأقصى وربط البُراق عند الباب. ولما دخل وجد الأنبياء جميعاً من آدم إلى عيسى عليهم السلام في انتظاره. فأقيمت الصلاة، وقدّمه جبريل عليه السلام ليصلّي بهم…",
   "titleEn": "Leading the Prophets at al-Aqsa",
-  "descriptionEn": "The Prophet (pbuh) reached al-Aqsa Mosque and tied al-Buraq at the door. When he entered, he found all the prophets from Adam to Isa waiting for him. The prayer was called, and Jib",
+  "descriptionEn": "The Prophet (pbuh) reached al-Aqsa Mosque and tied al-Buraq at the door. When he entered, he found all the prophets from Adam to Isa waiting for him. The prayer was called, and…",
   "image": null
  },
  {
   "slug": "the-first-heaven-adam",
   "title": "السماء الأولى: لقاء آدم عليه السلام",
-  "description": "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الأولى. فاستأذن جبريل، فقيل: من؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. ففُتح لهما، فإذا آدم عليه السلام أبو البشر، فرحّب به وقال: مرحباً ",
+  "description": "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الأولى. فاستأذن جبريل، فقيل: من؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. ففُتح لهما، فإذا آدم عليه السلام أبو البشر، فرحّب به وقال:…",
   "titleEn": "The First Heaven: Meeting Adam",
-  "descriptionEn": "The Prophet (pbuh) ascended with Jibril to the first heaven. Jibril asked to be let in. “Who is it?” “Jibril.” “And who is with you?” “Muhammad.” The gate opened, and there was Ada",
+  "descriptionEn": "The Prophet (pbuh) ascended with Jibril to the first heaven. Jibril asked to be let in. “Who is it?” “Jibril.” “And who is with you?” “Muhammad.” The gate opened, and there was…",
   "image": null
  },
  {
   "slug": "second-heaven-isa-yahya",
   "title": "السماء الثانية: ابنا الخالة",
-  "description": "صعد النبي ﷺ وجبريل عليه السلام إلى السماء الثانية واستأذنا، ففُتح لهما، فإذا شابّان كريمان: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. فرحّبا به وقالا: مرحباً بالأ",
+  "description": "صعد النبي ﷺ وجبريل عليه السلام إلى السماء الثانية واستأذنا، ففُتح لهما، فإذا شابّان كريمان: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. فرحّبا به وقالا: مرحباً…",
   "titleEn": "The Second Heaven: The Cousins",
-  "descriptionEn": "The Prophet (pbuh) and Jibril rose to the second heaven and asked to enter. The gate opened, and there were two noble young men: Isa the son of Maryam and Yahya the son of Zakariya",
+  "descriptionEn": "The Prophet (pbuh) and Jibril rose to the second heaven and asked to enter. The gate opened, and there were two noble young men: Isa the son of Maryam and Yahya the son of…",
   "image": null
  },
  {
@@ -708,7 +708,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "title": "السماء الثالثة: شطر الحُسن",
   "description": "في السماء الثالثة لقي النبي ﷺ يوسف عليه السلام، وقال عنه: «قد أُعطي شطر الحُسن». وهو النبي الذي صبر على غدر إخوته وعلى السجن، حتى مكّنه الله في الأرض. فرحّب بأخيه محمد ﷺ ودعا له.",
   "titleEn": "The Third Heaven: Half of All Beauty",
-  "descriptionEn": "In the third heaven the Prophet (pbuh) met Yusuf, of whom he said: “He has been given half of all beauty.” This is the prophet who bore his brothers' betrayal and prison with patie",
+  "descriptionEn": "In the third heaven the Prophet (pbuh) met Yusuf, of whom he said: “He has been given half of all beauty.” This is the prophet who bore his brothers' betrayal and prison with…",
   "image": null
  },
  {
@@ -716,7 +716,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "title": "السماء الرابعة: المكان العليّ",
   "description": "في السماء الرابعة لقي النبي ﷺ إدريس عليه السلام، الذي رفعه الله مكاناً علياً. فرحّب به وقال ما يقوله الأنبياء: مرحباً بالأخ الصالح والنبي الصالح.",
   "titleEn": "The Fourth Heaven: A High Place",
-  "descriptionEn": "In the fourth heaven the Prophet (pbuh) met Idris, whom Allah raised to a high place. He welcomed him with the words every prophet said: “Welcome, righteous brother and righteous p",
+  "descriptionEn": "In the fourth heaven the Prophet (pbuh) met Idris, whom Allah raised to a high place. He welcomed him with the words every prophet said: “Welcome, righteous brother and righteous…",
   "image": null
  },
  {
@@ -724,23 +724,23 @@ export const seerahStoryIndex: SeerahStory[] = [
   "title": "السماء الخامسة: النبي المحبَّب",
   "description": "في السماء الخامسة لقي النبي ﷺ شيخاً وقوراً، فسأل جبريل: من هذا؟ قال: هذا المحبَّب في قومه، هارون بن عمران، أخو موسى عليهما السلام. وكان معروفاً بلينه ولطفه، فأحبّه قومه.",
   "titleEn": "The Fifth Heaven: The Beloved Prophet",
-  "descriptionEn": "In the fifth heaven the Prophet (pbuh) met a dignified elder and asked Jibril: who is this? He said: this is the one beloved by his people, Harun ibn Imran, the brother of Musa. He",
+  "descriptionEn": "In the fifth heaven the Prophet (pbuh) met a dignified elder and asked Jibril: who is this? He said: this is the one beloved by his people, Harun ibn Imran, the brother of Musa.…",
   "image": null
  },
  {
   "slug": "sixth-heaven-musa",
   "title": "السماء السادسة: دمعة الكليم",
-  "description": "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به. فلما جاوزه ليصعد بكى موسى، فقيل له: ما يبكيك؟ قال: أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن يدخلها ",
+  "description": "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به. فلما جاوزه ليصعد بكى موسى، فقيل له: ما يبكيك؟ قال: أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن…",
   "titleEn": "The Sixth Heaven: The Tear of Musa",
-  "descriptionEn": "In the sixth heaven the Prophet (pbuh) met Musa, who welcomed him. When the Prophet passed him to continue his ascent, Musa wept. He was asked: what makes you weep? He said: I weep",
+  "descriptionEn": "In the sixth heaven the Prophet (pbuh) met Musa, who welcomed him. When the Prophet passed him to continue his ascent, Musa wept. He was asked: what makes you weep? He said: I…",
   "image": null
  },
  {
   "slug": "seventh-heaven-ibrahim",
   "title": "السماء السابعة: سلام إبراهيم إلينا",
-  "description": "في السماء السابعة رأى النبي ﷺ رجلاً يشبهه، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يطوف به كل يوم سبعون ألف ملَك لا يعودون إليه. إنه إبراهيم عليه السلام، فرحّب به وأرسل مع",
+  "description": "في السماء السابعة رأى النبي ﷺ رجلاً يشبهه، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يطوف به كل يوم سبعون ألف ملَك لا يعودون إليه. إنه إبراهيم عليه السلام، فرحّب به وأرسل…",
   "titleEn": "The Seventh Heaven: Ibrahim's Greeting to Us",
-  "descriptionEn": "In the seventh heaven the Prophet (pbuh) saw a man who resembled him, resting his back against al-Bayt al-Ma'mur — a House in the heavens circled each day by seventy thousand angel",
+  "descriptionEn": "In the seventh heaven the Prophet (pbuh) saw a man who resembled him, resting his back against al-Bayt al-Ma'mur — a House in the heavens circled each day by seventy thousand…",
   "image": null
  },
  {
@@ -748,7 +748,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "title": "سدرة المنتهى: حيث يقف كل شيء",
   "description": "صعد النبي ﷺ حتى بلغ شجرة عظيمة تُسمّى سدرة المنتهى، إليها ينتهي كل صاعد ولا يتجاوزها مخلوق. وعندها وقف جبريل عليه السلام وقال: لو دنوتُ أنملة لاحترقت. ومضى النبي ﷺ وحده.",
   "titleEn": "Sidrat al-Muntaha: Where Everything Stops",
-  "descriptionEn": "The Prophet (pbuh) rose until he reached a great tree called Sidrat al-Muntaha, where everything that ascends comes to an end and no creature passes beyond. There Jibril stopped an",
+  "descriptionEn": "The Prophet (pbuh) rose until he reached a great tree called Sidrat al-Muntaha, where everything that ascends comes to an end and no creature passes beyond. There Jibril stopped…",
   "image": null
  },
  {
@@ -756,63 +756,63 @@ export const seerahStoryIndex: SeerahStory[] = [
   "title": "الهدية الكبرى: الصلاة",
   "description": "بلغ النبي ﷺ مكاناً سمع فيه صريف الأقلام، وهناك كلّمه الله وفرض على أمته الصلاة: خمسين صلاة في اليوم والليلة. والصلاة هي العبادة الوحيدة التي فُرضت في السماء لا في الأرض.",
   "titleEn": "The Great Gift: The Prayer",
-  "descriptionEn": "The Prophet (pbuh) reached a place where he heard the scratching of the pens, and there Allah spoke to him and made the prayer obligatory on his nation: fifty prayers a day and nig",
+  "descriptionEn": "The Prophet (pbuh) reached a place where he heard the scratching of the pens, and there Allah spoke to him and made the prayer obligatory on his nation: fifty prayers a day and…",
   "image": null
  },
  {
   "slug": "musa-advice-reduction",
   "title": "نصيحة موسى: خمسٌ في العمل وخمسون في الأجر",
-  "description": "في طريق العودة سأل موسى عليه السلام النبي ﷺ: بم أُمرت؟ قال: بخمسين صلاة. فقال: إن أمتك لا تطيق ذلك، ارجع إلى ربك فاسأله التخفيف. فلم يزل النبي ﷺ يرجع حتى صارت خمساً، وقال الله: هي ",
+  "description": "في طريق العودة سأل موسى عليه السلام النبي ﷺ: بم أُمرت؟ قال: بخمسين صلاة. فقال: إن أمتك لا تطيق ذلك، ارجع إلى ربك فاسأله التخفيف. فلم يزل النبي ﷺ يرجع حتى صارت خمساً، وقال الله:…",
   "titleEn": "Musa's Advice: Five in Deed, Fifty in Reward",
-  "descriptionEn": "On the way back, Musa asked the Prophet (pbuh): what were you commanded? He said: fifty prayers. Musa said: your nation cannot bear that — go back to your Lord and ask Him to light",
+  "descriptionEn": "On the way back, Musa asked the Prophet (pbuh): what were you commanded? He said: fifty prayers. Musa said: your nation cannot bear that — go back to your Lord and ask Him to…",
   "image": null
  },
  {
   "slug": "morning-of-certainty",
   "title": "صباح اليقين ولقب الصدّيق",
-  "description": "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى أبي ",
+  "description": "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى…",
   "titleEn": "The Morning of Certainty, and the Name as-Siddiq",
-  "descriptionEn": "In the morning the Prophet (pbuh) told Quraysh of his journey, and they mocked him: we travel to Jerusalem in a month, and you go and return in one night? They asked him to describ",
+  "descriptionEn": "In the morning the Prophet (pbuh) told Quraysh of his journey, and they mocked him: we travel to Jerusalem in a month, and you go and return in one night? They asked him to…",
   "image": null
  },
  {
   "slug": "dar-al-nadwa-dust",
   "title": "مؤامرة دار الندوة وحفنة التراب",
-  "description": "اجتمع زعماء قريش في دار الندوة يدبّرون كيف يتخلّصون من النبي ﷺ، فاتفقوا أن يأخذوا من كل قبيلة شاباً ليضربوه معاً. وأحاطوا ببيته ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على ما دبّرو",
+  "description": "اجتمع زعماء قريش في دار الندوة يدبّرون كيف يتخلّصون من النبي ﷺ، فاتفقوا أن يأخذوا من كل قبيلة شاباً ليضربوه معاً. وأحاطوا ببيته ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على ما…",
   "titleEn": "The Plot at Dar an-Nadwa and a Handful of Dust",
-  "descriptionEn": "The chiefs of Quraysh met at Dar an-Nadwa to plan how to be rid of the Prophet (pbuh), and agreed to take a young man from every tribe to strike him together. They surrounded his h",
+  "descriptionEn": "The chiefs of Quraysh met at Dar an-Nadwa to plan how to be rid of the Prophet (pbuh), and agreed to take a young man from every tribe to strike him together. They surrounded his…",
   "image": null
  },
  {
   "slug": "hero-in-the-bed",
   "title": "البطل النائم في الفراش",
-  "description": "قبل أن يخرج النبي ﷺ طلب من ابن عمه الشاب علي بن أبي طالب أن ينام في فراشه ويتغطّى ببردته، حتى يظنّ من ينظر أن النبي نائم. فما تردّد علي رضي الله عنه. وطلب منه النبي ﷺ أن يبقى بعده ",
+  "description": "قبل أن يخرج النبي ﷺ طلب من ابن عمه الشاب علي بن أبي طالب أن ينام في فراشه ويتغطّى ببردته، حتى يظنّ من ينظر أن النبي نائم. فما تردّد علي رضي الله عنه. وطلب منه النبي ﷺ أن يبقى…",
   "titleEn": "The Hero in the Bed",
-  "descriptionEn": "Before the Prophet (pbuh) left, he asked his young cousin Ali ibn Abi Talib to sleep in his bed and cover himself with his cloak, so that anyone looking in would think the Prophet ",
+  "descriptionEn": "Before the Prophet (pbuh) left, he asked his young cousin Ali ibn Abi Talib to sleep in his bed and cover himself with his cloak, so that anyone looking in would think the…",
   "image": null
  },
  {
   "slug": "tears-of-joy-companion",
   "title": "دموع الفرح: الصُّحبة يا رسول الله",
-  "description": "في شدة حرّ الظهيرة جاء النبي ﷺ إلى بيت أبي بكر رضي الله عنه فأخبره أن الله أذن له بالهجرة. فقال أبو بكر: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر من الفرح. تقول عائشة",
+  "description": "في شدة حرّ الظهيرة جاء النبي ﷺ إلى بيت أبي بكر رضي الله عنه فأخبره أن الله أذن له بالهجرة. فقال أبو بكر: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر من الفرح. تقول…",
   "titleEn": "Tears of Joy: “May I Accompany You?”",
-  "descriptionEn": "In the fierce heat of midday the Prophet (pbuh) came to Abu Bakr's house and told him Allah had given him leave to migrate. Abu Bakr said: “May I accompany you, Messenger of Allah?",
+  "descriptionEn": "In the fierce heat of midday the Prophet (pbuh) came to Abu Bakr's house and told him Allah had given him leave to migrate. Abu Bakr said: “May I accompany you, Messenger of…",
   "image": null
  },
  {
   "slug": "asma-that-al-nitaqayn",
   "title": "أسماء ذات النِّطاقين",
-  "description": "لما جهّزوا الزاد لم يجدوا ما يربطونه به، فقامت أسماء بنت أبي بكر رضي الله عنهما فشقّت نطاقها — أي حزامها — نصفين: ربطت بنصفه الزاد، وشدّت بالآخر ثيابها. فدعا لها النبي ﷺ بنطاقين في",
+  "description": "لما جهّزوا الزاد لم يجدوا ما يربطونه به، فقامت أسماء بنت أبي بكر رضي الله عنهما فشقّت نطاقها — أي حزامها — نصفين: ربطت بنصفه الزاد، وشدّت بالآخر ثيابها. فدعا لها النبي ﷺ بنطاقين…",
   "titleEn": "Asma, She of the Two Belts",
-  "descriptionEn": "When they packed the provisions they had nothing to tie them with, so Asma bint Abi Bakr took her belt, tore it in two, tied the food with one half and her clothes with the other. ",
+  "descriptionEn": "When they packed the provisions they had nothing to tie them with, so Asma bint Abi Bakr took her belt, tore it in two, tied the food with one half and her clothes with the…",
   "image": null
  },
  {
   "slug": "smart-shepherd-footprints",
   "title": "الراعي الذي محا الآثار",
-  "description": "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف أحد",
+  "description": "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف…",
   "titleEn": "The Shepherd Who Erased the Tracks",
-  "descriptionEn": "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over th",
+  "descriptionEn": "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over…",
   "image": null
  }
 ];

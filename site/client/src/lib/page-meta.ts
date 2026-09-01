@@ -217,7 +217,7 @@ const storiesBySlug: Map<string, StoryLookup> = new Map(
 // Returned for a path that matches no surah, chapter, story or static page.
 const FALLBACK_NOT_FOUND: Meta = {
   path: "/",
-  title: "الصفحة غير موجودة — Yahya Quran Academy",
+  title: `الصفحة غير موجودة · ${SITE_NAME}`,
   description: SITE_DESCRIPTION,
   image: DEFAULT_IMAGE,
   noindex: true,
@@ -316,9 +316,9 @@ export const metaForPath = (pathname: string): Meta => {
         path,
         title: `قصص من القرآن للأطفال · ${SITE_NAME}`,
         description:
-          "القصص في أبواب أربعة: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.",
+          `${storyIndex.length} قصة في ${chapterIndex.length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.`,
         image: DEFAULT_IMAGE,
-        i18n: { en: { title: `Stories from the Quran for children · ${SITE_NAME_EN}`, description: "Four chapters: the prophets, people and nations, animals the Quran names, and women in the Quran." } },
+        i18n: { en: { title: `Stories from the Quran for children · ${SITE_NAME_EN}`, description: `${storyIndex.length} stories in ${chapterIndex.length} chapters: the prophets, people and nations, animals the Quran names, and women in the Quran.` } },
       };
     }
     if (parts[2]) {
@@ -337,10 +337,10 @@ export const metaForPath = (pathname: string): Meta => {
     if (chapter) {
       return {
         path,
-        title: `${chapter.titleAr} · ${SITE_NAME}`,
+        title: `${chapter.titleAr} — ${storyIndex.filter(story => story.chapter === chapter.slug).length} قصة · ${SITE_NAME}`,
         description: chapter.descriptionAr,
         image: chapter.cover ?? DEFAULT_IMAGE,
-        i18n: chapter.titleEn ? { en: { title: `${chapter.titleEn} · ${SITE_NAME_EN}`, description: chapter.descriptionEn ?? chapter.descriptionAr } } : undefined,
+        i18n: chapter.titleEn ? { en: { title: `${chapter.titleEn} — ${storyIndex.filter(story => story.chapter === chapter.slug).length} stories · ${SITE_NAME_EN}`, description: chapter.descriptionEn ?? chapter.descriptionAr } } : undefined,
       };
     }
     return FALLBACK_NOT_FOUND;

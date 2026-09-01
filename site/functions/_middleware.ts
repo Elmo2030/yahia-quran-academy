@@ -28,10 +28,10 @@ const SITE_DESCRIPTION =
 const DEFAULT_IMAGE = "/og-yahya.jpg";
 const ORIGIN = "https://yahyaquran.com";
 
-const clean = (text: string, max = 180) => {
-  const flat = text.replace(/\s+/g, " ").trim();
-  return flat.length <= max ? flat : `${flat.slice(0, max - 1).trimEnd()}…`;
-};
+// Descriptions arrive already shortened by scripts/build-seo.mjs, which is the
+// only place that decides how long a description is. This used to shorten them
+// a second time with a different rule, so the function and the app disagreed
+// about the description of every story page.
 
 // --- Auth + account + utility routes (feature/auth-foundation) -----------
 
@@ -95,12 +95,12 @@ function metaForPath(pathname: string) {
   if (head === "forgot-password") {
     return { path: "/forgot-password", image: DEFAULT_IMAGE, noindex: true,
       title: "استعادة كلمة المرور — Yahya Quran Academy",
-      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك." };
+      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahya Quran Academy." };
   }
   if (head === "reset-password") {
     return { path: "/reset-password", image: DEFAULT_IMAGE, noindex: true,
       title: "تعيين كلمة مرور جديدة — Yahya Quran Academy",
-      description: "عيّن كلمة مرور جديدة لحسابك." };
+      description: "عيّن كلمة مرور جديدة لحسابك على Yahya Quran Academy." };
   }
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;
@@ -132,7 +132,7 @@ function metaForPath(pathname: string) {
     if (story) {
       return { ...base, path,
         title: `${story.title} · السيرة النبوية`,
-        description: clean(story.narrative) };
+        description: story.narrative };
     }
   }
 
@@ -162,7 +162,7 @@ function metaForPath(pathname: string) {
       const story = stories.find((s: any) => s.chapter === parts[1] && s.slug === parts[2]);
       if (story) {
         return { path, image: story.image ?? DEFAULT_IMAGE,
-          title: `${story.title} · قصص من القرآن`, description: clean(story.hook) };
+          title: `${story.title} · قصص من القرآن`, description: story.hook };
       }
     }
     if (parts[1]) {
@@ -170,13 +170,13 @@ function metaForPath(pathname: string) {
       if (chapter) {
         const count = stories.filter((s: any) => s.chapter === chapter.slug).length;
         return { path, image: chapter.cover ?? DEFAULT_IMAGE,
-          title: `${chapter.titleAr} — ${count} قصة · ${SITE}`, description: clean(chapter.descriptionAr) };
+          title: `${chapter.titleAr} — ${count} قصة · ${SITE}`, description: chapter.descriptionAr };
       }
     }
     // A chapter or story slug that matched nothing is not the stories index.
     if (parts[1]) return notFound(path);
     return { ...base, path, title: `قصص من القرآن للأطفال · ${SITE}`,
-      description: `${stories.length} قصة في ${chapters.filter((c: any) => c.available).length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.` };
+      description: `${stories.length} قصة في ${chapters.length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.` };
   }
 
   if (path === "/") return { ...base, path: "/", title: SITE, description: SITE_DESCRIPTION };

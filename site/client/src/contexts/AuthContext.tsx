@@ -303,9 +303,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         "Provider sign-in is temporarily unavailable.",
       );
     }
-    const target = redirectTo && redirectTo.startsWith("/")
-      ? `${window.location.origin}${redirectTo}`
-      : redirectTo || `${window.location.origin}/profile`;
+    // Only a path on this site, never a URL. An absolute address handed to
+    // Supabase is where the browser lands after Google or Apple sign in, with
+    // the session in the URL — so it must not be possible to point it off-site.
+    // Both callers already check this before calling; the guarantee belongs
+    // here, where it holds for whoever calls next. A leading "//" is a URL to
+    // another host wearing a path's clothes, so it is refused too.
+    const safe = redirectTo && redirectTo.startsWith("/") && !redirectTo.startsWith("//")
+      ? redirectTo
+      : "/profile";
+    const target = `${window.location.origin}${safe}`;
     const { error } = await client.auth.signInWithOAuth({
       provider,
       options: { redirectTo: target },
