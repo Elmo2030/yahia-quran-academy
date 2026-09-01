@@ -83,17 +83,13 @@ export default function Home() {
       <section className="trust-strip" id="about"><div className="container trust-strip__inner"><div><BookOpen size={21} /><span><b>{t.textProof}</b> {t.unchanged}</span></div><div><Headphones size={21} /><span><b>{t.surahs}</b> {t.listening}</span></div><div><Heart size={21} /><span><b>{t.selfReview}</b> {t.noAutoJudgement}</span></div></div></section>
 
       <section className="section section--reader" aria-labelledby="reader-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold">{t.readerEyebrow}</span><h2 id="reader-title">{t.readerTitle}</h2><p>{t.readerIntro}</p></div>{progress && (
-          <Link
-            href={`/read/${progress.surah}`}
-            className="mx-auto mb-6 flex max-w-md items-center gap-3 rounded-xl border border-[var(--brand-navy)]/10 bg-white/70 px-4 py-3 shadow-sm transition-colors hover:bg-white"
-            data-testid="continue-reading"
-          >
-            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--brand-navy)] text-[var(--brand-ivory)]"><CirclePlay size={18} aria-hidden="true" /></span>
-            <span className="flex-1">
-              <b className="block text-sm font-semibold text-[var(--brand-navy)]">{t.continueReading}</b>
-              <small lang="ar" dir="rtl" className="block text-xs text-[var(--brand-navy)]/60">{getSurahName(progress.surah)}{progress.ayah > 0 ? ` · ${t.continueReadingAyah} ${progress.ayah}` : ` · ${t.continueReadingOf}`}</small>
+          <Link href={`/read/${progress.surah}`} className="resume-chip" data-testid="continue-reading">
+            <span className="resume-chip__icon"><CirclePlay size={18} aria-hidden="true" /></span>
+            <span className="resume-chip__text">
+              <b>{t.continueReading}</b>
+              <small lang="ar" dir="rtl">{getSurahName(progress.surah)}{progress.ayah > 0 ? ` · ${t.continueReadingAyah} ${progress.ayah}` : ` · ${t.continueReadingOf}`}</small>
             </span>
-            <Arrow size={18} className="text-[var(--brand-navy)]/50" aria-hidden="true" />
+            <Arrow size={18} aria-hidden="true" />
           </Link>
         )}<div className="surah-grid">{featuredSurahs.map((surah) => <Link href={`/read/${surah}`} key={surah} className="surah-card"><span>{String(surah).padStart(3, "0")}</span><b lang="ar" dir="rtl">{getSurahName(surah)}</b>{locale === "en" && <small className="surah-card__translation">{featuredEnglishNames[surah]}</small>}<CirclePlay size={22} /><small>{t.readListen}</small></Link>)}</div><Link href="/read/1" className="text-link text-link--center">{t.allSurahs} <Arrow size={18} /></Link></div></section>
 
