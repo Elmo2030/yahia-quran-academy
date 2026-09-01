@@ -149,8 +149,9 @@ function ProfileBody() {
   }
 
   async function handleResendVerification() {
+    if (!session?.user.email) return;
     const client = await getSupabase();
-    if (!client || !session?.user.email) return;
+    if (!client) return;
     await client.auth.resend({
       type: "signup",
       email: session.user.email,

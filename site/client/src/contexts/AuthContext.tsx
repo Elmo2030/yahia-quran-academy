@@ -213,9 +213,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const refreshProfile = useCallback(async () => {
-    const client = await getSupabase();
     const userId = state.session?.user.id;
-    if (!client || !userId) {
+    if (!userId) {
+      setState((s) => ({ ...s, profile: null }));
+      return;
+    }
+    const client = await getSupabase();
+    if (!client) {
       setState((s) => ({ ...s, profile: null }));
       return;
     }

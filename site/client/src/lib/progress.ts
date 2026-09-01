@@ -142,8 +142,11 @@ export function useReadingProgress() {
       const value: LocalProgress = { surah, ayah, updatedAt: Date.now() };
       writeLocalProgress(value);
       setProgress(value);
+      // Nobody signed in means nothing to save remotely, and asking for the
+      // client is what downloads the library — so check that first.
+      if (!profileId) return;
       const client = await getSupabase();
-      if (!client || !profileId) return;
+      if (!client) return;
       try {
         await client.rpc("record_reading", {
           p_profile_id: profileId,
