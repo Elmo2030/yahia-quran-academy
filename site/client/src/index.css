@@ -550,3 +550,8 @@
 .resume-chip__text b { color: #001F3F; font-size: .9rem; font-weight: 800; }
 .resume-chip__text small { color: #5a7094; font-size: .78rem; }
 .resume-chip > svg { color: #5a7094; flex: none; }
+
+/* The basmalah heading above every surah but Al-Fatiha and At-Tawbah. It is not
+   a numbered ayah, so it carries no number and no highlight. */
+.ayah--basmalah { text-align: center; color: #556B2F; border: 0; }
+.ayah--basmalah .ayah__text { font-size: 1.15em; }

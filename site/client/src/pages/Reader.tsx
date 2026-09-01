@@ -3,6 +3,7 @@ import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, Check, Headphones, Heart, Loader2, Mic, Pause, Play, Repeat, Volume2 } from "lucide-react";
 import { yahyaAvatarUrl } from "@/lib/hero-images";
 import { getEnglishSurahName, getSurahName, loadSurahWithTransliteration, surahNames, type TransliteratedAyah } from "@/lib/quran-content";
+import { BASMALAH } from "@/lib/surah-ayah-counts.generated";
 import { activeAt, defaultRecitationId, listRecitations, loadSurahSource, loadTiming, type Recitation, type SurahAudioSource, type TimedAyah } from "@/lib/recitations";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -24,6 +25,16 @@ const copy = {
 } as const;
 
 const CONTINUOUS_KEY = "yahya.reader.continuous";
+
+// Every surah in the mushaf opens with the basmalah except At-Tawbah, and in
+// Al-Fatiha it is the first numbered ayah rather than a heading. The reader
+// showed it only for Al-Fatiha, so 112 surahs opened without the line a child
+// is taught to begin with. It is a heading, not an ayah: unnumbered, and
+// outside the highlighting, which follows the timed ayahs. The text comes
+// from the corpus, never retyped: a hand-typed copy differed from it by the
+// order of a shadda and a fatha — identical on screen, not the same string.
+const BASMALAH_LATIN = "Bismillaahir Rahmaanir Raheem";
+const opensWithBasmalah = (surah: number) => surah !== 1 && surah !== 9;
 
 /**
  * The surah in the address, or null if there is no such surah.
@@ -222,7 +233,12 @@ export default function Reader() {
             <Headphones className="audio-deck__icon" size={24} /><audio ref={playerRef} src={audio?.playbackUrl} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={handleEnded} onError={() => setError(t.audioFailure)} /></div> : <div className="audio-deck audio-deck--unavailable"><Volume2 size={24} /><span>{t.audioUnavailable}</span></div>}
           <RecitationRecorder surah={selectedSurah} />
           {reachedEnd && <p className="reader-endnote" role="status">{t.lastSurah}</p>}
-          {loading && <div className="reader-loading"><Loader2 className="animate-spin" size={24} /> {t.loading}</div>}{error && <div className="reader-error" role="alert">{error}</div>}{!loading && !error && ayahs.length === 0 && <div className="reader-loading">{t.noAyahs}</div>}{!loading && !error && ayahs.length > 0 && <div className="ayah-list" dir="rtl" lang="ar">{ayahs.map((ayah) => {
+          {loading && <div className="reader-loading"><Loader2 className="animate-spin" size={24} /> {t.loading}</div>}{error && <div className="reader-error" role="alert">{error}</div>}{!loading && !error && ayahs.length === 0 && <div className="reader-loading">{t.noAyahs}</div>}{!loading && !error && ayahs.length > 0 && <div className="ayah-list" dir="rtl" lang="ar">{opensWithBasmalah(selectedSurah) && (
+              <p className="ayah ayah--basmalah">
+                <span className="ayah__text">{BASMALAH}</span>
+                {locale === "en" && <span className="ayah__transliteration" dir="ltr" lang="en">{BASMALAH_LATIN}</span>}
+              </p>
+            )}{ayahs.map((ayah) => {
               const isActiveAyah = active.ayah === ayah.number;
               const timed = timings.find(entry => entry.number === ayah.number);
               // Word spans only where this exact ayah has trustworthy word
