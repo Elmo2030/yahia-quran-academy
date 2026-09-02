@@ -564,3 +564,14 @@
 .aqeedah-card__icon { font-size: 1.5rem; line-height: 1; }
 .aqeedah-card b { color: #001F3F; font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; font-weight: 800; line-height: 1.6; }
 .aqeedah-card small { color: #5a7094; font-size: .82rem; line-height: 1.8; }
+
+/* The medal a correct answer earns. */
+.badge-award { display: flex; align-items: center; gap: 1.1rem; padding: 1.1rem 1.2rem; border: 1px solid #e9d9a8; border-radius: 22px; background: linear-gradient(150deg, #fffdf5, #fff3d6); box-shadow: 0 12px 26px rgb(0 31 63 / 10%); animation: badge-in .45s cubic-bezier(.23,1,.32,1); }
+@keyframes badge-in { from { opacity: 0; transform: translateY(10px) scale(.96) } to { opacity: 1; transform: none } }
+@media (prefers-reduced-motion: reduce) { .badge-award { animation: none } }
+.badge-award__medal { inline-size: 84px; block-size: 105px; flex: none; filter: drop-shadow(0 6px 12px rgb(0 31 63 / 18%)); }
+.badge-award__text { display: grid; gap: .2rem; }
+.badge-award__label { color: #7d631c; font-size: .78rem; font-weight: 800; }
+.badge-award__text b { color: #001F3F; font-family: "Noto Naskh Arabic", serif; font-size: 1.2rem; font-weight: 800; line-height: 1.5; }
+.badge-award__keepsake { color: #556B2F; font-size: .88rem; font-weight: 700; }
+.badge-award__text small { color: #5c6c6d; font-size: .8rem; line-height: 1.8; }

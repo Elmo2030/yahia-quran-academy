@@ -14,6 +14,7 @@ import { ArrowLeft, ArrowRight, BookOpen, HelpCircle, Heart, Moon, Sparkles } fr
 
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
+import { BadgeAward } from "@/components/BadgeAward";
 import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
@@ -63,17 +64,23 @@ function Chrome({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Challenge({ card }: { card: AqeedahCard }) {
+function Challenge({
+  card, picked, onPick, number,
+}: {
+  card: AqeedahCard;
+  picked: number | null;
+  onPick: (index: number) => void;
+  number: number;
+}) {
   const { locale } = useLocale();
   const t = copy[locale];
   const text = aqeedahTextFor(card, locale);
-  const [picked, setPicked] = useState<number | null>(null);
   const answered = picked !== null;
   const right = picked === text.challenge.correctAnswer;
 
   return (
     <section className="story-reading-section" aria-live="polite">
-      <span className="story-section-number">4</span>
+      <span className="story-section-number">{number}</span>
       <div>
         <span className="story-section-label"><HelpCircle size={13} aria-hidden="true" /> {t.challenge}</span>
         <h2>{t.challenge}</h2>
@@ -83,14 +90,14 @@ function Challenge({ card }: { card: AqeedahCard }) {
             const state = !answered ? "" : index === text.challenge.correctAnswer ? " is-correct" : index === picked ? " is-wrong" : "";
             return (
               <li key={option}>
-                <button type="button" className={`button button--soft seerah-option${state}`} disabled={answered} onClick={() => setPicked(index)}>
+                <button type="button" className={`button button--soft seerah-option${state}`} disabled={answered} onClick={() => onPick(index)}>
                   {option}
                 </button>
               </li>
             );
           })}
         </ul>
-        {answered && <p>{right ? `${t.correct} — ${t.badge}: ${text.badge}` : t.wrong}</p>}
+        {answered && <p>{right ? t.correct : t.wrong}</p>}
       </div>
     </section>
   );
@@ -103,6 +110,9 @@ function CardView({ card }: { card: AqeedahCard }) {
   const chapter = aqeedahChapterOf(card);
   const Back = locale === "ar" ? ArrowRight : ArrowLeft;
   const Forward = locale === "ar" ? ArrowLeft : ArrowRight;
+
+  const [picked, setPicked] = useState<number | null>(null);
+  const won = picked === text.challenge.correctAnswer;
 
   const index = aqeedahCards.findIndex(c => c.slug === card.slug);
   const previous = index > 0 ? aqeedahCards[index - 1] : null;
@@ -157,19 +167,20 @@ function CardView({ card }: { card: AqeedahCard }) {
             </div>
           </section>
 
-          <Challenge card={card} />
+          <Challenge card={card} picked={picked} onPick={setPicked} number={4} />
+
+          {won && (
+            <section className="story-reading-section">
+              <span className="story-section-number">5</span>
+              <div>
+                <span className="story-section-label">{t.reward}</span>
+                <BadgeAward icon={card.icon} badge={text.badge} keepsake={text.artifact} label={t.badge} />
+              </div>
+            </section>
+          )}
 
           <section className="story-reading-section">
-            <span className="story-section-number">5</span>
-            <div>
-              <span className="story-section-label">{t.reward}</span>
-              <h2>{text.artifact}</h2>
-              <p>{t.badge}: {text.badge}</p>
-            </div>
-          </section>
-
-          <section className="story-reading-section">
-            <span className="story-section-number">6</span>
+            <span className="story-section-number">{won ? 6 : 5}</span>
             <div>
               <span className="story-section-label">{t.source} {card.reliability}</span>
               <h2>{text.source.reference}</h2>
@@ -215,7 +226,7 @@ export default function Aqeedah() {
         </Chrome>
       );
     }
-    return <Chrome><CardView card={card} /></Chrome>;
+    return <Chrome><CardView card={card} key={card.slug} /></Chrome>;
   }
 
   return (

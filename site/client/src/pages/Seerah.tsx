@@ -19,6 +19,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
 import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
+import { BadgeAward } from "@/components/BadgeAward";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import {
   seerahStories,
@@ -118,6 +119,8 @@ function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const text = seerahTextFor(story, locale);
+  const [picked, setPicked] = useState<number | null>(null);
+  const won = picked === text.interactive.challenge.correctAnswer;
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/seerah/${story.slug}`} className="story-list-card">
@@ -132,10 +135,9 @@ function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
   );
 }
 
-function ChallengeSection({ story, number }: { story: SeerahStory; number: number }) {
+function ChallengeSection({ story, number, picked, onPick }: { story: SeerahStory; number: number; picked: number | null; onPick: (index: number) => void }) {
   const { locale } = useLocale();
   const t = copy[locale];
-  const [picked, setPicked] = useState<number | null>(null);
   const text = seerahTextFor(story, locale);
   const { challenge } = text.interactive;
   const answered = picked !== null;
@@ -157,7 +159,7 @@ function ChallengeSection({ story, number }: { story: SeerahStory; number: numbe
                   type="button"
                   className={`button button--soft seerah-option${state}`}
                   disabled={answered}
-                  onClick={() => setPicked(index)}
+                  onClick={() => onPick(index)}
                 >
                   {option}
                 </button>
@@ -165,7 +167,7 @@ function ChallengeSection({ story, number }: { story: SeerahStory; number: numbe
             );
           })}
         </ul>
-        {answered && <p>{correct ? `${t.correct} — ${text.gamification.badge}` : t.wrong}</p>}
+        {answered && <p>{correct ? t.correct : t.wrong}</p>}
       </div>
     </section>
   );
@@ -176,6 +178,9 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
   const t = copy[locale];
   const [tier, setTier] = useState<AgeTier>("tier_1_age_6_8");
   const text = seerahTextFor(story, locale);
+  // The answer lives here, not in the challenge, so the medal can wait on it.
+  const [picked, setPicked] = useState<number | null>(null);
+  const won = picked === text.interactive.challenge.correctAnswer;
   const station = seerahStationOf(story);
   const isTier1 = tier === "tier_1_age_6_8";
   const narrative = isTier1
@@ -258,20 +263,26 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               </div>
             </section>
 
-            <ChallengeSection story={story} number={4} />
+            <ChallengeSection story={story} number={4} picked={picked} onPick={setPicked} />
 
-            <section className="story-reading-section" id="story-reward">
-              <span className="story-section-number">5</span>
-              <div>
-                <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.reward}</span>
-                <h2>{t.reward}</h2>
-                <p><strong>{text.gamification.artifact.name}</strong> — {text.gamification.artifact.description}</p>
-                <p>{text.gamification.badge}</p>
-              </div>
-            </section>
+            {won && (
+              <section className="story-reading-section" id="story-reward">
+                <span className="story-section-number">5</span>
+                <div>
+                  <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.reward}</span>
+                  <BadgeAward
+                    icon={text.interactive.value.icon}
+                    badge={text.gamification.badge}
+                    keepsake={text.gamification.artifact.name}
+                    note={text.gamification.artifact.description}
+                    label={t.reward}
+                  />
+                </div>
+              </section>
+            )}
 
             <section className="story-reading-section" id="story-source">
-              <span className="story-section-number">6</span>
+              <span className="story-section-number">{won ? 6 : 5}</span>
               <div>
                 <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.source}</span>
                 <h2>{t.source} {text.source.reliability}</h2>
@@ -306,7 +317,7 @@ export default function Seerah() {
         </Chrome>
       );
     }
-    return <Chrome><SeerahStoryView story={story} /></Chrome>;
+    return <Chrome><SeerahStoryView story={story} key={story.slug} /></Chrome>;
   }
 
   return (
