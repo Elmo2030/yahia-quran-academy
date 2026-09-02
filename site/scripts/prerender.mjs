@@ -175,19 +175,30 @@ for (const story of seerahStories) {
 }
 
 // The creed ------------------------------------------------------------------
-add("/aqeedah", section("ar", `
-  <h1>العقيدة — أتعرّف على ربّي</h1>
-  <p>${esc(aqeedahCards.length)} بطاقة في ${esc(aqeedahChapters.length)} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.</p>
-  ${aqeedahChapters.map(chapter => `
-    <h2>${esc(chapter.titleAr)}</h2>
-    ${p(chapter.descriptionAr)}
-    ${list(aqeedahCards.filter(c => c.chapter === chapter.slug)
-      .map(c => `${link(`/aqeedah/${c.slug}`, c.title)} — ${esc(c.value)}`))}
-  `).join("")}
-`));
+add("/aqeedah",
+  section("ar", `
+    <h1>العقيدة — أتعرّف على ربّي</h1>
+    <p>${esc(aqeedahCards.length)} بطاقة في ${esc(aqeedahChapters.length)} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.</p>
+    ${aqeedahChapters.map(chapter => `
+      <h2>${esc(chapter.titleAr)}</h2>
+      ${p(chapter.descriptionAr)}
+      ${list(aqeedahCards.filter(c => c.chapter === chapter.slug)
+        .map(c => `${link(`/aqeedah/${c.slug}`, c.title)} — ${esc(c.value)}`))}
+    `).join("")}
+  `) +
+  section("en", `
+    <h2>Creed for children — Knowing My Lord</h2>
+    <p>${esc(aqeedahCards.length)} cards in ${esc(aqeedahChapters.length)} chapters: who we know, what we believe, and how belief shows in what we do.</p>
+    ${aqeedahChapters.map(chapter => `
+      <h3>${esc(chapter.titleEn)}</h3>
+      ${p(chapter.descriptionEn)}
+      ${list(aqeedahCards.filter(c => c.chapter === chapter.slug && c.en)
+        .map(c => `${link(`/aqeedah/${c.slug}`, c.en.title)} — ${esc(c.en.value)}`))}
+    `).join("")}
+  `));
 
 for (const card of aqeedahCards) {
-  add(`/aqeedah/${card.slug}`, section("ar", `
+  const ar = section("ar", `
     <h1>${esc(card.title)}</h1>
     ${p(card.value)}
     ${p(card.story)}
@@ -196,7 +207,17 @@ for (const card of aqeedahCards) {
     <h2>${esc(card.valueName)}</h2>
     ${p(card.thinkQuestion)}
     ${p(`المصدر: ${card.source.reference}`)}
-  `));
+  `);
+  const en = card.en ? section("en", `
+    <h2>${esc(card.en.title)}</h2>
+    ${p(card.en.value)}
+    ${p(card.en.story)}
+    ${p(card.en.didYouKnow)}
+    <h3>${esc(card.en.valueName)}</h3>
+    ${p(card.en.thinkQuestion)}
+    ${p(`Source: ${card.en.source.reference}`)}
+  `) : "";
+  add(`/aqeedah/${card.slug}`, ar + en);
 }
 
 // In the Realm of the Quran --------------------------------------------------
