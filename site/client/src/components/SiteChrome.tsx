@@ -23,13 +23,13 @@ import useAuth from "@/hooks/useAuth";
 const copy = {
   ar: {
     home: "الرئيسية", stories: "قصص القرآن", seerah: "السيرة النبوية",
-    facts: "في رحاب القرآن", about: "عن الأكاديمية",
+    facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
     reader: "افتح القارئ", account: "حسابي", register: "أنشئ حسابًا",
     nav: "التنقل الرئيسي",
   },
   en: {
     home: "Home", stories: "Quran stories", seerah: "The Prophet’s Seerah",
-    facts: "In the Realm of the Quran", about: "About",
+    facts: "In the Realm of the Quran", aqeedah: "Creed", about: "About",
     reader: "Open the reader", account: "My account", register: "Create an account",
     nav: "Primary navigation",
   },
@@ -59,6 +59,7 @@ export function SiteChrome({ variant = "full" }: { variant?: "full" | "reader" }
             <Link href="/stories">{t.stories}</Link>
             <Link href="/seerah">{t.seerah}</Link>
             <Link href="/quran-facts">{t.facts}</Link>
+            <Link href="/aqeedah">{t.aqeedah}</Link>
             <Link href="/about">{t.about}</Link>
           </nav>
         )}

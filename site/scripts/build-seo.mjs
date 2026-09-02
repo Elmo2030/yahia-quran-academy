@@ -27,6 +27,11 @@ const pickFrom = (src, name, file) => {
   return eval(m[1]);
 };
 const seerahStations = pickFrom(seerahSource, "seerahStations", "seerah.ts");
+
+const aqeedahSource = readFileSync(join(root, "client/src/content/aqeedah.ts"), "utf8");
+const aqeedahChapters = pickFrom(aqeedahSource, "aqeedahChapters", "aqeedah.ts");
+const aqeedahCards = pickFrom(aqeedahSource, "aqeedahCards", "aqeedah.ts");
+if (aqeedahCards.length === 0) throw new Error("no aqeedah cards parsed — check aqeedah.ts shape");
 const seerahStories = pickFrom(seerahSource, "seerahStories", "seerah.ts");
 if (seerahStories.length === 0) throw new Error("no seerah stories parsed — check seerah.ts shape");
 if (seerahStations.length === 0) throw new Error("no seerah stations parsed — check seerah.ts shape");
@@ -48,6 +53,8 @@ const urls = [
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
   ...stories.map(s => ({ loc: `/stories/${s.chapter}/${s.slug}`, priority: "0.7" })),
   { loc: "/seerah", priority: "0.8" },
+  { loc: "/aqeedah", priority: "0.8" },
+  ...aqeedahCards.map(c => ({ loc: `/aqeedah/${c.slug}`, priority: "0.7" })),
   ...seerahStories.map(s => ({ loc: `/seerah/${s.slug}`, priority: "0.7" })),
 ];
 
@@ -137,6 +144,11 @@ ${chapterLines.join("\n")}
 
 ${storyLines.join("\n")}
 
+## Creed, for children
+${aqeedahChapters.map(c => `- [${c.titleEn} — ${c.titleAr}](${ORIGIN}/aqeedah#${c.slug}): ${aqeedahCards.filter(x => x.chapter === c.slug).length} cards. ${c.descriptionAr}`).join("\n")}
+
+${aqeedahCards.map(c => `- [${c.title}](${ORIGIN}/aqeedah/${c.slug}): ${c.value}`).join("\n")}
+
 ## Seerah of the Prophet
 ${seerahLines.join("\n")}
 
@@ -193,6 +205,8 @@ type Chapter = { slug: string; titleAr: string; descriptionAr: string; titleEn: 
 type Story = { chapter: string; slug: string; title: string; hook: string; titleEn: string | null; hookEn: string | null; image: string | null };
 type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
+type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string };
+type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null };
 export const chapterIndex: Chapter[] = ${JSON.stringify(chapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, descriptionAr: c.descriptionAr,
   titleEn: c.titleEn ?? null, descriptionEn: c.descriptionEn ?? null,
@@ -215,6 +229,15 @@ export const seerahStoryIndex: SeerahStory[] = ${JSON.stringify(seerahStories.ma
   descriptionEn: s.en ? clip(s.en.content.tier_1_age_6_8.narrative) : null,
   image: s.image ?? null,
 })), null, 1)};
+
+export const aqeedahChapterIndex: AqeedahChapter[] = ${JSON.stringify(aqeedahChapters.map(c => ({
+  slug: c.slug, titleAr: c.titleAr, titleEn: c.titleEn, descriptionAr: clip(c.descriptionAr),
+})), null, 1)};
+
+export const aqeedahCardIndex: AqeedahCard[] = ${JSON.stringify(aqeedahCards.map(c => ({
+  slug: c.slug, chapter: c.chapter, title: c.title, value: clip(c.value),
+  titleEn: c.en?.title ?? null, valueEn: c.en ? clip(c.en.value) : null,
+})), null, 1)};
 `);
 
 // Both consumers are handed text that is already the right length: the app
@@ -229,6 +252,10 @@ writeFileSync(join(root, "functions/page-data.js"),
 })), null, 1)};\n` +
 `export const surahNames = ${JSON.stringify(surahNames)};\n` +
 `export const seerahStations = ${JSON.stringify(seerahStations)};\n` +
+`export const aqeedahChapters = ${JSON.stringify(aqeedahChapters, null, 1)};\n` +
+`export const aqeedahCards = ${JSON.stringify(aqeedahCards.map(c => ({
+  slug: c.slug, chapter: c.chapter, title: c.title, value: clip(c.value),
+})), null, 1)};\n` +
 `export const seerahStories = ${JSON.stringify(seerahStories.map(s => ({
   stationId: s.stationId, slug: s.slug, title: s.title, image: s.image ?? null,
   narrative: clip(s.content.tier_1_age_6_8.narrative),

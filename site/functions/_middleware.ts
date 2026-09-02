@@ -20,7 +20,7 @@
  * link previews show English text.
  */
 
-import { chapters, stories, surahNames, seerahStations, seerahStories } from "./page-data.js";
+import { chapters, stories, surahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_DESCRIPTION =
@@ -122,6 +122,18 @@ function metaForPath(pathname: string) {
   // The seerah section sits outside /stories — it is the Prophet's life, not a
   // Quran story. Without this branch every seerah link previewed as "page not
   // found" while the page itself rendered correctly.
+  if (head === "aqeedah") {
+    if (!parts[1]) {
+      return { ...base, path,
+        title: `العقيدة — ${aqeedahCards.length} بطاقة · ${SITE}`,
+        description: `${aqeedahCards.length} بطاقة في ${aqeedahChapters.length} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.` };
+    }
+    const card = aqeedahCards.find((c: any) => c.slug === parts[1]);
+    return card
+      ? { ...base, path, title: `${card.title} · العقيدة`, description: card.value }
+      : notFound(path);
+  }
+
   if (head === "seerah") {
     if (!parts[1]) {
       return { ...base, path,

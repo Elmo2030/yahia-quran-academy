@@ -555,3 +555,12 @@
    a numbered ayah, so it carries no number and no highlight. */
 .ayah--basmalah { text-align: center; color: #556B2F; border: 0; }
 .ayah--basmalah .ayah__text { font-size: 1.15em; }
+
+/* The creed section: a grid of cards, each one idea. */
+.aqeedah-ages { color: #c5d6ee; font-size: .8rem; margin-top: .4rem; }
+.aqeedah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.aqeedah-card { display: grid; gap: .35rem; block-size: 100%; padding: 1.1rem 1.2rem; border: 1px solid #e6dfc9; border-radius: 20px; background: #fffdf5; box-shadow: 0 10px 24px rgb(0 31 63 / 7%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
+.aqeedah-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgb(0 31 63 / 12%); }
+.aqeedah-card__icon { font-size: 1.5rem; line-height: 1; }
+.aqeedah-card b { color: #001F3F; font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; font-weight: 800; line-height: 1.6; }
+.aqeedah-card small { color: #5a7094; font-size: .82rem; line-height: 1.8; }

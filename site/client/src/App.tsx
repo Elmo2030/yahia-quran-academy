@@ -16,6 +16,7 @@ import Home from "./pages/Home";
 // the reader, every story, and the Supabase client they may never touch.
 const Stories = lazyWithRetry(() => import("@/pages/Stories"));
 const Seerah = lazyWithRetry(() => import("@/pages/Seerah"));
+const Aqeedah = lazyWithRetry(() => import("@/pages/Aqeedah"));
 const Reader = lazyWithRetry(() => import("./pages/Reader"));
 const Login = lazyWithRetry(() => import("./pages/Login"));
 const Register = lazyWithRetry(() => import("./pages/Register"));
@@ -45,6 +46,8 @@ function Router() {
       <Route path={"/stories/:chapter/:slug"} component={Stories} />
       <Route path={"/seerah"} component={Seerah} />
       <Route path={"/seerah/:slug"} component={Seerah} />
+      <Route path={"/aqeedah"} component={Aqeedah} />
+      <Route path={"/aqeedah/:slug"} component={Aqeedah} />
       <Route path={"/login"} component={Login} />
       <Route path={"/register"} component={Register} />
       <Route path={"/forgot-password"} component={ForgotPassword} />

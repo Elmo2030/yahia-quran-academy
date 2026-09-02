@@ -26,13 +26,13 @@ const copy = {
   ar: {
     open: "القائمة", close: "أغلق القائمة", title: "التنقل",
     home: "الرئيسية", reader: "افتح القارئ", stories: "قصص القرآن",
-    seerah: "السيرة النبوية", facts: "في رحاب القرآن", about: "عن الأكاديمية",
+    seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
     account: "حسابي", register: "أنشئ حسابًا",
   },
   en: {
     open: "Menu", close: "Close the menu", title: "Navigation",
     home: "Home", reader: "Open the reader", stories: "Quran stories",
-    seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", about: "About the academy",
+    seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
     account: "My account", register: "Create an account",
   },
 } as const;
@@ -43,6 +43,7 @@ const LINKS = [
   { href: "/stories", key: "stories" },
   { href: "/seerah", key: "seerah" },
   { href: "/quran-facts", key: "facts" },
+  { href: "/aqeedah", key: "aqeedah" },
   { href: "/about", key: "about" },
 ] as const;
 

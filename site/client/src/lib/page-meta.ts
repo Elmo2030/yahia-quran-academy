@@ -6,6 +6,8 @@ import {
   storyIndex,
   seerahStationIndex,
   seerahStoryIndex,
+  aqeedahCardIndex,
+  aqeedahChapterIndex,
 } from "./page-index.generated";
 import { englishSurahNames, surahNames } from "./quran-content";
 
@@ -250,6 +252,29 @@ export const metaForPath = (pathname: string): Meta => {
   // story, so it does not live under /stories. Without this it fell through to
   // the not-found branch and every station and story carried a "page not found"
   // title while rendering its content perfectly.
+  if (head === "aqeedah") {
+    if (!parts[1]) {
+      return {
+        path,
+        title: `العقيدة — ${aqeedahCardIndex.length} بطاقة · ${SITE_NAME}`,
+        description: `${aqeedahCardIndex.length} بطاقة في ${aqeedahChapterIndex.length} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.`,
+        image: DEFAULT_IMAGE,
+        i18n: { en: { title: `Creed for children — ${aqeedahCardIndex.length} cards · ${SITE_NAME_EN}`, description: `${aqeedahCardIndex.length} cards in ${aqeedahChapterIndex.length} chapters: who we know, what we believe, and how belief shows in what we do.` } },
+      };
+    }
+    const card = aqeedahCardIndex.find(entry => entry.slug === parts[1]);
+    if (card) {
+      return {
+        path,
+        title: `${card.title} · العقيدة`,
+        description: card.value,
+        image: DEFAULT_IMAGE,
+        i18n: card.titleEn ? { en: { title: `${card.titleEn} · Creed`, description: card.valueEn ?? card.value } } : undefined,
+      };
+    }
+    return FALLBACK_NOT_FOUND;
+  }
+
   if (head === "seerah") {
     if (!parts[1]) {
       return {

@@ -19,7 +19,7 @@ import { join } from "node:path";
 import { beforeAll, afterAll, describe, expect, it } from "vitest";
 
 import { metaForPath } from "@/lib/page-meta";
-import { chapterIndex, storyIndex, seerahStoryIndex } from "@/lib/page-index.generated";
+import { chapterIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index.generated";
 
 const bundle = join(process.cwd(), "functions", "__tests__", ".mirror.bundle.mjs");
 let onRequest: (context: unknown) => Promise<Response>;
@@ -57,12 +57,14 @@ async function fromTheFunction(path: string) {
 // Every kind of route the site has, plus a sample of each generated family.
 const ROUTES = [
   "/", "/about", "/privacy", "/terms",
-  "/stories", "/seerah", "/quran-facts", "/read",
+  "/stories", "/seerah", "/quran-facts", "/read", "/aqeedah",
   "/login", "/register", "/profile", "/stories/library",
   "/forgot-password", "/reset-password", "/nope", "/stories/nope",
   ...chapterIndex.map(chapter => `/stories/${chapter.slug}`),
   ...storyIndex.slice(0, 6).map(story => `/stories/${story.chapter}/${story.slug}`),
   ...seerahStoryIndex.slice(0, 6).map(story => `/seerah/${story.slug}`),
+  ...aqeedahCardIndex.slice(0, 6).map(card => `/aqeedah/${card.slug}`),
+  "/aqeedah/nope",
   "/read/1", "/read/18", "/read/114",
   // Addresses that name no surah: this is where the two copies drifted once,
   // the function answering 200 to a page whose title said it did not exist.

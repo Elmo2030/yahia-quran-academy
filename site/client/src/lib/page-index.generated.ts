@@ -5,6 +5,8 @@ type Chapter = { slug: string; titleAr: string; descriptionAr: string; titleEn: 
 type Story = { chapter: string; slug: string; title: string; hook: string; titleEn: string | null; hookEn: string | null; image: string | null };
 type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
+type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string };
+type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null };
 export const chapterIndex: Chapter[] = [
  {
   "slug": "animals",
@@ -814,5 +816,309 @@ export const seerahStoryIndex: SeerahStory[] = [
   "titleEn": "The Shepherd Who Erased the Tracks",
   "descriptionEn": "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over…",
   "image": null
+ }
+];
+
+export const aqeedahChapterIndex: AqeedahChapter[] = [
+ {
+  "slug": "opening",
+  "titleAr": "مدخل الرحلة",
+  "titleEn": "The Journey Begins",
+  "descriptionAr": "أن يتعرّف الطفل على الله معرفةً تورث المحبة والعبادة."
+ },
+ {
+  "slug": "knowing-allah",
+  "titleAr": "أعرف ربي",
+  "titleEn": "Knowing My Lord",
+  "descriptionAr": "تعريف الطفل بأركان الإيمان الستة بأبسط صورة."
+ },
+ {
+  "slug": "pillars-of-faith",
+  "titleAr": "أركان الإيمان",
+  "titleEn": "The Pillars of Faith",
+  "descriptionAr": "فهم معنى النبوة والرسالة، ومعرفة مكانة محمد ﷺ خاتم الأنبياء كعقيدة لا كسيرة."
+ },
+ {
+  "slug": "messengers",
+  "titleAr": "رسل الله ومحمد ﷺ",
+  "titleEn": "The Messengers, and Muhammad ﷺ",
+  "descriptionAr": "ربط معرفة الله بالعبادة العملية بطريقة محبَّبة."
+ },
+ {
+  "slug": "worship",
+  "titleAr": "أعبد الله",
+  "titleEn": "Worshipping Allah",
+  "descriptionAr": "تحويل العقيدة إلى سلوك يومي في البيت والمدرسة ومع الأصدقاء."
+ },
+ {
+  "slug": "faith-in-action",
+  "titleAr": "إيماني في أفعالي",
+  "titleEn": "Faith You Can See",
+  "descriptionAr": ""
+ },
+ {
+  "slug": "closing",
+  "titleAr": "ختام الرحلة",
+  "titleEn": "The Journey Ends",
+  "descriptionAr": "بطاقة الختام: ما جمعناه في الرحلة، وكيف نكمل به."
+ }
+];
+
+export const aqeedahCardIndex: AqeedahCard[] = [
+ {
+  "slug": "knowing-my-lord",
+  "chapter": "opening",
+  "title": "رحلة: أعرف ربي",
+  "value": "كلّما عرفتُ ربّي أكثر، أحببتُه أكثر.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "allah-created-me",
+  "chapter": "knowing-allah",
+  "title": "الله خلقني",
+  "value": "أنا نعمة من نِعَم الله، فأشكره وأتأمّل صنعه.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "allah-is-one",
+  "chapter": "knowing-allah",
+  "title": "الله واحد",
+  "value": "أعبد الله وحده، ولا أجعل له شريكًا.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "allah-sees-and-hears",
+  "chapter": "knowing-allah",
+  "title": "الله يراني ويسمعني ويعلم كل شيء",
+  "value": "أراقب الله في سرّي وعلانيتي.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "allah-provides",
+  "chapter": "knowing-allah",
+  "title": "الله يرزقني وينعم عليّ",
+  "value": "أعرف نعمة الله، فأشكره ولا أبطر.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "allah-is-merciful",
+  "chapter": "knowing-allah",
+  "title": "الله رحيم ويحب المحسنين",
+  "value": "أرجو رحمة الله، وأحسن إلى خلقه.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "i-love-and-worship-allah",
+  "chapter": "knowing-allah",
+  "title": "أنا أحب الله وأعبده",
+  "value": "أحب الله، فأطيعه وأفعل ما يحب.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "belief-in-allah",
+  "chapter": "pillars-of-faith",
+  "title": "أؤمن بالله",
+  "value": "أؤمن بالله وحده، وأطمئن أنه ربي وخالقي.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "the-angels",
+  "chapter": "pillars-of-faith",
+  "title": "عالم الملائكة",
+  "value": "أؤمن بالملائكة، وأحب الطاعة مثلما يحبها عباد الله المكرمون.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "the-books",
+  "chapter": "pillars-of-faith",
+  "title": "كتب الله",
+  "value": "أؤمن بكتب الله، وأتمسّك بالقرآن المحفوظ.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "the-messengers",
+  "chapter": "pillars-of-faith",
+  "title": "رسل الله",
+  "value": "أؤمن برسل الله جميعًا، وأعلم أنهم دعوا إلى عبادة الله.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "the-last-day",
+  "chapter": "pillars-of-faith",
+  "title": "ماذا بعد الموت؟",
+  "value": "أعمل الخير اليوم، وأرجو لقاء الله برحمته.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "belief-in-destiny",
+  "chapter": "pillars-of-faith",
+  "title": "كل شيء بحساب (الإيمان بالقدر)",
+  "value": "أجتهد وأختار الخير، وأتوكل على الله بحكمة وصبر.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "why-prophets-were-sent",
+  "chapter": "messengers",
+  "title": "لماذا أرسل الله الأنبياء؟",
+  "value": "أحمد الله أن أرسل الرسل ليعلّمونا الطريق إليه.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "who-is-muhammad",
+  "chapter": "messengers",
+  "title": "من هو محمد ﷺ؟",
+  "value": "أؤمن أن محمدًا ﷺ رسول الله وخاتم النبيين.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "why-we-love-the-prophet",
+  "chapter": "messengers",
+  "title": "لماذا نحب النبي ﷺ؟",
+  "value": "أحب النبي ﷺ لأنه رسول الله وعلّمني الخير.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "following-the-prophet",
+  "chapter": "messengers",
+  "title": "كيف نقتدي بالنبي ﷺ؟",
+  "value": "أقتدي بالنبي ﷺ في صدقي ورحمتي وحسن خلقي.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "the-prayer",
+  "chapter": "worship",
+  "title": "الصلاة",
+  "value": "أحافظ على صلاتي لأنها صلتي بربي.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "supplication",
+  "chapter": "worship",
+  "title": "الدعاء",
+  "value": "أدعو الله بقلب صادق في كل وقت.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "the-quran",
+  "chapter": "worship",
+  "title": "القرآن",
+  "value": "أحب القرآن، وأقرأه باحترام لأهتدي به.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "remembrance",
+  "chapter": "worship",
+  "title": "الذكر",
+  "value": "أذكر الله بلساني وقلبي، فيطمئن قلبي.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "fasting",
+  "chapter": "worship",
+  "title": "الصيام",
+  "value": "أتعلّم من الصيام الصبر والشكر ومساعدة الآخرين.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "gratitude",
+  "chapter": "worship",
+  "title": "الشكر",
+  "value": "أشكر الله بالكلام والعمل، وأستخدم نعمه في الخير.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "truthfulness",
+  "chapter": "faith-in-action",
+  "title": "الصدق",
+  "value": "أقول الحقيقة لأن الله يحب الصادقين.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "trustworthiness",
+  "chapter": "faith-in-action",
+  "title": "الأمانة",
+  "value": "أحفظ الأمانة، فالله يعلم ما أفعل.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "good-character",
+  "chapter": "faith-in-action",
+  "title": "حسن الخلق",
+  "value": "أتكلم بلطف، وأجعل خلقي دليلًا على إيماني.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "mercy",
+  "chapter": "faith-in-action",
+  "title": "الرحمة",
+  "value": "أرحم من حولي، وأحب أن أكون من أهل المرحمة.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "honouring-parents",
+  "chapter": "faith-in-action",
+  "title": "بر الوالدين",
+  "value": "أبرّ والديّ بالكلمة الطيبة والمساعدة والطاعة في الخير.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "helping-others",
+  "chapter": "faith-in-action",
+  "title": "مساعدة الآخرين",
+  "value": "أساعد غيري ابتغاء رضا الله، وأفرح بالخير.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "forgiveness",
+  "chapter": "faith-in-action",
+  "title": "العفو",
+  "value": "أعفو عندما أقدر، وأطلب الإصلاح لا الانتقام.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "kindness-to-animals",
+  "chapter": "faith-in-action",
+  "title": "الرفق بالحيوان",
+  "value": "أرفق بالحيوان لأنه خلق من خلق الله.",
+  "titleEn": null,
+  "valueEn": null
+ },
+ {
+  "slug": "my-map-of-faith",
+  "chapter": "closing",
+  "title": "خريطتي الإيمانية",
+  "value": "عرفتُ ربّي، فأحببتُه، فأطعتُه، فظهر ذلك في أفعالي.",
+  "titleEn": null,
+  "valueEn": null
  }
 ];

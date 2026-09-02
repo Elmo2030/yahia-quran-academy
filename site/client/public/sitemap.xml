@@ -1177,6 +1177,237 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://yahyaquran.com/aqeedah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/knowing-my-lord</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/knowing-my-lord" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/knowing-my-lord?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/knowing-my-lord" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/allah-created-me</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/allah-created-me" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/allah-created-me?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/allah-created-me" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/allah-is-one</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/allah-is-one" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/allah-is-one?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/allah-is-one" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/allah-sees-and-hears</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/allah-sees-and-hears" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/allah-sees-and-hears?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/allah-sees-and-hears" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/allah-provides</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/allah-provides" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/allah-provides?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/allah-provides" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/allah-is-merciful</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/allah-is-merciful" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/allah-is-merciful?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/allah-is-merciful" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/i-love-and-worship-allah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/i-love-and-worship-allah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/i-love-and-worship-allah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/i-love-and-worship-allah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/belief-in-allah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/belief-in-allah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/belief-in-allah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/belief-in-allah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/the-angels</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/the-angels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/the-angels?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/the-angels" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/the-books</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/the-books" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/the-books?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/the-books" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/the-messengers</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/the-messengers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/the-messengers?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/the-messengers" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/the-last-day</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/the-last-day" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/the-last-day?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/the-last-day" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/belief-in-destiny</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/belief-in-destiny" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/belief-in-destiny?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/belief-in-destiny" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/why-prophets-were-sent</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/why-prophets-were-sent" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/why-prophets-were-sent?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/why-prophets-were-sent" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/who-is-muhammad</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/who-is-muhammad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/who-is-muhammad?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/who-is-muhammad" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/why-we-love-the-prophet</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/why-we-love-the-prophet" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/why-we-love-the-prophet?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/why-we-love-the-prophet" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/following-the-prophet</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/following-the-prophet" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/following-the-prophet?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/following-the-prophet" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/the-prayer</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/the-prayer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/the-prayer?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/the-prayer" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/supplication</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/supplication" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/supplication?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/supplication" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/the-quran</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/the-quran" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/the-quran?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/the-quran" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/remembrance</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/remembrance" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/remembrance?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/remembrance" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/fasting</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/fasting" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/fasting?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/fasting" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/gratitude</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/gratitude" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/gratitude?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/gratitude" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/truthfulness</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/truthfulness" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/truthfulness?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/truthfulness" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/trustworthiness</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/trustworthiness" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/trustworthiness?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/trustworthiness" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/good-character</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/good-character" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/good-character?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/good-character" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/mercy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/mercy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/mercy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/mercy" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/honouring-parents</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/honouring-parents" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/honouring-parents?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/honouring-parents" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/helping-others</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/helping-others" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/helping-others?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/helping-others" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/forgiveness</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/forgiveness" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/forgiveness?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/forgiveness" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/kindness-to-animals</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/kindness-to-animals" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/kindness-to-animals?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/kindness-to-animals" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/aqeedah/my-map-of-faith</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/my-map-of-faith" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/my-map-of-faith?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/aqeedah/my-map-of-faith" />
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yahyaquran.com/seerah/birth-of-light</loc>
     <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/birth-of-light" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/birth-of-light?lang=en" />

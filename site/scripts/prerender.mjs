@@ -42,6 +42,8 @@ const stories = readLiteral("content/stories.ts", "stories");
 const seerahStations = readLiteral("content/seerah.ts", "seerahStations");
 const seerahStories = readLiteral("content/seerah.ts", "seerahStories");
 const facts = readLiteral("content/quran-facts.ts", "quranFacts");
+const aqeedahChapters = readLiteral("content/aqeedah.ts", "aqeedahChapters");
+const aqeedahCards = readLiteral("content/aqeedah.ts", "aqeedahCards");
 
 // About keeps its copy in one object; the policy pages pick between two with a
 // ternary. Both are read rather than restated, so the page a crawler is given
@@ -89,6 +91,7 @@ add("/", section("ar", `
     link("/stories", "قصص من القرآن — أربعة أبواب"),
     link("/seerah", "السيرة النبوية"),
     link("/quran-facts", "في رحاب القرآن — مئة معلومة"),
+    link("/aqeedah", "العقيدة — أتعرّف على ربّي"),
     link("/about", "عن الأكاديمية"),
   ])}
   <p>لا نعرض درجة إتقان آلية ولا نفتح مراحل تلقائيًا — وليّ الأمر هو من يقدّر تلاوة طفله.</p>
@@ -169,6 +172,31 @@ for (const story of seerahStories) {
     ${enTier2 && enTier2 !== enText ? p(enTier2.narrative) + p(enTier2.details) : ""}
   `) : "";
   add(`/seerah/${story.slug}`, ar + en);
+}
+
+// The creed ------------------------------------------------------------------
+add("/aqeedah", section("ar", `
+  <h1>العقيدة — أتعرّف على ربّي</h1>
+  <p>${esc(aqeedahCards.length)} بطاقة في ${esc(aqeedahChapters.length)} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.</p>
+  ${aqeedahChapters.map(chapter => `
+    <h2>${esc(chapter.titleAr)}</h2>
+    ${p(chapter.descriptionAr)}
+    ${list(aqeedahCards.filter(c => c.chapter === chapter.slug)
+      .map(c => `${link(`/aqeedah/${c.slug}`, c.title)} — ${esc(c.value)}`))}
+  `).join("")}
+`));
+
+for (const card of aqeedahCards) {
+  add(`/aqeedah/${card.slug}`, section("ar", `
+    <h1>${esc(card.title)}</h1>
+    ${p(card.value)}
+    ${p(card.story)}
+    <blockquote>${esc(card.ayah.text)}<cite>${esc(card.ayah.ref)}</cite></blockquote>
+    ${p(card.didYouKnow)}
+    <h2>${esc(card.valueName)}</h2>
+    ${p(card.thinkQuestion)}
+    ${p(`المصدر: ${card.source.reference}`)}
+  `));
 }
 
 // In the Realm of the Quran --------------------------------------------------
