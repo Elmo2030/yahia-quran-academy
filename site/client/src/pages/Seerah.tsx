@@ -135,13 +135,20 @@ function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
   );
 }
 
-function ChallengeSection({ story, number, picked, onPick }: { story: SeerahStory; number: number; picked: number | null; onPick: (index: number) => void }) {
+function ChallengeSection({
+  story, number, tried, solved, onPick,
+}: {
+  story: SeerahStory;
+  number: number;
+  /** Wrong answers already tried, so the same one is not offered twice. */
+  tried: number[];
+  solved: boolean;
+  onPick: (index: number) => void;
+}) {
   const { locale } = useLocale();
   const t = copy[locale];
   const text = seerahTextFor(story, locale);
   const { challenge } = text.interactive;
-  const answered = picked !== null;
-  const correct = picked === challenge.correctAnswer;
 
   return (
     <section className="story-reading-section" id="story-challenge" aria-live="polite">
@@ -152,13 +159,19 @@ function ChallengeSection({ story, number, picked, onPick }: { story: SeerahStor
         <p>{challenge.question}</p>
         <ul className="seerah-options">
           {challenge.options.map((option, index) => {
-            const state = !answered ? "" : index === challenge.correctAnswer ? " is-correct" : index === picked ? " is-wrong" : "";
+            // Only what was tried is marked. Saying "try again" while revealing
+            // the answer and disabling every button is not a second chance.
+            const state = solved && index === challenge.correctAnswer
+              ? " is-correct"
+              : tried.includes(index)
+                ? " is-wrong"
+                : "";
             return (
               <li key={option}>
                 <button
                   type="button"
                   className={`button button--soft seerah-option${state}`}
-                  disabled={answered}
+                  disabled={solved || tried.includes(index)}
                   onClick={() => onPick(index)}
                 >
                   {option}
@@ -167,7 +180,7 @@ function ChallengeSection({ story, number, picked, onPick }: { story: SeerahStor
             );
           })}
         </ul>
-        {answered && <p>{correct ? t.correct : t.wrong}</p>}
+        {(solved || tried.length > 0) && <p>{solved ? t.correct : t.wrong}</p>}
       </div>
     </section>
   );
@@ -179,8 +192,12 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
   const [tier, setTier] = useState<AgeTier>("tier_1_age_6_8");
   const text = seerahTextFor(story, locale);
   // The answer lives here, not in the challenge, so the medal can wait on it.
-  const [picked, setPicked] = useState<number | null>(null);
-  const won = picked === text.interactive.challenge.correctAnswer;
+  const [tried, setTried] = useState<number[]>([]);
+  const [won, setWon] = useState(false);
+  const answer = (index: number) => {
+    if (index === text.interactive.challenge.correctAnswer) setWon(true);
+    else setTried(current => (current.includes(index) ? current : [...current, index]));
+  };
   const station = seerahStationOf(story);
   const isTier1 = tier === "tier_1_age_6_8";
   const narrative = isTier1
@@ -263,7 +280,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               </div>
             </section>
 
-            <ChallengeSection story={story} number={4} picked={picked} onPick={setPicked} />
+            <ChallengeSection story={story} number={4} tried={tried} solved={won} onPick={answer} />
 
             {won && (
               <section className="story-reading-section" id="story-reward">

@@ -65,18 +65,19 @@ function Chrome({ children }: { children: React.ReactNode }) {
 }
 
 function Challenge({
-  card, picked, onPick, number,
+  card, tried, solved, onPick, number,
 }: {
   card: AqeedahCard;
-  picked: number | null;
+  /** Wrong answers already tried, so the same one is not offered twice. */
+  tried: number[];
+  solved: boolean;
   onPick: (index: number) => void;
   number: number;
 }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const text = aqeedahTextFor(card, locale);
-  const answered = picked !== null;
-  const right = picked === text.challenge.correctAnswer;
+  const { correctAnswer } = text.challenge;
 
   return (
     <section className="story-reading-section" aria-live="polite">
@@ -87,17 +88,29 @@ function Challenge({
         <p>{text.challenge.question}</p>
         <ul className="seerah-options">
           {text.challenge.options.map((option, index) => {
-            const state = !answered ? "" : index === text.challenge.correctAnswer ? " is-correct" : index === picked ? " is-wrong" : "";
+            // A wrong answer marks only what was tried. Telling a child to try
+            // again while showing the answer and locking every button is not a
+            // second chance — the right one stays hidden until it is chosen.
+            const state = solved && index === correctAnswer
+              ? " is-correct"
+              : tried.includes(index)
+                ? " is-wrong"
+                : "";
             return (
               <li key={option}>
-                <button type="button" className={`button button--soft seerah-option${state}`} disabled={answered} onClick={() => onPick(index)}>
+                <button
+                  type="button"
+                  className={`button button--soft seerah-option${state}`}
+                  disabled={solved || tried.includes(index)}
+                  onClick={() => onPick(index)}
+                >
                   {option}
                 </button>
               </li>
             );
           })}
         </ul>
-        {answered && <p>{right ? t.correct : t.wrong}</p>}
+        {(solved || tried.length > 0) && <p>{solved ? t.correct : t.wrong}</p>}
       </div>
     </section>
   );
@@ -111,8 +124,12 @@ function CardView({ card }: { card: AqeedahCard }) {
   const Back = locale === "ar" ? ArrowRight : ArrowLeft;
   const Forward = locale === "ar" ? ArrowLeft : ArrowRight;
 
-  const [picked, setPicked] = useState<number | null>(null);
-  const won = picked === text.challenge.correctAnswer;
+  const [tried, setTried] = useState<number[]>([]);
+  const [won, setWon] = useState(false);
+  const answer = (index: number) => {
+    if (index === text.challenge.correctAnswer) setWon(true);
+    else setTried(current => (current.includes(index) ? current : [...current, index]));
+  };
 
   const index = aqeedahCards.findIndex(c => c.slug === card.slug);
   const previous = index > 0 ? aqeedahCards[index - 1] : null;
@@ -167,7 +184,7 @@ function CardView({ card }: { card: AqeedahCard }) {
             </div>
           </section>
 
-          <Challenge card={card} picked={picked} onPick={setPicked} number={4} />
+          <Challenge card={card} tried={tried} solved={won} onPick={answer} number={4} />
 
           {won && (
             <section className="story-reading-section">
