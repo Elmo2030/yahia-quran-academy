@@ -205,7 +205,7 @@ type Chapter = { slug: string; titleAr: string; descriptionAr: string; titleEn: 
 type Story = { chapter: string; slug: string; title: string; hook: string; titleEn: string | null; hookEn: string | null; image: string | null };
 type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
-type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string };
+type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null };
 export const chapterIndex: Chapter[] = ${JSON.stringify(chapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, descriptionAr: c.descriptionAr,
@@ -232,6 +232,7 @@ export const seerahStoryIndex: SeerahStory[] = ${JSON.stringify(seerahStories.ma
 
 export const aqeedahChapterIndex: AqeedahChapter[] = ${JSON.stringify(aqeedahChapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, titleEn: c.titleEn, descriptionAr: clip(c.descriptionAr),
+  descriptionEn: c.descriptionEn ? clip(c.descriptionEn) : null,
 })), null, 1)};
 
 export const aqeedahCardIndex: AqeedahCard[] = ${JSON.stringify(aqeedahCards.map(c => ({

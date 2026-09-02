@@ -139,7 +139,7 @@ function CardView({ card }: { card: AqeedahCard }) {
               <p>{text.story}</p>
               {card.more && (
                 <Link href={card.more.href} className="text-link">
-                  {card.more.label} <Forward size={16} aria-hidden="true" />
+                  {(locale === "en" && card.more.labelEn) || card.more.label} <Forward size={16} aria-hidden="true" />
                 </Link>
               )}
             </div>
@@ -251,7 +251,7 @@ export default function Aqeedah() {
             <div className="container">
               <div className="stories-section__heading" {...langAttrs(locale)}>
                 <h2>{locale === "en" ? chapter.titleEn : chapter.titleAr}</h2>
-                <p>{chapter.descriptionAr}</p>
+                <p>{(locale === "en" && chapter.descriptionEn) || chapter.descriptionAr}</p>
               </div>
               <ul className="aqeedah-grid" {...langAttrs(locale)}>
                 {list.map(item => {
