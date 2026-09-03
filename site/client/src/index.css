@@ -361,10 +361,14 @@
 .story-article__content { display: grid; gap: 2.1rem; }
 
 .story-section-number { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #385051; background: #e6efd4; font-family: "Plus Jakarta Sans", sans-serif; font-size: .8rem; font-weight: 800; }
-.story-section-label { color: #556B2F; font-size: .75rem; font-weight: 800; letter-spacing: .04em; }
+.story-section-label { display: block; margin: 0; color: #556B2F; font-size: .75rem; font-weight: 800; letter-spacing: .04em; }
 .story-reading-section { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; }
 .story-reading-section--hook { background: #eef3dd; border-radius: 24px; padding: 1.6rem; }
 .story-reading-section h2, .story-lesson-card h2, .story-bridge h2 { color: #001F3F; margin: 0 0 .65rem; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.7rem,3vw,2.35rem); line-height: 1.3; }
+/* The story's first section leads with its label rather than a separate
+   heading, so the label is the heading. It has to come after the rule above,
+   which matches it just as specifically. */
+.story-reading-section h2.story-section-label { margin: 0; color: #556B2F; font-family: inherit; font-size: .75rem; line-height: inherit; }
 .story-reading-section p, .story-reading-section__lead { color: #385051; margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.16rem; line-height: 2.1; }
 .story-quran-connection, .story-lesson-card { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; }
 .story-quran-connection .story-section-number { color: #735c00; background: #d4af37; }

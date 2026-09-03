@@ -256,7 +256,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
             <section className="story-reading-section story-reading-section--hook" id="story-narrative">
               <span className="story-section-number">1</span>
               <div>
-                <span className="story-section-label">{t.story}</span>
+                <h2 className="story-section-label">{t.story}</h2>
                 <p className="story-reading-section__lead">{narrative}</p>
                 {details && <p>{details}</p>}
                 {lesson && <p>✨ {lesson}</p>}
