@@ -31,7 +31,11 @@ const openCard = () => {
 };
 
 const optionButtons = () =>
-  screen.getAllByRole("button").filter(b => card.challenge.options.includes(b.textContent ?? ""));
+  screen
+    .getAllByRole("button")
+    .filter((b): b is HTMLButtonElement =>
+      card.challenge.options.includes(b.textContent ?? ""),
+    );
 
 beforeEach(() => window.history.pushState({}, "", "/"));
 

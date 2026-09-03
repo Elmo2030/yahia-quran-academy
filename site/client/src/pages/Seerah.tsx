@@ -39,7 +39,7 @@ const copy = {
     sections: "أقسام القصة", story: "القصة", know: "هل تعلم؟", value: "قيمة القصة",
     challenge: "تحدي الفهم", reward: "مكافأتك", source: "مصدر موثوق",
     ageGroup: "اختيار الفئة العمرية", chooseStory: "اختر قصة",
-    correct: "أحسنت! إجابة صحيحة 🎉", wrong: "الإجابة الصحيحة بالأخضر — اقرأ القصة مرة أخرى وحاول مجدداً 💪",
+    correct: "أحسنت! إجابة صحيحة 🎉", wrong: "ليست هذه — اقرأ القصة مرة أخرى وجرّب اختياراً آخر 💪",
     missing: "هذه القصة غير موجودة.",
   },
   en: {
@@ -50,7 +50,7 @@ const copy = {
     sections: "Story sections", story: "The story", know: "Did you know?", value: "The story’s value",
     challenge: "Comprehension challenge", reward: "Your reward", source: "Trusted source",
     ageGroup: "Choose an age group", chooseStory: "Choose a story",
-    correct: "Well done — that’s right 🎉", wrong: "The correct answer is in green — read the story again and try once more 💪",
+    correct: "Well done — that’s right 🎉", wrong: "Not that one — read the story again and try another answer 💪",
     missing: "This story does not exist.",
   },
 } as const;

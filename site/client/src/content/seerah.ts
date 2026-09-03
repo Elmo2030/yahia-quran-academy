@@ -141,6 +141,15 @@ export const seerahStations: SeerahStation[] = [
     descriptionEn:
       "The night the Prophet (pbuh) left Mecca, and those who stood with him: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr's tears, Asma's belt, and Amir's flock that erased the tracks.",
   },
+  {
+    stationId: 7,
+    titleAr: "الدفاع عن الوطن",
+    titleEn: "Defending the Homeland",
+    descriptionAr:
+      "خمس عشرة قصة من سنوات الدفاع عن المدينة: الإذن بعد ثلاث عشرة سنة من الصبر، وبدر والشورى والملائكة، وأسرى صاروا معلّمين، ودرس أُحد، وخندق سلمان، وريح الأحزاب، وصلح الحديبية، والرسائل إلى الملوك، وخيبر، ثم فتح مكة يوم المرحمة والعفو العام.",
+    descriptionEn:
+      "Fifteen stories from the years of defending Madinah: the permission after thirteen years of patience, Badr with its counsel and its angels, captives who became teachers, the lesson of Uhud, Salman's trench, the wind that scattered the Confederates, the treaty of Hudaybiyyah, the letters to kings, Khaybar, and finally the conquest of Mecca — the day of mercy and the general pardon.",
+  },
 ];
 
 /** A story's text in the requested language, falling back to the Arabic for
@@ -3583,6 +3592,1146 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟢",
       reference: "صحيح البخاري، وسيرة ابن هشام",
       note: "مجيء عامر بن فهيرة بالغنم إلى الغار في صحيح البخاري، وتفصيل تعمية الأثر بالغنم في كتب السيرة.",
+    },
+  },
+  {
+    storyId: "st-7-01",
+    stationId: 7,
+    slug: "permission-to-defend",
+    en: {
+      title: "Why Did the Muslims Defend Themselves?",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Muslims bore thirteen years of harm in Mecca without striking back, because the Prophet ﷺ told them to be patient. When they migrated to Madinah and built their homes, Quraysh kept threatening to attack them. Only then did Allah permit them to defend themselves and their families. Islam does not begin an attack — and it does not leave its people wronged with no protection.",
+          shortLesson: "Strength is for protecting homes, not for starting an attack.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "For thirteen years in Mecca the Muslims bore severe harm — torture, and the seizing of their homes and wealth — and not one of them raised a sword, because the Prophet ﷺ told them to be patient and to hold back. Then they migrated to Madinah and built a community that was safe, and still Quraysh sent threats and promised to attack them. At that point — and only then — permission came down to defend themselves, their families and their new home. Islam is a religion of peace that does not begin an attack, but it does not leave its own to be wronged without protection.",
+          details:
+            "Allah says why the permission came: ﴿أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا﴾ — “Permission is given to those who are fought, because they were wronged.”",
+        },
+      },
+      interactive: {
+        discover: "This was the first verse permitting fighting, after thirteen years of patience.",
+        value: { name: "Peace first, defence as the exception", icon: "🕊️" },
+        thinkQuestion: "Why do you think the Muslims waited all those years before they were permitted to defend themselves?",
+        challenge: {
+          type: "multiple_choice",
+          question: "When were the Muslims permitted to defend themselves?",
+          options: ["At the start of the call in Mecca", "After the migration, when they were wronged and threatened", "Before the prophethood", "They were never permitted"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An olive branch", description: "A branch to remind you that peace comes first." },
+        badge: "Guardian of Home",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran, Surah Al-Hajj: 39",
+        note: "The verse states plainly that the permission came because of the wrong done to them.",
+      },
+    },
+    title: "لماذا دافع المسلمون عن أنفسهم؟",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "صبر المسلمون في مكة ثلاث عشرة سنة على الأذى ولم يردّوا، لأن النبي ﷺ كان يأمرهم بالصبر. ولما هاجروا إلى المدينة وبنوا بيوتهم، ظلّت قريش تهدّد بالهجوم عليهم. عند ذلك أذن الله لهم أن يدافعوا عن أنفسهم وأهلهم، فالإسلام لا يبدأ بالاعتداء، ولا يرضى أن يُظلم أهله بلا حماية.",
+        shortLesson: "القوة تُحمى بها البيوت، ولا يُبدأ بها اعتداء.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "صبر المسلمون في مكة ثلاث عشرة سنة على أذى شديد: التعذيب، ومصادرة البيوت والأموال، ولم يرفع أحد منهم سيفاً، لأن النبي ﷺ كان يأمرهم بالصبر والكفّ. فلما هاجروا إلى المدينة وأقاموا مجتمعهم الآمن، ظلّت قريش ترسل التهديد وتتوعّد بالهجوم عليهم. عند ذلك — وعند ذلك فقط — نزل الإذن بالدفاع عن النفس والأهل والوطن. فالإسلام دين سلام لا يبدأ بالعدوان، لكنه لا يترك أهله يُظلمون بلا حماية.",
+        details:
+          "قال تعالى مبيّناً سبب الإذن: ﴿أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا ۚ وَإِنَّ اللَّهَ عَلَىٰ نَصْرِهِمْ لَقَدِيرٌ﴾.",
+      },
+    },
+    interactive: {
+      discover: "هذه أول آية نزلت في الإذن بالقتال، بعد ثلاث عشرة سنة من الصبر.",
+      value: { name: "السلام أصل والدفاع استثناء", icon: "🕊️" },
+      thinkQuestion:
+        "لماذا في رأيكم صبر المسلمون كل هذه السنين قبل أن يُؤذن لهم بالدفاع؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "متى أُذن للمسلمين بالدفاع عن أنفسهم؟",
+        options: ["في أول الدعوة بمكة", "بعد الهجرة، حين ظُلموا وهُدِّدوا", "قبل البعثة", "لم يُؤذن لهم أبداً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "غصن زيتون", description: "غصن يذكّرك أن السلام هو الأصل." },
+      badge: "حامي الديار",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن الكريم، سورة الحج: ٣٩",
+      note: "الآية نصّ في أن الإذن جاء بسبب الظلم الواقع عليهم.",
+    },
+  },
+  {
+    storyId: "st-7-02",
+    stationId: 7,
+    slug: "badr-shura-counsel",
+    en: {
+      title: "The Well of Badr and the Strength of Counsel",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Muslims set out three hundred and thirteen men, and found before them an army of nearly a thousand. The Prophet ﷺ gathered his companions and asked their view, forcing no one. When they camped at the wells of Badr, al-Hubab ibn al-Mundhir asked him: is this a place Allah told you to take, or is it judgement and strategy? He said: it is judgement. So al-Hubab advised camping at the well nearest the enemy — and the Prophet ﷺ took his advice.",
+          shortLesson: "A strong leader accepts the right idea from someone younger than him.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Muslims set out three hundred and thirteen men, and Quraysh had readied an army of nearly a thousand. The Prophet ﷺ gathered his companions and forced no one, but said: “Advise me, people.” The Muhajirun and the Ansar stood and declared they were with him. When the army camped at the wells of Badr, al-Hubab ibn al-Mundhir asked: “Is this a position Allah placed you in, which we may not go beyond, or is it judgement, war and strategy?” He said: “It is judgement, war and strategy.” So al-Hubab advised moving to the water nearest the enemy and keeping the water behind them — and the Prophet ﷺ accepted his view and acted on it.",
+          details:
+            "Allah describes the believers: ﴿وَأَمْرُهُمْ شُورَىٰ بَيْنَهُمْ﴾ — “and their affair is by consultation among them.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ separated what came by revelation from what was his own judgement, and took counsel on the second.",
+        value: { name: "Consultation", icon: "🤝" },
+        thinkQuestion: "When did you last change your mind because someone had a better idea?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ do with al-Hubab's advice?",
+          options: ["Refused it", "Took it and acted on it", "Delayed it", "Was angry at it"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A water pail", description: "A pail to remind you that a right idea is taken from whoever brings it." },
+        badge: "One Who Counsels",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah",
+        note: "Al-Hubab's counsel is well known in the Seerah, reported by Ibn Ishaq without a full chain; consultation itself is established in the Quran.",
+      },
+    },
+    title: "بئر بدر وقوة الشورى",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "خرج المسلمون ثلاثمائة وثلاثة عشر رجلاً، فوجدوا أمامهم جيشاً يقارب الألف. فجمع النبي ﷺ أصحابه واستشارهم ولم يجبر أحداً. ولما نزلوا عند آبار بدر، قال له الحُباب بن المنذر: أهذا منزل أنزلكه الله أم هو الرأي والحرب؟ فقال: بل هو الرأي. فأشار عليه أن ينزلوا عند أقرب بئر إلى العدو، فأخذ النبي ﷺ برأيه.",
+        shortLesson: "القائد القويّ يسمع الرأي الصواب ممن هو أصغر منه.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "خرج المسلمون في ثلاثمائة وثلاثة عشر رجلاً، فإذا قريش قد جهّزت جيشاً يقارب الألف مقاتل. فجمع النبي ﷺ أصحابه ولم يُجبر أحداً، بل قال: «أشيروا عليّ أيها الناس». فقام المهاجرون والأنصار يعلنون وقوفهم معه. ولما نزل الجيش عند آبار بدر، سأله الحُباب بن المنذر رضي الله عنه: أهذا منزلٌ أنزلكه الله فليس لنا أن نتقدّمه، أم هو الرأي والحرب والمكيدة؟ قال: «بل هو الرأي والحرب والمكيدة». فأشار عليه أن ينزلوا عند أقرب ماء إلى العدو ويجعلوا الماء خلفهم. فقبل النبي ﷺ رأيه ونفّذه.",
+        details:
+          "قال تعالى في وصف المؤمنين: ﴿وَأَمْرُهُمْ شُورَىٰ بَيْنَهُمْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "النبي ﷺ فرّق بين ما جاء به الوحي وما هو رأي واجتهاد، فقبل المشورة في الثاني.",
+      value: { name: "الشورى", icon: "🤝" },
+      thinkQuestion:
+        "متى كانت آخر مرة غيّرت رأيك لأن أحداً أتى برأي أفضل؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل النبي ﷺ برأي الحُباب بن المنذر؟",
+        options: ["رفضه", "أخذ به ونفّذه", "أجّله", "غضب منه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "دلو ماء", description: "دلو يذكّرك أن الرأي الصواب يُقبل ممن جاء به." },
+      badge: "صاحب مشورة",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام",
+      note: "مشورة الحُباب بن المنذر مشهورة في كتب السيرة، ورواها ابن إسحاق مرسلاً؛ أما أصل الشورى فثابت بالقرآن.",
+    },
+  },
+  {
+    storyId: "st-7-03",
+    stationId: 7,
+    slug: "angels-in-badr",
+    en: {
+      title: "Badr and the Soldiers of the Sky",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "On the seventeenth of Ramadan the two armies met at Badr. The Prophet ﷺ stood praying to his Lord with his hands raised until his cloak fell from his shoulders, asking victory for this small group. Allah answered him and sent the angels to support them, and the Muslims won despite their small number. That day was called the Day of the Criterion.",
+          shortLesson: "Numbers are not everything; sincerity with Allah comes first.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The two armies met on the seventeenth of Ramadan in the second year after the migration. The Prophet ﷺ stood in his shelter with his hands raised, pressing his Lord in prayer until his cloak slipped from his shoulders, asking Allah to give victory to this small band. Allah answered him and supported the Muslims with angels, steadying their feet and settling their hearts. They won despite how few they were and how little they had, and the day was called the Day of the Criterion, because on it Allah separated truth from falsehood.",
+          details:
+            "Allah says: ﴿وَلَقَدْ نَصَرَكُمُ اللَّهُ بِبَدْرٍ وَأَنتُمْ أَذِلَّةٌ﴾ — “Allah gave you victory at Badr while you were few.”",
+        },
+      },
+      interactive: {
+        discover: "Badr was named after the well that stood there, and became the name of a great day in history.",
+        value: { name: "Trust, alongside the means", icon: "⭐" },
+        thinkQuestion: "They prepared and they prayed. Why are both needed?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the day of Badr called in the Quran?",
+          options: ["The Day of the Conquest", "The Day of the Criterion", "The Day of Hunayn", "The Day of the Elephant"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A dawn star", description: "A star for the night a prophet prayed until his cloak fell." },
+        badge: "Of the People of Badr",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran, Surah Aal-Imran: 123, and Sahih Muslim",
+        note: "The victory at Badr and the support of angels are in the Quran; the Prophet praying until his cloak fell is in Sahih Muslim.",
+      },
+    },
+    title: "بدر وجنود السماء",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السابع عشر من رمضان التقى الجيشان ببدر. وقف النبي ﷺ يدعو ربه ويرفع يديه حتى سقط رداؤه، يسأله النصر لهذه القلّة. فاستجاب الله وأمدّهم بالملائكة، وانتصر المسلمون على قلّتهم، وسُمّي ذلك اليوم يوم الفرقان.",
+        shortLesson: "العدد ليس كل شيء؛ الصدق مع الله أوّل الأسباب.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "التقى الجيشان في السابع عشر من رمضان في السنة الثانية للهجرة. ووقف النبي ﷺ في العريش يرفع يديه إلى ربه ويلحّ في الدعاء حتى سقط رداؤه عن منكبيه، يسأل الله أن ينصر هذه العصابة من أهل الإسلام. فاستجاب الله لدعائه وأمدّ المسلمين بالملائكة تثبّت أقدامهم وتربط على قلوبهم. فانتصر المسلمون على قلّة عددهم وعتادهم، وسُمّي ذلك اليوم «يوم الفرقان» لأن الله فرّق فيه بين الحق والباطل.",
+        details:
+          "قال تعالى: ﴿وَلَقَدْ نَصَرَكُمُ اللَّهُ بِبَدْرٍ وَأَنتُمْ أَذِلَّةٌ ۖ فَاتَّقُوا اللَّهَ لَعَلَّكُمْ تَشْكُرُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سُمّيت بدر باسم البئر التي كانت هناك، وصارت اسماً ليوم عظيم في التاريخ.",
+      value: { name: "التوكل مع الأخذ بالأسباب", icon: "⭐" },
+      thinkQuestion:
+        "أخذوا بالأسباب ودعوا الله معاً — لماذا الاثنان مطلوبان؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ سُمّي يوم بدر في القرآن؟",
+        options: ["يوم الفتح", "يوم الفرقان", "يوم الحنين", "يوم الفيل"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "نجمة فجر", description: "نجمة تذكّرك بليلة دعا فيها نبيّ حتى سقط رداؤه." },
+      badge: "من أهل بدر",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن الكريم، سورة آل عمران: ١٢٣، وصحيح مسلم",
+      note: "النصر ببدر وإمداد الملائكة ثابت في القرآن، ودعاء النبي ﷺ حتى سقط رداؤه في صحيح مسلم.",
+    },
+  },
+  {
+    storyId: "st-7-04",
+    stationId: 7,
+    slug: "mercy-to-captives",
+    en: {
+      title: "The Captives of Badr, Who Taught the Children",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "After Badr the captives came to Madinah, and the Prophet ﷺ told his companions to treat them well — so the companions gave them the bread and ate dates themselves. When the time came to free them, the Prophet ﷺ set the ransom of a captive who could read and write, but had no money, at teaching ten Muslim children to read and write.",
+          shortLesson: "Knowledge can free a captive, and mercy comes before revenge.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the battle ended, the captives were brought into Madinah, and the Prophet ﷺ instructed his companions: “Treat the captives well.” So the companions would give them the bread and eat dates themselves, out of honour for them. When the time came to release them, those with money paid a ransom; and a captive who could read and write but had no money was ransomed by teaching ten Muslim children to read and write — and then he went free. The point was never revenge: captivity itself became a door to spreading learning.",
+          details:
+            "Allah praises kindness to a captive: ﴿وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا﴾.",
+        },
+      },
+      interactive: {
+        discover: "Few in Mecca could write, which is why teaching writing was worth as much as a ransom in money.",
+        value: { name: "Mercy, and the worth of learning", icon: "✍️" },
+        thinkQuestion: "Why do you think teaching was made a ransom equal to money?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How was a captive who could write, but had no money, ransomed?",
+          options: ["By farming work", "By teaching ten children to read and write", "By staying a captive", "By leaving the peninsula"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A tablet and pen", description: "A tablet for a captive who won his freedom by teaching." },
+        badge: "Spreader of Learning",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Musnad Ahmad, and Ibn Hisham's Seerah",
+        note: "The ransom-by-teaching is reported in Musnad Ahmad and Ibn Sa'd, and scholars have discussed its chain; kindness to captives is established in the Quran.",
+      },
+    },
+    title: "أسرى بدر ومعلّمو الصبيان",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بعد بدر جاء الأسرى إلى المدينة، فأوصى النبي ﷺ أصحابه بهم خيراً، فكان الصحابة يطعمونهم الخبز ويأكلون هم التمر. ولما جاء وقت الإطلاق، جعل النبي ﷺ فداء من يعرف القراءة والكتابة ولا مال له أن يعلّم عشرة من صبيان المسلمين.",
+        shortLesson: "العلم يفكّ الأسير، والرحمة تسبق الانتقام.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد انتهاء المعركة دخل الأسرى المدينة، فأوصى النبي ﷺ أصحابه: «استوصوا بالأسرى خيراً». فكان الصحابة يقدّمون لهم الخبز ويأكلون هم التمر إكراماً لهم. ولما جاء وقت إطلاق سراحهم، جعل النبي ﷺ على من يملك المال فداءً يدفعه، وأما من كان يحسن القراءة والكتابة ولا مال عنده، فكان فداؤه أن يعلّم عشرة من صبيان المسلمين القراءة والكتابة، فإذا فعل صار حرّاً. لم يكن المقصود انتقاماً، بل صار الأسر نفسه باباً لنشر العلم.",
+        details:
+          "قال تعالى في الإحسان إلى الأسير: ﴿وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان في مكة قليل ممن يكتب، فصار تعليم الكتابة فداءً يعادل المال.",
+      value: { name: "الرحمة وقيمة العلم", icon: "✍️" },
+      thinkQuestion:
+        "لماذا في رأيكم جُعل التعليم فداءً يعدل المال؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ كان يُفتدى الأسير الذي يحسن الكتابة ولا مال له؟",
+        options: ["بالعمل في الزراعة", "بتعليم عشرة من الصبيان القراءة والكتابة", "بالبقاء أسيراً", "بالخروج من الجزيرة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "لوح وقلم", description: "لوح يذكّرك بأسير نال حريته بأن علّم غيره." },
+      badge: "ناشر العلم",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "مسند أحمد، وسيرة ابن هشام",
+      note: "خبر الفداء بالتعليم مرويّ في مسند أحمد وطبقات ابن سعد، وتكلّم أهل العلم في إسناده؛ والإحسان إلى الأسرى ثابت بالقرآن.",
+    },
+  },
+  {
+    storyId: "st-7-05",
+    stationId: 7,
+    slug: "mount-of-archers-uhud",
+    en: {
+      title: "The Archers' Hill and the Order",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Quraysh came to Uhud with three thousand fighters. The Prophet ﷺ placed fifty archers on a hill to guard the army's back, and told them: do not leave your place, whether you see us winning or losing. At the start of the battle the Muslims advanced and the idolaters fell back, and victory was close.",
+          shortLesson: "An order is carried out to the end, not to the first success.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Quraysh gathered three thousand fighters and came to Madinah seeking revenge for Badr. The Muslims went out to meet them at Mount Uhud, and the Prophet ﷺ set a plan to guard the army's back: fifty skilled archers on a hill, under Abdullah ibn Jubayr, and he pressed the order on them: “If you see us being snatched away by birds, do not leave this place until I send for you; and if you see us defeating them and trampling them, do not leave until I send for you.” At the start of the battle the Muslims advanced and the idolaters broke, and victory was close.",
+          details:
+            "Allah says: ﴿أَطِيعُوا اللَّهَ وَرَسُولَهُ وَلَا تَوَلَّوْا عَنْهُ وَأَنتُمْ تَسْمَعُونَ﴾ — “Obey Allah and His Messenger, and do not turn away while you hear.”",
+        },
+      },
+      interactive: {
+        discover: "Abdullah ibn Jubayr, who led the archers, held his place with the few who stayed.",
+        value: { name: "Discipline", icon: "🏹" },
+        thinkQuestion: "Which task do you tend to leave before it is finished? What happens because of it?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ order the archers?",
+          options: ["To come down at victory", "Not to leave their place until he sent for them", "To collect the spoils", "To join the army"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An arrow from Uhud", description: "An arrow to remind you to finish what you were given." },
+        badge: "Holding the Position",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The Prophet's order to the archers at Uhud is established in Sahih al-Bukhari.",
+      },
+    },
+    title: "جبل الرماة والوصية",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاءت قريش بثلاثة آلاف مقاتل إلى أُحد. فوضع النبي ﷺ خمسين رامياً على تلّة تحمي ظهر الجيش، وقال لهم: لا تبرحوا مكانكم، إن رأيتمونا ننتصر أو نُهزم. وفي أول المعركة تقدّم المسلمون وتراجع المشركون، وكان النصر قريباً.",
+        shortLesson: "الأمر يُنفَّذ إلى آخره، لا إلى أول نجاح.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "جمعت قريش ثلاثة آلاف مقاتل وجاءت إلى المدينة تطلب الثأر بعد بدر. فخرج المسلمون إليهم عند جبل أُحد، ووضع النبي ﷺ خطة تحمي ظهر الجيش: خمسون رامياً ماهراً على تلّة، أمّر عليهم عبد الله بن جبير، وشدّد عليهم فقال: «إن رأيتمونا تخطفنا الطير فلا تبرحوا مكانكم هذا حتى أرسل إليكم، وإن رأيتمونا هزمنا القوم ووطئناهم فلا تبرحوا حتى أرسل إليكم». وفي أول المعركة تقدّم المسلمون وانكشف المشركون، وكان النصر قريباً.",
+        details:
+          "قال تعالى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَرَسُولَهُ وَلَا تَوَلَّوْا عَنْهُ وَأَنتُمْ تَسْمَعُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أمير الرماة عبد الله بن جبير ثبت في مكانه ومعه قليل، ولم يتركوا الموقع.",
+      value: { name: "الانضباط", icon: "🏹" },
+      thinkQuestion:
+        "ما المهمة التي تتركها عادةً قبل أن تكتمل؟ وماذا يحدث بسبب ذلك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بماذا أمر النبي ﷺ الرماة؟",
+        options: ["أن ينزلوا عند النصر", "ألا يبرحوا مكانهم حتى يُرسل إليهم", "أن يجمعوا الغنائم", "أن يلحقوا بالجيش"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "سهم من أُحد", description: "سهم يذكّرك أن المهمة تُتمّ إلى آخرها." },
+      badge: "ثابت في موقعه",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "وصية النبي ﷺ للرماة يوم أُحد ثابتة في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-7-06",
+    stationId: 7,
+    slug: "tough-lesson-and-heroine",
+    en: {
+      title: "The Lesson of Uhud, and Nusaybah",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Most of the archers thought the battle was over, and came down from the hill before the Prophet ﷺ gave them leave. The horsemen of Quraysh came round behind them and the battle turned. The Prophet ﷺ held firm with a few, and Nusaybah bint Ka'b took up a sword and a shield to defend him until she was wounded.",
+          shortLesson: "One person's mistake in shared work is paid for by everyone.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the archers saw the idolaters breaking, they thought the battle was decided, and most came down from the hill for the spoils before the Prophet ﷺ gave them leave; their commander Abdullah ibn Jubayr stayed with a few. The horsemen of Quraysh used the gap, came round behind the hill and struck the Muslims from behind, and the ranks were thrown into confusion. The Prophet ﷺ held firm with a small group, and Nusaybah bint Ka'b — Umm Ammarah — put down the waterskin she was carrying, took a sword and a shield, and fought in front of the Messenger of Allah ﷺ until she carried many wounds. Uhud was a lesson: breaking the plan costs dearly, and standing firm in hardship makes heroes.",
+          details:
+            "Allah says after Uhud: ﴿وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ﴾ — “Do not weaken and do not grieve; you will be uppermost.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ said of that day: “I did not turn right or left without seeing her fighting in front of me.”",
+        value: { name: "Standing firm", icon: "🛡️" },
+        thinkQuestion: "In shared work, why does one person's mistake reach everyone?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Who defended the Prophet ﷺ at Uhud until she was wounded?",
+          options: ["Khadijah", "Nusaybah bint Ka'b", "Fatimah", "Asma"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small shield", description: "A shield for a woman who stood where others fell back." },
+        badge: "Firm in Hardship",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari, and Ibn Sa'd's Tabaqat",
+        note: "The archers leaving and the battle turning are in Sahih al-Bukhari; the account of Nusaybah is in Musnad Ahmad and Ibn Sa'd.",
+      },
+    },
+    title: "درس أُحد وبطولة نُسيبة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "ظنّ أكثر الرماة أن المعركة انتهت، فنزلوا من التلّة قبل أن يأذن النبي ﷺ. فالتفّت خيل قريش من ورائهم وانقلبت المعركة. وثبت النبي ﷺ ومعه قليل، وبرزت نُسيبة بنت كعب رضي الله عنها فأخذت سيفاً وترساً تدافع عنه حتى أصابتها جراح.",
+        shortLesson: "خطأ واحد في العمل الجماعي يدفع ثمنه الجميع.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما رأى الرماة المشركين ينكشفون ظنّوا أن المعركة قد حُسمت، فنزل أكثرهم من التلّة لجمع الغنائم قبل أن يأذن لهم النبي ﷺ، وبقي أميرهم عبد الله بن جبير ومعه قليل. فاستغلّ فرسان قريش الثغرة والتفّوا من خلف الجبل، فباغتوا المسلمين واختلطت الصفوف. وثبت النبي ﷺ ومعه نفر قليل، وبرزت البطلة نُسيبة بنت كعب — أم عمارة رضي الله عنها — فتركت سقاء الماء وأخذت سيفاً وترساً، وجعلت تذبّ عن رسول الله ﷺ حتى أصابتها جراح كثيرة. كان يوم أُحد درساً: مخالفة الخطة ثمنها باهظ، والثبات في الشدة يصنع الأبطال.",
+        details:
+          "قال تعالى بعد أُحد: ﴿وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "قال النبي ﷺ يومئذ: «ما التفتّ يميناً ولا شمالاً إلا وأراها تقاتل دوني».",
+      value: { name: "الثبات", icon: "🛡️" },
+      thinkQuestion:
+        "في العمل الجماعي، لماذا يؤثّر خطأ فرد واحد في الجميع؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن دافعت عن النبي ﷺ يوم أُحد حتى جُرحت؟",
+        options: ["خديجة رضي الله عنها", "نُسيبة بنت كعب رضي الله عنها", "فاطمة رضي الله عنها", "أسماء رضي الله عنها"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ترس صغير", description: "ترس يذكّرك بامرأة وقفت حيث تراجع غيرها." },
+      badge: "ثابت عند الشدّة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري، وطبقات ابن سعد",
+      note: "نزول الرماة وانقلاب المعركة في صحيح البخاري؛ وخبر نُسيبة رضي الله عنها في مسند أحمد وطبقات ابن سعد.",
+    },
+  },
+  {
+    storyId: "st-7-07",
+    stationId: 7,
+    slug: "trench-salman-idea",
+    en: {
+      title: "Ten Thousand, and the Idea of a Trench",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The tribes gathered into an army called the Confederates — ten thousand fighters — and marched on Madinah. The Prophet ﷺ asked his companions for their view, and Salman al-Farisi said: Messenger of Allah, in Persia, when we were besieged, we dug a trench around ourselves. The Prophet ﷺ liked the idea and ordered the digging.",
+          shortLesson: "A useful idea is taken from whatever country it comes from.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Arab tribes and their allies gathered into an army called the Confederates, some ten thousand fighters, and marched on Madinah. The Prophet ﷺ gathered his companions to consult on a plan that would protect the women and children. Salman al-Farisi stepped forward and said: “Messenger of Allah, in Persia, when we were besieged, we dug a trench around ourselves.” Digging a wide, deep trench across the open side of the city was new to the Arabs — they had not used it before. The Prophet ﷺ liked it and ordered the digging, and the city was shielded by a barrier no horse could cross.",
+          details:
+            "Allah describes that siege: ﴿إِذْ جَاءُوكُم مِّن فَوْقِكُمْ وَمِنْ أَسْفَلَ مِنكُمْ﴾ — “when they came at you from above you and from below you.”",
+        },
+      },
+      interactive: {
+        discover: "Salman came from Persia, and brought his country's experience with him to Madinah.",
+        value: { name: "Learning from others' experience", icon: "⛏️" },
+        thinkQuestion: "What useful thing have you learned from someone who came from another country?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Who suggested digging the trench?",
+          options: ["Abu Bakr", "Salman al-Farisi", "Umar", "Al-Hubab ibn al-Mundhir"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small pickaxe", description: "A pickaxe to remind you that a good idea has no homeland." },
+        badge: "One With an Idea",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah",
+        note: "Salman's suggestion of the trench is well known in the Seerah, reported by Ibn Ishaq; the battle itself is established in the Quran and both Sahih collections.",
+      },
+    },
+    title: "عشرة آلاف وفكرة الخندق",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "تجمّعت القبائل في جيش سُمّي الأحزاب، عشرة آلاف مقاتل، وزحفوا إلى المدينة. فاستشار النبي ﷺ أصحابه، فقال سلمان الفارسي رضي الله عنه: يا رسول الله، إنا كنا بفارس إذا حوصرنا خندقنا حولنا. فأعجبت النبي ﷺ الفكرة وأمر بالحفر.",
+        shortLesson: "الفكرة النافعة تُؤخذ من أي بلد جاءت.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "تجمّعت قبائل العرب ومن حالفهم في جيش سُمّي «الأحزاب» قوامه نحو عشرة آلاف مقاتل، وزحفوا إلى المدينة. فجمع النبي ﷺ أصحابه يستشيرهم في خطة تحمي النساء والصبيان. فتقدّم سلمان الفارسي رضي الله عنه وقال: «يا رسول الله، إنا كنا بفارس إذا حوصرنا خندقنا حولنا». وكانت فكرة حفر خندق عريض عميق في الجهة المكشوفة من المدينة جديدة على العرب لم يعرفوها من قبل. فأعجبت النبيَّ ﷺ وأمر بالحفر، فصارت المدينة محميّة بحاجز يمنع الخيل من العبور.",
+        details:
+          "قال تعالى واصفاً شدّة ذلك الحصار: ﴿إِذْ جَاءُوكُم مِّن فَوْقِكُمْ وَمِنْ أَسْفَلَ مِنكُمْ وَإِذْ زَاغَتِ الْأَبْصَارُ وَبَلَغَتِ الْقُلُوبُ الْحَنَاجِرَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سلمان رضي الله عنه جاء من فارس، فحمل معه خبرة بلده إلى المدينة.",
+      value: { name: "الإفادة من خبرة الآخرين", icon: "⛏️" },
+      thinkQuestion:
+        "ما الشيء النافع الذي تعلّمته من شخص جاء من بلد آخر؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن أشار بحفر الخندق؟",
+        options: ["أبو بكر رضي الله عنه", "سلمان الفارسي رضي الله عنه", "عمر رضي الله عنه", "الحُباب بن المنذر رضي الله عنه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "فأس صغيرة", description: "فأس تذكّرك أن الفكرة الجيدة لا وطن لها." },
+      badge: "صاحب فكرة",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام",
+      note: "مشورة سلمان رضي الله عنه بحفر الخندق مشهورة في كتب السيرة، ورواها ابن إسحاق؛ وأصل غزوة الخندق ثابت بالقرآن والصحيحين.",
+    },
+  },
+  {
+    storyId: "st-7-08",
+    stationId: 7,
+    slug: "prophet-work-and-food-miracle",
+    en: {
+      title: "The Leader's Pickaxe, and Food That Did Not Run Out",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ came down and dug with his companions, a stone tied over his stomach from hunger. Jabir ibn Abdullah saw it, went home and slaughtered a small animal while his wife ground a measure of barley, and invited him with a few others. The Prophet ﷺ called all the people of the trench — and they ate until they were full, and food was left over.",
+          shortLesson: "A leader tires alongside his team, not ahead of them or apart from them.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ did not sit and watch: he went down into the trench, digging and carrying earth with his companions, a stone tied over his stomach from hunger, chanting with them to lift their spirits. Jabir ibn Abdullah saw how hungry he was, went home and slaughtered a small animal, and his wife ground a measure of barley; then he came quietly to invite the Prophet ﷺ and a few with him. When the Prophet ﷺ knew of it, he called out at the top of his voice: “People of the trench, Jabir has made food — come!” Everyone came. He prayed over the pot and the dough, and the whole company ate until they were full, and the food was still there.",
+          details:
+            "Allah says of his care for them: ﴿عَزِيزٌ عَلَيْهِ مَا عَنِتُّمْ حَرِيصٌ عَلَيْكُم﴾ — “Your hardship is grievous to him, and he is concerned for you.”",
+        },
+      },
+      interactive: {
+        discover: "The food was enough for a handful of people, and the whole of the trench — a thousand men — ate from it.",
+        value: { name: "Leading by working", icon: "🍲" },
+        thinkQuestion: "If you led a team, which job would you do yourself before asking anyone else to?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ do when he heard about Jabir's food?",
+          options: ["Ate alone", "Called all the people of the trench", "Sent the food back", "Put it off until the next day"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small cooking pot", description: "A pot to remind you that food grows when it is shared." },
+        badge: "Leading by Example",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "Jabir's account of the food at the trench is established in both Sahih collections, including the Prophet digging with them and the stone tied over his stomach.",
+      },
+    },
+    title: "فأس القائد وبركة الطعام",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "نزل النبي ﷺ يحفر مع أصحابه، وقد ربط على بطنه حجراً من الجوع. فرآه جابر بن عبد الله رضي الله عنه فذهب وذبح شاة صغيرة وطحنت زوجته صاعاً من شعير، ودعاه في نفر قليل. فنادى النبي ﷺ أهل الخندق كلهم، فأكلوا حتى شبعوا وبقي الطعام.",
+        shortLesson: "القائد يتعب مع فريقه، لا قبلهم ولا بعيداً عنهم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لم يجلس النبي ﷺ يتفرّج، بل نزل إلى الخندق يحفر مع أصحابه ويحمل التراب، وقد ربط على بطنه حجراً من شدّة الجوع، وكان يرتجز معهم ليشدّ عزائمهم. فرأى جابر بن عبد الله رضي الله عنه ما به من الجوع، فانطلق إلى بيته وذبح بهيمة صغيرة، وطحنت امرأته صاعاً من شعير، ثم جاء يدعو النبي ﷺ ونفراً معه سرّاً. فلما علم النبي ﷺ نادى بأعلى صوته: «يا أهل الخندق، إن جابراً قد صنع سُوراً فحيّهلاً بكم». فجاء الناس جميعاً، فدعا النبي ﷺ في البُرمة والعجين، فأكل القوم كلهم حتى شبعوا، وبقي الطعام كما هو.",
+        details:
+          "قال تعالى في رأفته ﷺ بأصحابه: ﴿لَقَدْ جَاءَكُمْ رَسُولٌ مِّنْ أَنفُسِكُمْ عَزِيزٌ عَلَيْهِ مَا عَنِتُّمْ حَرِيصٌ عَلَيْكُم بِالْمُؤْمِنِينَ رَءُوفٌ رَّحِيمٌ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان الطعام يكفي نفراً قليلاً، فأكل منه أهل الخندق وهم ألف.",
+      value: { name: "القدوة بالعمل", icon: "🍲" },
+      thinkQuestion:
+        "لو كنت قائد فريق، أي عمل تشارك فيه بنفسك قبل أن تطلبه من غيرك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل النبي ﷺ حين علم بطعام جابر رضي الله عنه؟",
+        options: ["أكل وحده", "نادى أهل الخندق جميعاً", "ردّ الطعام", "أجّله إلى الغد"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "بُرمة صغيرة", description: "قِدر تذكّرك أن الطعام يزيد حين يُشارَك." },
+      badge: "قدوة بالعمل",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "حديث جابر رضي الله عنه في طعام الخندق ثابت في الصحيحين، وفيه حفر النبي ﷺ معهم وشدّ الحجر على بطنه.",
+    },
+  },
+  {
+    storyId: "st-7-09",
+    stationId: 7,
+    slug: "cold-wind-victory-without-swords",
+    en: {
+      title: "The Wind of Victory, and the End of the Confederates",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The idolaters stood helpless at the trench for a month, and the cold and the fear grew hard. The Prophet ﷺ prayed to his Lord, and Allah sent a bitterly cold wind that tore up their tents, put out their fires and overturned their pots — and they left in the night. The Muslims woke to find the plain empty.",
+          shortLesson: "Allah can turn the hardest situation without a sword being raised.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The army of the Confederates stood before the trench, unable to cross it with their horses, and the siege dragged on for close to a month, with cold and hunger and fear pressing on those inside the city. The Prophet ﷺ stood praying to his Lord to give the Muslims victory and spare them. Allah sent upon the camp of the Confederates a bitterly cold wind on a dark night: it tore up their tents, put out their fires, overturned their cooking pots and filled their hearts with dread. Their commander ordered them to leave that same night. The Muslims woke to an empty plain — victory without a battle — and that alliance broke apart and never gathered again.",
+          details:
+            "Allah says: ﴿فَأَرْسَلْنَا عَلَيْهِمْ رِيحًا وَجُنُودًا لَّمْ تَرَوْهَا﴾ — “We sent against them a wind, and armies you did not see.”",
+        },
+      },
+      interactive: {
+        discover: "Afterwards the Prophet ﷺ said: “Now we go to them, and they do not come to us” — the years of being besieged were over.",
+        value: { name: "Patience until relief", icon: "🌬️" },
+        thinkQuestion: "When waiting through something hard drags on, what helps you stay patient?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How did the siege of the Confederates end?",
+          options: ["With a great battle", "With a fierce wind Allah sent, and they left", "With a written treaty", "With gifts sent to them"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A feather in the wind", description: "A feather: the slightest means is enough when Allah wills it." },
+        badge: "Patient Until Dawn",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran, Surah Al-Ahzab: 9, and Sahih Muslim",
+        note: "The wind and the unseen armies are stated in the Quran; the departure of the Confederates is in Sahih Muslim.",
+      },
+    },
+    title: "ريح النصر ونهاية الأحزاب",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "وقف المشركون عاجزين أمام الخندق شهراً، واشتدّ البرد والخوف. فدعا النبي ﷺ ربه، فأرسل الله عليهم ريحاً شديدة البرد قلعت خيامهم وأطفأت نيرانهم وكفأت قدورهم، فرحلوا في الليل. وأصبح المسلمون فلم يجدوا أحداً.",
+        shortLesson: "الله يغيّر أصعب المواقف من غير أن يُرفع سيف.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "وقف جيش الأحزاب أمام الخندق لا يستطيعون عبوره بخيلهم، وطال الحصار قرابة شهر، واشتدّ البرد والجوع والخوف على من في المدينة. فقام النبي ﷺ يدعو ربه أن ينصر المسلمين ويكفيهم شرّهم. فأرسل الله على معسكر الأحزاب ريحاً شديدة البرد في ليلة مظلمة، فقلعت خيامهم، وأطفأت نيرانهم، وكفأت قدورهم، وألقت في قلوبهم الرعب. فأمر قائدهم بالرحيل من ليلته. وأصبح المسلمون فإذا الأرض خالية، ونصرهم الله بغير قتال، وانفضّ ذلك الحلف فلم يجتمع بعدها.",
+        details:
+          "قال تعالى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا نِعْمَةَ اللَّهِ عَلَيْكُمْ إِذْ جَاءَتْكُمْ جُنُودٌ فَأَرْسَلْنَا عَلَيْهِمْ رِيحًا وَجُنُودًا لَّمْ تَرَوْهَا﴾.",
+      },
+    },
+    interactive: {
+      discover: "قال النبي ﷺ بعدها: «الآن نغزوهم ولا يغزوننا» — انتهى زمن الحصار.",
+      value: { name: "الصبر حتى الفرج", icon: "🌬️" },
+      thinkQuestion:
+        "حين يطول الانتظار في أمر صعب، ما الذي يعينك على الصبر؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ انتهى حصار الأحزاب؟",
+        options: ["بمعركة كبيرة", "بريح شديدة أرسلها الله فرحلوا", "باتفاق مكتوب", "بهدايا لهم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ريشة في الريح", description: "ريشة تذكّرك أن أضعف الأسباب تكفي إذا أراد الله." },
+      badge: "صابر حتى الفجر",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن الكريم، سورة الأحزاب: ٩، وصحيح مسلم",
+      note: "إرسال الريح والجنود ثابت بنص القرآن، وخبر رحيل الأحزاب في صحيح مسلم.",
+    },
+  },
+  {
+    storyId: "st-7-10",
+    stationId: 7,
+    slug: "hudaybiyyah-peace-treaty",
+    en: {
+      title: "Hudaybiyyah: Peace in the Clothes of Pilgrimage",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ set out with one thousand four hundred companions in the white clothes of pilgrimage, carrying no weapons of war, intending the lesser pilgrimage. Quraysh turned them back. He chose a treaty over a battle, and accepted terms that looked hard, to keep blood from being spilt. Umm Salamah advised him to shave his head and offer his sacrifice in front of the people — he did, and they followed him.",
+          shortLesson: "Sometimes the bravest decision is to choose peace.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ set out with one thousand four hundred of his companions in the white clothes of pilgrimage, carrying nothing but a traveller's sword in its sheath, meaning to perform the lesser pilgrimage after years of longing for the House. Quraysh blocked them and kept them from the Sacred Mosque. The Prophet ﷺ refused to begin a fight and looked for every road that would spare blood. The two sides sat at Hudaybiyyah and negotiated, and he accepted terms that seemed hard: that they return this year without the pilgrimage, and that war be set aside for ten years. It weighed on the companions. Umm Salamah advised him to go out, shave his head and offer his sacrifice in front of them without speaking to anyone. He did — and they rose and did the same.",
+          details:
+            "Allah called this treaty a conquest: ﴿إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا﴾ — “Indeed, We have given you a clear conquest.”",
+        },
+      },
+      interactive: {
+        discover: "In the two years after Hudaybiyyah, more people entered Islam than in all the years before it.",
+        value: { name: "Choosing peace", icon: "🕊️" },
+        thinkQuestion: "When is giving up something you want today a gain tomorrow?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Umm Salamah advise the Prophet ﷺ to do?",
+          options: ["To return to fighting", "To shave and sacrifice before the people, without speaking", "To wait a year", "To enter Mecca by force"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A white pilgrim's cloth", description: "White cloth for an army that set out without weapons of war." },
+        badge: "Peacemaker",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "Hudaybiyyah and Umm Salamah's counsel are established in Sahih al-Bukhari; the treaty is called a conquest in Surah Al-Fath.",
+      },
+    },
+    title: "الحديبية: سلامٌ في ثياب الإحرام",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "خرج النبي ﷺ ومعه ألف وأربعمائة في ثياب الإحرام البيضاء يريدون العمرة، لا يحملون سلاح حرب. فمنعتهم قريش، فاختار النبي ﷺ الصلح على القتال، وقبل شروطاً بدت قاسية ليمنع الدماء. وأشارت عليه أم سلمة رضي الله عنها بأن يحلق ويذبح أمام الناس، ففعل، ففعلوا مثله.",
+        shortLesson: "أشجع القرارات أحياناً هو اختيار السلام.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "خرج النبي ﷺ ومعه ألف وأربعمائة من أصحابه في ثياب الإحرام البيضاء، لا يحملون إلا سلاح المسافر في غمده، يريدون العمرة والطواف بالبيت بعد سنوات من الشوق. فمنعتهم قريش وحبستهم عن المسجد الحرام. فرفض النبي ﷺ أن يبدأهم بقتال، وطلب كل سبيل يحقن الدم. فجلس الطرفان في «الحديبية» يتفاوضان، وقبل النبي ﷺ شروطاً ظاهرها قاسٍ: أن يرجعوا عامهم هذا بغير عمرة، وأن توضع الحرب عشر سنين. وشقّ ذلك على الصحابة. فأشارت عليه أم سلمة رضي الله عنها أن يخرج فيحلق رأسه وينحر هديه أمامهم دون أن يكلّم أحداً، ففعل، فقاموا يفعلون مثله.",
+        details:
+          "وسمّى الله هذا الصلح فتحاً: ﴿إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "دخل في الإسلام في السنتين بعد الحديبية أكثر ممن دخل فيه قبلها.",
+      value: { name: "اختيار السلام", icon: "🕊️" },
+      thinkQuestion:
+        "متى يكون التنازل عن شيء تحبّه اليوم كسباً في الغد؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ أشارت أم سلمة رضي الله عنها على النبي ﷺ؟",
+        options: ["أن يرجع للقتال", "أن يحلق وينحر أمام الناس دون كلام", "أن ينتظر سنة", "أن يدخل مكة بالقوة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ثوب إحرام أبيض", description: "ثوب أبيض يذكّرك بجيش خرج بلا سلاح حرب." },
+      badge: "صانع سلام",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "خبر الحديبية ومشورة أم سلمة رضي الله عنها ثابتان في صحيح البخاري، وتسمية الصلح فتحاً في سورة الفتح.",
+    },
+  },
+  {
+    storyId: "st-7-11",
+    stationId: 7,
+    slug: "letters-to-world-leaders",
+    en: {
+      title: "Letters to the Kings of the Earth",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "When the fighting was set aside after Hudaybiyyah, the Prophet ﷺ did not sit and wait. He had a ring made, engraved “Muhammad, the Messenger of Allah”, and wrote letters to the kings of his time: Caesar of Rome, Khosrau of Persia, al-Muqawqis in Alexandria and the Negus in Abyssinia — calling them with words, not with a sword.",
+          shortLesson: "A good word reaches where an army cannot.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the treaty of Hudaybiyyah set the fighting aside for ten years, the Prophet ﷺ spent that safety on calling people, not on war. He had a silver ring made, engraved in three lines — “Muhammad, the Messenger of Allah” — because kings would not read an unsealed letter. He chose companions who could carry a message well, and sent letters to the great rulers of his day: Heraclius the Caesar of Rome, Khosrau the king of Persia, al-Muqawqis the ruler of the Copts in Egypt, the Negus of Abyssinia and others. One short letter, calling to the worship of Allah alone, and to justice and peace. Some honoured the messenger and answered with gifts; one tore the letter up. Not one of them was forced to anything.",
+          details:
+            "Allah says of the message's reach: ﴿وَمَا أَرْسَلْنَاكَ إِلَّا كَافَّةً لِّلنَّاسِ بَشِيرًا وَنَذِيرًا﴾ — “We have sent you to all people, as a bringer of good news and a warner.”",
+        },
+      },
+      interactive: {
+        discover: "The engraving on the ring was cut in reverse, so the seal came out the right way round in the wax.",
+        value: { name: "Dialogue and calling", icon: "✉️" },
+        thinkQuestion: "Why does a word sometimes reach a heart that nothing else can?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did the Prophet ﷺ have an engraved ring made?",
+          options: ["As jewellery", "To seal letters — kings would not read an unsealed one", "To trade with", "To give away"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A sealed ring", description: "A ring for a message that crossed seas without an army." },
+        badge: "Messenger of the Word",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The Prophet's letter to Heraclius and his taking a seal-ring are established in Sahih al-Bukhari.",
+      },
+    },
+    title: "رسائل إلى ملوك الأرض",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لما وضعت الحرب أوزارها بعد الحديبية، لم يجلس النبي ﷺ ينتظر، بل اتخذ خاتماً نُقش عليه «محمد رسول الله»، وكتب رسائل إلى ملوك زمانه: قيصر الروم، وكسرى فارس، والمقوقس بالإسكندرية، والنجاشي بالحبشة، يدعوهم بالكلمة لا بالسيف.",
+        shortLesson: "الكلمة الطيبة تصل إلى حيث لا يصل الجيش.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما وضعت الحرب أوزارها عشر سنين بصلح الحديبية، استثمر النبي ﷺ هذا الأمان في الدعوة لا في القتال. فاتخذ خاتماً من فضة نُقش عليه ثلاثة أسطر: «محمد رسول الله»، لأن الملوك لا يقرؤون كتاباً غير مختوم. ثم اختار من أصحابه رسلاً يحسنون البلاغ، وبعث بالرسائل إلى كبار ملوك الأرض في زمانه: هرقل قيصر الروم، وكسرى ملك فارس، والمقوقس عظيم القبط بمصر، والنجاشي ملك الحبشة، وغيرهم. رسالة واحدة قصيرة، تدعو إلى عبادة الله وحده وإلى العدل والسلام. فمنهم من أكرم الرسول وردّ بالهدايا، ومنهم من مزّق الكتاب. ولم يُكره أحدٌ منهم على شيء.",
+        details:
+          "قال تعالى في عموم الرسالة: ﴿وَمَا أَرْسَلْنَاكَ إِلَّا كَافَّةً لِّلنَّاسِ بَشِيرًا وَنَذِيرًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "نقش الخاتم كان مقلوباً ليخرج الختم على الشمع صحيحاً.",
+      value: { name: "الحوار والبلاغ", icon: "✉️" },
+      thinkQuestion:
+        "لماذا تصل الكلمة أحياناً إلى قلوب لا يبلغها شيء آخر؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا اتخذ النبي ﷺ خاتماً منقوشاً؟",
+        options: ["زينةً", "ليختم به الرسائل، فالملوك لا يقرؤون كتاباً غير مختوم", "ليتّجر به", "ليهديه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "خاتم مختوم", description: "خاتم يذكّرك برسالة عبرت البحار بلا جيش." },
+      badge: "رسول الكلمة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "كتاب النبي ﷺ إلى هرقل واتخاذه الخاتم ثابتان في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-7-12",
+    stationId: 7,
+    slug: "battle-of-khaybar-hero-ali",
+    en: {
+      title: "The Forts of Khaybar and the Bearer of the Banner",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The forts of Khaybar in the north were a base funding those who fought Madinah, so the Prophet ﷺ went out to secure the frontier. When they reached the strongest fort he said: “Tomorrow I will give the banner to a man who loves Allah and His Messenger, and whom Allah and His Messenger love.” He called Ali ibn Abi Talib, whose eyes were sore, healed them, and handed him the banner.",
+          shortLesson: "A hard task is given to the person fit for it.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The forts of Khaybar, north of Madinah, were a base gathering money and weapons and stirring the tribes against the Muslims, so the Prophet ﷺ went out to secure the frontier and end the danger. The Muslims took the forts one after another until they reached the strongest of them. The Prophet ﷺ said: “Tomorrow I will give the banner to a man who loves Allah and His Messenger, and whom Allah and His Messenger love; Allah will grant victory through him.” The people spent the night wondering which of them it would be. In the morning he asked: “Where is Ali ibn Abi Talib?” They said his eyes were sore. He called for him, treated his eyes, and they were healed as though he had never had any pain — and he handed him the banner, and the fort was opened through him. Afterwards the Prophet ﷺ settled with the people of Khaybar that they stay and farm their land, with a share of its produce.",
+          details:
+            "Allah says: ﴿فَأَنزَلَ السَّكِينَةَ عَلَيْهِمْ وَأَثَابَهُمْ فَتْحًا قَرِيبًا﴾ — “He sent down tranquillity upon them and rewarded them with a near victory.”",
+        },
+      },
+      interactive: {
+        discover: "The people of Khaybar stayed working their own land afterwards; they were not driven out.",
+        value: { name: "The right person in the right place", icon: "🏰" },
+        thinkQuestion: "How do you choose who takes on the hardest job in your team?",
+        challenge: {
+          type: "multiple_choice",
+          question: "To whom did the Prophet ﷺ give the banner at Khaybar?",
+          options: ["Abu Bakr", "Ali ibn Abi Talib", "Salman", "Bilal"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small banner", description: "A banner: a trust is handed to the one who can carry it." },
+        badge: "Bearer of the Banner",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The hadith of the banner at Khaybar and the healing of Ali's eyes are established in both Sahih collections.",
+      },
+    },
+    title: "حصون خيبر وحامل الراية",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كانت حصون خيبر في الشمال مركزاً يموّل من يحارب المدينة، فخرج إليها النبي ﷺ ليؤمّن الحدود. ولما بلغوا أمنع الحصون قال: «لأعطينّ الراية غداً رجلاً يحبّ الله ورسوله ويحبّه الله ورسوله». فدعا عليّ بن أبي طالب رضي الله عنه وهو أرمد، فتفل في عينيه فبرأتا، وأعطاه الراية.",
+        shortLesson: "المهمة الصعبة تُسنَد إلى أهلها.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كانت حصون خيبر في شمال المدينة مركزاً يجمع المال والسلاح ويحرّض القبائل على المسلمين، فخرج إليها النبي ﷺ لتأمين الحدود وإنهاء الخطر. وفتح المسلمون الحصون حصناً بعد حصن حتى بلغوا أمنعها. فقال النبي ﷺ: «لأعطينّ الراية غداً رجلاً يحبّ الله ورسوله ويحبّه الله ورسوله، يفتح الله على يديه». فبات الناس ليلتهم يتساءلون أيهم يُعطاها. فلما أصبح قال: «أين علي بن أبي طالب؟» فقيل: هو يشتكي عينيه. فدعا به، فتفل في عينيه فبرأ حتى كأن لم يكن به وجع، وأعطاه الراية ففُتح على يديه. ثم عامل النبي ﷺ أهل خيبر على أن يبقوا في أرضهم يزرعونها ولهم شطر ما يخرج منها.",
+        details:
+          "قال تعالى: ﴿فَأَنزَلَ السَّكِينَةَ عَلَيْهِمْ وَأَثَابَهُمْ فَتْحًا قَرِيبًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "بقي أهل خيبر يعملون في أرضهم بعد الفتح، ولم يُخرَجوا منها.",
+      value: { name: "وضع الرجل المناسب في مكانه", icon: "🏰" },
+      thinkQuestion:
+        "كيف تختار من يقوم بأصعب مهمة في فريقك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن أعطاه النبي ﷺ الراية يوم خيبر؟",
+        options: ["أبا بكر رضي الله عنه", "علي بن أبي طالب رضي الله عنه", "سلمان رضي الله عنه", "بلالاً رضي الله عنه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "راية صغيرة", description: "راية تذكّرك أن الأمانة تُسلّم لمن يحملها." },
+      badge: "حامل الراية",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "حديث الراية يوم خيبر وشفاء عين عليّ رضي الله عنه ثابتان في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-7-13",
+    stationId: 7,
+    slug: "makkah-march-ten-thousand-fires",
+    en: {
+      title: "Ten Thousand Fires in One Night",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Quraysh broke the treaty of Hudaybiyyah by helping an attack on Khuza'ah, who were the Muslims' allies, so those wronged had to be defended. The Prophet ﷺ prepared ten thousand men and moved in complete secrecy until he camped near Mecca. Then he ordered every man to light a fire — and Quraysh saw the hills burning with ten thousand fires, and knew that fighting was hopeless.",
+          shortLesson: "The best victory is the one in which no blood is shed.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Quraysh broke the treaty of Hudaybiyyah when they helped their allies against Khuza'ah — who were under the Prophet's covenant — and men of Khuza'ah were killed, so the Muslims were bound to defend the allies who had been wronged. The Prophet ﷺ prepared ten thousand men and moved in strict secrecy so that Quraysh would not gather for a battle, and camped at Marr az-Zahran near Mecca. Then he ordered every man in the army to light a fire, and in one night the hills were covered with ten thousand fires. When Abu Sufyan and the people of Mecca saw it, they were certain that resistance was pointless, and the city gave in without a battle. The aim was never to terrify, but to stop a fight before it started.",
+          details:
+            "Allah says about defending the wronged: ﴿وَإِنِ اسْتَنصَرُوكُمْ فِي الدِّينِ فَعَلَيْكُمُ النَّصْرُ﴾ — “If they seek your help, then help is your duty.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ entered Mecca with a great army, and almost no fighting took place in it.",
+        value: { name: "Sparing blood", icon: "🔥" },
+        thinkQuestion: "How do you keep a disagreement from turning into a fight?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did the Prophet ﷺ order every man to light a fire?",
+          options: ["For cooking", "So Mecca would see the size of the army and give up fighting", "Only for warmth", "To celebrate"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small torch", description: "A torch for the night a battle was prevented." },
+        badge: "Preventer of Fighting",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah",
+        note: "The lighting of the fires at Marr az-Zahran is well known in the Seerah, from Ibn Ishaq; the conquest itself and the breaking of the treaty are established in both Sahih collections.",
+      },
+    },
+    title: "عشرة آلاف نار في ليلة واحدة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "نقضت قريش عهد الحديبية فأعانت على حلفاء المسلمين من خزاعة، فوجب نصرهم. فتجهّز النبي ﷺ في عشرة آلاف وسار في سرّية تامة حتى نزل قرب مكة. ثم أمر كل رجل أن يوقد ناراً، فرأت قريش الجبال مشتعلة بعشرة آلاف نار، فعلمت أن لا طاقة لها بقتال.",
+        shortLesson: "أفضل نصرٍ ما حُقن فيه الدم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "نقضت قريش عهد الحديبية حين أعانت حلفاءها على خزاعة — وكانت خزاعة في عهد النبي ﷺ — فقُتل منهم رجال، فوجب على المسلمين نصر من ظُلم من حلفائهم. فتجهّز النبي ﷺ في عشرة آلاف، وسار في كتمان شديد حتى لا تستعدّ قريش لقتال، ونزل بـ«مرّ الظهران» قرب مكة. ثم أمر أن يوقد كل رجل من الجيش ناراً، فامتلأت الجبال بعشرة آلاف نار في ليلة واحدة. فلما رأى أبو سفيان وأهل مكة ذلك المشهد أيقنوا أن المقاومة لا معنى لها، فاستسلمت المدينة بغير معركة. لم يكن المقصود إرهاباً، بل منع القتال قبل أن يبدأ.",
+        details:
+          "قال تعالى في نصرة المظلوم: ﴿وَإِنِ اسْتَنصَرُوكُمْ فِي الدِّينِ فَعَلَيْكُمُ النَّصْرُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "دخل النبي ﷺ مكة بجيش عظيم، ولم تقع فيها معركة تُذكر.",
+      value: { name: "حقن الدماء", icon: "🔥" },
+      thinkQuestion:
+        "كيف تمنع خلافاً من أن يتحوّل إلى شجار؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا أمر النبي ﷺ كل رجل أن يوقد ناراً؟",
+        options: ["للطبخ", "ليرى أهل مكة كثرة الجيش فيتركوا القتال", "للتدفئة فقط", "للاحتفال"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "مشعل صغير", description: "مشعل يذكّرك بليلة مُنعت فيها معركة." },
+      badge: "مانع القتال",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام",
+      note: "خبر إيقاد النيران بمرّ الظهران مشهور في كتب السيرة عند ابن إسحاق؛ وأصل فتح مكة ونقض قريش للعهد ثابت في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-7-14",
+    stationId: 7,
+    slug: "day-of-mercy-entry",
+    en: {
+      title: "Today Is a Day of Mercy",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ entered Mecca with his head bowed low over his mount, almost touching the saddle, in humility before Allah. A man called out: “Today is a day of slaughter!” The Prophet ﷺ answered him: “Today is a day of mercy.” Then he went round the House, with three hundred and sixty idols about it, striking them with a stick in his hand until they fell, reciting: “Truth has come and falsehood has vanished.”",
+          shortLesson: "Real victory makes you humbler, not prouder.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ entered the city that had driven him out and harmed him — not with his head raised in triumph, but bowed over his mount until it almost touched the saddle, in thanks to Allah and humility before Him. He gave the city safety: “Whoever enters the house of Abu Sufyan is safe, whoever shuts his own door is safe, and whoever enters the Sacred Mosque is safe.” When one of his commanders said, “Today is a day of slaughter!”, the Prophet ﷺ took the banner from him and said: “Today is a day of mercy.” Then he went to the Kaaba, with three hundred and sixty idols standing around it, and struck them one after another with the stick in his hand as they fell, reciting, “Truth has come and falsehood has vanished” — until the House returned to what Ibrahim had built it for: the worship of Allah alone.",
+          details:
+            "Allah says: ﴿إِنَّ الْبَاطِلَ كَانَ زَهُوقًا﴾ — “falsehood is bound to vanish.”",
+        },
+      },
+      interactive: {
+        discover: "He declared safety for anyone who simply shut his own door; no one was hunted in his house.",
+        value: { name: "Humility in victory", icon: "🕋" },
+        thinkQuestion: "What is the difference between being glad about success and being proud of it?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How did the Prophet ﷺ answer “Today is a day of slaughter”?",
+          options: ["He agreed", "He said: Today is a day of mercy", "He said nothing", "He ordered fighting"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small stick", description: "A stick: falsehood falls, however long it has stood." },
+        badge: "Humble in Victory",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "His bowed entry, the declaration of safety, and the breaking of the idols with that verse are all in the two Sahih collections; “Today is a day of mercy” is in al-Bukhari.",
+      },
+    },
+    title: "اليوم يوم المرحمة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "دخل النبي ﷺ مكة مطأطئ الرأس على راحلته حتى كاد يمسّ الرحل، تواضعاً لله. وقال رجل: اليوم يوم الملحمة! فردّ عليه النبي ﷺ: «اليوم يوم المرحمة». ثم طاف بالبيت وحوله ثلاثمائة وستون صنماً، فجعل يطعنها بعود في يده حتى سقطت، وهو يقول: ﴿جَاءَ الْحَقُّ وَزَهَقَ الْبَاطِلُ﴾.",
+        shortLesson: "النصر الحقيقي يزيدك تواضعاً لا كِبراً.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "دخل النبي ﷺ مكة التي أخرجته وآذته، لا رافعاً رأسه بالنصر، بل مطأطئاً على راحلته حتى كاد رأسه يمسّ الرحل، شكراً لله وتواضعاً له. وأمّن الناس فقال: «من دخل دار أبي سفيان فهو آمن، ومن أغلق عليه بابه فهو آمن، ومن دخل المسجد الحرام فهو آمن». فلما قال أحد قادته: اليوم يوم الملحمة! ردّ عليه النبي ﷺ وأخذ الراية منه وقال: «اليوم يوم المرحمة». ثم قصد الكعبة وحولها ثلاثمائة وستون صنماً، فجعل يطعنها بعود كان في يده وهي تتساقط، وهو يتلو: ﴿وَقُلْ جَاءَ الْحَقُّ وَزَهَقَ الْبَاطِلُ﴾، حتى عاد البيت إلى ما بناه عليه إبراهيم عليه السلام: عبادة الله وحده.",
+        details:
+          "قال تعالى: ﴿وَقُلْ جَاءَ الْحَقُّ وَزَهَقَ الْبَاطِلُ ۚ إِنَّ الْبَاطِلَ كَانَ زَهُوقًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "أعلن النبي ﷺ الأمان لكل من أغلق بابه على نفسه، فلم يُطارد أحد في بيته.",
+      value: { name: "التواضع عند النصر", icon: "🕋" },
+      thinkQuestion:
+        "ما الفرق بين الفرح بالنجاح والتكبّر به؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ ردّ النبي ﷺ على قول «اليوم يوم الملحمة»؟",
+        options: ["أقرّه", "قال: اليوم يوم المرحمة", "سكت", "أمر بالقتال"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "عود صغير", description: "عود يذكّرك أن الباطل يسقط ولو طال بقاؤه." },
+      badge: "متواضع عند النصر",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "دخول النبي ﷺ مكة مطأطئاً، وإعلان الأمان، وكسر الأصنام مع تلاوة الآية — كلها في الصحيحين. وقول «اليوم يوم المرحمة» عند البخاري في قصة سعد بن عبادة.",
+    },
+  },
+  {
+    storyId: "st-7-15",
+    stationId: 7,
+    slug: "go-you-are-free",
+    en: {
+      title: "Go — You Are Free",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The people of Mecca gathered at the Kaaba waiting to hear what would be done to them — the same people who had driven him out and tortured his companions for twenty years. He asked them: “What do you think I will do with you?” They said: good; a noble brother and the son of a noble brother. He said: “Go — you are free.”",
+          shortLesson: "The greatest strength is to forgive when you are able to punish.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The people of Mecca gathered at the door of the Kaaba, waiting for his judgement. They knew he had power over them that day, and they knew what they had done: they had driven him from his city, tortured his companions, fought him for twenty years and killed his uncle. He looked at them with pardon and said: “People of Quraysh, what do you think I will do with you?” They answered: “Good — a noble brother, and the son of a noble brother.” He said: “Go — you are free.” He held no one, took no property, and took revenge on no one. Many of them entered Islam that day, not out of fear but out of love, and the whole enmity ended in a single sentence. With that, the years of defending the homeland reached their purpose: safety and justice, without revenge.",
+          details:
+            "Allah says of his character: ﴿خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ﴾ — “Take to forgiveness, and enjoin what is good.”",
+        },
+      },
+      interactive: {
+        discover: "“At-Tulaqa” — the freed ones — became a name in history for the people of Mecca he pardoned that day.",
+        value: { name: "Pardon when you are able", icon: "💛" },
+        thinkQuestion: "Who is one person you could forgive today?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ say to the people of Mecca on the day of the conquest?",
+          options: ["He held them to account", "Go — you are free", "He drove them out of Mecca", "He took their property"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An open lock", description: "An open lock for the day one who could punish pardoned everyone." },
+        badge: "Pardon With Power",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, and al-Bayhaqi's Sunan",
+        note: "“Go, you are free” is well known in the Seerah from Ibn Ishaq and al-Bayhaqi; the general pardon of Mecca is widely established.",
+      },
+    },
+    title: "اذهبوا فأنتم الطلقاء",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "اجتمع أهل مكة عند الكعبة ينتظرون ما يُفعل بهم، وهم الذين أخرجوه وعذّبوا أصحابه عشرين سنة. فقال لهم: «ما تظنون أني فاعل بكم؟» قالوا: خيراً، أخٌ كريم وابن أخٍ كريم. فقال: «اذهبوا فأنتم الطلقاء».",
+        shortLesson: "أعظم القوة أن تعفو وأنت قادر.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "اجتمع أهل مكة عند باب الكعبة ينتظرون حكمه فيهم، وهم يعلمون أنه قادر عليهم اليوم، وأنهم هم الذين أخرجوه من بلده، وعذّبوا أصحابه، وحاربوه عشرين سنة، وقتلوا عمّه. فنظر إليهم نظرة العفو وقال: «يا معشر قريش، ما تظنون أني فاعل بكم؟» قالوا: خيراً، أخٌ كريم وابن أخٍ كريم. فقال ﷺ: «اذهبوا فأنتم الطلقاء». لم يحبس أحداً، ولم يأخذ مالاً، ولم يقتصّ من أحد. فدخل كثير منهم في الإسلام يومئذ لا خوفاً بل حبّاً، وانتهت العداوة كلها في كلمة واحدة. وبهذا بلغت مرحلة الدفاع عن الوطن غايتها: أمنٌ وعدل بلا انتقام.",
+        details:
+          "قال تعالى في خُلُقه ﷺ: ﴿خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كلمة «الطلقاء» صارت لقباً في التاريخ لأهل مكة الذين عفا عنهم النبي ﷺ يومئذ.",
+      value: { name: "العفو عند المقدرة", icon: "💛" },
+      thinkQuestion:
+        "مَن الشخص الذي تستطيع أن تسامحه اليوم؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا قال النبي ﷺ لأهل مكة يوم الفتح؟",
+        options: ["حاسبهم على ما فعلوا", "اذهبوا فأنتم الطلقاء", "أخرجهم من مكة", "أخذ أموالهم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قفل مفتوح", description: "قفل مفتوح يذكّرك بيوم عفا فيه قادرٌ عن الجميع." },
+      badge: "عفوٌ عند المقدرة",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، والسنن الكبرى للبيهقي",
+      note: "خبر «اذهبوا فأنتم الطلقاء» مشهور في كتب السيرة عند ابن إسحاق والبيهقي؛ وأصل العفو العام عن أهل مكة معلوم مستفيض.",
     },
   },
 ];

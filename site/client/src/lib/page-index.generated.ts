@@ -453,6 +453,11 @@ export const seerahStationIndex: Station[] = [
   "stationId": 6,
   "titleAr": "الهجرة إلى المدينة",
   "titleEn": "The Migration to Madinah"
+ },
+ {
+  "stationId": 7,
+  "titleAr": "الدفاع عن الوطن",
+  "titleEn": "Defending the Homeland"
  }
 ];
 
@@ -815,6 +820,126 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف…",
   "titleEn": "The Shepherd Who Erased the Tracks",
   "descriptionEn": "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over…",
+  "image": null
+ },
+ {
+  "slug": "permission-to-defend",
+  "title": "لماذا دافع المسلمون عن أنفسهم؟",
+  "description": "صبر المسلمون في مكة ثلاث عشرة سنة على الأذى ولم يردّوا، لأن النبي ﷺ كان يأمرهم بالصبر. ولما هاجروا إلى المدينة وبنوا بيوتهم، ظلّت قريش تهدّد بالهجوم عليهم. عند ذلك أذن الله لهم…",
+  "titleEn": "Why Did the Muslims Defend Themselves?",
+  "descriptionEn": "The Muslims bore thirteen years of harm in Mecca without striking back, because the Prophet ﷺ told them to be patient. When they migrated to Madinah and built their homes,…",
+  "image": null
+ },
+ {
+  "slug": "badr-shura-counsel",
+  "title": "بئر بدر وقوة الشورى",
+  "description": "خرج المسلمون ثلاثمائة وثلاثة عشر رجلاً، فوجدوا أمامهم جيشاً يقارب الألف. فجمع النبي ﷺ أصحابه واستشارهم ولم يجبر أحداً. ولما نزلوا عند آبار بدر، قال له الحُباب بن المنذر: أهذا…",
+  "titleEn": "The Well of Badr and the Strength of Counsel",
+  "descriptionEn": "The Muslims set out three hundred and thirteen men, and found before them an army of nearly a thousand. The Prophet ﷺ gathered his companions and asked their view, forcing no…",
+  "image": null
+ },
+ {
+  "slug": "angels-in-badr",
+  "title": "بدر وجنود السماء",
+  "description": "في السابع عشر من رمضان التقى الجيشان ببدر. وقف النبي ﷺ يدعو ربه ويرفع يديه حتى سقط رداؤه، يسأله النصر لهذه القلّة. فاستجاب الله وأمدّهم بالملائكة، وانتصر المسلمون على قلّتهم،…",
+  "titleEn": "Badr and the Soldiers of the Sky",
+  "descriptionEn": "On the seventeenth of Ramadan the two armies met at Badr. The Prophet ﷺ stood praying to his Lord with his hands raised until his cloak fell from his shoulders, asking victory…",
+  "image": null
+ },
+ {
+  "slug": "mercy-to-captives",
+  "title": "أسرى بدر ومعلّمو الصبيان",
+  "description": "بعد بدر جاء الأسرى إلى المدينة، فأوصى النبي ﷺ أصحابه بهم خيراً، فكان الصحابة يطعمونهم الخبز ويأكلون هم التمر. ولما جاء وقت الإطلاق، جعل النبي ﷺ فداء من يعرف القراءة والكتابة ولا…",
+  "titleEn": "The Captives of Badr, Who Taught the Children",
+  "descriptionEn": "After Badr the captives came to Madinah, and the Prophet ﷺ told his companions to treat them well — so the companions gave them the bread and ate dates themselves. When the time…",
+  "image": null
+ },
+ {
+  "slug": "mount-of-archers-uhud",
+  "title": "جبل الرماة والوصية",
+  "description": "جاءت قريش بثلاثة آلاف مقاتل إلى أُحد. فوضع النبي ﷺ خمسين رامياً على تلّة تحمي ظهر الجيش، وقال لهم: لا تبرحوا مكانكم، إن رأيتمونا ننتصر أو نُهزم. وفي أول المعركة تقدّم المسلمون…",
+  "titleEn": "The Archers' Hill and the Order",
+  "descriptionEn": "Quraysh came to Uhud with three thousand fighters. The Prophet ﷺ placed fifty archers on a hill to guard the army's back, and told them: do not leave your place, whether you see…",
+  "image": null
+ },
+ {
+  "slug": "tough-lesson-and-heroine",
+  "title": "درس أُحد وبطولة نُسيبة",
+  "description": "ظنّ أكثر الرماة أن المعركة انتهت، فنزلوا من التلّة قبل أن يأذن النبي ﷺ. فالتفّت خيل قريش من ورائهم وانقلبت المعركة. وثبت النبي ﷺ ومعه قليل، وبرزت نُسيبة بنت كعب رضي الله عنها…",
+  "titleEn": "The Lesson of Uhud, and Nusaybah",
+  "descriptionEn": "Most of the archers thought the battle was over, and came down from the hill before the Prophet ﷺ gave them leave. The horsemen of Quraysh came round behind them and the battle…",
+  "image": null
+ },
+ {
+  "slug": "trench-salman-idea",
+  "title": "عشرة آلاف وفكرة الخندق",
+  "description": "تجمّعت القبائل في جيش سُمّي الأحزاب، عشرة آلاف مقاتل، وزحفوا إلى المدينة. فاستشار النبي ﷺ أصحابه، فقال سلمان الفارسي رضي الله عنه: يا رسول الله، إنا كنا بفارس إذا حوصرنا خندقنا…",
+  "titleEn": "Ten Thousand, and the Idea of a Trench",
+  "descriptionEn": "The tribes gathered into an army called the Confederates — ten thousand fighters — and marched on Madinah. The Prophet ﷺ asked his companions for their view, and Salman al-Farisi…",
+  "image": null
+ },
+ {
+  "slug": "prophet-work-and-food-miracle",
+  "title": "فأس القائد وبركة الطعام",
+  "description": "نزل النبي ﷺ يحفر مع أصحابه، وقد ربط على بطنه حجراً من الجوع. فرآه جابر بن عبد الله رضي الله عنه فذهب وذبح شاة صغيرة وطحنت زوجته صاعاً من شعير، ودعاه في نفر قليل. فنادى النبي ﷺ…",
+  "titleEn": "The Leader's Pickaxe, and Food That Did Not Run Out",
+  "descriptionEn": "The Prophet ﷺ came down and dug with his companions, a stone tied over his stomach from hunger. Jabir ibn Abdullah saw it, went home and slaughtered a small animal while his wife…",
+  "image": null
+ },
+ {
+  "slug": "cold-wind-victory-without-swords",
+  "title": "ريح النصر ونهاية الأحزاب",
+  "description": "وقف المشركون عاجزين أمام الخندق شهراً، واشتدّ البرد والخوف. فدعا النبي ﷺ ربه، فأرسل الله عليهم ريحاً شديدة البرد قلعت خيامهم وأطفأت نيرانهم وكفأت قدورهم، فرحلوا في الليل. وأصبح…",
+  "titleEn": "The Wind of Victory, and the End of the Confederates",
+  "descriptionEn": "The idolaters stood helpless at the trench for a month, and the cold and the fear grew hard. The Prophet ﷺ prayed to his Lord, and Allah sent a bitterly cold wind that tore up…",
+  "image": null
+ },
+ {
+  "slug": "hudaybiyyah-peace-treaty",
+  "title": "الحديبية: سلامٌ في ثياب الإحرام",
+  "description": "خرج النبي ﷺ ومعه ألف وأربعمائة في ثياب الإحرام البيضاء يريدون العمرة، لا يحملون سلاح حرب. فمنعتهم قريش، فاختار النبي ﷺ الصلح على القتال، وقبل شروطاً بدت قاسية ليمنع الدماء.…",
+  "titleEn": "Hudaybiyyah: Peace in the Clothes of Pilgrimage",
+  "descriptionEn": "The Prophet ﷺ set out with one thousand four hundred companions in the white clothes of pilgrimage, carrying no weapons of war, intending the lesser pilgrimage. Quraysh turned…",
+  "image": null
+ },
+ {
+  "slug": "letters-to-world-leaders",
+  "title": "رسائل إلى ملوك الأرض",
+  "description": "لما وضعت الحرب أوزارها بعد الحديبية، لم يجلس النبي ﷺ ينتظر، بل اتخذ خاتماً نُقش عليه «محمد رسول الله»، وكتب رسائل إلى ملوك زمانه: قيصر الروم، وكسرى فارس، والمقوقس بالإسكندرية،…",
+  "titleEn": "Letters to the Kings of the Earth",
+  "descriptionEn": "When the fighting was set aside after Hudaybiyyah, the Prophet ﷺ did not sit and wait. He had a ring made, engraved “Muhammad, the Messenger of Allah”, and wrote letters to the…",
+  "image": null
+ },
+ {
+  "slug": "battle-of-khaybar-hero-ali",
+  "title": "حصون خيبر وحامل الراية",
+  "description": "كانت حصون خيبر في الشمال مركزاً يموّل من يحارب المدينة، فخرج إليها النبي ﷺ ليؤمّن الحدود. ولما بلغوا أمنع الحصون قال: «لأعطينّ الراية غداً رجلاً يحبّ الله ورسوله ويحبّه الله…",
+  "titleEn": "The Forts of Khaybar and the Bearer of the Banner",
+  "descriptionEn": "The forts of Khaybar in the north were a base funding those who fought Madinah, so the Prophet ﷺ went out to secure the frontier. When they reached the strongest fort he said:…",
+  "image": null
+ },
+ {
+  "slug": "makkah-march-ten-thousand-fires",
+  "title": "عشرة آلاف نار في ليلة واحدة",
+  "description": "نقضت قريش عهد الحديبية فأعانت على حلفاء المسلمين من خزاعة، فوجب نصرهم. فتجهّز النبي ﷺ في عشرة آلاف وسار في سرّية تامة حتى نزل قرب مكة. ثم أمر كل رجل أن يوقد ناراً، فرأت قريش…",
+  "titleEn": "Ten Thousand Fires in One Night",
+  "descriptionEn": "Quraysh broke the treaty of Hudaybiyyah by helping an attack on Khuza'ah, who were the Muslims' allies, so those wronged had to be defended. The Prophet ﷺ prepared ten thousand…",
+  "image": null
+ },
+ {
+  "slug": "day-of-mercy-entry",
+  "title": "اليوم يوم المرحمة",
+  "description": "دخل النبي ﷺ مكة مطأطئ الرأس على راحلته حتى كاد يمسّ الرحل، تواضعاً لله. وقال رجل: اليوم يوم الملحمة! فردّ عليه النبي ﷺ: «اليوم يوم المرحمة». ثم طاف بالبيت وحوله ثلاثمائة وستون…",
+  "titleEn": "Today Is a Day of Mercy",
+  "descriptionEn": "The Prophet ﷺ entered Mecca with his head bowed low over his mount, almost touching the saddle, in humility before Allah. A man called out: “Today is a day of slaughter!” The…",
+  "image": null
+ },
+ {
+  "slug": "go-you-are-free",
+  "title": "اذهبوا فأنتم الطلقاء",
+  "description": "اجتمع أهل مكة عند الكعبة ينتظرون ما يُفعل بهم، وهم الذين أخرجوه وعذّبوا أصحابه عشرين سنة. فقال لهم: «ما تظنون أني فاعل بكم؟» قالوا: خيراً، أخٌ كريم وابن أخٍ كريم. فقال: «اذهبوا…",
+  "titleEn": "Go — You Are Free",
+  "descriptionEn": "The people of Mecca gathered at the Kaaba waiting to hear what would be done to them — the same people who had driven him out and tortured his companions for twenty years. He…",
   "image": null
  }
 ];

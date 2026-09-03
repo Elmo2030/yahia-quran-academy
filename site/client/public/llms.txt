@@ -119,6 +119,7 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Call: In Secret, Then Aloud](https://yahyaquran.com/seerah#station-4): 10 stories. Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.
 - [The Night Journey and the Ascension](https://yahyaquran.com/seerah#station-5): 15 stories. Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.
 - [The Migration to Madinah](https://yahyaquran.com/seerah#station-6): 5 stories. The night the Prophet (pbuh) left Mecca, and those who stood with him: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr's tears, Asma's belt, and Amir's flock that erased the tracks.
+- [Defending the Homeland](https://yahyaquran.com/seerah#station-7): 15 stories. Fifteen stories from the years of defending Madinah: the permission after thirteen years of patience, Badr with its counsel and its angels, captives who became teachers, the lesson of Uhud, Salman's trench, the wind that scattered the Confederates, the treaty of Hudaybiyyah, the letters to kings, Khaybar, and finally the conquest of Mecca — the day of mercy and the general pardon.
 
 
 ### Beginnings — Seeds of Light
@@ -177,6 +178,23 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [Tears of Joy: “May I Accompany You?” — دموع الفرح: الصُّحبة يا رسول الله](https://yahyaquran.com/seerah/tears-of-joy-companion): صحيح البخاري
 - [Asma, She of the Two Belts — أسماء ذات النِّطاقين](https://yahyaquran.com/seerah/asma-that-al-nitaqayn): صحيح البخاري
 - [The Shepherd Who Erased the Tracks — الراعي الذي محا الآثار](https://yahyaquran.com/seerah/smart-shepherd-footprints): صحيح البخاري، وسيرة ابن هشام
+
+### Defending the Homeland
+- [Why Did the Muslims Defend Themselves? — لماذا دافع المسلمون عن أنفسهم؟](https://yahyaquran.com/seerah/permission-to-defend): القرآن الكريم، سورة الحج: ٣٩
+- [The Well of Badr and the Strength of Counsel — بئر بدر وقوة الشورى](https://yahyaquran.com/seerah/badr-shura-counsel): سيرة ابن هشام
+- [Badr and the Soldiers of the Sky — بدر وجنود السماء](https://yahyaquran.com/seerah/angels-in-badr): القرآن الكريم، سورة آل عمران: ١٢٣، وصحيح مسلم
+- [The Captives of Badr, Who Taught the Children — أسرى بدر ومعلّمو الصبيان](https://yahyaquran.com/seerah/mercy-to-captives): مسند أحمد، وسيرة ابن هشام
+- [The Archers' Hill and the Order — جبل الرماة والوصية](https://yahyaquran.com/seerah/mount-of-archers-uhud): صحيح البخاري
+- [The Lesson of Uhud, and Nusaybah — درس أُحد وبطولة نُسيبة](https://yahyaquran.com/seerah/tough-lesson-and-heroine): صحيح البخاري، وطبقات ابن سعد
+- [Ten Thousand, and the Idea of a Trench — عشرة آلاف وفكرة الخندق](https://yahyaquran.com/seerah/trench-salman-idea): سيرة ابن هشام
+- [The Leader's Pickaxe, and Food That Did Not Run Out — فأس القائد وبركة الطعام](https://yahyaquran.com/seerah/prophet-work-and-food-miracle): صحيح البخاري ومسلم
+- [The Wind of Victory, and the End of the Confederates — ريح النصر ونهاية الأحزاب](https://yahyaquran.com/seerah/cold-wind-victory-without-swords): القرآن الكريم، سورة الأحزاب: ٩، وصحيح مسلم
+- [Hudaybiyyah: Peace in the Clothes of Pilgrimage — الحديبية: سلامٌ في ثياب الإحرام](https://yahyaquran.com/seerah/hudaybiyyah-peace-treaty): صحيح البخاري
+- [Letters to the Kings of the Earth — رسائل إلى ملوك الأرض](https://yahyaquran.com/seerah/letters-to-world-leaders): صحيح البخاري
+- [The Forts of Khaybar and the Bearer of the Banner — حصون خيبر وحامل الراية](https://yahyaquran.com/seerah/battle-of-khaybar-hero-ali): صحيح البخاري ومسلم
+- [Ten Thousand Fires in One Night — عشرة آلاف نار في ليلة واحدة](https://yahyaquran.com/seerah/makkah-march-ten-thousand-fires): سيرة ابن هشام
+- [Today Is a Day of Mercy — اليوم يوم المرحمة](https://yahyaquran.com/seerah/day-of-mercy-entry): صحيح البخاري ومسلم
+- [Go — You Are Free — اذهبوا فأنتم الطلقاء](https://yahyaquran.com/seerah/go-you-are-free): سيرة ابن هشام، والسنن الكبرى للبيهقي
 
 ## In the Realm of the Quran
 - [Discover the Quran](https://yahyaquran.com/quran-facts): one hundred short facts about the Quran
