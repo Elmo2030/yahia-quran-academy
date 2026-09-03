@@ -232,7 +232,14 @@ export const onRequest: PagesFunction = async (context) => {
   // the alias in redirecting to the bare domain the canonical tags name.
   // The Seerah was briefly listed as a chapter of the Quran stories; keep the
   // address it had working rather than leaving it to 404.
-  if (pathname === "/stories/seerah" || pathname.startsWith("/stories/seerah/")) {
+  //
+  // Pages, not files: the artwork lives under /stories/seerah/ too, and this
+  // rule swallowed every WebP variant of it — 301 to /seerah/<name>.webp,
+  // which is nothing, so the pictures simply vanished. _routes.json keeps the
+  // assets away from this function in the first place; the extension check is
+  // the second lock, so the next file type added there does not repeat it.
+  if (pathname === "/stories/seerah" ||
+      (pathname.startsWith("/stories/seerah/") && !/\.[a-z0-9]+$/i.test(pathname))) {
     return Response.redirect(`${ORIGIN}/seerah${pathname.slice("/stories/seerah".length)}`, 301);
   }
 

@@ -80,6 +80,39 @@ describe("the Cloudflare function", () => {
     return { html, graph: ld ? JSON.parse(ld[1])["@graph"] : [] };
   };
 
+  // The Seerah was briefly a chapter of the Quran stories, and the redirect
+  // that keeps those old addresses working matched the artwork living at the
+  // same prefix: every WebP variant 301'd to /seerah/<file>.webp, which does
+  // not exist, so the pictures disappeared from the live site. Pages move;
+  // files stay.
+  const raw = async (path: string) => onRequest({
+    request: new Request(`https://yahyaquran.com${path}`),
+    next: async () => new Response(shell, { headers: { "content-type": "text/html" } }),
+    env: { ASSETS: { fetch: async () => new Response("", { status: 404 }) } },
+  });
+
+  it("keeps the old Seerah addresses working", async () => {
+    for (const [from, to] of [
+      ["/stories/seerah", "/seerah"],
+      ["/stories/seerah/cave-of-hira", "/seerah/cave-of-hira"],
+    ]) {
+      const response = await raw(from);
+      expect(response.status, from).toBe(301);
+      expect(response.headers.get("location"), from).toBe(`https://yahyaquran.com${to}`);
+    }
+  });
+
+  it("leaves the artwork at that prefix alone", async () => {
+    for (const file of [
+      "/stories/seerah/birth-of-light.jpg",
+      "/stories/seerah/birth-of-light-640.webp",
+      "/stories/seerah/station-5-1280.webp",
+    ]) {
+      const response = await raw(file);
+      expect(response.status, file).not.toBe(301);
+    }
+  });
+
   it("tells an engine that a surah page is a chapter of the Quran", async () => {
     const { graph } = await fetchPage("/read/18");
     const page = graph.find((node: any) => node["@type"] === "WebPage");

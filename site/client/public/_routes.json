@@ -5,11 +5,20 @@
     "/assets/*",
     "/stories/*.jpg",
     "/stories/*/*.jpg",
+    "/stories/*.webp",
+    "/stories/*/*.webp",
+    "/hero/*",
+    "/facts/*",
+    "/fonts/*",
+    "/quran/*",
+    "/recitations/*",
     "/manus-storage/*",
     "/favicon.svg",
     "/apple-touch-icon.png",
     "/og-cover.jpg",
+    "/og-yahya.jpg",
     "/robots.txt",
-    "/sitemap.xml"
+    "/sitemap.xml",
+    "/llms.txt"
   ]
 }
