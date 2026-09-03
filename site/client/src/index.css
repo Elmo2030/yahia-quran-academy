@@ -406,7 +406,13 @@
 .story-image-placeholder__sun { position: absolute; top: 18%; left: 18%; width: 40px; aspect-ratio: 1; border-radius: 50%; background: rgb(255 250 214 / 90%); box-shadow: 0 0 0 10px rgb(255 249 214 / 15%); }
 .story-image-placeholder__hill { position: absolute; right: -14%; bottom: -34%; width: 88%; aspect-ratio: 2; border-radius: 50%; background: rgb(255 255 255 / 22%); }
 .story-image-placeholder__hill--two { left: -18%; right: auto; bottom: -36%; width: 83%; background: rgb(255 255 255 / 19%); transform: rotate(9deg); }
-.story-image-placeholder small { position: absolute; right: 1rem; bottom: .85rem; z-index: 2; max-width: 62%; color: rgb(255 255 255 / 91%); font-family: "Noto Naskh Arabic", serif; font-size: .8rem; line-height: 1.45; text-align: right; }
+/* The label used to be translucent white straight onto the gradient, which
+   measured about 2.4:1 where the pale end and the white hill meet — and this
+   stand-in is what most Seerah stories still show. It sits on its own opaque
+   navy chip now, so the contrast is the chip's (about 14:1) and does not
+   depend on which part of the drawing ends up behind it. Logical properties:
+   the label hugs the reading edge in Arabic and in English. */
+.story-image-placeholder small { position: absolute; inset-inline-end: .85rem; bottom: .85rem; z-index: 2; max-width: 72%; padding: .3rem .6rem; border-radius: 10px; background: #10314e; color: #fff; font-family: "Noto Naskh Arabic", serif; font-size: .8rem; line-height: 1.45; text-align: start; box-shadow: 0 2px 8px rgb(0 31 63 / 22%); }
 .story-article__content > .story-image-placeholder { border-radius: 24px; min-height: 270px; box-shadow: 0 14px 32px rgb(0 31 63 / 8%); }
 
 /* The reader is a tool, not a landing page. On a phone the marketing hero,
