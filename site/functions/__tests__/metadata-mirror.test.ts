@@ -54,6 +54,15 @@ async function fromTheFunction(path: string) {
   };
 }
 
+// Sampling the first N meant every seerah route checked came from station 1:
+// stations 6 and 7 were added and never covered. An even spread costs the same
+// and reaches the newest content, which is where the two copies would drift.
+function spread<T>(items: T[], count: number): T[] {
+  if (items.length <= count) return items;
+  const step = (items.length - 1) / (count - 1);
+  return Array.from({ length: count }, (_, i) => items[Math.round(i * step)]);
+}
+
 // Every kind of route the site has, plus a sample of each generated family.
 const ROUTES = [
   "/", "/about", "/privacy", "/terms",
@@ -61,9 +70,9 @@ const ROUTES = [
   "/login", "/register", "/profile", "/stories/library",
   "/forgot-password", "/reset-password", "/nope", "/stories/nope",
   ...chapterIndex.map(chapter => `/stories/${chapter.slug}`),
-  ...storyIndex.slice(0, 6).map(story => `/stories/${story.chapter}/${story.slug}`),
-  ...seerahStoryIndex.slice(0, 6).map(story => `/seerah/${story.slug}`),
-  ...aqeedahCardIndex.slice(0, 6).map(card => `/aqeedah/${card.slug}`),
+  ...spread(storyIndex, 6).map(story => `/stories/${story.chapter}/${story.slug}`),
+  ...spread(seerahStoryIndex, 8).map(story => `/seerah/${story.slug}`),
+  ...spread(aqeedahCardIndex, 6).map(card => `/aqeedah/${card.slug}`),
   "/aqeedah/nope",
   "/read/1", "/read/18", "/read/114",
   // Addresses that name no surah: this is where the two copies drifted once,
