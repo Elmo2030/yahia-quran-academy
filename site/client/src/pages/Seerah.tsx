@@ -21,6 +21,8 @@ import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { BadgeAward } from "@/components/BadgeAward";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
+import { StoryPicture } from "@/components/StoryPicture";
+import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 import {
   seerahStories,
   seerahStations,
@@ -103,10 +105,9 @@ function SeerahArt({ story, className }: { story: SeerahStory; className?: strin
   if (!story.image || failed) return <Placeholder story={story} className={className} />;
   return (
     <figure className={`story-image ${className ?? ""}`}>
-      <img
+      <StoryPicture
         src={story.image}
-        alt=""
-        loading="lazy"
+        sizes={CARD_SIZES}
         width={1200}
         height={670}
         onError={() => setFailed(true)}
@@ -350,12 +351,12 @@ export default function Seerah() {
           {/* The station cover is dropped in at /stories/seerah/cover.jpg. Until
               it lands, hide the figure rather than show a broken image. */}
           <figure className="animals-collection-cover">
-            <img
+            <StoryPicture
               src="/stories/seerah/cover.jpg"
-              alt=""
+              sizes={COVER_SIZES}
               width={1600}
               height={893}
-              loading="lazy"
+              eager
               onError={event => { (event.currentTarget.closest("figure") as HTMLElement | null)?.style.setProperty("display", "none"); }}
             />
           </figure>
@@ -374,7 +375,7 @@ export default function Seerah() {
               </div>
               {station.cover && (
                 <figure className="seerah-station-cover">
-                  <img src={station.cover} alt="" width={1600} height={893} loading="lazy" />
+                  <StoryPicture src={station.cover} sizes={COVER_SIZES} width={1600} height={893} />
                 </figure>
               )}
               <ol className="story-list-grid">

@@ -8,6 +8,8 @@ import { MobileMenu } from "@/components/MobileMenu";
 import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
+import { StoryPicture } from "@/components/StoryPicture";
+import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 
 const copy = {
   ar: {
@@ -67,7 +69,7 @@ function StoryArt({ story, className }: { story: Story; className?: string }) {
   if (story.image) {
     return (
       <figure className={`story-image ${className ?? ""}`}>
-        <img src={story.image} alt="" loading="lazy" width={1200} height={670} />
+        <StoryPicture src={story.image} sizes={CARD_SIZES} width={1200} height={670} />
       </figure>
     );
   }
@@ -297,7 +299,7 @@ export default function Stories() {
             </div>
             {chapter.cover && (
               <figure className="animals-collection-cover">
-                <img src={chapter.cover} alt="" width={1600} height={893} />
+                <StoryPicture src={chapter.cover} sizes={COVER_SIZES} width={1600} height={893} eager />
               </figure>
             )}
           </div>
@@ -329,7 +331,7 @@ export default function Stories() {
             <Link href="/stories/library" className="stories-hero__library-link"><Library size={16} aria-hidden="true" /> {t.myLibrary}</Link>
           </div>
           <figure className="animals-collection-cover">
-            <img src="/stories/animals/cover.jpg" alt="" width={1600} height={893} loading="lazy" />
+            <StoryPicture src="/stories/animals/cover.jpg" sizes={COVER_SIZES} width={1600} height={893} />
           </figure>
         </div>
       </section>
