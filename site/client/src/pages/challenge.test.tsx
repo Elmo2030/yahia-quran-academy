@@ -15,6 +15,7 @@ import { describe, expect, it, beforeEach } from "vitest";
 import { vi } from "vitest";
 
 import { LocaleProvider } from "@/contexts/LocaleContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 // The page wears the site chrome, which asks who is signed in; nothing in these
 // tests depends on that.
@@ -27,7 +28,7 @@ const wrongIndex = [0, 1, 2, 3].find(i => i !== card.challenge.correctAnswer)!;
 
 const openCard = () => {
   window.history.pushState({}, "", `/aqeedah/${card.slug}`);
-  return render(<LocaleProvider><Aqeedah /></LocaleProvider>);
+  return render(<ThemeProvider><LocaleProvider><Aqeedah /></LocaleProvider></ThemeProvider>);
 };
 
 const optionButtons = () =>

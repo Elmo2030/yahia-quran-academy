@@ -14,6 +14,24 @@ import { describe, expect, it } from "vitest";
 
 const css = readFileSync(join(process.cwd(), "client/src/index.css"), "utf8");
 
+/** The colour a token resolves to, per theme, read from the stylesheet itself
+ *  — the chip is painted from a token now, and it has to clear 4.5:1 in both. */
+const tokenValue = (name: string, theme: "light" | "dark") => {
+  const block = theme === "light"
+    ? css.slice(css.indexOf(":root {"), css.indexOf("@media (prefers-color-scheme: dark)"))
+    : css.slice(css.indexOf('[data-theme="dark"]'));
+  const match = block.match(new RegExp(`--${name}:\\s*(#[0-9a-fA-F]{3,8})`));
+  if (!match) throw new Error(`no value for --${name} in the ${theme} palette`);
+  return match[1];
+};
+
+/** `var(--x)` or a literal, resolved for one theme. */
+const resolve = (value: string, theme: "light" | "dark") => {
+  const token = value.match(/var\(--([a-z0-9-]+)\)/);
+  if (token) return tokenValue(token[1], theme);
+  return value === "#fff" ? "#ffffff" : value;
+};
+
 const rule = (selector: string) => {
   const match = css.match(new RegExp(`${selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*\\{([^}]*)\\}`));
   if (!match) throw new Error(`no rule for ${selector}`);
@@ -38,15 +56,19 @@ describe("the placeholder label", () => {
   const declarations = rule(".story-image-placeholder small");
 
   it("paints an opaque background of its own", () => {
-    const background = declarations.match(/background:\s*(#[0-9a-fA-F]{3,8})/);
-    expect(background, "an opaque hex background, not a translucent overlay").toBeTruthy();
+    const background = declarations.match(/background:\s*(var\(--[a-z0-9-]+\)|#[0-9a-fA-F]{3,8})/);
+    expect(background, "an opaque colour, not a translucent overlay").toBeTruthy();
   });
 
-  it("clears 4.5:1 against that background", () => {
-    const background = declarations.match(/background:\s*(#[0-9a-fA-F]{6})/)![1];
-    const color = declarations.match(/color:\s*(#[0-9a-fA-F]{6}|#fff\b)/)![1];
-    const foreground = color === "#fff" ? "#ffffff" : color;
-    expect(contrast(foreground, background)).toBeGreaterThanOrEqual(4.5);
+  it("clears 4.5:1 against that background, in both palettes", () => {
+    const background = declarations.match(/background:\s*(var\(--[a-z0-9-]+\)|#[0-9a-fA-F]{6})/)![1];
+    const color = declarations.match(/color:\s*(var\(--[a-z0-9-]+\)|#[0-9a-fA-F]{6}|#fff\b)/)![1];
+    for (const theme of ["light", "dark"] as const) {
+      expect(
+        contrast(resolve(color, theme), resolve(background, theme)),
+        `${theme} palette`,
+      ).toBeGreaterThanOrEqual(4.5);
+    }
   });
 
   it("hugs the reading edge in both directions", () => {

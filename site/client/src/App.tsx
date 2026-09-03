@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import { PageMeta } from "@/components/PageMeta";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { LocaleProvider } from "./contexts/LocaleContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 
@@ -65,12 +66,14 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
+      <ThemeProvider>
       <LocaleProvider>
         <AuthProvider>
           <PageMeta />
           <Router />
         </AuthProvider>
       </LocaleProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

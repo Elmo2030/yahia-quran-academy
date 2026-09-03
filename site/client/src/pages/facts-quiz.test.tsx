@@ -13,6 +13,7 @@ import { render, screen, fireEvent, within } from "@testing-library/react";
 import { describe, expect, it, beforeEach, vi } from "vitest";
 
 import { LocaleProvider } from "@/contexts/LocaleContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 vi.mock("@/hooks/useAuth", () => ({ default: () => ({ session: null }), useAuth: () => ({ session: null }) }));
 import QuranFacts from "@/pages/QuranFacts";
@@ -25,7 +26,7 @@ const DISCOVERED = quranFacts.slice(0, 6).map(fact => fact.slug);
 const openQuiz = () => {
   localStorage.setItem("yahya.facts.discovered.v1", JSON.stringify(DISCOVERED));
   window.history.pushState({}, "", "/quran-facts");
-  const view = render(<LocaleProvider><QuranFacts /></LocaleProvider>);
+  const view = render(<ThemeProvider><LocaleProvider><QuranFacts /></LocaleProvider></ThemeProvider>);
   fireEvent.click(screen.getByRole("button", { name: "اختبر معلوماتك" }));
   return view;
 };

@@ -16,6 +16,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, LogIn, UserRound } from "lucide-react";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { MobileMenu } from "@/components/MobileMenu";
 import { useLocale } from "@/contexts/LocaleContext";
 import useAuth from "@/hooks/useAuth";
@@ -66,6 +67,7 @@ export function SiteChrome({ variant = "full" }: { variant?: "full" | "reader" }
 
         <div className="header-actions">
           <MobileMenu />
+          <ThemeToggle />
           <LanguageToggle compact />
           {session ? (
             <Link href="/profile" className="header-auth-link">
