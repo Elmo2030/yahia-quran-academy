@@ -687,6 +687,13 @@
 .facts-stage.is-current .facts-stage__count { color: inherit; opacity: .82; }
 .facts-stage.is-current .facts-stage__count { color: rgb(var(--sheen-rgb) / 82%); }
 .facts-stage.is-done:not(.is-current) { color: var(--fact-from,var(--ink)); border-color: color-mix(in srgb, var(--fact-from,var(--panel-dark)) 45%, var(--page)); }
+/* --fact-from is the stage's own colour, set from JS, and every one of them is
+   deep enough to read on cream and to disappear on a dark page. The border
+   still carries the colour; the words follow the palette. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .facts-stage.is-done:not(.is-current) { color: var(--ink); }
+}
+:root[data-theme="dark"] .facts-stage.is-done:not(.is-current) { color: var(--ink); }
 
 .facts-progress { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1.1rem; margin-bottom: 1.6rem; }
 .facts-progress__count { color: var(--ink); margin: 0; font-size: .88rem; font-weight: 800; }
