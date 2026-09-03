@@ -13,6 +13,7 @@ vi.mock("@/lib/supabase", () => {
   return {
     getSupabase: vi.fn(() => null),
     isSupabaseConfigured: vi.fn(() => false),
+    mightHaveSession: vi.fn(() => false),
   };
 });
 

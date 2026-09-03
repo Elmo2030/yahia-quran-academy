@@ -13,6 +13,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 const signUpMock = vi.fn();
 vi.mock("@/lib/supabase", () => ({
   isSupabaseConfigured: () => true,
+  mightHaveSession: () => true,
   getSupabase: () => ({
     auth: {
       signUp: signUpMock,

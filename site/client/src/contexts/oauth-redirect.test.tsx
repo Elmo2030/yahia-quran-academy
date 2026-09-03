@@ -20,6 +20,7 @@ const signInWithOAuth = vi.fn<(input: OAuthCall) => Promise<{ error: null }>>(
 
 vi.mock("@/lib/supabase", () => ({
   isSupabaseConfigured: () => true,
+  mightHaveSession: () => true,
   getSupabase: () => ({
     auth: {
       signInWithOAuth,

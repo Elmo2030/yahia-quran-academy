@@ -9,6 +9,7 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 vi.mock("@/lib/supabase", () => ({
   getSupabase: vi.fn(() => null),
   isSupabaseConfigured: vi.fn(() => false),
+  mightHaveSession: vi.fn(() => false),
 }));
 
 vi.mock("@/hooks/useAuth", () => ({
