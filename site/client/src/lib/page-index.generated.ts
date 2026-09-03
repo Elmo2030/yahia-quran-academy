@@ -4,7 +4,7 @@
 type Chapter = { slug: string; titleAr: string; descriptionAr: string; titleEn: string | null; descriptionEn: string | null; cover: string | null };
 type Story = { chapter: string; slug: string; title: string; hook: string; titleEn: string | null; hookEn: string | null; image: string | null };
 type Station = { stationId: number; titleAr: string; titleEn: string | null };
-type SeerahStory = { slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
+type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null };
 export const chapterIndex: Chapter[] = [
@@ -463,6 +463,7 @@ export const seerahStationIndex: Station[] = [
 
 export const seerahStoryIndex: SeerahStory[] = [
  {
+  "stationId": 1,
   "slug": "birth-of-light",
   "title": "يوم أشرقت مكة",
   "description": "في يوم جميل من فصل الربيع، ولِد طفل صغير وجميل جداً اسمه «محمد». قبل ولادته، حاول جيش كبير معه فيل ضخم أن يهدم الكعبة، لكن الله أرسل طيوراً صغيرة شجاعة طردت الأشرار وحمت مكة!…",
@@ -471,6 +472,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/birth-of-light.jpg"
  },
  {
+  "stationId": 1,
   "slug": "desert-breeze",
   "title": "هواء الصحراء النقي",
   "description": "في الماضي، كان الأطفال يذهبون للعيش في الصحراء ليتعلموا الشجاعة ويصبحوا أقوياء. ذهب محمد ﷺ للعيش مع سيدة طيبة اسمها «حليمة السعدية». ومنذ أن دخل بيتها، امتلأ البيت بالخير، وكثر…",
@@ -479,6 +481,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/desert-breeze.jpg"
  },
  {
+  "stationId": 1,
   "slug": "grandfather-love",
   "title": "في ظل الكعبة",
   "description": "بعد أن عادت والدة النبي ﷺ إلى الله (توفيت)، أصبح محمد يتيماً بلا أب ولا أم. لكن جده الطيب «عبد المطلب» ضمه إليه وأحبه حباً كبيراً جداً أكثر من كل أبنائه. كان الجد يفرش سجادة خاصة…",
@@ -487,6 +490,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/grandfather-love.jpg"
  },
  {
+  "stationId": 1,
   "slug": "uncle-home",
   "title": "بيت العم الحنون",
   "description": "بعد وفاة جده، انتقل محمد ﷺ ليعيش مع عمه «أبو طالب». كان عمه فقيراً ولديه أطفال كثر، لكنه أحب محمداً جداً. وكان هناك شيء عجيب يحدث! عندما كان محمد يجلس ليأكل معهم، كان الطعام…",
@@ -495,6 +499,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/uncle-home.jpg"
  },
  {
+  "stationId": 1,
   "slug": "little-shepherd",
   "title": "الراعي الصغير",
   "description": "هل كان النبي ﷺ يلعب طوال اليوم وهو صغير؟ لا! لقد أراد أن يساعد عمه لأنه كان فقيراً. فعمل في «رعي الأغنام». كان يأخذ الخراف الصغيرة إلى الجبال الخضراء لتأكل، ويحميها من الذئاب.…",
@@ -503,6 +508,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/little-shepherd.jpg"
  },
  {
+  "stationId": 2,
   "slug": "the-honest-merchant",
   "title": "تاجر مكة الأمين",
   "description": "عندما كبر محمد ﷺ وأصبح شاباً، بدأ يعمل في التجارة (البيع والشراء). كان يسافر إلى أماكن بعيدة ليبيع البضائع. هل تعلمون لماذا أحبه كل الناس؟ لأنه كان يخبرهم بالحقيقة دائماً ولا يغش…",
@@ -511,6 +517,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/the-honest-merchant.jpg"
  },
  {
+  "stationId": 2,
   "slug": "khadijah",
   "title": "الزوجة الصالحة خديجة",
   "description": "كانت هناك سيدة طيبة وذكية جداً في مكة اسمها «خديجة». كانت خديجة سيدة غنية، وعندما سمعت عن أمانة محمد ﷺ وصدقه، طلبت منه أن يعمل في تجارتها. ولما رأت أخلاقه العظيمة ونجاحه، تمنت أن…",
@@ -519,6 +526,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/khadijah.jpg"
  },
  {
+  "stationId": 2,
   "slug": "the-black-stone",
   "title": "حكمة الحجر الأسود",
   "description": "في يوم من الأيام، تهدم جزء من الكعبة، فتعاون الناس لبنائها. لكنهم اختلفوا بشدة: مَن سيضع «الحجر الأسود» في مكانه؟ كادوا أن يتشاجروا! وفجأة دخل محمد ﷺ، ففرحوا وقالوا: «هذا الأمين،…",
@@ -527,6 +535,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/the-black-stone.jpg"
  },
  {
+  "stationId": 2,
   "slug": "hilf-al-fudul",
   "title": "نصرة المظلوم",
   "description": "جاء رجل غريب إلى مكة ليبيع بضائعه، لكن رجلاً سيئاً أخذ بضاعته ولم يعطه نقوده. بكى الرجل الغريب لأنه مظلوم. فاجتمع محمد ﷺ مع رجال مكة الطيبين، وتعاهدوا على عهد عظيم اسمه (حلف…",
@@ -535,6 +544,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/hilf-al-fudul.jpg"
  },
  {
+  "stationId": 2,
   "slug": "cave-of-hira",
   "title": "الخلوة والتفكر",
   "description": "كان الناس في زمان النبي ﷺ يعبدون تماثيل من الحجارة (الأصنام). لكن محمداً ﷺ كان ذكياً جداً، وكان يعرف أن الحجارة لا تضر ولا تنفع. لذلك، كان يحب أن يذهب إلى كهف هادئ في قمة جبل…",
@@ -543,6 +553,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": "/stories/seerah/cave-of-hira.jpg"
  },
  {
+  "stationId": 3,
   "slug": "revelation-iqra",
   "title": "أول النور: غار حراء وكلمة اقرأ",
   "description": "كان النبي محمد ﷺ يحب أن يجلس وحده في غار هادئ فوق الجبل اسمه «غار حراء»، يفكّر في السماء والأرض ومَن خلقهما. وفي ليلة من رمضان، وعمره أربعون سنة، جاءه المَلَك جبريل عليه السلام…",
@@ -551,6 +562,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 3,
   "slug": "revelation-waraqah",
   "title": "ورقة بن نوفل: السرّ العظيم",
   "description": "أخذت السيدة خديجة رضي الله عنها النبي ﷺ إلى ابن عمها ورقة بن نوفل، وكان رجلاً عجوزاً حكيماً يقرأ الكتب السماوية القديمة. ولما سمع ورقة ما حدث في الغار فرح وقال: هذا هو المَلَك…",
@@ -559,6 +571,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 3,
   "slug": "revelation-pause",
   "title": "انقطاع الوحي وسورة الضحى",
   "description": "بعد اللقاء الأول تأخر جبريل عليه السلام ولم ينزل على النبي ﷺ مدة، فحزن النبي ﷺ واشتاق إلى كلام الله. وبدأ بعض المشركين يسخرون ويقولون: ترك محمداً ربُّه! ثم نزل جبريل بسورة كاملة…",
@@ -567,6 +580,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 3,
   "slug": "revelation-muddaththir",
   "title": "يا أيها المدثر: قم فأنذر",
   "description": "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى جبريل عليه السلام بين السماء والأرض. فرجع إلى بيته مسرعاً وهو يقول: «دثّروني دثّروني» أي غطّوني. وهو في فراشه نزل…",
@@ -575,6 +589,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 3,
   "slug": "revelation-forms",
   "title": "كيف كان ينزل الوحي؟",
   "description": "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً…",
@@ -583,6 +598,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "dar-al-arqam",
   "title": "السرّ العظيم ودار الأرقم",
   "description": "لما أمر الله نبيه ﷺ أن يدعو الناس، بدأ بأقرب الناس إليه سراً. فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وزيد بن حارثة. وكان المسلمون…",
@@ -591,6 +607,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "mount-safa-call",
   "title": "جبل الصفا والنداء الكبير",
   "description": "أمر الله نبيه ﷺ أن يعلن دعوته للجميع، فصعد على جبل الصفا ونادى بأعلى صوته حتى اجتمعت قبائل قريش. سألهم: لو قلت لكم إن جيشاً وراء هذا الجبل يريد أن يهاجمكم، أتصدّقونني؟ قالوا:…",
@@ -599,6 +616,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "heroes-of-patience",
   "title": "أبطال لا يستسلمون: بلال وآل ياسر",
   "description": "لما أعلن النبي ﷺ دعوته، بدأ المشركون يؤذون المسلمين الضعفاء. أخذوا بلال بن رباح وألقوه على رمل الصحراء الحار ووضعوا صخرة على صدره ليترك دينه، فكان يردّد كلمة واحدة: «أحدٌ..…",
@@ -607,6 +625,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "migration-to-abyssinia",
   "title": "رحلة إلى أرض الملك العادل",
   "description": "لما اشتدّ الأذى على المسلمين قال لهم النبي ﷺ: اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد. فسافر بعضهم وعبروا البحر. أرسلت قريش هدايا إلى الملك النجاشي ليردّهم، فرفض…",
@@ -615,6 +634,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "year-of-sorrow",
   "title": "الحصار الظالم وعام الحزن",
   "description": "اتفقت قريش على مقاطعة النبي ﷺ وكل من يقف معه، وكتبوا صحيفة ظالمة علّقوها في الكعبة. فعاش المسلمون في شِعب بين الجبال ثلاث سنوات حتى أكلوا ورق الشجر من الجوع، ثم مزّق الصحيفةَ…",
@@ -623,6 +643,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "islam-of-heroes",
   "title": "إسلام الأبطال: حمزة وعمر",
   "description": "كان المسلمون يصلّون سراً خوفاً من أذى قريش، حتى غضب حمزة بن عبد المطلب عمّ النبي الشجاع وأعلن إسلامه دفاعاً عن ابن أخيه. وبعده بأيام أسلم عمر بن الخطاب، وكان خارجاً بسيفه ليؤذي…",
@@ -631,6 +652,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "sun-and-moon",
   "title": "الشمس في يميني والقمر في يساري",
   "description": "أرسلت قريش زعماءها إلى النبي ﷺ يعرضون عليه المال والملك بشرط أن يترك دينه. فردّ عليهم ردّه المشهور: والله لو وضعوا الشمس في يميني والقمر في يساري على أن أترك هذا الأمر ما تركته.",
@@ -639,6 +661,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "splitting-of-the-moon",
   "title": "معجزة في السماء: انشقاق القمر",
   "description": "طلب كفار قريش من النبي ﷺ معجزة يرونها بأعينهم، فقالوا: اشقق لنا القمر. فدعا النبي ﷺ ربه، فانشقّ القمر نصفين أمام الناس، نصف فوق جبل ونصف فوق جبل آخر. ومع ذلك قالوا: سحرنا محمد،…",
@@ -647,6 +670,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "cotton-in-ears",
   "title": "القطن في الأذن وقصة الشاعر الذكي",
   "description": "جاء إلى مكة شاعر حكيم اسمه الطُّفيل بن عمرو الدَّوسي، فحذّرته قريش من سماع كلام النبي ﷺ، فوضع القطن في أذنيه. ثم فكّر وقال: أنا رجل أفهم الكلام، فلماذا لا أسمع؟ فنزع القطن وسمع…",
@@ -655,6 +679,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 4,
   "slug": "journey-to-taif",
   "title": "الرحلة الحزينة إلى الطائف",
   "description": "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق…",
@@ -663,6 +688,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "chest-washing-zamzam",
   "title": "استعداد القائد: شقّ الصدر وماء زمزم",
   "description": "بينما كان النبي ﷺ نائماً قرب الكعبة، وهو حزين بعد رحلة الطائف، نزل إليه جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره في رفق وبلا ألم، وغسلا قلبه الشريف بماء زمزم في طست من ذهب،…",
@@ -671,6 +697,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "the-amazing-buraq",
   "title": "البُراق: دابّة أسرع من البصر",
   "description": "أحضر جبريل عليه السلام دابّة بيضاء من الجنة تُسمّى البُراق، أكبر من الحمار وأصغر من البغل، تضع حافرها عند آخر ما يبلغه بصرها. ولما اقترب النبي ﷺ ليركبها تحرّكت، فقال لها جبريل:…",
@@ -679,6 +706,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "road-to-jerusalem",
   "title": "الطريق إلى بيت المقدس",
   "description": "في الطريق إلى بيت المقدس طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي في مواضع مباركة، منها الموضع الذي كلّم الله فيه موسى عليه السلام، والموضع الذي وُلد فيه عيسى عليه السلام.…",
@@ -687,6 +715,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "leader-of-prophets",
   "title": "إمام الأنبياء في المسجد الأقصى",
   "description": "وصل النبي ﷺ إلى المسجد الأقصى وربط البُراق عند الباب. ولما دخل وجد الأنبياء جميعاً من آدم إلى عيسى عليهم السلام في انتظاره. فأقيمت الصلاة، وقدّمه جبريل عليه السلام ليصلّي بهم…",
@@ -695,6 +724,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "the-first-heaven-adam",
   "title": "السماء الأولى: لقاء آدم عليه السلام",
   "description": "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الأولى. فاستأذن جبريل، فقيل: من؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. ففُتح لهما، فإذا آدم عليه السلام أبو البشر، فرحّب به وقال:…",
@@ -703,6 +733,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "second-heaven-isa-yahya",
   "title": "السماء الثانية: ابنا الخالة",
   "description": "صعد النبي ﷺ وجبريل عليه السلام إلى السماء الثانية واستأذنا، ففُتح لهما، فإذا شابّان كريمان: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. فرحّبا به وقالا: مرحباً…",
@@ -711,6 +742,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "third-heaven-yusuf",
   "title": "السماء الثالثة: شطر الحُسن",
   "description": "في السماء الثالثة لقي النبي ﷺ يوسف عليه السلام، وقال عنه: «قد أُعطي شطر الحُسن». وهو النبي الذي صبر على غدر إخوته وعلى السجن، حتى مكّنه الله في الأرض. فرحّب بأخيه محمد ﷺ ودعا له.",
@@ -719,6 +751,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "fourth-heaven-idris",
   "title": "السماء الرابعة: المكان العليّ",
   "description": "في السماء الرابعة لقي النبي ﷺ إدريس عليه السلام، الذي رفعه الله مكاناً علياً. فرحّب به وقال ما يقوله الأنبياء: مرحباً بالأخ الصالح والنبي الصالح.",
@@ -727,6 +760,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "fifth-heaven-harun",
   "title": "السماء الخامسة: النبي المحبَّب",
   "description": "في السماء الخامسة لقي النبي ﷺ شيخاً وقوراً، فسأل جبريل: من هذا؟ قال: هذا المحبَّب في قومه، هارون بن عمران، أخو موسى عليهما السلام. وكان معروفاً بلينه ولطفه، فأحبّه قومه.",
@@ -735,6 +769,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "sixth-heaven-musa",
   "title": "السماء السادسة: دمعة الكليم",
   "description": "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به. فلما جاوزه ليصعد بكى موسى، فقيل له: ما يبكيك؟ قال: أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن…",
@@ -743,6 +778,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "seventh-heaven-ibrahim",
   "title": "السماء السابعة: سلام إبراهيم إلينا",
   "description": "في السماء السابعة رأى النبي ﷺ رجلاً يشبهه، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يطوف به كل يوم سبعون ألف ملَك لا يعودون إليه. إنه إبراهيم عليه السلام، فرحّب به وأرسل…",
@@ -751,6 +787,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "sidrat-al-muntaha",
   "title": "سدرة المنتهى: حيث يقف كل شيء",
   "description": "صعد النبي ﷺ حتى بلغ شجرة عظيمة تُسمّى سدرة المنتهى، إليها ينتهي كل صاعد ولا يتجاوزها مخلوق. وعندها وقف جبريل عليه السلام وقال: لو دنوتُ أنملة لاحترقت. ومضى النبي ﷺ وحده.",
@@ -759,6 +796,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "the-great-gift-prayer",
   "title": "الهدية الكبرى: الصلاة",
   "description": "بلغ النبي ﷺ مكاناً سمع فيه صريف الأقلام، وهناك كلّمه الله وفرض على أمته الصلاة: خمسين صلاة في اليوم والليلة. والصلاة هي العبادة الوحيدة التي فُرضت في السماء لا في الأرض.",
@@ -767,6 +805,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "musa-advice-reduction",
   "title": "نصيحة موسى: خمسٌ في العمل وخمسون في الأجر",
   "description": "في طريق العودة سأل موسى عليه السلام النبي ﷺ: بم أُمرت؟ قال: بخمسين صلاة. فقال: إن أمتك لا تطيق ذلك، ارجع إلى ربك فاسأله التخفيف. فلم يزل النبي ﷺ يرجع حتى صارت خمساً، وقال الله:…",
@@ -775,6 +814,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 5,
   "slug": "morning-of-certainty",
   "title": "صباح اليقين ولقب الصدّيق",
   "description": "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى…",
@@ -783,6 +823,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "dar-al-nadwa-dust",
   "title": "مؤامرة دار الندوة وحفنة التراب",
   "description": "اجتمع زعماء قريش في دار الندوة يدبّرون كيف يتخلّصون من النبي ﷺ، فاتفقوا أن يأخذوا من كل قبيلة شاباً ليضربوه معاً. وأحاطوا ببيته ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على ما…",
@@ -791,6 +832,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "hero-in-the-bed",
   "title": "البطل النائم في الفراش",
   "description": "قبل أن يخرج النبي ﷺ طلب من ابن عمه الشاب علي بن أبي طالب أن ينام في فراشه ويتغطّى ببردته، حتى يظنّ من ينظر أن النبي نائم. فما تردّد علي رضي الله عنه. وطلب منه النبي ﷺ أن يبقى…",
@@ -799,6 +841,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "tears-of-joy-companion",
   "title": "دموع الفرح: الصُّحبة يا رسول الله",
   "description": "في شدة حرّ الظهيرة جاء النبي ﷺ إلى بيت أبي بكر رضي الله عنه فأخبره أن الله أذن له بالهجرة. فقال أبو بكر: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر من الفرح. تقول…",
@@ -807,6 +850,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "asma-that-al-nitaqayn",
   "title": "أسماء ذات النِّطاقين",
   "description": "لما جهّزوا الزاد لم يجدوا ما يربطونه به، فقامت أسماء بنت أبي بكر رضي الله عنهما فشقّت نطاقها — أي حزامها — نصفين: ربطت بنصفه الزاد، وشدّت بالآخر ثيابها. فدعا لها النبي ﷺ بنطاقين…",
@@ -815,6 +859,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "smart-shepherd-footprints",
   "title": "الراعي الذي محا الآثار",
   "description": "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف…",
@@ -823,6 +868,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "permission-to-defend",
   "title": "لماذا دافع المسلمون عن أنفسهم؟",
   "description": "صبر المسلمون في مكة ثلاث عشرة سنة على الأذى ولم يردّوا، لأن النبي ﷺ كان يأمرهم بالصبر. ولما هاجروا إلى المدينة وبنوا بيوتهم، ظلّت قريش تهدّد بالهجوم عليهم. عند ذلك أذن الله لهم…",
@@ -831,6 +877,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "badr-shura-counsel",
   "title": "بئر بدر وقوة الشورى",
   "description": "خرج المسلمون ثلاثمائة وثلاثة عشر رجلاً، فوجدوا أمامهم جيشاً يقارب الألف. فجمع النبي ﷺ أصحابه واستشارهم ولم يجبر أحداً. ولما نزلوا عند آبار بدر، قال له الحُباب بن المنذر: أهذا…",
@@ -839,6 +886,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "angels-in-badr",
   "title": "بدر وجنود السماء",
   "description": "في السابع عشر من رمضان التقى الجيشان ببدر. وقف النبي ﷺ يدعو ربه ويرفع يديه حتى سقط رداؤه، يسأله النصر لهذه القلّة. فاستجاب الله وأمدّهم بالملائكة، وانتصر المسلمون على قلّتهم،…",
@@ -847,6 +895,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "mercy-to-captives",
   "title": "أسرى بدر ومعلّمو الصبيان",
   "description": "بعد بدر جاء الأسرى إلى المدينة، فأوصى النبي ﷺ أصحابه بهم خيراً، فكان الصحابة يطعمونهم الخبز ويأكلون هم التمر. ولما جاء وقت الإطلاق، جعل النبي ﷺ فداء من يعرف القراءة والكتابة ولا…",
@@ -855,6 +904,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "mount-of-archers-uhud",
   "title": "جبل الرماة والوصية",
   "description": "جاءت قريش بثلاثة آلاف مقاتل إلى أُحد. فوضع النبي ﷺ خمسين رامياً على تلّة تحمي ظهر الجيش، وقال لهم: لا تبرحوا مكانكم، إن رأيتمونا ننتصر أو نُهزم. وفي أول المعركة تقدّم المسلمون…",
@@ -863,6 +913,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "tough-lesson-and-heroine",
   "title": "درس أُحد وبطولة نُسيبة",
   "description": "ظنّ أكثر الرماة أن المعركة انتهت، فنزلوا من التلّة قبل أن يأذن النبي ﷺ. فالتفّت خيل قريش من ورائهم وانقلبت المعركة. وثبت النبي ﷺ ومعه قليل، وبرزت نُسيبة بنت كعب رضي الله عنها…",
@@ -871,6 +922,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "trench-salman-idea",
   "title": "عشرة آلاف وفكرة الخندق",
   "description": "تجمّعت القبائل في جيش سُمّي الأحزاب، عشرة آلاف مقاتل، وزحفوا إلى المدينة. فاستشار النبي ﷺ أصحابه، فقال سلمان الفارسي رضي الله عنه: يا رسول الله، إنا كنا بفارس إذا حوصرنا خندقنا…",
@@ -879,6 +931,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "prophet-work-and-food-miracle",
   "title": "فأس القائد وبركة الطعام",
   "description": "نزل النبي ﷺ يحفر مع أصحابه، وقد ربط على بطنه حجراً من الجوع. فرآه جابر بن عبد الله رضي الله عنه فذهب وذبح شاة صغيرة وطحنت زوجته صاعاً من شعير، ودعاه في نفر قليل. فنادى النبي ﷺ…",
@@ -887,6 +940,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "cold-wind-victory-without-swords",
   "title": "ريح النصر ونهاية الأحزاب",
   "description": "وقف المشركون عاجزين أمام الخندق شهراً، واشتدّ البرد والخوف. فدعا النبي ﷺ ربه، فأرسل الله عليهم ريحاً شديدة البرد قلعت خيامهم وأطفأت نيرانهم وكفأت قدورهم، فرحلوا في الليل. وأصبح…",
@@ -895,6 +949,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "hudaybiyyah-peace-treaty",
   "title": "الحديبية: سلامٌ في ثياب الإحرام",
   "description": "خرج النبي ﷺ ومعه ألف وأربعمائة في ثياب الإحرام البيضاء يريدون العمرة، لا يحملون سلاح حرب. فمنعتهم قريش، فاختار النبي ﷺ الصلح على القتال، وقبل شروطاً بدت قاسية ليمنع الدماء.…",
@@ -903,6 +958,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "letters-to-world-leaders",
   "title": "رسائل إلى ملوك الأرض",
   "description": "لما وضعت الحرب أوزارها بعد الحديبية، لم يجلس النبي ﷺ ينتظر، بل اتخذ خاتماً نُقش عليه «محمد رسول الله»، وكتب رسائل إلى ملوك زمانه: قيصر الروم، وكسرى فارس، والمقوقس بالإسكندرية،…",
@@ -911,6 +967,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "battle-of-khaybar-hero-ali",
   "title": "حصون خيبر وحامل الراية",
   "description": "كانت حصون خيبر في الشمال مركزاً يموّل من يحارب المدينة، فخرج إليها النبي ﷺ ليؤمّن الحدود. ولما بلغوا أمنع الحصون قال: «لأعطينّ الراية غداً رجلاً يحبّ الله ورسوله ويحبّه الله…",
@@ -919,6 +976,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "makkah-march-ten-thousand-fires",
   "title": "عشرة آلاف نار في ليلة واحدة",
   "description": "نقضت قريش عهد الحديبية فأعانت على حلفاء المسلمين من خزاعة، فوجب نصرهم. فتجهّز النبي ﷺ في عشرة آلاف وسار في سرّية تامة حتى نزل قرب مكة. ثم أمر كل رجل أن يوقد ناراً، فرأت قريش…",
@@ -927,6 +985,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "day-of-mercy-entry",
   "title": "اليوم يوم المرحمة",
   "description": "دخل النبي ﷺ مكة مطأطئ الرأس على راحلته حتى كاد يمسّ الرحل، تواضعاً لله. وقال رجل: اليوم يوم الملحمة! فردّ عليه النبي ﷺ: «اليوم يوم المرحمة». ثم طاف بالبيت وحوله ثلاثمائة وستون…",
@@ -935,6 +994,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 7,
   "slug": "go-you-are-free",
   "title": "اذهبوا فأنتم الطلقاء",
   "description": "اجتمع أهل مكة عند الكعبة ينتظرون ما يُفعل بهم، وهم الذين أخرجوه وعذّبوا أصحابه عشرين سنة. فقال لهم: «ما تظنون أني فاعل بكم؟» قالوا: خيراً، أخٌ كريم وابن أخٍ كريم. فقال: «اذهبوا…",
@@ -943,6 +1003,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "cave-thawr-preparation",
   "title": "غار ثور وصاحبٌ دخل أولاً",
   "description": "صعد النبي ﷺ وأبو بكر جبلاً وعراً حتى بلغا غاراً مظلماً يُسمّى غار ثور. فطلب أبو بكر أن يدخل هو أولاً ليطمئنّ على المكان، وجعل يسدّ الشقوق بقطع من ثوبه، ثم نام النبي ﷺ ورأسه في…",
@@ -951,6 +1012,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "spider-and-dove",
   "title": "خيوطٌ واهية وجنود لا تُرى",
   "description": "جاء فرسان قريش يتبعون الأثر حتى وقفوا عند باب الغار. ويُذكر في كتب السيرة أن عنكبوتاً نسج على الباب وأن حمامة عشّشت أمامه، فقالوا: لو دخل أحد هنا ما بقي هذا كله. فانصرفوا. والذي…",
@@ -959,6 +1021,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "do-not-be-sad",
   "title": "لا تحزن إن الله معنا",
   "description": "سمع أبو بكر أصوات القوم فوق الغار، فقال: يا رسول الله، لو أن أحدهم نظر تحت قدميه لرآنا! فقال له النبي ﷺ وهو هادئ: «ما ظنّك باثنين الله ثالثهما؟» و«لا تحزن إن الله معنا». فسكن قلب…",
@@ -967,6 +1030,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "expert-guide",
   "title": "دليلٌ خبير من غير أهل الإسلام",
   "description": "كانت قريش ترقب الطريق المعتاد إلى المدينة، فاختار النبي ﷺ طريق الساحل، وهو طريق وعر لا يسلكه الناس. واستأجر دليلاً خبيراً بالطرق اسمه عبد الله بن أُريقط، وكان على دين قومه لا…",
@@ -975,6 +1039,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "umm-mabad-tent",
   "title": "خيمة أم مَعبَد وشاةٌ لا لبن فيها",
   "description": "مرّ الركب في الصحراء بخيمة امرأة كريمة تُسمّى أم مَعبَد، فطلبوا طعاماً فما وجدت عندها شيئاً، فالسنة جدبة. ورأى النبي ﷺ شاة هزيلة، فاستأذنها في حلبها، فسمّى الله ودعا، فدرّت…",
@@ -983,6 +1048,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "suraqa-and-hundred-camels",
   "title": "مئة ناقة وفرسٌ ساخت قوائمه",
   "description": "جعلت قريش مئة ناقة لمن يردّ النبي ﷺ. فطمع سُراقة بن مالك فتبعه على فرسه، فلما قرب ساخت قوائم فرسه في الأرض فسقط، فعاد وحاول فسقط ثانية. فأيقن أن أمر النبي ﷺ محفوظ، فطلب الأمان،…",
@@ -991,6 +1057,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "buraida-white-banner",
   "title": "بُرَيدة وعمامةٌ صارت راية",
   "description": "خرج بُرَيدة بن الحُصَيب في سبعين رجلاً من قومه يطلبون جائزة قريش. فلما لقوا النبي ﷺ سألهم عن أسمائهم وكلّمهم بلطف عن الإسلام، فأسلموا جميعاً في مجلس واحد. فحلّ بُرَيدة عمامته…",
@@ -999,6 +1066,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "quba-first-mosque",
   "title": "قُباء وأول مسجد بُني",
   "description": "نزل النبي ﷺ في قُباء على مشارف المدينة، وأقام فيها أياماً. وأول ما عمل أن بنى مسجداً، فكان يحمل الحجارة مع أصحابه بنفسه، فهو أول مسجد بُني في الإسلام. وذكره الله في القرآن بأنه…",
@@ -1007,6 +1075,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "commanded-camel-qaswa",
   "title": "القصواء وبيتُ أبي أيوب",
   "description": "دخل النبي ﷺ المدينة على ناقته القصواء، فكان الأنصار كلما مرّ ببيتٍ أخذوا بزمامها يقولون: انزل عندنا يا رسول الله! فكان يقول: «دعوها فإنها مأمورة». فمشت حتى بركت عند بيت أبي أيوب…",
@@ -1015,6 +1084,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "image": null
  },
  {
+  "stationId": 6,
   "slug": "talaa-al-badru",
   "title": "يثرب تصير المدينة المنوّرة",
   "description": "خرج أهل المدينة كلهم يستقبلونه: الرجال والنساء والصبيان، حتى صعد الصبيان على البيوت. وكان يوماً ما رأوا مثله فرحاً. وتذكر كتب السيرة أن الجواري كنّ ينشدن: طلع البدر علينا. ومن…",
