@@ -137,9 +137,9 @@ export const seerahStations: SeerahStation[] = [
     titleAr: "الهجرة إلى المدينة",
     titleEn: "The Migration to Madinah",
     descriptionAr:
-      "الليلة التي خرج فيها النبي ﷺ من مكة ومن وقف معه: مؤامرة دار الندوة، وعليّ في الفراش، ودموع أبي بكر، ونِطاق أسماء، وغنم عامر التي محت الأثر.",
+      "خمس عشرة قصة من رحلة الهجرة: مؤامرة دار الندوة، وعليّ في الفراش، ودموع أبي بكر، ونِطاق أسماء، وغنم عامر، ثم غار ثور والسكينة، والدليل الخبير، وخيمة أم معبد، وفرس سُراقة، وراية بُرَيدة، ومسجد قباء، وبيت أبي أيوب، ويوم صارت يثرب المدينة المنوّرة.",
     descriptionEn:
-      "The night the Prophet (pbuh) left Mecca, and those who stood with him: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr's tears, Asma's belt, and Amir's flock that erased the tracks.",
+      "Fifteen stories from the migration: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr’s tears, Asma’s belt and Amir’s flock, then Cave Thawr and the tranquillity, the expert guide, Umm Ma’bad’s tent, Suraqah’s horse, Buraydah’s banner, the mosque of Quba, the house of Abu Ayyub, and the day Yathrib became the city of light.",
   },
   {
     stationId: 7,
@@ -4732,6 +4732,766 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟡",
       reference: "سيرة ابن هشام، والسنن الكبرى للبيهقي",
       note: "خبر «اذهبوا فأنتم الطلقاء» مشهور في كتب السيرة عند ابن إسحاق والبيهقي؛ وأصل العفو العام عن أهل مكة معلوم مستفيض.",
+    },
+  },
+  {
+    storyId: "st-6-06",
+    stationId: 6,
+    slug: "cave-thawr-preparation",
+    en: {
+      title: "Cave Thawr, and a Friend Who Went In First",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ and Abu Bakr climbed a rugged mountain to a dark cave called Cave Thawr. Abu Bakr asked to go in first to check the place, and began stopping up the cracks with pieces torn from his own clothes. Then the Prophet ﷺ slept with his head in Abu Bakr's lap — and when something stung him, Abu Bakr did not move, so as not to wake him.",
+          shortLesson: "A true friend takes the hurt so his companion does not have to.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ and his companion Abu Bakr climbed a rugged mountain by an untravelled path to a dark cave near its top, called Cave Thawr. Abu Bakr asked to go in ahead of the Prophet ﷺ to make the place safe. He went into the dark and began stopping up every crack and hole he found with pieces torn from his own clothes, until he had nothing left to tear. Then the Prophet ﷺ slept, his blessed head in Abu Bakr's lap, worn out from the journey. Something stung Abu Bakr from one of the openings and hurt him badly — and he did not move a limb or make a sound, so as not to wake the Prophet ﷺ, until a tear fell from the pain. The Prophet ﷺ woke, and prayed for him.",
+          details:
+            "Allah says of the truthful: ﴿وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ﴾ — “the one who brought the truth and believed in it.”",
+        },
+      },
+      interactive: {
+        discover: "Mount Thawr is high and hard to climb, and it lies in the opposite direction from the road to Madinah — which is exactly why the Prophet ﷺ chose it.",
+        value: { name: "Loyalty in friendship", icon: "🕯️" },
+        thinkQuestion: "What small thing could you put up with today to spare a friend or a sibling?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did Abu Bakr go into the cave before the Prophet ﷺ?",
+          options: ["To rest first", "To check the place and stop up its holes before the Prophet ﷺ entered", "To take the food", "Because he arrived first"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A scrap of cloth", description: "A scrap of cloth for the man who tore his own clothes to protect someone else." },
+        badge: "A Loyal Companion",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, and al-Hakim's Mustadrak",
+        note: "That the Prophet ﷺ and Abu Bakr stayed in the cave is established in the Quran and Sahih al-Bukhari; the details of stopping the holes and the sting come from the Seerah literature, and scholars have questioned their chains.",
+      },
+    },
+    title: "غار ثور وصاحبٌ دخل أولاً",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "صعد النبي ﷺ وأبو بكر جبلاً وعراً حتى بلغا غاراً مظلماً يُسمّى غار ثور. فطلب أبو بكر أن يدخل هو أولاً ليطمئنّ على المكان، وجعل يسدّ الشقوق بقطع من ثوبه، ثم نام النبي ﷺ ورأسه في حجره. فلُدغ أبو بكر ولم يتحرّك حتى لا يوقظه.",
+        shortLesson: "الصديق الحق يتحمّل الأذى عن صاحبه.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "صعد النبي ﷺ وصاحبه أبو بكر رضي الله عنه جبلاً وعراً في طريق غير مسلوك حتى بلغا غاراً مظلماً في أعلاه يُسمّى غار ثور. فطلب أبو بكر أن يدخل هو أولاً قبل النبي ﷺ ليطمئنّ على المكان، فدخل في الظلام وجعل يسدّ ما وجده من شقوق وجحور بقطع يمزّقها من ثوبه، حتى نفد ما معه. ثم نام النبي ﷺ ورأسه الشريف في حجره من شدّة التعب. فأصابه من إحدى الفتحات ما آلمه ألماً شديداً، فما حرّك عضواً ولا صاح، حتى لا يوقظ النبي ﷺ من نومه، وسقطت دمعته من الألم. فاستيقظ النبي ﷺ ودعا له.",
+        details:
+          "قال تعالى في وصف الصادقين: ﴿وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ أُولَٰئِكَ هُمُ الْمُتَّقُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "جبل ثور جبل عالٍ صعب المرتقى، اختاره النبي ﷺ لأنه في الجهة المخالفة لطريق المدينة، فلا يُتوقّع أن يسلكه.",
+      value: { name: "الوفاء في الصحبة", icon: "🕯️" },
+      thinkQuestion:
+        "ما الشيء الصغير الذي تستطيع أن تتحمّله اليوم لتريح صديقاً أو أخاً لك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا دخل أبو بكر رضي الله عنه الغار قبل النبي ﷺ؟",
+        options: ["ليرتاح أولاً", "ليتفقّد المكان ويسدّ شقوقه قبل أن يدخل النبي ﷺ", "ليأخذ الطعام", "لأنه وصل قبله"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قطعة من ثوب", description: "قطعة قماش تذكّرك بمن مزّق ثوبه ليحمي غيره." },
+      badge: "صاحبٌ وفيّ",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، والمستدرك للحاكم",
+      note: "أصل مبيت النبي ﷺ وأبي بكر في الغار ثابت بالقرآن وصحيح البخاري؛ وأما تفصيل سدّ الجحور واللدغة فمن أخبار السيرة، وفي إسناده كلام عند أهل العلم.",
+    },
+  },
+  {
+    storyId: "st-6-07",
+    stationId: 6,
+    slug: "spider-and-dove",
+    en: {
+      title: "Fragile Threads, and Soldiers You Cannot See",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The horsemen of Quraysh followed the tracks until they stood at the mouth of the cave. The Seerah books mention that a spider had woven over the opening and a dove had nested there, so they said: no one could have gone in past all this — and they turned away. What the Quran itself tells us is that Allah protected him, and sent down His tranquillity upon him.",
+          shortLesson: "Allah's protection needs no army; the frailest means is enough.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The horsemen of Quraysh followed the tracks to Mount Thawr and searched it until they were at the very mouth of the cave — so close that Abu Bakr said: if one of them looked down at his feet, he would see us. Yet they were kept from them and did not go in, and they went back empty-handed. The Seerah books mention that a spider had woven its threads across the opening and a dove had nested there, so the men said: if anyone had gone in, the web would be torn and the dove would have flown. That account is famous among people, but it has not been established with a strong chain by the scholars of hadith. What is beyond doubt is what the Quran tells us: that Allah gave him victory and sent down His tranquillity upon him, and that He has soldiers no one knows but Him.",
+          details:
+            "Allah says: ﴿وَمَا يَعْلَمُ جُنُودَ رَبِّكَ إِلَّا هُوَ﴾ — “and none knows the soldiers of your Lord except Him.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ and Abu Bakr stayed in the cave three nights, until the search for them slackened.",
+        value: { name: "Trust in Allah's protection", icon: "🕸️" },
+        thinkQuestion: "Why does Allah sometimes protect through the weakest means rather than the strongest?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What does the Quran tell us about the Prophet's protection in the cave?",
+          options: ["That an army protected him", "That Allah gave him victory and sent down His tranquillity upon him", "That he left by another entrance", "That nobody looked for him"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A single thread", description: "One thread: safety comes from Allah, not from the strength of the means." },
+        badge: "Trusting in Allah's Care",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "The Quran, Surah At-Tawbah: 40, and Sahih al-Bukhari",
+        note: "Allah screening the Prophet ﷺ in the cave and sending down tranquillity is established in the Quran and al-Bukhari. The spider and the dove are widely repeated but not established with a strong chain, so they are given here as Seerah lore, not as established fact.",
+      },
+    },
+    title: "خيوطٌ واهية وجنود لا تُرى",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاء فرسان قريش يتبعون الأثر حتى وقفوا عند باب الغار. ويُذكر في كتب السيرة أن عنكبوتاً نسج على الباب وأن حمامة عشّشت أمامه، فقالوا: لو دخل أحد هنا ما بقي هذا كله. فانصرفوا. والذي في القرآن أن الله هو الذي حماه، وأنزل عليه سكينته.",
+        shortLesson: "حماية الله لا تحتاج جيشاً؛ يكفيها أضعف الأسباب.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "تتبّع فرسان قريش الأثر حتى بلغوا جبل ثور، وبحثوا فيه حتى صاروا عند باب الغار نفسه، حتى قال أبو بكر: لو أن أحدهم نظر تحت قدميه لرآنا. فحُجبوا عنهما ولم يدخلوا، ورجعوا خائبين. ويُذكر في كتب السيرة أن عنكبوتاً نسج خيوطه على فتحة الغار، وأن حمامة عشّشت هناك، فقال القوم: لو دخل أحد هنا لتمزّق النسج وطارت الحمامة — وهذا خبر مشهور بين الناس، لكنه لم يثبت بإسناد قويّ عند أهل الحديث. أما الذي لا شكّ فيه فهو ما أخبر به القرآن: أن الله نصره وأنزل عليه سكينته، وأن له جنوداً لا يعلمها إلا هو.",
+        details:
+          "قال تعالى: ﴿وَمَا يَعْلَمُ جُنُودَ رَبِّكَ إِلَّا هُوَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "بقي النبي ﷺ وأبو بكر في الغار ثلاث ليال حتى فترت عنهما قريش.",
+      value: { name: "الثقة في حفظ الله", icon: "🕸️" },
+      thinkQuestion:
+        "لماذا يحمي الله أحياناً بأضعف الأسباب لا بأقواها؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا أخبرنا القرآن عن حماية النبي ﷺ في الغار؟",
+        options: ["أن جيشاً حماه", "أن الله نصره وأنزل عليه سكينته", "أنه خرج من باب آخر", "أنه لم يبحث عنه أحد"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "خيط رقيق", description: "خيط واحد يذكّرك أن الحفظ من الله لا من قوة السبب." },
+      badge: "واثق بحفظ الله",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "القرآن الكريم، سورة التوبة: ٤٠، وصحيح البخاري",
+      note: "حجب الله للنبي ﷺ في الغار وإنزال السكينة ثابت بالقرآن والبخاري. وأما خبر العنكبوت والحمامة فمشهور على الألسنة، ولم يثبت بإسناد قويّ، فذكرناه على أنه من أخبار السيرة لا من الثابت.",
+    },
+  },
+  {
+    storyId: "st-6-08",
+    stationId: 6,
+    slug: "do-not-be-sad",
+    en: {
+      title: "Do Not Grieve — Allah Is With Us",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Abu Bakr heard the men above the cave and said: Messenger of Allah, if one of them looked down at his feet he would see us! The Prophet ﷺ answered him calmly: “What do you think of two whose third is Allah?” and “Do not grieve — Allah is with us.” And Abu Bakr's heart settled.",
+          shortLesson: "Certainty in Allah calms the heart at the most dangerous moment.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Abu Bakr heard the voices and footsteps of the idolaters above the cave, and he was afraid — not for himself, but for the Messenger of Allah ﷺ. He said: Messenger of Allah, if one of them looked down at his feet he would see us! The Prophet ﷺ looked at him calmly and said: “What do you think of two whose third is Allah?” and “Do not grieve — Allah is with us.” He added nothing more, and Abu Bakr's fear left him. Allah preserved this moment in His Book: the cave, the words the Prophet ﷺ said to his companion, and the tranquillity Allah sent down upon him.",
+          details:
+            "Allah says: ﴿إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا﴾ — “when he said to his companion, do not grieve; Allah is with us.”",
+        },
+      },
+      interactive: {
+        discover: "That single sentence — “do not grieve, Allah is with us” — is a verse Muslims still recite today.",
+        value: { name: "Stillness and certainty", icon: "🌙" },
+        thinkQuestion: "What is something someone says to you that takes your fear away?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How did the Prophet ﷺ reassure Abu Bakr in the cave?",
+          options: ["He told him the men had gone", "He said: do not grieve, Allah is with us", "He told him to leave", "He gave him a sword"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small crescent", description: "A crescent for the night when fear was near and calm was nearer." },
+        badge: "A Settled Heart",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran, Surah At-Tawbah: 40, and Sahih al-Bukhari",
+        note: "The story is established in the text of the Quran, and the words “two whose third is Allah” are in Sahih al-Bukhari.",
+      },
+    },
+    title: "لا تحزن إن الله معنا",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "سمع أبو بكر أصوات القوم فوق الغار، فقال: يا رسول الله، لو أن أحدهم نظر تحت قدميه لرآنا! فقال له النبي ﷺ وهو هادئ: «ما ظنّك باثنين الله ثالثهما؟» و«لا تحزن إن الله معنا». فسكن قلب أبي بكر.",
+        shortLesson: "اليقين بالله يهدّئ القلب في أخطر لحظة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "سمع أبو بكر رضي الله عنه أصوات المشركين وأقدامهم فوق الغار، فخاف — لا على نفسه، بل على رسول الله ﷺ — فقال: يا رسول الله، لو أن أحدهم نظر تحت قدميه لأبصرنا! فنظر إليه النبي ﷺ هادئاً وقال: «ما ظنّك باثنين الله ثالثهما؟»، وقال له: «لا تحزن إن الله معنا». فما زاد على هذه الكلمات، فسكنت نفس أبي بكر وذهب خوفه. وقد خلّد الله هذا الموقف في كتابه، فذكر الغار، وذكر قول النبي ﷺ لصاحبه، وذكر أنه أنزل عليه سكينته.",
+        details:
+          "قال تعالى: ﴿ثَانِيَ اثْنَيْنِ إِذْ هُمَا فِي الْغَارِ إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا فَأَنزَلَ اللَّهُ سَكِينَتَهُ عَلَيْهِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "هذه الكلمة الواحدة «لا تحزن إن الله معنا» صارت آية يقرؤها المسلمون إلى اليوم.",
+      value: { name: "السكينة واليقين", icon: "🌙" },
+      thinkQuestion:
+        "ما الكلمة التي يقولها لك أحدهم فتهدّئ خوفك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ طمأن النبي ﷺ أبا بكر في الغار؟",
+        options: ["أخبره أن القوم رحلوا", "قال: لا تحزن إن الله معنا", "أمره أن يخرج", "أعطاه سيفاً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "هلال صغير", description: "هلال يذكّرك بليلة كان الخوف فيها قريباً والسكينة أقرب." },
+      badge: "ساكن القلب",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن الكريم، سورة التوبة: ٤٠، وصحيح البخاري",
+      note: "القصة ثابتة بنصّ القرآن، وحديث «ما ظنّك باثنين الله ثالثهما» في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-6-09",
+    stationId: 6,
+    slug: "expert-guide",
+    en: {
+      title: "An Expert Guide Who Was Not a Muslim",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Quraysh were watching the usual road to Madinah, so the Prophet ﷺ took the coastal route — rough country that people did not travel. He hired an expert guide named Abdullah ibn Urayqit, who followed his people's religion and was not a Muslim, but who was skilled and kept his word — so the Prophet ﷺ trusted him with the road.",
+          shortLesson: "Choose for a job the person who does it well and keeps a trust.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Quraysh had put watchers on the usual road to Madinah, so the Prophet ﷺ and Abu Bakr planned to take the coastal route: rough country that people did not normally travel, where no one would look for them. And because the desert cannot be crossed without someone who knows it, they hired a man skilled in its paths, Abdullah ibn Urayqit. He followed his people's religion and was not a Muslim — and still the Prophet ﷺ trusted him with the most dangerous journey of his life, because he was good at his work and known for keeping his word. They handed him the two mounts, and three nights later he met them at the cave and they set off. Skill and trustworthiness are recognised in whoever has them, and work is given to the one who can do it.",
+          details:
+            "Allah says: ﴿وَأَوْفُوا بِالْعَهْدِ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا﴾ — “and fulfil the covenant; the covenant will be asked about.”",
+        },
+      },
+      interactive: {
+        discover: "The road they took was the coastal route — longer than the usual road, but far better hidden.",
+        value: { name: "Trustworthiness and skill", icon: "🧭" },
+        thinkQuestion: "When you need help with something you don't know, who do you pick, and why?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the guide the Prophet ﷺ hired like?",
+          options: ["He was one of his closest companions", "He knew the roads and kept his word, though he was not a Muslim", "He was the youngest of them", "He knew only Mecca"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An old compass", description: "A compass: the work goes to whoever can do it well." },
+        badge: "Chooser of the Right Hand",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The hiring of Abdullah ibn Urayqit as guide, and that he followed the religion of Quraysh, are established in Sahih al-Bukhari's account of the migration.",
+      },
+    },
+    title: "دليلٌ خبير من غير أهل الإسلام",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كانت قريش ترقب الطريق المعتاد إلى المدينة، فاختار النبي ﷺ طريق الساحل، وهو طريق وعر لا يسلكه الناس. واستأجر دليلاً خبيراً بالطرق اسمه عبد الله بن أُريقط، وكان على دين قومه لا مسلماً، لكنه كان ماهراً أميناً يحفظ العهد، فأمّنه النبي ﷺ على الطريق.",
+        shortLesson: "اختر لعملك من يُحسنه ويحفظ الأمانة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كانت قريش قد وضعت الرقباء على الطريق المعتاد إلى المدينة، فخطّط النبي ﷺ وأبو بكر أن يسلكا طريق الساحل، وهو طريق وعر لا يسلكه الناس عادة، حتى لا يُهتدى إليهما. ولأن الصحراء لا تُقطع بغير خبير، استأجرا رجلاً ماهراً بالطرق يُقال له عبد الله بن أُريقط. وكان هذا الرجل على دين قومه لم يكن مسلماً، ومع ذلك أمّنه النبي ﷺ على أخطر رحلة في حياته، لأنه كان بارعاً في عمله معروفاً بالوفاء بالعهد. فسلّما إليه الراحلتين، ثم لقيهما بعد ثلاث ليالٍ عند الغار، وانطلقوا. الأمانة والمهارة يُقدَّران في أهلهما، والعمل يُسنَد إلى من يُحسنه.",
+        details:
+          "قال تعالى: ﴿وَأَوْفُوا بِالْعَهْدِ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "سُمّي الطريق الذي سلكوه «طريق الساحل»، وهو أطول من الطريق المعتاد لكنه أخفى.",
+      value: { name: "الأمانة والمهارة", icon: "🧭" },
+      thinkQuestion:
+        "إذا احتجت مساعدة في أمر لا تعرفه، فمَن تختار ولماذا؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما صفة الدليل الذي استأجره النبي ﷺ؟",
+        options: ["كان من أقرب أصحابه", "كان خبيراً بالطرق أميناً يحفظ العهد وإن لم يكن مسلماً", "كان أصغر القوم", "كان يعرف مكة فقط"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "بوصلة قديمة", description: "بوصلة تذكّرك أن العمل يُسنَد إلى من يُحسنه." },
+      badge: "حَسَنُ الاختيار",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "استئجار عبد الله بن أُريقط دليلاً، وكونه على دين قريش، ثابت في صحيح البخاري في حديث الهجرة.",
+    },
+  },
+  {
+    storyId: "st-6-10",
+    stationId: 6,
+    slug: "umm-mabad-tent",
+    en: {
+      title: "Umm Ma'bad's Tent, and a Sheep With No Milk",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "On the way the travellers passed the tent of a generous woman called Umm Ma'bad. They asked to buy food and she had none — it was a dry year. The Prophet ﷺ saw a thin sheep, asked her permission to milk it, mentioned Allah's name and prayed — and it gave milk. He gave everyone to drink, and drank last himself.",
+          shortLesson: "A leader serves everyone else, and drinks last.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "On the way the travellers passed the tent of a generous woman called Umm Ma'bad of Khuza'ah. They asked to buy meat or dates, and she apologised: it was a dry year and she had nothing to sell. The Prophet ﷺ saw a thin sheep at the side of the tent and asked, “What is this sheep, Umm Ma'bad?” She said: hunger has left her behind the flock. He asked, “Does she have milk?” She said: she is too weak for that. He asked her permission to milk her, and she said: if there is milk in her, then milk her. He wiped her udder, mentioned Allah's name and prayed, and she gave milk — enough to fill a vessel for the whole company. He gave Umm Ma'bad to drink first until she had had her fill, then his companions, then drank last himself, and then milked the sheep again and left the milk with her.",
+          details:
+            "Allah says of blessing: ﴿لَفَتَحْنَا عَلَيْهِم بَرَكَاتٍ مِّنَ السَّمَاءِ وَالْأَرْضِ﴾ — “We would have opened to them blessings from the heaven and the earth.”",
+        },
+      },
+      interactive: {
+        discover: "Umm Ma'bad described the Prophet ﷺ to her husband in such careful detail that it became one of the most famous descriptions of him.",
+        value: { name: "Putting others first", icon: "🥛" },
+        thinkQuestion: "When did you last let someone else go before you in something you wanted?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Who did the Prophet ﷺ give to drink first at Umm Ma'bad's tent?",
+          options: ["He drank first himself", "Umm Ma'bad, then his companions, and he drank last", "Only the guide", "No one drank"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A bowl of milk", description: "A bowl for the one who served everyone and drank last." },
+        badge: "Generous and Selfless",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Al-Hakim's Mustadrak, and al-Bayhaqi's Dala'il",
+        note: "The account of Umm Ma'bad is well known, reported by al-Hakim, al-Bayhaqi and at-Tabarani; some scholars graded it good while others questioned its chain, so it is famous rather than agreed to be authentic.",
+      },
+    },
+    title: "خيمة أم مَعبَد وشاةٌ لا لبن فيها",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "مرّ الركب في الصحراء بخيمة امرأة كريمة تُسمّى أم مَعبَد، فطلبوا طعاماً فما وجدت عندها شيئاً، فالسنة جدبة. ورأى النبي ﷺ شاة هزيلة، فاستأذنها في حلبها، فسمّى الله ودعا، فدرّت باللبن. فسقى القوم وشرب هو آخرهم.",
+        shortLesson: "القائد يسقي الناس ويشرب آخرهم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "مرّ الركب في طريقه بخيمة امرأة كريمة تُسمّى أم مَعبَد الخزاعية، فسألوها لحماً أو تمراً يشترونه، فاعتذرت أن السنة جدبة وليس عندها ما تبيع. ورأى النبي ﷺ شاة هزيلة في ناحية الخيمة فقال: «ما هذه الشاة يا أم معبد؟» قالت: شاة خلّفها الجهد عن الغنم. فقال: «أبها من لبن؟» قالت: هي أجهد من ذلك. فاستأذنها في حلبها، فقالت: إن كان بها لبن فاحلبها. فمسح ضرعها وسمّى الله ودعا، فدرّت باللبن، فحلب في إناء يكفي القوم. فسقى أم معبد أولاً حتى رويت، ثم سقى أصحابه، ثم شرب هو آخرهم، ثم حلب لها مرة أخرى وتركه عندها.",
+        details:
+          "قال تعالى في نزول البركة: ﴿وَلَوْ أَنَّ أَهْلَ الْقُرَىٰ آمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِم بَرَكَاتٍ مِّنَ السَّمَاءِ وَالْأَرْضِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "وصفت أم معبد النبي ﷺ لزوجها وصفاً دقيقاً جميلاً، فصار من أشهر ما وُصف به ﷺ.",
+      value: { name: "الإيثار والبركة", icon: "🥛" },
+      thinkQuestion:
+        "متى كانت آخر مرة قدّمت غيرك على نفسك في شيء تحبّه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن سقى النبي ﷺ أولاً في خيمة أم معبد؟",
+        options: ["شرب هو أولاً", "سقى أم معبد، ثم أصحابه، وشرب هو آخرهم", "سقى الدليل وحده", "لم يشرب أحد"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قدح لبن", description: "قدح يذكّرك بمن سقى الناس وشرب آخرهم." },
+      badge: "مؤثِرٌ كريم",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "المستدرك للحاكم، ودلائل النبوة للبيهقي",
+      note: "حديث أم معبد مشهور مرويّ عند الحاكم والبيهقي والطبراني، وحسّنه بعض أهل العلم وتكلّم آخرون في إسناده، فهو من المشهور لا من المتّفق على تصحيحه.",
+    },
+  },
+  {
+    storyId: "st-6-11",
+    stationId: 6,
+    slug: "suraqa-and-hundred-camels",
+    en: {
+      title: "A Hundred Camels, and a Horse That Sank",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Quraysh promised a hundred camels to whoever brought the Prophet ﷺ back. Suraqah ibn Malik wanted them and rode after him — and when he drew near, his horse's legs sank into the ground and threw him. He mounted again, and again it sank. He knew then that this affair was under protection, asked for safety, and went back turning people away from the road.",
+          shortLesson: "Greed brings loss, and what Allah protects cannot be overcome.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Quraysh promised a hundred camels to whoever brought back the Prophet ﷺ or Abu Bakr, and Suraqah ibn Malik — a skilled horseman — wanted them. He took his weapons and his horse and rode after them. Abu Bakr kept looking back in fear while the Prophet ﷺ recited and did not turn round. When Suraqah came close, his horse's legs sank into the ground up to the knees and threw him off. He got up and mounted again, and as soon as he was settled it sank again. Then Suraqah knew that this affair was under a protection he could not reach, so he called out asking for safety, and they granted it. He asked the Prophet ﷺ for a written guarantee, and it was written for him. Suraqah went back turning people away from that road, saying: this side has been searched. And later he became a Muslim.",
+          details:
+            "Allah says: ﴿وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ وَاللَّهُ خَيْرُ الْمَاكِرِينَ﴾ — “they plan, and Allah plans; and Allah is the best of planners.”",
+        },
+      },
+      interactive: {
+        discover: "The Seerah books say the Prophet ﷺ told him he would one day wear the bracelets of Khosrau — which happened in the caliphate of Umar.",
+        value: { name: "Learning from where greed leads", icon: "🐎" },
+        thinkQuestion: "Have you ever seen someone give up something they wanted once they realised they were in the wrong? How would you do it?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What happened to Suraqah as he chased the Prophet ﷺ?",
+          options: ["He caught him", "His horse's legs sank into the ground and threw him, and he asked for safety", "He lost the road", "He turned back at the start"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A horse's hoof", description: "A hoofprint for the rider who was fastest and still did not arrive." },
+        badge: "One Who Took Heed",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "Suraqah and his horse sinking are established in Sahih al-Bukhari's account of the migration; the promise of Khosrau's bracelets comes from the Seerah literature and the Musnad.",
+      },
+    },
+    title: "مئة ناقة وفرسٌ ساخت قوائمه",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جعلت قريش مئة ناقة لمن يردّ النبي ﷺ. فطمع سُراقة بن مالك فتبعه على فرسه، فلما قرب ساخت قوائم فرسه في الأرض فسقط، فعاد وحاول فسقط ثانية. فأيقن أن أمر النبي ﷺ محفوظ، فطلب الأمان، وعاد يصرف الناس عن الطريق.",
+        shortLesson: "الطمع يورث الخسارة، وحفظ الله لا يُغلَب.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "جعلت قريش لمن يردّ النبي ﷺ أو أبا بكر مئة ناقة، فطمع فيها سُراقة بن مالك — وكان فارساً ماهراً — فلبس سلاحه وأخذ فرسه ولحق بهما. وكان أبو بكر يلتفت خائفاً، والنبي ﷺ يقرأ لا يلتفت. فلما دنا منهم ساخت قوائم فرسه في الأرض حتى بلغت الرُكب، فوقع عنه. فقام وردّها، فلما استوى عليها ساخت مرة أخرى. فعلم سُراقة أن هذا الأمر محفوظ لا يُنال، فنادى القوم يطلب الأمان، فأمّنوه. وسأل النبي ﷺ أن يكتب له كتاب أمن فكتب له. فرجع سُراقة يصرف الناس عن الطريق ويقول: قد كُفيتم هذه الناحية. وأسلم بعد ذلك.",
+        details:
+          "قال تعالى: ﴿وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ وَاللَّهُ خَيْرُ الْمَاكِرِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "جاء في كتب السيرة أن النبي ﷺ بشّره بأن يلبس سِوارَي كسرى، فكان ذلك في خلافة عمر رضي الله عنه.",
+      value: { name: "الاعتبار بعاقبة الطمع", icon: "🐎" },
+      thinkQuestion:
+        "هل ترك أحدٌ يوماً شيئاً يشتهيه لأنه أدرك أنه على خطأ؟ كيف تفعل ذلك أنت؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا حدث لسُراقة وهو يطارد النبي ﷺ؟",
+        options: ["أدركه", "ساخت قوائم فرسه في الأرض فسقط، فطلب الأمان", "ضلّ الطريق", "رجع من أول الطريق"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حافر فرس", description: "حافر يذكّرك بمن سبق ولم يُدرك." },
+      badge: "مُعتبِر",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "خبر سُراقة وسوخ قوائم فرسه ثابت في صحيح البخاري في حديث الهجرة؛ وأما بشارة سِوارَي كسرى فمن أخبار السيرة والمسند.",
+    },
+  },
+  {
+    storyId: "st-6-12",
+    stationId: 6,
+    slug: "buraida-white-banner",
+    en: {
+      title: "Buraydah, and a Turban That Became a Banner",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Buraydah ibn al-Husayb rode out with seventy of his people after the reward Quraysh had promised. When they met the Prophet ﷺ he asked their names and spoke to them gently about Islam — and they all became Muslims in one sitting. Buraydah untied his turban, fastened it to his spear as a white banner, and they rode on guarding the Prophet ﷺ.",
+          shortLesson: "A gentle word wins people a sword never could.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Buraydah ibn al-Husayb al-Aslami rode out with seventy of his people looking for the Prophet ﷺ, after the reward Quraysh had promised. When they met him in the desert he did not meet them harshly; he asked, “Who are you?” The man said: Buraydah. The Prophet ﷺ took his name as a good sign, and then spoke to him about Islam gently and easily. The words settled in his heart and in the hearts of his people until they all became Muslims in that one sitting — seventy men after a reward became seventy guards. Then Buraydah wanted the Prophet ﷺ to enter Madinah with honour, so he untied the turban from his head and fastened it to his spear as a white banner, and they rode ahead of him.",
+          details:
+            "Allah says: ﴿ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ﴾ — “call to the way of your Lord with wisdom and good counsel.”",
+        },
+      },
+      interactive: {
+        discover: "Buraydah later became one of the narrators of hadith; he settled in Basra and then went out to Khurasan.",
+        value: { name: "Gentleness in speech", icon: "🏳️" },
+        thinkQuestion: "Have you ever answered someone who angered you gently? What happened?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Buraydah do after he became a Muslim?",
+          options: ["Went back to his people", "Untied his turban as a white banner on his spear and rode guarding the Prophet ﷺ", "Took the reward", "Said nothing and left"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A white banner", description: "A white banner that was once the turban of a man who changed his mind." },
+        badge: "Gentle of Speech",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Sa'd's Tabaqat, and al-Bayhaqi's Dala'il",
+        note: "The account of Buraydah and his seventy men is reported in the Seerah and Tabaqat literature rather than the two Sahih collections; that he became a Muslim is well established.",
+      },
+    },
+    title: "بُرَيدة وعمامةٌ صارت راية",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "خرج بُرَيدة بن الحُصَيب في سبعين رجلاً من قومه يطلبون جائزة قريش. فلما لقوا النبي ﷺ سألهم عن أسمائهم وكلّمهم بلطف عن الإسلام، فأسلموا جميعاً في مجلس واحد. فحلّ بُرَيدة عمامته وربطها في رمحه راية بيضاء، وسار القوم يحرسون النبي ﷺ.",
+        shortLesson: "الكلمة اللطيفة تكسب من لا يكسبه السيف.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "خرج بُرَيدة بن الحُصَيب الأسلمي في سبعين رجلاً من قومه يطلبون النبي ﷺ طمعاً في جائزة قريش. فلما لقوه في الصحراء لم يعاملهم بغلظة، بل سأله: مَن أنت؟ فقال: بُرَيدة. فتفاءل النبي ﷺ باسمه، ثم أخذ يكلّمه في الإسلام كلاماً هيّناً لطيفاً. فوقعت الكلمات في قلبه وقلوب قومه حتى أسلموا جميعاً في مجلس واحد، فصار سبعون طالباً للجائزة سبعين حارساً. ثم أراد بُرَيدة أن يدخل النبي ﷺ المدينة بعزّ، فحلّ عمامته من رأسه وربطها في رمحه فصارت راية بيضاء، وسار القوم بين يديه.",
+        details:
+          "قال تعالى: ﴿ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "بُرَيدة رضي الله عنه صار بعد ذلك من رواة الحديث، وسكن البصرة ثم خرج إلى خراسان.",
+      value: { name: "لين الكلمة", icon: "🏳️" },
+      thinkQuestion:
+        "هل جرّبت أن تجيب من أغضبك بلطف؟ ماذا حدث؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل بُرَيدة رضي الله عنه بعد إسلامه؟",
+        options: ["رجع إلى قومه", "حلّ عمامته وربطها في رمحه راية بيضاء وسار يحرس النبي ﷺ", "أخذ الجائزة", "سكت ومضى"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "راية بيضاء", description: "راية بيضاء كانت عمامة رجل غيّر رأيه." },
+      badge: "لَيِّن الكلمة",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "طبقات ابن سعد، ودلائل النبوة للبيهقي",
+      note: "خبر بُرَيدة رضي الله عنه وسبعين من قومه مرويّ في كتب السيرة والطبقات، وليس في الصحيحين، وإسلامه رضي الله عنه ثابت معروف.",
+    },
+  },
+  {
+    storyId: "st-6-13",
+    stationId: 6,
+    slug: "quba-first-mosque",
+    en: {
+      title: "Quba, and the First Mosque Built",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ stopped at Quba on the edge of Madinah and stayed some days. The first thing he did was build a mosque, carrying the stones with his companions himself — the first mosque built in Islam. Allah mentions it in the Quran as a mosque founded on piety from the very first day.",
+          shortLesson: "The first thing a good community builds is a place that gathers people for good.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "After days of travel, exhaustion and pursuit, the Prophet ﷺ stopped at Quba on the edge of Madinah and stayed a few days before entering the city. The first thing he did was not to build a house for himself or a market, but a mosque where people could gather. He carried the stones with his own hands and worked alongside his companions rather than standing and giving orders, and the people worked eagerly with him. So the mosque of Quba became the first mosque built in Islam. Allah mentioned this mosque in His Book and described it as founded on piety from the very first day. Afterwards the Prophet ﷺ used to visit it every Saturday, riding and walking.",
+          details:
+            "Allah says: ﴿لَمَسْجِدٌ أُسِّسَ عَلَى التَّقْوَىٰ مِنْ أَوَّلِ يَوْمٍ أَحَقُّ أَن تَقُومَ فِيهِ﴾ — “a mosque founded on piety from the first day is worthier for you to stand in.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ said that praying in the mosque of Quba is like an Umrah.",
+        value: { name: "Doing the work yourself", icon: "🕌" },
+        thinkQuestion: "What is the first thing you would build if you made a new place for your friends?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the first thing the Prophet ﷺ built at Quba?",
+          options: ["A market", "A mosque", "A wall", "A house for himself"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A building stone", description: "A stone like the ones carried by blessed hands." },
+        badge: "Builder of Good",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran, Surah At-Tawbah: 108, and Sahih al-Bukhari",
+        note: "His stay at Quba and the building of its mosque are established in the two Sahih collections, and the mosque is described in Surah At-Tawbah.",
+      },
+    },
+    title: "قُباء وأول مسجد بُني",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "نزل النبي ﷺ في قُباء على مشارف المدينة، وأقام فيها أياماً. وأول ما عمل أن بنى مسجداً، فكان يحمل الحجارة مع أصحابه بنفسه، فهو أول مسجد بُني في الإسلام. وذكره الله في القرآن بأنه مسجد أُسّس على التقوى من أول يوم.",
+        shortLesson: "أول ما يُبنى في مجتمع صالح بيتٌ يجمع الناس على الخير.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد أيام من السفر والتعب والمطاردة، نزل النبي ﷺ في قُباء على مشارف المدينة، وأقام فيها بضعة أيام قبل أن يدخلها. ولم يكن أول عمله أن يبني بيتاً لنفسه أو سوقاً، بل مسجداً يجتمع فيه الناس. وكان ﷺ ينقل الحجارة مع أصحابه بيديه ويعمل معهم، لا يقف يأمر فقط، فنشط القوم للعمل. فكان مسجد قُباء أول مسجد بُني في الإسلام. وذكر الله هذا المسجد في كتابه ووصفه بأنه أُسّس على التقوى من أول يوم. وكان النبي ﷺ بعد ذلك يزوره كل سبت راكباً وماشياً.",
+        details:
+          "قال تعالى: ﴿لَمَسْجِدٌ أُسِّسَ عَلَى التَّقْوَىٰ مِنْ أَوَّلِ يَوْمٍ أَحَقُّ أَن تَقُومَ فِيهِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "قال النبي ﷺ: «من صلّى في مسجد قباء كان كعُمرة».",
+      value: { name: "العمل بالنفس", icon: "🕌" },
+      thinkQuestion:
+        "ما أول شيء تبنيه لو أنشأت مكاناً جديداً لأصحابك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما أول ما بناه النبي ﷺ في قُباء؟",
+        options: ["سوقاً", "مسجداً", "سوراً", "بيتاً لنفسه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حجر بناء", description: "حجر يذكّرك بيدين شريفتين حملتا مثله." },
+      badge: "بانٍ للخير",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن الكريم، سورة التوبة: ١٠٨، وصحيح البخاري",
+      note: "نزول النبي ﷺ بقباء وبناء مسجدها ثابت في الصحيحين، ووصفه في سورة التوبة.",
+    },
+  },
+  {
+    storyId: "st-6-14",
+    stationId: 6,
+    slug: "commanded-camel-qaswa",
+    en: {
+      title: "Al-Qaswa, and the House of Abu Ayyub",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ entered Madinah on his camel al-Qaswa, and every time he passed a house the Ansar took hold of her halter, saying: stay with us, Messenger of Allah! He would answer: “Leave her, she is under orders.” She walked on until she knelt at the house of Abu Ayyub al-Ansari — who carried the Prophet's saddle into his home in joy.",
+          shortLesson: "Fairness prevents envy; blessing is in hearts, not in the size of houses.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ entered the heart of Madinah riding his camel al-Qaswa, with joyful people all around him. The Ansar loved him deeply, and every time he passed one of their houses its people took hold of the camel's halter and said: Messenger of Allah, stay with us! Every one of them meant it, and every one of them hoped for the honour — so had he chosen one house in particular, others would have felt it. So he answered them gently: “Leave her, she is under orders.” The camel went on until she knelt at the house of Abu Ayyub al-Ansari, who was not among their wealthy — and Abu Ayyub hurried to carry the Prophet's saddle into his house out of sheer joy. The Prophet ﷺ stayed with him until his mosque and his family's rooms were built.",
+          details:
+            "Allah says: ﴿رَّبِّ أَنزِلْنِي مُنزَلًا مُّبَارَكًا وَأَنتَ خَيْرُ الْمُنزِلِينَ﴾ — “My Lord, let me land in a blessed place; You are the best to bring to land.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ stayed in Abu Ayyub's house for about seven months, until the mosque and his family's rooms were finished.",
+        value: { name: "Fairness between people", icon: "🐪" },
+        thinkQuestion: "How do you choose between two people inviting you at the same time without hurting either?",
+        challenge: {
+          type: "multiple_choice",
+          question: "At whose house did the Prophet's camel kneel in Madinah?",
+          options: ["The richest of the Ansar", "Abu Ayyub al-Ansari's house", "Abu Bakr's house", "Buraydah's house"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A camel's halter", description: "A halter for a leader who would not favour one person over another." },
+        badge: "Fair and Wise",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sahih al-Bukhari, and Ibn Hisham's Seerah",
+        note: "That the Prophet ﷺ stayed with Abu Ayyub al-Ansari is established in the Sahih; the wording “leave her, she is under orders” comes from Ibn Ishaq's Seerah.",
+      },
+    },
+    title: "القصواء وبيتُ أبي أيوب",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "دخل النبي ﷺ المدينة على ناقته القصواء، فكان الأنصار كلما مرّ ببيتٍ أخذوا بزمامها يقولون: انزل عندنا يا رسول الله! فكان يقول: «دعوها فإنها مأمورة». فمشت حتى بركت عند بيت أبي أيوب الأنصاري رضي الله عنه، فحمل رحله إلى بيته فرحاً.",
+        shortLesson: "العدل يمنع الحسد، والبركة في القلوب لا في سعة البيوت.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "دخل النبي ﷺ قلب المدينة راكباً ناقته القصواء، والناس حوله فرحون. وكان الأنصار يحبّونه حبّاً شديداً، فكلما مرّ ببيتٍ من بيوتهم أخذ أهله بزمام الناقة يقولون: يا رسول الله، انزل عندنا! وكلهم صادق، وكلهم يرجو الشرف. فلو اختار بيتاً بعينه لوجد غيره في نفسه شيئاً. فكان يقول لهم في لطف: «دعوها فإنها مأمورة». فمضت الناقة حتى بركت عند بيت أبي أيوب الأنصاري رضي الله عنه، وكان من غير أغنيائهم، فبادر أبو أيوب فحمل رحل النبي ﷺ إلى بيته من الفرح. فأقام النبي ﷺ عنده حتى بُني مسجده وبيوته.",
+        details:
+          "قال تعالى: ﴿وَقُل رَّبِّ أَنزِلْنِي مُنزَلًا مُّبَارَكًا وَأَنتَ خَيْرُ الْمُنزِلِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أقام النبي ﷺ في بيت أبي أيوب نحو سبعة أشهر حتى تمّ بناء المسجد وحُجَر أهله.",
+      value: { name: "العدل بين الناس", icon: "🐪" },
+      thinkQuestion:
+        "كيف تختار بين اثنين يدعوانك في وقت واحد بغير أن تجرح أحدهما؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "عند بيت مَن بركت ناقة النبي ﷺ في المدينة؟",
+        options: ["بيت أغنى الأنصار", "بيت أبي أيوب الأنصاري رضي الله عنه", "بيت أبي بكر رضي الله عنه", "بيت بُريدة رضي الله عنه"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "زمام ناقة", description: "زمام يذكّرك بقائد لم يُفضّل أحداً على أحد." },
+      badge: "عادلٌ حكيم",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "صحيح البخاري، وسيرة ابن هشام",
+      note: "نزول النبي ﷺ على أبي أيوب الأنصاري رضي الله عنه ثابت في الصحيح؛ وأما لفظ «دعوها فإنها مأمورة» فمن أخبار السيرة عند ابن إسحاق.",
+    },
+  },
+  {
+    storyId: "st-6-15",
+    stationId: 6,
+    slug: "talaa-al-badru",
+    en: {
+      title: "Yathrib Becomes the City of Light",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The whole city came out to meet him: men, women and children, and the children climbed onto the roofs. It was a day of joy such as they had never seen. The Seerah books mention that the young girls sang: the full moon has risen over us. And from that day Yathrib was called “Madinah” — the City.",
+          shortLesson: "The finest welcome a guest can receive is glad hearts.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The whole city came out to meet the Messenger of Allah ﷺ: men, women and children, and the children and servants climbed onto the roofs to look, asking one another: which of them is the Messenger of Allah? Anas ibn Malik said: I never saw a day finer or brighter than the day the Messenger of Allah ﷺ came to us. The Seerah books mention that young girls beat the hand-drums and sang: “the full moon has risen over us, from the passes of Wada.” From that day the city was no longer called Yathrib but “Madinah” — the City — and al-Madinah al-Munawwarah, the city of light, because Islam now had a homeland, and the believers had a place where they were safe after thirteen years of fear.",
+          details:
+            "Allah says of those who supported him: ﴿وَاتَّبَعُوا النُّورَ الَّذِي أُنزِلَ مَعَهُ أُولَٰئِكَ هُمُ الْمُفْلِحُونَ﴾ — “and followed the light sent down with him — those are the successful.”",
+        },
+      },
+      interactive: {
+        discover: "This migration is the start of the Hijri calendar, by which we still count the years today.",
+        value: { name: "Rejoicing in good", icon: "🌕" },
+        thinkQuestion: "How do you welcome a dear guest arriving at your home after a long journey?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Yathrib come to be called after the Prophet ﷺ arrived?",
+          options: ["It stayed Yathrib", "It became “Madinah” — the City of Light", "It was called the second Mecca", "It was called Quba"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A full moon", description: "A full moon for the day a whole city came out to greet its guest." },
+        badge: "Glad for Good",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sahih al-Bukhari, and al-Bayhaqi's Dala'il",
+        note: "The joy of the people of Madinah and Anas's words are in the Sahih; the song “the full moon has risen” is famous in the Seerah literature, and scholars have discussed its chain.",
+      },
+    },
+    title: "يثرب تصير المدينة المنوّرة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "خرج أهل المدينة كلهم يستقبلونه: الرجال والنساء والصبيان، حتى صعد الصبيان على البيوت. وكان يوماً ما رأوا مثله فرحاً. وتذكر كتب السيرة أن الجواري كنّ ينشدن: طلع البدر علينا. ومن ذلك اليوم صارت يثرب تُسمّى «المدينة».",
+        shortLesson: "أجمل ما يُستقبل به الضيف قلوب فرحة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "خرج أهل المدينة كلهم يستقبلون رسول الله ﷺ: الرجال والنساء والصبيان، حتى صعد الصبيان والخدم على ظهور البيوت ينظرون، ويتساءلون: أيّهم رسول الله؟ قال أنس بن مالك رضي الله عنه: ما رأيت يوماً كان أحسن ولا أضوأ من يوم دخل علينا رسول الله ﷺ. وتذكر كتب السيرة أن الجواري كنّ يضربن بالدفوف وينشدن: «طلع البدر علينا من ثنيّات الوداع». ومن ذلك اليوم لم تعد المدينة تُسمّى يثرب، بل صارت «المدينة» و«المدينة المنوّرة»، لأن الإسلام صار لها وطناً، وصار لأهل الإيمان بلد يأمنون فيه بعد ثلاث عشرة سنة من الخوف.",
+        details:
+          "قال تعالى في وصف من نصروه: ﴿فَالَّذِينَ آمَنُوا بِهِ وَعَزَّرُوهُ وَنَصَرُوهُ وَاتَّبَعُوا النُّورَ الَّذِي أُنزِلَ مَعَهُ أُولَٰئِكَ هُمُ الْمُفْلِحُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "من هذه الهجرة بدأ التاريخ الهجري الذي نعدّ به سنينا إلى اليوم.",
+      value: { name: "الفرح بالخير", icon: "🌕" },
+      thinkQuestion:
+        "كيف تستقبل ضيفاً عزيزاً يصل إلى بيتكم بعد سفر طويل؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ صارت تُعرف يثرب بعد دخول النبي ﷺ؟",
+        options: ["بقيت يثرب", "صارت «المدينة» والمدينة المنوّرة", "سُمّيت مكة الثانية", "سُمّيت قباء"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "بدرٌ مكتمل", description: "بدر يذكّرك بيوم استقبلت فيه مدينة كاملة ضيفها." },
+      badge: "فرحٌ بالخير",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "صحيح البخاري، ودلائل النبوة للبيهقي",
+      note: "فرح أهل المدينة وقول أنس رضي الله عنه في الصحيح؛ وأما نشيد «طلع البدر علينا» فمشهور مرويّ في كتب السيرة، وتكلّم أهل العلم في إسناده.",
     },
   },
 ];

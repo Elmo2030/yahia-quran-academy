@@ -941,6 +941,86 @@ export const seerahStoryIndex: SeerahStory[] = [
   "titleEn": "Go — You Are Free",
   "descriptionEn": "The people of Mecca gathered at the Kaaba waiting to hear what would be done to them — the same people who had driven him out and tortured his companions for twenty years. He…",
   "image": null
+ },
+ {
+  "slug": "cave-thawr-preparation",
+  "title": "غار ثور وصاحبٌ دخل أولاً",
+  "description": "صعد النبي ﷺ وأبو بكر جبلاً وعراً حتى بلغا غاراً مظلماً يُسمّى غار ثور. فطلب أبو بكر أن يدخل هو أولاً ليطمئنّ على المكان، وجعل يسدّ الشقوق بقطع من ثوبه، ثم نام النبي ﷺ ورأسه في…",
+  "titleEn": "Cave Thawr, and a Friend Who Went In First",
+  "descriptionEn": "The Prophet ﷺ and Abu Bakr climbed a rugged mountain to a dark cave called Cave Thawr. Abu Bakr asked to go in first to check the place, and began stopping up the cracks with…",
+  "image": null
+ },
+ {
+  "slug": "spider-and-dove",
+  "title": "خيوطٌ واهية وجنود لا تُرى",
+  "description": "جاء فرسان قريش يتبعون الأثر حتى وقفوا عند باب الغار. ويُذكر في كتب السيرة أن عنكبوتاً نسج على الباب وأن حمامة عشّشت أمامه، فقالوا: لو دخل أحد هنا ما بقي هذا كله. فانصرفوا. والذي…",
+  "titleEn": "Fragile Threads, and Soldiers You Cannot See",
+  "descriptionEn": "The horsemen of Quraysh followed the tracks until they stood at the mouth of the cave. The Seerah books mention that a spider had woven over the opening and a dove had nested…",
+  "image": null
+ },
+ {
+  "slug": "do-not-be-sad",
+  "title": "لا تحزن إن الله معنا",
+  "description": "سمع أبو بكر أصوات القوم فوق الغار، فقال: يا رسول الله، لو أن أحدهم نظر تحت قدميه لرآنا! فقال له النبي ﷺ وهو هادئ: «ما ظنّك باثنين الله ثالثهما؟» و«لا تحزن إن الله معنا». فسكن قلب…",
+  "titleEn": "Do Not Grieve — Allah Is With Us",
+  "descriptionEn": "Abu Bakr heard the men above the cave and said: Messenger of Allah, if one of them looked down at his feet he would see us! The Prophet ﷺ answered him calmly: “What do you think…",
+  "image": null
+ },
+ {
+  "slug": "expert-guide",
+  "title": "دليلٌ خبير من غير أهل الإسلام",
+  "description": "كانت قريش ترقب الطريق المعتاد إلى المدينة، فاختار النبي ﷺ طريق الساحل، وهو طريق وعر لا يسلكه الناس. واستأجر دليلاً خبيراً بالطرق اسمه عبد الله بن أُريقط، وكان على دين قومه لا…",
+  "titleEn": "An Expert Guide Who Was Not a Muslim",
+  "descriptionEn": "Quraysh were watching the usual road to Madinah, so the Prophet ﷺ took the coastal route — rough country that people did not travel. He hired an expert guide named Abdullah ibn…",
+  "image": null
+ },
+ {
+  "slug": "umm-mabad-tent",
+  "title": "خيمة أم مَعبَد وشاةٌ لا لبن فيها",
+  "description": "مرّ الركب في الصحراء بخيمة امرأة كريمة تُسمّى أم مَعبَد، فطلبوا طعاماً فما وجدت عندها شيئاً، فالسنة جدبة. ورأى النبي ﷺ شاة هزيلة، فاستأذنها في حلبها، فسمّى الله ودعا، فدرّت…",
+  "titleEn": "Umm Ma'bad's Tent, and a Sheep With No Milk",
+  "descriptionEn": "On the way the travellers passed the tent of a generous woman called Umm Ma'bad. They asked to buy food and she had none — it was a dry year. The Prophet ﷺ saw a thin sheep,…",
+  "image": null
+ },
+ {
+  "slug": "suraqa-and-hundred-camels",
+  "title": "مئة ناقة وفرسٌ ساخت قوائمه",
+  "description": "جعلت قريش مئة ناقة لمن يردّ النبي ﷺ. فطمع سُراقة بن مالك فتبعه على فرسه، فلما قرب ساخت قوائم فرسه في الأرض فسقط، فعاد وحاول فسقط ثانية. فأيقن أن أمر النبي ﷺ محفوظ، فطلب الأمان،…",
+  "titleEn": "A Hundred Camels, and a Horse That Sank",
+  "descriptionEn": "Quraysh promised a hundred camels to whoever brought the Prophet ﷺ back. Suraqah ibn Malik wanted them and rode after him — and when he drew near, his horse's legs sank into the…",
+  "image": null
+ },
+ {
+  "slug": "buraida-white-banner",
+  "title": "بُرَيدة وعمامةٌ صارت راية",
+  "description": "خرج بُرَيدة بن الحُصَيب في سبعين رجلاً من قومه يطلبون جائزة قريش. فلما لقوا النبي ﷺ سألهم عن أسمائهم وكلّمهم بلطف عن الإسلام، فأسلموا جميعاً في مجلس واحد. فحلّ بُرَيدة عمامته…",
+  "titleEn": "Buraydah, and a Turban That Became a Banner",
+  "descriptionEn": "Buraydah ibn al-Husayb rode out with seventy of his people after the reward Quraysh had promised. When they met the Prophet ﷺ he asked their names and spoke to them gently about…",
+  "image": null
+ },
+ {
+  "slug": "quba-first-mosque",
+  "title": "قُباء وأول مسجد بُني",
+  "description": "نزل النبي ﷺ في قُباء على مشارف المدينة، وأقام فيها أياماً. وأول ما عمل أن بنى مسجداً، فكان يحمل الحجارة مع أصحابه بنفسه، فهو أول مسجد بُني في الإسلام. وذكره الله في القرآن بأنه…",
+  "titleEn": "Quba, and the First Mosque Built",
+  "descriptionEn": "The Prophet ﷺ stopped at Quba on the edge of Madinah and stayed some days. The first thing he did was build a mosque, carrying the stones with his companions himself — the first…",
+  "image": null
+ },
+ {
+  "slug": "commanded-camel-qaswa",
+  "title": "القصواء وبيتُ أبي أيوب",
+  "description": "دخل النبي ﷺ المدينة على ناقته القصواء، فكان الأنصار كلما مرّ ببيتٍ أخذوا بزمامها يقولون: انزل عندنا يا رسول الله! فكان يقول: «دعوها فإنها مأمورة». فمشت حتى بركت عند بيت أبي أيوب…",
+  "titleEn": "Al-Qaswa, and the House of Abu Ayyub",
+  "descriptionEn": "The Prophet ﷺ entered Madinah on his camel al-Qaswa, and every time he passed a house the Ansar took hold of her halter, saying: stay with us, Messenger of Allah! He would…",
+  "image": null
+ },
+ {
+  "slug": "talaa-al-badru",
+  "title": "يثرب تصير المدينة المنوّرة",
+  "description": "خرج أهل المدينة كلهم يستقبلونه: الرجال والنساء والصبيان، حتى صعد الصبيان على البيوت. وكان يوماً ما رأوا مثله فرحاً. وتذكر كتب السيرة أن الجواري كنّ ينشدن: طلع البدر علينا. ومن…",
+  "titleEn": "Yathrib Becomes the City of Light",
+  "descriptionEn": "The whole city came out to meet him: men, women and children, and the children climbed onto the roofs. It was a day of joy such as they had never seen. The Seerah books mention…",
+  "image": null
  }
 ];
 

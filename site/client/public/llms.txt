@@ -118,7 +118,7 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Revelation](https://yahyaquran.com/seerah#station-3): 5 stories. Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.
 - [The Call: In Secret, Then Aloud](https://yahyaquran.com/seerah#station-4): 10 stories. Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.
 - [The Night Journey and the Ascension](https://yahyaquran.com/seerah#station-5): 15 stories. Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.
-- [The Migration to Madinah](https://yahyaquran.com/seerah#station-6): 5 stories. The night the Prophet (pbuh) left Mecca, and those who stood with him: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr's tears, Asma's belt, and Amir's flock that erased the tracks.
+- [The Migration to Madinah](https://yahyaquran.com/seerah#station-6): 15 stories. Fifteen stories from the migration: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr’s tears, Asma’s belt and Amir’s flock, then Cave Thawr and the tranquillity, the expert guide, Umm Ma’bad’s tent, Suraqah’s horse, Buraydah’s banner, the mosque of Quba, the house of Abu Ayyub, and the day Yathrib became the city of light.
 - [Defending the Homeland](https://yahyaquran.com/seerah#station-7): 15 stories. Fifteen stories from the years of defending Madinah: the permission after thirteen years of patience, Badr with its counsel and its angels, captives who became teachers, the lesson of Uhud, Salman's trench, the wind that scattered the Confederates, the treaty of Hudaybiyyah, the letters to kings, Khaybar, and finally the conquest of Mecca — the day of mercy and the general pardon.
 
 
@@ -178,6 +178,16 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [Tears of Joy: “May I Accompany You?” — دموع الفرح: الصُّحبة يا رسول الله](https://yahyaquran.com/seerah/tears-of-joy-companion): صحيح البخاري
 - [Asma, She of the Two Belts — أسماء ذات النِّطاقين](https://yahyaquran.com/seerah/asma-that-al-nitaqayn): صحيح البخاري
 - [The Shepherd Who Erased the Tracks — الراعي الذي محا الآثار](https://yahyaquran.com/seerah/smart-shepherd-footprints): صحيح البخاري، وسيرة ابن هشام
+- [Cave Thawr, and a Friend Who Went In First — غار ثور وصاحبٌ دخل أولاً](https://yahyaquran.com/seerah/cave-thawr-preparation): سيرة ابن هشام، والمستدرك للحاكم
+- [Fragile Threads, and Soldiers You Cannot See — خيوطٌ واهية وجنود لا تُرى](https://yahyaquran.com/seerah/spider-and-dove): القرآن الكريم، سورة التوبة: ٤٠، وصحيح البخاري
+- [Do Not Grieve — Allah Is With Us — لا تحزن إن الله معنا](https://yahyaquran.com/seerah/do-not-be-sad): القرآن الكريم، سورة التوبة: ٤٠، وصحيح البخاري
+- [An Expert Guide Who Was Not a Muslim — دليلٌ خبير من غير أهل الإسلام](https://yahyaquran.com/seerah/expert-guide): صحيح البخاري
+- [Umm Ma'bad's Tent, and a Sheep With No Milk — خيمة أم مَعبَد وشاةٌ لا لبن فيها](https://yahyaquran.com/seerah/umm-mabad-tent): المستدرك للحاكم، ودلائل النبوة للبيهقي
+- [A Hundred Camels, and a Horse That Sank — مئة ناقة وفرسٌ ساخت قوائمه](https://yahyaquran.com/seerah/suraqa-and-hundred-camels): صحيح البخاري
+- [Buraydah, and a Turban That Became a Banner — بُرَيدة وعمامةٌ صارت راية](https://yahyaquran.com/seerah/buraida-white-banner): طبقات ابن سعد، ودلائل النبوة للبيهقي
+- [Quba, and the First Mosque Built — قُباء وأول مسجد بُني](https://yahyaquran.com/seerah/quba-first-mosque): القرآن الكريم، سورة التوبة: ١٠٨، وصحيح البخاري
+- [Al-Qaswa, and the House of Abu Ayyub — القصواء وبيتُ أبي أيوب](https://yahyaquran.com/seerah/commanded-camel-qaswa): صحيح البخاري، وسيرة ابن هشام
+- [Yathrib Becomes the City of Light — يثرب تصير المدينة المنوّرة](https://yahyaquran.com/seerah/talaa-al-badru): صحيح البخاري، ودلائل النبوة للبيهقي
 
 ### Defending the Homeland
 - [Why Did the Muslims Defend Themselves? — لماذا دافع المسلمون عن أنفسهم؟](https://yahyaquran.com/seerah/permission-to-defend): القرآن الكريم، سورة الحج: ٣٩

@@ -1827,4 +1827,74 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/go-you-are-free" />
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/cave-thawr-preparation</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/cave-thawr-preparation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/cave-thawr-preparation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/cave-thawr-preparation" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/spider-and-dove</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/spider-and-dove" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/spider-and-dove?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/spider-and-dove" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/do-not-be-sad</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/do-not-be-sad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/do-not-be-sad?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/do-not-be-sad" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/expert-guide</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/expert-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/expert-guide?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/expert-guide" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/umm-mabad-tent</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/umm-mabad-tent" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/umm-mabad-tent?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/umm-mabad-tent" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/suraqa-and-hundred-camels</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/suraqa-and-hundred-camels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/suraqa-and-hundred-camels?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/suraqa-and-hundred-camels" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/buraida-white-banner</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/buraida-white-banner" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/buraida-white-banner?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/buraida-white-banner" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/quba-first-mosque</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/quba-first-mosque" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/quba-first-mosque?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/quba-first-mosque" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/commanded-camel-qaswa</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/commanded-camel-qaswa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/commanded-camel-qaswa?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/commanded-camel-qaswa" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/seerah/talaa-al-badru</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/seerah/talaa-al-badru" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/seerah/talaa-al-badru?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/seerah/talaa-al-badru" />
+    <priority>0.7</priority>
+  </url>
 </urlset>
