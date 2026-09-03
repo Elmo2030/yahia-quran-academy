@@ -682,10 +682,7 @@
 .facts-stage__name { display: inline-flex; align-items: center; gap: .3rem; font-size: .85rem; font-weight: 800; }
 .facts-stage__count { color: var(--teal-soft); font-size: .75rem; font-weight: 700; }
 .facts-stage.is-current { color: #fffdf5; background: var(--fact-from,#001F3F); border-color: var(--fact-from,#001F3F); }
-/* The stage colour is set per stage from JS and is always saturated, so the
-   count inside a selected stage follows the light text rather than the palette. */
-.facts-stage.is-current .facts-stage__count { color: inherit; opacity: .82; }
-.facts-stage.is-current .facts-stage__count { color: rgb(var(--sheen-rgb) / 82%); }
+.facts-stage.is-current .facts-stage__count { color: rgb(255 255 255 / 82%); }
 .facts-stage.is-done:not(.is-current) { color: var(--fact-from,var(--ink)); border-color: color-mix(in srgb, var(--fact-from,var(--panel-dark)) 45%, var(--page)); }
 /* --fact-from is the stage's own colour, set from JS, and every one of them is
    deep enough to read on cream and to disappear on a dark page. The border
@@ -710,7 +707,7 @@
 .fact-card--closed:active { transform: translateY(-1px); }
 .fact-card--closed svg { color: var(--on-dark-gold); }
 .fact-card__number { font-family: "Noto Naskh Arabic", serif; font-size: 1.9rem; font-weight: 800; line-height: 1; }
-.fact-card__prompt { color: rgb(var(--sheen-rgb) / 85%); font-size: .75rem; font-weight: 700; }
+.fact-card__prompt { color: rgb(255 255 255 / 85%); font-size: .75rem; font-weight: 700; }
 
 .fact-card--open { min-height: 11rem; background: var(--page); border: 1px solid var(--line); border-top: 4px solid var(--fact-from,#1b3a5c); box-shadow: 0 12px 26px rgb(var(--shadow-rgb) / 8%); animation: fact-reveal .32s ease; }
 @keyframes fact-reveal { from { opacity: 0; transform: scale(.97) } to { opacity: 1; transform: none } }
