@@ -10,8 +10,10 @@ import { describe, expect, it } from "vitest";
 
 import { chapters, stories, storyTextFor } from "@/content/stories";
 
-/** Stories still awaiting an English translation. Shrink this list; do not grow it. */
-const UNTRANSLATED = ["women/imraat_alaziz", "women/nuh_lut"];
+/** Stories still awaiting an English translation. Shrink this list; do not grow it.
+ *  It is empty: every story reads in both languages. A new story without an
+ *  `en` block fails this rather than quietly serving Arabic to English readers. */
+const UNTRANSLATED: string[] = [];
 
 const key = (s: { chapter: string; slug: string }) => `${s.chapter}/${s.slug}`;
 

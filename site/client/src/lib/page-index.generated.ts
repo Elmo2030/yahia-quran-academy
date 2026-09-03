@@ -408,8 +408,8 @@ export const storyIndex: Story[] = [
   "slug": "imraat_alaziz",
   "title": "امرأة العزيز",
   "hook": "هل حدث وأن اتهمكم أحد بشيء لم تفعلوه؟ إنه شعور سيء جدًا! في قصتنا اليوم، هناك شاب طيب جدًا اتُهم ظلمًا…",
-  "titleEn": null,
-  "hookEn": null,
+  "titleEn": "The Wife of al-Aziz",
+  "hookEn": "Has anyone ever accused you of something you did not do? It is a horrible feeling! In our story today, a very good young man was blamed for something that was not his fault at all…",
   "image": "/stories/imraat_alaziz.jpg"
  },
  {
@@ -417,8 +417,8 @@ export const storyIndex: Story[] = [
   "slug": "nuh_lut",
   "title": "امرأة نوح وامرأة لوط",
   "hook": "تخيلوا أن يكون زوجكم نبيًا يعلمه الله كل شيء، ويدل الناس على طريق الجنة… هل يعقل ألا تسمعوا كلامه؟",
-  "titleEn": null,
-  "hookEn": null,
+  "titleEn": "The Wife of Nuh and the Wife of Lut",
+  "hookEn": "Imagine your husband is a prophet whom Allah teaches everything, showing people the road to Paradise… could you really not listen to him?",
   "image": "/stories/nuh_lut.jpg"
  }
 ];

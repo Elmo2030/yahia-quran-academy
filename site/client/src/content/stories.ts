@@ -1027,6 +1027,17 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "imraat_alaziz",
+    en: {
+      title: "The Wife of al-Aziz",
+      hook:
+        "Has anyone ever accused you of something you did not do? It is a horrible feeling! In our story today, a very good young man was blamed for something that was not his fault at all…",
+      events:
+        "The Prophet Yusuf lived as a young man in the palace of an important man called al-Aziz. The wife of al-Aziz treated him badly and wanted him to do wrong things that would not please Allah. Because Yusuf was good and refused to do wrong, she became angry with him and lied about him, saying that he was the one at fault — and he was put in prison unfairly for long years! But Allah did not abandon him. Years later the king wanted him released, because he was honest and wise. And here the wife of al-Aziz felt regret, and decided to admit the truth and tell everyone that Yusuf had been truthful all along, and that she was the one who had lied.",
+      lesson:
+        "Lying is a very bad thing and it hurts other people. And if we do wrong and lie, we must be brave enough to tell the truth in the end, so that what is right goes back to the one it belongs to.",
+      next:
+        "The wife of al-Aziz admitted her mistake in the end… but in our last story we will meet two women who were married to two great prophets, and who never admitted the truth at all!",
+    },
     image: "/stories/imraat_alaziz.jpg",
     title: "امرأة العزيز",
     surahName: "يوسف",
@@ -1039,6 +1050,17 @@ export const stories: Story[] = [
   {
     chapter: "women",
     slug: "nuh_lut",
+    en: {
+      title: "The Wife of Nuh and the Wife of Lut",
+      hook:
+        "Imagine your husband is a prophet whom Allah teaches everything, showing people the road to Paradise… could you really not listen to him?",
+      events:
+        "Nuh and Lut were two great prophets who called people to worship Allah and to leave bad deeds behind. But the sad surprise is that the wife of Nuh and the wife of Lut were not believers! They did not believe their husbands, and they helped the wrongdoers against the believers. And because Allah is just, He holds every person to account for their own deeds, whoever their family may be. So when the punishment came upon the wrongdoers, the wife of Nuh was lost along with those who did not board the ship, and the wife of Lut was lost along with her people, because she chose the path of wrong.",
+      lesson:
+        "Every person is responsible for what they do. Coming from a good family will not help us if our own deeds are bad. We must always choose our friends and our path carefully.",
+      next:
+        "And with that we have finished the stories of the women in the Quran. In the collections to come we will begin the stories of the prophets and messengers!",
+    },
     image: "/stories/nuh_lut.jpg",
     title: "امرأة نوح وامرأة لوط",
     surahName: "التحريم",
