@@ -125,7 +125,7 @@ const copy = {
     quizLocked: (n: number) => `اقلب ${n} بطاقات على الأقل، وبعدها نسألك عمّا قرأته.`,
     quizAsk: "عن أي بطاقة تتحدث هذه المعلومة؟",
     quizRight: "إجابة صحيحة!",
-    quizWrong: (title: string) => `الإجابة الصحيحة: ${title}`,
+    quizWrong: "ليست هذه — اقرأ البطاقة مرة أخرى وجرّب اختياراً آخر 💪",
     quizNext: "سؤال آخر",
     quizScore: (right: number, asked: number) => `${right} صحيحة من ${asked}`,
     stages: ["المرحلة الأولى", "المرحلة الثانية", "المرحلة الثالثة", "المرحلة الرابعة", "المرحلة الخامسة"],
@@ -154,7 +154,7 @@ const copy = {
     quizLocked: (n: number) => `Turn over at least ${n} cards, then we can ask you about what you read.`,
     quizAsk: "Which card is this from?",
     quizRight: "That is right!",
-    quizWrong: (title: string) => `The answer was: ${title}`,
+    quizWrong: "Not that one — read the card again and try another answer 💪",
     quizNext: "Another question",
     quizScore: (right: number, asked: number) => `${right} right out of ${asked}`,
     stages: ["Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5"],
@@ -218,7 +218,13 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
   // while a question is on screen should not snatch the question away.
   const [pool] = useState(opened);
   const [question, setQuestion] = useState<Question | null>(() => buildQuestion(pool));
-  const [picked, setPicked] = useState<string | null>(null);
+  // A wrong answer spends that option and leaves the rest live, the same as
+  // the story cards: revealing the answer and locking the question ended the
+  // attempt at the first mistake, which is the moment a child is still willing
+  // to think. The score records the first attempt, so retrying is free but
+  // getting it right first time still counts for something.
+  const [tried, setTried] = useState<string[]>([]);
+  const [solved, setSolved] = useState(false);
   const [score, setScore] = useState({ right: 0, asked: 0 });
   const panel = useRef<HTMLElement>(null);
 
@@ -231,17 +237,18 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
   }, []);
 
   const answer = (slug: string) => {
-    if (picked || !question) return;
-    setPicked(slug);
-    setScore(s => ({ right: s.right + (slug === question.fact.slug ? 1 : 0), asked: s.asked + 1 }));
+    if (solved || !question || tried.includes(slug)) return;
+    const right = slug === question.fact.slug;
+    if (tried.length === 0) setScore(s => ({ right: s.right + (right ? 1 : 0), asked: s.asked + 1 }));
+    if (right) setSolved(true);
+    else setTried(current => [...current, slug]);
   };
 
   const next = () => {
-    setPicked(null);
+    setTried([]);
+    setSolved(false);
     setQuestion(buildQuestion(pool, question?.fact.slug));
   };
-
-  const correct = question !== null && picked === question.fact.slug;
 
   return (
     <section className="facts-quiz" lang={locale} dir={dir} aria-label={t.quizTitle} ref={panel} tabIndex={-1}>
@@ -265,10 +272,11 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
       <ul className="facts-quiz__options">
         {question.options.map(option => {
           const isAnswer = option.slug === question.fact.slug;
-          const state = !picked ? "" : isAnswer ? " is-right" : option.slug === picked ? " is-wrong" : "";
+          const spent = tried.includes(option.slug);
+          const state = solved && isAnswer ? " is-right" : spent ? " is-wrong" : "";
           return (
             <li key={option.slug}>
-              <button type="button" className={`facts-quiz__option${state}`} onClick={() => answer(option.slug)} disabled={picked !== null}>
+              <button type="button" className={`facts-quiz__option${state}`} onClick={() => answer(option.slug)} disabled={solved || spent}>
                 {option.title[locale]}
               </button>
             </li>
@@ -277,10 +285,10 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
       </ul>
 
       <p className="facts-quiz__result" role="status">
-        {picked && (correct ? t.quizRight : t.quizWrong(question.fact.title[locale]))}
+        {solved ? t.quizRight : tried.length > 0 ? t.quizWrong : ""}
       </p>
 
-      {picked && (
+      {solved && (
         <button type="button" className="facts-quiz__next" onClick={next}>
           {t.quizNext}
         </button>

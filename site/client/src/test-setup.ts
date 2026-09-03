@@ -14,3 +14,10 @@ import { afterEach } from "vitest";
 afterEach(() => {
   cleanup();
 });
+
+// jsdom implements no scrolling, so a component that brings its own panel into
+// view — the facts quiz does, because on a phone it opened below the fold —
+// throws "scrollIntoView is not a function" the moment it mounts.
+if (!Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = () => {};
+}
