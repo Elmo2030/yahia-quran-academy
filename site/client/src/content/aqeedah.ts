@@ -40,6 +40,9 @@ export type AqeedahCard = AqeedahText & {
   slug: string;
   chapter: string;
   icon: string;
+  /** Every card has a picture at /stories/aqeedah/<slug>.jpg. It is optional so
+   *  a card added before its art still renders — the icon stands in for it. */
+  image?: string;
   /** Quran carries the same text in both languages — it is not translated. */
   ayah: { text: string; ref: string };
   reliability: string;
@@ -123,6 +126,7 @@ export const aqeedahChapters: AqeedahChapter[] = [
 export const aqeedahCards: AqeedahCard[] = [
   {
     slug: "knowing-my-lord",
+    image: "/stories/aqeedah/knowing-my-lord.jpg",
     chapter: "opening",
     icon: "✨",
     title: "رحلة: أعرف ربي",
@@ -164,6 +168,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "allah-created-me",
+    image: "/stories/aqeedah/allah-created-me.jpg",
     chapter: "knowing-allah",
     icon: "🕊️",
     title: "الله خلقني",
@@ -205,6 +210,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "allah-is-one",
+    image: "/stories/aqeedah/allah-is-one.jpg",
     chapter: "knowing-allah",
     icon: "🛡️",
     title: "الله واحد",
@@ -246,6 +252,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "allah-sees-and-hears",
+    image: "/stories/aqeedah/allah-sees-and-hears.jpg",
     chapter: "knowing-allah",
     icon: "🛡️",
     title: "الله يراني ويسمعني ويعلم كل شيء",
@@ -287,6 +294,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "allah-provides",
+    image: "/stories/aqeedah/allah-provides.jpg",
     chapter: "knowing-allah",
     icon: "🕊️",
     title: "الله يرزقني وينعم عليّ",
@@ -328,6 +336,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "allah-is-merciful",
+    image: "/stories/aqeedah/allah-is-merciful.jpg",
     chapter: "knowing-allah",
     icon: "🕊️",
     title: "الله رحيم ويحب المحسنين",
@@ -369,6 +378,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "i-love-and-worship-allah",
+    image: "/stories/aqeedah/i-love-and-worship-allah.jpg",
     chapter: "knowing-allah",
     icon: "✨",
     title: "أنا أحب الله وأعبده",
@@ -410,6 +420,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "belief-in-allah",
+    image: "/stories/aqeedah/belief-in-allah.jpg",
     chapter: "pillars-of-faith",
     icon: "🛡️",
     title: "أؤمن بالله",
@@ -451,6 +462,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "the-angels",
+    image: "/stories/aqeedah/the-angels.jpg",
     chapter: "pillars-of-faith",
     icon: "🛡️",
     title: "عالم الملائكة",
@@ -492,6 +504,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "the-books",
+    image: "/stories/aqeedah/the-books.jpg",
     chapter: "pillars-of-faith",
     icon: "✨",
     title: "كتب الله",
@@ -533,6 +546,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "the-messengers",
+    image: "/stories/aqeedah/the-messengers.jpg",
     chapter: "pillars-of-faith",
     icon: "🛡️",
     title: "رسل الله",
@@ -574,6 +588,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "the-last-day",
+    image: "/stories/aqeedah/the-last-day.jpg",
     chapter: "pillars-of-faith",
     icon: "🕊️",
     title: "ماذا بعد الموت؟",
@@ -615,6 +630,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "belief-in-destiny",
+    image: "/stories/aqeedah/belief-in-destiny.jpg",
     chapter: "pillars-of-faith",
     icon: "🛡️",
     title: "كل شيء بحساب (الإيمان بالقدر)",
@@ -656,6 +672,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "why-prophets-were-sent",
+    image: "/stories/aqeedah/why-prophets-were-sent.jpg",
     chapter: "messengers",
     icon: "🕊️",
     title: "لماذا أرسل الله الأنبياء؟",
@@ -698,6 +715,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "who-is-muhammad",
+    image: "/stories/aqeedah/who-is-muhammad.jpg",
     chapter: "messengers",
     icon: "🛡️",
     title: "من هو محمد ﷺ؟",
@@ -740,6 +758,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "why-we-love-the-prophet",
+    image: "/stories/aqeedah/why-we-love-the-prophet.jpg",
     chapter: "messengers",
     icon: "✨",
     title: "لماذا نحب النبي ﷺ؟",
@@ -782,6 +801,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "following-the-prophet",
+    image: "/stories/aqeedah/following-the-prophet.jpg",
     chapter: "messengers",
     icon: "🕊️",
     title: "كيف نقتدي بالنبي ﷺ؟",
@@ -824,6 +844,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "the-prayer",
+    image: "/stories/aqeedah/the-prayer.jpg",
     chapter: "worship",
     icon: "🛡️",
     title: "الصلاة",
@@ -865,6 +886,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "supplication",
+    image: "/stories/aqeedah/supplication.jpg",
     chapter: "worship",
     icon: "✨",
     title: "الدعاء",
@@ -906,6 +928,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "the-quran",
+    image: "/stories/aqeedah/the-quran.jpg",
     chapter: "worship",
     icon: "🕊️",
     title: "القرآن",
@@ -947,6 +970,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "remembrance",
+    image: "/stories/aqeedah/remembrance.jpg",
     chapter: "worship",
     icon: "🕊️",
     title: "الذكر",
@@ -988,6 +1012,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "fasting",
+    image: "/stories/aqeedah/fasting.jpg",
     chapter: "worship",
     icon: "🛡️",
     title: "الصيام",
@@ -1029,6 +1054,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "gratitude",
+    image: "/stories/aqeedah/gratitude.jpg",
     chapter: "worship",
     icon: "🕊️",
     title: "الشكر",
@@ -1070,6 +1096,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "truthfulness",
+    image: "/stories/aqeedah/truthfulness.jpg",
     chapter: "faith-in-action",
     icon: "🛡️",
     title: "الصدق",
@@ -1111,6 +1138,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "trustworthiness",
+    image: "/stories/aqeedah/trustworthiness.jpg",
     chapter: "faith-in-action",
     icon: "🛡️",
     title: "الأمانة",
@@ -1152,6 +1180,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "good-character",
+    image: "/stories/aqeedah/good-character.jpg",
     chapter: "faith-in-action",
     icon: "🕊️",
     title: "حسن الخلق",
@@ -1193,6 +1222,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "mercy",
+    image: "/stories/aqeedah/mercy.jpg",
     chapter: "faith-in-action",
     icon: "🕊️",
     title: "الرحمة",
@@ -1234,6 +1264,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "honouring-parents",
+    image: "/stories/aqeedah/honouring-parents.jpg",
     chapter: "faith-in-action",
     icon: "🕊️",
     title: "بر الوالدين",
@@ -1275,6 +1306,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "helping-others",
+    image: "/stories/aqeedah/helping-others.jpg",
     chapter: "faith-in-action",
     icon: "🕊️",
     title: "مساعدة الآخرين",
@@ -1316,6 +1348,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "forgiveness",
+    image: "/stories/aqeedah/forgiveness.jpg",
     chapter: "faith-in-action",
     icon: "🕊️",
     title: "العفو",
@@ -1357,6 +1390,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "kindness-to-animals",
+    image: "/stories/aqeedah/kindness-to-animals.jpg",
     chapter: "faith-in-action",
     icon: "🕊️",
     title: "الرفق بالحيوان",
@@ -1398,6 +1432,7 @@ export const aqeedahCards: AqeedahCard[] = [
   },
   {
     slug: "my-map-of-faith",
+    image: "/stories/aqeedah/my-map-of-faith.jpg",
     chapter: "closing",
     icon: "✨",
     title: "خريطتي الإيمانية",

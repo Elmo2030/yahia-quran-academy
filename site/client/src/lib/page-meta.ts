@@ -268,7 +268,7 @@ export const metaForPath = (pathname: string): Meta => {
         path,
         title: `${card.title} · العقيدة`,
         description: card.value,
-        image: DEFAULT_IMAGE,
+        image: card.image ?? DEFAULT_IMAGE,
         i18n: card.titleEn ? { en: { title: `${card.titleEn} · Creed`, description: card.valueEn ?? card.value } } : undefined,
       };
     }

@@ -206,7 +206,7 @@ type Story = { chapter: string; slug: string; title: string; hook: string; title
 type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
-type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null };
+type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
 export const chapterIndex: Chapter[] = ${JSON.stringify(chapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, descriptionAr: c.descriptionAr,
   titleEn: c.titleEn ?? null, descriptionEn: c.descriptionEn ?? null,
@@ -239,6 +239,7 @@ export const aqeedahChapterIndex: AqeedahChapter[] = ${JSON.stringify(aqeedahCha
 export const aqeedahCardIndex: AqeedahCard[] = ${JSON.stringify(aqeedahCards.map(c => ({
   slug: c.slug, chapter: c.chapter, title: c.title, value: clip(c.value),
   titleEn: c.en?.title ?? null, valueEn: c.en ? clip(c.en.value) : null,
+  image: c.image ?? null,
 })), null, 1)};
 `);
 
@@ -256,7 +257,7 @@ writeFileSync(join(root, "functions/page-data.js"),
 `export const seerahStations = ${JSON.stringify(seerahStations)};\n` +
 `export const aqeedahChapters = ${JSON.stringify(aqeedahChapters, null, 1)};\n` +
 `export const aqeedahCards = ${JSON.stringify(aqeedahCards.map(c => ({
-  slug: c.slug, chapter: c.chapter, title: c.title, value: clip(c.value),
+  slug: c.slug, chapter: c.chapter, title: c.title, value: clip(c.value), image: c.image ?? null,
 })), null, 1)};\n` +
 `export const seerahStories = ${JSON.stringify(seerahStories.map(s => ({
   stationId: s.stationId, slug: s.slug, title: s.title, image: s.image ?? null,

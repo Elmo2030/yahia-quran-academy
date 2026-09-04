@@ -130,7 +130,7 @@ function metaForPath(pathname: string) {
     }
     const card = aqeedahCards.find((c: any) => c.slug === parts[1]);
     return card
-      ? { ...base, path, title: `${card.title} · العقيدة`, description: card.value }
+      ? { ...base, path, image: card.image ?? DEFAULT_IMAGE, title: `${card.title} · العقيدة`, description: card.value }
       : notFound(path);
   }
 
@@ -142,7 +142,7 @@ function metaForPath(pathname: string) {
     }
     const story = seerahStories.find((entry: any) => entry.slug === parts[1]);
     if (story) {
-      return { ...base, path,
+      return { ...base, path, image: story.image ?? DEFAULT_IMAGE,
         title: `${story.title} · السيرة النبوية`,
         description: story.narrative };
     }

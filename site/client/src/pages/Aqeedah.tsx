@@ -18,6 +18,8 @@ import { BadgeAward } from "@/components/BadgeAward";
 import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
+import { StoryPicture } from "@/components/StoryPicture";
+import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 import { useLocale } from "@/contexts/LocaleContext";
 import {
   aqeedahCards, aqeedahChapters, aqeedahChapterOf, aqeedahTextFor,
@@ -143,6 +145,11 @@ function CardView({ card }: { card: AqeedahCard }) {
           <span className="eyebrow eyebrow--gold">{locale === "en" ? chapter.titleEn : chapter.titleAr}</span>
           <h1>{text.title}</h1>
           <p>{text.value}</p>
+          {card.image && (
+            <figure className="aqeedah-hero-art">
+              <StoryPicture src={card.image} sizes={COVER_SIZES} width={1600} height={900} eager />
+            </figure>
+          )}
         </div>
       </section>
 
@@ -276,9 +283,13 @@ export default function Aqeedah() {
                   return (
                     <li key={item.slug}>
                       <Link href={`/aqeedah/${item.slug}`} className="aqeedah-card">
-                        <span className="aqeedah-card__icon" aria-hidden="true">{item.icon}</span>
-                        <b>{text.title}</b>
-                        <small>{text.value}</small>
+                        {item.image
+                          ? <StoryPicture src={item.image} sizes={CARD_SIZES} width={1600} height={900} className="aqeedah-card__art" />
+                          : <span className="aqeedah-card__icon" aria-hidden="true">{item.icon}</span>}
+                        <div className="aqeedah-card__body">
+                          <b>{text.title}</b>
+                          <small>{text.value}</small>
+                        </div>
                       </Link>
                     </li>
                   );

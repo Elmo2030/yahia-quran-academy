@@ -47,6 +47,230 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960
  ],
+ "/stories/aqeedah/allah-created-me.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/allah-is-merciful.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/allah-is-one.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/allah-provides.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/allah-sees-and-hears.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/belief-in-allah.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/belief-in-destiny.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/fasting.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/following-the-prophet.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/forgiveness.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/good-character.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/gratitude.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/helping-others.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/honouring-parents.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/i-love-and-worship-allah.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/kindness-to-animals.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/knowing-my-lord.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/mercy.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/my-map-of-faith.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/remembrance.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/supplication.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/the-angels.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/the-books.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/the-last-day.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/the-messengers.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/the-prayer.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/the-quran.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/trustworthiness.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/truthfulness.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/who-is-muhammad.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/why-prophets-were-sent.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/aqeedah/why-we-love-the-prophet.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
  "/stories/asiya.jpg": [
   384,
   640,

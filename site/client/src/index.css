@@ -806,9 +806,16 @@
 /* The creed section: a grid of cards, each one idea. */
 .aqeedah-ages { color: var(--on-dark-soft); font-size: .8rem; margin-top: .4rem; }
 .aqeedah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
-.aqeedah-card { display: grid; gap: .35rem; block-size: 100%; padding: 1.1rem 1.2rem; border: 1px solid var(--line); border-radius: 20px; background: var(--page); box-shadow: 0 10px 24px rgb(var(--shadow-rgb) / 7%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
+.aqeedah-card { display: grid; grid-template-rows: auto 1fr; gap: 0; block-size: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--page); box-shadow: 0 10px 24px rgb(var(--shadow-rgb) / 7%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
+.aqeedah-card__body { display: grid; gap: .35rem; align-content: start; padding: 1.1rem 1.2rem; }
+.aqeedah-card__art, .aqeedah-card picture { display: block; }
+.aqeedah-card picture img, .aqeedah-card > img { display: block; inline-size: 100%; block-size: auto; aspect-ratio: 16/9; object-fit: cover; transition: transform .3s ease; }
+.aqeedah-card:hover picture img { transform: scale(1.035); }
+.aqeedah-card .aqeedah-card__icon { padding: 1.1rem 1.2rem 0; }
 .aqeedah-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgb(var(--shadow-rgb) / 12%); }
 .aqeedah-card__icon { font-size: 1.5rem; line-height: 1; }
+.aqeedah-hero-art { margin: 1.5rem 0 0; overflow: hidden; border: 7px solid rgb(var(--sheen-rgb) / 66%); border-radius: 26px; box-shadow: 0 18px 40px rgb(var(--shadow-rgb) / 12%); }
+.aqeedah-hero-art img { display: block; inline-size: 100%; block-size: auto; aspect-ratio: 16/9; object-fit: cover; }
 .aqeedah-card b { color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; font-weight: 800; line-height: 1.6; }
 .aqeedah-card small { color: var(--ink-soft); font-size: .82rem; line-height: 1.8; }
 

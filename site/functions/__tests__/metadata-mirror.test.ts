@@ -51,6 +51,7 @@ async function fromTheFunction(path: string) {
     title: unescape(grab(/<title data-default>([^<]*)<\/title>/)),
     description: unescape(grab(/name="description" content="([^"]*)"/)),
     noindex: /name="robots" content="noindex/.test(html),
+    image: unescape(grab(/property="og:image" content="([^"]*)"/)),
   };
 }
 
@@ -88,6 +89,9 @@ describe("the app and the crawler are told the same thing", () => {
       expect(theirs.title, `${path} title`).toBe(ours.title);
       expect(theirs.description, `${path} description`).toBe(ours.description);
       expect(theirs.noindex, `${path} robots`).toBe(!!ours.noindex);
+      // The share picture is chosen twice as well, and per-page art was added
+      // to the creed cards long after the two copies were written.
+      expect(theirs.image, `${path} share image`).toBe(`https://yahyaquran.com${ours.image}`);
     });
   }
 });

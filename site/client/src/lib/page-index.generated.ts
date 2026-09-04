@@ -6,7 +6,7 @@ type Story = { chapter: string; slug: string; title: string; hook: string; title
 type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
-type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null };
+type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
 export const chapterIndex: Chapter[] = [
  {
   "slug": "animals",
@@ -1153,7 +1153,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "رحلة: أعرف ربي",
   "value": "كلّما عرفتُ ربّي أكثر، أحببتُه أكثر.",
   "titleEn": "A Journey: Knowing My Lord",
-  "valueEn": "The more I know my Lord, the more I love Him."
+  "valueEn": "The more I know my Lord, the more I love Him.",
+  "image": "/stories/aqeedah/knowing-my-lord.jpg"
  },
  {
   "slug": "allah-created-me",
@@ -1161,7 +1162,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الله خلقني",
   "value": "أنا نعمة من نِعَم الله، فأشكره وأتأمّل صنعه.",
   "titleEn": "Allah Created Me",
-  "valueEn": "I am one of Allah's blessings, so I thank Him and think about what He made."
+  "valueEn": "I am one of Allah's blessings, so I thank Him and think about what He made.",
+  "image": "/stories/aqeedah/allah-created-me.jpg"
  },
  {
   "slug": "allah-is-one",
@@ -1169,7 +1171,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الله واحد",
   "value": "أعبد الله وحده، ولا أجعل له شريكًا.",
   "titleEn": "Allah Is One",
-  "valueEn": "I worship Allah alone, and I set up no partner beside Him."
+  "valueEn": "I worship Allah alone, and I set up no partner beside Him.",
+  "image": "/stories/aqeedah/allah-is-one.jpg"
  },
  {
   "slug": "allah-sees-and-hears",
@@ -1177,7 +1180,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الله يراني ويسمعني ويعلم كل شيء",
   "value": "أراقب الله في سرّي وعلانيتي.",
   "titleEn": "Allah Sees Me, Hears Me, and Knows Everything",
-  "valueEn": "I am mindful of Allah in private and in public."
+  "valueEn": "I am mindful of Allah in private and in public.",
+  "image": "/stories/aqeedah/allah-sees-and-hears.jpg"
  },
  {
   "slug": "allah-provides",
@@ -1185,7 +1189,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الله يرزقني وينعم عليّ",
   "value": "أعرف نعمة الله، فأشكره ولا أبطر.",
   "titleEn": "Allah Provides for Me and Blesses Me",
-  "valueEn": "I know Allah's blessing, so I thank Him and never grow careless with it."
+  "valueEn": "I know Allah's blessing, so I thank Him and never grow careless with it.",
+  "image": "/stories/aqeedah/allah-provides.jpg"
  },
  {
   "slug": "allah-is-merciful",
@@ -1193,7 +1198,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الله رحيم ويحب المحسنين",
   "value": "أرجو رحمة الله، وأحسن إلى خلقه.",
   "titleEn": "Allah Is Merciful and Loves Those Who Do Good",
-  "valueEn": "I hope for Allah's mercy, and I do good to His creation."
+  "valueEn": "I hope for Allah's mercy, and I do good to His creation.",
+  "image": "/stories/aqeedah/allah-is-merciful.jpg"
  },
  {
   "slug": "i-love-and-worship-allah",
@@ -1201,7 +1207,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "أنا أحب الله وأعبده",
   "value": "أحب الله، فأطيعه وأفعل ما يحب.",
   "titleEn": "I Love Allah and Worship Him",
-  "valueEn": "I love Allah, so I obey Him and do what He loves."
+  "valueEn": "I love Allah, so I obey Him and do what He loves.",
+  "image": "/stories/aqeedah/i-love-and-worship-allah.jpg"
  },
  {
   "slug": "belief-in-allah",
@@ -1209,7 +1216,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "أؤمن بالله",
   "value": "أؤمن بالله وحده، وأطمئن أنه ربي وخالقي.",
   "titleEn": "I Believe in Allah",
-  "valueEn": "I believe in Allah alone, and I am at peace that He is my Lord and my Creator."
+  "valueEn": "I believe in Allah alone, and I am at peace that He is my Lord and my Creator.",
+  "image": "/stories/aqeedah/belief-in-allah.jpg"
  },
  {
   "slug": "the-angels",
@@ -1217,7 +1225,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "عالم الملائكة",
   "value": "أؤمن بالملائكة، وأحب الطاعة مثلما يحبها عباد الله المكرمون.",
   "titleEn": "The World of the Angels",
-  "valueEn": "I believe in the angels, and I love obedience the way Allah's honoured servants love it."
+  "valueEn": "I believe in the angels, and I love obedience the way Allah's honoured servants love it.",
+  "image": "/stories/aqeedah/the-angels.jpg"
  },
  {
   "slug": "the-books",
@@ -1225,7 +1234,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "كتب الله",
   "value": "أؤمن بكتب الله، وأتمسّك بالقرآن المحفوظ.",
   "titleEn": "The Books of Allah",
-  "valueEn": "I believe in Allah's books, and I hold to the Quran, which He preserved."
+  "valueEn": "I believe in Allah's books, and I hold to the Quran, which He preserved.",
+  "image": "/stories/aqeedah/the-books.jpg"
  },
  {
   "slug": "the-messengers",
@@ -1233,7 +1243,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "رسل الله",
   "value": "أؤمن برسل الله جميعًا، وأعلم أنهم دعوا إلى عبادة الله.",
   "titleEn": "The Messengers of Allah",
-  "valueEn": "I believe in all of Allah's messengers, and I know they called people to worship Allah."
+  "valueEn": "I believe in all of Allah's messengers, and I know they called people to worship Allah.",
+  "image": "/stories/aqeedah/the-messengers.jpg"
  },
  {
   "slug": "the-last-day",
@@ -1241,7 +1252,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "ماذا بعد الموت؟",
   "value": "أعمل الخير اليوم، وأرجو لقاء الله برحمته.",
   "titleEn": "What Comes After Death?",
-  "valueEn": "I do good today, and I hope to meet Allah with His mercy."
+  "valueEn": "I do good today, and I hope to meet Allah with His mercy.",
+  "image": "/stories/aqeedah/the-last-day.jpg"
  },
  {
   "slug": "belief-in-destiny",
@@ -1249,7 +1261,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "كل شيء بحساب (الإيمان بالقدر)",
   "value": "أجتهد وأختار الخير، وأتوكل على الله بحكمة وصبر.",
   "titleEn": "Everything by Measure: Believing in the Decree",
-  "valueEn": "I strive and choose what is good, and I trust Allah with wisdom and patience."
+  "valueEn": "I strive and choose what is good, and I trust Allah with wisdom and patience.",
+  "image": "/stories/aqeedah/belief-in-destiny.jpg"
  },
  {
   "slug": "why-prophets-were-sent",
@@ -1257,7 +1270,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "لماذا أرسل الله الأنبياء؟",
   "value": "أحمد الله أن أرسل الرسل ليعلّمونا الطريق إليه.",
   "titleEn": "Why Did Allah Send the Prophets?",
-  "valueEn": "I praise Allah for sending the messengers to teach us the way to Him."
+  "valueEn": "I praise Allah for sending the messengers to teach us the way to Him.",
+  "image": "/stories/aqeedah/why-prophets-were-sent.jpg"
  },
  {
   "slug": "who-is-muhammad",
@@ -1265,7 +1279,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "من هو محمد ﷺ؟",
   "value": "أؤمن أن محمدًا ﷺ رسول الله وخاتم النبيين.",
   "titleEn": "Who Is Muhammad ﷺ?",
-  "valueEn": "I believe that Muhammad ﷺ is the Messenger of Allah and the last of the prophets."
+  "valueEn": "I believe that Muhammad ﷺ is the Messenger of Allah and the last of the prophets.",
+  "image": "/stories/aqeedah/who-is-muhammad.jpg"
  },
  {
   "slug": "why-we-love-the-prophet",
@@ -1273,7 +1288,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "لماذا نحب النبي ﷺ؟",
   "value": "أحب النبي ﷺ لأنه رسول الله وعلّمني الخير.",
   "titleEn": "Why Do We Love the Prophet ﷺ?",
-  "valueEn": "I love the Prophet ﷺ because he is Allah's Messenger and he taught me what is good."
+  "valueEn": "I love the Prophet ﷺ because he is Allah's Messenger and he taught me what is good.",
+  "image": "/stories/aqeedah/why-we-love-the-prophet.jpg"
  },
  {
   "slug": "following-the-prophet",
@@ -1281,7 +1297,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "كيف نقتدي بالنبي ﷺ؟",
   "value": "أقتدي بالنبي ﷺ في صدقي ورحمتي وحسن خلقي.",
   "titleEn": "How Do We Follow the Prophet ﷺ?",
-  "valueEn": "I follow the Prophet ﷺ in my honesty, my mercy and my character."
+  "valueEn": "I follow the Prophet ﷺ in my honesty, my mercy and my character.",
+  "image": "/stories/aqeedah/following-the-prophet.jpg"
  },
  {
   "slug": "the-prayer",
@@ -1289,7 +1306,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الصلاة",
   "value": "أحافظ على صلاتي لأنها صلتي بربي.",
   "titleEn": "The Prayer",
-  "valueEn": "I keep my prayer, because it is my link to my Lord."
+  "valueEn": "I keep my prayer, because it is my link to my Lord.",
+  "image": "/stories/aqeedah/the-prayer.jpg"
  },
  {
   "slug": "supplication",
@@ -1297,7 +1315,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الدعاء",
   "value": "أدعو الله بقلب صادق في كل وقت.",
   "titleEn": "Supplication",
-  "valueEn": "I call on Allah with a sincere heart, at any time."
+  "valueEn": "I call on Allah with a sincere heart, at any time.",
+  "image": "/stories/aqeedah/supplication.jpg"
  },
  {
   "slug": "the-quran",
@@ -1305,7 +1324,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "القرآن",
   "value": "أحب القرآن، وأقرأه باحترام لأهتدي به.",
   "titleEn": "The Quran",
-  "valueEn": "I love the Quran and read it with respect, to be guided by it."
+  "valueEn": "I love the Quran and read it with respect, to be guided by it.",
+  "image": "/stories/aqeedah/the-quran.jpg"
  },
  {
   "slug": "remembrance",
@@ -1313,7 +1333,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الذكر",
   "value": "أذكر الله بلساني وقلبي، فيطمئن قلبي.",
   "titleEn": "Remembrance",
-  "valueEn": "I remember Allah with my tongue and my heart, and my heart settles."
+  "valueEn": "I remember Allah with my tongue and my heart, and my heart settles.",
+  "image": "/stories/aqeedah/remembrance.jpg"
  },
  {
   "slug": "fasting",
@@ -1321,7 +1342,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الصيام",
   "value": "أتعلّم من الصيام الصبر والشكر ومساعدة الآخرين.",
   "titleEn": "Fasting",
-  "valueEn": "From fasting I learn patience, gratitude and helping others."
+  "valueEn": "From fasting I learn patience, gratitude and helping others.",
+  "image": "/stories/aqeedah/fasting.jpg"
  },
  {
   "slug": "gratitude",
@@ -1329,7 +1351,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الشكر",
   "value": "أشكر الله بالكلام والعمل، وأستخدم نعمه في الخير.",
   "titleEn": "Gratitude",
-  "valueEn": "I thank Allah in word and in deed, and use His blessings for good."
+  "valueEn": "I thank Allah in word and in deed, and use His blessings for good.",
+  "image": "/stories/aqeedah/gratitude.jpg"
  },
  {
   "slug": "truthfulness",
@@ -1337,7 +1360,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الصدق",
   "value": "أقول الحقيقة لأن الله يحب الصادقين.",
   "titleEn": "Truthfulness",
-  "valueEn": "I tell the truth, because Allah loves those who are truthful."
+  "valueEn": "I tell the truth, because Allah loves those who are truthful.",
+  "image": "/stories/aqeedah/truthfulness.jpg"
  },
  {
   "slug": "trustworthiness",
@@ -1345,7 +1369,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الأمانة",
   "value": "أحفظ الأمانة، فالله يعلم ما أفعل.",
   "titleEn": "Trustworthiness",
-  "valueEn": "I keep what is entrusted to me, because Allah knows what I do."
+  "valueEn": "I keep what is entrusted to me, because Allah knows what I do.",
+  "image": "/stories/aqeedah/trustworthiness.jpg"
  },
  {
   "slug": "good-character",
@@ -1353,7 +1378,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "حسن الخلق",
   "value": "أتكلم بلطف، وأجعل خلقي دليلًا على إيماني.",
   "titleEn": "Good Character",
-  "valueEn": "I speak gently, and I let my character be the proof of my faith."
+  "valueEn": "I speak gently, and I let my character be the proof of my faith.",
+  "image": "/stories/aqeedah/good-character.jpg"
  },
  {
   "slug": "mercy",
@@ -1361,7 +1387,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الرحمة",
   "value": "أرحم من حولي، وأحب أن أكون من أهل المرحمة.",
   "titleEn": "Mercy",
-  "valueEn": "I am merciful to those around me, and I want to be among the people of mercy."
+  "valueEn": "I am merciful to those around me, and I want to be among the people of mercy.",
+  "image": "/stories/aqeedah/mercy.jpg"
  },
  {
   "slug": "honouring-parents",
@@ -1369,7 +1396,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "بر الوالدين",
   "value": "أبرّ والديّ بالكلمة الطيبة والمساعدة والطاعة في الخير.",
   "titleEn": "Honouring Your Parents",
-  "valueEn": "I honour my parents with a kind word, with help, and by obeying them in what is good."
+  "valueEn": "I honour my parents with a kind word, with help, and by obeying them in what is good.",
+  "image": "/stories/aqeedah/honouring-parents.jpg"
  },
  {
   "slug": "helping-others",
@@ -1377,7 +1405,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "مساعدة الآخرين",
   "value": "أساعد غيري ابتغاء رضا الله، وأفرح بالخير.",
   "titleEn": "Helping Others",
-  "valueEn": "I help others seeking Allah's pleasure, and I am glad when good is done."
+  "valueEn": "I help others seeking Allah's pleasure, and I am glad when good is done.",
+  "image": "/stories/aqeedah/helping-others.jpg"
  },
  {
   "slug": "forgiveness",
@@ -1385,7 +1414,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "العفو",
   "value": "أعفو عندما أقدر، وأطلب الإصلاح لا الانتقام.",
   "titleEn": "Forgiveness",
-  "valueEn": "I forgive when I am able, and I ask for things to be put right rather than for revenge."
+  "valueEn": "I forgive when I am able, and I ask for things to be put right rather than for revenge.",
+  "image": "/stories/aqeedah/forgiveness.jpg"
  },
  {
   "slug": "kindness-to-animals",
@@ -1393,7 +1423,8 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "الرفق بالحيوان",
   "value": "أرفق بالحيوان لأنه خلق من خلق الله.",
   "titleEn": "Kindness to Animals",
-  "valueEn": "I am gentle with animals, because they are Allah's creation."
+  "valueEn": "I am gentle with animals, because they are Allah's creation.",
+  "image": "/stories/aqeedah/kindness-to-animals.jpg"
  },
  {
   "slug": "my-map-of-faith",
@@ -1401,6 +1432,7 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "title": "خريطتي الإيمانية",
   "value": "عرفتُ ربّي، فأحببتُه، فأطعتُه، فظهر ذلك في أفعالي.",
   "titleEn": "My Map of Faith",
-  "valueEn": "I knew my Lord, so I loved Him, so I obeyed Him — and it showed in what I do."
+  "valueEn": "I knew my Lord, so I loved Him, so I obeyed Him — and it showed in what I do.",
+  "image": "/stories/aqeedah/my-map-of-faith.jpg"
  }
 ];
