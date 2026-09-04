@@ -120,6 +120,8 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [The Night Journey and the Ascension](https://yahyaquran.com/seerah#station-5): 15 stories. Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.
 - [The Migration to Madinah](https://yahyaquran.com/seerah#station-6): 15 stories. Fifteen stories from the migration: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr’s tears, Asma’s belt and Amir’s flock, then Cave Thawr and the tranquillity, the expert guide, Umm Ma’bad’s tent, Suraqah’s horse, Buraydah’s banner, the mosque of Quba, the house of Abu Ayyub, and the day Yathrib became the city of light.
 - [Defending the Homeland](https://yahyaquran.com/seerah#station-7): 15 stories. Fifteen stories from the years of defending Madinah: the permission after thirteen years of patience, Badr with its counsel and its angels, captives who became teachers, the lesson of Uhud, Salman's trench, the wind that scattered the Confederates, the treaty of Hudaybiyyah, the letters to kings, Khaybar, and finally the conquest of Mecca — the day of mercy and the general pardon.
+- [The Year of Delegations, and a State at Peace](https://yahyaquran.com/seerah#station-8): 15 stories. Fifteen stories from the settled years: the lesson of Hunayn about pride in numbers, the Army of Hardship and those who wept at having nothing to give, Tabuk that ended in treaties rather than battle, then the Year of Delegations, the talks with Najran and the counsel to Mu'adh — and the charter of the community: the people of the Bench, kindness to animals, honesty in the market, and the mosque as a school for everyone.
+- [The Farewell Pilgrimage, and the End of the Message](https://yahyaquran.com/seerah#station-9): 15 stories. Fifteen stories from the last year: a march to Mecca in two white cloths, the standing at Arafat, and a sermon saying no Arab is above a non-Arab except by piety — then farewell to the martyrs, a commander of eighteen, an illness in which fairness was still kept, the last prayer, the last glance, the last testament, and what remained after him.
 
 
 ### Beginnings — Seeds of Light
@@ -205,6 +207,40 @@ stage unlocks on its own — a parent judges the child's recitation.
 - [Ten Thousand Fires in One Night — عشرة آلاف نار في ليلة واحدة](https://yahyaquran.com/seerah/makkah-march-ten-thousand-fires): سيرة ابن هشام
 - [Today Is a Day of Mercy — اليوم يوم المرحمة](https://yahyaquran.com/seerah/day-of-mercy-entry): صحيح البخاري ومسلم
 - [Go — You Are Free — اذهبوا فأنتم الطلقاء](https://yahyaquran.com/seerah/go-you-are-free): سيرة ابن هشام، والسنن الكبرى للبيهقي
+
+### The Year of Delegations, and a State at Peace
+- [The Lesson of Hunayn: Pride in Numbers — درس حُنين والغرور بالعدد](https://yahyaquran.com/seerah/hunayn-pride-in-numbers): القرآن الكريم، سورة التوبة: ٢٥، وصحيح البخاري
+- [The Leader Who Did Not Move — ثبات القائد في قلب الميدان](https://yahyaquran.com/seerah/steadfast-leader-hunayn): صحيح البخاري ومسلم
+- [The Army of Hardship, and a Race to Give — جيش العُسرة وتنافس الكرماء](https://yahyaquran.com/seerah/army-of-hardship-tabuk): سنن أبي داود والترمذي، والقرآن الكريم، سورة التوبة: ١١٧
+- [Those Who Wept, and the Man Saved by Telling the Truth — البكّاؤون ونجاة الصادقين](https://yahyaquran.com/seerah/weepers-and-true-repentance): صحيح البخاري ومسلم، والقرآن الكريم، سورة التوبة: ٩٢ و١١٨
+- [The Camp at Tabuk: A Victory With No Blood — معسكر تبوك: نصرٌ بلا دماء](https://yahyaquran.com/seerah/tabuk-peace-without-bloodshed): سيرة ابن هشام، والصحيحان في أصل الغزوة
+- [The Year of Delegations: Arabia Meets at the Mosque — عام الوفود: الجزيرة تلتقي في المسجد](https://yahyaquran.com/seerah/year-of-delegations-tamim): سيرة ابن هشام، والقرآن الكريم، سورة النصر
+- [The Delegation of Najran: Guests in the Mosque — وفد نجران: ضيوف في المسجد](https://yahyaquran.com/seerah/delegation-of-najran-dialogue): سيرة ابن هشام، وصحيح البخاري في فضل أبي عبيدة
+- [The Envoy to Yemen: Make It Easy — سفير اليمن: يسّرا ولا تعسّرا](https://yahyaquran.com/seerah/muadh-ambassador-to-yemen): صحيح البخاري ومسلم
+- [Dhimad and Ka'b: The Power of a Word — ضِماد وكعب: قوة الكلمة](https://yahyaquran.com/seerah/dhimad-and-kab-poetry): صحيح مسلم، وسيرة ابن هشام
+- [Stones Fall, Minds Are Freed — حجارة تسقط وعقول تتحرّر](https://yahyaquran.com/seerah/breaking-idols-building-hearts): سيرة ابن هشام، والقرآن الكريم، سورة الأعراف: ١٩٤
+- [The People of the Bench: The Poorest and the Closest — أهل الصُّفَّة: أفقر الناس وأقربهم](https://yahyaquran.com/seerah/mercy-to-the-weak-suffah): صحيح البخاري
+- [The Bird Whose Chicks Were Taken — العصفورة التي فُجعت بولدها](https://yahyaquran.com/seerah/kindness-to-animals-nature): سنن أبي داود، وصحيح البخاري في «كل كبد رطبة»
+- [A Hand in the Grain: Whoever Cheats Is Not of Us — يد في الطعام: من غشّ فليس منّا](https://yahyaquran.com/seerah/honest-merchant-market-ethics): صحيح مسلم
+- [The Mosque as a School — and a Day for the Women — المسجد مدرسة: ويوم للنساء](https://yahyaquran.com/seerah/mosque-school-and-knowledge): صحيح البخاري ومسلم
+- [Madinah at Peace: From Sana'a to Hadramawt — المدينة تطمئنّ: من صنعاء إلى حضرموت](https://yahyaquran.com/seerah/madinah-capital-of-light): صحيح البخاري
+
+### The Farewell Pilgrimage, and the End of the Message
+- [The Great Call: A March to Mecca — النداء الأكبر: مسيرة إلى مكة](https://yahyaquran.com/seerah/grand-call-to-hajj): صحيح مسلم، حديث جابر رضي الله عنه في صفة الحجّ
+- [Arafat: A Sea of White — عرفات: بحر من البياض](https://yahyaquran.com/seerah/arafat-unity-and-equality): سنن الترمذي وصحيح مسلم في صفة الحجّ
+- [The Farewell Sermon: No Arab Is Above a Non-Arab — خطبة الوداع: لا فضل لعربيّ على أعجميّ](https://yahyaquran.com/seerah/farewell-sermon-human-rights): صحيح البخاري ومسلم، ومسند أحمد
+- [Take Good Care of the Women — استوصوا بالنساء خيراً](https://yahyaquran.com/seerah/testament-of-women-rights): صحيح البخاري ومسلم
+- [Have I Delivered It? And the Tears of Abu Bakr — ألا هل بلّغت؟ وبكاء الصدّيق](https://yahyaquran.com/seerah/completion-of-faith-farewell): صحيح مسلم، وصحيح البخاري في نزول الآية
+- [Farewell to the Martyrs, and a Word from the Pulpit — وداع الشهداء وخُطبة المنبر](https://yahyaquran.com/seerah/signs-of-farewell-uhud-cemetery): صحيح البخاري ومسلم
+- [Usamah: A Commander at Eighteen — أسامة: قائد في الثامنة عشرة](https://yahyaquran.com/seerah/usama-young-army-commander): صحيح البخاري ومسلم
+- [The Illness Begins: Where Am I Tomorrow? — بداية المرض: أين أنا غداً؟](https://yahyaquran.com/seerah/fever-and-aisha-chamber): صحيح البخاري
+- [Tell Abu Bakr to Lead the Prayer — مُروا أبا بكر فليصلِّ بالناس](https://yahyaquran.com/seerah/abu-bakr-leads-prayer): صحيح البخاري ومسلم
+- [The Last Prayer He Prayed Among Them — آخر صلاة صلّاها بينهم](https://yahyaquran.com/seerah/last-prayer-behind-abu-bakr): صحيح البخاري
+- [The Curtain Lifts, and the Smile — الستارة تُرفع.. والابتسامة](https://yahyaquran.com/seerah/final-glance-and-smile): صحيح البخاري
+- [The Prayer, the Prayer — and Those in Your Care — الصلاةَ الصلاةَ.. وما ملكت أيمانكم](https://yahyaquran.com/seerah/last-testament-prayer-and-weak): سنن أبي داود ومسند أحمد، وصحيح البخاري في «سكرات الموت»
+- [Rather, the Highest Companion — بل الرفيق الأعلى](https://yahyaquran.com/seerah/to-the-highest-companion): صحيح البخاري
+- [Madinah Shakes, and Abu Bakr Holds — زلزال المدينة وثبات الصدّيق](https://yahyaquran.com/seerah/city-earthquake-abu-bakr-speech): صحيح البخاري
+- [What Remained After Him: The Light Did Not Go Out — ما بقي بعده: النور لا ينطفئ](https://yahyaquran.com/seerah/eternal-legacy-living-sunnah): صحيح البخاري
 
 ## In the Realm of the Quran
 - [Discover the Quran](https://yahyaquran.com/quran-facts): one hundred short facts about the Quran

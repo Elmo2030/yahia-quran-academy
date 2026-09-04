@@ -458,6 +458,16 @@ export const seerahStationIndex: Station[] = [
   "stationId": 7,
   "titleAr": "الدفاع عن الوطن",
   "titleEn": "Defending the Homeland"
+ },
+ {
+  "stationId": 8,
+  "titleAr": "عام الوفود ودولة السلام",
+  "titleEn": "The Year of Delegations, and a State at Peace"
+ },
+ {
+  "stationId": 9,
+  "titleAr": "حجّة الوداع وختام الرسالة",
+  "titleEn": "The Farewell Pilgrimage, and the End of the Message"
  }
 ];
 
@@ -1090,6 +1100,276 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "خرج أهل المدينة كلهم يستقبلونه: الرجال والنساء والصبيان، حتى صعد الصبيان على البيوت. وكان يوماً ما رأوا مثله فرحاً. وتذكر كتب السيرة أن الجواري كنّ ينشدن: طلع البدر علينا. ومن…",
   "titleEn": "Yathrib Becomes the City of Light",
   "descriptionEn": "The whole city came out to meet him: men, women and children, and the children climbed onto the roofs. It was a day of joy such as they had never seen. The Seerah books mention…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "hunayn-pride-in-numbers",
+  "title": "درس حُنين والغرور بالعدد",
+  "description": "بعد فتح مكة خرج المسلمون في اثني عشر ألفاً، وهو أكبر جيش خرجوا فيه. فنظر بعضهم إلى كثرتهم وقال: لن نُغلب اليوم من قلة! فلما دخلوا وادي حُنين الضيق، باغتهم الرماة من مضايق الجبل…",
+  "titleEn": "The Lesson of Hunayn: Pride in Numbers",
+  "descriptionEn": "After the conquest of Mecca the Muslims went out twelve thousand strong — the largest army they had ever gathered. Some looked at their own numbers and said: we will not be…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "steadfast-leader-hunayn",
+  "title": "ثبات القائد في قلب الميدان",
+  "description": "بينما تراجع الناس، ثبت النبي ﷺ على بغلته في المقدّمة ولم يرجع خطوة، وهو يقول: «أنا النبي لا كذب، أنا ابن عبد المطلب». وأمر عمّه العباس — وكان جهير الصوت — أن ينادي: يا أصحاب…",
+  "titleEn": "The Leader Who Did Not Move",
+  "descriptionEn": "While the men fell back, the Prophet ﷺ held his place at the front on his mule and did not take a step backwards, saying: “I am the Prophet, this is no lie; I am the son of Abd…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "army-of-hardship-tabuk",
+  "title": "جيش العُسرة وتنافس الكرماء",
+  "description": "جاء الخبر أن الروم يحشدون على حدود الشام، والوقت صيف شديد الحر والثمار قد نضجت. فدعا النبي ﷺ الناس إلى الخروج، وكان الزاد قليلاً حتى سُمّي «جيش العُسرة». فتسابق الصحابة في البذل:…",
+  "titleEn": "The Army of Hardship, and a Race to Give",
+  "descriptionEn": "Word came that the Byzantines were gathering on the Syrian frontier — in the height of summer, with the fruit ripe on the trees. The Prophet ﷺ called the people out, and supplies…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "weepers-and-true-repentance",
+  "title": "البكّاؤون ونجاة الصادقين",
+  "description": "جاء فقراء الصحابة يطلبون ما يركبونه ليخرجوا مع الجيش، فقال النبي ﷺ: «لا أجد ما أحملكم عليه»، فرجعوا وأعينهم تفيض من الدمع حزناً ألا يجدوا ما ينفقون، فسمّاهم القرآن. وتخلّف كعب بن…",
+  "titleEn": "Those Who Wept, and the Man Saved by Telling the Truth",
+  "descriptionEn": "Poor companions came asking for mounts so they could go with the army, and the Prophet ﷺ said: “I have nothing to carry you on.” They turned away with tears pouring down,…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "tabuk-peace-without-bloodshed",
+  "title": "معسكر تبوك: نصرٌ بلا دماء",
+  "description": "وصل الجيش إلى تبوك على حدود الشام وعسكر هناك. فلما رأى القوم هذا الجيش الذي قطع الصحراء في عزّ الصيف، لم يخرجوا لقتاله. فأقام النبي ﷺ أياماً، وصالح أهل المناطق الحدودية على…",
+  "titleEn": "The Camp at Tabuk: A Victory With No Blood",
+  "descriptionEn": "The army reached Tabuk on the Syrian frontier and made camp. When the people there saw an army that had crossed the desert in high summer, no one came out to fight it. The…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "year-of-delegations-tamim",
+  "title": "عام الوفود: الجزيرة تلتقي في المسجد",
+  "description": "في السنة التاسعة صارت المدينة تستقبل وفوداً من كل قبائل الجزيرة، حتى سُمّي «عام الوفود». جاء وفد بني تميم يريدون المفاخرة بالشعر والخطابة، فأمر النبي ﷺ ثابت بن قيس أن يخطب وحسّان…",
+  "titleEn": "The Year of Delegations: Arabia Meets at the Mosque",
+  "descriptionEn": "In the ninth year Madinah was receiving delegations from every tribe in Arabia — it became known as the Year of Delegations. The delegation of Banu Tamim came wanting a contest…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "delegation-of-najran-dialogue",
+  "title": "وفد نجران: ضيوف في المسجد",
+  "description": "جاء وفد من نصارى نجران باليمن إلى المدينة، فأنزلهم النبي ﷺ في مسجده وأكرمهم. ولما حانت صلاتهم قاموا يصلّون في ناحية المسجد، فأراد بعض الناس منعهم، فقال النبي ﷺ: دعوهم. وتحاوروا…",
+  "titleEn": "The Delegation of Najran: Guests in the Mosque",
+  "descriptionEn": "A delegation of the Christians of Najran in Yemen came to Madinah, and the Prophet ﷺ lodged them in his mosque and treated them generously. When the time for their prayer came…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "muadh-ambassador-to-yemen",
+  "title": "سفير اليمن: يسّرا ولا تعسّرا",
+  "description": "بعث النبي ﷺ معاذ بن جبل رضي الله عنه إلى اليمن معلّماً وقاضياً، ومشى معه يوصيه. وقال له ولأبي موسى: «يسّرا ولا تعسّرا، وبشّرا ولا تنفّرا، وتطاوعا ولا تختلفا». وحذّره من الظلم…",
+  "titleEn": "The Envoy to Yemen: Make It Easy",
+  "descriptionEn": "The Prophet ﷺ sent Mu'adh ibn Jabal to Yemen as a teacher and a judge, and walked beside him giving him counsel. He said to him and to Abu Musa: “Make things easy and do not make…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "dhimad-and-kab-poetry",
+  "title": "ضِماد وكعب: قوة الكلمة",
+  "description": "جاء ضِماد الأزدي إلى مكة وسمع الناس يقولون إن محمداً به مسّ، وكان يعالج، فعرض أن يعالجه. فسمع منه النبي ﷺ ثم قال كلمات الحمد والتوحيد، فقال ضِماد: أعد عليّ! سمعت الكهنة والسحرة…",
+  "titleEn": "Dhimad and Ka'b: The Power of a Word",
+  "descriptionEn": "Dhimad al-Azdi came to Mecca and heard people saying Muhammad was touched in the head. He treated such things, so he offered to treat him. The Prophet ﷺ listened to him, then…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "breaking-idols-building-hearts",
+  "title": "حجارة تسقط وعقول تتحرّر",
+  "description": "كانت القبائل تعبد أصناماً من حجر تطلب منها الرزق والشفاء. فلما دخلوا في الإسلام، بُعث إلى تلك الأصنام من يهدمها — وكثيراً ما كانوا من القبيلة نفسها. فرأى الناس بأعينهم أن الحجر…",
+  "titleEn": "Stones Fall, Minds Are Freed",
+  "descriptionEn": "The tribes worshipped stone idols, asking them for provision and healing. When they entered Islam, men were sent to those idols to take them down — often men from the same tribe.…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "mercy-to-the-weak-suffah",
+  "title": "أهل الصُّفَّة: أفقر الناس وأقربهم",
+  "description": "في مؤخّرة المسجد النبوي كان مكان مظلّل يُسمّى «الصُّفَّة»، ينزل فيه فقراء المهاجرين ممن لا بيت لهم ولا مال، ومنهم أبو هريرة رضي الله عنه. لم يكونوا مهملين: كانوا طلاب علم، وكان…",
+  "titleEn": "The People of the Bench: The Poorest and the Closest",
+  "descriptionEn": "At the back of the Prophet's mosque was a shaded place called the Bench, where poor migrants with no home and no money stayed — Abu Hurayrah among them. They were not neglected:…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "kindness-to-animals-nature",
+  "title": "العصفورة التي فُجعت بولدها",
+  "description": "كان النبي ﷺ في سفر فذهب لحاجته، فأخذ بعض أصحابه فرخي طائر صغير، فجاءت أمّهما ترفرف فوق رؤوسهم. فلما رجع النبي ﷺ ورأى ما صنعوا قال: «من فجع هذه بولدها؟ ردّوا ولدها إليها».",
+  "titleEn": "The Bird Whose Chicks Were Taken",
+  "descriptionEn": "The Prophet ﷺ was on a journey and stepped away, and some of his companions took the two chicks of a small bird. The mother came and hovered over their heads. When the Prophet ﷺ…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "honest-merchant-market-ethics",
+  "title": "يد في الطعام: من غشّ فليس منّا",
+  "description": "مرّ النبي ﷺ على صُبرة طعام في السوق، فأدخل يده فيها فأصابت أصابعه بللاً تحت السطح الجافّ. فقال: «ما هذا يا صاحب الطعام؟» قال: أصابته السماء يا رسول الله. قال: «أفلا جعلته فوق…",
+  "titleEn": "A Hand in the Grain: Whoever Cheats Is Not of Us",
+  "descriptionEn": "The Prophet ﷺ passed a heap of grain in the market and put his hand into it — and his fingers found damp underneath the dry surface. He said: “What is this, seller?” The man…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "mosque-school-and-knowledge",
+  "title": "المسجد مدرسة: ويوم للنساء",
+  "description": "لم يكن المسجد للصلاة وحدها: كانت تُعقد فيه حلقات يتعلّم فيها الناس. وجاءت النساء إلى النبي ﷺ فقلن: غلبنا عليك الرجال، فاجعل لنا يوماً من نفسك. فوعدهنّ يوماً، فلقيهنّ فيه وعلّمهنّ.",
+  "titleEn": "The Mosque as a School — and a Day for the Women",
+  "descriptionEn": "The mosque was not only for prayer: circles were held in it where people learned. Women came to the Prophet ﷺ and said: the men have taken all of you — give us a day of your own…",
+  "image": null
+ },
+ {
+  "stationId": 8,
+  "slug": "madinah-capital-of-light",
+  "title": "المدينة تطمئنّ: من صنعاء إلى حضرموت",
+  "description": "كان خبّاب رضي الله عنه يشكو إلى النبي ﷺ شدّة ما يلقون في مكة، فقال له: «والله ليُتمّنّ الله هذا الأمر حتى يسير الراكب من صنعاء إلى حضرموت لا يخاف إلا الله والذئب على غنمه». وبعد…",
+  "titleEn": "Madinah at Peace: From Sana'a to Hadramawt",
+  "descriptionEn": "In Mecca, Khabbab complained to the Prophet ﷺ about how hard the persecution was, and he answered: “By Allah, Allah will complete this matter until a rider goes from Sana'a to…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "grand-call-to-hajj",
+  "title": "النداء الأكبر: مسيرة إلى مكة",
+  "description": "في السنة العاشرة أعلن النبي ﷺ أنه حاجّ، فخرج الناس معه من كل ناحية حتى صاروا جموعاً لا تُحصى. أحرم من ذي الحُليفة في ثوبين أبيضين، ولبس الناس مثله، فما عاد يُعرف الغنيّ من…",
+  "titleEn": "The Great Call: A March to Mecca",
+  "descriptionEn": "In the tenth year the Prophet ﷺ announced that he would make the pilgrimage, and people came out with him from every direction until they were beyond counting. He entered the…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "arafat-unity-and-equality",
+  "title": "عرفات: بحر من البياض",
+  "description": "في التاسع من ذي الحجة وقف الحجيج على عرفات، وهو أعظم أركان الحجّ حتى قال النبي ﷺ: «الحجّ عرفة». لا تيجان ولا مراكب مزيّنة، الكلّ في ثوبين أبيضين يرفعون أيديهم بالدعاء. ووقف النبي…",
+  "titleEn": "Arafat: A Sea of White",
+  "descriptionEn": "On the ninth of Dhu al-Hijjah the pilgrims stood at Arafat — the greatest pillar of the Hajj, so much so that the Prophet ﷺ said: “The Hajj is Arafat.” No crowns, no decorated…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "farewell-sermon-human-rights",
+  "title": "خطبة الوداع: لا فضل لعربيّ على أعجميّ",
+  "description": "خطب النبي ﷺ في الناس فقال: «إن دماءكم وأموالكم وأعراضكم عليكم حرام كحرمة يومكم هذا في شهركم هذا في بلدكم هذا». وقال: «إن ربّكم واحد وإن أباكم واحد، لا فضل لعربيّ على أعجميّ ولا…",
+  "titleEn": "The Farewell Sermon: No Arab Is Above a Non-Arab",
+  "descriptionEn": "The Prophet ﷺ addressed the people: “Your blood, your property and your honour are sacred to one another, like the sanctity of this day of yours, in this month of yours, in this…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "testament-of-women-rights",
+  "title": "استوصوا بالنساء خيراً",
+  "description": "في وسط الخطبة خصّ النبي ﷺ النساء بوصية فقال: «استوصوا بالنساء خيراً»، وكرّرها. وكان في ذلك الزمان من يرث النساء كما يرث المتاع، ومن يئد ابنته وهي حيّة. فجاءت الوصية تقلب هذا كلّه.",
+  "titleEn": "Take Good Care of the Women",
+  "descriptionEn": "In the middle of the sermon the Prophet ﷺ turned to the women and said: “Take good care of the women,” and he repeated it. In that time there were people who inherited women as…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "completion-of-faith-farewell",
+  "title": "ألا هل بلّغت؟ وبكاء الصدّيق",
+  "description": "في آخر الخطبة سأل النبي ﷺ الجمع: «ألا هل بلّغت؟» فقالوا: نعم. فرفع إصبعه إلى السماء ثم نكتها إليهم وقال: «اللهم اشهد». ونزل يومئذ: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ﴾. ففرح…",
+  "titleEn": "Have I Delivered It? And the Tears of Abu Bakr",
+  "descriptionEn": "At the end of the sermon the Prophet ﷺ asked the gathering: “Have I delivered it?” They said yes. He raised his finger to the sky, then pointed it at them and said: “O Allah,…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "signs-of-farewell-uhud-cemetery",
+  "title": "وداع الشهداء وخُطبة المنبر",
+  "description": "بعد رجوعه من الحجّ، خرج النبي ﷺ إلى شهداء أُحد فصلّى عليهم كالمودّع، ثم رجع فصعد المنبر وقال: «إني فَرَطُكم وأنا شهيد عليكم، وإني والله لأنظر إلى حوضي الآن. وما أخاف عليكم أن…",
+  "titleEn": "Farewell to the Martyrs, and a Word from the Pulpit",
+  "descriptionEn": "After returning from the pilgrimage, the Prophet ﷺ went out to the martyrs of Uhud and prayed over them like someone saying goodbye. Then he came back, climbed the pulpit and…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "usama-young-army-commander",
+  "title": "أسامة: قائد في الثامنة عشرة",
+  "description": "أمر النبي ﷺ بتجهيز جيش إلى الشام، وأمّر عليه أسامة بن زيد وهو شابّ صغير، وفي الجيش كبار الصحابة. فتكلّم بعض الناس في صغر سنّه، فخطب النبي ﷺ وقال: «إن تطعنوا في إمارته فقد كنتم…",
+  "titleEn": "Usamah: A Commander at Eighteen",
+  "descriptionEn": "The Prophet ﷺ ordered an army prepared for Syria and put Usamah ibn Zayd in command — a young man, with senior companions in his ranks. Some people talked about how young he was,…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "fever-and-aisha-chamber",
+  "title": "بداية المرض: أين أنا غداً؟",
+  "description": "اشتدّت الحمّى على النبي ﷺ حتى كان يُوعك وعكاً شديداً. ومع ذلك ظلّ يطوف على بيوت زوجاته كعادته في العدل. فلما ثقل عليه المشي جعل يسأل: «أين أنا غداً؟ أين أنا غداً؟» ففهمن أنه يريد…",
+  "titleEn": "The Illness Begins: Where Am I Tomorrow?",
+  "descriptionEn": "The fever grew severe on the Prophet ﷺ, and still he kept going round the houses of his wives as he always did, out of fairness. When walking became too hard he began to ask:…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "abu-bakr-leads-prayer",
+  "title": "مُروا أبا بكر فليصلِّ بالناس",
+  "description": "حان وقت الصلاة والناس ينتظرون في المسجد. حاول النبي ﷺ أن يقوم فأُغمي عليه، ثم أفاق فحاول فأُغمي عليه. فقال: «مُروا أبا بكر فليصلِّ بالناس». فقالت عائشة رضي الله عنها: إن أبا بكر…",
+  "titleEn": "Tell Abu Bakr to Lead the Prayer",
+  "descriptionEn": "The time for prayer came and the people were waiting in the mosque. The Prophet ﷺ tried to rise and fainted; he came round, tried again, and fainted again. So he said: “Tell Abu…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "last-prayer-behind-abu-bakr",
+  "title": "آخر صلاة صلّاها بينهم",
+  "description": "وجد النبي ﷺ خفّة، فخرج بين رجلين إلى المسجد وأبو بكر يصلّي بالناس. فلما رآه أبو بكر أراد أن يتأخّر، فأشار إليه النبي ﷺ أن مكانك. وجلس إلى جنبه يصلّي، فكان أبو بكر يصلّي بصلاة…",
+  "titleEn": "The Last Prayer He Prayed Among Them",
+  "descriptionEn": "The Prophet ﷺ felt a little stronger, so he came out between two men to the mosque while Abu Bakr was leading the prayer. When Abu Bakr sensed him he began to step back, and the…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "final-glance-and-smile",
+  "title": "الستارة تُرفع.. والابتسامة",
+  "description": "بينما الناس في صلاة الفجر خلف أبي بكر رضي الله عنه، كُشفت ستارة حجرة عائشة رضي الله عنها، فنظر النبي ﷺ إليهم صفوفاً في صلاتهم، فتبسّم يضحك. فكاد الناس يفتنون من الفرح، فأشار…",
+  "titleEn": "The Curtain Lifts, and the Smile",
+  "descriptionEn": "While the people were praying the dawn prayer behind Abu Bakr, the curtain of Aishah's room was drawn back. The Prophet ﷺ looked at them standing in their rows and smiled. They…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "last-testament-prayer-and-weak",
+  "title": "الصلاةَ الصلاةَ.. وما ملكت أيمانكم",
+  "description": "اشتدّ عليه ﷺ الأمر، وكان يدخل يده في إناء فيه ماء فيمسح وجهه ويقول: «لا إله إلا الله، إن للموت سكرات». وظلّ يوصي بكلمتين حتى ما كاد يُبين بلسانه: «الصلاةَ الصلاةَ، وما ملكت…",
+  "titleEn": "The Prayer, the Prayer — and Those in Your Care",
+  "descriptionEn": "The pain grew hard on him. He would put his hand into a vessel of water and wipe his face, saying: “There is no god but Allah; death has its agonies.” And he kept repeating two…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "to-the-highest-companion",
+  "title": "بل الرفيق الأعلى",
+  "description": "كان رأسه ﷺ على صدر عائشة رضي الله عنها، فدخل أخوها ومعه سواك رطب، فنظر إليه النبي ﷺ، فعرفت أنه يريده، فليّنته له فاستنّ به. ثم رفع بصره وجعل يقول: «مع الرفيق الأعلى»، ثم قضى ﷺ.",
+  "titleEn": "Rather, the Highest Companion",
+  "descriptionEn": "His head was on Aishah's chest when her brother came in with a fresh toothstick. The Prophet ﷺ looked at it, and she understood that he wanted it, so she softened it for him and…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "city-earthquake-abu-bakr-speech",
+  "title": "زلزال المدينة وثبات الصدّيق",
+  "description": "انتشر الخبر فاضطربت المدينة، وقام عمر رضي الله عنه يقول: ما مات! فجاء أبو بكر رضي الله عنه فكشف عن وجهه وقبّله وبكى، ثم خرج إلى الناس فقال: «من كان يعبد محمداً فإن محمداً قد مات،…",
+  "titleEn": "Madinah Shakes, and Abu Bakr Holds",
+  "descriptionEn": "The news spread and Madinah was shaken. Umar stood saying: he has not died! Abu Bakr came, uncovered the Prophet's face, kissed it and wept, then went out to the people and said:…",
+  "image": null
+ },
+ {
+  "stationId": 9,
+  "slug": "eternal-legacy-living-sunnah",
+  "title": "ما بقي بعده: النور لا ينطفئ",
+  "description": "دُفن النبي ﷺ في الموضع الذي قُبض فيه في حجرة عائشة رضي الله عنها. ولم يترك ديناراً ولا درهماً، وإنما ترك ما هو أبقى: كتاب الله وسنّته، وأمّة تعلّمت الصدق والرحمة والعدل. وحملها…",
+  "titleEn": "What Remained After Him: The Light Did Not Go Out",
+  "descriptionEn": "The Prophet ﷺ was buried where he passed away, in Aishah's room. He left neither dinar nor dirham, but he left what lasts longer: the Book of Allah and his way, and a community…",
   "image": null
  }
 ];

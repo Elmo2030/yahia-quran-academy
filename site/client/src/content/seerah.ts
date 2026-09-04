@@ -150,6 +150,24 @@ export const seerahStations: SeerahStation[] = [
     descriptionEn:
       "Fifteen stories from the years of defending Madinah: the permission after thirteen years of patience, Badr with its counsel and its angels, captives who became teachers, the lesson of Uhud, Salman's trench, the wind that scattered the Confederates, the treaty of Hudaybiyyah, the letters to kings, Khaybar, and finally the conquest of Mecca — the day of mercy and the general pardon.",
   },
+  {
+    stationId: 8,
+    titleAr: "عام الوفود ودولة السلام",
+    titleEn: "The Year of Delegations, and a State at Peace",
+    descriptionAr:
+      "خمس عشرة قصة من سنوات الاستقرار: درس حُنين في الغرور بالعدد، وجيش العُسرة ومن بكى لأنه لم يجد ما ينفق، وتبوك التي انتهت بعهود لا بقتال، ثم عام الوفود وحوار نجران ووصية معاذ، ودستور المجتمع: أهل الصُّفَّة، والرفق بالحيوان، وأمانة السوق، والمسجد مدرسةً للجميع.",
+    descriptionEn:
+      "Fifteen stories from the settled years: the lesson of Hunayn about pride in numbers, the Army of Hardship and those who wept at having nothing to give, Tabuk that ended in treaties rather than battle, then the Year of Delegations, the talks with Najran and the counsel to Mu'adh — and the charter of the community: the people of the Bench, kindness to animals, honesty in the market, and the mosque as a school for everyone.",
+  },
+  {
+    stationId: 9,
+    titleAr: "حجّة الوداع وختام الرسالة",
+    titleEn: "The Farewell Pilgrimage, and the End of the Message",
+    descriptionAr:
+      "خمس عشرة قصة من آخر سنة: مسيرة إلى مكة في ثوبين أبيضين، ووقوف بعرفات، وخطبة قالت إن لا فضل لعربيّ على أعجميّ إلا بالتقوى، ثم وداع الشهداء، وقائد في الثامنة عشرة، ومرضٌ حُفظ فيه العدل، وآخر صلاة وآخر نظرة وآخر وصية — وما بقي بعده.",
+    descriptionEn:
+      "Fifteen stories from the last year: a march to Mecca in two white cloths, the standing at Arafat, and a sermon saying no Arab is above a non-Arab except by piety — then farewell to the martyrs, a commander of eighteen, an illness in which fairness was still kept, the last prayer, the last glance, the last testament, and what remained after him.",
+  },
 ];
 
 /** A story's text in the requested language, falling back to the Arabic for
@@ -5492,6 +5510,2286 @@ export const seerahStories: SeerahStory[] = [
       reliability: "🟡",
       reference: "صحيح البخاري، ودلائل النبوة للبيهقي",
       note: "فرح أهل المدينة وقول أنس رضي الله عنه في الصحيح؛ وأما نشيد «طلع البدر علينا» فمشهور مرويّ في كتب السيرة، وتكلّم أهل العلم في إسناده.",
+    },
+  },
+  {
+    storyId: "st-8-01",
+    stationId: 8,
+    slug: "hunayn-pride-in-numbers",
+    en: {
+      title: "The Lesson of Hunayn: Pride in Numbers",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "After the conquest of Mecca the Muslims went out twelve thousand strong — the largest army they had ever gathered. Some looked at their own numbers and said: we will not be beaten today for being few! Then they came down into the narrow valley of Hunayn, where archers ambushed them at dawn, and the ranks broke. Numbers alone do not win anything.",
+          shortLesson: "Numbers are no help when humility and trust are missing.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Days after the conquest of Mecca, Hawazin and Thaqif gathered their forces against the Muslims, and the Prophet ﷺ went out to meet them with twelve thousand men: the ten thousand who had been with him at the conquest, and two thousand of the people of Mecca. It was the largest army the Muslims had ever put in the field. Some of them looked at that number, and it pleased them, and they said: “We will not be beaten today for being few.” There was more in that sentence than they knew. When they came down into the valley of Hunayn — a narrow pass between hills — the archers of Hawazin were waiting in its bends, and they loosed on the front of the army all at once in the half-light of dawn. The front broke, and many turned back. The lesson was too sharp to forget: victory comes from Allah alone, not from the size of a crowd.",
+          details:
+            "Allah says: ﴿وَيَوْمَ حُنَيْنٍ إِذْ أَعْجَبَتْكُمْ كَثْرَتُكُمْ فَلَمْ تُغْنِ عَنكُمْ شَيْئًا﴾ — “and on the day of Hunayn, when your great numbers pleased you but availed you nothing.”",
+        },
+      },
+      interactive: {
+        discover: "Hunayn is one of only three battles the Quran names, alongside Badr and the Confederates.",
+        value: { name: "Humility alongside trust", icon: "⛰️" },
+        thinkQuestion: "When did you last feel so sure of winning that you stopped preparing?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did some of the Muslims say before Hunayn that became their lesson?",
+          options: ["We will not be beaten today for being few", "We are too few, let us withdraw", "We do not want to fight", "Let us wait for reinforcements"],
+          correctAnswer: 0,
+        },
+      },
+      gamification: {
+        artifact: { name: "A pebble from the valley", description: "A pebble to remind you that numbers by themselves are not enough." },
+        badge: "Humble in Strength",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "The Quran, Surah At-Tawbah: 25, and Sahih al-Bukhari",
+        note: "The day of Hunayn and their pleasure at their own numbers are stated in the Quran; the details of the battle are in the two Sahih collections.",
+      },
+    },
+    title: "درس حُنين والغرور بالعدد",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بعد فتح مكة خرج المسلمون في اثني عشر ألفاً، وهو أكبر جيش خرجوا فيه. فنظر بعضهم إلى كثرتهم وقال: لن نُغلب اليوم من قلة! فلما دخلوا وادي حُنين الضيق، باغتهم الرماة من مضايق الجبل عند الفجر، فاضطربت الصفوف. الكثرة وحدها لا تصنع نصراً.",
+        shortLesson: "العدد لا ينفع إذا غاب التواضع والتوكل.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد فتح مكة بأيام، جمعت هوازن وثقيف قواتها لقتال المسلمين، فخرج إليهم النبي ﷺ في اثني عشر ألف مقاتل: عشرة آلاف كانوا معه في الفتح، وألفان من أهل مكة. وكان هذا أكبر جيش خرج فيه المسلمون حتى ذلك اليوم. فنظر بعضهم إلى هذه الكثرة فأعجبته وقال: «لن نُغلب اليوم من قلة». وكان في هذه الكلمة ما فيها. فلما انحدروا في وادي حُنين — وهو وادٍ ضيّق بين جبال — كان رماة هوازن قد كمنوا في مضايقه، فرشقوا مقدّمة الجيش بالسهام في عتمة الفجر رشقاً واحداً، فانكشفت المقدّمة وارتدّ كثير من الناس. فكان الدرس أبلغ من أن يُنسى: النصر من عند الله وحده، لا من كثرة العدد.",
+        details:
+          "قال تعالى: ﴿وَيَوْمَ حُنَيْنٍ إِذْ أَعْجَبَتْكُمْ كَثْرَتُكُمْ فَلَمْ تُغْنِ عَنكُمْ شَيْئًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "حُنين هي المعركة الوحيدة التي ذكر القرآن اسمها مع بدر والأحزاب.",
+      value: { name: "التواضع مع التوكل", icon: "⛰️" },
+      thinkQuestion:
+        "متى شعرت بأن النجاح مضمون فتكاسلت في الاستعداد له؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما الذي قاله بعض المسلمين قبل حُنين فكان درساً لهم؟",
+        options: ["لن نُغلب اليوم من قلة", "نحن قليلون فلننسحب", "لا نريد القتال", "ننتظر مدداً آخر"],
+        correctAnswer: 0,
+      },
+    },
+    gamification: {
+      artifact: { name: "حصاة من الوادي", description: "حصاة تذكّرك أن الكثرة وحدها لا تكفي." },
+      badge: "متواضع في القوة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "القرآن الكريم، سورة التوبة: ٢٥، وصحيح البخاري",
+      note: "ذكر يوم حُنين وإعجابهم بكثرتهم ثابت بنصّ القرآن، وتفصيل المعركة في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-8-02",
+    stationId: 8,
+    slug: "steadfast-leader-hunayn",
+    en: {
+      title: "The Leader Who Did Not Move",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "While the men fell back, the Prophet ﷺ held his place at the front on his mule and did not take a step backwards, saying: “I am the Prophet, this is no lie; I am the son of Abd al-Muttalib.” He told his uncle al-Abbas — who had a carrying voice — to call out: People of the Tree! And back they came, answering: here we are, here we are — until the day was steady again.",
+          shortLesson: "You find out who the leader is when everyone else turns back.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "At the moment the front broke and the men turned back, the Prophet ﷺ did not move. He held his place on his white mule at the head of the field, going forward towards the enemy, and raised his voice: “I am the Prophet, this is no lie; I am the son of Abd al-Muttalib.” Then he told his uncle al-Abbas ibn Abd al-Muttalib — a man with a carrying voice — to call to the people: “People of the Tree! People of Surah al-Baqarah!”, reminding them of the pledge they had given beneath the tree. The moment they heard it they turned back, answering “here we are, here we are”, until they had gathered around their Prophet. Then they advanced, and Allah sent down His tranquillity upon them, and a day that had begun in confusion ended in victory.",
+          details:
+            "Allah says: ﴿ثُمَّ أَنزَلَ اللَّهُ سَكِينَتَهُ عَلَىٰ رَسُولِهِ وَعَلَى الْمُؤْمِنِينَ﴾ — “Then Allah sent down His tranquillity upon His Messenger and upon the believers.”",
+        },
+      },
+      interactive: {
+        discover: "He rode a mule that day rather than a horse — a mule is no animal for fleeing, so riding one said plainly that he was not going anywhere.",
+        value: { name: "Standing firm, and leading", icon: "🛡️" },
+        thinkQuestion: "If your whole team panicked, what is the first thing you would do?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did al-Abbas call out to the people at Hunayn?",
+          options: ["People of Mecca", "People of the Tree", "People of Madinah", "Children of Hashim"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A mule's bridle", description: "A bridle for the one who stood while others fell back." },
+        badge: "Firm in the Field",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The Prophet's steadfastness at Hunayn, his words, and the call of al-Abbas are all in the two Sahih collections.",
+      },
+    },
+    title: "ثبات القائد في قلب الميدان",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بينما تراجع الناس، ثبت النبي ﷺ على بغلته في المقدّمة ولم يرجع خطوة، وهو يقول: «أنا النبي لا كذب، أنا ابن عبد المطلب». وأمر عمّه العباس — وكان جهير الصوت — أن ينادي: يا أصحاب الشجرة! فرجعوا يقولون: لبيك لبيك، حتى استقام الأمر.",
+        shortLesson: "القائد يُعرف حين يتراجع الجميع.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في اللحظة التي انكشفت فيها المقدّمة وارتدّ الناس، لم يتحرّك النبي ﷺ من مكانه. ثبت على بغلته البيضاء في مقدّمة الميدان يتقدّم نحو القوم، وهو يرفع صوته: «أنا النبي لا كذب، أنا ابن عبد المطلب». ثم أمر عمّه العباس بن عبد المطلب — وكان رجلاً جهير الصوت — أن ينادي في الناس: «يا أصحاب الشجرة! يا أصحاب سورة البقرة!»، يذكّرهم بالبيعة التي بايعوها تحت الشجرة. فما إن سمعوا النداء حتى انعطفوا راجعين يقولون: «لبيك لبيك»، حتى اجتمعوا حول نبيّهم. ثم تقدّموا فأنزل الله سكينته عليهم، وانتهى اليوم بالنصر بعدما بدأ بالاضطراب.",
+        details:
+          "قال تعالى: ﴿ثُمَّ أَنزَلَ اللَّهُ سَكِينَتَهُ عَلَىٰ رَسُولِهِ وَعَلَى الْمُؤْمِنِينَ وَأَنزَلَ جُنُودًا لَّمْ تَرَوْهَا﴾.",
+      },
+    },
+    interactive: {
+      discover: "اختار النبي ﷺ يومئذ بغلة لا فرساً؛ والبغلة لا تُسرع في الفرار، فكان في ركوبها إعلان أنه ثابت لا يبرح.",
+      value: { name: "الثبات والقيادة", icon: "🛡️" },
+      thinkQuestion:
+        "إذا ارتبك فريقك كله، ما أول شيء تفعله أنت؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ نادى العباس رضي الله عنه في الناس يوم حُنين؟",
+        options: ["يا أهل مكة", "يا أصحاب الشجرة", "يا أهل المدينة", "يا بني هاشم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "لجام بغلة", description: "لجام يذكّرك بمن وقف حين تراجع غيره." },
+      badge: "ثابت في الميدان",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "ثبات النبي ﷺ يوم حُنين وقوله «أنا النبي لا كذب» ونداء العباس رضي الله عنه — كلها في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-8-03",
+    stationId: 8,
+    slug: "army-of-hardship-tabuk",
+    en: {
+      title: "The Army of Hardship, and a Race to Give",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Word came that the Byzantines were gathering on the Syrian frontier — in the height of summer, with the fruit ripe on the trees. The Prophet ﷺ called the people out, and supplies were so short that it was called the Army of Hardship. The companions raced to give: Abu Bakr brought everything he owned, Umar half of his, and Uthman equipped a large part of the army.",
+          shortLesson: "Real giving shows in a hard season, not an easy one.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Word reached the Prophet ﷺ that the Byzantines were massing an army on the Syrian frontier, and he called the Muslims out. The timing could not have been harder: the peak of summer heat, the fruit ripe and everyone wanting to stay with it, a long road ahead, and supplies so short that two men took turns on one camel. That is why it was called the Army of Hardship. When the Prophet ﷺ called for contributions, the companions raced one another as they never had: Abu Bakr brought everything he owned, and when the Prophet ﷺ asked him, “What did you leave for your family?”, he answered: I left them Allah and His Messenger. Umar brought half of his wealth. Uthman equipped a large part of the army with camels and money, and the Prophet ﷺ said something remarkable about him for it. The race was not for spoils. It was for who could give the most.",
+          details:
+            "Allah says: ﴿الَّذِينَ اتَّبَعُوهُ فِي سَاعَةِ الْعُسْرَةِ﴾ — “those who followed him in the hour of hardship.”",
+        },
+      },
+      interactive: {
+        discover: "Tabuk was the last expedition the Prophet ﷺ went out on himself.",
+        value: { name: "Giving when it is hard", icon: "🐪" },
+        thinkQuestion: "What is something you love that you could give to someone who needs it more?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Abu Bakr answer when asked what he had left for his family?",
+          options: ["I left them half the money", "I left them Allah and His Messenger", "He left nothing and said nothing", "I left them the house"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small purse", description: "A purse for the man who gave everything and was not afraid." },
+        badge: "First to Give",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sunan Abi Dawud and at-Tirmidhi, and the Quran, Surah At-Tawbah: 117",
+        note: "The expedition and the hour of hardship are in the Quran and the Sahih collections; Abu Bakr giving all his wealth and Uthman equipping the army come from the Sunan, graded good by some scholars while others questioned some of the wordings.",
+      },
+    },
+    title: "جيش العُسرة وتنافس الكرماء",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاء الخبر أن الروم يحشدون على حدود الشام، والوقت صيف شديد الحر والثمار قد نضجت. فدعا النبي ﷺ الناس إلى الخروج، وكان الزاد قليلاً حتى سُمّي «جيش العُسرة». فتسابق الصحابة في البذل: جاء أبو بكر بكل ماله، وعمر بنصف ماله، وجهّز عثمان جزءاً كبيراً من الجيش.",
+        shortLesson: "العطاء الحقيقي يظهر وقت الضيق لا وقت السَّعة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بلغ النبي ﷺ أن الروم يجمعون جيشاً على حدود الشام، فدعا المسلمين إلى الخروج. وكان الوقت أصعب ما يكون: قيظ الصيف، والثمار قد أينعت والناس يحبّون أن يقيموا عندها، والمسافة بعيدة، والزاد قليل حتى كان الرجلان يتعاقبان على بعير واحد. ولذلك سُمّي «جيش العُسرة». فلما دعا النبي ﷺ إلى النفقة، تسابق الصحابة تسابقاً لم يُر مثله: جاء أبو بكر رضي الله عنه بماله كلّه، فسأله النبي ﷺ: «ما أبقيتَ لأهلك؟» قال: أبقيتُ لهم الله ورسوله. وجاء عمر رضي الله عنه بنصف ماله. وجهّز عثمان رضي الله عنه جزءاً كبيراً من الجيش بالإبل والمال، حتى قال فيه النبي ﷺ كلمة عظيمة. لم يكن السباق على الغنيمة، بل على العطاء.",
+        details:
+          "قال تعالى: ﴿لَقَد تَّابَ اللَّهُ عَلَى النَّبِيِّ وَالْمُهَاجِرِينَ وَالْأَنصَارِ الَّذِينَ اتَّبَعُوهُ فِي سَاعَةِ الْعُسْرَةِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كانت غزوة تبوك آخر غزوة خرج فيها النبي ﷺ بنفسه.",
+      value: { name: "البذل عند الشدّة", icon: "🐪" },
+      thinkQuestion:
+        "ما الشيء الذي تحبّه وتستطيع أن تعطيه لمن يحتاجه أكثر منك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ أجاب أبو بكر رضي الله عنه حين سُئل: ما أبقيتَ لأهلك؟",
+        options: ["أبقيت لهم نصف المال", "أبقيت لهم الله ورسوله", "لم أُبقِ شيئاً ولم أُجب", "أبقيت لهم البيت"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "صُرّة صغيرة", description: "صُرّة تذكّرك بمن أعطى كل ما يملك وهو مطمئن." },
+      badge: "سبّاق في العطاء",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سنن أبي داود والترمذي، والقرآن الكريم، سورة التوبة: ١١٧",
+      note: "أصل غزوة تبوك وساعة العسرة في القرآن والصحيحين؛ وأما خبر أبي بكر بماله كلّه وتجهيز عثمان فمن رواية السنن، حسّنها بعض أهل العلم وتكلّم آخرون في بعض ألفاظها.",
+    },
+  },
+  {
+    storyId: "st-8-04",
+    stationId: 8,
+    slug: "weepers-and-true-repentance",
+    en: {
+      title: "Those Who Wept, and the Man Saved by Telling the Truth",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Poor companions came asking for mounts so they could go with the army, and the Prophet ﷺ said: “I have nothing to carry you on.” They turned away with tears pouring down, grieving that they had nothing to give — and the Quran named them. Ka'b ibn Malik and two others stayed behind with no excuse, and when the army returned he told the truth instead of inventing one, and Allah accepted his repentance.",
+          shortLesson: "Telling the truth saves you, even when owning up is hard.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the Prophet ﷺ called the people out, some of the poorer companions came asking for mounts, and he said: “I have nothing to carry you on.” They turned away with their eyes overflowing, grieving that they had nothing to spend — and Allah mentioned them in His Book; people called them “the weepers”. They wanted to go and could not, and the reward of those who went was written for them. On the other side, three truthful companions stayed behind with no excuse at all — among them Ka'b ibn Malik — simply putting it off, one day after another. When the army came back, the hypocrites came with invented excuses and were taken at their word, and Ka'b came and told the truth and made nothing up. The Prophet ﷺ told the people not to speak to the three for fifty nights, until the earth closed in on them for all its wideness — and then the Quran came down accepting their repentance. Ka'b said afterwards: Allah has given me no gift after Islam greater than my telling the truth.",
+          details:
+            "Allah says of them: ﴿حَتَّىٰ إِذَا ضَاقَتْ عَلَيْهِمُ الْأَرْضُ بِمَا رَحُبَتْ﴾ — “until the earth closed in on them for all its vastness.”",
+        },
+      },
+      interactive: {
+        discover: "Ka'b's account is one of the longest hadiths in Sahih al-Bukhari — he tells the whole story about himself.",
+        value: { name: "Truthfulness", icon: "💧" },
+        thinkQuestion: "When did you last tell the truth knowing it would cost you something?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why was Ka'b ibn Malik saved in the end?",
+          options: ["He gave an acceptable excuse", "He told the truth and did not lie", "He caught up with the army late", "He paid money"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A glass teardrop", description: "A keepsake for those who wept because they had nothing to give." },
+        badge: "Truthful Even When It Costs",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim, and the Quran, Surah At-Tawbah: 92 and 118",
+        note: "The weepers are named in the Quran, and Ka'b ibn Malik's account is in both Sahih collections in full.",
+      },
+    },
+    title: "البكّاؤون ونجاة الصادقين",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاء فقراء الصحابة يطلبون ما يركبونه ليخرجوا مع الجيش، فقال النبي ﷺ: «لا أجد ما أحملكم عليه»، فرجعوا وأعينهم تفيض من الدمع حزناً ألا يجدوا ما ينفقون، فسمّاهم القرآن. وتخلّف كعب بن مالك وصاحباه من غير عذر، فلما رجع الجيش صدق ولم يعتذر بالكذب، فتاب الله عليه.",
+        shortLesson: "الصدق ينجّي ولو كان الاعتراف صعباً.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما دعا النبي ﷺ إلى الخروج، جاءه نفر من فقراء الصحابة يسألونه ما يركبونه، فقال: «لا أجد ما أحملكم عليه». فتولّوا وأعينهم تفيض من الدمع حزناً ألا يجدوا ما ينفقون، فذكرهم الله في كتابه وسمّاهم الناس «البكّائين»: أرادوا ولم يقدروا، فكُتب لهم أجر من خرج. وفي المقابل تخلّف ثلاثة من الصحابة الصادقين — منهم كعب بن مالك رضي الله عنه — من غير عذر، إنما التسويف يوماً بعد يوم. فلما رجع الجيش جاء المنافقون يعتذرون بالكذب فقُبل ظاهرهم، وجاء كعب فقال الحقّ ولم يختلق عذراً. فأمر النبي ﷺ الناس ألا يكلّموهم خمسين ليلة، حتى ضاقت عليهم الأرض بما رحبت، ثم نزل القرآن بتوبتهم. قال كعب بعدها: ما أنعم الله عليّ نعمة بعد الإسلام أعظم من صدقي.",
+        details:
+          "قال تعالى: ﴿وَعَلَى الثَّلَاثَةِ الَّذِينَ خُلِّفُوا حَتَّىٰ إِذَا ضَاقَتْ عَلَيْهِمُ الْأَرْضُ بِمَا رَحُبَتْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "حديث كعب بن مالك من أطول الأحاديث في صحيح البخاري، رواه بنفسه عن نفسه.",
+      value: { name: "الصدق", icon: "💧" },
+      thinkQuestion:
+        "ما آخر مرة قلت الحقيقة وأنت تعلم أنها ستكلّفك شيئاً؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا نجا كعب بن مالك رضي الله عنه في النهاية؟",
+        options: ["لأنه اعتذر بعذر مقبول", "لأنه صدق ولم يكذب", "لأنه خرج مع الجيش متأخراً", "لأنه دفع مالاً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "دمعة من زجاج", description: "تذكار لمن بكى لأنه لم يجد ما يعطيه." },
+      badge: "صادق ولو شقّ",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم، والقرآن الكريم، سورة التوبة: ٩٢ و١١٨",
+      note: "البكّاؤون مذكورون في القرآن، وقصة كعب بن مالك رضي الله عنه بطولها في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-8-05",
+    stationId: 8,
+    slug: "tabuk-peace-without-bloodshed",
+    en: {
+      title: "The Camp at Tabuk: A Victory With No Blood",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The army reached Tabuk on the Syrian frontier and made camp. When the people there saw an army that had crossed the desert in high summer, no one came out to fight it. The Prophet ﷺ stayed some days, made treaties of safety with the border towns, and the army went home without a drop of blood being spilt.",
+          shortLesson: "The best confrontation is the one that ends before it starts.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The army marched north until it reached Tabuk on the edge of Syria, and made camp. No one came out against them: they saw an army that had crossed the desert in the worst of the heat and had not turned back, and chose not to begin a fight. The Prophet ﷺ stayed at Tabuk some days, and did not waste them: he made terms of safety with the rulers of the frontier towns — Ayla, Jarba and Adhruh — and wrote them a covenant protecting their land and their caravans, so the trade roads to the north were safe. Then the army returned to Madinah having got everything it went for: secure borders, written agreements, and enough standing to prevent a war — without a drop of blood being spilt.",
+          details:
+            "Allah says: ﴿وَكَفَى اللَّهُ الْمُؤْمِنِينَ الْقِتَالَ﴾ — “And Allah sufficed the believers in fighting.”",
+        },
+      },
+      interactive: {
+        discover: "The covenant written for the people of Ayla is among the oldest of the Prophet's written agreements to reach us.",
+        value: { name: "Peace through standing, not blood", icon: "🕊️" },
+        thinkQuestion: "How do you end a disagreement before it turns into a fight?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How did the expedition to Tabuk end?",
+          options: ["With a great battle", "With treaties of safety and no fighting", "With the Muslims withdrawing", "With a long siege"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A written covenant", description: "A document to remind you that a written word can do what a sword cannot." },
+        badge: "Keeper of the Frontier",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, with the expedition itself in the two Sahih collections",
+        note: "The expedition to Tabuk is established in the Sahih collections; the details of the treaties with Ayla, Jarba and Adhruh and the size of the army come from the Seerah and maghazi literature.",
+      },
+    },
+    title: "معسكر تبوك: نصرٌ بلا دماء",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "وصل الجيش إلى تبوك على حدود الشام وعسكر هناك. فلما رأى القوم هذا الجيش الذي قطع الصحراء في عزّ الصيف، لم يخرجوا لقتاله. فأقام النبي ﷺ أياماً، وصالح أهل المناطق الحدودية على الأمان، ثم رجع الجيش ولم تُرَق قطرة دم.",
+        shortLesson: "أنجح المواجهات ما انتهت قبل أن تبدأ.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "سار الجيش شمالاً حتى بلغ تبوك على أطراف الشام، فعسكر هناك. ولم يخرج إليهم أحد يقاتلهم: رأى القوم جيشاً قطع الصحراء في عزّ القيظ ولم يتراجع، فآثروا ألا يبدأوا قتالاً. فأقام النبي ﷺ بتبوك أياماً، ولم يجعلها وقتاً ضائعاً: صالح حكّام المناطق الحدودية — أيلة وجَرباء وأَذْرُح — على الأمان والجزية، وكتب لهم كتاب أمان يحمي أرضهم وقوافلهم، فأمنت الطرق التجارية شمالاً. ثم رجع الجيش إلى المدينة وقد بلغ غايته: حدود آمنة، وعهود مكتوبة، وهيبة تكفي أن تمنع الحرب — من غير أن تُراق قطرة دم واحدة.",
+        details:
+          "قال تعالى: ﴿وَكَفَى اللَّهُ الْمُؤْمِنِينَ الْقِتَالَ وَكَانَ اللَّهُ قَوِيًّا عَزِيزًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "كتاب الأمان لأهل أيلة من أقدم ما وصلنا من كتب النبي ﷺ في العهود.",
+      value: { name: "السلام بالقوّة لا بالدم", icon: "🕊️" },
+      thinkQuestion:
+        "كيف تنهي خلافاً قبل أن يتحوّل إلى شجار؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "كيف انتهت غزوة تبوك؟",
+        options: ["بمعركة كبيرة", "بعهود أمان من غير قتال", "بانسحاب المسلمين", "بحصار طويل"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "صحيفة عهد", description: "صحيفة تذكّرك أن الكلمة المكتوبة قد تُغني عن السيف." },
+      badge: "حافظ الحدود",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، والصحيحان في أصل الغزوة",
+      note: "أصل غزوة تبوك وخروج النبي ﷺ إليها ثابت في الصحيحين؛ وتفصيل المصالحات مع أيلة وجَرباء وأَذْرُح وعدد الجيش من كتب السيرة والمغازي.",
+    },
+  },
+  {
+    storyId: "st-8-06",
+    stationId: 8,
+    slug: "year-of-delegations-tamim",
+    en: {
+      title: "The Year of Delegations: Arabia Meets at the Mosque",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the ninth year Madinah was receiving delegations from every tribe in Arabia — it became known as the Year of Delegations. The delegation of Banu Tamim came wanting a contest of poetry and oratory, so the Prophet ﷺ had Thabit ibn Qays speak and Hassan ibn Thabit recite. Both did well, and the Tamimis said: his orator is better than ours, and his poet is better than ours.",
+          shortLesson: "A good word wins hearts better than out-boasting anyone.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Once the state was settled and the roads were safe, the tribes of Arabia understood that the matter had held, and their delegations began arriving in Madinah from every direction to learn the religion and make agreements — so the ninth year was called the Year of Delegations. Among the best known was the delegation of Banu Tamim, a people proud of their poetry and oratory, who came looking for a contest. The Prophet ﷺ neither turned them away nor silenced them: he met poetry with poetry and speech with speech. He had Thabit ibn Qays give the address, and Hassan ibn Thabit recite the verse. When they finished, the spokesman of Banu Tamim said a line people repeated afterwards: his orator is better than ours, and his poet is better than ours. Then they accepted Islam. The boast was answered by doing it better, not by shutting it down.",
+          details:
+            "Allah says of those years: ﴿وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا﴾ — “and you see people entering the religion of Allah in crowds.”",
+        },
+      },
+      interactive: {
+        discover: "Every delegation was given hospitality and a place to stay; some of them lodged in the mosque itself.",
+        value: { name: "Answering well", icon: "🏛️" },
+        thinkQuestion: "If someone challenged you at something you are good at, how would you answer without wounding them?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How did the Prophet ﷺ meet Banu Tamim's contest of poetry and speech?",
+          options: ["He stopped them speaking", "He met poetry with poetry and speech with speech", "He sent them out of Madinah", "He ignored them"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A poet's pen", description: "A pen to remind you that a fine word is an argument." },
+        badge: "Well Answered",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, and the Quran, Surah An-Nasr",
+        note: "People entering the religion in crowds is in the Quran; the details of the Banu Tamim delegation and the contest of poetry come from the Seerah of Ibn Ishaq.",
+      },
+    },
+    title: "عام الوفود: الجزيرة تلتقي في المسجد",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السنة التاسعة صارت المدينة تستقبل وفوداً من كل قبائل الجزيرة، حتى سُمّي «عام الوفود». جاء وفد بني تميم يريدون المفاخرة بالشعر والخطابة، فأمر النبي ﷺ ثابت بن قيس أن يخطب وحسّان بن ثابت أن ينشد، فأحسنا، فقال التميميون: خطيبه أخطب من خطيبنا، وشاعره أشعر من شاعرنا.",
+        shortLesson: "الكلمة الطيبة تكسب القلوب أكثر من المفاخرة.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما استقرّت الدولة وأمنت الطرق، أدركت قبائل الجزيرة أن الأمر قد ثبت، فبدأت وفودها تتوافد على المدينة من كل ناحية تتعلّم الدين وتعقد العهود، حتى سُمّيت السنة التاسعة «عام الوفود». وكان من أشهرها وفد بني تميم، وكانوا قوماً يفخرون بالشعر والخطابة، فجاءوا يريدون المفاخرة. فلم يردّهم النبي ﷺ ولم يزجرهم، بل قابل الشعر بالشعر والخطبة بالخطبة: أمر ثابت بن قيس رضي الله عنه فخطب، وأمر حسّان بن ثابت رضي الله عنه فأنشد. فلما فرغا قال خطيب بني تميم كلمة صار يُتناقلها الناس: خطيبه أخطب من خطيبنا، وشاعره أشعر من شاعرنا. ثم أسلموا. رُدّت المفاخرة بالإحسان، لا بالإسكات.",
+        details:
+          "قال تعالى في تلك السنين: ﴿وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان لكل وفد ضيافة ومكان ينزل فيه، وبعضهم نزل في المسجد نفسه.",
+      value: { name: "حسن الحوار", icon: "🏛️" },
+      thinkQuestion:
+        "لو حدّاك أحد في شيء تجيده، تردّ عليه إزاي من غير ما تجرحه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ قابل النبي ﷺ مفاخرة بني تميم بالشعر والخطابة؟",
+        options: ["منعهم من الكلام", "قابل الشعر بالشعر والخطبة بالخطبة", "أخرجهم من المدينة", "سكت عنهم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قلم شاعر", description: "قلم يذكّرك أن الكلمة الجميلة حجّة." },
+      badge: "حسن الردّ",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، والقرآن الكريم، سورة النصر",
+      note: "دخول الناس في الدين أفواجاً في القرآن؛ وأما تفصيل وفد بني تميم والمفاخرة بالشعر فمن كتب السيرة عند ابن إسحاق.",
+    },
+  },
+  {
+    storyId: "st-8-07",
+    stationId: 8,
+    slug: "delegation-of-najran-dialogue",
+    en: {
+      title: "The Delegation of Najran: Guests in the Mosque",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "A delegation of the Christians of Najran in Yemen came to Madinah, and the Prophet ﷺ lodged them in his mosque and treated them generously. When the time for their prayer came they stood to pray in a corner of the mosque; some people moved to stop them, and the Prophet ﷺ said: let them be. They talked for days, and then went home on their own religion, with a covenant of safety between them.",
+          shortLesson: "Argue with reasons, and honour a guest even when he disagrees with you.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "A delegation of the Christians of Najran — a district of Yemen — came to the Prophet ﷺ, their bishops and notables among them, dressed in their finest. He treated them generously and lodged them in his mosque. When the time for their prayer came, they stood to pray in a corner of the mosque, and some of the people moved to stop them; the Prophet ﷺ said: “Let them be.” Then a long discussion ran between them for days, about the oneness of Allah and about Jesus, peace be upon him — all of it argument and explanation, with no compulsion and no threat in it. When they did not agree, they were not forced: they went home on their own religion, and the Prophet ﷺ wrote them a covenant of safety for themselves, their property and their churches. They asked him for a trustworthy man to judge between them in their affairs, and he sent Abu Ubaydah ibn al-Jarrah with them.",
+          details:
+            "Allah says: ﴿وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ﴾ — “Do not argue with the People of the Book except in the best way.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ called Abu Ubaydah “the trustworthy one of this community” — and he is the man he sent with them.",
+        value: { name: "Respecting the one who differs", icon: "🤝" },
+        thinkQuestion: "How do you treat a friend who disagrees with you about something you care about?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ say when people moved to stop the Najran delegation praying in the mosque?",
+          options: ["Put them out", "Let them be", "Wait until we leave", "Do not speak to them"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A written covenant", description: "A covenant: a guest is kept safe even when he disagrees with you." },
+        badge: "One Who Listens",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, with Abu Ubaydah's title in Sahih al-Bukhari",
+        note: "The Najran delegation and the covenant are well known in Ibn Ishaq's Seerah; Abu Ubaydah being named the trustworthy one of the community is in Sahih al-Bukhari.",
+      },
+    },
+    title: "وفد نجران: ضيوف في المسجد",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاء وفد من نصارى نجران باليمن إلى المدينة، فأنزلهم النبي ﷺ في مسجده وأكرمهم. ولما حانت صلاتهم قاموا يصلّون في ناحية المسجد، فأراد بعض الناس منعهم، فقال النبي ﷺ: دعوهم. وتحاوروا أياماً بالحجّة، ثم رجعوا على دينهم وبينهم وبين المسلمين عهد أمان.",
+        shortLesson: "الحوار يكون بالحجّة، والضيف يُكرَم وإن خالفك.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "قدم على النبي ﷺ وفد من نصارى نجران — وهي بلد في اليمن — وفيهم أساقفتهم ووجوههم، وقد لبسوا أحسن ثيابهم. فأكرمهم النبي ﷺ وأنزلهم في مسجده. فلما حضر وقت صلاتهم قاموا يصلّون في ناحية من المسجد، فهمّ بعض الناس بمنعهم، فقال النبي ﷺ: «دعوهم». ثم جرى بينه وبينهم حوار طويل أياماً في التوحيد وفي عيسى عليه السلام، كلّه بالحجّة والبيان، لا إكراه فيه ولا تهديد. فلما لم يتفقوا، لم يُجبَروا: رجعوا على دينهم، وكتب لهم النبي ﷺ عهد أمان على أنفسهم وأموالهم وكنائسهم، وطلبوا منه رجلاً أميناً يقضي بينهم في أمورهم، فبعث معهم أبا عبيدة بن الجرّاح رضي الله عنه.",
+        details:
+          "قال تعالى: ﴿وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "سمّى النبي ﷺ أبا عبيدة رضي الله عنه «أمين هذه الأمة»، وهو الذي بعثه معهم.",
+      value: { name: "احترام المخالف", icon: "🤝" },
+      thinkQuestion:
+        "كيف تعامل صديقاً يخالفك في رأي تحبّه أنت جداً؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا قال النبي ﷺ لما أراد بعض الناس منع وفد نجران من الصلاة في المسجد؟",
+        options: ["أخرجوهم", "دعوهم", "انتظروا حتى نخرج", "لا تكلّموهم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "عهد مكتوب", description: "عهد يذكّرك أن الضيف يُؤمَّن وإن خالفك." },
+      badge: "صاحب حوار",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، وصحيح البخاري في فضل أبي عبيدة",
+      note: "قدوم وفد نجران وعهد الأمان مشهور في كتب السيرة عند ابن إسحاق؛ وتسمية أبي عبيدة رضي الله عنه أمين الأمة في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-8-08",
+    stationId: 8,
+    slug: "muadh-ambassador-to-yemen",
+    en: {
+      title: "The Envoy to Yemen: Make It Easy",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ sent Mu'adh ibn Jabal to Yemen as a teacher and a judge, and walked beside him giving him counsel. He said to him and to Abu Musa: “Make things easy and do not make them hard; give good news and do not drive people away; work together and do not differ.” And he warned him against wronging anyone: “Beware the prayer of the wronged — there is no veil between it and Allah.”",
+          shortLesson: "Teaching starts with making things easy, not with being strict.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "As the state grew, the distant regions needed someone to teach them and to judge between them. The Prophet ﷺ chose Mu'adh ibn Jabal — a young man and a scholar — and sent him to Yemen. He walked alongside him as he rode, giving him counsel, and then said to him and to Abu Musa al-Ash'ari words that became a rule for every teacher after them: “Make things easy and do not make them hard; give good news and do not drive people away; work together and do not differ.” He told him to begin with the most important thing first, not to take the best of people's property, and warned him hard against wronging anyone: “Beware the prayer of the wronged — there is no veil between it and Allah.” So Mu'adh went and taught people gently, and they loved him for it.",
+          details:
+            "Allah says: ﴿ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ﴾ — “Call to the way of your Lord with wisdom and good counsel.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ told Mu'adh, “I love you,” and taught him a supplication to say after every prayer.",
+        value: { name: "Making learning easy", icon: "📗" },
+        thinkQuestion: "If you were explaining something to a younger sibling, would you start with the easiest part or the hardest?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ tell Mu'adh and Abu Musa?",
+          options: ["Be strict so they fear you", "Make it easy, give good news, do not drive people away", "Collect the money first", "Teach only the adults"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A traveller's staff", description: "A staff for a teacher his Prophet walked beside to say goodbye." },
+        badge: "A Teacher Who Makes It Easy",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "“Make it easy” and the warning about the prayer of the wronged are both established in the two Sahih collections, in the account of sending Mu'adh to Yemen.",
+      },
+    },
+    title: "سفير اليمن: يسّرا ولا تعسّرا",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بعث النبي ﷺ معاذ بن جبل رضي الله عنه إلى اليمن معلّماً وقاضياً، ومشى معه يوصيه. وقال له ولأبي موسى: «يسّرا ولا تعسّرا، وبشّرا ولا تنفّرا، وتطاوعا ولا تختلفا». وحذّره من الظلم فقال: «واتّقِ دعوة المظلوم، فإنه ليس بينها وبين الله حجاب».",
+        shortLesson: "التعليم يبدأ بالتيسير، لا بالتشديد.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما اتّسعت رقعة الدولة، احتاجت البلاد البعيدة إلى من يعلّمها ويقضي بين أهلها. فاختار النبي ﷺ معاذ بن جبل رضي الله عنه — وكان شاباً عالماً — وبعثه إلى اليمن. ومشى معه النبي ﷺ يوصيه وهو راكب، ثم قال له ولأبي موسى الأشعري رضي الله عنه كلمات صارت قاعدة لكل معلّم بعدهم: «يسّرا ولا تعسّرا، وبشّرا ولا تنفّرا، وتطاوعا ولا تختلفا». وأوصاه أن يبدأ بالأهمّ فالأهمّ، وألا يأخذ من أموال الناس خيارها، وحذّره تحذيراً شديداً من أن يظلم أحداً فقال: «واتّقِ دعوة المظلوم، فإنه ليس بينها وبين الله حجاب». فذهب معاذ يعلّم الناس بالرفق، فأحبّوه.",
+        details:
+          "قال تعالى: ﴿ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "قال النبي ﷺ لمعاذ رضي الله عنه: «إني أحبّك»، وأوصاه بدعاء يقوله دبر كل صلاة.",
+      value: { name: "التيسير في التعليم", icon: "📗" },
+      thinkQuestion:
+        "لو كنت تشرح لأخ أصغر منك، هتبدأ بإيه: الأسهل ولا الأصعب؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ أوصى النبي ﷺ معاذاً وأبا موسى رضي الله عنهما؟",
+        options: ["شدّدا ليخافوا", "يسّرا ولا تعسّرا وبشّرا ولا تنفّرا", "اجمعا المال أولاً", "لا تعلّما إلا الكبار"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "عصا مسافر", description: "عصا تذكّرك بمعلّم مشى إليه نبيّه يودّعه." },
+      badge: "معلّم ميسّر",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "وصية «يسّرا ولا تعسّرا» وتحذير «دعوة المظلوم» ثابتان في الصحيحين في حديث بعث معاذ رضي الله عنه إلى اليمن.",
+    },
+  },
+  {
+    storyId: "st-8-09",
+    stationId: 8,
+    slug: "dhimad-and-kab-poetry",
+    en: {
+      title: "Dhimad and Ka'b: The Power of a Word",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "Dhimad al-Azdi came to Mecca and heard people saying Muhammad was touched in the head. He treated such things, so he offered to treat him. The Prophet ﷺ listened to him, then spoke words of praise and of the oneness of Allah — and Dhimad said: say them again! I have heard soothsayers and sorcerers and poets, and I have never heard anything like this. He accepted Islam on the spot.",
+          shortLesson: "Listen for yourself before you believe what people say.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "A man of Azd Shanu'ah called Dhimad came to Mecca. He used to treat people, and he heard the foolish of Mecca saying that Muhammad was mad, so he said: if I could see this man, perhaps Allah would heal him at my hands. He met him and said: Muhammad, I treat this kind of affliction — shall I? The Prophet ﷺ said: “All praise is for Allah; we praise Him and seek His help. Whom Allah guides, none can lead astray; whom He leaves astray, none can guide.” Dhimad said: say those words of yours again! He repeated them three times, and Dhimad said: I have heard the words of soothsayers, and of sorcerers, and of poets, and I have never heard anything like these words of yours. Then he accepted Islam. Years later the poet Ka'b ibn Zuhayr came in repentance after satirising him, recited his famous poem before the Prophet ﷺ, and was pardoned and honoured.",
+          details:
+            "Allah says of this Quran: ﴿لَوْ أَنزَلْنَا هَٰذَا الْقُرْآنَ عَلَىٰ جَبَلٍ لَّرَأَيْتَهُ خَاشِعًا﴾ — “Had We sent down this Quran upon a mountain, you would have seen it humbled.”",
+        },
+      },
+      interactive: {
+        discover: "Dhimad came to give treatment, and left as the one who had been changed.",
+        value: { name: "Checking before judging", icon: "🗣️" },
+        thinkQuestion: "The last time you heard something about someone — did you check, or believe it straight away?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did Dhimad first come to the Prophet ﷺ?",
+          options: ["To learn from him", "To treat him for what he had heard about him", "To buy from him", "To ask directions"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A stick of incense", description: "A keepsake for a man who came to heal and left healed himself." },
+        badge: "One Who Checks First",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sahih Muslim, and Ibn Hisham's Seerah",
+        note: "The account of Dhimad is established in Sahih Muslim in these words; the story of Ka'b ibn Zuhayr and the poem is well known in the Seerah and literary works rather than the Sahih collections.",
+      },
+    },
+    title: "ضِماد وكعب: قوة الكلمة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "جاء ضِماد الأزدي إلى مكة وسمع الناس يقولون إن محمداً به مسّ، وكان يعالج، فعرض أن يعالجه. فسمع منه النبي ﷺ ثم قال كلمات الحمد والتوحيد، فقال ضِماد: أعد عليّ! سمعت الكهنة والسحرة والشعراء، فما سمعت مثل هذا. وأسلم مكانه.",
+        shortLesson: "اسمع بنفسك قبل أن تصدّق ما يقوله الناس.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "قدم مكة رجل من أزد شنوءة يُقال له ضِماد، وكان يرقي من الريح، فسمع سفهاء مكة يقولون إن محمداً مجنون، فقال: لو أني رأيت هذا الرجل لعل الله يشفيه على يدي. فلقيه وقال: يا محمد، إني أرقي من هذه الريح، فهل لك؟ فقال النبي ﷺ: «إن الحمد لله، نحمده ونستعينه، من يهده الله فلا مضلّ له، ومن يُضلل فلا هادي له». فقال ضِماد: أعد عليّ كلماتك هؤلاء! فأعادها ثلاثاً، فقال: لقد سمعت قول الكهنة وقول السحرة وقول الشعراء، فما سمعت مثل كلماتك هؤلاء. ثم أسلم. وبعد سنوات جاء الشاعر كعب بن زهير تائباً بعد هجاء، فأنشد بين يدي النبي ﷺ قصيدته المشهورة، فعفا عنه وأكرمه.",
+        details:
+          "قال تعالى في عظمة هذا القرآن: ﴿لَوْ أَنزَلْنَا هَٰذَا الْقُرْآنَ عَلَىٰ جَبَلٍ لَّرَأَيْتَهُ خَاشِعًا مُّتَصَدِّعًا مِّنْ خَشْيَةِ اللَّهِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "ضِماد جاء ليعالج، فرجع وقد تغيّر هو نفسه.",
+      value: { name: "التثبّت قبل الحكم", icon: "🗣️" },
+      thinkQuestion:
+        "آخر مرة سمعت كلاماً عن شخص ما — تأكّدت بنفسك ولا صدّقت على طول؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا جاء ضِماد إلى النبي ﷺ أول مرة؟",
+        options: ["ليتعلّم منه", "ليعالجه مما سمع عنه", "ليشتري منه", "ليسأله عن الطريق"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "عود بخور", description: "تذكار لرجل جاء يعالج فرجع وقد شُفي قلبه." },
+      badge: "متثبّت",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "صحيح مسلم، وسيرة ابن هشام",
+      note: "قصة ضِماد رضي الله عنه ثابتة في صحيح مسلم بلفظها؛ وأما خبر كعب بن زهير والقصيدة فمشهور في كتب السيرة والأدب لا في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-8-10",
+    stationId: 8,
+    slug: "breaking-idols-building-hearts",
+    en: {
+      title: "Stones Fall, Minds Are Freed",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The tribes worshipped stone idols, asking them for provision and healing. When they entered Islam, men were sent to those idols to take them down — often men from the same tribe. People stood and saw with their own eyes that a stone cannot ward off a single blow, and the illusion fell before the idol did.",
+          shortLesson: "A false idea falls the moment you see it as it really is.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "Every Arab tribe had an idol it honoured: al-Lat for Thaqif, al-Uzza for Quraysh, Manat, Suwa' and others. They sacrificed to them and asked them for rain, healing and children. When the tribes entered Islam after the Year of Delegations, men were sent to take those idols down — and the Prophet ﷺ usually sent a man from the tribe itself, like Khalid ibn al-Walid or al-Mughirah ibn Shu'bah, because people accept more readily from one of their own. Breaking the stone was never the point in itself: people stood watching, and saw that this thing they had feared and petitioned could not stop a single blow falling on it. The fear left their hearts before the idol left its base, and what they held onto moved from stones to Allah alone, and from rituals to character.",
+          details:
+            "Allah says: ﴿إِنَّ الَّذِينَ تَدْعُونَ مِن دُونِ اللَّهِ عِبَادٌ أَمْثَالُكُمْ﴾ — “Those you call upon besides Allah are servants like you.”",
+        },
+      },
+      interactive: {
+        discover: "The man sent to take down a tribe's idol was usually from that tribe, not a stranger to it.",
+        value: { name: "Freeing the mind", icon: "🪨" },
+        thinkQuestion: "Is there something you used to believe that turned out to be wrong? What changed your mind?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did the Prophet ﷺ usually send a man from the tribe itself?",
+          options: ["Because he was stronger", "Because people accept more readily from one of their own", "Because the road was shorter", "Because he knew the way"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "An empty pedestal", description: "An empty base to remind you that the illusion falls first." },
+        badge: "Free of Mind",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Ibn Hisham's Seerah, and the Quran, Surah Al-A'raf: 194",
+        note: "The helplessness of the idols is stated in the Quran; the details of who was sent and to which idol come from the Seerah and maghazi literature.",
+      },
+    },
+    title: "حجارة تسقط وعقول تتحرّر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كانت القبائل تعبد أصناماً من حجر تطلب منها الرزق والشفاء. فلما دخلوا في الإسلام، بُعث إلى تلك الأصنام من يهدمها — وكثيراً ما كانوا من القبيلة نفسها. فرأى الناس بأعينهم أن الحجر لا يدفع عن نفسه شيئاً، فسقط الوهم قبل أن يسقط الصنم.",
+        shortLesson: "الفكرة الباطلة تسقط حين تراها على حقيقتها.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كانت لكل قبيلة من العرب صنم تعظّمه: اللات لثقيف، والعُزّى لقريش، ومناة وسُواع وغيرها. يذبحون لها ويطلبون منها المطر والشفاء والولد. فلما دخلت القبائل في الإسلام بعد عام الوفود، بُعث إلى تلك الأصنام من يزيلها، وكان النبي ﷺ يبعث في الغالب رجلاً من القبيلة نفسها — كخالد بن الوليد والمغيرة بن شعبة رضي الله عنهما — لأن الناس أقبل لما يأتيهم من واحد منهم. ولم يكن المقصود كسر الحجر في ذاته: كان الناس يقفون ينظرون فيرون أن هذا الذي كانوا يخافونه ويسألونه لا يستطيع أن يمنع عن نفسه ضربة واحدة. فيسقط الخوف من قلوبهم قبل أن يسقط الصنم عن قاعدته، ويتحوّل التعلّق من الحجارة إلى الله وحده، ومن الطقوس إلى الأخلاق.",
+        details:
+          "قال تعالى: ﴿إِنَّ الَّذِينَ تَدْعُونَ مِن دُونِ اللَّهِ عِبَادٌ أَمْثَالُكُمْ فَادْعُوهُمْ فَلْيَسْتَجِيبُوا لَكُمْ إِن كُنتُمْ صَادِقِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان يُبعث لهدم صنم القبيلة رجلٌ منها، لا غريب عنها.",
+      value: { name: "تحرير العقل", icon: "🪨" },
+      thinkQuestion:
+        "في فكرة كنت مصدّقها زمان وبانت لك غلط؟ إيه اللي خلّاك تغيّر رأيك؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا كان النبي ﷺ يبعث غالباً رجلاً من القبيلة نفسها؟",
+        options: ["لأنه أقوى", "لأن الناس أقبل لما يأتيهم من واحد منهم", "لأنه أقرب طريقاً", "لأنه يعرف الطريق"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قاعدة فارغة", description: "قاعدة خالية تذكّرك أن الوهم يسقط أول." },
+      badge: "حرّ العقل",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سيرة ابن هشام، والقرآن الكريم، سورة الأعراف: ١٩٤",
+      note: "عجز الأصنام مقرّر في القرآن؛ وأما تفصيل البعوث إلى الأصنام وأسماء من بُعث فمن كتب السيرة والمغازي.",
+    },
+  },
+  {
+    storyId: "st-8-11",
+    stationId: 8,
+    slug: "mercy-to-the-weak-suffah",
+    en: {
+      title: "The People of the Bench: The Poorest and the Closest",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "At the back of the Prophet's mosque was a shaded place called the Bench, where poor migrants with no home and no money stayed — Abu Hurayrah among them. They were not neglected: they were students, and whenever food was given to the Prophet ﷺ he sent some of it to them.",
+          shortLesson: "A person is worth what they know and how they behave, not what is in their pocket.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "At the back of the Prophet's mosque was a shaded area known as the Suffah — the Bench — which the Prophet ﷺ made a shelter for anyone who came to Madinah with no family, no house and no money. Abu Hurayrah stayed there, and other poor men with him. They were not at the edge of that society; they were at its centre: the people of the mosque, students of knowledge, and the best memorisers of the Prophet's words — which is how Abu Hurayrah came to narrate more hadith than any other companion. When food was brought to the Prophet ﷺ he would ask: is it a gift or charity? If it was charity he sent it to them and did not eat; if it was a gift he sent them some and ate with them. And he set a rule for the community: the weak are not a burden it carries, but the reason it is provided for and helped at all.",
+          details:
+            "Allah says: ﴿وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُم بِالْغَدَاةِ وَالْعَشِيِّ﴾ — “Keep yourself patiently with those who call upon their Lord morning and evening.”",
+        },
+      },
+      interactive: {
+        discover: "Abu Hurayrah narrated more hadith than any other companion — and he was one of the people of the Bench, who owned nothing.",
+        value: { name: "The dignity of the weak", icon: "🕌" },
+        thinkQuestion: "Who in your class or street needs someone to stand with them? What could you do?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Who stayed at the Suffah?",
+          options: ["The great merchants", "Poor migrants with no homes", "Royal guests", "Soldiers only"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A palm-leaf mat", description: "A mat: a small corner can raise the greatest of people." },
+        badge: "Support of the Weak",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The people of the Suffah and Abu Hurayrah's life among them are in Sahih al-Bukhari, as is the Prophet's saying that people are provided for and helped through their weak.",
+      },
+    },
+    title: "أهل الصُّفَّة: أفقر الناس وأقربهم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في مؤخّرة المسجد النبوي كان مكان مظلّل يُسمّى «الصُّفَّة»، ينزل فيه فقراء المهاجرين ممن لا بيت لهم ولا مال، ومنهم أبو هريرة رضي الله عنه. لم يكونوا مهملين: كانوا طلاب علم، وكان النبي ﷺ إذا أُهدي له طعام أرسل إليهم منه.",
+        shortLesson: "قيمة الإنسان بما عنده من علم وخلق، لا بما في جيبه.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كان في مؤخّرة المسجد النبوي مكان مظلّل يُعرف بـ«الصُّفَّة»، جعله النبي ﷺ مأوى لمن قدم المدينة ولا أهل له ولا بيت ولا مال. نزل فيه أبو هريرة رضي الله عنه وغيره من الفقراء. ولم يكن هؤلاء على هامش المجتمع، بل كانوا في قلبه: جلساء المسجد، وطلاب العلم، وأحفظ الناس لحديث النبي ﷺ — ومن هنا صار أبو هريرة أكثر الصحابة رواية. وكان النبي ﷺ إذا أُهدي إليه طعام سأل: أهديّة أم صدقة؟ فإن كانت صدقة أرسل بها إليهم ولم يأكل، وإن كانت هديّة أرسل إليهم منها وأكل معهم. وجعل في المجتمع قاعدة: أن الضعيف ليس عبئاً يُحتمل، بل سببٌ يُرزق به الناس ويُنصرون.",
+        details:
+          "قال تعالى: ﴿وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُم بِالْغَدَاةِ وَالْعَشِيِّ يُرِيدُونَ وَجْهَهُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أبو هريرة رضي الله عنه أكثر الصحابة حديثاً، وكان من أهل الصُّفَّة الذين لا يملكون شيئاً.",
+      value: { name: "كرامة الضعيف", icon: "🕌" },
+      thinkQuestion:
+        "مين في فصلك أو حيّك محتاج حدّ يقف جنبه؟ تقدر تعمل إيه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "مَن كان ينزل في الصُّفَّة؟",
+        options: ["كبار التجار", "فقراء المهاجرين ممن لا بيت لهم", "الضيوف من الملوك", "الجنود فقط"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حصير من سعف", description: "حصير يذكّرك أن المكان الصغير قد يخرّج أعظم الناس." },
+      badge: "سند الضعفاء",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "أهل الصُّفَّة وحال أبي هريرة رضي الله عنه معهم في صحيح البخاري، وكذلك قوله ﷺ في أن الناس يُرزقون ويُنصرون بضعفائهم.",
+    },
+  },
+  {
+    storyId: "st-8-12",
+    stationId: 8,
+    slug: "kindness-to-animals-nature",
+    en: {
+      title: "The Bird Whose Chicks Were Taken",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ was on a journey and stepped away, and some of his companions took the two chicks of a small bird. The mother came and hovered over their heads. When the Prophet ﷺ came back and saw it he said: “Who has grieved this bird by taking its young? Give her young back to her.”",
+          shortLesson: "Mercy does not stop at people.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ was travelling with his companions and stepped away for a while. Some of them saw a small bird — a hummarah — with two chicks, and took the chicks. The mother came and hovered over their heads, not knowing what to do. When the Prophet ﷺ returned and saw it he was angry and said: “Who has grieved this bird by taking its young? Give her young back to her.” This was not a one-off. He forbade loading an animal beyond what it can carry, forbade using any living creature as a target, forbade cutting trees without need, and taught that there is reward in kindness to every living thing. For a Muslim, mercy is not a feeling reserved for people; it is how you treat everything alive.",
+          details:
+            "Allah says: ﴿وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم﴾ — “There is no creature on earth, nor a bird flying on its wings, but they are communities like you.”",
+        },
+      },
+      interactive: {
+        discover: "The hummarah is a small reddish bird — the hadith is named after her.",
+        value: { name: "Kindness to animals", icon: "🐦" },
+        thinkQuestion: "If you found a small animal in trouble in the street, what would you do?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ say when he saw the chicks had been taken?",
+          options: ["Keep them with you", "Give her young back to her", "Feed them", "It does not matter"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small feather", description: "A feather: mercy reaches the smallest of creatures." },
+        badge: "Gentle With Animals",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sunan Abi Dawud, with “every living thing” in Sahih al-Bukhari",
+        note: "The hadith of the hummarah is in Sunan Abi Dawud and graded authentic by a number of scholars, but is not in the two Sahih collections; the reward for kindness to every living creature is in al-Bukhari and Muslim.",
+      },
+    },
+    title: "العصفورة التي فُجعت بولدها",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كان النبي ﷺ في سفر فذهب لحاجته، فأخذ بعض أصحابه فرخي طائر صغير، فجاءت أمّهما ترفرف فوق رؤوسهم. فلما رجع النبي ﷺ ورأى ما صنعوا قال: «من فجع هذه بولدها؟ ردّوا ولدها إليها».",
+        shortLesson: "الرحمة لا تقف عند البشر.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كان النبي ﷺ في سفر مع أصحابه، فانطلق لحاجته، فرأى بعضهم طائراً صغيراً يُقال له «الحُمَّرة» معه فرخان، فأخذوا الفرخين. فجاءت الأم فجعلت ترفرف فوق رؤوسهم لا تدري ماذا تصنع. فلما رجع النبي ﷺ ورأى المشهد غضب وقال: «مَن فجع هذه بولدها؟ ردّوا ولدها إليها». ولم تكن هذه حادثة عابرة: نهى النبي ﷺ عن تحميل الدابة فوق طاقتها، وعن اتخاذ ذوات الروح هدفاً للرمي، وعن قطع الشجر لغير حاجة، وأخبر أن في كل كبد رطبة أجراً — أي أن الإحسان إلى كل ذي روح فيه ثواب. الرحمة عند المسلم ليست شعوراً يخصّ الناس فقط، بل طريقة يعامل بها كل حيّ.",
+        details:
+          "قال تعالى: ﴿وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم﴾.",
+      },
+    },
+    interactive: {
+      discover: "«الحُمَّرة» طائر صغير أحمر اللون، وسُمّي الحديث باسمها.",
+      value: { name: "الرفق بالحيوان", icon: "🐦" },
+      thinkQuestion:
+        "لو لقيت حيواناً صغيراً تعبان في الشارع، تعمل إيه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا قال النبي ﷺ لما رأى الفرخين قد أُخذا؟",
+        options: ["اتركوهما معكم", "ردّوا ولدها إليها", "أطعموهما", "لا بأس"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "ريشة صغيرة", description: "ريشة تذكّرك أن الرحمة تشمل أصغر الخلق." },
+      badge: "رفيق بالحيوان",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سنن أبي داود، وصحيح البخاري في «كل كبد رطبة»",
+      note: "حديث الحُمَّرة في سنن أبي داود وصحّحه غير واحد من أهل العلم، وليس في الصحيحين؛ وأما الأجر في الإحسان إلى كل ذي كبد رطبة ففي البخاري ومسلم.",
+    },
+  },
+  {
+    storyId: "st-8-13",
+    stationId: 8,
+    slug: "honest-merchant-market-ethics",
+    en: {
+      title: "A Hand in the Grain: Whoever Cheats Is Not of Us",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ passed a heap of grain in the market and put his hand into it — and his fingers found damp underneath the dry surface. He said: “What is this, seller?” The man said: rain got to it, Messenger of Allah. He said: “Then why did you not put it on top, so people could see it? Whoever cheats is not of me.”",
+          shortLesson: "Cheating starts small and ends with people no longer trusting you.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ used to walk through the market of Madinah himself. One day he passed a heap of grain that looked dry and clean on top. He put his hand into it, and his fingers came out damp from inside. He turned to the seller: “What is this, owner of the food?” The man said: the rain got to it, Messenger of Allah. The Prophet ﷺ said: “Then why did you not put it on top of the food, so that people could see it?” And then the sentence that has been a rule for every sale since: “Whoever cheats is not of me.” The man had not told a lie with his tongue — he had hidden a fault, and hiding a fault is cheating. On the other side, the Prophet ﷺ promised the honest, trustworthy trader that he would be with the prophets, the truthful and the martyrs.",
+          details:
+            "Allah says: ﴿وَيْلٌ لِّلْمُطَفِّفِينَ﴾ — “Woe to those who give short measure.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet ﷺ walked through the market himself to check how people were dealing with each other, not only to buy.",
+        value: { name: "Honesty in trade", icon: "⚖️" },
+        thinkQuestion: "If you were selling something with a small fault, would you tell the buyer or stay quiet?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did the Prophet ﷺ correct the grain seller?",
+          options: ["He raised the price", "He hid the damp grain under the dry", "He sold in the morning", "He measured carelessly"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A scale pan", description: "A scale pan: a fault is declared, not hidden." },
+        badge: "An Honest Trader",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Muslim",
+        note: "“Whoever cheats is not of me” and the account of the heap of grain are in Sahih Muslim.",
+      },
+    },
+    title: "يد في الطعام: من غشّ فليس منّا",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "مرّ النبي ﷺ على صُبرة طعام في السوق، فأدخل يده فيها فأصابت أصابعه بللاً تحت السطح الجافّ. فقال: «ما هذا يا صاحب الطعام؟» قال: أصابته السماء يا رسول الله. قال: «أفلا جعلته فوق الطعام كي يراه الناس؟ من غشّ فليس منّي».",
+        shortLesson: "الغشّ يبدأ صغيراً وينتهي بأن يفقدك الناس ثقتهم.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "كان النبي ﷺ يتفقّد سوق المدينة بنفسه، فمرّ ذات يوم على صُبرة طعام — كومة قمح — ظاهرها جافّ نظيف. فأدخل يده فيها، فأصابت أصابعه بللاً في داخلها. فالتفت إلى البائع وقال: «ما هذا يا صاحب الطعام؟» قال: أصابته السماء يا رسول الله — أي نزل عليه المطر. فقال النبي ﷺ: «أفلا جعلته فوق الطعام كي يراه الناس؟» ثم قال كلمته التي صارت قاعدة في كل بيع وشراء إلى اليوم: «من غشّ فليس منّي». لم يكن الرجل يكذب بلسانه، لكنه أخفى العيب — وإخفاء العيب غشّ. وفي المقابل بشّر النبي ﷺ التاجر الصدوق الأمين بأنه مع النبيّين والصدّيقين والشهداء.",
+        details:
+          "قال تعالى: ﴿وَيْلٌ لِّلْمُطَفِّفِينَ الَّذِينَ إِذَا اكْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ وَإِذَا كَالُوهُمْ أَو وَّزَنُوهُمْ يُخْسِرُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "النبي ﷺ كان يمشي في السوق بنفسه ليطمئنّ على معاملات الناس، لا ليشتري فقط.",
+      value: { name: "الأمانة في البيع", icon: "⚖️" },
+      thinkQuestion:
+        "لو كنت بتبيع حاجة وفيها عيب صغير، هتقوله للمشتري ولا تسكت؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا عاتب النبي ﷺ صاحب الطعام؟",
+        options: ["لأنه رفع السعر", "لأنه أخفى المبلول تحت الجافّ", "لأنه باع في الصباح", "لأنه لم يكِل جيداً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "كفّة ميزان", description: "كفّة تذكّرك أن العيب يُقال ولا يُخفى." },
+      badge: "تاجر صدوق",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح مسلم",
+      note: "حديث «من غشّ فليس منّي» وقصة صُبرة الطعام في صحيح مسلم.",
+    },
+  },
+  {
+    storyId: "st-8-14",
+    stationId: 8,
+    slug: "mosque-school-and-knowledge",
+    en: {
+      title: "The Mosque as a School — and a Day for the Women",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The mosque was not only for prayer: circles were held in it where people learned. Women came to the Prophet ﷺ and said: the men have taken all of you — give us a day of your own time. He promised them a day, and met them on it and taught them.",
+          shortLesson: "Ask for knowledge properly, and you will find someone to teach you.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet's mosque was not only a place of prayer: circles were held there after the prayers, where people learned the Quran, the rulings and good character, and asked questions and were answered. And the teaching was not for men alone. Some women came to the Prophet ﷺ and said: “The men have taken you from us — give us a day of your own.” He promised them a day, met them on it, and taught and advised and instructed them. He did not tell them to learn it from their husbands, and he did not put them off; he gave them time out of his own. Through circles as simple as these, in a mosque of mud and palm branches, a society where most people could not read became one that prized asking and learning.",
+          details:
+            "Allah says: ﴿يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ﴾ — “Allah raises those of you who believe, and those given knowledge, in degrees.”",
+        },
+      },
+      interactive: {
+        discover: "It was the women who asked for the lesson — and the Prophet ﷺ answered them rather than expecting them to stay quiet.",
+        value: { name: "Learning for everyone", icon: "📚" },
+        thinkQuestion: "When did you last ask a question you were nervous to ask? What happened when you did?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ do when the women asked for a day to learn?",
+          options: ["He apologised, being busy", "He promised them a day, met them and taught them", "He sent them to their husbands", "He put them off for a year"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A writing tablet", description: "A tablet: asking is the first step in learning." },
+        badge: "A Seeker of Knowledge",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The women asking for a day and the Prophet setting one aside to teach them is established in al-Bukhari and Muslim.",
+      },
+    },
+    title: "المسجد مدرسة: ويوم للنساء",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "لم يكن المسجد للصلاة وحدها: كانت تُعقد فيه حلقات يتعلّم فيها الناس. وجاءت النساء إلى النبي ﷺ فقلن: غلبنا عليك الرجال، فاجعل لنا يوماً من نفسك. فوعدهنّ يوماً، فلقيهنّ فيه وعلّمهنّ.",
+        shortLesson: "من طلب العلم بأدب، وجد من يعلّمه.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لم يكن مسجد النبي ﷺ مكاناً للصلاة فقط: كانت تُعقد فيه الحلقات بعد الصلوات، يتعلّم الناس فيها القرآن والأحكام والأخلاق ويسألون فيُجابون. ولم يكن التعليم للرجال وحدهم. جاء نساء إلى النبي ﷺ فقلن له: «غلبنا عليك الرجال، فاجعل لنا من نفسك يوماً»، فوعدهنّ يوماً يلقاهنّ فيه، فلقيهنّ فيه فوعظهنّ وعلّمهنّ وأمرهنّ. لم يقل لهنّ: تعلّمن من أزواجكنّ، ولم يؤجّلهنّ؛ خصّص لهنّ وقتاً من وقته. وبهذه الحلقات البسيطة في مسجد من طين وسعف، تحوّل مجتمع كان أكثره لا يقرأ ولا يكتب إلى مجتمع يقدّس السؤال والتعلّم.",
+        details:
+          "قال تعالى: ﴿يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "النساء هنّ اللواتي طلبن الدرس، فاستجاب لهنّ النبي ﷺ ولم ينتظر منهنّ أن يسكتن.",
+      value: { name: "العلم للجميع", icon: "📚" },
+      thinkQuestion:
+        "آخر مرة سألت سؤالاً كنت خايف تسأله؟ إيه اللي حصل لما سألت؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل النبي ﷺ لما طلبت النساء يوماً للتعلّم؟",
+        options: ["اعتذر لانشغاله", "وعدهنّ يوماً ولقيهنّ فيه فعلّمهنّ", "أحالهنّ إلى أزواجهنّ", "أجّلهنّ سنة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "لوح تعليم", description: "لوح يذكّرك أن السؤال أول خطوة في العلم." },
+      badge: "طالب علم",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "طلب النساء يوماً من النبي ﷺ وتخصيصه لهنّ يوماً يعلّمهنّ فيه ثابت في صحيح البخاري ومسلم.",
+    },
+  },
+  {
+    storyId: "st-8-15",
+    stationId: 8,
+    slug: "madinah-capital-of-light",
+    en: {
+      title: "Madinah at Peace: From Sana'a to Hadramawt",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In Mecca, Khabbab complained to the Prophet ﷺ about how hard the persecution was, and he answered: “By Allah, Allah will complete this matter until a rider goes from Sana'a to Hadramawt fearing nothing but Allah, and the wolf for his sheep.” Years later, people watched it happen.",
+          shortLesson: "A country is safe when the weakest person in it can walk without fear.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In Mecca, when the torture was at its worst, Khabbab ibn al-Aratt came to the Prophet ﷺ — who was resting on his cloak in the shade of the Kaaba — and said: will you not ask for help for us? Will you not pray for us? After reminding him of those who had come before, the Prophet ﷺ said: “By Allah, Allah will complete this matter until a rider travels from Sana'a to Hadramawt fearing nothing but Allah, and the wolf for his sheep — but you are impatient.” Years later that sentence became something people could see: tribes joining, roads made safe, markets built on honesty, a community learning in its mosque. And when that was built, the Prophet ﷺ announced that he would make the pilgrimage — to meet the whole community in one place, and tell it what he wanted it to keep after him.",
+          details:
+            "Allah says: ﴿أُولَٰئِكَ لَهُمُ الْأَمْنُ وَهُم مُّهْتَدُونَ﴾ — “those are the ones who have security, and they are rightly guided.”",
+        },
+      },
+      interactive: {
+        discover: "He said those words while he was in Mecca and powerless — before there was any state at all.",
+        value: { name: "Safety is the fruit of justice", icon: "🌇" },
+        thinkQuestion: "What makes a place safe, in your view — its walls, or its people?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ promise Khabbab while they were being tortured in Mecca?",
+          options: ["The torture would end tomorrow", "Safety would spread until a rider feared nothing but Allah", "They would leave Mecca", "They would fight at once"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A lamp on the road", description: "A lamp: safety is built, not handed over." },
+        badge: "Builder of a Homeland",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The account of Khabbab ibn al-Aratt and the Prophet's words about the rider from Sana'a to Hadramawt are in Sahih al-Bukhari.",
+      },
+    },
+    title: "المدينة تطمئنّ: من صنعاء إلى حضرموت",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كان خبّاب رضي الله عنه يشكو إلى النبي ﷺ شدّة ما يلقون في مكة، فقال له: «والله ليُتمّنّ الله هذا الأمر حتى يسير الراكب من صنعاء إلى حضرموت لا يخاف إلا الله والذئب على غنمه». وبعد سنوات صار ذلك واقعاً يراه الناس.",
+        shortLesson: "الوطن الآمن هو الذي يمشي فيه الضعيف مطمئنّاً.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في مكة، حين كان التعذيب على أشدّه، جاء خبّاب بن الأرتّ رضي الله عنه إلى النبي ﷺ وهو متوسّد بردته في ظلّ الكعبة يشكو ويقول: ألا تستنصر لنا؟ ألا تدعو لنا؟ فقال له النبي ﷺ بعد أن ذكّره بمن كان قبلهم: «والله ليُتمّنّ الله هذا الأمر حتى يسير الراكب من صنعاء إلى حضرموت لا يخاف إلا الله والذئب على غنمه، ولكنكم تستعجلون». وبعد سنوات صار هذا الكلام أمراً يراه الناس بأعينهم: قبائل تدخل في الأمر، وطرق تُؤمَن، وأسواق تقوم على الأمانة، ومجتمع يتعلّم في مسجده. ولمّا اكتمل هذا البناء، أعلن النبي ﷺ عزمه على الحجّ، ليلقى الأمة كلها في مكان واحد ويقول لها ما يريد أن تحفظه بعده.",
+        details:
+          "قال تعالى: ﴿الَّذِينَ آمَنُوا وَلَمْ يَلْبِسُوا إِيمَانَهُم بِظُلْمٍ أُولَٰئِكَ لَهُمُ الْأَمْنُ وَهُم مُّهْتَدُونَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "قال النبي ﷺ هذه الكلمات وهو في مكة مستضعف، قبل أن تكون هناك دولة أصلاً.",
+      value: { name: "الأمن ثمرة العدل", icon: "🌇" },
+      thinkQuestion:
+        "إيه اللي يخلّي مكاناً «آمناً» في رأيك؟ الأسوار ولا الناس؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ وعد النبي ﷺ خبّاباً رضي الله عنه وهم يُعذَّبون في مكة؟",
+        options: ["بأن العذاب سينتهي غداً", "بأن الأمن سيعمّ حتى يسير الراكب لا يخاف إلا الله", "بأن يخرجوا من مكة", "بأن يقاتلوا فوراً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "مصباح على الطريق", description: "مصباح يذكّرك أن الأمن يُبنى ولا يُوهَب." },
+      badge: "بانٍ للوطن",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "حديث خبّاب بن الأرتّ رضي الله عنه وقول النبي ﷺ «حتى يسير الراكب من صنعاء إلى حضرموت» في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-9-01",
+    stationId: 9,
+    slug: "grand-call-to-hajj",
+    en: {
+      title: "The Great Call: A March to Mecca",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the tenth year the Prophet ﷺ announced that he would make the pilgrimage, and people came out with him from every direction until they were beyond counting. He entered the state of pilgrimage at Dhu al-Hulayfah in two white cloths, and everyone dressed as he did, so you could no longer tell the rich from the poor. And their voices rose: here I am, O Allah, here I am.",
+          shortLesson: "Before Allah, people stand as equals.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In Dhu al-Qi'dah of the tenth year after the migration, the Prophet ﷺ announced that he was going for the pilgrimage. As soon as word reached the tribes they came out of every valley wanting to make the pilgrimage with him and to see how he did it, until an enormous crowd had gathered — historians estimate more than a hundred thousand. At Dhu al-Hulayfah the Prophet ﷺ entered ihram: he took off his sewn clothes and put on a plain white lower garment and cloak with no ornament on them, and every person there dressed as he had. You could no longer tell a commander from a shepherd or a rich man from a poor one: two white cloths, and one sentence repeated by a hundred thousand throats — “Here I am, O Allah, here I am; here I am, You have no partner, here I am.” That is how the pilgrimage begins: everyone leaves what divides them at the first stop.",
+          details:
+            "Allah says: ﴿وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا﴾ — “And proclaim the pilgrimage to the people; they will come to you on foot.”",
+        },
+      },
+      interactive: {
+        discover: "Jabir ibn Abdullah described this pilgrimage day by day, and his account is the longest hadith describing the Hajj.",
+        value: { name: "Equality", icon: "🕋" },
+        thinkQuestion: "If everyone wore exactly the same clothes, what would tell them apart?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did the pilgrims wear the same white cloths?",
+          options: ["They were cheaper", "They erase the difference between rich and poor", "Only to keep off the heat", "They were an army uniform"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A white cloth", description: "A white cloth: differences are left at the door." },
+        badge: "One Who Answered the Call",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih Muslim, in Jabir's account of the pilgrimage",
+        note: "The Prophet's ihram at Dhu al-Hulayfah and the talbiyah are in Sahih Muslim; the number of pilgrims is an estimate from the historians, not from a text.",
+      },
+    },
+    title: "النداء الأكبر: مسيرة إلى مكة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في السنة العاشرة أعلن النبي ﷺ أنه حاجّ، فخرج الناس معه من كل ناحية حتى صاروا جموعاً لا تُحصى. أحرم من ذي الحُليفة في ثوبين أبيضين، ولبس الناس مثله، فما عاد يُعرف الغنيّ من الفقير. وارتفعت أصواتهم: لبّيك اللهم لبّيك.",
+        shortLesson: "أمام الله يقف الناس سواء.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في ذي القعدة من السنة العاشرة للهجرة، أعلن النبي ﷺ أنه خارج إلى الحجّ. فما إن بلغ الخبر القبائل حتى خرجوا من كل وادٍ يريدون أن يحجّوا معه ويروا كيف يحجّ، فاجتمع معه في المدينة وفي الطريق جموع عظيمة يقدّرها المؤرّخون بأكثر من مئة ألف. ولمّا بلغوا ذي الحُليفة أحرم النبي ﷺ: خلع ثيابه المخيطة ولبس إزاراً ورداءً أبيضين لا زينة فيهما، ولبس الناس كلّهم مثل لبسه. فلم يعد يُعرف الأمير من الراعي ولا الغنيّ من الفقير: ثوبان أبيضان وكلمة واحدة يردّدها مئة ألف حَلْق: «لبّيك اللهم لبّيك، لبّيك لا شريك لك لبّيك». هكذا يبدأ الحجّ: بأن يترك الناس كل ما يفرّقهم عند أول محطة.",
+        details:
+          "قال تعالى: ﴿وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ﴾.",
+      },
+    },
+    interactive: {
+      discover: "وصف جابر بن عبد الله رضي الله عنه هذه الحجّة وصفاً دقيقاً يوماً بيوم، وحديثه أطول حديث في صفة الحجّ.",
+      value: { name: "المساواة", icon: "🕋" },
+      thinkQuestion:
+        "لو الناس كلها لابسة زيّ واحد، إيه اللي هيفرّق بينهم ساعتها؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا لبس الحجيج ثياباً بيضاء متشابهة؟",
+        options: ["لأنها أرخص", "لأنها تُذهب الفرق بين غنيّ وفقير", "لأنها تقي الحرّ فقط", "لأنها زيّ الجيش"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "إزار أبيض", description: "ثوب أبيض يذكّرك أن الفروق تُخلع عند الباب." },
+      badge: "من ركب النداء",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح مسلم، حديث جابر رضي الله عنه في صفة الحجّ",
+      note: "صفة إحرام النبي ﷺ من ذي الحُليفة والتلبية في صحيح مسلم؛ وأما عدد الحجيج فتقدير من كتب السيرة والتاريخ لا نصّ فيه.",
+    },
+  },
+  {
+    storyId: "st-9-02",
+    stationId: 9,
+    slug: "arafat-unity-and-equality",
+    en: {
+      title: "Arafat: A Sea of White",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "On the ninth of Dhu al-Hijjah the pilgrims stood at Arafat — the greatest pillar of the Hajj, so much so that the Prophet ﷺ said: “The Hajj is Arafat.” No crowns, no decorated mounts; everyone in two white cloths with their hands raised. And the Prophet ﷺ stood on his camel al-Qaswa to address them.",
+          shortLesson: "The longest you will ever stand is not before people, but before your Lord.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "On the ninth day of Dhu al-Hijjah the pilgrims gathered on the plain of Arafat. This day is the greatest pillar of the Hajj — the Prophet ﷺ said: “The Hajj is Arafat”, meaning whoever misses the standing at Arafat has missed the pilgrimage altogether. The scene was white as far as the eye could see: no crown, no procession, no mark setting anyone above anyone, only raised hands and tears and prayer. The Prophet ﷺ rode his camel al-Qaswa and stood in the valley of Uranah, the people silent around him and men carrying his voice back, row by row, to those too far to hear. Then he began to say to them what gathered up twenty-three years of calling — as though he knew it was the last time they would all be together with him.",
+          details:
+            "Allah says: ﴿فَإِذَا أَفَضْتُم مِّنْ عَرَفَاتٍ فَاذْكُرُوا اللَّهَ عِندَ الْمَشْعَرِ الْحَرَامِ﴾ — “When you depart from Arafat, remember Allah at the sacred site.”",
+        },
+      },
+      interactive: {
+        discover: "People relayed the Prophet's voice back to those behind them — there was nothing to amplify it.",
+        value: { name: "Standing before Allah", icon: "🤍" },
+        thinkQuestion: "If you had one prayer to make, what would you ask for?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ say about the greatest pillar of the Hajj?",
+          options: ["The Hajj is the circling", "The Hajj is Arafat", "The Hajj is Mina", "The Hajj is the walking"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A white pebble", description: "A pebble for the day everyone stood as equals." },
+        badge: "One Who Stood at Arafat",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sunan at-Tirmidhi, and Sahih Muslim on the pilgrimage",
+        note: "The Prophet's standing at Arafat is described in Jabir's account in Sahih Muslim; “The Hajj is Arafat” is in the Sunan and graded authentic by the scholars.",
+      },
+    },
+    title: "عرفات: بحر من البياض",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في التاسع من ذي الحجة وقف الحجيج على عرفات، وهو أعظم أركان الحجّ حتى قال النبي ﷺ: «الحجّ عرفة». لا تيجان ولا مراكب مزيّنة، الكلّ في ثوبين أبيضين يرفعون أيديهم بالدعاء. ووقف النبي ﷺ على ناقته القصواء ليخطب فيهم.",
+        shortLesson: "أطول ما تقف فيه ليس أمام الناس، بل أمام ربّك.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في اليوم التاسع من ذي الحجة اجتمع الحجيج على صعيد عرفات. وهذا اليوم هو ركن الحجّ الأعظم، حتى قال النبي ﷺ: «الحجّ عرفة» — أي من فاته الوقوف بعرفة فاته الحجّ كله. كان المشهد بياضاً ممتدّاً إلى حيث ينتهي البصر: لا تاج ولا موكب ولا علامة تميّز أحداً عن أحد، إنما أيدٍ مرفوعة ودموع ودعاء. وركب النبي ﷺ ناقته القصواء ووقف في بطن وادي عُرَنة، والناس حوله صامتون، ورجالٌ يبلّغون صوته إلى من بَعُد صفّاً بعد صفّ. ثم بدأ يقول لهم ما جمع فيه ثلاثاً وعشرين سنة من الدعوة، وكأنه يعلم أنها آخر مرة يجتمعون فيها معه.",
+        details:
+          "قال تعالى: ﴿فَإِذَا أَفَضْتُم مِّنْ عَرَفَاتٍ فَاذْكُرُوا اللَّهَ عِندَ الْمَشْعَرِ الْحَرَامِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان الناس يبلّغون صوت النبي ﷺ إلى من خلفهم، لأنه لم يكن هناك ما يكبّر الصوت.",
+      value: { name: "الوقوف بين يدي الله", icon: "🤍" },
+      thinkQuestion:
+        "لو كان عندك دعوة واحدة تدعو بها، تدعو بإيه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا قال النبي ﷺ عن ركن الحجّ الأعظم؟",
+        options: ["الحجّ الطواف", "الحجّ عرفة", "الحجّ منى", "الحجّ السعي"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حصاة بيضاء", description: "حصاة تذكّرك بيوم وقف فيه الناس سواء." },
+      badge: "واقف بعرفة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "سنن الترمذي وصحيح مسلم في صفة الحجّ",
+      note: "صفة وقوف النبي ﷺ بعرفة في حديث جابر رضي الله عنه في صحيح مسلم؛ وحديث «الحجّ عرفة» في السنن وصحّحه أهل العلم.",
+    },
+  },
+  {
+    storyId: "st-9-03",
+    stationId: 9,
+    slug: "farewell-sermon-human-rights",
+    en: {
+      title: "The Farewell Sermon: No Arab Is Above a Non-Arab",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ addressed the people: “Your blood, your property and your honour are sacred to one another, like the sanctity of this day of yours, in this month of yours, in this land of yours.” And he said: “Your Lord is one and your father is one; no Arab is above a non-Arab and no non-Arab above an Arab, except by piety.”",
+          shortLesson: "No one is above anyone else by colour or family.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ stood before that great gathering and said what afterwards read like a charter. He began with the sanctity of a human being: “Your blood, your property and your honour are sacred to one another, like the sanctity of this day of yours, in this month of yours, in this land of yours” — a person's life, property and dignity carry the sanctity of the holiest day, in the holiest month, in the holiest place. Then he pulled down the whole idea of rank by lineage on which that age had been built: “Your Lord is one and your father is one; all of you are from Adam, and Adam was from dust. No Arab is above a non-Arab and no non-Arab above an Arab, no light-skinned above dark or dark above light, except by piety.” Then he put the old interest-debts and the old blood-feuds under his feet and cancelled them — beginning with his own family's claims before anyone else's.",
+          details:
+            "Allah says: ﴿إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ﴾ — “The most honoured of you before Allah is the most mindful of Him.”",
+        },
+      },
+      interactive: {
+        discover: "He cancelled his own uncle's interest and his own relative's blood-claim first, before asking it of anyone else.",
+        value: { name: "Justice and equality", icon: "📜" },
+        thinkQuestion: "Has someone been treated as lesser because of how they look or where they are from? What would you do if you saw it?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What makes one person better than another, in the Farewell Sermon?",
+          options: ["Lineage", "Colour", "Piety", "Wealth"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A charter tablet", description: "A tablet: the first people the ruling was applied to were his own." },
+        badge: "Bearer of the Charter",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim, and Musnad Ahmad",
+        note: "“Your blood and property are sacred” is in the two Sahih collections; “no Arab is above a non-Arab” comes from the sermon of the days of Tashriq in Musnad Ahmad, graded good by the scholars.",
+      },
+    },
+    title: "خطبة الوداع: لا فضل لعربيّ على أعجميّ",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "خطب النبي ﷺ في الناس فقال: «إن دماءكم وأموالكم وأعراضكم عليكم حرام كحرمة يومكم هذا في شهركم هذا في بلدكم هذا». وقال: «إن ربّكم واحد وإن أباكم واحد، لا فضل لعربيّ على أعجميّ ولا لأعجميّ على عربيّ إلا بالتقوى».",
+        shortLesson: "لا أحد أفضل من أحد بلونه أو نسبه.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "وقف النبي ﷺ في ذلك الجمع العظيم وقال كلاماً صار بعد ذلك أشبه بميثاق. بدأ بحرمة الإنسان: «إن دماءكم وأموالكم وأعراضكم عليكم حرام كحرمة يومكم هذا في شهركم هذا في بلدكم هذا» — أي أن دم الإنسان وماله وعِرضه لها من الحرمة ما لِأقدس يوم في أقدس شهر في أقدس بلد. ثم هدم أساس التفاضل بالأنساب الذي قامت عليه الجاهلية كلها: «إن ربّكم واحد وإن أباكم واحد، كلّكم لآدم وآدم من تراب، لا فضل لعربيّ على أعجميّ ولا لأعجميّ على عربيّ، ولا لأحمر على أسود ولا لأسود على أحمر إلا بالتقوى». ثم وضع الرِّبا والثأر القديم تحت قدميه وأبطلهما، وبدأ بأهله هو فأبطل ربا عمّه ودم ابن عمّه أولاً.",
+        details:
+          "قال تعالى: ﴿يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "بدأ النبي ﷺ بإبطال ربا عمّه العباس ودم ابن ربيعة من أهله هو، قبل أن يطالب أحداً غيره.",
+      value: { name: "العدل والمساواة", icon: "📜" },
+      thinkQuestion:
+        "فيه حدّ اتعامل معاه الناس بشكل أقلّ عشان شكله أو بلده؟ تعمل إيه لو شفت ده؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ يتفاضل الناس في خطبة الوداع؟",
+        options: ["بالنسب", "باللون", "بالتقوى", "بالمال"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "لوح ميثاق", description: "لوح يذكّرك أن أول من طُبّق عليه الحكم كان أهل النبي ﷺ." },
+      badge: "حامل الميثاق",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم، ومسند أحمد",
+      note: "«إن دماءكم وأموالكم عليكم حرام» في الصحيحين؛ وأما «لا فضل لعربيّ على أعجميّ» فمن خطبة أيام التشريق في مسند أحمد، وحسّنه أهل العلم.",
+    },
+  },
+  {
+    storyId: "st-9-04",
+    stationId: 9,
+    slug: "testament-of-women-rights",
+    en: {
+      title: "Take Good Care of the Women",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "In the middle of the sermon the Prophet ﷺ turned to the women and said: “Take good care of the women,” and he repeated it. In that time there were people who inherited women as they inherited goods, and people who buried their infant daughters alive. This instruction overturned all of it.",
+          shortLesson: "The best of people is the best to his own household.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In the middle of that sermon, the Prophet ﷺ stopped at the group who had been genuinely the most powerless in that age: women. They were denied inheritance, they were inherited like property, and some men buried their infant daughters alive. The Prophet ﷺ told all the people: “Take good care of the women,” and he said it again and pressed it, reminding them that they were a trust taken under Allah's covenant. This was not one line on one day: elsewhere he said, “The best of you is the best to his family, and I am the best of you to my family” — making the measure of a man how he treats the people in his house, not how he looks in public. With that, whole customs by which women had been wronged for centuries came to an end.",
+          details:
+            "Allah says: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ — “And live with them in kindness.”",
+        },
+      },
+      interactive: {
+        discover: "The Prophet's measure of a good man was his home, not his standing in a gathering.",
+        value: { name: "Kindness at home", icon: "🌸" },
+        thinkQuestion: "Who do you behave better with — your friends, or your family? Why?",
+        challenge: {
+          type: "multiple_choice",
+          question: "How is a man's goodness measured, in the Prophet's words?",
+          options: ["By his money", "By his standing among people", "By how he treats his family", "By his strength"],
+          correctAnswer: 2,
+        },
+      },
+      gamification: {
+        artifact: { name: "A simple bracelet", description: "A bracelet for those from whom centuries of wrong were lifted in a sentence." },
+        badge: "Kind at Home",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "“Take good care of the women” is in the two Sahih collections within the Farewell Sermon; “the best of you is the best to his family” is in the Sunan and graded authentic.",
+      },
+    },
+    title: "استوصوا بالنساء خيراً",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في وسط الخطبة خصّ النبي ﷺ النساء بوصية فقال: «استوصوا بالنساء خيراً»، وكرّرها. وكان في ذلك الزمان من يرث النساء كما يرث المتاع، ومن يئد ابنته وهي حيّة. فجاءت الوصية تقلب هذا كلّه.",
+        shortLesson: "أحسن الناس أحسنهم لأهل بيته.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في وسط تلك الخطبة الجامعة، وقف النبي ﷺ عند فئة كانت أضعف الناس حقّاً في الجاهلية: النساء. كنّ يُحرمن الميراث، ويُورَثن كما يُورَث المتاع، وكان منهم من يدفن ابنته حيّة. فقال النبي ﷺ للناس كلّهم: «استوصوا بالنساء خيراً»، وأعادها وأكّدها، وذكّرهم أنهنّ أمانة أخذوها بعهد الله. ولم تكن هذه كلمة عابرة في يوم: كان يقول في غير هذا الموضع: «خيركم خيركم لأهله، وأنا خيركم لأهلي» — فجعل مقياس الخير في الرجل هو كيف يعامل من في بيته، لا كيف يبدو أمام الناس. وبهذا انتهت عادات كاملة كانت تُظلَم بها النساء قروناً.",
+        details:
+          "قال تعالى: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "مقياس النبي ﷺ للرجل الصالح هو بيته، لا مجلسه بين الناس.",
+      value: { name: "حسن العشرة", icon: "🌸" },
+      thinkQuestion:
+        "أنت أحسن مع مين أكتر: أصحابك ولا أهل بيتك؟ ليه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ يقاس خير الرجل في قول النبي ﷺ؟",
+        options: ["بماله", "بمكانته بين الناس", "بمعاملته لأهل بيته", "بقوّته"],
+        correctAnswer: 2,
+      },
+    },
+    gamification: {
+      artifact: { name: "سوار بسيط", description: "سوار يذكّرك بمن رُفع عنهنّ ظلم قرون بكلمة." },
+      badge: "حسن العشرة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "«استوصوا بالنساء خيراً» في الصحيحين ضمن خطبة حجّة الوداع، و«خيركم خيركم لأهله» في السنن وصحّحه أهل العلم.",
+    },
+  },
+  {
+    storyId: "st-9-05",
+    stationId: 9,
+    slug: "completion-of-faith-farewell",
+    en: {
+      title: "Have I Delivered It? And the Tears of Abu Bakr",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "At the end of the sermon the Prophet ﷺ asked the gathering: “Have I delivered it?” They said yes. He raised his finger to the sky, then pointed it at them and said: “O Allah, bear witness.” That day the verse came down: “Today I have perfected your religion for you.” The people rejoiced — and Abu Bakr wept, because he understood that completion meant the parting was near.",
+          shortLesson: "Some people hear in a piece of news what nobody else hears.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the Prophet ﷺ finished his sermon, he turned to that whole gathering and asked them one question: “You will be asked about me — what will you say?” They said: we bear witness that you have delivered the message, discharged the trust and given counsel. He raised his finger towards the sky, then pointed it at the people, and said three times: “O Allah, bear witness. O Allah, bear witness. O Allah, bear witness.” And on that day — the day of Arafat in the Farewell Pilgrimage — the verse came down: “Today I have perfected your religion for you and completed My favour upon you.” The people were overjoyed: the religion was complete and the favour was full. And it is related that Abu Bakr wept, because he heard in that sentence what no one else heard: when a work is finished, the time of the one who did it is near.",
+          details:
+            "Allah says: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي﴾ — “Today I have perfected your religion for you and completed My favour upon you.”",
+        },
+      },
+      interactive: {
+        discover: "A Jewish man told Umar: had this verse come to us, we would have made its day a festival. Umar said: it came down on a day of two festivals — a Friday, and the day of Arafat.",
+        value: { name: "Completing a trust", icon: "🏔️" },
+        thinkQuestion: "When you finish something you worked hard on, what do you feel? Joy — or something else as well?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the people answer when the Prophet ﷺ asked what they would say?",
+          options: ["They said nothing", "We bear witness that you delivered it and gave counsel", "We want more", "We will answer tomorrow"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A raised finger", description: "A keepsake for the day a prophet called his Lord to witness over his people." },
+        badge: "Witness to the Message",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sahih Muslim, with the verse in Sahih al-Bukhari",
+        note: "“Have I delivered it” and “O Allah, bear witness” are in Sahih Muslim; the verse coming down on the day of Arafat is in al-Bukhari. Abu Bakr's weeping comes from the tafsir and Seerah works.",
+      },
+    },
+    title: "ألا هل بلّغت؟ وبكاء الصدّيق",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "في آخر الخطبة سأل النبي ﷺ الجمع: «ألا هل بلّغت؟» فقالوا: نعم. فرفع إصبعه إلى السماء ثم نكتها إليهم وقال: «اللهم اشهد». ونزل يومئذ: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ﴾. ففرح الناس، وبكى أبو بكر رضي الله عنه؛ لأنه فهم أن الاكتمال يعني قرب الوداع.",
+        shortLesson: "بعض الناس يفهم من الخبر ما لا يفهمه غيره.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما أتمّ النبي ﷺ خطبته، التفت إلى ذلك الجمع كلّه وسألهم سؤالاً واحداً: «وأنتم تُسألون عنّي، فما أنتم قائلون؟» قالوا: نشهد أنك قد بلّغت وأدّيت ونصحت. فرفع إصبعه إلى السماء ثم نكتها إلى الناس وقال ثلاثاً: «اللهم اشهد، اللهم اشهد، اللهم اشهد». وفي ذلك اليوم — يوم عرفة من حجّة الوداع — نزل قول الله تعالى: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي﴾. ففرح الناس بها فرحاً شديداً: اكتمل الدين وتمّت النعمة. ويُذكر أن أبا بكر الصدّيق رضي الله عنه بكى؛ لأنه سمع في الكلمة ما لم يسمعه غيره: أن العمل إذا تمّ، فقد اقترب وقت صاحبه أن يمضي.",
+        details:
+          "قال تعالى: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا﴾.",
+      },
+    },
+    interactive: {
+      discover: "قال يهوديّ لعمر رضي الله عنه: لو نزلت علينا هذه الآية لاتخذنا يومها عيداً. فقال عمر: قد نزلت في يوم عيدين — يوم جمعة ويوم عرفة.",
+      value: { name: "تمام الأمانة", icon: "🏔️" },
+      thinkQuestion:
+        "لما بتخلّص شغل تعبت فيه، بتحسّ بإيه؟ فرح ولا حاجة تانية كمان؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ أجاب الناس حين سألهم النبي ﷺ: ما أنتم قائلون؟",
+        options: ["سكتوا", "نشهد أنك قد بلّغت وأدّيت ونصحت", "نسألك المزيد", "سنسأل غداً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "إصبع مرفوعة", description: "تذكار ليوم أشهد فيه نبيّ ربَّه على أمّته." },
+      badge: "شاهد على البلاغ",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "صحيح مسلم، وصحيح البخاري في نزول الآية",
+      note: "سؤال النبي ﷺ «ألا هل بلّغت» و«اللهم اشهد» في صحيح مسلم؛ ونزول آية إكمال الدين يوم عرفة في صحيح البخاري. وأما بكاء أبي بكر رضي الله عنه ففي كتب التفسير والسيرة.",
+    },
+  },
+  {
+    storyId: "st-9-06",
+    stationId: 9,
+    slug: "signs-of-farewell-uhud-cemetery",
+    en: {
+      title: "Farewell to the Martyrs, and a Word from the Pulpit",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "After returning from the pilgrimage, the Prophet ﷺ went out to the martyrs of Uhud and prayed over them like someone saying goodbye. Then he came back, climbed the pulpit and said: “I go ahead of you and I am your witness, and by Allah I am looking at my Pool right now. I do not fear that you will worship others after me — I fear the world for you, that you will compete over it.”",
+          shortLesson: "Sometimes the danger to you is plenty, not hardship.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "After the Prophet ﷺ returned from the Farewell Pilgrimage, he went out to the martyrs of Uhud — his companions killed beside him years before — and prayed over them as one prays over the dead, until those who saw it said: like someone taking leave of the living and the dead. Then he came back, climbed the pulpit, looked into the faces of the people and said: “I go ahead of you and I am your witness, and by Allah I am looking at my Pool right now.” Then came the sentence that surprised them: “I do not fear that you will worship others after me — I fear the world for you, that you will compete over it.” A people who had borne hunger and torture for years: now that safety and plenty had come, the danger to them was wealth, not poverty. And from all of this the companions understood that their Prophet was saying goodbye.",
+          details:
+            "Allah says: ﴿مِّنَ الْمُؤْمِنِينَ رِجَالٌ صَدَقُوا مَا عَاهَدُوا اللَّهَ عَلَيْهِ﴾ — “Among the believers are men true to what they pledged to Allah.”",
+        },
+      },
+      interactive: {
+        discover: "Years had passed since the martyrs of Uhud, and still he went out to take leave of them before his own departure.",
+        value: { name: "Loyalty", icon: "🌿" },
+        thinkQuestion: "Is there someone who helped you once and was never thanked? How could you remember them today?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ say he feared for his community?",
+          options: ["That they would worship others after him", "That the world would open to them and they would compete over it", "That they would grow few", "That they would go hungry"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A branch from Uhud", description: "A branch for those who are not forgotten however long it has been." },
+        badge: "Loyal to His Companions",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "His going out to the martyrs of Uhud and this sermon from the pulpit are established in al-Bukhari and Muslim.",
+      },
+    },
+    title: "وداع الشهداء وخُطبة المنبر",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بعد رجوعه من الحجّ، خرج النبي ﷺ إلى شهداء أُحد فصلّى عليهم كالمودّع، ثم رجع فصعد المنبر وقال: «إني فَرَطُكم وأنا شهيد عليكم، وإني والله لأنظر إلى حوضي الآن. وما أخاف عليكم أن تُشركوا بعدي، ولكن أخاف عليكم الدنيا أن تنافسوا فيها».",
+        shortLesson: "أحياناً يكون الخوف عليك من السَّعة لا من الضيق.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد أن رجع النبي ﷺ من حجّة الوداع، خرج إلى شهداء أُحد — أصحابه الذين قُتلوا معه قبل سنين — فصلّى عليهم صلاته على الميت، حتى قال من رآه: كالمودّع للأحياء والأموات. ثم رجع فصعد المنبر ونظر في وجوه الناس وقال: «إني فَرَطُكم — أي سابقكم إلى الحوض — وأنا شهيد عليكم، وإني والله لأنظر إلى حوضي الآن». ثم قال الكلمة التي أدهشتهم: «وما أخاف عليكم أن تُشركوا بعدي، ولكن أخاف عليكم الدنيا أن تنافسوا فيها». قوم صبروا على الجوع والتعذيب سنين، فلما جاءهم الأمن والسَّعة، كان الخوف عليهم من الغنى لا من الفقر. وفهم الصحابة من هذا كلّه أن نبيّهم يودّعهم.",
+        details:
+          "قال تعالى: ﴿مِّنَ الْمُؤْمِنِينَ رِجَالٌ صَدَقُوا مَا عَاهَدُوا اللَّهَ عَلَيْهِ فَمِنْهُم مَّن قَضَىٰ نَحْبَهُ وَمِنْهُم مَّن يَنتَظِرُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "مضى على شهداء أُحد سنوات طويلة، ومع ذلك خرج إليهم يودّعهم قبل رحيله.",
+      value: { name: "الوفاء", icon: "🌿" },
+      thinkQuestion:
+        "فيه حدّ ساعدك زمان ومكافأتش عنه؟ تقدر تفتكره النهارده إزاي؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما الذي قال النبي ﷺ إنه يخاف على أمّته منه؟",
+        options: ["أن يشركوا بعده", "أن تُفتح عليهم الدنيا فيتنافسوا فيها", "أن يقلّ عددهم", "أن يجوعوا"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "غصن من أُحد", description: "غصن يذكّرك بمن لا يُنسون وإن طال الزمن." },
+      badge: "وفيّ لأصحابه",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "خروج النبي ﷺ إلى شهداء أُحد وخطبته على المنبر بهذا اللفظ ثابتان في صحيح البخاري ومسلم.",
+    },
+  },
+  {
+    storyId: "st-9-07",
+    stationId: 9,
+    slug: "usama-young-army-commander",
+    en: {
+      title: "Usamah: A Commander at Eighteen",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ ordered an army prepared for Syria and put Usamah ibn Zayd in command — a young man, with senior companions in his ranks. Some people talked about how young he was, so the Prophet ﷺ addressed them: “If you criticise his command, you criticised his father's command before him. By Allah, he was fit for command.”",
+          shortLesson: "Being capable is not measured in years.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "In his last days the Prophet ﷺ ordered an army prepared to move to the Syrian frontier, and appointed Usamah ibn Zayd over it — a young man of about eighteen — with senior Muhajirun and Ansar in the ranks. Some people talked about how young he was: is this one put in command over those? Word reached the Prophet ﷺ and he came out angry, climbed the pulpit, and said: “If you criticise his command, you criticised his father's command before him. By Allah, he was fit for command, and he was among the dearest of people to me, and this one is among the dearest of people to me after him.” The people fell silent and accepted it. Usamah was not chosen because he was the son of someone the Prophet loved; he was chosen because he was up to it — and that is what the Prophet ﷺ defended in his final days.",
+          details:
+            "Allah says of choosing the best person: ﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾ — “the best you can hire is the strong and trustworthy.”",
+        },
+      },
+      interactive: {
+        discover: "Abu Bakr sent Usamah's army out after the Prophet's death and did not replace him, though Usamah was far younger than he was.",
+        value: { name: "Trusting the young", icon: "🎖️" },
+        thinkQuestion: "Has an adult ever trusted you with something? How did it feel?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did some people object to Usamah's command?",
+          options: ["He was not brave", "He was young", "He did not know the road", "He refused to lead"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small banner", description: "A banner: being up to the job has no age." },
+        badge: "Fit for the Trust",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "Usamah's appointment and the Prophet's sermon defending him are established in the two Sahih collections.",
+      },
+    },
+    title: "أسامة: قائد في الثامنة عشرة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "أمر النبي ﷺ بتجهيز جيش إلى الشام، وأمّر عليه أسامة بن زيد وهو شابّ صغير، وفي الجيش كبار الصحابة. فتكلّم بعض الناس في صغر سنّه، فخطب النبي ﷺ وقال: «إن تطعنوا في إمارته فقد كنتم تطعنون في إمارة أبيه من قبل، وايم الله إن كان لخليقاً للإمارة».",
+        shortLesson: "الكفاءة لا تُقاس بعدد السنين.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في أواخر أيامه ﷺ، أمر بتجهيز جيش يتوجّه إلى حدود الشام، وأمّر عليه أسامة بن زيد رضي الله عنهما — وكان شابّاً في نحو الثامنة عشرة — وفي ذلك الجيش من كبار المهاجرين والأنصار. فتكلّم بعض الناس في صغر سنّه وقالوا: يؤمّر هذا على هؤلاء؟ فبلغ ذلك النبي ﷺ فخرج مغضباً وصعد المنبر فقال: «إن تطعنوا في إمارته فقد كنتم تطعنون في إمارة أبيه من قبل، وايم الله إن كان لخليقاً للإمارة، وإن كان لمن أحبّ الناس إليّ، وإن هذا لمن أحبّ الناس إليّ بعده». فسكت الناس ورضوا. لم يُختر أسامة لأنه ابن حِبّ النبي ﷺ فقط، بل لأنه كان أهلاً — وهذا ما دافع عنه النبي ﷺ في آخر أيامه.",
+        details:
+          "قال تعالى في اختيار الأكفأ: ﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾.",
+      },
+    },
+    interactive: {
+      discover: "أبو بكر رضي الله عنه أنفذ جيش أسامة بعد وفاة النبي ﷺ ولم يعزله، رغم أنه أصغر منه بكثير.",
+      value: { name: "الثقة بالشباب", icon: "🎖️" },
+      thinkQuestion:
+        "حدّ أكبر منك وثق فيك في حاجة؟ حسّيت بإيه ساعتها؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا اعترض بعض الناس على إمارة أسامة رضي الله عنه؟",
+        options: ["لأنه لم يكن شجاعاً", "لصغر سنّه", "لأنه لم يعرف الطريق", "لأنه رفض القيادة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "راية صغيرة", description: "راية تذكّرك أن الأهلية لا عمر لها." },
+      badge: "أهلٌ للأمانة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "تأمير أسامة بن زيد رضي الله عنهما وخطبة النبي ﷺ في الدفاع عنه ثابتان في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-9-08",
+    stationId: 9,
+    slug: "fever-and-aisha-chamber",
+    en: {
+      title: "The Illness Begins: Where Am I Tomorrow?",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The fever grew severe on the Prophet ﷺ, and still he kept going round the houses of his wives as he always did, out of fairness. When walking became too hard he began to ask: “Where am I tomorrow? Where am I tomorrow?” They understood that he wanted Aishah's house, and they gave him leave to be wherever he wished.",
+          shortLesson: "Fairness is kept even at your weakest.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "After he returned from the pilgrimage the illness began. The fever became so severe that Aishah said: I never saw anyone in more pain than the Messenger of Allah ﷺ. Even so he did not abandon his habit of fairness between his wives: he went round their houses each day as he always had. When it grew too heavy for him to move, he began asking: “Where am I tomorrow? Where am I tomorrow?” — meaning Aishah's day. They understood what he wanted, and all of them gave him leave to stay wherever he wished, without holding him to the turn. So he moved to Aishah's room, walking between two men, his feet dragging on the ground from weakness. He did not take an exception for himself until he had asked for it — and this at the worst of his illness.",
+          details:
+            "Allah says: ﴿وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾ — “and He placed between you affection and mercy.”",
+        },
+      },
+      interactive: {
+        discover: "Aishah's room opened directly onto the mosque, so he could hear the people praying.",
+        value: { name: "Fairness when weak", icon: "🌙" },
+        thinkQuestion: "When you are tired or fed up, do you stay fair to the people around you — or forget?",
+        challenge: {
+          type: "multiple_choice",
+          question: "Why did the Prophet ﷺ keep asking, “Where am I tomorrow?”",
+          options: ["To forget the illness", "To learn which day was Aishah's, so he could ask their leave", "To set out on a journey", "To lead the prayer"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A water vessel", description: "A vessel: fairness does not lapse with illness." },
+        badge: "Fair Even When Ill",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "His asking “where am I tomorrow” and his wives giving him leave to be nursed in Aishah's room are in Sahih al-Bukhari.",
+      },
+    },
+    title: "بداية المرض: أين أنا غداً؟",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "اشتدّت الحمّى على النبي ﷺ حتى كان يُوعك وعكاً شديداً. ومع ذلك ظلّ يطوف على بيوت زوجاته كعادته في العدل. فلما ثقل عليه المشي جعل يسأل: «أين أنا غداً؟ أين أنا غداً؟» ففهمن أنه يريد بيت عائشة رضي الله عنها، فأذنّ له أن يكون حيث شاء.",
+        shortLesson: "العدل يُحفظ حتى في أضعف الأوقات.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "بعد رجوعه من الحجّ بدأ المرض. اشتدّت عليه الحمّى حتى قالت عائشة رضي الله عنها: ما رأيت رجلاً أشدّ عليه الوجع من رسول الله ﷺ. ومع ذلك لم يترك ما كان يفعله من العدل بين زوجاته: كان يطوف على بيوتهنّ كل يوم كعادته. فلما اشتدّ به الأمر وثقل عليه أن ينتقل، جعل يسأل: «أين أنا غداً؟ أين أنا غداً؟» — يريد يوم عائشة. ففهمن مراده، فأذنّ له جميعاً أن يكون حيث شاء من غير أن يُلزم نفسه بالدور. فانتقل إلى حجرة عائشة رضي الله عنها يمشي بين رجلين تخطّ قدماه الأرض من الضعف. لم يطلب لنفسه استثناءً حتى استأذن، وهو في أشدّ ما يكون من المرض.",
+        details:
+          "قال تعالى: ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾.",
+      },
+    },
+    interactive: {
+      discover: "حجرة عائشة رضي الله عنها كانت ملاصقة للمسجد، فكان يسمع الناس وهم يصلّون.",
+      value: { name: "العدل في الضعف", icon: "🌙" },
+      thinkQuestion:
+        "لما بتتعب أو بتزهق، بتفضل عادل مع اللي حواليك ولا بتنسى؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "لماذا كان النبي ﷺ يسأل: أين أنا غداً؟",
+        options: ["لينسى المرض", "ليعرف يوم عائشة رضي الله عنها فيستأذنهنّ", "ليخرج للسفر", "ليؤمّ الناس"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "إناء ماء", description: "إناء يذكّرك أن العدل لا يسقط بالمرض." },
+      badge: "عادلٌ حتى في مرضه",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "سؤاله ﷺ «أين أنا غداً» وإذن أزواجه له أن يُمرَّض في بيت عائشة رضي الله عنها في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-9-09",
+    stationId: 9,
+    slug: "abu-bakr-leads-prayer",
+    en: {
+      title: "Tell Abu Bakr to Lead the Prayer",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The time for prayer came and the people were waiting in the mosque. The Prophet ﷺ tried to rise and fainted; he came round, tried again, and fainted again. So he said: “Tell Abu Bakr to lead the people in prayer.” Aishah said: Abu Bakr is a tender man — when he recites, weeping overcomes him. He repeated the instruction three times.",
+          shortLesson: "The prayer is not abandoned, and the right person is put in front of it.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The illness grew until the Prophet ﷺ could not go out. The time for prayer came and the Muslims were waiting for him in the mosque as always. He asked: “Have the people prayed?” They said: no, they are waiting for you, Messenger of Allah. He asked for water and washed to lighten the fever, then went to stand and fainted; he came round, asked the same question, and the same happened — three times. When he knew he could not, he said: “Tell Abu Bakr to lead the people in prayer.” Aishah — afraid people would think ill of her father standing in his place — said: Abu Bakr is a tender man; when he recites the Quran, weeping overcomes him. He gave the instruction again, and she repeated hers, until he said: “Tell her to tell Abu Bakr to lead the prayer.” So Abu Bakr went forward and led the people for days while the Prophet ﷺ was in his room.",
+          details:
+            "Allah says: ﴿حَافِظُوا عَلَى الصَّلَوَاتِ﴾ — “Guard the prayers carefully.”",
+        },
+      },
+      interactive: {
+        discover: "Many companions read his putting Abu Bakr in front for the prayer as a sign of who would lead after him.",
+        value: { name: "Honouring the prayer", icon: "🕌" },
+        thinkQuestion: "Is there something you do every day however tired you are? What is it?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ do when he could not go out to the prayer?",
+          options: ["He delayed it until he recovered", "He told Abu Bakr to lead the people", "He told them to pray alone", "He was carried out"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small prayer mat", description: "A mat: the prayer is the last thing to be let go." },
+        badge: "Keeper of the Prayer",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari and Muslim",
+        note: "The instruction to Abu Bakr and Aishah's reply are established in the two Sahih collections.",
+      },
+    },
+    title: "مُروا أبا بكر فليصلِّ بالناس",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "حان وقت الصلاة والناس ينتظرون في المسجد. حاول النبي ﷺ أن يقوم فأُغمي عليه، ثم أفاق فحاول فأُغمي عليه. فقال: «مُروا أبا بكر فليصلِّ بالناس». فقالت عائشة رضي الله عنها: إن أبا بكر رجل رقيق إذا قرأ غلبه البكاء. فأعادها ﷺ ثلاثاً.",
+        shortLesson: "الصلاة لا تُترك، ويُقدَّم لها أهلها.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "اشتدّ المرض حتى صار النبي ﷺ لا يقوى على الخروج. وحان وقت الصلاة والمسلمون ينتظرونه في المسجد كعادتهم. فسأل: «أصلّى الناس؟» قالوا: لا، هم ينتظرونك يا رسول الله. فأمر بماء فاغتسل ليخفّ عنه، ثم ذهب ليقوم فأُغمي عليه؛ ثم أفاق فسأل السؤال نفسه ففعل مثل ذلك، ثلاث مرات. فلما علم أنه لا يستطيع قال: «مُروا أبا بكر فليصلِّ بالناس». فقالت عائشة رضي الله عنها — وهي تخشى أن يتشاءم الناس بمقام أبيها مقامه —: إن أبا بكر رجل رقيق، إذا قرأ القرآن غلبه البكاء. فأعاد ﷺ الأمر وأعادت، حتى قال: «مُروها فلتأمر أبا بكر، فليصلِّ بالناس؛ إنكنّ صواحب يوسف». فتقدّم أبو بكر رضي الله عنه فصلّى بالناس أياماً والنبي ﷺ في حجرته.",
+        details:
+          "قال تعالى: ﴿حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "فهم كثير من الصحابة من تقديمه لأبي بكر رضي الله عنه في الصلاة إشارةً إلى من يخلفه بعده.",
+      value: { name: "تعظيم الصلاة", icon: "🕌" },
+      thinkQuestion:
+        "فيه حاجة بتعملها كل يوم مهما كنت تعبان؟ إيه هي؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل النبي ﷺ لما عجز عن الخروج إلى الصلاة؟",
+        options: ["أخّر الصلاة حتى يشفى", "أمر أبا بكر أن يصلّي بالناس", "أمرهم أن يصلّوا فرادى", "خرج محمولاً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "سجادة صغيرة", description: "سجادة تذكّرك أن الصلاة آخر ما يُترك." },
+      badge: "محافظ على الصلاة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري ومسلم",
+      note: "أمر النبي ﷺ لأبي بكر رضي الله عنه أن يصلّي بالناس ومراجعة عائشة رضي الله عنها له ثابتان في الصحيحين.",
+    },
+  },
+  {
+    storyId: "st-9-10",
+    stationId: 9,
+    slug: "last-prayer-behind-abu-bakr",
+    en: {
+      title: "The Last Prayer He Prayed Among Them",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ felt a little stronger, so he came out between two men to the mosque while Abu Bakr was leading the prayer. When Abu Bakr sensed him he began to step back, and the Prophet ﷺ signalled to him: stay where you are. He sat beside him and prayed, with Abu Bakr following the Prophet's prayer and the people following Abu Bakr's.",
+          shortLesson: "Do not crowd out the one who started; finish what you began.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "One day the Prophet ﷺ felt a little lighter, and came out walking between two men, his feet dragging on the ground from weakness, until he entered the mosque where Abu Bakr was standing leading the people. When Abu Bakr sensed him he began to step back to give him the leader's place, and the Prophet ﷺ signalled with his hand: stay where you are, do not step back. The Prophet ﷺ sat down at his left and prayed, and Abu Bakr followed the Prophet ﷺ and raised his voice with the calls so the people could hear, and the people followed Abu Bakr. The Prophet ﷺ did not move a man out of a prayer he had begun, and Abu Bakr did not crowd his Prophet. This was the last prayer the Prophet ﷺ prayed in his mosque among his companions.",
+          details:
+            "Allah says: ﴿النَّبِيُّ أَوْلَىٰ بِالْمُؤْمِنِينَ مِنْ أَنفُسِهِمْ﴾ — “The Prophet is closer to the believers than their own selves.”",
+        },
+      },
+      interactive: {
+        discover: "Abu Bakr relayed the calls of the prayer aloud so those at the back of the mosque could hear them.",
+        value: { name: "Humility on both sides", icon: "🤲" },
+        thinkQuestion: "If someone started a job and you could do it better, would you take it from them or finish it with them?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ signal to Abu Bakr when he tried to step back?",
+          options: ["To leave", "Stay where you are, do not step back", "To sit down", "To repeat the prayer"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "Wooden prayer beads", description: "A keepsake for the last prayer that gathered them with him." },
+        badge: "Humble With People",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The Prophet coming out during his illness and praying beside Abu Bakr is in Sahih al-Bukhari.",
+      },
+    },
+    title: "آخر صلاة صلّاها بينهم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "وجد النبي ﷺ خفّة، فخرج بين رجلين إلى المسجد وأبو بكر يصلّي بالناس. فلما رآه أبو بكر أراد أن يتأخّر، فأشار إليه النبي ﷺ أن مكانك. وجلس إلى جنبه يصلّي، فكان أبو بكر يصلّي بصلاة النبي ﷺ والناس يصلّون بصلاة أبي بكر.",
+        shortLesson: "لا تتزاحم على المقدَّم، وأتمّ ما بدأت.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في أحد الأيام وجد النبي ﷺ من نفسه خفّة، فخرج يمشي بين رجلين ورجلاه تخطّان في الأرض من الضعف، حتى دخل المسجد وأبو بكر رضي الله عنه قائم يصلّي بالناس. فلما أحسّ به أبو بكر ذهب يتأخّر ليفسح له مكان الإمام، فأشار إليه النبي ﷺ بيده: أن مكانك، لا تتأخّر. وجلس النبي ﷺ عن يساره يصلّي، فكان أبو بكر يقتدي بالنبي ﷺ ويرفع صوته بالتكبير ليُسمع الناس، والناس يقتدون بأبي بكر. لم يزح النبي ﷺ رجلاً بدأ صلاة عن مكانه، وأبو بكر لم يزاحم نبيّه. وكانت هذه آخر صلاة صلّاها النبي ﷺ في مسجده بين أصحابه.",
+        details:
+          "قال تعالى: ﴿النَّبِيُّ أَوْلَىٰ بِالْمُؤْمِنِينَ مِنْ أَنفُسِهِمْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "كان أبو بكر رضي الله عنه يبلّغ التكبير عن النبي ﷺ ليسمعه من في آخر المسجد.",
+      value: { name: "التواضع المتبادل", icon: "🤲" },
+      thinkQuestion:
+        "لو حدّ بدأ شغلانة وأنت أقدر منه، هتاخدها منه ولا تكمّل معاه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا أشار النبي ﷺ لأبي بكر رضي الله عنه لما أراد أن يتأخّر؟",
+        options: ["أن يخرج", "أن مكانك ولا تتأخّر", "أن يجلس", "أن يعيد الصلاة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "سُبحة خشب", description: "تذكار لآخر صلاة جمعتهم به." },
+      badge: "متواضع مع الناس",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "خروج النبي ﷺ في مرضه وصلاته إلى جنب أبي بكر رضي الله عنه في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-9-11",
+    stationId: 9,
+    slug: "final-glance-and-smile",
+    en: {
+      title: "The Curtain Lifts, and the Smile",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "While the people were praying the dawn prayer behind Abu Bakr, the curtain of Aishah's room was drawn back. The Prophet ﷺ looked at them standing in their rows and smiled. They almost broke their prayer for joy, so he signalled to them to complete it — and then let the curtain fall. It was the last time their eyes saw him.",
+          shortLesson: "The finest thing a teacher can see is his students carrying on without him.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "On a Monday morning, with the people in rows for the dawn prayer behind Abu Bakr, the curtain of Aishah's room was drawn back. The Prophet ﷺ looked out at them: rows in order, a prayer standing, a community going on with what he had taught it without him among them. Anas ibn Malik described his face at that moment: like a page of the Quran. And the Prophet ﷺ smiled — glad at them. The people almost broke their prayer for joy at seeing him, and Abu Bakr began to step back into the row, thinking the Prophet ﷺ was coming out to lead. But he signalled to them to complete their prayer. Then he let the curtain fall. That was the last sight their eyes had of his face.",
+          details:
+            "Allah says of the believers: ﴿سِيمَاهُمْ فِي وُجُوهِهِم مِّنْ أَثَرِ السُّجُودِ﴾ — “their mark is on their faces from the trace of prostration.”",
+        },
+      },
+      interactive: {
+        discover: "He did not come out and did not interrupt them; it was enough to see them standing, and then he let the curtain fall.",
+        value: { name: "Joy in those you raised", icon: "🌅" },
+        thinkQuestion: "If you taught someone something and saw them doing it right on their own — how would you feel?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ do when he saw the people in their rows?",
+          options: ["He interrupted their prayer", "He smiled, then let the curtain fall", "He called Abu Bakr", "He came out and led them"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "The edge of a curtain", description: "A keepsake for the last glance — and it was a smile." },
+        badge: "One Who Saw Him Smile",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The drawing back of the curtain on the Monday, his smile, and Anas's description of his face are in Sahih al-Bukhari.",
+      },
+    },
+    title: "الستارة تُرفع.. والابتسامة",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "بينما الناس في صلاة الفجر خلف أبي بكر رضي الله عنه، كُشفت ستارة حجرة عائشة رضي الله عنها، فنظر النبي ﷺ إليهم صفوفاً في صلاتهم، فتبسّم يضحك. فكاد الناس يفتنون من الفرح، فأشار إليهم أن أتمّوا صلاتكم، ثم أرخى الستر. وكانت آخر نظرة رأوه فيها.",
+        shortLesson: "أجمل ما يراه المعلّم أن تلاميذه يكملون بعده.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في صباح يوم الاثنين، والناس صفوف في صلاة الفجر خلف أبي بكر رضي الله عنه، كُشفت ستارة حجرة عائشة رضي الله عنها. نظر النبي ﷺ إليهم: صفوف منتظمة، وصلاة قائمة، وأمّة تمشي على ما علّمها من غير أن يكون فيهم. قال أنس بن مالك رضي الله عنه واصفاً وجهه في تلك اللحظة: كأنه ورقة مصحف. فتبسّم النبي ﷺ يضحك — فرحاً بهم. وكاد الناس أن يفتنوا في صلاتهم من الفرح برؤيته، وهمّ أبو بكر أن ينكص على عقبيه ليصل الصفّ ظنّاً أن النبي ﷺ خارج إلى الصلاة، فأشار إليهم النبي ﷺ أن أتمّوا صلاتكم. ثم أرخى الستر. وكانت تلك آخر نظرة رأت فيها عيونهم وجهه ﷺ.",
+        details:
+          "قال تعالى في وصف المؤمنين: ﴿سِيمَاهُمْ فِي وُجُوهِهِم مِّنْ أَثَرِ السُّجُودِ﴾.",
+      },
+    },
+    interactive: {
+      discover: "لم يخرج إليهم ولم يقطع صلاتهم؛ اكتفى بأن يراهم قائمين ثم أرخى الستر.",
+      value: { name: "الفرح بمن تربّى على يدك", icon: "🌅" },
+      thinkQuestion:
+        "لو علّمت حدّ حاجة وشفته بيعملها لوحده صح — هتحسّ بإيه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا فعل النبي ﷺ لما رأى الناس صفوفاً في صلاتهم؟",
+        options: ["قطع صلاتهم", "تبسّم يضحك ثم أرخى الستر", "نادى أبا بكر", "خرج فصلّى بهم"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "طرف ستارة", description: "تذكار لآخر نظرة، وكانت ابتسامة." },
+      badge: "من رآه يبتسم",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "كشف الستارة يوم الاثنين وتبسّمه ﷺ ووصف أنس رضي الله عنه لوجهه في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-9-12",
+    stationId: 9,
+    slug: "last-testament-prayer-and-weak",
+    en: {
+      title: "The Prayer, the Prayer — and Those in Your Care",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The pain grew hard on him. He would put his hand into a vessel of water and wipe his face, saying: “There is no god but Allah; death has its agonies.” And he kept repeating two instructions until his tongue could barely form them: “The prayer, the prayer — and those your right hands possess.”",
+          shortLesson: "What you owe Allah and what you owe people do not come apart.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The illness grew hard on the Prophet ﷺ in his last days. There was a vessel of water beside him, and he would dip his hand into it and wipe his face, saying: “There is no god but Allah; death has its agonies.” And through all that pain, what he kept repeating to the end were two instructions, said over and over until his tongue grew too heavy to form them: “The prayer, the prayer — and those your right hands possess.” Guard the prayer; and fear Allah regarding the servants, the workers and the weak who are under your hand. The last testament was not about wealth to divide or a kingdom to inherit. It was about two things: your link with your Lord, and how you treat the person who cannot complain about you to anyone. And with Allah those two are one thing, not two.",
+          details:
+            "Allah joins them in one verse: ﴿وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا﴾ — worship, and then the rights of parents, neighbours and those in one's care.",
+        },
+      },
+      interactive: {
+        discover: "He left no instruction about money — he died leaving neither dinar nor dirham.",
+        value: { name: "What is owed to Allah and to the weak", icon: "🤍" },
+        thinkQuestion: "Who is the person who cannot complain about you to anyone? How do you treat them?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What was the Prophet's final instruction?",
+          options: ["Wealth and inheritance", "The prayer, and those in their care", "Fighting only", "Travel"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A water vessel", description: "A vessel for the last two things he said." },
+        badge: "Keeper of the Testament",
+      },
+      source: {
+        reliability: "🟡",
+        reference: "Sunan Abi Dawud and Musnad Ahmad, with “the agonies of death” in Sahih al-Bukhari",
+        note: "“The prayer, the prayer, and those your right hands possess” is in Abu Dawud and Ahmad and graded authentic by the scholars, but is not in the two Sahih collections; “death has its agonies” is in al-Bukhari.",
+      },
+    },
+    title: "الصلاةَ الصلاةَ.. وما ملكت أيمانكم",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "اشتدّ عليه ﷺ الأمر، وكان يدخل يده في إناء فيه ماء فيمسح وجهه ويقول: «لا إله إلا الله، إن للموت سكرات». وظلّ يوصي بكلمتين حتى ما كاد يُبين بلسانه: «الصلاةَ الصلاةَ، وما ملكت أيمانكم».",
+        shortLesson: "حقّ الله وحقّ الناس لا ينفصلان.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "اشتدّ المرض على النبي ﷺ في آخر أيامه، وكانت عنده رَكوة فيها ماء، فجعل يدخل يده فيها فيمسح بها وجهه ويقول: «لا إله إلا الله، إن للموت سكرات». ومع كل هذا الوجع، كانت آخر ما ظلّ يوصي به وصيّتين اثنتين يكرّرهما حتى ثقل لسانه فما كاد يُبينهما: «الصلاةَ الصلاةَ، وما ملكت أيمانكم» — أي حافظوا على الصلاة، واتّقوا الله فيمن تحت أيديكم من الخدم والعمّال والضعفاء. لم تكن الوصية الأخيرة في مال يُقسم ولا في مُلك يُورَث. كانت في شيئين: صلتك بربّك، ومعاملتك لمن لا يستطيع أن يشتكي منك لأحد. وهما عند الله واحد لا ينفصل.",
+        details:
+          "قال تعالى: ﴿وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا وَبِالْوَالِدَيْنِ إِحْسَانًا﴾ ثم عدّد حقّ الجار والمملوك.",
+      },
+    },
+    interactive: {
+      discover: "لم يوصِ النبي ﷺ بمال، ولم يترك ديناراً ولا درهماً حين مات.",
+      value: { name: "حقّ الله وحقّ الضعيف", icon: "🤍" },
+      thinkQuestion:
+        "مين الشخص اللي مالوش حدّ يشتكي له منك؟ بتعامله إزاي؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ كانت وصية النبي ﷺ الأخيرة؟",
+        options: ["بالمال والميراث", "بالصلاة وبمن تحت أيديهم من الضعفاء", "بالجهاد فقط", "بالسفر"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "رَكوة ماء", description: "إناء يذكّرك بآخر كلمتين قالهما." },
+      badge: "حافظ الوصية",
+    },
+    source: {
+      reliability: "🟡",
+      reference: "سنن أبي داود ومسند أحمد، وصحيح البخاري في «سكرات الموت»",
+      note: "«الصلاةَ الصلاةَ وما ملكت أيمانكم» في سنن أبي داود ومسند أحمد وصحّحه أهل العلم، وليس في الصحيحين؛ وأما «إن للموت سكرات» ففي صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-9-13",
+    stationId: 9,
+    slug: "to-the-highest-companion",
+    en: {
+      title: "Rather, the Highest Companion",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "His head was on Aishah's chest when her brother came in with a fresh toothstick. The Prophet ﷺ looked at it, and she understood that he wanted it, so she softened it for him and he used it. Then he raised his eyes and began saying: “With the Highest Companion” — and he passed away.",
+          shortLesson: "The last thing left of a person is what they chose.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "On the Monday, the Prophet's head was resting against Aishah. Her brother Abd al-Rahman ibn Abi Bakr came in holding a fresh toothstick, and the Prophet ﷺ looked at it in a way that told her he wanted it. She said: shall I take it for you? He nodded. So she took it, bit it soft and gave it to him, and he cleaned his teeth with it as well as she had ever seen him do. Then he went to hand it back, and his hand dropped. There was a vessel of water before him, and he was dipping his hands in it and wiping his face. Then he raised his eyes towards the ceiling and said: “With those Allah has favoured — the prophets, the truthful, the martyrs and the righteous.” Then: “O Allah, forgive me and have mercy on me and join me with the Highest Companion,” repeating it: “Rather, the Highest Companion.” Then his hand fell, and he passed away.",
+          details:
+            "Allah says: ﴿فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ﴾ — “those are with the ones Allah has favoured: the prophets and the truthful.”",
+        },
+      },
+      interactive: {
+        discover: "The last thing he did was clean his teeth — a small habit he had kept his whole life.",
+        value: { name: "A good ending", icon: "✨" },
+        thinkQuestion: "Is there a small good habit you do every day that you would like to keep?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What were the Prophet's last words?",
+          options: ["I leave you wealth", "Rather, the Highest Companion", "Guard the road", "Wait for me"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A toothstick", description: "A siwak: a small habit stays to the last moment." },
+        badge: "A Good Ending",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "The account of the siwak and his words “with the Highest Companion” at his death are in Sahih al-Bukhari, from Aishah.",
+      },
+    },
+    title: "بل الرفيق الأعلى",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "كان رأسه ﷺ على صدر عائشة رضي الله عنها، فدخل أخوها ومعه سواك رطب، فنظر إليه النبي ﷺ، فعرفت أنه يريده، فليّنته له فاستنّ به. ثم رفع بصره وجعل يقول: «مع الرفيق الأعلى»، ثم قضى ﷺ.",
+        shortLesson: "آخر ما يبقى من الإنسان اختياره.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "في يوم الاثنين، كان رأس النبي ﷺ بين سَحْر عائشة رضي الله عنها ونَحرها. فدخل أخوها عبد الرحمن بن أبي بكر ومعه سواك رطب، فنظر إليه النبي ﷺ نظرة عرفت منها عائشة أنه يشتهيه، فقالت: آخذه لك؟ فأشار برأسه أن نعم. فأخذته فقضمته وليّنته بأسنانها ثم أعطته إياه، فاستنّ به أحسن ما رأته يستنّ. ثم أراد أن يناولها إياه فسقطت يده. وكان بين يديه رَكوة فيها ماء يدخل يديه فيمسح بهما وجهه. ثم رفع بصره إلى السقف وقال: «مع الذين أنعمت عليهم من النبيّين والصدّيقين والشهداء والصالحين»، ثم قال: «اللهم اغفر لي وارحمني وألحقني بالرفيق الأعلى»، يكرّرها: «بل الرفيق الأعلى». ثم مالت يده وقُبض ﷺ.",
+        details:
+          "قال تعالى: ﴿وَمَن يُطِعِ اللَّهَ وَالرَّسُولَ فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "آخر عمل عمله ﷺ كان تنظيف فمه بالسواك، وهو سنّة كان يواظب عليها طوال حياته.",
+      value: { name: "حسن الخاتمة", icon: "✨" },
+      thinkQuestion:
+        "فيه عادة صغيرة حلوة بتعملها كل يوم وتحبّ تفضل عليها؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ما آخر ما قاله النبي ﷺ؟",
+        options: ["أوصيكم بالمال", "بل الرفيق الأعلى", "احفظوا الطريق", "انتظروني"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "سواك", description: "سواك يذكّرك أن العادة الصغيرة تبقى إلى آخر لحظة." },
+      badge: "حسن الخاتمة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "حديث السواك وقوله ﷺ «مع الرفيق الأعلى» عند وفاته في صحيح البخاري من حديث عائشة رضي الله عنها.",
+    },
+  },
+  {
+    storyId: "st-9-14",
+    stationId: 9,
+    slug: "city-earthquake-abu-bakr-speech",
+    en: {
+      title: "Madinah Shakes, and Abu Bakr Holds",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The news spread and Madinah was shaken. Umar stood saying: he has not died! Abu Bakr came, uncovered the Prophet's face, kissed it and wept, then went out to the people and said: “Whoever worshipped Muhammad — Muhammad has died. Whoever worships Allah — Allah is Living and does not die.” Then he recited the verse, and it was as if the people had never heard it before that day.",
+          shortLesson: "In a crisis, someone is needed who will say the truth calmly.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "When the news came out, Madinah was thrown into confusion. Umar ibn al-Khattab — stunned by it — stood telling the people that hypocrites were claiming the Messenger of Allah had died, and that by Allah he had not died but had gone to his Lord as Musa did. Abu Bakr rode in from his home at as-Sunh, spoke to no one, and went in to Aishah. He uncovered the Prophet's face, kissed it, wept, and said: you were good in life and in death. Then he went out while Umar was still speaking, and said: gently, Umar. And then: “Whoever among you worshipped Muhammad — Muhammad has died. Whoever worships Allah — Allah is Living and does not die.” Then he recited: “Muhammad is only a messenger; messengers have passed away before him.” The people said afterwards: by Allah, it was as if the people did not know Allah had revealed that verse until Abu Bakr recited it. And Umar sat down on the ground.",
+          details:
+            "Allah says: ﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ﴾ — “Muhammad is only a messenger; messengers have passed away before him.”",
+        },
+      },
+      interactive: {
+        discover: "The verse had come down years earlier, but people only understood it that day.",
+        value: { name: "Steadiness in shock", icon: "🗻" },
+        thinkQuestion: "When hard news comes, are you the one who steadies or the one who panics? How could you practise?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did Abu Bakr say to the people on the day the Prophet ﷺ died?",
+          options: ["Be patient, he will return", "Whoever worshipped Muhammad — he has died; whoever worships Allah — Allah does not die", "Say nothing", "Leave Madinah"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A steady stone", description: "A stone for the man who held firm when everyone else was shaken." },
+        badge: "Steady in Crisis",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "Abu Bakr's address on the day of the Prophet's death, and the people's words about the verse, are in Sahih al-Bukhari.",
+      },
+    },
+    title: "زلزال المدينة وثبات الصدّيق",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "انتشر الخبر فاضطربت المدينة، وقام عمر رضي الله عنه يقول: ما مات! فجاء أبو بكر رضي الله عنه فكشف عن وجهه وقبّله وبكى، ثم خرج إلى الناس فقال: «من كان يعبد محمداً فإن محمداً قد مات، ومن كان يعبد الله فإن الله حيّ لا يموت». وتلا الآية، فكأن الناس ما سمعوها قبل ذلك اليوم.",
+        shortLesson: "في الأزمة، يُحتاج إلى من يقول الحقيقة بهدوء.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "لما خرج الخبر اضطربت المدينة اضطراباً شديداً. وقام عمر بن الخطاب رضي الله عنه — وقد أذهله الأمر — يقول للناس: إن رجالاً من المنافقين يزعمون أن رسول الله مات، وإنه والله ما مات ولكنه ذهب إلى ربه كما ذهب موسى. وأقبل أبو بكر رضي الله عنه من مسكنه بالسُّنح، فلم يكلّم أحداً حتى دخل على عائشة رضي الله عنها، فكشف عن وجه النبي ﷺ فقبّله وبكى وقال: طبتَ حيّاً وميّتاً. ثم خرج إلى الناس وعمر يتكلّم، فقال: على رِسلك يا عمر. ثم قال: «أما بعد، فمن كان منكم يعبد محمداً فإن محمداً قد مات، ومن كان يعبد الله فإن الله حيّ لا يموت». ثم تلا: ﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ﴾. قال الناس: فوالله لكأنّ الناس لم يعلموا أن الله أنزل هذه الآية حتى تلاها أبو بكر. وجلس عمر إلى الأرض.",
+        details:
+          "قال تعالى: ﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ أَفَإِن مَّاتَ أَوْ قُتِلَ انقَلَبْتُمْ عَلَىٰ أَعْقَابِكُمْ﴾.",
+      },
+    },
+    interactive: {
+      discover: "الآية كانت قد نزلت قبل ذلك بسنين، لكن الناس ما فهموها إلا يومئذ.",
+      value: { name: "الثبات وقت الصدمة", icon: "🗻" },
+      thinkQuestion:
+        "لما بيحصل خبر صعب، إنت من النوع اللي بيهدأ ولا اللي بيرتبك؟ إزاي تتدرّب؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "بمَ خاطب أبو بكر رضي الله عنه الناس يوم وفاة النبي ﷺ؟",
+        options: ["اصبروا وسيعود", "من كان يعبد محمداً فإن محمداً قد مات، ومن كان يعبد الله فإن الله حيّ لا يموت", "لا تتكلّموا", "اخرجوا من المدينة"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "حجر ثابت", description: "حجر يذكّرك بمن ثبت حين اضطرب الناس." },
+      badge: "ثابت وقت الشدّة",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "خطبة أبي بكر رضي الله عنه يوم وفاة النبي ﷺ وقول الناس كأنهم لم يعلموا بالآية حتى تلاها — في صحيح البخاري.",
+    },
+  },
+  {
+    storyId: "st-9-15",
+    stationId: 9,
+    slug: "eternal-legacy-living-sunnah",
+    en: {
+      title: "What Remained After Him: The Light Did Not Go Out",
+      content: {
+        tier_1_age_6_8: {
+          narrative:
+            "The Prophet ﷺ was buried where he passed away, in Aishah's room. He left neither dinar nor dirham, but he left what lasts longer: the Book of Allah and his way, and a community that had learned truthfulness, mercy and justice. His companions carried it to those after them, until it reached us.",
+          shortLesson: "What you leave in people outlasts you.",
+        },
+        tier_2_age_9_11: {
+          narrative:
+            "The Prophet ﷺ was buried in the place where he passed away, in Aishah's room beside his mosque. When he died he left no dinar and no dirham, no servant, no sheep and no camel — only his weapons, his white mule, and land he had given away as charity. But he left what does not wear out: the Book of Allah preserved, his way preserved, and a community that had learned that truth saves you, that the weak have rights, that a neighbour is honoured, that an animal is shown mercy, and that learning is for everyone. His companions carried all of it and passed it on, generation after generation, until it reached us — reading his life and learning from it. And loving him is not done with words alone: it is done when people can see something in you that you learned from him.",
+          details:
+            "Allah says: ﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ﴾ — “We sent you only as a mercy to all the worlds.”",
+        },
+      },
+      interactive: {
+        discover: "He died with his armour pledged to a Jewish man for thirty measures of barley he had taken as food for his family.",
+        value: { name: "What lasts", icon: "🌟" },
+        thinkQuestion: "If someone described you by one quality you learned from his life, what would you want it to be?",
+        challenge: {
+          type: "multiple_choice",
+          question: "What did the Prophet ﷺ leave behind when he died?",
+          options: ["A great deal of money", "No dinar or dirham — the Book of Allah and his way", "Palaces", "An army"],
+          correctAnswer: 1,
+        },
+      },
+      gamification: {
+        artifact: { name: "A small lamp", description: "A lamp: light is passed from hand to hand." },
+        badge: "Carrier of the Legacy",
+      },
+      source: {
+        reliability: "🟢",
+        reference: "Sahih al-Bukhari",
+        note: "His burial place, that he left neither dinar nor dirham, and his armour being pledged are all in Sahih al-Bukhari.",
+      },
+    },
+    title: "ما بقي بعده: النور لا ينطفئ",
+    content: {
+      tier_1_age_6_8: {
+        narrative:
+          "دُفن النبي ﷺ في الموضع الذي قُبض فيه في حجرة عائشة رضي الله عنها. ولم يترك ديناراً ولا درهماً، وإنما ترك ما هو أبقى: كتاب الله وسنّته، وأمّة تعلّمت الصدق والرحمة والعدل. وحملها الصحابة إلى من بعدهم، حتى وصلت إلينا.",
+        shortLesson: "الأثر يبقى بعد صاحبه إذا كان في الناس.",
+      },
+      tier_2_age_9_11: {
+        narrative:
+          "دُفن النبي ﷺ في الموضع الذي قُبض فيه، في حجرة عائشة رضي الله عنها إلى جانب مسجده. ولم يترك حين مات ديناراً ولا درهماً ولا عبداً ولا أمة، ولا شاة ولا بعيراً إلا سلاحه وبغلته البيضاء وأرضاً جعلها صدقة. لكنه ترك ما لا يبلى: كتاب الله محفوظاً، وسنّةً محفوظة، وأمّةً تعلّمت أن الصدق ينجّي، وأن الضعيف له حقّ، وأن الجار يُكرَم، وأن الحيوان يُرحَم، وأن العلم لكل أحد. وحمل الصحابة هذا كلّه ونقلوه، جيلاً بعد جيل، حتى وصل إلينا نحن اليوم — نقرأ سيرته ونتعلّم منها. وحبّه ﷺ لا يكون بالكلام وحده، وإنما بأن يرى الناس فيك شيئاً مما تعلّمته منه.",
+        details:
+          "قال تعالى: ﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ﴾.",
+      },
+    },
+    interactive: {
+      discover: "مات ﷺ ودرعه مرهونة عند يهوديّ في ثلاثين صاعاً من شعير أخذها طعاماً لأهله.",
+      value: { name: "الأثر الباقي", icon: "🌟" },
+      thinkQuestion:
+        "لو حدّ وصفك بخلق واحد اتعلّمته من سيرة النبي ﷺ، تحبّ يكون إيه؟",
+      challenge: {
+        type: "multiple_choice",
+        question: "ماذا ترك النبي ﷺ حين مات؟",
+        options: ["مالاً كثيراً", "لم يترك ديناراً ولا درهماً، وترك كتاب الله وسنّته", "قصوراً", "جيشاً"],
+        correctAnswer: 1,
+      },
+    },
+    gamification: {
+      artifact: { name: "قنديل صغير", description: "قنديل يذكّرك أن النور يُسلَّم من يد إلى يد." },
+      badge: "حامل الأثر",
+    },
+    source: {
+      reliability: "🟢",
+      reference: "صحيح البخاري",
+      note: "موضع دفنه ﷺ وأنه لم يترك ديناراً ولا درهماً ورهن درعه عند يهوديّ — كلّها في صحيح البخاري.",
     },
   },
 ];
