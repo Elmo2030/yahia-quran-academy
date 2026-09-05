@@ -7,13 +7,12 @@
 // profile row so the profile we read back is guaranteed to exist.
 // =============================================================================
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Loader2 } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { useAuth, AuthError } from "@/hooks/useAuth";
-import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -37,6 +36,16 @@ export default function Register() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [awaitingConfirmation, setAwaitingConfirmation] = useState(false);
   const [resendState, setResendState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+  // Supabase refuses a second confirmation inside its own window and answers
+  // 429. The button used to re-enable the instant the first one returned, so a
+  // reader whose message had not arrived pressed it again a second later and
+  // got nothing but a rejected request. Count the wait down instead.
+  const [cooldown, setCooldown] = useState(0);
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown(seconds => seconds - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   // If a session already exists while we are on /register (e.g. user navigated
   // here from the site header), bounce them away to avoid showing the form.
@@ -69,6 +78,7 @@ export default function Register() {
         resending: "جارٍ الإرسال…",
         resent: "أرسلنا رسالة تأكيد جديدة.",
         resendFailed: "تعذّر إرسال الرسالة. حاول بعد قليل.",
+        resendWait: (seconds: number) => `يمكن إعادة الإرسال بعد ${seconds} ثانية`,
         name: "الاسم الذي يظهر للآخرين",
         email: "البريد الإلكتروني",
         password: "كلمة المرور",
@@ -96,6 +106,7 @@ export default function Register() {
         resending: "Sending\u2026",
         resent: "A new confirmation email is on its way.",
         resendFailed: "Could not send it. Try again shortly.",
+        resendWait: (seconds: number) => `You can send again in ${seconds}s`,
         name: "Display name",
         email: "Email",
         password: "Password",
@@ -178,7 +189,7 @@ export default function Register() {
               </Link>
               <button
                 type="button"
-                disabled={resendState === "sending"}
+                disabled={resendState === "sending" || cooldown > 0}
                 onClick={async () => {
                   setResendState("sending");
                   try {
@@ -187,10 +198,15 @@ export default function Register() {
                   } catch {
                     setResendState("failed");
                   }
+                  setCooldown(60);
                 }}
                 className="text-sm font-medium text-[var(--brand-navy)] underline disabled:opacity-60"
               >
-                {resendState === "sending" ? copy.resending : copy.resend}
+                {resendState === "sending"
+                  ? copy.resending
+                  : cooldown > 0
+                    ? copy.resendWait(cooldown)
+                    : copy.resend}
               </button>
             </div>
             {resendState === "sent" && <p className="mt-3 text-sm text-green-800" role="status">{copy.resent}</p>}
