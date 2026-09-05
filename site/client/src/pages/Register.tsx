@@ -12,6 +12,7 @@ import { Link, useLocation } from "wouter";
 import { Loader2 } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
+import { passwordProblem } from "@/lib/weak-passwords";
 import { useAuth, AuthError } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -62,9 +63,15 @@ export default function Register() {
 
   const passwordsMatch = password === confirm;
   const passwordLongEnough = password.length >= MIN_PASSWORD;
+  // Supabase checks new passwords against known breaches only on the paid plan,
+  // so the common ones are refused here instead.
+  const weakness = useMemo(
+    () => passwordProblem(password, { email, name: displayName, min: MIN_PASSWORD }),
+    [password, email, displayName],
+  );
   const displayNameOk = displayName.trim().length >= 2;
 
-  const formValid = isEmailLike && passwordsMatch && passwordLongEnough && displayNameOk;
+  const formValid = isEmailLike && passwordsMatch && passwordLongEnough && displayNameOk && !weakness;
 
   const copy = locale === "ar"
     ? {
@@ -83,6 +90,8 @@ export default function Register() {
         email: "البريد الإلكتروني",
         password: "كلمة المرور",
         passwordHint: "٨ أحرف على الأقل",
+        weakCommon: "كلمة المرور دي من أكثر الكلمات استخدامًا، واختراقها سهل. اختر غيرها.",
+        weakPersonal: "لا تجعل كلمة المرور اسمك أو بريدك — أول ما يُجرَّب.",
         confirm: "تأكيد كلمة المرور",
         submit: "إنشاء الحساب",
         submitting: "جارٍ الإنشاء…",
@@ -111,6 +120,8 @@ export default function Register() {
         email: "Email",
         password: "Password",
         passwordHint: "8 characters minimum",
+        weakCommon: "That is one of the most-used passwords there is, and it is easy to break. Please pick another.",
+        weakPersonal: "Do not use your name or your email as the password — it is the first thing anyone tries.",
         confirm: "Confirm password",
         submit: "Create account",
         submitting: "Creating…",
@@ -301,6 +312,12 @@ export default function Register() {
                 aria-describedby="register-password-hint"
               />
               <p id="register-password-hint" className="text-xs text-[var(--brand-navy)]/60">{copy.passwordHint}</p>
+              {weakness === "common" && (
+                <p className="text-xs leading-6 text-red-700" role="alert">{copy.weakCommon}</p>
+              )}
+              {weakness === "personal" && (
+                <p className="text-xs leading-6 text-red-700" role="alert">{copy.weakPersonal}</p>
+              )}
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="register-confirm">{copy.confirm}</Label>

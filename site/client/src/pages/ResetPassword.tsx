@@ -13,6 +13,7 @@ import { Link, useLocation } from "wouter";
 import { Loader2, ShieldCheck } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
+import { passwordProblem } from "@/lib/weak-passwords";
 import useAuth, { AuthError } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -68,12 +69,19 @@ export default function ResetPassword() {
       };
 
   const passwordLongEnough = password.length >= MIN_PASSWORD;
+  const weakness = passwordProblem(password, { min: MIN_PASSWORD });
   const passwordsMatch = confirm.length > 0 && password === confirm;
-  const formValid = passwordLongEnough && passwordsMatch;
+  const formValid = passwordLongEnough && passwordsMatch && !weakness;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErrorMessage(null);
+    if (weakness === "common" || weakness === "personal") {
+      setErrorMessage(locale === "ar"
+        ? "كلمة المرور دي سهلة التخمين. اختر غيرها."
+        : "That password is easy to guess. Please pick another.");
+      return;
+    }
     if (!passwordLongEnough) {
       setErrorMessage(copy.tooShort);
       return;
