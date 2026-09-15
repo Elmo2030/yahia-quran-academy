@@ -1,0 +1,572 @@
+// =============================================================================
+// Hifz — the memorization journey. Phase 1: who is memorizing, and how.
+//
+// A device can hold several children (brothers and sisters on one tablet) and a
+// guest. Each child picks a character and their own settings. Everything stays
+// on the device; the backup file is how it moves to another one.
+//
+// The ayah-by-ayah screen and the Juz Amma map arrive in the next phases. Until
+// then the journey card says so plainly and points at the reader.
+// =============================================================================
+
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { Link } from "wouter";
+import {
+  BookOpen, Check, ChevronLeft, ChevronRight, Download, HardDrive, Pencil, Plus, Settings2, ShieldAlert,
+  ShieldCheck, Trash2, Upload, UserRound, Users,
+} from "lucide-react";
+
+import { SiteChrome } from "@/components/SiteChrome";
+import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
+import { useLocale } from "@/contexts/LocaleContext";
+import { useHifzStore } from "@/hooks/useHifzStore";
+import { CHARACTERS, characterArt, characterById, type Pose } from "@/lib/hifz-characters";
+import {
+  MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup,
+  importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, updateProfile, updateSettings,
+  type CharacterId, type ChildProfile, type FontStep, type HifzStore, type ImportResult, type Persistence,
+  type ReciterChoice,
+} from "@/lib/hifz-store";
+
+const copy = {
+  ar: {
+    eyebrow: "رحلة الحفظ",
+    pickTitle: "من سيحفظ اليوم؟",
+    pickIntro: "كل طفل له ملفه وشخصيته وإعداداته. كل شيء محفوظ على هذا الجهاز فقط.",
+    firstTitle: "ابدأ رحلة الحفظ",
+    firstIntro: "اختر اسم الطفل ورفيقه في الرحلة. لا حساب ولا بريد إلكتروني — البيانات تبقى على هذا الجهاز.",
+    addChild: "أضف طفلًا",
+    guest: "ادخل كضيف",
+    guestName: "ضيف",
+    guestNote: "الضيف يتدرّب بلا اسم. لو أردت أن يبقى تقدّمه باسمه، أضفه كطفل.",
+    limit: `وصلت إلى ${MAX_PROFILES} أطفال على هذا الجهاز.`,
+    nameLabel: "اسم الطفل",
+    namePlaceholder: "اكتب اسم طفلك",
+    characterLabel: "اختر رفيق الرحلة",
+    artPending: "رسمتها في الطريق",
+    start: "ابدأ الرحلة",
+    save: "احفظ",
+    cancel: "إلغاء",
+    errors: { name: "اكتب اسم الطفل.", duplicate: "يوجد طفل بهذا الاسم على هذا الجهاز.", limit: `الحد ${MAX_PROFILES} أطفال على الجهاز.`, missing: "لم يعد هذا الملف موجودًا." },
+    hello: (name: string) => `أهلًا يا ${name}`,
+    helloGuest: "أهلًا بك",
+    switchChild: "غيّر الطفل",
+    journeyTitle: "خريطة جزء عمّ",
+    journeyBody: "الخريطة وشاشة الحفظ آيةً آية تُفتحان في التحديث القادم. إعداداتك محفوظة وستعمل معهما.",
+    journeyCta: "اقرأ سورة الناس الآن",
+    settingsTitle: "إعدادات الحفظ",
+    repeatLabel: "كم مرة تُعاد الآية؟",
+    repeatUnit: (n: number) => (n === 1 ? "مرة" : n === 2 ? "مرتان" : `${n} مرات`),
+    autoplayLabel: "انتقل للآية التالية تلقائيًا",
+    autoplayHint: "بعد انتهاء مرات التكرار.",
+    reciterLabel: "طريقة الاستماع",
+    reciters: {
+      sheikh: { title: "الشيخ فقط", body: "الحصري المعلّم" },
+      sheikh_kids: { title: "الشيخ والأطفال", body: "المنشاوي مع الأطفال يردّدون" },
+    },
+    fontLabel: "حجم خط الآيات",
+    fontSteps: ["عادي", "كبير", "أكبر"],
+    editTitle: "تعديل الملف",
+    deviceTitle: "البيانات على هذا الجهاز",
+    persisted: "المتصفح وافق على الاحتفاظ بالبيانات ولن يمسحها وحده.",
+    bestEffort: "قد يمسح المتصفح البيانات لو لم يُفتح الموقع لفترة (خاصة على آيفون وآيباد). احفظ نسخة احتياطية، أو أضف الموقع إلى الشاشة الرئيسية.",
+    unsupported: "لا يمكن التأكد من أن المتصفح سيحتفظ بالبيانات. احفظ نسخة احتياطية من وقت لآخر.",
+    saveFailed: "لم يستطع المتصفح حفظ آخر تغيير — ربما التصفح الخاص مفعّل أو المساحة ممتلئة.",
+    exportLabel: "احفظ نسخة احتياطية",
+    exportHint: "ملف صغير بكل الأطفال وإعداداتهم وتقدّمهم.",
+    importLabel: "استرجع نسخة",
+    importReady: (n: number) => `الملف فيه ${n === 1 ? "طفل واحد" : `${n} أطفال`}. سيحلّ محلّ كل ما على هذا الجهاز الآن.`,
+    importConfirm: "استبدل واسترجع",
+    imported: "تم استرجاع النسخة.",
+    importErrors: {
+      unreadable: "تعذّرت قراءة الملف.",
+      "not-a-backup": "هذا الملف ليس نسخة احتياطية من رحلة الحفظ.",
+      "newer-version": "هذه النسخة من إصدار أحدث من الموقع. حدّث الصفحة ثم حاول مجددًا.",
+      empty: "النسخة لا تحتوي على أي طفل.",
+    },
+    removeLabel: (name: string) => `احذف ملف ${name}`,
+    removeGuest: "امسح تقدّم الضيف",
+    removeConfirm: "نعم، احذف نهائيًا",
+    removeWarning: "سيُحذف الملف وكل تقدّمه من هذا الجهاز، ولا يمكن التراجع إلا من نسخة احتياطية.",
+    home: "الرئيسية",
+  },
+  en: {
+    eyebrow: "Memorization journey",
+    pickTitle: "Who is memorizing today?",
+    pickIntro: "Each child has their own profile, character and settings. Everything stays on this device.",
+    firstTitle: "Start the memorization journey",
+    firstIntro: "Choose the child’s name and a companion for the journey. No account, no email — the data stays on this device.",
+    addChild: "Add a child",
+    guest: "Continue as a guest",
+    guestName: "Guest",
+    guestNote: "A guest practises without a name. To keep a child’s progress under their name, add them as a child.",
+    limit: `This device already has ${MAX_PROFILES} children.`,
+    nameLabel: "Child’s name",
+    namePlaceholder: "Your child’s name",
+    characterLabel: "Choose a companion",
+    artPending: "Artwork on its way",
+    start: "Start the journey",
+    save: "Save",
+    cancel: "Cancel",
+    errors: { name: "Write the child’s name.", duplicate: "A child with this name is already on this device.", limit: `A device holds up to ${MAX_PROFILES} children.`, missing: "This profile no longer exists." },
+    hello: (name: string) => `Welcome, ${name}`,
+    helloGuest: "Welcome",
+    switchChild: "Switch child",
+    journeyTitle: "The Juz Amma map",
+    journeyBody: "The map and the ayah-by-ayah screen open in the next update. Your settings are saved and will carry over.",
+    journeyCta: "Read Surah an-Nas now",
+    settingsTitle: "Memorization settings",
+    repeatLabel: "How many times does each ayah repeat?",
+    repeatUnit: (n: number) => (n === 1 ? "once" : n === 2 ? "twice" : `${n} times`),
+    autoplayLabel: "Move to the next ayah by itself",
+    autoplayHint: "Once the repeats are done.",
+    reciterLabel: "How to listen",
+    reciters: {
+      sheikh: { title: "The sheikh alone", body: "al-Husary, teaching recitation" },
+      sheikh_kids: { title: "The sheikh with children", body: "al-Minshawi, children repeating" },
+    },
+    fontLabel: "Ayah text size",
+    fontSteps: ["Regular", "Large", "Larger"],
+    editTitle: "Edit profile",
+    deviceTitle: "Data on this device",
+    persisted: "The browser agreed to keep this data and will not clear it on its own.",
+    bestEffort: "The browser may clear this data if the site is not opened for a while (especially on iPhone and iPad). Save a backup, or add the site to your home screen.",
+    unsupported: "There is no way to confirm the browser will keep this data. Save a backup from time to time.",
+    saveFailed: "The browser could not save the last change — private browsing may be on, or storage is full.",
+    exportLabel: "Save a backup",
+    exportHint: "A small file with every child, their settings and progress.",
+    importLabel: "Restore a backup",
+    importReady: (n: number) => `The file holds ${n === 1 ? "one child" : `${n} children`}. It will replace everything on this device now.`,
+    importConfirm: "Replace and restore",
+    imported: "Backup restored.",
+    importErrors: {
+      unreadable: "The file could not be read.",
+      "not-a-backup": "This file is not a memorization journey backup.",
+      "newer-version": "This backup is from a newer version of the site. Reload the page and try again.",
+      empty: "The backup has no children in it.",
+    },
+    removeLabel: (name: string) => `Delete ${name}’s profile`,
+    removeGuest: "Clear the guest’s progress",
+    removeConfirm: "Yes, delete for good",
+    removeWarning: "The profile and all its progress will be removed from this device. Only a backup can bring it back.",
+    home: "Home",
+  },
+} as const;
+
+type Copy = (typeof copy)["ar"] | (typeof copy)["en"];
+
+export default function Hifz() {
+  const { direction, locale } = useLocale();
+  const t = copy[locale];
+  const { store, commit, saveFailed } = useHifzStore();
+  const profile = activeProfile(store);
+
+  return (
+    <main className="site-shell hifz" dir={direction}>
+      <SkipLink />
+      <SiteChrome />
+      <div id={MAIN_CONTENT_ID}>
+        {saveFailed && (
+          <div className="container"><p className="hifz-alert" role="alert"><ShieldAlert size={17} aria-hidden="true" /> {t.saveFailed}</p></div>
+        )}
+        {profile
+          ? <JourneyHome key={profile.id} t={t} store={store} profile={profile} commit={commit} />
+          : <ProfilePicker t={t} store={store} commit={commit} />}
+      </div>
+      <footer className="site-footer">
+        <div className="container site-footer__inner">
+          <div className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></div>
+          <Link href="/" className="text-link">{t.home}</Link>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
+function CharacterArt({ character, pose, sizes, className = "", alt = "" }: {
+  character: CharacterId; pose: Pose; sizes: string; className?: string; alt?: string;
+}) {
+  const art = characterArt(character, pose);
+  if (!art) {
+    const initial = characterById(character)?.initial ?? "";
+    return (
+      <span className={`hifz-art hifz-art--placeholder ${className}`} role={alt ? "img" : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : true}>
+        {initial ? <b>{initial}</b> : <UserRound size={28} aria-hidden="true" />}
+      </span>
+    );
+  }
+  return <img className={`hifz-art ${className}`} src={art.src} srcSet={art.srcSet} sizes={sizes} alt={alt} loading="lazy" decoding="async" draggable={false} />;
+}
+
+function displayName(t: Copy, profile: ChildProfile) {
+  return profile.character === "guest" ? t.guestName : profile.name;
+}
+
+// ---------------------------------------------------------------------------
+
+function ProfilePicker({ t, store, commit }: { t: Copy; store: HifzStore; commit: (s: HifzStore) => boolean }) {
+  const children = namedProfiles(store);
+  const [adding, setAdding] = useState(children.length === 0);
+  const first = children.length === 0;
+
+  return (
+    <>
+      <section className="hifz-hero hifz-hero--courtyard">
+        <div className="container hifz-hero__inner">
+          <div className="hifz-hero__copy">
+            <span className="eyebrow eyebrow--gold"><Users size={15} aria-hidden="true" /> {t.eyebrow}</span>
+            <h1>{first ? t.firstTitle : t.pickTitle}</h1>
+            <p>{first ? t.firstIntro : t.pickIntro}</p>
+          </div>
+          <div className="hifz-hero__pair" aria-hidden="true">
+            <CharacterArt character="yahya" pose="wave" sizes="(max-width: 640px) 40vw, 220px" />
+            <CharacterArt character="fatima" pose="wave" sizes="(max-width: 640px) 40vw, 220px" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section hifz-section">
+        <div className="container hifz-stack">
+          {!first && (
+            <ul className="hifz-profiles" role="list">
+              {children.map(child => (
+                <li key={child.id}>
+                  <button type="button" className="hifz-profile" onClick={() => commit(selectProfile(store, child.id))}>
+                    <CharacterArt character={child.character} pose="avatar" sizes="96px" className="hifz-profile__avatar" />
+                    <b>{child.name}</b>
+                  </button>
+                </li>
+              ))}
+              {!adding && children.length < MAX_PROFILES && (
+                <li>
+                  <button type="button" className="hifz-profile hifz-profile--add" onClick={() => setAdding(true)}>
+                    <span className="hifz-profile__avatar hifz-profile__plus"><Plus size={30} aria-hidden="true" /></span>
+                    <b>{t.addChild}</b>
+                  </button>
+                </li>
+              )}
+            </ul>
+          )}
+
+          {adding && (
+            <ProfileForm
+              t={t}
+              submitLabel={t.start}
+              onCancel={first ? undefined : () => setAdding(false)}
+              onSubmit={(name, character) => {
+                const result = createProfile(store, { name, character });
+                if (!result.ok) return t.errors[result.reason];
+                commit(result.store);
+                return null;
+              }}
+            />
+          )}
+          {!adding && children.length >= MAX_PROFILES && <p className="hifz-muted">{t.limit}</p>}
+
+          <div className="hifz-guest">
+            <button type="button" className="button button--soft" onClick={() => commit(enterAsGuest(store))}>
+              <UserRound size={17} aria-hidden="true" /> {t.guest}
+            </button>
+            <small>{t.guestNote}</small>
+          </div>
+
+          {/* Shown on an empty device too: a new tablet is exactly where a backup gets restored. */}
+          <DeviceData t={t} store={store} commit={commit} />
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ProfileForm({ t, submitLabel, initialName = "", initialCharacter = "yahya", onSubmit, onCancel }: {
+  t: Copy;
+  submitLabel: string;
+  initialName?: string;
+  initialCharacter?: "yahya" | "fatima";
+  onSubmit: (name: string, character: "yahya" | "fatima") => string | null;
+  onCancel?: () => void;
+}) {
+  const id = useId();
+  const [name, setName] = useState(initialName);
+  const [character, setCharacter] = useState<"yahya" | "fatima">(initialCharacter);
+  const [error, setError] = useState<string | null>(null);
+  const { locale } = useLocale();
+
+  const submit = (event: FormEvent) => {
+    event.preventDefault();
+    setError(onSubmit(name, character));
+  };
+
+  return (
+    <form className="hifz-card hifz-form" onSubmit={submit} noValidate>
+      <div className="hifz-field">
+        <label htmlFor={`${id}-name`}>{t.nameLabel}</label>
+        <input
+          id={`${id}-name`}
+          name="child-name"
+          value={name}
+          onChange={e => { setName(e.target.value); setError(null); }}
+          placeholder={t.namePlaceholder}
+          maxLength={MAX_NAME_LENGTH * 2}
+          autoComplete="off"
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? `${id}-error` : undefined}
+        />
+        {error && <p id={`${id}-error`} className="hifz-error" role="alert">{error}</p>}
+      </div>
+
+      <fieldset className="hifz-field">
+        <legend>{t.characterLabel}</legend>
+        <div className="hifz-characters">
+          {CHARACTERS.map(c => {
+            const pending = !characterArt(c.id, "stand");
+            return (
+              <label key={c.id} className={`hifz-character ${character === c.id ? "is-selected" : ""}`}>
+                <input type="radio" name={`${id}-character`} value={c.id} checked={character === c.id} onChange={() => setCharacter(c.id)} />
+                <CharacterArt character={c.id} pose="stand" sizes="(max-width: 640px) 36vw, 180px" className="hifz-character__art" />
+                <span className="hifz-character__name">
+                  {locale === "ar" ? c.nameAr : c.nameEn}
+                  {pending && <small>{t.artPending}</small>}
+                </span>
+                {character === c.id && <span className="hifz-character__check" aria-hidden="true"><Check size={16} /></span>}
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      <div className="hifz-actions">
+        <button type="submit" className="button button--primary">{submitLabel}</button>
+        {onCancel && <button type="button" className="button button--soft" onClick={onCancel}>{t.cancel}</button>}
+      </div>
+    </form>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
+function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore; profile: ChildProfile; commit: (s: HifzStore) => boolean }) {
+  const { locale } = useLocale();
+  const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
+  const isGuest = profile.character === "guest";
+  const [editing, setEditing] = useState(false);
+
+  return (
+    <>
+      <section className="hifz-hero">
+        <div className="container hifz-hero__inner">
+          <div className="hifz-hero__copy">
+            <span className="eyebrow eyebrow--gold"><Users size={15} aria-hidden="true" /> {t.eyebrow}</span>
+            <h1>{isGuest ? t.helloGuest : t.hello(profile.name)}</h1>
+            {isGuest && <p>{t.guestNote}</p>}
+            <div className="hifz-actions">
+              <button type="button" className="button button--soft" onClick={() => commit(selectProfile(store, null))}>
+                <Users size={17} aria-hidden="true" /> {t.switchChild}
+              </button>
+              {!isGuest && (
+                <button type="button" className="button button--soft" onClick={() => setEditing(v => !v)} aria-expanded={editing}>
+                  <Pencil size={16} aria-hidden="true" /> {t.editTitle}
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="hifz-hero__solo">
+            <CharacterArt character={isGuest ? "yahya" : profile.character} pose="wave" sizes="(max-width: 640px) 55vw, 260px" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section hifz-section">
+        <div className="container hifz-stack">
+          {editing && !isGuest && (
+            <ProfileForm
+              t={t}
+              submitLabel={t.save}
+              initialName={profile.name}
+              initialCharacter={profile.character === "fatima" ? "fatima" : "yahya"}
+              onCancel={() => setEditing(false)}
+              onSubmit={(name, character) => {
+                const result = updateProfile(store, profile.id, { name, character });
+                if (!result.ok) return t.errors[result.reason];
+                commit(result.store);
+                setEditing(false);
+                return null;
+              }}
+            />
+          )}
+
+          <article className="hifz-card hifz-journey">
+            <div>
+              <h2><BookOpen size={20} aria-hidden="true" /> {t.journeyTitle}</h2>
+              <p>{t.journeyBody}</p>
+            </div>
+            <Link href="/read/114" className="button button--primary">{t.journeyCta} <Arrow size={17} aria-hidden="true" /></Link>
+          </article>
+
+          <SettingsPanel t={t} profile={profile} onChange={patch => commit(updateSettings(store, profile.id, patch))} />
+          <DeviceData t={t} store={store} commit={commit} profile={profile} />
+        </div>
+      </section>
+    </>
+  );
+}
+
+const SAMPLE_AYAH = "قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ";
+
+function SettingsPanel({ t, profile, onChange }: {
+  t: Copy; profile: ChildProfile; onChange: (patch: Partial<ChildProfile["settings"]>) => void;
+}) {
+  const id = useId();
+  const s = profile.settings;
+  return (
+    <section className="hifz-card hifz-settings" aria-labelledby={`${id}-title`}>
+      <h2 id={`${id}-title`}><Settings2 size={20} aria-hidden="true" /> {t.settingsTitle}</h2>
+
+      <fieldset className="hifz-field">
+        <legend>{t.repeatLabel}</legend>
+        <div className="hifz-segments">
+          {[1, 2, 3, 4, 5].map(n => (
+            <label key={n} className={s.repeat === n ? "is-selected" : ""}>
+              <input type="radio" name={`${id}-repeat`} value={n} checked={s.repeat === n} onChange={() => onChange({ repeat: n })} />
+              <b>{n.toLocaleString(undefined)}</b>
+              <small>{t.repeatUnit(n)}</small>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <label className="hifz-switch" htmlFor={`${id}-autoplay`}>
+        <input id={`${id}-autoplay`} type="checkbox" role="switch" checked={s.autoplayNext} onChange={e => onChange({ autoplayNext: e.target.checked })} />
+        <span className="hifz-switch__track" aria-hidden="true"><span /></span>
+        <span><b>{t.autoplayLabel}</b><small>{t.autoplayHint}</small></span>
+      </label>
+
+      <fieldset className="hifz-field">
+        <legend>{t.reciterLabel}</legend>
+        <div className="hifz-options">
+          {(["sheikh", "sheikh_kids"] as ReciterChoice[]).map(choice => (
+            <label key={choice} className={s.reciter === choice ? "is-selected" : ""}>
+              <input type="radio" name={`${id}-reciter`} value={choice} checked={s.reciter === choice} onChange={() => onChange({ reciter: choice })} />
+              <b>{t.reciters[choice].title}</b>
+              <small>{t.reciters[choice].body}</small>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="hifz-field">
+        <legend>{t.fontLabel}</legend>
+        <div className="hifz-segments hifz-segments--three">
+          {([0, 1, 2] as FontStep[]).map(step => (
+            <label key={step} className={s.fontStep === step ? "is-selected" : ""}>
+              <input type="radio" name={`${id}-font`} value={step} checked={s.fontStep === step} onChange={() => onChange({ fontStep: step })} />
+              <b>{t.fontSteps[step]}</b>
+            </label>
+          ))}
+        </div>
+        <p className={`hifz-sample hifz-sample--${s.fontStep}`} lang="ar" dir="rtl">{SAMPLE_AYAH}</p>
+      </fieldset>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
+function DeviceData({ t, store, commit, profile }: {
+  t: Copy; store: HifzStore; commit: (s: HifzStore) => boolean; profile?: ChildProfile;
+}) {
+  const id = useId();
+  const [persistence, setPersistence] = useState<Persistence | null>(null);
+  const [pending, setPending] = useState<Extract<ImportResult, { ok: true }> | null>(null);
+  const [message, setMessage] = useState<{ kind: "ok" | "error"; text: string } | null>(null);
+  const [confirmRemove, setConfirmRemove] = useState(false);
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    let live = true;
+    requestPersistence().then(result => { if (live) setPersistence(result); });
+    return () => { live = false; };
+  }, []);
+
+  const download = () => {
+    const blob = new Blob([exportBackup(store)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = backupFileName();
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  const readFile = async (file: File | undefined) => {
+    setMessage(null);
+    setPending(null);
+    if (!file) return;
+    const result = importBackup(await file.text());
+    if (result.ok) setPending(result);
+    else setMessage({ kind: "error", text: t.importErrors[result.reason] });
+    if (fileInput.current) fileInput.current.value = "";
+  };
+
+  const StatusIcon = persistence === "persisted" ? ShieldCheck : ShieldAlert;
+  const status = persistence === "persisted" ? t.persisted : persistence === "best-effort" ? t.bestEffort : persistence ? t.unsupported : null;
+
+  return (
+    <section className="hifz-card hifz-device" aria-labelledby={`${id}-title`}>
+      <h2 id={`${id}-title`}><HardDrive size={20} aria-hidden="true" /> {t.deviceTitle}</h2>
+      {status && (
+        <p className={`hifz-status ${persistence === "persisted" ? "is-good" : "is-warn"}`}>
+          <StatusIcon size={17} aria-hidden="true" /> {status}
+        </p>
+      )}
+
+      <div className="hifz-actions">
+        {store.profiles.length > 0 && (
+          <button type="button" className="button button--primary" onClick={download}>
+            <Download size={17} aria-hidden="true" /> {t.exportLabel}
+          </button>
+        )}
+        <label className="button button--soft hifz-file" htmlFor={`${id}-file`}>
+          <Upload size={17} aria-hidden="true" /> {t.importLabel}
+        </label>
+        <input ref={fileInput} id={`${id}-file`} className="sr-only" type="file" accept="application/json,.json" onChange={e => readFile(e.target.files?.[0])} />
+      </div>
+      <small className="hifz-muted">{t.exportHint}</small>
+
+      {pending && (
+        <div className="hifz-confirm" role="alert">
+          <p>{t.importReady(pending.profiles)}</p>
+          <div className="hifz-actions">
+            <button type="button" className="button button--primary" onClick={() => { commit(pending.store); setPending(null); setMessage({ kind: "ok", text: t.imported }); }}>
+              {t.importConfirm}
+            </button>
+            <button type="button" className="button button--soft" onClick={() => setPending(null)}>{t.cancel}</button>
+          </div>
+        </div>
+      )}
+      {message && <p className={message.kind === "ok" ? "hifz-success" : "hifz-error"} role="status">{message.text}</p>}
+
+      {profile && (
+        <div className="hifz-remove">
+          {!confirmRemove ? (
+            <button type="button" className="hifz-danger-link" onClick={() => setConfirmRemove(true)}>
+              <Trash2 size={15} aria-hidden="true" /> {profile.character === "guest" ? t.removeGuest : t.removeLabel(displayName(t, profile))}
+            </button>
+          ) : (
+            <div className="hifz-confirm hifz-confirm--danger" role="alert">
+              <p>{t.removeWarning}</p>
+              <div className="hifz-actions">
+                <button type="button" className="button hifz-button-danger" onClick={() => commit(removeProfile(store, profile.id))}>{t.removeConfirm}</button>
+                <button type="button" className="button button--soft" onClick={() => setConfirmRemove(false)}>{t.cancel}</button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}

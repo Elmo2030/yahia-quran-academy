@@ -102,6 +102,21 @@ export const profileMeta: Meta = {
   },
 };
 
+export const hifzMeta: Meta = {
+  path: "/hifz",
+  title: "رحلة الحفظ — Yahya Quran Academy",
+  description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
+  image: DEFAULT_IMAGE,
+  // Until the map and the memorization screen ship, this is a settings page.
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Memorization journey — Yahya Quran Academy",
+      description: "A Juz Amma memorization journey for children with Yahya and Fatima; all data stays on your device.",
+    },
+  },
+};
+
 export const quranFactsMeta: Meta = {
   path: "/quran-facts",
   title: "في رحاب القرآن — اكتشف أسرار القرآن",
@@ -241,6 +256,7 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  if (head === "hifz") return hifzMeta;
   if (head === "quran-facts") return quranFactsMeta;
   if (head === "about") return aboutMeta;
   if (head === "privacy") return privacyMeta;

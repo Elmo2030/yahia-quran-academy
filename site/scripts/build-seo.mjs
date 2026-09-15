@@ -131,8 +131,7 @@ writeFileSync(join(root, "client/public/llms.txt"),
 > Seerah of the Prophet Muhammad told for ages 6-11. Every page is available
 > in both languages at the same URL; append ?lang=en for English.
 
-Non-commercial and educational. No automated mastery score is shown and no
-stage unlocks on its own — a parent judges the child's recitation.
+Non-commercial and educational.
 
 ## Quran reader
 - [The reader](${ORIGIN}/read): all 114 surahs in the Uthmani text, each with

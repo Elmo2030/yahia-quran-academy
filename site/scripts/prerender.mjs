@@ -94,7 +94,6 @@ add("/", section("ar", `
     link("/aqeedah", "العقيدة — أتعرّف على ربّي"),
     link("/about", "عن الأكاديمية"),
   ])}
-  <p>لا نعرض درجة إتقان آلية ولا نفتح مراحل تلقائيًا — وليّ الأمر هو من يقدّر تلاوة طفله.</p>
 `) + section("en", `
   <h2>Yahya Quran Academy</h2>
   <p>A children's Quran site in Arabic and English: the full Uthmani text with verified teaching recitations, illustrated stories from the Quran, the Seerah of the Prophet, and a hundred things worth knowing about the Quran — for ages 6 to 11.</p>

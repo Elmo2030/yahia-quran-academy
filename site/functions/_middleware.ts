@@ -61,6 +61,14 @@ const profileMeta = {
   noindex: true,
 };
 
+const hifzMeta = {
+  path: "/hifz",
+  title: "رحلة الحفظ — Yahya Quran Academy",
+  description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+};
+
 // A parent looking for how a children's site handles their child's data should
 // be able to find these; they were hidden from search along with the sign-in
 // pages, which is the opposite of the trust they exist to give.
@@ -89,6 +97,7 @@ function metaForPath(pathname: string) {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  if (head === "hifz") return hifzMeta;
   // Both render fine client-side, but the function did not know them, so the
   // server answered 404 — including for the link in the password-reset email,
   // which points straight at /reset-password.
