@@ -22,8 +22,8 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { CHARACTERS, characterArt, characterById, type Pose } from "@/lib/hifz-characters";
 import {
-  MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup,
-  importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, updateProfile, updateSettings,
+  MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup,
+  checkPersistence, importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, updateProfile, updateSettings,
   type CharacterId, type ChildProfile, type FontStep, type HifzStore, type ImportResult, type Persistence,
   type ReciterChoice,
 } from "@/lib/hifz-store";
@@ -75,7 +75,7 @@ const copy = {
     exportLabel: "احفظ نسخة احتياطية",
     exportHint: "ملف صغير بكل الأطفال وإعداداتهم وتقدّمهم.",
     importLabel: "استرجع نسخة",
-    importReady: (n: number) => `الملف فيه ${n === 1 ? "طفل واحد" : `${n} أطفال`}. سيحلّ محلّ كل ما على هذا الجهاز الآن.`,
+    importReady: (n: number) => `${n === 0 ? "الملف فيه تقدّم الضيف فقط" : `الملف فيه ${n === 1 ? "طفل واحد" : `${n} أطفال`}`}. سيحلّ محلّ كل ما على هذا الجهاز الآن.`,
     importConfirm: "استبدل واسترجع",
     imported: "تم استرجاع النسخة.",
     importErrors: {
@@ -83,6 +83,7 @@ const copy = {
       "not-a-backup": "هذا الملف ليس نسخة احتياطية من رحلة الحفظ.",
       "newer-version": "هذه النسخة من إصدار أحدث من الموقع. حدّث الصفحة ثم حاول مجددًا.",
       empty: "النسخة لا تحتوي على أي طفل.",
+      "too-large": "الملف أكبر من أن يكون نسخة احتياطية من رحلة الحفظ.",
     },
     removeLabel: (name: string) => `احذف ملف ${name}`,
     removeGuest: "امسح تقدّم الضيف",
@@ -136,7 +137,7 @@ const copy = {
     exportLabel: "Save a backup",
     exportHint: "A small file with every child, their settings and progress.",
     importLabel: "Restore a backup",
-    importReady: (n: number) => `The file holds ${n === 1 ? "one child" : `${n} children`}. It will replace everything on this device now.`,
+    importReady: (n: number) => `${n === 0 ? "The file holds only the guest’s progress" : `The file holds ${n === 1 ? "one child" : `${n} children`}`}. It will replace everything on this device now.`,
     importConfirm: "Replace and restore",
     imported: "Backup restored.",
     importErrors: {
@@ -144,6 +145,7 @@ const copy = {
       "not-a-backup": "This file is not a memorization journey backup.",
       "newer-version": "This backup is from a newer version of the site. Reload the page and try again.",
       empty: "The backup has no children in it.",
+      "too-large": "The file is too large to be a memorization journey backup.",
     },
     removeLabel: (name: string) => `Delete ${name}’s profile`,
     removeGuest: "Clear the guest’s progress",
@@ -266,8 +268,9 @@ function ProfilePicker({ t, store, commit }: { t: Copy; store: HifzStore; commit
           {!adding && children.length >= MAX_PROFILES && <p className="hifz-muted">{t.limit}</p>}
 
           <div className="hifz-guest">
-            <button type="button" className="button button--soft" onClick={() => commit(enterAsGuest(store))}>
-              <UserRound size={17} aria-hidden="true" /> {t.guest}
+            <button type="button" className="hifz-guest__button" onClick={() => commit(enterAsGuest(store))}>
+              <CharacterArt character="guest" pose="avatar" sizes="48px" className="hifz-guest__avatar" />
+              <b>{t.guest}</b>
             </button>
             <small>{t.guestNote}</small>
           </div>
@@ -373,7 +376,7 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
             </div>
           </div>
           <div className="hifz-hero__solo">
-            <CharacterArt character={isGuest ? "yahya" : profile.character} pose="wave" sizes="(max-width: 640px) 55vw, 260px" />
+            <CharacterArt character={profile.character} pose="wave" sizes="(max-width: 640px) 55vw, 260px" />
           </div>
         </div>
       </section>
@@ -484,11 +487,13 @@ function DeviceData({ t, store, commit, profile }: {
   const [confirmRemove, setConfirmRemove] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
+  // Ask the browser to keep the data only once there is a child to keep it for.
+  const hasChildren = store.profiles.length > 0;
   useEffect(() => {
     let live = true;
-    requestPersistence().then(result => { if (live) setPersistence(result); });
+    (hasChildren ? requestPersistence() : checkPersistence()).then(result => { if (live) setPersistence(result); });
     return () => { live = false; };
-  }, []);
+  }, [hasChildren]);
 
   const download = () => {
     const blob = new Blob([exportBackup(store)], { type: "application/json" });
@@ -506,7 +511,7 @@ function DeviceData({ t, store, commit, profile }: {
     setMessage(null);
     setPending(null);
     if (!file) return;
-    const result = importBackup(await file.text());
+    const result = file.size > MAX_BACKUP_BYTES ? { ok: false as const, reason: "too-large" as const } : importBackup(await file.text());
     if (result.ok) setPending(result);
     else setMessage({ kind: "error", text: t.importErrors[result.reason] });
     if (fileInput.current) fileInput.current.value = "";

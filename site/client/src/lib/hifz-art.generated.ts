@@ -41,6 +41,100 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 0.558
  },
+ "/hifz-art/characters/guest/avatar": {
+  "widths": [
+   128,
+   256,
+   512
+  ],
+  "ratio": 0.75
+ },
+ "/hifz-art/characters/guest/cheer": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.586
+ },
+ "/hifz-art/characters/guest/gift": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.837
+ },
+ "/hifz-art/characters/guest/listen": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.586
+ },
+ "/hifz-art/characters/guest/point": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.602
+ },
+ "/hifz-art/characters/guest/recite": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.585
+ },
+ "/hifz-art/characters/guest/record": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.43
+ },
+ "/hifz-art/characters/guest/rest": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.775
+ },
+ "/hifz-art/characters/guest/stand": {
+  "widths": [
+   320,
+   640
+  ],
+  "ratio": 0.359
+ },
+ "/hifz-art/characters/guest/think": {
+  "widths": [
+   320,
+   640
+  ],
+  "ratio": 0.397
+ },
+ "/hifz-art/characters/guest/walk": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.506
+ },
+ "/hifz-art/characters/guest/wave": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.433
+ },
  "/hifz-art/characters/yahya/avatar": {
   "widths": [
    128,
@@ -239,6 +333,14 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   "ratio": 1
  },
  "/hifz-art/rewards/treasure-3": {
+  "widths": [
+   128,
+   256,
+   512
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/rewards/treasure-4": {
   "widths": [
    128,
    256,

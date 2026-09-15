@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   HIFZ_KEY,
+  MAX_BACKUP_BYTES,
   MAX_NAME_LENGTH,
   MAX_PROFILES,
   activeProfile,
@@ -67,6 +68,12 @@ describe("profiles", () => {
     const cleaned = cleanName(name);
     expect(Array.from(cleaned).length).toBeLessThanOrEqual(MAX_NAME_LENGTH);
     expect(cleanName("👨‍👩‍👧".repeat(30)).length).toBeGreaterThan(0);
+  });
+
+  it("strips control characters and bidi overrides from a name", () => {
+    expect(cleanName("\u202Eمريم\u202C\u0007")).toBe("مريم");
+    expect(cleanName("\u2067Ali\u2069 \n Omar")).toBe("Ali Omar");
+    expect(createProfile(emptyStore(), { name: "\u202E\u200F", character: "yahya" })).toEqual({ ok: false, reason: "name" });
   });
 
   it("reuses the one guest instead of making another", () => {
@@ -140,6 +147,13 @@ describe("parsing what is on the device", () => {
     expect(store.activeProfileId).toBeNull();
   });
 
+  it("loads at most the child limit, and the guest on top of it wherever it sits", () => {
+    const children = Array.from({ length: MAX_PROFILES + 2 }, (_, i) => ({ id: `c${i}`, name: `child ${i}`, character: "yahya" }));
+    const store = parseStore({ version: 1, profiles: [...children, { id: "g", name: "", character: "guest" }] });
+    expect(store.profiles.filter(p => p.character !== "guest")).toHaveLength(MAX_PROFILES);
+    expect(store.profiles.some(p => p.id === "g")).toBe(true);
+  });
+
   it("keeps only well-formed ayah records, and a declaration only with who made it", () => {
     const store = parseStore({
       version: 1,
@@ -189,5 +203,6 @@ describe("backup", () => {
     expect(importBackup(JSON.stringify({ app: "other", store: {} }))).toEqual({ ok: false, reason: "not-a-backup" });
     expect(importBackup(JSON.stringify({ app: "yahya-hifz", version: 2, store: {} }))).toEqual({ ok: false, reason: "newer-version" });
     expect(importBackup(exportBackup(emptyStore()))).toEqual({ ok: false, reason: "empty" });
+    expect(importBackup(" ".repeat(MAX_BACKUP_BYTES + 1))).toEqual({ ok: false, reason: "too-large" });
   });
 });

@@ -65,3 +65,8 @@ site/node_modules/
 
 # Generated beside the function at build time
 site/functions/page-data.js
+
+# Source art for the memorization journey (~180 MB). Only the WebP ladders
+# under site/client/public/hifz-art/ ship; build them with
+# node site/scripts/build-hifz-art.mjs "صور-رحلة-الحفظ/hifz-art"
+/صور-رحلة-الحفظ/

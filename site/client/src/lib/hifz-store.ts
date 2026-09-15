@@ -99,9 +99,12 @@ const CHARACTER_IDS: CharacterId[] = ["yahya", "fatima", "guest"];
 
 export function cleanName(value: unknown): string {
   if (typeof value !== "string") return "";
-  // Collapse whitespace and cut by characters, not UTF-16 units, so an Arabic
-  // name with diacritics or an emoji is not split in half.
-  return Array.from(value.replace(/\s+/g, " ").trim()).slice(0, MAX_NAME_LENGTH).join("");
+  // Control characters and bidi overrides go first: a name carrying U+202E
+  // would reverse the text around it wherever it is shown. Then collapse
+  // whitespace and cut by characters, not UTF-16 units, so an Arabic name with
+  // diacritics or an emoji is not split in half.
+  const visible = value.replace(/[\u0000-\u001f\u007f-\u009f\u200e\u200f\u202a-\u202e\u2066-\u2069]/g, "");
+  return Array.from(visible.replace(/\s+/g, " ").trim()).slice(0, MAX_NAME_LENGTH).join("");
 }
 
 function parseSettings(value: unknown): HifzSettings {
@@ -170,9 +173,10 @@ export function parseStore(value: unknown): HifzStore {
       if (guestSeen) continue;
       guestSeen = true;
     }
+    // The guest does not count against the limit; a ninth named child does not load.
+    else if (profiles.filter(p => p.character !== "guest").length >= MAX_PROFILES) continue;
     seen.add(profile.id);
     profiles.push(profile);
-    if (profiles.length === MAX_PROFILES + 1) break; // the guest does not count against the limit
   }
   const active = typeof value.activeProfileId === "string" && seen.has(value.activeProfileId) ? value.activeProfileId : null;
   return {
@@ -315,9 +319,13 @@ export function exportBackup(store: HifzStore, now = Date.now()): string {
 
 export type ImportResult =
   | { ok: true; store: HifzStore; profiles: number }
-  | { ok: false; reason: "unreadable" | "not-a-backup" | "newer-version" | "empty" };
+  | { ok: false; reason: "unreadable" | "not-a-backup" | "newer-version" | "empty" | "too-large" };
+
+/** A real backup of eight children who memorized all of Juz Amma is well under 200 KB. */
+export const MAX_BACKUP_BYTES = 2_000_000;
 
 export function importBackup(text: string): ImportResult {
+  if (text.length > MAX_BACKUP_BYTES) return { ok: false, reason: "too-large" };
   let payload: unknown;
   try {
     payload = JSON.parse(text);
@@ -350,10 +358,24 @@ export type Persistence = "persisted" | "best-effort" | "unsupported";
  * it, which is why the page also offers a backup.
  */
 export async function requestPersistence(): Promise<Persistence> {
+  return persistence(true);
+}
+
+/**
+ * The same answer without asking. Firefox turns persist() into a permission
+ * prompt, so opening the page only looks; the request is made once a child
+ * exists and there is something worth keeping.
+ */
+export async function checkPersistence(): Promise<Persistence> {
+  return persistence(false);
+}
+
+async function persistence(ask: boolean): Promise<Persistence> {
   try {
     const storage = typeof navigator === "undefined" ? undefined : navigator.storage;
     if (!storage?.persist || !storage.persisted) return "unsupported";
     if (await storage.persisted()) return "persisted";
+    if (!ask) return "best-effort";
     return (await storage.persist()) ? "persisted" : "best-effort";
   } catch {
     return "unsupported";

@@ -39,8 +39,8 @@ function fromIndex(key: string): ArtSource | null {
   };
 }
 
+/** The guest is a character of its own — a boy in an olive thobe — with the same twelve poses. */
 export function characterArt(character: CharacterId, pose: Pose): ArtSource | null {
-  if (character === "guest") return pose === "avatar" || pose === "stand" ? fromIndex("/hifz-art/characters/guest/lantern") : null;
   return fromIndex(`/hifz-art/characters/${character}/${pose}`);
 }
 

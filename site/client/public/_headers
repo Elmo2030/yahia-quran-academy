@@ -18,6 +18,10 @@
 /stories/*
   Cache-Control: public, max-age=604800
 
+# Memorization journey art. Not fingerprinted; replaced rarely, in batches.
+/hifz-art/*
+  Cache-Control: public, max-age=604800
+
 # The Quran text of one surah. Revealed fourteen centuries ago and not about
 # to change; a week of caching costs a returning reader nothing.
 /quran/*

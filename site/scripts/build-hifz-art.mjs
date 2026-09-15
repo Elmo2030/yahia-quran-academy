@@ -3,10 +3,10 @@
  *
  * Run by hand and commit what it produces, like build-image-variants.mjs:
  *
- *   node scripts/build-hifz-art.mjs ~/Desktop/صور-رحلة-الحفظ/hifz-art
+ *    node scripts/build-hifz-art.mjs ../صور-رحلة-الحفظ/hifz-art
  *
  * The source folder holds the art under the names in the image brief —
- * `yahya-stand.png`, `fatima-wave.png`, `map-1-oasis.jpg` and so on. The
+ * `yahya-stand.png`, `fatima-wave.png`, `guest-cheer.png`, `map-1-oasis.jpg` and so on. The
  * sources are large (a character pose is ~2 MB of PNG) and stay out of the
  * repository; only the ladder below ships.
  *
@@ -27,7 +27,7 @@ if (!source || !existsSync(source)) {
   process.exit(1);
 }
 
-const CHARACTERS = ["yahya", "fatima"];
+const CHARACTERS = ["yahya", "fatima", "guest"];
 const POSES = ["stand", "avatar", "wave", "listen", "recite", "record", "think", "cheer", "point", "rest", "walk", "gift"];
 const MAPS = ["map-1-oasis", "map-2-valley", "map-3-hills", "map-4-sky"];
 
@@ -40,7 +40,6 @@ function plan(stem) {
     const widths = pose === "avatar" ? [128, 256, 512] : [320, 640, 960];
     return { dir: `hifz-art/characters/${character}`, name: pose, widths, alpha: true };
   }
-  if (stem === "guest-lantern") return { dir: "hifz-art/characters/guest", name: "lantern", widths: [128, 256, 512], alpha: true };
   // Badges, gift boxes and region treasures: square, painted at 48-200 CSS px.
   if (/^(rank-[1-5]|gift-(closed|open)|treasure-[1-4])$/.test(stem)) return { dir: "hifz-art/rewards", name: stem, widths: [128, 256, 512], alpha: true };
   // Screen backgrounds: the tall ones fill a phone, the wide ones a desk or tablet.
