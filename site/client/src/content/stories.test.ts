@@ -69,3 +69,36 @@ describe("story content", () => {
     }
   });
 });
+
+/**
+ * These stories are told to a child as true, so each has to say what in it is
+ * the Quran's own words and what is a name or a detail from somewhere else —
+ * Hawwa, Sarah, Bilqis and Uzair are not named in the Quran, and a parent who
+ * finds that out later should have found it here first.
+ */
+describe("every story says where it comes from", () => {
+  it("carries a source in both languages", () => {
+    for (const story of stories) {
+      expect(story.source, story.slug).toBeTruthy();
+      for (const field of ["reference", "note"] as const) {
+        expect(story.source[field].ar.length, `${story.slug} ${field} ar`).toBeGreaterThan(15);
+        expect(story.source[field].en.length, `${story.slug} ${field} en`).toBeGreaterThan(15);
+      }
+      expect(["🟢", "🟡"], story.slug).toContain(story.source.reliability);
+    }
+  });
+
+  it("says what is unsettled on any story awaiting review", () => {
+    for (const story of stories.filter(entry => entry.source.reliability === "🟡")) {
+      expect(story.source.note.ar, story.slug).toMatch(/مراجعت|قرارك|يختلف|أقوال/);
+    }
+  });
+
+  /** The names the Quran never gives are the ones easiest to pass off. */
+  it("says plainly that the unnamed women are unnamed in the Quran", () => {
+    for (const slug of ["hawwa", "sarah", "bilqis", "asiya", "imraat_alaziz"]) {
+      const story = stories.find(entry => entry.slug === slug);
+      expect(story?.source.note.ar, slug).toMatch(/لم يسمِّها|لم يذكر اسم|لم يذكر القرآن اسمها/);
+    }
+  });
+});

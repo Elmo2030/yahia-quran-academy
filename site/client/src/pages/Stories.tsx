@@ -18,6 +18,7 @@ const copy = {
     chooseChapter: "اختر بابًا", soon: "قريبًا", storiesCount: "قصة",
     read: "اقرأ القصة", storyOf: "القصة", hook: "قبل أن نبدأ", events: "ما حدث",
     ayah: "من القرآن", lesson: "ماذا نتعلم؟", next: "وفي القصة القادمة",
+    source: "من أين هذه القصة؟", needsReview: "بانتظار مراجعة أهل العلم",
     openInReader: "افتح السورة في القارئ", surahLabel: "سورة",
     prev: "السابقة", nextStory: "التالية", allStories: "كل الأبواب",
     notFound: "لم نجد هذه القصة.", backToChapter: "كل قصص الباب",
@@ -31,6 +32,7 @@ const copy = {
     chooseChapter: "Choose a chapter", soon: "Coming soon", storiesCount: "stories",
     read: "Read the story", storyOf: "Story", hook: "Before we begin", events: "What happened",
     ayah: "From the Quran", lesson: "What we learn", next: "In the next story",
+    source: "Where this story comes from", needsReview: "Awaiting a scholar\u2019s review",
     openInReader: "Open the surah in the reader", surahLabel: "Surah",
     prev: "Previous", nextStory: "Next", allStories: "All chapters",
     notFound: "That story could not be found.", backToChapter: "All stories in this chapter",
@@ -250,6 +252,17 @@ export default function Stories() {
                   <h2>{t.lesson}</h2>
                   <p>{text.lesson}</p>
                 </div>
+              </section>
+
+              {/* Which of this is the Quran's own words, and which is a name or
+                  a detail that came from elsewhere. The child reads past it;
+                  the parent is who it is for. */}
+              <section className="story-source-card">
+                <span className="story-section-label">
+                  {story.source.reliability} {story.source.reliability === "🟡" ? t.needsReview : t.source}
+                </span>
+                <b>{story.source.reference[locale]}</b>
+                <p>{story.source.note[locale]}</p>
               </section>
 
               <aside className="story-bridge">

@@ -132,11 +132,13 @@ for (const story of stories) {
     ${story.ayah ? `<blockquote>${esc(story.ayah.text)}<cite>${esc(story.ayah.ref)}</cite></blockquote>` : ""}
     ${story.quranProse ? p(story.quranProse) : ""}
     <h2>الدرس المستفاد</h2>${p(story.lesson)}
+    ${story.source ? `<h2>من أين هذه القصة؟</h2>${p(story.source.reference.ar)}${p(story.source.note.ar)}` : ""}
   `);
   const en = story.en ? section("en", `
     <h2>${esc(story.en.title)}</h2>
     ${p(story.en.hook)}${p(story.en.events)}
     <h3>The lesson</h3>${p(story.en.lesson)}
+    ${story.source ? `<h3>Where this story comes from</h3>${p(story.source.reference.en)}${p(story.source.note.en)}` : ""}
   `) : "";
   add(`/stories/${story.chapter}/${story.slug}`, ar + en);
 }

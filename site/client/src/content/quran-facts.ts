@@ -84,14 +84,14 @@ export const quranFacts: QuranFact[] = [
     icon: "Star",
     title: { ar: "خمسة عشر موضعاً للسجود", en: "Fifteen places to prostrate" },
     body: {
-      ar: "في القرآن الكريم خمسة عشر موضعاً إذا قرأناها سجدنا لله تعالى، وتُسمى سجدات التلاوة. وسورة «الحج» مميزة لأن فيها سجدتين!",
-      en: "There are fifteen places in the Quran where a reader prostrates — the prostrations of recitation. Surah Al-Hajj stands out: it has two of them.",
+      ar: "في المصحف الذي بين أيدينا خمسة عشر موضعاً معلَّماً، إذا قرأناها سجدنا لله تعالى، وتُسمى سجدات التلاوة. وسورة «الحج» مميزة لأن فيها سجدتين!",
+      en: "The mushaf we read marks fifteen places where a reader prostrates — the prostrations of recitation. Surah Al-Hajj stands out: it has two of them.",
     },
     ayahs: [],
     source: {
-      reliability: "🟡",
-      reference: { ar: "كتب الفقه — مواضع سجود التلاوة", en: "Books of fiqh — the places of the prostration of recitation" },
-      note: { ar: "مصحف المدينة يعلّم خمسة عشر موضعًا، وبعض المذاهب تعدّها أربعة عشر ولا تعدّ موضع «ص» سجدة تلاوة. الرقم ينتظر مراجعتك.", en: "The Madinah mushaf marks fifteen places; some schools count fourteen and treat the one in Surah Sad as a prostration of thanks rather than of recitation. The number awaits your review." },
+      reliability: "🟢",
+      reference: { ar: "مصحف المدينة النبوية — المواضع المعلَّمة فيه", en: "The Madinah mushaf — the places marked in it" },
+      note: { ar: "العدد هنا هو ما يعلّمه مصحف المدينة، والبطاقة تقوله على هذا الوجه. وبعض المذاهب تعدّها أربعة عشر ولا تعدّ موضع «ص» سجدة تلاوة بل سجدة شكر.", en: "The number is the one the Madinah mushaf marks, and the card says it on that footing. Some schools count fourteen, treating the place in Surah Sad as a prostration of thanks rather than of recitation." },
     },
   },
   {
@@ -206,19 +206,19 @@ export const quranFacts: QuranFact[] = [
     number: 10,
     slug: "first-and-last",
     icon: "Sparkles",
-    title: { ar: "أول آية وآخر آية", en: "The first verse and the last" },
+    title: { ar: "أول ما نزل، ومن آخر ما نزل", en: "The first revealed, and among the last" },
     body: {
-      ar: "أول آية نزلت أمرت بالعلم والقراءة، وآخر آية نزلت تذكّرنا بالعودة إلى الله.",
-      en: "The first verse revealed commanded learning and reading; the last one revealed reminds us of the return to Allah.",
+      ar: "أول ما نزل من القرآن أمرَ بالعلم والقراءة. ومن آخر ما نزل آيةٌ تذكّرنا بالعودة إلى الله — وللعلماء أقوال في أيّها آخرها.",
+      en: "The first thing revealed of the Quran commanded learning and reading. Among the last to come down is a verse reminding us of the return to Allah — and scholars report more than one answer for which was truly last.",
     },
     ayahs: [
       { text: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ", ref: "العلق: 1" },
       { text: "وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَى اللَّهِ", ref: "البقرة: 281" },
     ],
     source: {
-      reliability: "🟡",
-      reference: { ar: "صحيح البخاري (3) ومسلم (160) لأول آية؛ وفي آخر آية أقوال", en: "Sahih al-Bukhari (3) and Muslim (160) for the first verse; the last is disputed" },
-      note: { ar: "أن أول ما نزل ﴿اقْرَأْ﴾ ثابت في الصحيحين. أما آخر آية فللعلماء فيها أقوال: البقرة 281 عن ابن عباس، وقيل آية الدَّين، وقيل غيرها. تحتاج قرارك.", en: "That the first revelation was Iqra is established in both Sahihs. The last verse, though, has several reported answers — Al-Baqarah 281 from Ibn Abbas, the verse of debt, and others. Needs your decision." },
+      reliability: "🟢",
+      reference: { ar: "صحيح البخاري (3) وصحيح مسلم (160)؛ والبقرة: 281 عن ابن عباس", en: "Sahih al-Bukhari (3) and Sahih Muslim (160); and Al-Baqarah 281 from Ibn Abbas" },
+      note: { ar: "أن أول ما نزل ﴿اقْرَأْ﴾ ثابت في الصحيحين. وأما آخر ما نزل فأقوال، أشهرها البقرة: 281 عن ابن عباس، وقيل آية الدَّين — ولهذا قالت البطاقة «من آخر ما نزل» ولم تجزم.", en: "That the first revelation was Iqra is established in both Sahihs. What came last is reported several ways, the best known being Al-Baqarah 281 from Ibn Abbas, with the verse of debt also named — which is why the card says among the last rather than claiming certainty." },
     },
   },
   {
@@ -243,18 +243,18 @@ export const quranFacts: QuranFact[] = [
     number: 12,
     slug: "middle-word",
     icon: "AlignCenter",
-    title: { ar: "الكلمة التي في منتصف القرآن", en: "The word at the very middle" },
+    title: { ar: "كلمة واحدة اسمها اللطف", en: "One word, and it means gentleness" },
     body: {
-      ar: "كلمة ﴿وَلْيَتَلَطَّفْ﴾ في سورة الكهف تقع في منتصف كلمات القرآن الكريم تماماً، وهي تعلّمنا أن نكون لطفاء في كل تصرفاتنا.",
-      en: "The word ﴿wal-yatalattaf﴾ — “and let him be gentle” — in Surah Al-Kahf sits exactly at the middle of the Quran's words. It teaches us to be gentle in everything we do.",
+      ar: "فتية الكهف لما أرسلوا واحداً منهم يشتري طعاماً، أوصوه بكلمة واحدة: ﴿وَلْيَتَلَطَّفْ﴾ — أي ليكن لطيفاً في كلامه ومشيه وتعامله، حتى لا يؤذيه أحد ولا يؤذي أحداً.",
+      en: "When the young men of the cave sent one of them to buy food, they gave him a single instruction: walyatalattaf — let him be gentle. Gentle in what he says, how he walks, how he deals with people, so that no harm comes to him or from him.",
     },
     ayahs: [
       { text: "وَلْيَتَلَطَّفْ", ref: "الكهف: 19" },
     ],
     source: {
-      reliability: "🟡",
-      reference: { ar: "قول في كتب علوم القرآن بلا إسناد متصل", en: "A statement in the sciences-of-the-Quran literature, with no connected chain" },
-      note: { ar: "المشهور أن ﴿وَلْيَتَلَطَّفْ﴾ منتصف القرآن بالحروف، وهو قول مذكور في كتب علوم القرآن ولم يثبت بإسناد، والعدّ الحاسوبي لا يوافقه تمامًا. ينتظر مراجعتك.", en: "The familiar claim is that walyatalattaf marks the midpoint by letters. It appears in the classical literature without a connected chain, and a machine count does not land exactly there. Awaiting your review." },
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الكهف: 19", en: "The Quran, Surah Al-Kahf: 19" },
+      note: { ar: "الوصية بنص الآية. وكانت البطاقة تقول إن الكلمة في منتصف القرآن تماماً، وهو قول مذكور في كتب علوم القرآن بلا إسناد ولا يوافقه العدّ، فحُذف وبقي ما في الآية.", en: "The instruction is the verse's own words. The card used to say the word sits exactly at the Quran's midpoint — a claim found in the classical literature without a chain, and one counting does not bear out, so it was removed and what the verse says was kept." },
     },
   },
   {
@@ -797,14 +797,14 @@ export const quranFacts: QuranFact[] = [
     icon: "Compass",
     title: { ar: "مكية ومدنية", en: "Makki and Madani" },
     body: {
-      ar: "سور القرآن تنقسم إلى مكية ومدنية: 87 سورة نزلت قبل الهجرة، و27 سورة نزلت بعدها.",
-      en: "The surahs divide into Makki and Madani: 87 came down before the Hijrah, and 27 after it.",
+      ar: "سور القرآن تنقسم إلى مكية ومدنية: المشهور أن 86 سورة نزلت قبل الهجرة، و28 سورة نزلت بعدها — وبعض السور اختلف العلماء في أيّهما هي.",
+      en: "The surahs divide into Makki and Madani: the familiar count is 86 revealed before the Hijrah and 28 after it — with a few surahs scholars place on either side.",
     },
     ayahs: [],
     source: {
-      reliability: "🟡",
+      reliability: "🟢",
       reference: { ar: "كتب علوم القرآن — المكي والمدني", en: "Sciences of the Quran — the Makki and Madani division" },
-      note: { ar: "التقسيم المشهور 86 مكية و28 مدنية عند كثير من العلماء، وبعض السور مختلف فيها كالرعد والرحمن. الرقمان هنا (87 و27) ينتظران مراجعتك.", en: "The familiar split is 86 Makki and 28 Madani for many scholars, with several surahs disputed — Ar-Ra'd and Ar-Rahman among them. The two numbers here await your review." },
+      note: { ar: "86 و28 هو التقسيم المشهور عند أهل العلم، والبطاقة تقوله بوصفه المشهور لا القاطع، لأن سوراً كالرعد والرحمن مختلف فيها.", en: "86 and 28 is the familiar division among scholars, and the card presents it as the familiar one rather than the settled one, since surahs such as Ar-Ra'd and Ar-Rahman are disputed." },
     },
   },
   {
@@ -846,17 +846,19 @@ export const quranFacts: QuranFact[] = [
   {
     number: 46,
     slug: "science",
-    icon: "Microscope",
-    title: { ar: "حقائق سبقت العلماء بقرون", en: "Facts that arrived centuries early" },
+    icon: "Baby",
+    title: { ar: "خلقٌ من بعد خلق", en: "A making after a making" },
     body: {
-      ar: "ذكر القرآن حقائق دقيقة عن الفضاء والبحار ونمو الجنين قبل أن يكتشفها العلماء بمئات السنين.",
-      en: "The Quran describes the sky, the seas and the growing of a child in the womb with a precision people would not reach for hundreds of years.",
+      ar: "وصف القرآن خلق الإنسان في بطن أمه مرحلةً بعد مرحلة: نطفة، ثم علقة، ثم مضغة، ثم عظام يُكسى عليها اللحم — بترتيب يذكره القرآن نفسه.",
+      en: "The Quran describes the making of a human being in the womb one stage after another: a drop, then a clinging form, then a lump, then bones clothed in flesh — in an order the Quran itself sets out.",
     },
-    ayahs: [],
+    ayahs: [
+      { text: "ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً", ref: "المؤمنون: 14" },
+    ],
     source: {
-      reliability: "🟡",
-      reference: { ar: "باب الإعجاز العلمي — فيه اجتهاد واسع", en: "The field of scientific inference — widely debated" },
-      note: { ar: "ربط الآيات بالاكتشافات الحديثة اجتهاد يختلف فيه أهل العلم، وبعضه يتغيّر بتغيّر النظريات. البطاقة عامة بلا أمثلة، وأقترح إما حذفها أو تخصيصها بمثال متفق عليه. تنتظر قرارك.", en: "Tying verses to modern discoveries is an interpretive move scholars differ over, and some of it shifts as theories do. The card is general and gives no example; I would either drop it or pin it to one agreed case. Awaiting your decision." },
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة المؤمنون: 12-14", en: "The Quran, Surah Al-Mu'minun: 12-14" },
+      note: { ar: "المراحل وترتيبها بنص الآيات. وكانت البطاقة تقول إن القرآن سبق العلماء بقرون، وهو اجتهاد يختلف فيه أهل العلم ويتغيّر بتغيّر النظريات، فاقتصرت البطاقة على ما تقوله الآية نفسها.", en: "The stages and their order are the verses' own words. The card used to say the Quran anticipated scientists by centuries — an interpretive claim scholars differ over and one that shifts as theories do — so the card now says only what the verse itself says." },
     },
   },
   {
@@ -989,14 +991,14 @@ export const quranFacts: QuranFact[] = [
     icon: "Type",
     title: { ar: "حروف بلا نقاط", en: "Letters with no dots" },
     body: {
-      ar: "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة، وأول من وضع النقط والتشكيل هو أبو الأسود الدؤلي حتى نقرأ القرآن قراءة صحيحة.",
-      en: "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali was the first to add them, so that everyone could read it correctly.",
+      ar: "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي علامات الحركات، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء — حتى نقرأ القرآن قراءة صحيحة.",
+      en: "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali added the vowel marks; then Nasr ibn Asim and Yahya ibn Ya'mar dotted the letters so a ba could be told from a ta — so that everyone could read it correctly.",
     },
     ayahs: [],
     source: {
-      reliability: "🟡",
-      reference: { ar: "كتب تاريخ المصحف — ضبط المصحف", en: "Histories of the mushaf — its pointing and vowelling" },
-      note: { ar: "المشهور أن أبا الأسود الدؤلي وضع الشكل (علامات الحركات)، وأن نقط الحروف (الإعجام) لنصر بن عاصم ويحيى بن يعمر. البطاقة تنسب الأمرين إليه وحده، وهذا يحتاج تصحيحًا أو مراجعتك.", en: "The common account is that Abu al-Aswad ad-Du'ali added the vowel marks, while the dots distinguishing letters came from Nasr ibn Asim and Yahya ibn Ya'mar. The card credits him with both, which needs correcting or your review." },
+      reliability: "🟢",
+      reference: { ar: "كتب تاريخ المصحف — الشكل والإعجام", en: "Histories of the mushaf — vowelling and the dotting of letters" },
+      note: { ar: "التفريق بين الأمرين هو المشهور عند أهل هذا الفن: الشكل لأبي الأسود، والإعجام لنصر بن عاصم ويحيى بن يعمر. وكانت البطاقة تنسبهما إليه وحده فصُحّحت.", en: "Separating the two is the established account in this field: the vowel marks from Abu al-Aswad, the dotting of letters from Nasr ibn Asim and Yahya ibn Ya'mar. The card credited him with both and has been corrected." },
     },
   },
   {
@@ -1665,16 +1667,16 @@ export const quranFacts: QuranFact[] = [
     icon: "Puzzle",
     title: { ar: "علامة أخرى للسورة المكية", en: "Another clue for a Makki surah" },
     body: {
-      ar: "كل سورة تبدأ بالحروف المقطّعة فهي مكية، إلا البقرة وآل عمران — قاعدة تعرف بها متى نزلت السورة.",
-      en: "Every surah opening with the separated letters is Makki, except Al-Baqarah and Ali Imran — a rule that tells you when a surah came down.",
+      ar: "كل سورة تبدأ بالحروف المقطّعة فهي مكية، إلا البقرة وآل عمران فهما مدنيتان، وسورة الرعد اختلف فيها العلماء — قاعدة تعرف بها متى نزلت السورة غالباً.",
+      en: "Every surah opening with the separated letters is Makki, except Al-Baqarah and Aal-Imran, which are Madani, and Ar-Ra'd, which scholars dispute — a rule that usually tells you when a surah came down.",
     },
     ayahs: [
       { text: "الم", ref: "البقرة: 1" },
     ],
     source: {
-      reliability: "🟡",
-      reference: { ar: "كتب علوم القرآن — المكي والمدني", en: "Sciences of the Quran — the Makki and Madani division" },
-      note: { ar: "الاستثناء ليس اثنتين فقط: البقرة وآل عمران مدنيتان بالاتفاق، وسورة الرعد مختلف فيها وتُعدّ مدنية في مصحف المدينة. القاعدة هنا تحتاج تصحيحًا أو مراجعتك.", en: "The exceptions are not only two: Al-Baqarah and Aal-Imran are Madani by agreement, and Ar-Ra'd is disputed and marked Madani in the Madinah mushaf. The rule as written needs correcting or your review." },
+      reliability: "🟢",
+      reference: { ar: "كتب علوم القرآن — المكي والمدني، ومصحف المدينة", en: "Sciences of the Quran — the Makki and Madani division, and the Madinah mushaf" },
+      note: { ar: "البقرة وآل عمران مدنيتان بالاتفاق، وسورة الرعد مختلف فيها وتُعدّ مدنية في مصحف المدينة، وكانت البطاقة تُسقطها من الاستثناء فأُضيفت.", en: "Al-Baqarah and Aal-Imran are Madani by agreement, and Ar-Ra'd is disputed and marked Madani in the Madinah mushaf; the card left it out of the exceptions and it has been added." },
     },
   },
   {

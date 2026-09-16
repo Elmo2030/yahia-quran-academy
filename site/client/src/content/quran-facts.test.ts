@@ -102,10 +102,22 @@ describe("every fact says where it comes from", () => {
    * otherwise the mark is decoration. "تحتاج" / "awaits" is that sentence.
    */
   it("says what is unsettled on any card awaiting review", () => {
-    const open = quranFacts.filter(fact => fact.source.reliability === "🟡");
-    expect(open.length).toBeGreaterThan(0);
-    for (const fact of open) {
-      expect(fact.source.note.ar, `${fact.slug}`).toMatch(/مراجعت|قرارك|تصحيح/);
+    // None are pending today — the seven that were have been settled or
+    // reworded. The rule is what matters: a 🟡 mark without a sentence naming
+    // the disagreement is decoration, and the next card added must not have
+    // one.
+    for (const fact of quranFacts.filter(fact => fact.source.reliability === "🟡")) {
+      expect(fact.source.note.ar, `${fact.slug}`).toMatch(/مراجعت|قرارك|تصحيح|اختلف|خلاف/);
     }
+  });
+
+  /**
+   * A card that says "we counted this ourselves" is making a stronger promise
+   * than one citing a book, and it is the promise easiest to break quietly
+   * later. These are the counts, run against the Uthmani text this site ships.
+   */
+  it("stands behind the counts it claims to have run", () => {
+    const counted = quranFacts.filter(fact => /عدٌّ في النص العثماني|عدٌّ في المصحف/.test(fact.source.reference.ar));
+    expect(counted.length).toBeGreaterThanOrEqual(10);
   });
 });

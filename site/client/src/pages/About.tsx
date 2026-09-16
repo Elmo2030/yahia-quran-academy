@@ -57,7 +57,7 @@ const copy = {
       "إذا لاحظت أي معلومة تحتاج إلى مراجعة، أو لديك ملاحظة تتعلق بالمحتوى أو المصادر، نرجو التواصل مع إدارة الموقع، وسنقوم بمراجعتها بعناية.",
     craftTitle: "كيف نصنع المحتوى؟",
     craftLead:
-      "كل بطاقة في «في رحاب القرآن» والعقيدة، وكل قصة في السيرة، تحمل تحتها مصدرها وعلامة تقول إلى أي حدّ هو مستقرّ. وهذه هي العلامتان:",
+      "كل بطاقة في «في رحاب القرآن» والعقيدة، وكل قصة في قصص القرآن والسيرة، تحمل تحتها مصدرها وعلامة تقول إلى أي حدّ هو مستقرّ. وهذه هي العلامتان:",
     craftGreen: "ثابت بنصّ آية، أو بحديث في كتب الصحيح، أو بعدٍّ أجريناه بأنفسنا على النص العثماني الذي يعرضه الموقع.",
     craftGreenLabel: "🟢 مستقرّ",
     craftAmberLabel: "🟡 بانتظار مراجعة أهل العلم",
@@ -66,7 +66,7 @@ const copy = {
     craftCount:
       "الأرقام التي يمكن عدّها — عدد الآيات، وتكرار كلمة، وعدد السور التي تبدأ بشيء — عددناها في نص المصحف نفسه ولم نأخذها من غيرنا.",
     craftMissing:
-      "قصص القرآن الاثنتان والأربعون تذكر آيتها وسورتها، ولم نُضِف إليها بعدُ سطر المصدر الكامل مثل باقي الأقسام.",
+      "وفي قصص القرآن نقول صراحةً ما ليس في القرآن: أسماء مثل حواء وسارة وبلقيس وآسية لم يذكرها القرآن وإنما جاءت في السنة وكتب التفسير، وقصة هاجر تفصيلها في صحيح البخاري لا في القرآن. كل قصة تقول ذلك تحتها.",
     contactTitle: "تواصل معنا",
     contactBody: "للملاحظات والتصحيحات، راسلنا على واتساب:",
     contactCta: "راسلنا على واتساب",
@@ -109,7 +109,7 @@ const copy = {
       "If you notice any information that you believe requires review, or if you have any feedback regarding the content or its sources, please contact the website administration. We will carefully review your comments and take appropriate action when necessary.",
     craftTitle: "How the content is made",
     craftLead:
-      "Every card in the Quran facts and the creed section, and every story in the Seerah, carries its source underneath and a mark saying how settled it is. The two marks are these:",
+      "Every card in the Quran facts and the creed section, and every story in the Quran stories and the Seerah, carries its source underneath and a mark saying how settled it is. The two marks are these:",
     craftGreenLabel: "🟢 Settled",
     craftGreen:
       "Established by the words of a verse, by a hadith in the authentic collections, or by a count we ran ourselves over the Uthmani text this site serves.",
@@ -119,7 +119,7 @@ const copy = {
     craftCount:
       "Anything countable — the number of verses, how often a word occurs, how many surahs open a certain way — we counted in the text of the mushaf itself rather than taking someone else\u2019s figure.",
     craftMissing:
-      "The forty-two Quran stories name their verse and surah; they do not yet carry the full source line the other sections do.",
+      "In the Quran stories we say plainly what is not in the Quran: names such as Hawwa, Sarah, Bilqis and Asiyah are not given there but come from the sunnah and the commentaries, and the fuller account of Hajar is in Sahih al-Bukhari rather than the Quran. Each story says so underneath.",
     contactTitle: "Contact us",
     contactBody: "For feedback and corrections, message us on WhatsApp:",
     contactCta: "Message us on WhatsApp",
