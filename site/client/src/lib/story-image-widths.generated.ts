@@ -308,12 +308,66 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960
  ],
+ "/stories/nations/ashab-al-kahf.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/ashab-al-ukhdud.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/ashab-ar-rass.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/believer-of-pharaoh.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/nations/cover.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/nations/dhul-qarnayn.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/luqman.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/qarun.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/samiri.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/nations/talut-and-jalut.jpg": [
+  384,
+  640,
+  960,
+  1280
  ],
  "/stories/nuh_lut.jpg": [
   384,

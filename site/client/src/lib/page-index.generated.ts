@@ -50,7 +50,7 @@ export const storyIndex: Story[] = [
   "hook": "هل جربتم يوماً أن تناموا وتستيقظوا لتجدوا أن كل شيء من حولكم قد تغير؟ في قصتنا اليوم، هناك مجموعة من الشباب الطيبين ناموا نومة طويلة جداً.. لم تكن ليوم أو يومين، بل لمئات السنين!…",
   "titleEn": "The People of the Cave",
   "hookEn": "Have you ever tried sleeping and waking up to find everything around you has changed? In our story today, a group of good young men slept for a very long time... not for a day or…",
-  "image": null
+  "image": "/stories/nations/ashab-al-kahf.jpg"
  },
  {
   "chapter": "nations",
@@ -59,7 +59,7 @@ export const storyIndex: Story[] = [
   "hook": "إذا أردتم أن تكونوا ناجحين ومحبوبين، فمن أين تأخذون النصائح؟ من شخص 'حكيم' طبعاً! واليوم سنتعرف على أب حكيم جداً، ذكره الله في القرآن لنتعلم من نصائحه التي قدمها لابنه.",
   "titleEn": "Luqman the Wise",
   "hookEn": "If you want to be successful and loved, where do you get advice from? From a 'wise' person, of course! Today we will learn about a very wise father, mentioned by Allah in the…",
-  "image": null
+  "image": "/stories/nations/luqman.jpg"
  },
  {
   "chapter": "nations",
@@ -68,7 +68,7 @@ export const storyIndex: Story[] = [
   "hook": "هل تحبون قصص الملوك الأقوياء الذين يسافرون لاكتشاف العالم؟ بطلنا اليوم هو مَلِك عادل وقوي جداً، سافر إلى أماكن بعيدة جداً في الشرق والغرب لمساعدة الناس ونشر الخير.",
   "titleEn": "The Story of Dhul-Qarnayn",
   "hookEn": "Do you love stories of powerful kings who travel to discover the world? Our hero today is a very strong and just king who traveled to very far places in the East and West to help…",
-  "image": null
+  "image": "/stories/nations/dhul-qarnayn.jpg"
  },
  {
   "chapter": "nations",
@@ -77,7 +77,7 @@ export const storyIndex: Story[] = [
   "hook": "هل يحتاج الإنسان إلى سيف ليكون شجاعاً؟ أحياناً تكون الكلمة أقوى من السيف! بطلنا اليوم رجل واحد وقف أمام أخطر وأظلم ملك في التاريخ ليقول كلمة حق ويدافع عن نبي الله.",
   "titleEn": "The Believer of Pharaoh's Family",
   "hookEn": "Does a person need a sword to be brave? Sometimes a word is stronger than a sword! Our hero today is a single man who stood before the most dangerous and unjust king in history…",
-  "image": null
+  "image": "/stories/nations/believer-of-pharaoh.jpg"
  },
  {
   "chapter": "nations",
@@ -86,7 +86,7 @@ export const storyIndex: Story[] = [
   "hook": "ما هو أغلى شيء تملكونه؟ بالنسبة للأبطال في قصتنا اليوم، كان إيمانهم بالله أغلى من حياتهم نفسها! قصة اليوم مليئة بالصمود والتحدي العظيم أمام ملك جبار.",
   "titleEn": "The People of the Ditch",
   "hookEn": "What is the most precious thing you own? For the heroes in our story today, their faith in Allah was more precious than their own lives! Today's story is full of steadfastness…",
-  "image": null
+  "image": "/stories/nations/ashab-al-ukhdud.jpg"
  },
  {
   "chapter": "nations",
@@ -95,7 +95,7 @@ export const storyIndex: Story[] = [
   "hook": "تخيلوا شخصاً يملك صناديق من الكنوز والذهب كثيرة جداً، لدرجة أن مفاتيح هذه الصناديق وحدها تحتاج إلى رجال أقوياء جداً لحملها! هل هذا المال الكثير جعله إنساناً طيباً أم شريراً؟…",
   "titleEn": "The Story of Qarun",
   "hookEn": "Imagine someone owning so many boxes of treasure and gold that just the keys to these boxes needed very strong men to carry them! Did this much money make him a good or bad…",
-  "image": null
+  "image": "/stories/nations/qarun.jpg"
  },
  {
   "chapter": "nations",
@@ -104,7 +104,7 @@ export const storyIndex: Story[] = [
   "hook": "هل يمكن لتمثال مصنوع من الذهب أن يتحدث أو ينفع أحداً؟ بالطبع لا! لكن في قصتنا اليوم، هناك رجل مخادع استغل غياب النبي ليصنع تمثالاً عجيباً يخدع به الناس.",
   "titleEn": "The Story of the Samiri",
   "hookEn": "Can a statue made of gold speak or benefit anyone? Of course not! But in our story today, there is a deceitful man who took advantage of the Prophet's absence to make a strange…",
-  "image": null
+  "image": "/stories/nations/samiri.jpg"
  },
  {
   "chapter": "nations",
@@ -113,7 +113,7 @@ export const storyIndex: Story[] = [
   "hook": "إذا أردتم اختيار قائد للفريق، من تختارون؟ هل تختارون الشخص الذي يملك ألعاباً كثيرة، أم تختارون الشخص الذكي والقوي؟ قصة اليوم ستعلمنا كيف اختار الله ملكاً ليقود جيش المؤمنين.",
   "titleEn": "Talut and Jalut (Saul and Goliath)",
   "hookEn": "If you wanted to choose a team leader, who would you choose? Would you choose the person who has many toys, or the person who is smart and strong? Today's story will teach us how…",
-  "image": null
+  "image": "/stories/nations/talut-and-jalut.jpg"
  },
  {
   "chapter": "nations",
@@ -122,7 +122,7 @@ export const storyIndex: Story[] = [
   "hook": "هل تذكرون البئر المظلمة التي أُلقي فيها سيدنا يوسف؟ ماذا لو كان هناك قوم أشرار فعلوا نفس الشيء بنبيهم ورفضوا أن يسمعوا كلامه؟ هذه هي القصة المخيفة لأصحاب الرس!",
   "titleEn": "The People of the Well (Ashab ar-Rass)",
   "hookEn": "Do you remember the dark well where Prophet Yusuf was thrown? What if there were evil people who did the same thing to their prophet and refused to listen to his words? This is…",
-  "image": null
+  "image": "/stories/nations/ashab-ar-rass.jpg"
  },
  {
   "chapter": "prophets",

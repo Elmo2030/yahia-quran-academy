@@ -77,6 +77,7 @@ export type Story = {
 export const stories: Story[] = [
   {
     chapter: "nations", slug: "ashab-al-kahf",
+    image: "/stories/nations/ashab-al-kahf.jpg",
     en: {
       title: "The People of the Cave",
       hook:
@@ -100,6 +101,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "luqman",
+    image: "/stories/nations/luqman.jpg",
     en: {
       title: "Luqman the Wise",
       hook:
@@ -123,6 +125,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "dhul-qarnayn",
+    image: "/stories/nations/dhul-qarnayn.jpg",
     en: {
       title: "The Story of Dhul-Qarnayn",
       hook:
@@ -146,6 +149,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "believer-of-pharaoh",
+    image: "/stories/nations/believer-of-pharaoh.jpg",
     en: {
       title: "The Believer of Pharaoh's Family",
       hook:
@@ -169,6 +173,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "ashab-al-ukhdud",
+    image: "/stories/nations/ashab-al-ukhdud.jpg",
     en: {
       title: "The People of the Ditch",
       hook:
@@ -192,6 +197,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "qarun",
+    image: "/stories/nations/qarun.jpg",
     en: {
       title: "The Story of Qarun",
       hook:
@@ -215,6 +221,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "samiri",
+    image: "/stories/nations/samiri.jpg",
     en: {
       title: "The Story of the Samiri",
       hook:
@@ -238,6 +245,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "talut-and-jalut",
+    image: "/stories/nations/talut-and-jalut.jpg",
     en: {
       title: "Talut and Jalut (Saul and Goliath)",
       hook:
@@ -261,6 +269,7 @@ export const stories: Story[] = [
   },
   {
     chapter: "nations", slug: "ashab-ar-rass",
+    image: "/stories/nations/ashab-ar-rass.jpg",
     en: {
       title: "The People of the Well (Ashab ar-Rass)",
       hook:
