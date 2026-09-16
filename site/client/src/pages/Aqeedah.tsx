@@ -26,10 +26,24 @@ import {
   type AqeedahCard,
 } from "@/content/aqeedah";
 
+/** One mark per chapter of the creed, drawn from the chapter's own subject. */
+const CHAPTER_MARKS: Record<string, string> = {
+  opening: "🚪", "knowing-allah": "🌟", "pillars-of-faith": "🕌", messengers: "📜",
+  worship: "🤲", "faith-in-action": "🌿", closing: "🏁",
+};
+
+const cardCount = (count: number, locale: "ar" | "en") => {
+  if (locale === "en") return `${count} ${count === 1 ? "card" : "cards"}`;
+  if (count === 1) return "بطاقة واحدة";
+  if (count === 2) return "بطاقتان";
+  return count <= 10 ? `${count} بطاقات` : `${count} بطاقة`;
+};
+
 const copy = {
   ar: {
     eyebrow: "العقيدة",
     title: "أتعرّف على ربّي",
+    journeyLabel: "رحلة العقيدة", journeyHint: "اختر باباً لتقرأ بطاقاته", showAll: "اعرض كل الأبواب", showOne: "باب واحد في كل مرة",
     intro: "اثنتان وثلاثون بطاقة في سبعة أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا. كل بطاقة قصة قصيرة وآية وسؤال وتحدٍّ.",
     ages: "٦–٨ سنوات بمرافقة ولي الأمر · ٩–١١ سنة للقراءة والحوار",
     cards: "بطاقة", story: "القصة", quran: "من القرآن", didYouKnow: "هل تعلم؟",
@@ -41,6 +55,7 @@ const copy = {
   en: {
     eyebrow: "Creed",
     title: "Knowing My Lord",
+    journeyLabel: "The creed journey", journeyHint: "Pick a chapter to read its cards", showAll: "Show every chapter", showOne: "One chapter at a time",
     intro: "Thirty-two cards in seven chapters: who we know, what we believe, and how belief shows in what we do. Each card is a short story, an ayah, a question and a challenge.",
     ages: "Ages 6–8 with a parent · ages 9–11 to read and discuss",
     cards: "cards", story: "The story", quran: "From the Quran", didYouKnow: "Did you know?",
@@ -267,7 +282,70 @@ export default function Aqeedah() {
         </div>
       </section>
 
-      {aqeedahChapters.map(chapter => {
+      <AqeedahJourney />
+    </Chrome>
+  );
+}
+
+/**
+ * The seven chapters as a path, and one chapter's cards at a time.
+ *
+ * Thirty-two cards laid end to end is a reference shelf; a child reads it as
+ * homework. The path says what the journey is — from the door, through knowing
+ * Allah, the pillars, His messengers, worship, and how belief shows in what we
+ * do, to the end — and then opens one door at a time.
+ *
+ * As with the Seerah, the prerendered page still lists every card, so this
+ * costs nothing in search.
+ */
+function AqeedahJourney() {
+  const { locale } = useLocale();
+  const t = copy[locale];
+  const [openChapter, setOpenChapter] = useState<string | null>(aqeedahChapters[0]?.slug ?? null);
+  const shown = openChapter === null
+    ? aqeedahChapters
+    : aqeedahChapters.filter(chapter => chapter.slug === openChapter);
+
+  return (
+    <>
+      <section className="seerah-map-section" aria-labelledby="aqeedah-journey-title">
+        <div className="container">
+          <div className="stories-section__heading" {...langAttrs(locale)}>
+            <span className="eyebrow eyebrow--gold">{t.journeyLabel}</span>
+            <h2 id="aqeedah-journey-title">{t.journeyHint}</h2>
+          </div>
+          <ol className="seerah-map" {...langAttrs(locale)}>
+            {aqeedahChapters.map(chapter => {
+              const count = aqeedahCards.filter(card => card.chapter === chapter.slug).length;
+              if (count === 0) return null;
+              const active = openChapter === chapter.slug;
+              return (
+                <li key={chapter.slug}>
+                  <button
+                    type="button"
+                    className={`seerah-map__stop${active ? " is-current" : ""}`}
+                    aria-pressed={active}
+                    onClick={() => setOpenChapter(chapter.slug)}
+                  >
+                    <span className="seerah-map__mark" aria-hidden="true">{CHAPTER_MARKS[chapter.slug] ?? "•"}</span>
+                    <b>{locale === "en" ? chapter.titleEn : chapter.titleAr}</b>
+                    <small>{cardCount(count, locale)}</small>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+          <button
+            type="button"
+            className="button button--soft seerah-map__toggle"
+            onClick={() => setOpenChapter(current => (current === null ? aqeedahChapters[0].slug : null))}
+          >
+            {openChapter === null ? t.showOne : t.showAll}
+          </button>
+        </div>
+      </section>
+
+      {shown.map(chapter => {
         const list = aqeedahCards.filter(c => c.chapter === chapter.slug);
         if (list.length === 0) return null;
         return (
@@ -299,6 +377,6 @@ export default function Aqeedah() {
           </section>
         );
       })}
-    </Chrome>
+    </>
   );
 }
