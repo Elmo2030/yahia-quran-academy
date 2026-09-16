@@ -1,50 +1,60 @@
 // =============================================================================
-// JourneyMap — Juz Amma as a path a child walks up, oasis to mountains.
+// JourneyMap — Juz Amma as four regions, each a shelf of surahs to pick from.
 //
-// Nothing on the map is locked. A station a child has not reached yet is drawn
+// Nothing here is locked. A surah the child has not reached yet is drawn
 // quietly rather than barred: the order is a suggestion, and a parent who wants
 // to start somewhere else can. What the map does show is what was actually
 // done — the stars each surah has earned — and where the child left off.
+//
+// The regions are stacked, but their surahs run sideways in a scrolling rail:
+// thirty-eight cards down a phone is a long fall, and side by side they stay
+// the same size, on the same baseline, near enough to compare. The child's
+// character waits in the header of whichever region they are walking through.
 // =============================================================================
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { characterArt, surahIcon } from "@/lib/hifz-characters";
 import { starsFor, type Stars } from "@/lib/hifz-stars";
 import type { ChildProfile } from "@/lib/hifz-store";
-import { REGIONS, stationsOf, type Region } from "@/lib/journey-map";
+import { REGIONS, type Region } from "@/lib/journey-map";
 import { ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
-
-/** The region art is 1536 x 2752, and the path is drawn in that ratio. */
-const VIEW_HEIGHT = 179;
 
 const copy = {
   ar: {
     map: "خريطة الرحلة",
-    starsOf: (stars: number) => `${stars} من ٣ نجوم`,
+    region: (name: string) => `منطقة ${name}`,
+    starsOf: (earned: number, total: number) => `${earned} من ${total} نجمة في المنطقة`,
     station: (name: string, stars: number) => `سورة ${name} — ${stars} من ٣ نجوم`,
     here: "أنت هنا",
+    scrollBack: "السور السابقة",
+    scrollOn: "السور التالية",
     treasureLocked: (name: string) => `كنز ${name}: اجمع نجمة على كل سورة في المنطقة`,
     treasureOpen: (name: string) => `كنز ${name} — فُتح`,
   },
   en: {
     map: "The journey map",
-    starsOf: (stars: number) => `${stars} of 3 stars`,
+    region: (name: string) => `${name} region`,
+    starsOf: (earned: number, total: number) => `${earned} of ${total} stars in this region`,
     station: (name: string, stars: number) => `Surah ${name} — ${stars} of 3 stars`,
     here: "You are here",
+    scrollBack: "Earlier surahs",
+    scrollOn: "Later surahs",
     treasureLocked: (name: string) => `${name} treasure: earn a star on every surah in the region`,
     treasureOpen: (name: string) => `${name} treasure — opened`,
   },
 };
 
+type Copy = (typeof copy)["ar"];
+
 function StarRow({ stars }: { stars: Stars }) {
   return (
     <span className="map-stars" aria-hidden="true">
-      {[1, 2, 3].map(n => <Star key={n} size={11} className={n <= stars ? "is-on" : ""} fill={n <= stars ? "currentColor" : "none"} />)}
+      {[1, 2, 3].map(n => <Star key={n} size={12} className={n <= stars ? "is-on" : ""} fill={n <= stars ? "currentColor" : "none"} />)}
     </span>
   );
 }
@@ -54,14 +64,14 @@ export function JourneyMap({ profile, currentSurah }: { profile: ChildProfile; c
   const t = copy[locale];
   const here = useRef<HTMLLIElement>(null);
 
-  // Open the map where the child left off rather than at the top of Juz Amma.
+  // Open the map on the surah the child left off at, not at the first one.
   useEffect(() => {
-    here.current?.scrollIntoView({ block: "center", behavior: "instant" as ScrollBehavior });
+    here.current?.scrollIntoView({ block: "nearest", inline: "center", behavior: "instant" as ScrollBehavior });
   }, []);
 
   return (
     <section className="map" aria-label={t.map}>
-      {[...REGIONS].reverse().map(region => (
+      {REGIONS.map(region => (
         <RegionBand key={region.id} region={region} profile={profile} currentSurah={currentSurah} t={t} hereRef={here} locale={locale} />
       ))}
     </section>
@@ -72,65 +82,82 @@ function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
   region: Region;
   profile: ChildProfile;
   currentSurah: number;
-  t: (typeof copy)["ar"];
+  t: Copy;
   hereRef: React.RefObject<HTMLLIElement | null>;
   locale: "ar" | "en";
 }) {
-  const stations = stationsOf(region);
+  const track = useRef<HTMLOListElement>(null);
   const stars = Object.fromEntries(region.surahs.map(surah => [surah, starsFor(profile, surah, ayahCountOf(surah))]));
+  const earned = region.surahs.reduce((sum, surah) => sum + stars[surah], 0);
   const opened = region.surahs.every(surah => stars[surah] > 0);
-  const points = stations.map(s => `${s.x},${(s.y * VIEW_HEIGHT) / 100}`).join(" ");
   const name = locale === "ar" ? region.nameAr : region.nameEn;
-  // The child's own character stands at the station they are on.
-  const walker = characterArt(profile.character, "walk");
+  // The child's own character stands in the region they are walking through.
+  const walker = region.surahs.includes(currentSurah) ? characterArt(profile.character, "walk") : null;
+
+  // One nudge moves about two cards. In Arabic the rail runs the other way, and
+  // so does the scroll offset the browser reports.
+  const nudge = useCallback((forward: boolean) => {
+    const rail = track.current;
+    if (!rail) return;
+    const step = Math.max(rail.clientWidth * 0.7, 180) * (forward ? 1 : -1);
+    rail.scrollBy({ left: locale === "ar" ? -step : step, behavior: "smooth" });
+  }, [locale]);
+
+  const Back = locale === "ar" ? ChevronRight : ChevronLeft;
+  const On = locale === "ar" ? ChevronLeft : ChevronRight;
 
   return (
-    <div
+    <section
       className="map-region"
-      // The band keeps the painting's shape on a wide screen, but never gets
-      // shorter than its stations need: on a small phone the cards would
-      // otherwise sit on top of one another.
+      aria-label={t.region(name)}
       style={{
         ["--art-720" as string]: `url(/hifz-art/map/${region.art}-720.webp)`,
         ["--art-1080" as string]: `url(/hifz-art/map/${region.art}-1080.webp)`,
-        ["--stations" as string]: region.surahs.length,
       }}
     >
-      <span className="map-region__name">{name}</span>
+      <header className="map-region__head">
+        <img
+          className={`map-treasure ${opened ? "is-open" : ""}`}
+          src={`/hifz-art/rewards/${region.treasure}-256.webp`}
+          alt=""
+          title={opened ? t.treasureOpen(name) : t.treasureLocked(name)}
+          loading="lazy"
+        />
+        {walker && <img className="map-walker" src={walker.src} srcSet={walker.srcSet} sizes="52px" alt="" />}
+        <div className="map-region__text">
+          <h3 className="map-region__name">{name}</h3>
+          <p className="map-region__meta">{t.starsOf(earned, region.surahs.length * 3)}</p>
+        </div>
+        <div className="map-region__nudge">
+          <button type="button" onClick={() => nudge(false)} aria-label={t.scrollBack}><Back size={18} aria-hidden="true" /></button>
+          <button type="button" onClick={() => nudge(true)} aria-label={t.scrollOn}><On size={18} aria-hidden="true" /></button>
+        </div>
+      </header>
 
-      <svg className="map-path" viewBox={`0 0 100 ${VIEW_HEIGHT}`} aria-hidden="true" focusable="false">
-        <polyline points={points} fill="none" />
-      </svg>
-
-      <img
-        className={`map-treasure ${opened ? "is-open" : ""}`}
-        src={`/hifz-art/rewards/${region.treasure}-256.webp`}
-        alt=""
-        title={opened ? t.treasureOpen(name) : t.treasureLocked(name)}
-        loading="lazy"
-      />
-
-      <ol className="map-stations">
-        {stations.map(station => {
-          const surahName = locale === "ar" ? getSurahName(station.surah) : getEnglishSurahName(station.surah);
-          const icon = surahIcon(station.surah);
-          const isHere = station.surah === currentSurah;
+      <ol className="map-track" ref={track}>
+        {region.surahs.map(surah => {
+          const surahName = locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah);
+          const icon = surahIcon(surah);
+          const isHere = surah === currentSurah;
           return (
-            <li key={station.surah} ref={isHere ? hereRef : undefined} style={{ insetBlockEnd: `${100 - station.y}%`, insetInlineStart: `${station.x}%` }}>
-              <Link href={`/hifz/${station.surah}`} className={`map-station ${isHere ? "is-here" : ""} ${stars[station.surah] === 3 ? "is-full" : ""}`} aria-label={t.station(surahName, stars[station.surah])}>
-                <span className="map-station__mark">
-                  {icon ? <img src={icon.src} srcSet={icon.srcSet} sizes="54px" alt="" loading="lazy" /> : <b>{station.surah}</b>}
+            <li key={surah} ref={isHere ? hereRef : undefined}>
+              <Link
+                href={`/hifz/${surah}`}
+                className={`map-card ${isHere ? "is-here" : ""} ${stars[surah] === 3 ? "is-full" : ""}`}
+                aria-label={t.station(surahName, stars[surah])}
+              >
+                <span className="map-card__mark">
+                  {icon ? <img src={icon.src} srcSet={icon.srcSet} sizes="56px" alt="" loading="lazy" /> : <b>{surah}</b>}
                 </span>
-                <span className="map-station__name">{surahName}</span>
-                <StarRow stars={stars[station.surah] as Stars} />
+                <span className="map-card__name">{surahName}</span>
+                <StarRow stars={stars[surah] as Stars} />
                 {isHere && <span className="map-here">{t.here}</span>}
-                {isHere && walker && <img className="map-walker" src={walker.src} srcSet={walker.srcSet} sizes="70px" alt="" />}
               </Link>
             </li>
           );
         })}
       </ol>
-    </div>
+    </section>
   );
 }
 

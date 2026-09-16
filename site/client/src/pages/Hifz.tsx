@@ -55,11 +55,13 @@ const copy = {
     save: "احفظ",
     cancel: "إلغاء",
     errors: { name: "اكتب اسم الطفل.", duplicate: "يوجد طفل بهذا الاسم على هذا الجهاز.", limit: `الحد ${MAX_PROFILES} أطفال على الجهاز.`, missing: "لم يعد هذا الملف موجودًا." },
-    hello: (name: string) => `أهلًا يا ${name}`,
+    // The greeting calls the child a friend rather than by name: the name is
+    // theirs to see on their own card, not a label the page shouts back at them.
+    hello: (girl: boolean) => (girl ? "أهلًا يا صديقتي الصغيرة" : "أهلًا يا صديقي الصغير"),
     helloGuest: "أهلًا بك",
     switchChild: "غيّر الطفل",
     journeyTitle: "خريطة الرحلة",
-    journeyBody: "ابدأ من الواحة تحت واطلع للجبال. اضغط على أي سورة لتبدأ فيها.",
+    journeyBody: "ابدأ من الواحة واصعد للجبال. اسحب السور جانبًا، واضغط على أي سورة لتبدأ فيها.",
     rankLabel: "رتبتك",
     starsCount: (n: number) => `${n} نجمة`,
     nextRankIn: (n: number, name: string) => `${n} نجمة للوصول إلى «${name}»`,
@@ -136,11 +138,11 @@ const copy = {
     save: "Save",
     cancel: "Cancel",
     errors: { name: "Write the child’s name.", duplicate: "A child with this name is already on this device.", limit: `A device holds up to ${MAX_PROFILES} children.`, missing: "This profile no longer exists." },
-    hello: (name: string) => `Welcome, ${name}`,
+    hello: (_girl: boolean) => "Hello, little friend",
     helloGuest: "Welcome",
     switchChild: "Switch child",
     journeyTitle: "The journey map",
-    journeyBody: "Start at the oasis below and climb to the mountains. Tap any surah to begin there.",
+    journeyBody: "Start at the oasis and climb to the mountains. Swipe the surahs sideways, and tap any one to begin there.",
     rankLabel: "Your rank",
     starsCount: (n: number) => `${n} stars`,
     nextRankIn: (n: number, name: string) => `${n} more stars to reach “${name}”`,
@@ -407,7 +409,7 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
         <div className="container hifz-hero__inner">
           <div className="hifz-hero__copy">
             <span className="eyebrow eyebrow--gold"><Users size={15} aria-hidden="true" /> {t.eyebrow}</span>
-            <h1>{isGuest ? t.helloGuest : t.hello(profile.name)}</h1>
+            <h1>{isGuest ? t.helloGuest : t.hello(profile.character === "fatima")}</h1>
             {isGuest && <p>{t.guestNote}</p>}
             <div className="hifz-actions">
               <button type="button" className="button button--soft" onClick={() => commit(selectProfile(store, null))}>

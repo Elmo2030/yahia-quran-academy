@@ -1089,40 +1089,57 @@
 .hifz-bubble.is-quiet { opacity: 0; box-shadow: none; }
 
 /* --- The journey map ----------------------------------------------------- */
-.map { display: grid; gap: 0; inline-size: 100%; max-inline-size: 460px; margin-inline: auto; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 16px 34px rgb(var(--shadow-rgb) / 10%); }
-/* The four paintings do not tile, so each band fades into the one below it. */
-.map-region { position: relative; aspect-ratio: 1536 / 2752; min-block-size: calc(var(--stations, 10) * 84px); background-image: var(--art-1080); background-size: cover; background-position: center; }
-/* All four bands are on the page at once, so a phone would otherwise download
-   half a megabyte of scenery to look at one of them. */
+/* Four regions down the page; inside each, the surahs run sideways so the
+   cards stay side by side at one size instead of falling down the screen. */
+.map { display: grid; gap: .9rem; inline-size: 100%; }
+.map-region { position: relative; border-radius: 22px; border: 1px solid var(--line); overflow: hidden; background-color: var(--surface); background-image: var(--art-1080); background-size: cover; background-position: center 35%; box-shadow: 0 14px 30px rgb(var(--shadow-rgb) / 9%); }
+/* All four paintings are on the page at once, so a phone would otherwise
+   download half a megabyte of scenery to look at one band. */
 @media (max-width: 767px) { .map-region { background-image: var(--art-720); } }
-.map-region + .map-region { margin-block-start: -6%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 9%); mask-image: linear-gradient(180deg, transparent 0, #000 9%); }
-.map-region__name { position: absolute; inset-block-start: 2.5%; inset-inline-start: 50%; transform: translateX(-50%); padding: .3rem .85rem; border-radius: 99px; background: rgb(var(--chrome-rgb) / 88%); color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: .82rem; font-weight: 800; white-space: nowrap; }
-[dir="rtl"] .map-region__name { transform: translateX(50%); }
-.map-path { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; }
-.map-path polyline { stroke: rgb(var(--sheen-rgb) / 75%); stroke-width: 1.1; stroke-linecap: round; stroke-dasharray: 2.4 3.4; }
-:root[data-theme="dark"] .map-path polyline { stroke: rgb(255 255 255 / 45%); }
-.map-stations { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; }
-.map-stations > li { position: absolute; transform: translateX(-50%); }
-[dir="rtl"] .map-stations > li { transform: translateX(50%); }
-.map-station { display: grid; justify-items: center; gap: .15rem; inline-size: max-content; padding: .3rem .4rem .35rem; border-radius: 16px; background: rgb(var(--chrome-rgb) / 86%); border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform .16s cubic-bezier(.23,1,.32,1); }
-.map-station:hover { transform: translateY(-3px); }
-.map-station:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-.map-station__mark { display: grid; place-items: center; inline-size: 54px; block-size: 54px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line-gold); overflow: hidden; }
-.map-station__mark img { inline-size: 100%; block-size: 100%; object-fit: contain; }
-.map-station__mark b { color: var(--gold-ink-deep); font-size: .95rem; font-weight: 800; font-variant-numeric: tabular-nums; }
-.map-station__name { max-inline-size: 7.5rem; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: .8rem; font-weight: 800; line-height: 1.35; text-align: center; }
-.map-station.is-full .map-station__mark { border-color: var(--brand-solid); box-shadow: inset 0 0 0 2px var(--brand-solid); }
-.map-station.is-here { background: var(--surface-gold); border-color: var(--gold); box-shadow: 0 0 0 3px rgb(212 175 55 / 35%); }
+/* The scenery is a backdrop, not a picture to read: a scrim keeps the cards
+   legible over whatever part of the painting a band happens to show. */
+.map-region::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(var(--chrome-rgb) / 82%), rgb(var(--chrome-rgb) / 62%)); pointer-events: none; }
+.map-region > * { position: relative; }
+
+.map-region__head { display: flex; align-items: center; gap: .6rem; padding: .7rem .9rem .3rem; }
+.map-region__text { min-inline-size: 0; }
+.map-region__name { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1rem; font-weight: 800; line-height: 1.3; }
+.map-region__meta { margin: 0; color: var(--ink-soft); font-size: .78rem; font-weight: 700; }
+.map-region__nudge { display: none; gap: .3rem; margin-inline-start: auto; }
+@media (min-width: 640px) { .map-region__nudge { display: flex; } }
+.map-region__nudge button { display: grid; place-items: center; inline-size: 34px; block-size: 34px; border-radius: 50%; border: 1px solid var(--line); background: rgb(var(--chrome-rgb) / 90%); color: var(--ink); cursor: pointer; }
+.map-region__nudge button:hover { border-color: var(--gold); color: var(--gold-ink-deep); }
+.map-region__nudge button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.map-track { display: flex; gap: .55rem; margin: 0; padding: .2rem .9rem 1rem; list-style: none; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: rgb(var(--shadow-rgb) / 30%) transparent; }
+.map-track::-webkit-scrollbar { block-size: 6px; }
+.map-track::-webkit-scrollbar-thumb { border-radius: 99px; background: rgb(var(--shadow-rgb) / 25%); }
+.map-track > li { flex: 0 0 auto; scroll-snap-align: center; }
+
+.map-card { position: relative; display: grid; justify-items: center; align-content: start; gap: .25rem; inline-size: 7.4rem; padding: .55rem .5rem .6rem; border-radius: 18px; background: rgb(var(--chrome-rgb) / 92%); border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform .16s cubic-bezier(.23,1,.32,1), box-shadow .16s ease; }
+.map-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgb(var(--shadow-rgb) / 14%); }
+.map-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.map-card__mark { display: grid; place-items: center; inline-size: 56px; block-size: 56px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line-gold); overflow: hidden; }
+.map-card__mark img { inline-size: 100%; block-size: 100%; object-fit: contain; }
+.map-card__mark b { color: var(--gold-ink-deep); font-size: .95rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.map-card__name { color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: .82rem; font-weight: 800; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+.map-card.is-full .map-card__mark { border-color: var(--brand-solid); box-shadow: inset 0 0 0 2px var(--brand-solid); }
+.map-card.is-here { background: var(--surface-gold); border-color: var(--gold); box-shadow: 0 0 0 3px rgb(212 175 55 / 35%); }
 .map-here { padding: .1rem .5rem; border-radius: 99px; background: var(--gold-deep); color: #fff; font-size: .68rem; font-weight: 800; }
 .map-stars { display: inline-flex; gap: .1rem; color: var(--line); }
 .map-stars .is-on { color: var(--gold-deep); }
-.map-treasure { position: absolute; inset-block-start: 3%; inset-inline-end: 6%; inline-size: 54px; block-size: 54px; object-fit: contain; filter: grayscale(1) opacity(.45); }
+.map-treasure { flex: none; inline-size: 44px; block-size: 44px; object-fit: contain; filter: grayscale(1) opacity(.45); }
 .map-treasure.is-open { filter: none; }
+/* The character waits beside the name of the region being walked through. */
+.map-walker { flex: none; inline-size: 52px; max-block-size: 62px; object-fit: contain; object-position: bottom; filter: drop-shadow(0 8px 10px rgb(var(--shadow-rgb) / 22%)); }
+[dir="rtl"] .map-walker { transform: scaleX(-1); }
 @media (max-width: 420px) {
-  .map-station__mark { inline-size: 44px; block-size: 44px; }
-  .map-station__name { font-size: .72rem; max-inline-size: 6rem; }
+  .map-card { inline-size: 6.4rem; }
+  .map-card__mark { inline-size: 46px; block-size: 46px; }
+  .map-card__name { font-size: .74rem; }
+  .map-walker { inline-size: 42px; }
 }
-@media (prefers-reduced-motion: reduce) { .map-station { transition: none; } .map-station:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .map-card { transition: none; } .map-card:hover { transform: none; } }
 
 .hifz-list-fallback > summary { cursor: pointer; color: var(--ink-soft); font-size: .85rem; font-weight: 700; padding: .4rem 0; }
 .hifz-list-fallback[open] > summary { margin-block-end: .6rem; }
@@ -1135,10 +1152,6 @@
 .hifz-rank__stars { display: flex; align-items: center; gap: .3rem; margin: 0 !important; color: var(--gold-ink-deep) !important; font-weight: 800; font-size: .92rem; }
 .hifz-rank__text small { color: var(--ink-soft); font-size: .8rem; }
 .hifz-rank__how { grid-column: 1 / -1; margin: 0; color: var(--ink-soft) !important; font-size: .82rem !important; line-height: 1.8; }
-/* The character standing at the station the child is on. */
-.map-walker { position: absolute; inset-block-end: .2rem; inset-inline-start: calc(100% + .3rem); inline-size: 70px; max-block-size: 96px; object-fit: contain; object-position: bottom; pointer-events: none; filter: drop-shadow(0 8px 10px rgb(var(--shadow-rgb) / 22%)); }
-[dir="rtl"] .map-walker { transform: scaleX(-1); }
-@media (max-width: 420px) { .map-walker { inline-size: 54px; } }
 
 /* --- Today, and the review screen --------------------------------------- */
 .hifz-today { grid-template-columns: auto 1fr; align-items: center; }
