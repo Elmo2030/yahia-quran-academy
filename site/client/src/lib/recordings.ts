@@ -81,6 +81,17 @@ async function toBytes(blob: Blob): Promise<ArrayBuffer> {
   });
 }
 
+/**
+ * Two takes saved in the same millisecond would both claim to be the newest,
+ * and the cap below would then drop an arbitrary one. Stamps never repeat
+ * within a session; across sessions the clock is far enough apart to be safe.
+ */
+let lastStamp = 0;
+function nextStamp(): number {
+  lastStamp = Math.max(Date.now(), lastStamp + 1);
+  return lastStamp;
+}
+
 export async function saveRecording(
   input: { surah: number; blob: Blob; mimeType: string; seconds: number; ayah?: number; profileId?: string },
 ): Promise<RecordingSummary> {
@@ -92,7 +103,7 @@ export async function saveRecording(
     mimeType: input.mimeType,
     seconds: input.seconds,
     id: `${input.surah}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-    recordedAt: Date.now(),
+    recordedAt: nextStamp(),
   };
   await run("readwrite", store => store.put(record));
   // Journey takes are capped per ayah; the reader's whole-surah recordings are
