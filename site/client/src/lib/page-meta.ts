@@ -102,12 +102,32 @@ export const profileMeta: Meta = {
   },
 };
 
+// The journey itself is the one page in this family worth finding: a parent
+// searching for a way to memorize Juz Amma with a child should land on it. It
+// carried "noindex" from the months when it was a settings screen with nothing
+// behind it; the map, the stars and the review queue have shipped since.
 export const hifzMeta: Meta = {
   path: "/hifz",
+  title: "رحلة حفظ جزء عمّ للأطفال — Yahya Quran Academy",
+  description:
+    "خريطة لحفظ جزء عمّ: الطفل يسمع الآية ويكرّرها ويسجّل صوته، وتعود عليه للمراجعة بعد يوم وثلاثة وسبعة. وليّ الأمر هو من يقدّر التلاوة، ولا يُحفظ شيء إلا على جهازك.",
+  image: DEFAULT_IMAGE,
+  i18n: {
+    en: {
+      title: "A Juz Amma memorization journey for children — Yahya Quran Academy",
+      description:
+        "A map for memorizing Juz Amma: the child listens, repeats and records, and each ayah returns for review after a day, three days, a week. The parent is the one who judges the recitation, and nothing leaves the device.",
+    },
+  },
+};
+
+// Everything under it is one child's own screen — their queue, their parent's
+// PIN, their certificate. There is nothing there for a crawler to read, and
+// what it would read is a stranger's empty copy of it.
+export const hifzInnerMeta: Meta = {
+  ...hifzMeta,
   title: "رحلة الحفظ — Yahya Quran Academy",
   description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
-  image: DEFAULT_IMAGE,
-  // Until the map and the memorization screen ship, this is a settings page.
   noindex: true,
   i18n: {
     en: {
@@ -256,7 +276,7 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
-  if (head === "hifz") return hifzMeta;
+  if (head === "hifz") return parts[1] ? hifzInnerMeta : hifzMeta;
   if (head === "quran-facts") return quranFactsMeta;
   if (head === "about") return aboutMeta;
   if (head === "privacy") return privacyMeta;

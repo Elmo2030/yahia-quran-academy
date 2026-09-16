@@ -61,11 +61,19 @@ const profileMeta = {
   noindex: true,
 };
 
+// The journey page is worth finding; the screens under it belong to one child.
 const hifzMeta = {
   path: "/hifz",
+  title: "رحلة حفظ جزء عمّ للأطفال — Yahya Quran Academy",
+  description:
+    "خريطة لحفظ جزء عمّ: الطفل يسمع الآية ويكرّرها ويسجّل صوته، وتعود عليه للمراجعة بعد يوم وثلاثة وسبعة. وليّ الأمر هو من يقدّر التلاوة، ولا يُحفظ شيء إلا على جهازك.",
+  image: DEFAULT_IMAGE,
+};
+
+const hifzInnerMeta = {
+  ...hifzMeta,
   title: "رحلة الحفظ — Yahya Quran Academy",
   description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
-  image: DEFAULT_IMAGE,
   noindex: true,
 };
 
@@ -97,7 +105,7 @@ function metaForPath(pathname: string) {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
-  if (head === "hifz") return hifzMeta;
+  if (head === "hifz") return parts[1] ? hifzInnerMeta : hifzMeta;
   // Both render fine client-side, but the function did not know them, so the
   // server answered 404 — including for the link in the password-reset email,
   // which points straight at /reset-password.

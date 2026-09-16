@@ -50,6 +50,7 @@ const urls = [
   { loc: "/read", priority: "0.9" },
   { loc: "/listen", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
+  { loc: "/hifz", priority: "0.9" },
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/read/${i + 1}`, priority: "0.7" })),
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/listen/${i + 1}`, priority: "0.6" })),
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
@@ -143,6 +144,13 @@ Non-commercial and educational.
   Muhammad Siddiq al-Minshawi, about 28 hours of audio, one page per surah at
   ${ORIGIN}/listen/1 through ${ORIGIN}/listen/114. Playback only — no account,
   no tracking.
+
+## Memorization journey
+- [The journey](${ORIGIN}/hifz): a map for memorizing Juz Amma. The child
+  listens to an ayah, repeats it, records their own voice and declares it
+  memorized; it then returns for review after one, three, seven, fourteen and
+  thirty days. No automated mastery score — the parent judges the recitation —
+  and every record stays in the browser on the child's own device.
 
 ## Stories from the Quran
 ${chapterLines.join("\n")}

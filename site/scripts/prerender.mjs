@@ -305,6 +305,26 @@ for (let surah = 1; surah <= surahNames.length; surah += 1) {
   `));
 }
 
+// The memorization journey -----------------------------------------------------
+// Only the journey itself. The screens under it — the review queue, the parent
+// PIN, the certificate — hold one child's own record and are marked noindex.
+add("/hifz", section("ar", `
+  <h1>رحلة حفظ جزء عمّ للأطفال</h1>
+  <p>خريطة يمشي فيها الطفل سورة بعد سورة من جزء عمّ، برفقة يحيى. في كل آية: يسمعها بصوت الشيخ، ويكرّرها بالعدد الذي يختاره، ويسجّل صوته ليسمع نفسه، ثم يقول إنه حفظها.</p>
+  <p>ما يقوله الطفل لا يُقبل وحده: الآية تعود إليه بعد يوم، ثم بعد ثلاثة، فسبعة، فأربعة عشر، فثلاثين — والنجمة الثالثة لا تُكتب إلا إذا رجع إليها في يوم آخر.</p>
+  <p>وليّ الأمر هو من يقدّر التلاوة؛ لا يعرض الموقع درجة إتقان آلية ولا يفتح مرحلة من تلقاء نفسه. ولا يغادر شيء من هذا جهازك: لا حساب، ولا خادم، ولا تتبّع.</p>
+  ${list([
+    link("/listen", "الاستماع — المصحف المرتل كاملًا"),
+    link("/read/78", "اقرأ جزء عمّ من سورة النبأ"),
+    link("/about", "عن الأكاديمية"),
+  ])}
+`) + section("en", `
+  <h2>A Juz Amma memorization journey for children</h2>
+  <p>A map the child walks one surah at a time. For every ayah: listen to it, repeat it as many times as they choose, record their own voice and hear it back, then say they have memorized it.</p>
+  <p>Saying so is not enough on its own — the ayah returns after a day, then three, seven, fourteen and thirty, and the third star is only written once the child has come back to it on a later day.</p>
+  <p>The parent is the one who judges the recitation: no automated mastery score, no stage that unlocks by itself. None of it leaves the device — no account, no server, no tracking.</p>
+`));
+
 // ---------------------------------------------------------------- write it out
 
 // The home page is written back over index.html, so a second run without a

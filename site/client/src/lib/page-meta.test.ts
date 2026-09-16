@@ -99,3 +99,20 @@ describe("addresses that name no surah", () => {
     }
   });
 });
+
+// The journey page is the one a parent would search for; the screens under it
+// hold one child's own record, and a crawler would only ever see an empty copy
+// of someone else's. The whole family carried "noindex" while the map was
+// still unbuilt, and it was easy to leave it that way after the map shipped.
+describe("the memorization journey", () => {
+  it("lets the journey itself be found", () => {
+    expect(metaForPath("/hifz").noindex).toBeFalsy();
+    expect(metaForPath("/hifz").title).toContain("جزء عمّ");
+  });
+
+  it("keeps one child's own screens out of the index", () => {
+    for (const path of ["/hifz/review", "/hifz/parent", "/hifz/certificate", "/hifz/looks", "/hifz/114"]) {
+      expect(metaForPath(path).noindex, path).toBe(true);
+    }
+  });
+});

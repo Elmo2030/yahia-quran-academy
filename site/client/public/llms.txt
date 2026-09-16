@@ -16,6 +16,13 @@ Non-commercial and educational.
   https://yahyaquran.com/listen/1 through https://yahyaquran.com/listen/114. Playback only — no account,
   no tracking.
 
+## Memorization journey
+- [The journey](https://yahyaquran.com/hifz): a map for memorizing Juz Amma. The child
+  listens to an ayah, repeats it, records their own voice and declares it
+  memorized; it then returns for review after one, three, seven, fourteen and
+  thirty days. No automated mastery score — the parent judges the recitation —
+  and every record stays in the browser on the child's own device.
+
 ## Stories from the Quran
 - [Animals in the Quran — حيوانات في القرآن](https://yahyaquran.com/stories/animals): 8 stories. Eight stories about animals the Quran names, and what they teach.
 - [Women in the Quran — نساء في القرآن](https://yahyaquran.com/stories/women): 8 stories. Inspiring examples of patience, faith, and wisdom from Quranic stories.
