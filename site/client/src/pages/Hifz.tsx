@@ -22,6 +22,7 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { JourneyMap } from "@/components/JourneyMap";
 import { CHARACTERS, characterArt, characterById, surahIcon, type Pose } from "@/lib/hifz-characters";
+import { nextDueDay, dayNumber, todayPlan } from "@/lib/hifz-review";
 import { nextRank, rankFor, totalStars } from "@/lib/hifz-stars";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
@@ -63,6 +64,15 @@ const copy = {
     topRank: "أعلى رتبة في الرحلة",
     starsHow: "النجمة الأولى للاستماع الكامل، والثانية للتسجيل، والثالثة لإعلان الحفظ ومراجعته في يوم آخر.",
     listView: "اعرض السور كقائمة",
+    todayTitle: "اليوم",
+    todayDue: (n: number) => (n === 1 ? "آية واحدة تنتظر المراجعة" : `${n} آيات تنتظر المراجعة`),
+    todayClear: "لا مراجعة اليوم",
+    todayClearBody: "كل ما أعلنت حفظه ما زال في موعده.",
+    todayNext: (n: number) => (n === 1 ? "المراجعة القادمة غدًا" : `المراجعة القادمة بعد ${n} أيام`),
+    startReview: "ابدأ المراجعة",
+    streak: (n: number) => (n === 1 ? "يوم متصل" : n === 2 ? "يومان متصلان" : `${n} أيام متصلة`),
+    streakNone: "ابدأ اليوم أول يوم",
+    learnedToday: (n: number) => (n === 1 ? "آية جديدة اليوم" : `${n} آيات جديدة اليوم`),
     continueWith: (name: string) => `أكمل: سورة ${name}`,
     surahProgress: (declared: number, total: number) => `حفظتَ ${declared} من ${total}`,
     surahDone: "حُفظت كلها",
@@ -133,6 +143,15 @@ const copy = {
     topRank: "The highest rank on the journey",
     starsHow: "The first star is for listening all the way through, the second for recording, the third for saying it is memorized and coming back to it another day.",
     listView: "Show the surahs as a list",
+    todayTitle: "Today",
+    todayDue: (n: number) => (n === 1 ? "One ayah is waiting to be reviewed" : `${n} ayahs are waiting to be reviewed`),
+    todayClear: "Nothing to review today",
+    todayClearBody: "Everything you have declared is still within its spacing.",
+    todayNext: (n: number) => (n === 1 ? "Next review tomorrow" : `Next review in ${n} days`),
+    startReview: "Start the review",
+    streak: (n: number) => (n === 1 ? "1 day in a row" : `${n} days in a row`),
+    streakNone: "Make today the first day",
+    learnedToday: (n: number) => (n === 1 ? "One new ayah today" : `${n} new ayahs today`),
     continueWith: (name: string) => `Continue: Surah ${name}`,
     surahProgress: (declared: number, total: number) => `${declared} of ${total} memorized`,
     surahDone: "All memorized",
@@ -420,6 +439,7 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
             />
           )}
 
+          <TodayCard t={t} profile={profile} />
           <RankCard t={t} profile={profile} />
           <SurahList t={t} profile={profile} />
 
@@ -475,6 +495,36 @@ function SurahList({ t, profile }: { t: Copy; profile: ChildProfile }) {
         })}
         </ol>
       </details>
+    </section>
+  );
+}
+
+/** What today asks for: the review queue, the streak, and what was done. */
+function TodayCard({ t, profile }: { t: Copy; profile: ChildProfile }) {
+  const { locale } = useLocale();
+  const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
+  const plan = todayPlan(profile);
+  const nextDay = plan.due === 0 ? nextDueDay(profile) : null;
+  const inDays = nextDay === null ? null : nextDay - dayNumber(Date.now());
+  const pose: Pose = plan.due > 0 ? "point" : plan.done ? "rest" : "wave";
+  const art = characterArt(profile.character, pose);
+
+  return (
+    <section className="hifz-card hifz-today">
+      {art && <img className="hifz-today__art" src={art.src} srcSet={art.srcSet} sizes="96px" alt="" loading="lazy" />}
+      <div className="hifz-today__text">
+        <span className="hifz-today__label">{t.todayTitle}</span>
+        <b>{plan.due > 0 ? t.todayDue(plan.due) : t.todayClear}</b>
+        <small>
+          {plan.due > 0
+            ? (plan.streak > 0 ? t.streak(plan.streak) : t.streakNone)
+            : inDays !== null ? t.todayNext(inDays) : t.todayClearBody}
+          {plan.learnedToday > 0 && ` · ${t.learnedToday(plan.learnedToday)}`}
+        </small>
+      </div>
+      {plan.due > 0 && (
+        <Link href="/hifz/review" className="button button--primary">{t.startReview} <Arrow size={17} aria-hidden="true" /></Link>
+      )}
     </section>
   );
 }

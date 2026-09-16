@@ -15,9 +15,11 @@ import {
   importBackup,
   loadStore,
   markListened,
+  markReviewed,
   markRecorded,
   parseStore,
   removeProfile,
+  restartReviews,
   saveStore,
   selectProfile,
   surahProgress,
@@ -249,5 +251,38 @@ describe("what a child did with an ayah", () => {
     s = declareMemorized(s, profile.id, 113, 5, "parent", 1);
     s = markListened(s, profile.id, 114, 1, 1); // another surah
     expect(surahProgress(activeProfile(s)!, 113, 5)).toEqual({ total: 5, listened: 2, recorded: 1, declared: 1 });
+  });
+});
+
+describe("reviews", () => {
+  it("records a review only for an ayah that was declared", () => {
+    const { store, profile } = withChild("Nour");
+    const notDeclared = markReviewed(store, profile.id, 114, 1, 50);
+    expect(activeProfile(notDeclared)!.ayahs["114:1"]).toBeUndefined();
+
+    let s = declareMemorized(store, profile.id, 114, 1, "child", 10);
+    s = markReviewed(s, profile.id, 114, 1, 100);
+    s = markReviewed(s, profile.id, 114, 1, 200);
+    expect(activeProfile(s)!.ayahs["114:1"].reviews).toEqual([100, 200]);
+  });
+
+  it("marks a forgotten ayah without erasing the declaration or the reviews", () => {
+    const { store, profile } = withChild();
+    let s = declareMemorized(store, profile.id, 114, 1, "parent", 10);
+    s = markReviewed(s, profile.id, 114, 1, 100);
+    s = restartReviews(s, profile.id, 114, 1, 500);
+    expect(activeProfile(s)!.ayahs["114:1"]).toEqual({ declaredAt: 10, declaredBy: "parent", reviews: [100], forgotAt: 500 });
+    // Remembering it again clears the mark.
+    s = markReviewed(s, profile.id, 114, 1, 900);
+    expect(activeProfile(s)!.ayahs["114:1"]).toEqual({ declaredAt: 10, declaredBy: "parent", reviews: [100, 900] });
+  });
+
+  it("keeps at most the last thirty reviews", () => {
+    const { store, profile } = withChild();
+    let s = declareMemorized(store, profile.id, 114, 1, "child", 1);
+    for (let i = 1; i <= 35; i++) s = markReviewed(s, profile.id, 114, 1, i * 10);
+    const reviews = activeProfile(s)!.ayahs["114:1"].reviews;
+    expect(reviews).toHaveLength(30);
+    expect(reviews.at(-1)).toBe(350);
   });
 });

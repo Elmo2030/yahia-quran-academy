@@ -53,6 +53,8 @@ export type AyahRecord = {
   declaredBy?: DeclaredBy;
   /** days on which it was reviewed after being declared */
   reviews: number[];
+  /** the last time the child said they had forgotten it, which restarts the spacing */
+  forgotAt?: number;
 };
 
 export type ChildProfile = {
@@ -133,6 +135,7 @@ function parseAyahs(value: unknown): Record<string, AyahRecord> {
       reviews: Array.isArray(entry.reviews) ? entry.reviews.filter(isTime).slice(-30) : [],
     };
     if (isTime(entry.listenedAt)) record.listenedAt = entry.listenedAt;
+    if (isTime(entry.forgotAt)) record.forgotAt = entry.forgotAt;
     if (isTime(entry.recordedAt)) record.recordedAt = entry.recordedAt;
     if (isTime(entry.declaredAt) && (entry.declaredBy === "child" || entry.declaredBy === "parent")) {
       record.declaredAt = entry.declaredAt;
@@ -325,12 +328,14 @@ function withAyah(
   if (!Number.isInteger(surah) || surah < 1 || surah > 114 || !Number.isInteger(ayah) || ayah < 1 || ayah > 286) return store;
   if (!store.profiles.some(p => p.id === profileId)) return store;
   const key = ayahKey(surah, ayah);
+  const profile = store.profiles.find(p => p.id === profileId)!;
+  const current = profile.ayahs[key] ?? { reviews: [] };
+  const next = change(current);
+  // A change that declines to change anything — a review of an ayah nobody
+  // declared — must not leave an empty record behind.
+  if (next === current) return store;
   return touch(store, {
-    profiles: store.profiles.map(p => {
-      if (p.id !== profileId) return p;
-      const next = change(p.ayahs[key] ?? { reviews: [] });
-      return { ...p, ayahs: { ...p.ayahs, [key]: next } };
-    }),
+    profiles: store.profiles.map(p => (p.id === profileId ? { ...p, ayahs: { ...p.ayahs, [key]: next } } : p)),
   });
 }
 
@@ -353,6 +358,21 @@ export const declareMemorized = (store: HifzStore, profileId: string, surah: num
     declaredAt: r.declaredAt ?? now,
     declaredBy: r.declaredBy === "parent" ? "parent" : by,
   }));
+
+/** The child came back to a declared ayah on a review day. */
+export const markReviewed = (store: HifzStore, profileId: string, surah: number, ayah: number, now = Date.now()) =>
+  withAyah(store, profileId, surah, ayah, r => {
+    if (!r.declaredAt) return r;
+    const { forgotAt: _forgotAt, ...rest } = r;
+    return { ...rest, reviews: [...r.reviews, now].slice(-30) };
+  });
+
+/**
+ * "I forgot it." The declaration stands — it is still the child's own word —
+ * but the spacing starts again from today, so the ayah comes back tomorrow.
+ */
+export const restartReviews = (store: HifzStore, profileId: string, surah: number, ayah: number, now = Date.now()) =>
+  withAyah(store, profileId, surah, ayah, r => (r.declaredAt ? { ...r, forgotAt: now } : r));
 
 export const withdrawDeclaration = (store: HifzStore, profileId: string, surah: number, ayah: number) =>
   withAyah(store, profileId, surah, ayah, ({ declaredAt: _at, declaredBy: _by, ...rest }) => ({ ...rest, reviews: [] }));
