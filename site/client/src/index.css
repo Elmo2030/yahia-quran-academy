@@ -1199,8 +1199,29 @@
 .hifz-ios-steps svg { flex: none; margin-block-start: .15rem; }
 .hifz-parent-link { gap: 1.2rem; flex-wrap: wrap; }
 
-.certificate { display: grid; padding: .5rem; background: linear-gradient(135deg, var(--surface-gold), var(--surface)); border-radius: 24px; border: 1px solid var(--line-gold); }
-.certificate__frame { display: grid; justify-items: center; gap: .55rem; padding: 2.2rem 1.4rem; border: 3px double var(--gold); border-radius: 18px; text-align: center; }
+/* The painted frame is a nine-slice: the corners keep their shape while the
+   edges repeat, so one drawing fits a certificate of any length. The cream
+   middle of the same drawing fills the sheet behind the writing. */
+.certificate {
+  display: grid;
+  padding: 0;
+  border: clamp(26px, 7vw, 58px) solid transparent;
+  /* No `fill`: the drawing's cream middle would tile with the edges and leave a
+     seam across the sheet, so the paper is painted here instead. */
+  border-image: url(/hifz-art/backgrounds/certificate-2400.webp) 224 / 1 / 0 round;
+  background: radial-gradient(120% 90% at 30% 25%, #fff6e6, #f4ead4 70%, #e9dfc7);
+  /* A printed certificate keeps its ink whatever theme the screen was in, and
+     browsers drop background art when printing unless told otherwise. */
+  --ink: #241f0f;
+  --ink-soft: #5c5331;
+  --ink-faint: #7b7354;
+  --brand: #4a5d23;
+  --gold: #d4af37;
+  --gold-ink-deep: #7d631c;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+.certificate__frame { display: grid; justify-items: center; gap: .55rem; padding: 1.6rem 1rem; text-align: center; }
 .certificate__eyebrow { margin: 0; color: var(--gold-ink-deep) !important; font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
 .certificate__to { margin: 0; color: var(--ink-soft) !important; font-size: .9rem; }
 .certificate__name { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 800; line-height: 1.3; }
@@ -1219,8 +1240,7 @@
   .hifz-no-print, .site-footer, .site-header { display: none !important; }
   .hifz-section { padding: 0 !important; }
   body, .site-shell, .hifz { background: #fff !important; }
-  .certificate { break-inside: avoid; border-color: #d4af37; background: #fff; }
-  .certificate__frame { border-color: #d4af37; }
+  .certificate { break-inside: avoid; }
   .certificate * { color: #1a1a1a !important; }
   .certificate__eyebrow, .certificate__stars, .certificate__site { color: #7d631c !important; }
 }

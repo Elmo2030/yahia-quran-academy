@@ -48,6 +48,14 @@ function plan(stem) {
   if (/^bg-(hifz-light|hifz-dark|review)$/.test(stem)) return { dir: "hifz-art/backgrounds", name: stem.slice(3), widths: [720, 1080, 1536], alpha: false };
   if (/^bg-(profiles|parent)$/.test(stem)) return { dir: "hifz-art/backgrounds", name: stem.slice(3), widths: [960, 1600, 2400], alpha: false };
   if (MAPS.includes(stem)) return { dir: "hifz-art/map", name: stem.slice(4), widths: [720, 1080, 1536], alpha: false };
+  // The certificate is printed as well as shown, so it keeps a print-sized rung.
+  if (stem === "certificate-bg") return { dir: "hifz-art/backgrounds", name: "certificate", widths: [960, 1600, 2400], alpha: false };
+  // The shop: a frame rings an avatar, a card background sits behind a child's
+  // card, and pets and stickers are small enough to stay small.
+  if (/^frame-[a-z]+$/.test(stem)) return { dir: "hifz-art/shop/frames", name: stem.slice(6), widths: [128, 256, 512], alpha: true };
+  if (/^card-bg-[a-z]+$/.test(stem)) return { dir: "hifz-art/shop/cards", name: stem.slice(8), widths: [480, 960, 1600], alpha: false };
+  if (/^pet-[a-z]+$/.test(stem)) return { dir: "hifz-art/shop/pets", name: stem.slice(4), widths: [96, 192, 384], alpha: true };
+  if (/^sticker-[a-z]+$/.test(stem)) return { dir: "hifz-art/shop/stickers", name: stem.slice(8), widths: [96, 192, 384], alpha: true };
   return null;
 }
 

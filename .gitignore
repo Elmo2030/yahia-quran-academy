@@ -73,3 +73,6 @@ site/functions/page-data.js
 
 # Raw art drops and downloaded audio: worked on by hand, never committed.
 /downloaded-assets/
+
+# The Minshawi murattal mushaf (3 GB with the zip): it lives on R2, not in git.
+/المنشاوي المرتل\ /
