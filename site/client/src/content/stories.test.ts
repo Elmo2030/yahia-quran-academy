@@ -169,9 +169,6 @@ describe("every story ends in a question", () => {
  * this list in the same commit.
  */
 const WAITING = new Set<string>([
-  // prophets
-  "adam", "idris", "nuh", "hud", "saleh", "shuaib", "ibrahim", "lut", "yusuf", "ayoub",
-  "musa-and-harun", "yusha", "dawud", "sulaiman", "zakariya-and-yahya", "isa", "muhammad",
   // women
   "maryam", "asiya", "hawwa", "sarah", "hajar", "bilqis", "imraat_alaziz", "nuh_lut",
 ]);

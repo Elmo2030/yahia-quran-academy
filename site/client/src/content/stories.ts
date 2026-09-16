@@ -995,11 +995,11 @@ export const stories: Story[] = [
     en: {
       title: "Prophet Adam, the First Human",
       hook:
-        "Have you ever wondered who the very first human on Earth was? How did life begin for people? Let's travel back to the very beginning to meet the father of all humanity!",
+        "What was the first thing the first human being did? Not what you expect. The first human made a mistake — and then did something afterwards that became a road for everyone who came after him. Without it, none of us would know how to come back to Allah after a wrong.",
       events:
-        "Allah created Prophet Adam from dust and breathed life into him. Allah taught Adam the names of everything, making him very smart! Allah told the angels to bow down to Adam out of respect. All the angels obeyed, but a jinn named Iblis (Satan) refused because he was arrogant. Allah let Adam and his wife Hawwa (Eve) live in a beautiful Paradise. He told them they could eat anything except from one specific tree. But Iblis tricked them into eating from it. They felt very sorry and asked Allah for forgiveness. Allah is The Most Forgiving; He forgave them and sent them to Earth to start human life and spread goodness.",
+        "Allah settled Adam and his wife in the Garden and said: {And eat from it in ease and abundance from wherever you will, but do not approach this tree.} Everything permitted except one tree. Then Iblis came to them, and did not order them to disobey outright — a deceiver never does — he said: {Your Lord did not forbid you this tree except that you become angels or become of the immortal.} Then {he swore to them, Indeed, I am to you from among the sincere advisers.} He swore he was giving them good advice. So they ate from the tree.",
       lesson:
-        "We learn that if we make a mistake, we should immediately say we are sorry and ask Allah for forgiveness, just like Prophet Adam did.",
+        "The point is not never making a mistake; it is what you do after one.",
       next:
         "Prophet Adam was the first man and prophet. In our next story, we will meet his great-grandson, a prophet who loved to read and write and was raised to a very high place! Who is he? He is Prophet Idris!",
       quranProse:
@@ -1015,14 +1015,36 @@ export const stories: Story[] = [
         keepsake: "A leaf from the garden",
         note: "A reminder that a mistake is not the end of the road — an apology is its beginning.",
       },
+      arc: {
+        idea: "The first human, the first mistake, the first repentance — and the road it opened for everyone since.",
+        setting:
+          "Before there was a human on earth, Allah said to the angels: {Indeed, I will make upon the earth a successive authority.} So Allah created Adam from clay, breathed into him of His spirit, and taught him the names of all things — knowledge was the first honour given to a human being. Then He commanded the angels to prostrate to him, and they all did, except Iblis, who {refused and was arrogant} and said: {I am better than him. You created me from fire and created him from clay.} The first sin ever committed against Allah was pride.",
+        keyMoment:
+          "Now compare two, because here is the heart of the story. Iblis erred, and Adam erred. Iblis said: {By Your might, I will surely mislead them all}, and persisted and never came back. Adam said: {Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.} He did not say \"Satan tricked me.\" He did not say \"she gave it to me.\" He said: we wronged ourselves. The mistake was the same in both cases; the whole difference is in what came after it.",
+        resolution:
+          "{Then Adam received from his Lord some words, and He accepted his repentance. Indeed, it is He who is the Accepting of repentance, the Merciful.} Then Allah sent him down to the earth to build it up, and said to him and to all his descendants: {And when guidance comes to you from Me, whoever follows My guidance — there will be no fear concerning them, nor will they grieve.} So you today are the descendant of a man who erred and then repented, and you know the road because he walked it first.",
+        word: { term: "Received some words", meaning: "He learned them from his Lord and prayed with them — Allah Himself taught him how to apologise." },
+        lessons: [
+          "When you are wrong, say \"I was wrong\" instead of looking for someone to blame.",
+          "Pride was the first sin ever committed against Allah; beware of it even when you are right.",
+          "The door of repentance is always open; Allah named Himself the Accepting of repentance.",
+        ],
+        think:
+          "Iblis erred and Adam erred, and one ended in mercy and the other in exile. What made the difference, in your view? And what do you usually say after you get something wrong?",
+        tryToday:
+          "If you wrong someone today, tell them: I am sorry, I was wrong — without adding \"but\" afterwards.",
+      },
     },
     image: "/stories/prophets/adam.jpg",
     title: "قصة سيدنا آدم (أبو البشر)",
     surahName: "",
-    hook: "هل سألتم أنفسكم يوماً كيف بدأ وجود الإنسان على الأرض؟ ومن هو أول إنسان خلقه الله؟ تعالوا نسافر بالزمن إلى البداية تماماً، لنتعرف على قصة أبينا سيدنا آدم، أول إنسان وأول نبي!",
-    events: "في البداية، خلق الله سبحانه وتعالى سيدنا آدم بيده من تراب وطين. ولأن الله يحب آدم، علمه أسماء كل شيء، وأمر الملائكة أن تسجد له احتراماً. سجدت كل الملائكة فوراً، لكن كان هناك مخلوق شرير اسمه 'إبليس' تكبر ورفض أن يسجد لأنه مخلوق من نار وظن أنه أفضل من آدم. أسكن الله آدم وزوجته الجنة الجميلة ليأكلا منها ما يشاءان، إلا شجرة واحدة منعهما منها. لكن إبليس الشرير وسوس لهما حتى أكلا من الشجرة. حزن آدم جداً وبكى لأنه لم يسمع كلام الله، واعتذر لربه، فسامحه الله الرحيم، وأنزله إلى الأرض ليعمرها ويبنيها ويكون 'خليفة' فيها.",
+    hook:
+      "ما أوّل شيء فعله أوّل إنسان في الدنيا؟ ليس ما تتوقّعه. أوّل إنسان أخطأ، ثم فعل بعد خطئه شيئًا صار طريقًا لكل من جاء بعده إلى اليوم — ولولاه ما عرف أحدٌ منّا كيف يرجع إلى الله بعد الذنب.",
+    events:
+      "أسكن الله آدم وزوجه الجنّة وقال: ﴿وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَٰذِهِ الشَّجَرَةَ﴾. كلّ شيء مباح إلّا شجرة واحدة. وجاءهما إبليس، ولم يأمرهما بالمعصية مباشرة — المخادع لا يفعل ذلك — بل قال: ﴿مَا نَهَاكُمَا رَبُّكُمَا عَنْ هَٰذِهِ الشَّجَرَةِ إِلَّا أَن تَكُونَا مَلَكَيْنِ أَوْ تَكُونَا مِنَ الْخَالِدِينَ﴾، ثم ﴿وَقَاسَمَهُمَا إِنِّي لَكُمَا لَمِنَ النَّاصِحِينَ﴾ — حلف لهما أنه ناصح لهما. فأكلا من الشجرة.",
     quranProse: "يقول الله تعالى في القرآن الكريم يعلمنا كيف اعتذر سيدنا آدم: {قَالَا رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ}.",
-    lesson: "تعلمنا قصة سيدنا آدم درساً مهماً جداً: كلنا قد نخطئ وننسى، ولكن الإنسان الطيب هو الذي يعترف بخطئه فوراً، ويعتذر لله، والله دائماً يسامح من يعتذر بصدق.",
+    lesson:
+      "ليست العبرة ألّا تخطئ أبدًا، بل بما تفعله بعد الخطأ.",
     next: "نزل سيدنا آدم إلى الأرض وبدأ يعلم أبناءه الخير.. وبعد فترة من الزمن، جاء نبي آخر يحب الصدق كثيراً، ورفعه الله مكاناً عالياً. هل تعرفون من هو؟ إنه نبي الله إدريس!",
     source: {
       reliability: "🟢",
@@ -1040,17 +1062,36 @@ export const stories: Story[] = [
       keepsake: "ورقة من شجر الجنة",
       note: "تذكّرك أن الخطأ ليس نهاية الطريق، والاعتذار أوّله.",
     },
+    arc: {
+      idea: "أوّل إنسان، وأوّل خطأ، وأوّل توبة — والطريق الذي فُتح بها لكل من بعده.",
+      setting:
+        "قبل أن يكون في الأرض إنسان، قال الله للملائكة: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. فخلق الله آدم من طين، ونفخ فيه من روحه، وعلّمه أسماء كل شيء — فكان العلم أوّل ما كُرِّم به الإنسان. ثم أمر الملائكة أن يسجدوا له فسجدوا كلهم، إلا إبليس ﴿أَبَىٰ وَاسْتَكْبَرَ﴾ وقال: ﴿أَنَا خَيْرٌ مِّنْهُ خَلَقْتَنِي مِن نَّارٍ وَخَلَقْتَهُ مِن طِينٍ﴾. فكان أوّل ذنب عُصي الله به كِبرًا.",
+      keyMoment:
+        "والآن قارن بين اثنين، فهنا قلب القصة. إبليس أخطأ، وآدم أخطأ. فأمّا إبليس فقال: ﴿فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ أَجْمَعِينَ﴾، وأصرّ ولم يرجع. وأمّا آدم فقال: ﴿رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾. لم يقل: الشيطان خدعني، ولم يقل: هي التي أعطتني. قال: ظلمنا أنفسنا. الذنب واحد في الحالتين، والفرق كله في ما جاء بعده.",
+      resolution:
+        "﴿فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾. ثم أنزله الله إلى الأرض ليعمرها، وقال له ولذريّته جميعًا: ﴿فَإِمَّا يَأْتِيَنَّكُم مِّنِّي هُدًى فَمَن تَبِعَ هُدَايَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ﴾. فأنت اليوم من ذريّة رجل أخطأ ثم تاب، وأنت تعرف الطريق لأنه مشى فيه أوّل مرّة.",
+      word: { term: "فَتَلَقَّىٰ كلمات", meaning: "تعلَّمها من ربّه ودعا بها — أي أن الله هو الذي علّمه كيف يعتذر إليه." },
+      lessons: [
+        "إذا أخطأتَ فقل: أنا أخطأتُ، ولا تبحث عمّن تلقي عليه اللوم.",
+        "الكِبر أوّل ذنب عُصي الله به؛ فاحذره ولو كنتَ على حقّ.",
+        "باب التوبة مفتوح دائمًا؛ فقد سمّى الله نفسه «التوّاب».",
+      ],
+      think:
+        "أخطأ إبليس وأخطأ آدم، فانتهى أحدهما إلى الرحمة والآخر إلى الطرد. ما الذي صنع الفرق في رأيك؟ وماذا تقول أنت عادةً بعد أن تخطئ؟",
+      tryToday:
+        "إذا أخطأتَ اليوم في حقّ أحد، فقل له: أنا آسف، أنا أخطأت — من غير أن تتبعها بـ«لكن».",
+    },
   },
   {
     chapter: "prophets", slug: "idris",
     en: {
       title: "Prophet Idris, the First to Write",
       hook:
-        "Do you like using a pen to write or draw? Did you know there was a prophet who was the very first person in history to write with a pen? Let's discover his amazing story!",
+        "About some people we know long stories; about others we know only a few words. Idris, peace be upon him, is one of these: two verses in the Quran, no more. So what did those two verses say, that they were enough?",
       events:
-        "Prophet Idris was a very smart and hardworking prophet. He loved learning and teaching people good things. He was the first person in history to write with a pen, and the first to sew clothes and wear them! Before him, people used to wear animal skins. Because he was so righteous, always remembering Allah, and working hard to spread knowledge, Allah honored him greatly and raised him to a very high place in the heavens.",
+        "Three words, then: truthful, a prophet, and among the patient. \"Siddiq\" is an intensive form of truthfulness — someone extremely truthful: true in what he says, true to what he promises, and true with his Lord, showing nothing but what is inside him. It is not a word said of just anyone; very few in the Quran are described with it. As for where Idris lived, in what age, who he was sent to, and what his people did with him — Allah told us none of that, and what the storybooks report about him is opinion, none of it established.",
       lesson:
-        "Allah loves those who learn new things, invent useful tools like clothes and writing, and use their knowledge to help others.",
+        "What is with Allah is reached through truthfulness and patience, not through how much people know about you.",
       next:
         "Idris loved learning. But what happens when people forget Allah and do bad things for a very long time? In our next story, a prophet built a massive ship on top of a mountain! It's Prophet Nuh!",
       quranProse:
@@ -1066,14 +1107,36 @@ export const stories: Story[] = [
         keepsake: "A reed pen",
         note: "A reminder that truthfulness raises a person, even when no one is watching.",
       },
+      arc: {
+        idea: "A prophet the Quran tells us nothing of but his qualities — and the qualities were the account.",
+        setting:
+          "Allah names Idris in exactly two places in the Quran, and in neither does He tell a story; He mentions qualities. He said: {And mention in the Book, Idris. Indeed, he was a man of truth and a prophet. And We raised him to a high station.} And in the other place: {And Ismail and Idris and Dhul-Kifl — all were of the patient.}",
+        keyMoment:
+          "Look at the order of the words in the verse; that is the most striking thing in it: {Indeed, he was a man of truth and a prophet. And We raised him to a high station.} The raising comes after the truthfulness, not before it. The high station was not given because he wished for it or asked for it, but because he was truthful and patient. That is how Allah raises whom He wills: by what is in the heart, not by what is in the hand, and not by what people say.",
+        resolution:
+          "So what is left to us of Idris? His name, three qualities, and a high station Allah raised him to. And that is a lesson in itself: what matters is not how much people know about you, but what Allah knows you for. How many people no one on earth has heard of stand in a high station with Allah. And how many famous ones are not mentioned with Him at all.",
+        word: { term: "A man of truth", meaning: "Someone extremely truthful: in what he says, in what he promises, and with his Lord." },
+        lessons: [
+          "Be truthful in small things so that you are known for truth in large ones.",
+          "Patience is a quality of prophets, not a quality of the weak.",
+          "Do not say about anyone what you do not know; the Quran was silent about Idris, and we have not added to it.",
+        ],
+        think:
+          "If you were described in one line, what quality would you want to be remembered for? And what are you doing today to actually be that?",
+        tryToday:
+          "Be truthful today in one place where lying would have been easier and lighter for you.",
+      },
     },
     image: "/stories/prophets/idris.jpg",
     title: "قصة سيدنا إدريس",
     surahName: "",
-    hook: "هل تحبون قول الصدق دائماً؟ نبينا اليوم كان مشهوراً جداً بصدقه، وكان يعلم الناس أشياء مفيدة جداً في حياتهم. فمن هو هذا النبي الطيب؟ تعالوا نتعرف على سيدنا إدريس.",
-    events: "جاء سيدنا إدريس عليه السلام بعد سيدنا آدم وسيدنا شيث. كان رجلاً طيباً يحب الله كثيراً، وكان دائماً يقول الصدق للناس ولا يكذب أبداً، لذلك سماه الله 'صِدِّيقاً'. كان سيدنا إدريس يدعو الناس لعبادة الله وحده، ويعلمهم الأخلاق الجميلة. ولأن الله كان يحبه كثيراً لصدقه وعمله الصالح، كافأه مكافأة عظيمة جداً، ورفعه إلى مكانة عالية ومرتفعة في السماء.",
+    hook:
+      "بعض الناس نعرف عنهم قصصًا طويلة، وبعضهم لا نعرف عنهم إلا كلمات. وسيدنا إدريس عليه السلام من هؤلاء: آيتان في القرآن، لا أكثر من ذلك. فماذا قالت الآيتان حتى كفتا؟",
+    events:
+      "ثلاث كلمات إذًا: صِدِّيق، ونبيّ، ومن الصابرين. و«صِدِّيق» صيغة مبالغة من الصدق، أي الكثير الصدق جدًّا: يصدق في كلامه، ويصدق فيما يَعِد به، ويصدق مع ربّه فلا يُظهر غير ما يُبطن. وليست كلمة تُقال لكل أحد؛ ما وُصف بها في القرآن إلا القليل. أمّا أين عاش إدريس، وفي أيّ زمان، وإلى من أُرسل، وماذا صنع قومه معه — فلم يخبرنا الله بشيء من ذلك، وما يُروى في كتب القصص عنه أقوالٌ لا يثبت منها شيء.",
     quranProse: "يقول الله تعالى في القرآن يمدح سيدنا إدريس: {وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ ۚ إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا * وَرَفَعْنَاهُ مَكَانًا عَلِيًّا}.",
-    lesson: "الصدق صفة يحبها الله جداً. إذا كنا صادقين مع عائلتنا وأصدقائنا، سيرفعنا الله درجات عالية، ويجعل الناس يحبوننا ويثقون بنا دائماً.",
+    lesson:
+      "ما عند الله يُنال بالصدق والصبر، لا بكثرة ما يعرفه الناس عنك.",
     next: "بعد سنوات طويلة، نسي الناس كلام الأنبياء وبدؤوا يعبدون الأصنام الحجرية التي لا تنفع ولا تضر! فأرسل الله إليهم نبياً عاش معهم ألف سنة إلا خمسين عاماً وبنى سفينة ضخمة! من هو؟ إنها قصة سيدنا نوح في المرة القادمة!",
     source: {
       reliability: "🟢",
@@ -1091,17 +1154,36 @@ export const stories: Story[] = [
       keepsake: "قلم من قصب",
       note: "يذكّرك أن الصدق يرفع صاحبه، ولو لم يره أحد.",
     },
+    arc: {
+      idea: "نبيٌّ لم يخبرنا القرآن عنه إلا صفاته — فكانت الصفات هي الخبر.",
+      setting:
+        "ذكر الله إدريس عليه السلام في موضعين اثنين فقط من القرآن، وفي كليهما لم يذكر لنا قصّة، بل ذكر صفات. قال: ﴿وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا * وَرَفَعْنَاهُ مَكَانًا عَلِيًّا﴾. وقال في الموضع الآخر: ﴿وَإِسْمَاعِيلَ وَإِدْرِيسَ وَذَا الْكِفْلِ كُلٌّ مِّنَ الصَّابِرِينَ﴾.",
+      keyMoment:
+        "وانظر إلى ترتيب الكلام في الآية، فهو أعجب ما فيها: ﴿إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا * وَرَفَعْنَاهُ مَكَانًا عَلِيًّا﴾. جاء الرفع بعد الصدق، لا قبله. فالمكان العليّ لم يُعطَه لأنه تمنّاه أو طلبه، بل لأنه كان صادقًا صابرًا. وهكذا يرفع الله من يشاء: بما في قلبه، لا بما في يده، ولا بما يقوله الناس عنه.",
+      resolution:
+        "فماذا بقي لنا من خبر إدريس؟ اسمه، وثلاث صفات، ومكانٌ عليّ رفعه الله إليه. وهذا في نفسه درس: ليس المهمّ كم يعرف الناس عنك، بل بماذا يعرفك الله. وكم من إنسان لا يعرفه أحد في الأرض، وهو عند الله في مكان عليّ. وكم من مشهور لا يُذكر عند الله بشيء.",
+      word: { term: "صِدِّيق", meaning: "كثير الصدق جدًّا: يصدق في قوله، وفي وعده، ومع ربّه." },
+      lessons: [
+        "اصدُق في الصغير حتى تُعرف بالصدق في الكبير.",
+        "الصبر صفة أنبياء، وليس صفة ضعفاء.",
+        "لا تقل عن أحد ما لا تعلم؛ فقد سكت القرآن عن خبر إدريس ولم نزد عليه.",
+      ],
+      think:
+        "لو وُصفتَ أنت في سطر واحد، فما الصفة التي تحبّ أن تُذكر بها؟ وما الذي تفعله اليوم لتكون فعلًا كذلك؟",
+      tryToday:
+        "اصدُق اليوم في موضع واحد كان الكذب فيه أسهل عليك وأخفّ.",
+    },
   },
   {
     chapter: "prophets", slug: "nuh",
     en: {
       title: "Prophet Nuh and the Great Ark",
       hook:
-        "Imagine building a giant ship on a mountain where there is no water at all! People would think it's crazy, right? But our prophet today did exactly that because he trusted Allah.",
+        "How many times do you repeat something before you give up? Twice? Ten times? In today's story a man said the same thing for nine hundred and fifty years. And every time, they put their fingers in their ears so they would not hear him.",
       events:
-        "Prophet Nuh (Noah) patiently advised his people to do good and worship Allah for 950 years! But most of them were stubborn and made fun of him. Allah commanded Nuh to build a huge wooden ship (an Ark). When the time came, water poured down from the sky and gushed from the ground, causing a great flood. Nuh took the believers and a pair of every kind of animal onto the Ark. The believers and the animals were saved, while the bad people who refused to listen were washed away. The ship finally rested safely on a mountain.",
+        "Nuh himself told us how he called them, in a surah that carries his name: {My Lord, indeed I invited my people night and day}, {Then I invited them publicly. Then I announced to them and confided to them secretly.} Night and day, openly and quietly — he tried every way he knew. And what did they do? {They put their fingers in their ears, covered themselves with their garments, persisted, and were arrogant with great arrogance.} Then Allah commanded him to build the ark, and he built it while they passed by him every day and mocked him.",
       lesson:
-        "We must always be patient, never give up on doing good, and trust Allah's commands even if other people make fun of us.",
+        "Your work is to do your part; the result was never your part.",
       next:
         "Nuh's ark saved the believers. In the next story, we will meet a very strong nation that built giant homes out of rocks, but they became too proud. Let's learn about Prophet Hud!",
       quranProse:
@@ -1117,14 +1199,36 @@ export const stories: Story[] = [
         keepsake: "A nail from the ark",
         note: "A reminder that someone calling to good does not measure success by how many answered.",
       },
+      arc: {
+        idea: "A thousand years less fifty, and one man who never tired of saying his one sentence.",
+        setting:
+          "Some time after Adam, people began worshipping other than Allah, so Allah sent Nuh, peace be upon him — the first messenger sent to the people of the earth. {And We certainly sent Nuh to his people, and he remained among them a thousand years minus fifty years.} Nine hundred and fifty years, with no army, no authority and no wealth — only words, and patience with them.",
+        keyMoment:
+          "Then the flood came. In the middle of the waves, Nuh called out to his son: {O my son, come aboard with us and be not with the disbelievers.} The son said: {I will take refuge on a mountain to protect me from the water.} Nuh said: {There is no protector today from the decree of Allah, except for whom He gives mercy.} {And the waves came between them.} The hardest moment in the whole story is not the flood or the drowning; it is a father calling his son, and the son not answering.",
+        resolution:
+          "Then Allah said: {And it was said, O earth, swallow your water, and O sky, withhold. And the water subsided, and the matter was accomplished.} Nuh and those with him came down to the earth again and settled it. Nine hundred and fifty years of calling produced only a few — {and none had believed with him, except a few} — and from those few came all of humanity afterwards. Anyone measuring Nuh's success by the count was measuring wrong.",
+        word: { term: "The ark", meaning: "The ship; in Arabic the same word serves for one and for many." },
+        lessons: [
+          "Do not measure your success by how many people responded to you.",
+          "Carry on with good even when people mock you; Nuh built the ship while they laughed.",
+          "Being related to someone righteous does not save you if you do nothing; Nuh's son was not saved by his lineage.",
+        ],
+        think:
+          "Nuh called people for centuries and only a few answered, and he never stopped. What is something you tried again and again without it working? What made you keep going, or stop?",
+        tryToday:
+          "Try once more today at something you gave up on because it did not work the first time.",
+      },
     },
     image: "/stories/prophets/nuh.jpg",
     title: "قصة سيدنا نوح (شيخ المرسلين)",
     surahName: "",
-    hook: "تخيلوا معي.. رجل عجوز وطيب جداً، يجمع الأخشاب ويبني سفينة عملاااااقة في وسط الصحراء الرملية! لا يوجد بحر ولا نهر! وكلما مر عليه الناس ضحكوا منه.. فهل كان مخطئاً؟ تعالوا نتعرف على قصة شيخ المرسلين، سيدنا نوح.",
-    events: "سيدنا نوح هو أول رسول يُبعث إلى أهل الأرض بعد أن بدأ الناس يعبدون الأصنام. ظل سيدنا نوح ينصح قومه لفترة طويييييلة جداً، ألف سنة إلا خمسين عاماً، يدعوهم في الليل والنهار، والسر والعلن! لكنهم كانوا يضعون أصابعهم في آذانهم ويغطون وجوههم بملابسهم حتى لا يسمعوه. أمر الله نوحاً أن يبني سفينة ضخمة. ولما انتهى منها، أمره الله أن يأخذ معه المؤمنين، وزوجين من كل نوع من الحيوانات. وفجأة، نزل مطر غزير جداً وانفجرت الأرض بالماء (الطوفان العظيم)! غرق كل الأشرار الذين سخروا منه، وحتى ابن نوح غرق لأنه لم يسمع كلام أبيه، ونجا المؤمنون والحيوانات في السفينة بأمان.",
+    hook:
+      "كم مرّة تعيد الكلام قبل أن تملّ؟ مرّتين؟ عشرًا؟ في قصة اليوم رجلٌ ظلّ يقول الكلام نفسه تسعمائة وخمسين سنة. وفي كل مرّة كانوا يضعون أصابعهم في آذانهم حتى لا يسمعوه.",
+    events:
+      "وقد حكى لنا نوح بنفسه كيف دعاهم، في سورة تحمل اسمه: ﴿رَبِّ إِنِّي دَعَوْتُ قَوْمِي لَيْلًا وَنَهَارًا﴾، ﴿ثُمَّ إِنِّي دَعَوْتُهُمْ جِهَارًا * ثُمَّ إِنِّي أَعْلَنتُ لَهُمْ وَأَسْرَرْتُ لَهُمْ إِسْرَارًا﴾ — ليلًا ونهارًا، وجهرًا وسرًّا؛ جرّب كل طريقة يعرفها. فماذا كانوا يفعلون؟ ﴿جَعَلُوا أَصَابِعَهُمْ فِي آذَانِهِمْ وَاسْتَغْشَوْا ثِيَابَهُمْ وَأَصَرُّوا وَاسْتَكْبَرُوا اسْتِكْبَارًا﴾. ثم أمره الله أن يصنع الفُلك، فصار يصنعها وهم يمرّون عليه كل يوم فيسخرون منه.",
     quranProse: "يقول الله تعالى يصف لنا المدة الطويلة التي قضاها سيدنا نوح مع قومه: {فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا فَأَخَذَهُمُ الطُّوفَانُ وَهُمْ ظَالِمُونَ}.",
-    lesson: "نتعلم من سيدنا نوح 'الصبر' العظيم، فقد صبر مئات السنين ولم ييأس! ونتعلم أيضاً ألا نسخر من أحد، وأن نسمع كلام الله وكلام والدينا دائماً حتى نكون في أمان.",
+    lesson:
+      "عملك أن تفعل ما عليك، وأمّا النتيجة فليست عليك.",
     next: "بعد نجاة المؤمنين من الطوفان العظيم، استقرت البشرية وكثر الناس في شبه الجزيرة العربية، وظهرت قبيلة قوية جداً يبنون خياماً وأعمدة ضخمة! فأرسل الله لهم نبياً كريماً، إنه سيدنا هود!",
     source: {
       reliability: "🟢",
@@ -1142,17 +1246,36 @@ export const stories: Story[] = [
       keepsake: "مسمار من السفينة",
       note: "يذكّرك أن الداعي إلى الخير لا يقيس نجاحه بعدد من استجاب.",
     },
+    arc: {
+      idea: "ألف سنة إلا خمسين، ورجلٌ واحد لم يتعب من أن يقول كلمته.",
+      setting:
+        "بعد آدم بزمن، بدأ الناس يعبدون غير الله، فأرسل الله نوحًا عليه السلام، وهو أوّل رسول أُرسل إلى أهل الأرض. ﴿وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا﴾. تسعمائة وخمسون سنة، لم يكن معه فيها جيش ولا سلطان ولا مال — كلامٌ فقط، وصبرٌ عليه.",
+      keyMoment:
+        "ثم جاء الطوفان. وفي وسط الموج نادى نوحٌ ابنه: ﴿يَا بُنَيَّ ارْكَب مَّعَنَا وَلَا تَكُن مَّعَ الْكَافِرِينَ﴾. فقال الابن: ﴿سَآوِي إِلَىٰ جَبَلٍ يَعْصِمُنِي مِنَ الْمَاءِ﴾ — سألجأ إلى جبل يحميني. فقال نوح: ﴿لَا عَاصِمَ الْيَوْمَ مِنْ أَمْرِ اللَّهِ إِلَّا مَن رَّحِمَ﴾، ﴿وَحَالَ بَيْنَهُمَا الْمَوْجُ﴾. وأصعب لحظة في القصة كلها ليست الطوفان ولا الغرق؛ هي أبٌ ينادي ابنه فلا يجيبه.",
+      resolution:
+        "ثم قال الله: ﴿وَقِيلَ يَا أَرْضُ ابْلَعِي مَاءَكِ وَيَا سَمَاءُ أَقْلِعِي وَغِيضَ الْمَاءُ وَقُضِيَ الْأَمْرُ﴾. ونزل نوح ومن معه إلى الأرض من جديد فعمروها. تسعمائة وخمسون سنة من الدعوة لم تأتِ إلا بعدد قليل — ﴿وَمَا آمَنَ مَعَهُ إِلَّا قَلِيلٌ﴾ — ومن هذا القليل جاء الناس كلهم بعد ذلك. فمن كان يقيس نجاح نوح بالعدد كان مخطئًا.",
+      word: { term: "الفُلْك", meaning: "السفينة؛ وتُقال للواحدة وللكثير بلفظ واحد." },
+      lessons: [
+        "لا تقِس نجاحك بعدد من استجاب لك.",
+        "امضِ في الخير ولو سخر منك الناس؛ كان نوح يصنع السفينة وهم يضحكون.",
+        "قرابتك من صالح لا تنفعك إن لم تعمل؛ فابن نوح لم ينجُ بنسبه.",
+      ],
+      think:
+        "ظلّ نوح يدعو قرونًا ولم يستجب له إلا قليل، ولم يتوقّف. ما الشيء الذي حاولتَه مرارًا ولم ينجح؟ وما الذي جعلك تستمرّ فيه أو تتركه؟",
+      tryToday:
+        "أعِد اليوم محاولةً واحدة كنتَ قد تركتها لأنها لم تنجح من أوّل مرّة.",
+    },
   },
   {
     chapter: "prophets", slug: "hud",
     en: {
       title: "Prophet Hud and the Strong Nation",
       hook:
-        "Have you ever seen super tall buildings? Today we'll talk about people who were incredibly tall and strong, and built massive stone towers. But did their strength save them?",
+        "What happens to a people Allah gave everything: strength, wealth, building, wide land? In today's story, a people who were the strongest of their age said one sentence that finished them: {Who is greater than us in strength?}",
       events:
-        "Prophet Hud was sent to a nation called 'Aad. They were giants, very strong, and lived in a place called Iram, full of huge stone pillars. But instead of thanking Allah for their strength, they became arrogant bullies and worshipped statues. Prophet Hud kindly advised them, saying, 'Ask Allah for forgiveness, and He will make you even stronger!' But they laughed at him. So, Allah sent a severe, freezing wind that blew for seven nights and eight days, destroying the arrogant bullies, but saving Prophet Hud and the good believers.",
+        "Hud stood among them saying: {O my people, worship Allah; you have no deity other than Him}, then reminded them of what they had: {And remember when He made you successors after the people of Nuh and increased you in stature extensively.} And he asked them for no payment: {My reward is only from the One who created me.} And what did they answer? {They said, O Hud, you have not brought us clear evidence, and we are not ones to leave our gods on your say-so, nor are we believers in you.} They accused him of foolishness: {Indeed, we see you in foolishness, and indeed, we think you are of the liars.}",
       lesson:
-        "No matter how strong or smart we are, we should never be bullies. We must always be thankful to Allah for our strength and use it for good.",
+        "Strength does not protect the one who has it from Allah; what protects him is knowing who gave it to him.",
       next:
         "The strong people of 'Aad were destroyed by wind. Our next story features people who carved their homes directly into solid mountains! And their miracle was a giant camel! It's Prophet Salih!",
       quranProse:
@@ -1168,14 +1291,36 @@ export const stories: Story[] = [
         keepsake: "A grain of sand",
         note: "A reminder that the strongest bodies cannot stand before a wind from Allah.",
       },
+      arc: {
+        idea: "The strongest people of their age asked, who is greater than us in strength? And the answer came from where they never looked.",
+        setting:
+          "The people of Aad were a tribe who lived in Al-Ahqaf, a land of sand mountains. They had been given strength in their bodies and in their building that no one else had been given, until Allah said of their city: {Iram, who had lofty pillars, the like of whom had never been created in the land.} They would build a monument on every high place to amuse themselves, and take fortresses as if they would live forever. So Allah sent them their brother Hud.",
+        keyMoment:
+          "And here they said the sentence the story turns on: {As for Aad, they were arrogant upon the earth without right and said, Who is greater than us in strength?} Who is greater than us in strength? And Allah answered them in the same verse, in the shortest possible reply: {Did they not consider that Allah who created them was greater than them in strength?} Their question was a boast, and its answer was on the same line.",
+        resolution:
+          "Then they saw a cloud coming towards their valleys, and rejoiced: {This is a cloud bringing us rain.} Allah said: {Rather, it is that for which you were impatient: a wind containing a painful punishment.} A {screaming, violent wind} which Allah imposed upon them {for seven nights and eight days in succession}. The people who said \"who is greater than us in strength\" were destroyed by air — the thing no one can see or hold.",
+        word: { term: "A screaming wind", meaning: "A bitterly cold wind that makes a loud sound in its violence." },
+        lessons: [
+          "If Allah gives you strength, remember who gave it, and never say \"I am the greater.\"",
+          "Do not be fooled by buildings or wealth; Aad built what had never been built, and they are gone.",
+          "What you rejoice at may be a test; they thought the cloud was rain, and it was not.",
+        ],
+        think:
+          "The people of Aad rejoiced at the cloud because they thought it was rain. Have you ever been glad about something that turned out not to be what you thought? What did you learn from it?",
+        tryToday:
+          "Name three blessings you have today, and with each one say: this is from Allah, not from me.",
+      },
     },
     image: "/stories/prophets/hud.jpg",
     title: "قصة سيدنا هود وقوم عاد",
     surahName: "",
-    hook: "هل رأيتم أبطالاً خارقين في القصص يمتلكون قوة بدنية هائلة؟ في الماضي، كانت هناك قبيلة حقيقية قوية جداً، طوال القامة ويبنون بيوتاً ضخمة، لكنهم اغتروا بقوتهم وقالوا 'من أشد منا قوة؟'. فماذا حدث لهم؟ تعالوا نسمع قصة سيدنا هود.",
-    events: "أرسل الله سيدنا هوداً إلى قبيلة اسمها (عاد)، كانوا يسكنون في منطقة جبال رملية تسمى الأحقاف. أعطاهم الله نعماً كثيرة وقوة بدنية هائلة، فصنعوا حضارة كبيرة. لكنهم بدلاً من أن يشكروا الله، صنعوا أصناماً وعبدوها. كان سيدنا هود ينصحهم بلطف ويقول لهم: اذكروا نعم الله عليكم واعبدوه. لكنهم سخروا منه واتهموه بالجنون والسفاهة. ولأنهم أصروا على العناد وتحدوا الله، أرسل الله عليهم رياحاً قوية جداً ومخيفة (ريحاً صرصراً عاتية) استمرت سبع ليال وثمانية أيام! دمرت الرياح بيوتهم وأهلكت الأشرار، ونجا سيدنا هود والمؤمنون الطيبون.",
+    hook:
+      "ماذا يحدث لقومٍ أعطاهم الله كل شيء: القوّة، والمال، والبناء، والأرض الواسعة؟ في قصة اليوم قومٌ كانوا أقوى أهل زمانهم، وقالوا كلمة واحدة أنهت أمرهم: ﴿مَنْ أَشَدُّ مِنَّا قُوَّةً﴾.",
+    events:
+      "وقف فيهم هودٌ عليه السلام يقول: ﴿يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ﴾، ثم ذكّرهم بما هم فيه: ﴿وَاذْكُرُوا إِذْ جَعَلَكُمْ خُلَفَاءَ مِن بَعْدِ قَوْمِ نُوحٍ وَزَادَكُمْ فِي الْخَلْقِ بَسْطَةً﴾. ولم يطلب منهم أجرًا: ﴿إِنْ أَجْرِيَ إِلَّا عَلَى الَّذِي فَطَرَنِي﴾. فماذا أجابوه؟ ﴿قَالُوا يَا هُودُ مَا جِئْتَنَا بِبَيِّنَةٍ وَمَا نَحْنُ بِتَارِكِي آلِهَتِنَا عَن قَوْلِكَ وَمَا نَحْنُ لَكَ بِمُؤْمِنِينَ﴾. واتّهموه بالسفه، وقالوا: ﴿إِنَّا لَنَرَاكَ فِي سَفَاهَةٍ وَإِنَّا لَنَظُنُّكَ مِنَ الْكَاذِبِينَ﴾.",
     quranProse: "يقول الله تعالى: {وَأَمَّا عَادٌ فَأُهْلِكُوا بِرِيحٍ صَرْصَرٍ عَاتِيَةٍ * سَخَّرَهَا عَلَيْهِمْ سَبْعَ لَيَالٍ وَثَمَانِيَةَ أَيَّامٍ حُسُومًا}.",
-    lesson: "مهما كنا أقوياء أو أذكياء، يجب ألا نتكبر على الآخرين أو ننسى أن الله هو من أعطانا هذه القوة. الشكر المتواصل لله يحفظ لنا النعم.",
+    lesson:
+      "القوّة لا تحمي صاحبها من الله؛ إنما يحميه أن يعرف من أعطاه إيّاها.",
     next: "بعد قوم عاد، جاءت قبيلة أخرى عاشوا في بيوت نحتوها داخل صخور الجبال! وطلبوا معجزة غريبة جداً، فخرجت لهم ناقة ضخمة من صخرة! من هم؟ هذا ما سنعرفه في قصة سيدنا صالح القادمة!",
     source: {
       reliability: "🟢",
@@ -1193,17 +1338,36 @@ export const stories: Story[] = [
       keepsake: "حبة رمل",
       note: "تذكّرك أن أقوى الأجساد لا تقف أمام ريح من الله.",
     },
+    arc: {
+      idea: "أقوى أهل زمانهم قالوا: من أشدّ منّا قوّة؟ فجاءهم الجواب من حيث لم يحسبوا.",
+      setting:
+        "قوم عاد قبيلة سكنت الأحقاف، وهي أرض فيها جبال من الرمل. وكانوا قد أُعطوا من القوّة في أجسادهم وفي بنائهم ما لم يُعطَ غيرهم، حتى قال الله عن مدينتهم: ﴿إِرَمَ ذَاتِ الْعِمَادِ * الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ﴾. وكانوا يبنون في كل مكان مرتفع بناءً يلعبون فيه، ويتّخذون المصانع كأنهم يخلدون. فأرسل الله إليهم أخاهم هودًا.",
+      keyMoment:
+        "وهنا قالوا الكلمة التي تدور عليها القصة: ﴿فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً﴾. من أشدّ منّا قوّة؟ فردّ الله عليهم في الآية نفسها بأقصر جواب ممكن: ﴿أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً﴾. سؤالهم كان فخرًا، وجوابه كان في السطر نفسه.",
+      resolution:
+        "ثم رأوا سحابةً مقبلة نحو أوديتهم، ففرحوا وقالوا: ﴿هَٰذَا عَارِضٌ مُّمْطِرُنَا﴾ — هذا مطر سيأتينا. فقال الله: ﴿بَلْ هُوَ مَا اسْتَعْجَلْتُم بِهِ رِيحٌ فِيهَا عَذَابٌ أَلِيمٌ﴾. ريح ﴿صَرْصَرٍ عَاتِيَةٍ﴾ سخّرها الله عليهم ﴿سَبْعَ لَيَالٍ وَثَمَانِيَةَ أَيَّامٍ حُسُومًا﴾. القوم الذين قالوا «من أشدّ منّا قوّة» أهلكهم الهواء — وهو الشيء الذي لا يُرى ولا يُمسك.",
+      word: { term: "رِيحٌ صَرْصَر", meaning: "ريح شديدة البرد، لها صوت عالٍ في شدّتها." },
+      lessons: [
+        "إذا أعطاك الله قوّة فاذكر من أعطاك، ولا تقل: أنا أشدّ.",
+        "لا تغترّ ببناء ولا بمال؛ فقد بنى قوم عاد ما لم يُبنَ مثله وذهبوا.",
+        "ما تفرح به قد يكون اختبارًا؛ ظنّوا السحابة مطرًا فكانت غير ذلك.",
+      ],
+      think:
+        "فرح قوم عاد بالسحابة لأنهم ظنّوها مطرًا. هل فرحتَ يومًا بشيء ثم تبيّن أنه لم يكن كما ظننت؟ ماذا تعلّمتَ منه؟",
+      tryToday:
+        "اذكر اليوم ثلاث نعم عندك، وقل عند كل واحدة: هذه من الله لا منّي.",
+    },
   },
   {
     chapter: "prophets", slug: "saleh",
     en: {
       title: "Prophet Salih and the Giant Camel",
       hook:
-        "Can a giant, beautiful camel come out of a solid rock? For Allah, it's easy! Let's hear the amazing story of Prophet Salih and his stubborn people.",
+        "The hardest people to call are the ones who have known you since you were small. The people of Salih knew him, and had hoped he would become a great man among them — until they said to him one day: you were our hope before you started saying this.",
       events:
-        "After the people of 'Aad, came a nation called Thamud. They were amazing builders who carved their homes right into the mountains! Prophet Salih told them to worship Allah. They said they would only believe him if he could bring a pregnant, giant camel out of a solid rock. Salih prayed, and a magical camel stepped right out of the mountain! Salih told them to share their water with her and never hurt her. But they broke the promise and harmed the camel. Because of their cruelty, a mighty blast from the sky destroyed the bad people, and Salih and the believers were saved.",
+        "He said to them: {O my people, worship Allah; you have no deity other than Him}, and reminded them of the blessing they were in: {And you carve out of the mountains, homes, with skill.} They asked him for a sign that he was truthful, and the she-camel came — the commentators say she came out of a rock for them, which is not in the Quran. He said: {This is the she-camel of Allah, a sign for you. So leave her to eat in Allah's earth and do not touch her with harm.} The people split: the weak among them believed, and their chiefs grew arrogant and said to the believers: {Indeed we, in that which you have believed, are disbelievers.}",
       lesson:
-        "We learn that we must keep our promises, be kind to animals, and never challenge Allah's miracles.",
+        "Whoever advises you cares about you, even when their words sit heavily on your ear.",
       next:
         "We learned about the giant camel of Salih. Next we meet a prophet who taught a whole city of traders to stop cheating with their scales. It's Prophet Shu'ayb!",
       quranProse:
@@ -1219,19 +1383,41 @@ export const stories: Story[] = [
         keepsake: "The camel's bell",
         note: "A reminder that kindness to animals is part of faith, and cruelty never passes unnoticed.",
       },
+      arc: {
+        idea: "A prophet from among his own people, who called them and was hurt by them, and then grieved for them once they were gone.",
+        setting:
+          "Thamud were a people who came after Aad. They lived in a land called Al-Hijr and carved their houses into the mountains. Allah sent them Salih, peace be upon him, one of their own: {And to Thamud, their brother Salih.} Their brother — one of them, whose honesty and trustworthiness they knew. They had even pinned their hopes on him, until they said to him after he called them: {You were among us one in whom hope was placed before this.}",
+        keyMoment:
+          "Then they hamstrung the camel. And having done it, they came back to Salih to challenge him: {O Salih, bring us what you promise us, if you are of the messengers.} Allah gave them three days. Three days watching the sun rise and set knowing what was waiting for them, and not one of them turned back. Then the earthquake seized them {and they became within their home corpses fallen prone}. The challenge neither hurried Allah's decree nor delayed it.",
+        resolution:
+          "And here is the most remarkable thing in the whole story. Salih did not rejoice that Allah had avenged him on the people who denied him, hurt him and mocked him. Allah says of him: {And he turned away from them and said, O my people, I had certainly conveyed to you the message of my Lord and advised you, but you do not like advisers.} He said it grieving for them, calling them \"my people\" after they were gone. A prophet does not gloat over whoever opposed him; he grieves for them.",
+        word: { term: "One in whom hope was placed", meaning: "Someone people expect good from and pin their hopes on — what they said of Salih before he called them." },
+        lessons: [
+          "The advice that sits heaviest may be the most useful; do not resent whoever gives it.",
+          "Challenging Allah's decree neither hurries it nor delays it.",
+          "Do not gloat over whoever went wrong; Salih grieved for his people after they were gone.",
+        ],
+        think:
+          "Salih said: \"but you do not like advisers.\" When did someone last advise you in a way that stung? Did it later turn out they were right?",
+        tryToday:
+          "Thank someone today who once gave you advice you did not like at the time, and that turned out to be right.",
+      },
     },
     image: "/stories/prophets/saleh.jpg",
     title: "قصة سيدنا صالح وقوم ثمود",
     surahName: "",
-    hook: "هل تستطيعون الحفر في صخرة صلبة؟ هناك قوم في الماضي كانوا ينحتون بيوتاً كاملة وجميلة داخل الجبال الصخرية! لكنهم طلبوا من نبيهم أن يخرج لهم حيواناً كبيراً حياً من وسط الصخرة! كيف حدثت هذه المعجزة؟",
-    events: "أرسل الله سيدنا صالحاً إلى قبيلة (ثمود)، وكانوا يعيشون في منطقة تسمى الحِجر. كانوا فنانين في نحت الصخور، لكنهم للأسف كانوا يعبدون الأصنام. طلبوا من سيدنا صالح معجزة لكي يصدقوه، فدعا الله، وانشقت صخرة كبيرة أمامهم وخرجت منها 'ناقة' جميلة وضخمة! فرح بعض الناس وآمنوا، وأمرهم سيدنا صالح ألا يؤذوا الناقة أبداً وأن يقتسموا معها ماء البئر. لكن الأشرار خططوا سراً وقاموا بقتل الناقة الطيبة! غضب الله لظلمهم وإيذائهم لمعجزته، فأرسل عليهم صوتاً عالياً ومخيفاً جداً (الصيحة) وزلزالاً (الرجفة)، فأهلك الأشرار جميعاً، ونجا سيدنا صالح ومن آمن معه.",
+    hook:
+      "أصعب دعوة أن تدعو من يعرفك منذ كنتَ صغيرًا. قوم صالح كانوا يعرفونه، وكانوا يرجون أن يكون منهم رجلًا عظيمًا، حتى قالوا له يومًا: كنتَ رجاءنا قبل أن تقول هذا الكلام.",
+    events:
+      "قال لهم: ﴿يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ﴾، وذكّرهم بما هم فيه من نعمة: ﴿وَتَنْحِتُونَ مِنَ الْجِبَالِ بُيُوتًا فَارِهِينَ﴾. فطلبوا منه آية تدلّ على صدقه، فجاءتهم الناقة — ويذكر المفسّرون أنها خرجت لهم من صخرة، وليس ذلك في القرآن. وقال لهم: ﴿هَٰذِهِ نَاقَةُ اللَّهِ لَكُمْ آيَةً فَذَرُوهَا تَأْكُلْ فِي أَرْضِ اللَّهِ وَلَا تَمَسُّوهَا بِسُوءٍ﴾. فانقسم القوم: آمن ضعفاؤهم، واستكبر كبراؤهم وقالوا للمؤمنين: ﴿إِنَّا بِالَّذِي آمَنتُم بِهِ كَافِرُونَ﴾.",
     quranProse: "يقول الله تعالى: {فَأَخَذَتْهُمُ الرَّجْفَةُ فَأَصْبَحُوا فِي دَارِهِمْ جَاثِمِينَ}، أي سقطوا في بيوتهم بلا حراك.",
-    lesson: "يجب أن نكون أوفياء بوعودنا، وأن نرحم الحيوانات ولا نؤذيها. فظلم الآخرين أو التعدي على حقوقهم يغضب الله كثيراً ويؤدي إلى النهاية السيئة.",
+    lesson:
+      "من نصحك فقد أحبّك، وإن كان كلامه ثقيلًا على أذنك.",
     next: "بعد هؤلاء الأنبياء العظماء، سيأتي نبي كريم جداً، لُقب بـ 'أبو الأنبياء'، وهو الذي بنى الكعبة المشرفة وحطم أصنام قومه وهو شاب صغير! هل عرفتموه؟ إنه خليل الرحمن، سيدنا إبراهيم!",
     source: {
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأعراف: 73-79 وهود: 61-68 والشمس: 11-15", en: "The Quran, Al-A'raf: 73-79, Hud: 61-68, Ash-Shams: 11-15" },
-      note: { ar: "الناقة وعقرها وعاقبة ثمود، كله بنص الآيات.", en: "The she-camel, its hamstringing and the end of Thamud are all in the verses." },
+      note: { ar: "الناقة وعقرها وإمهالهم ثلاثًا وعاقبة ثمود، كله بنص الآيات. أما خروجها من صخرة فقول للمفسرين ليس في القرآن، ولذلك نُسب إليهم في نص القصة.", en: "The she-camel, its hamstringing, the three days' respite and the end of Thamud are all in the verses. Her coming out of a rock is a commentators' account, not in the Quran, which is why the story attributes it to them." },
     },
     challenge: {
       question: "ما الآية التي أعطاها الله لقوم ثمود؟",
@@ -1244,17 +1430,36 @@ export const stories: Story[] = [
       keepsake: "جرس الناقة",
       note: "يذكّرك أن الرفق بالحيوان من الإيمان، وأن الظلم لا يمرّ.",
     },
+    arc: {
+      idea: "نبيٌّ من قومه، دعاهم فآذَوه، ثم حزن عليهم بعد أن هلكوا.",
+      setting:
+        "ثمود قومٌ جاءوا بعد عاد، سكنوا أرضًا تُسمّى الحِجر، وكانوا ينحتون بيوتهم في الجبال نحتًا. فأرسل الله إليهم صالحًا عليه السلام، وهو منهم: ﴿وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَالِحًا﴾. أخاهم — أي واحدًا منهم، يعرفونه ويعرفون صدقه وأمانته. بل كانوا يعلّقون عليه آمالهم، حتى قالوا له بعد أن دعاهم: ﴿قَدْ كُنتَ فِينَا مَرْجُوًّا قَبْلَ هَٰذَا﴾.",
+      keyMoment:
+        "ثم عقروا الناقة. وبعد أن فعلوا، رجعوا إلى صالح يتحدّونه: ﴿يَا صَالِحُ ائْتِنَا بِمَا تَعِدُنَا إِن كُنتَ مِنَ الْمُرْسَلِينَ﴾. فأمهلهم الله ثلاثة أيام. ثلاثة أيام يرون فيها الشمس تطلع وتغرب وهم يعلمون ما ينتظرهم، ولم يرجع منهم أحد. ثم أخذتهم الرجفة ﴿فَأَصْبَحُوا فِي دَارِهِمْ جَاثِمِينَ﴾. والتحدّي لم يقدّم الأمر ولم يؤخّره.",
+      resolution:
+        "وهنا أعجب ما في القصة كلها. لم يفرح صالح بأن الله انتقم له ممّن كذّبوه وآذَوه وسخروا منه. بل قال الله عنه: ﴿فَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَا قَوْمِ لَقَدْ أَبْلَغْتُكُمْ رِسَالَةَ رَبِّي وَنَصَحْتُ لَكُمْ وَلَٰكِن لَّا تُحِبُّونَ النَّاصِحِينَ﴾. قالها وهو حزين عليهم، وناداهم «يا قوم» بعد أن هلكوا. فالنبيّ لا يشمت بمن خالفه؛ إنما يحزن عليه.",
+      word: { term: "مَرْجُوًّا", meaning: "من يُرجى منه الخير ويُعلَّق عليه الأمل — قالوها لصالح قبل أن يدعوهم." },
+      lessons: [
+        "أثقل النصيحة على الأذن قد تكون أنفعها؛ فلا تكره من ينصحك.",
+        "التحدّي لا يقدّم أمر الله ولا يؤخّره.",
+        "لا تشمت بمن أخطأ؛ فقد حزن صالح على قومه بعد هلاكهم.",
+      ],
+      think:
+        "قال صالح: «ولكن لا تحبّون الناصحين». متى آخر مرّة نصحك أحد فضايقك كلامه؟ وهل تبيّن لك بعد ذلك أنه كان على حقّ؟",
+      tryToday:
+        "اشكر اليوم شخصًا نصحك يومًا بشيء لم يعجبك وقتها، ثم ظهر لك أنه كان صوابًا.",
+    },
   },
   {
     chapter: "prophets", slug: "shuaib",
     en: {
       title: "Prophet Shu'ayb and the Honest Scales",
       hook:
-        "Imagine going to a market to buy some delicious apples, but the seller tricks you and gives you less than what you paid for! Our prophet today tried to stop this bad cheating.",
+        "Can cheating on a scale be a matter of religion? In today's story, Allah sent a prophet to a people whose first problem was not their prayer… it was their weights and measures. And he tied the two together in a single sentence.",
       events:
-        "Prophet Shu'ayb was an excellent speaker. He was sent to the people of Madyan, who were rich traders but very greedy. They used to cheat people by tampering with the weighing scales, giving them less and taking more. Prophet Shu'ayb told them to worship Allah and to be honest in their trade. He said, 'Do not cheat people out of their things!' But they laughed at him and threatened to kick him out of the city. Because they refused to be honest, a terrible earthquake and a dark cloud of punishment destroyed the cheaters, while Shu'ayb and the good people were saved.",
+        "He said to them: {O my people, worship Allah; you have no deity other than Him. And do not decrease from the measure and the scale.} He joined the two in one breath: worship of Allah, and honesty on the scale. Then: {And O my people, give full measure and weight in justice and do not deprive the people of their due and do not commit abuse on the earth, spreading corruption.} Then a beautiful line: {What remains from Allah is best for you, if you are believers} — the little left to you from what is lawful is better than the much you take without right.",
       lesson:
-        "We must always be honest, especially when trading or sharing things. Cheating people and being greedy is a big sin that Allah dislikes.",
+        "Your honesty in buying and selling is part of your religion, not something outside it.",
       next:
         "Prophet Shu'ayb taught us honesty. In our next story, we will meet a brave young man who stood alone against an entire city of idol worshippers, and even a massive fire couldn't burn him! It's Prophet Ibrahim!",
       quranProse:
@@ -1270,14 +1475,36 @@ export const stories: Story[] = [
         keepsake: "A small balance",
         note: "A reminder that trustworthiness shows in small things before large ones.",
       },
+      arc: {
+        idea: "A prophet who called his people to honest scales, and they asked him: what does your prayer have to do with our money?",
+        setting:
+          "Madyan was a town on the trade road; its people were merchants and their wealth came from buying and selling. They worshipped other than Allah, and did something else besides: they shorted the measure and the scale — taking in full and giving back less — and sat on the roads frightening travellers. So Allah sent them Shuaib, peace be upon him, so eloquent and clear in speech that he was called the orator of the prophets.",
+        keyMoment:
+          "And what did they answer? They said something worth stopping at for a long while: {O Shuaib, does your prayer command you that we should leave what our fathers worship or not do with our wealth what we please?} Does your prayer tell you to interfere with our money? As if to say: you go and pray, and leave our trade to us. And the answer is inside their own question: yes. Prayer instructs the one who prays how to weigh, how to sell, how to take. Religion is not one thing in the mosque and another in the marketplace.",
+        resolution:
+          "Then they threatened him: {And if not for your family, we would have stoned you, and you are not to us one respected.} He said: {Is my family more respected for power by you than Allah?} They persisted in what they were doing, and what came, came: {So the earthquake seized them, and they became within their home corpses fallen prone.} Allah saved Shuaib and those who believed with him. And those who feared their wealth would shrink if they measured fairly — all of their wealth was gone.",
+        word: { term: "Depriving", meaning: "Cutting people short of their due, giving them less than belongs to them." },
+        lessons: [
+          "Do not take what is not yours, even something small that no one would notice.",
+          "Religion walks into the marketplace as surely as it walks into the mosque.",
+          "A little that is lawful beats a lot that is not; \"what remains from Allah is best for you.\"",
+        ],
+        think:
+          "They told Shuaib: our money is ours, we do what we like with it. Are there things you think of as \"your business alone\" that religion may have something to say about?",
+        tryToday:
+          "If you have something today that you borrowed or took that is not yours, give it back whole, exactly as you took it.",
+      },
     },
     image: "/stories/prophets/shuaib.jpg",
     title: "قصة سيدنا شعيب (خطيب الأنبياء)",
     surahName: "",
-    hook: "تخيلوا أن تذهبوا إلى السوق لتشتروا عشر تفاحات، فيقوم البائع بخداعكم ويعطيكم ثماني تفاحات فقط ويأخذ ثمن العشرة! هذا غش وتصرف سيء جداً، أليس كذلك؟ نبينا اليوم جاء ليعلم الناس كيف يكونون صادقين في البيع والشراء.",
-    events: "أرسل الله سيدنا شعيباً إلى أهل مَدْيَن وإلى أصحاب الأيكة (والأيكة هي شجر كثير وكثيف كانوا يعبدونه من دون الله). كان سيدنا شعيب فصيحاً جداً ومرتباً في كلامه، ولذلك لُقب بـ 'خطيب الأنبياء'. كانت مشكلة قومه الأساسية هي الفساد الاقتصادي؛ فكانوا يغشون في الميزان، ويسرقون أموال الناس (يبخسون الناس أشياءهم)، ويقطعون الطرق لإخافة المسافرين. نصحهم سيدنا شعيب كثيراً وتحدث معهم بلطف، لكنهم كذبوه وأصروا على الغش وعبادة الشجر. فعاقبهم الله بعذاب اسمه (يوم الظُّلَّة)؛ حيث سلط عليهم حراً شديداً جداً، فخرجوا يبحثون عن ظل تحت سحابة كبيرة، فظنوا أنها ستحميهم، لكنها أمطرت عليهم ناراً فهلكوا جميعاً.",
+    hook:
+      "هل يمكن أن يكون الغشّ في الميزان مسألة دين؟ في قصة اليوم نبيٌّ أرسله الله إلى قوم لم تكن أوّل مشكلتهم في صلاتهم… بل في الكيل والميزان. وقد ربط لهم بين الاثنين في جملة واحدة.",
+    events:
+      "قال لهم: ﴿يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ وَلَا تَنقُصُوا الْمِكْيَالَ وَالْمِيزَانَ﴾ — فجمع لهم الأمرين في نفس واحد: عبادة الله، والأمانة في الميزان. ثم قال: ﴿وَيَا قَوْمِ أَوْفُوا الْمِكْيَالَ وَالْمِيزَانَ بِالْقِسْطِ وَلَا تَبْخَسُوا النَّاسَ أَشْيَاءَهُمْ وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ﴾. ثم قال كلمة جميلة: ﴿بَقِيَّتُ اللَّهِ خَيْرٌ لَّكُمْ إِن كُنتُم مُّؤْمِنِينَ﴾ — أي إن القليل الذي يبقى لكم من حلال خيرٌ من الكثير الذي تأخذونه بغير حقّ.",
     quranProse: "يقول الله تعالى عن عذابهم: {فَكَذَّبُوهُ فَأَخَذَهُمْ عَذَابُ يَوْمِ الظُّلَّةِ ۚ إِنَّهُ كَانَ عَذَابَ يَوْمٍ عَظِيمٍ}.",
-    lesson: "الغش في البيع والشراء وأخذ أشياء لا نملكها هو أمر يغضب الله كثيراً. المسلم الحقيقي صادق وأمين، ولا يأخذ حق غيره أبداً.",
+    lesson:
+      "أمانتك في البيع والشراء جزءٌ من دينك، لا شيءٌ خارجه.",
     next: "بعد أن تعلمنا الأمانة، سنسافر في القصة القادمة لنتعرف على نبي شجاع جداً، كسر الأصنام وهو شاب صغير، ولم تحرقه النار! من هو هذا النبي العظيم الذي نذكره في كل صلاة؟ إنه أبو الأنبياء، سيدنا إبراهيم!",
     source: {
       reliability: "🟢",
@@ -1295,17 +1522,36 @@ export const stories: Story[] = [
       keepsake: "ميزان صغير",
       note: "يذكّرك أن الأمانة تظهر في الأشياء الصغيرة قبل الكبيرة.",
     },
+    arc: {
+      idea: "نبيٌّ دعا قومه إلى الأمانة في الميزان، فسألوه: وما شأن صلاتك بأموالنا؟",
+      setting:
+        "مَدْيَن بلدٌ على طريق التجارة، أهله تجّار، تأتيهم أموالهم من البيع والشراء. وكانوا يعبدون غير الله، وكانوا مع ذلك يفعلون أمرًا آخر: ينقصون الكيل والميزان — أي يأخذون من الناس تامًّا ويعطونهم ناقصًا — ويقعدون على الطرق يخيفون من يمرّ. فأرسل الله إليهم شعيبًا عليه السلام، وكان فصيح اللسان حسن البيان حتى سُمّي خطيب الأنبياء.",
+      keyMoment:
+        "فماذا أجابوه؟ قالوا جملة تستحقّ أن تقف عندها طويلًا: ﴿يَا شُعَيْبُ أَصَلَاتُكَ تَأْمُرُكَ أَن نَّتْرُكَ مَا يَعْبُدُ آبَاؤُنَا أَوْ أَن نَّفْعَلَ فِي أَمْوَالِنَا مَا نَشَاءُ﴾ — أصلاتك هي التي تأمرك أن تتدخّل في أموالنا؟ كأنهم يقولون: صلِّ أنت، ودَعْ تجارتنا لنا. والجواب في سؤالهم نفسه: نعم. الصلاة تأمر صاحبها كيف يزن وكيف يبيع وكيف يأخذ. والدين ليس شيئًا في المسجد وشيئًا آخر في السوق.",
+      resolution:
+        "ثم هدّدوه: ﴿وَلَوْلَا رَهْطُكَ لَرَجَمْنَاكَ وَمَا أَنتَ عَلَيْنَا بِعَزِيزٍ﴾ — لولا عشيرتك لآذيناك. فقال: ﴿أَرَهْطِي أَعَزُّ عَلَيْكُم مِّنَ اللَّهِ﴾. ثم أصرّوا على ما هم فيه، فكان ما كان: ﴿فَأَخَذَتْهُمُ الرَّجْفَةُ فَأَصْبَحُوا فِي دَارِهِمْ جَاثِمِينَ﴾، ونجّى الله شعيبًا والذين آمنوا معه. والذين خافوا أن تنقص أموالهم لو أوفوا الكيل، ذهبت أموالهم كلها.",
+      word: { term: "البَخْس", meaning: "أن تنقص الناس حقّهم فتعطيهم أقلّ ممّا لهم." },
+      lessons: [
+        "لا تأخذ ما ليس لك، ولو كان شيئًا قليلًا لا يُلاحَظ.",
+        "الدين يدخل السوق كما يدخل المسجد.",
+        "القليل الحلال خير من الكثير الحرام؛ ﴿بقيّت الله خير لكم﴾.",
+      ],
+      think:
+        "قالوا لشعيب: أموالنا لنا نفعل فيها ما نشاء. هل هناك أشياء تظنّها «شأنك وحدك» وقد يكون للدين فيها كلام؟",
+      tryToday:
+        "إن كان عندك اليوم شيء استعرتَه أو أخذتَه وليس لك، فأرجعه كاملًا كما أخذته.",
+    },
   },
   {
     chapter: "prophets", slug: "ibrahim",
     en: {
       title: "Prophet Ibrahim, the Friend of Allah",
       hook:
-        "What would you do if everyone in your town, even your own father, worshipped statues they made with their own hands? Meet the brave young man who used his smart mind to prove them wrong!",
+        "There are three tests in this story, and any one of them would be enough for a whole lifetime: standing before his entire people, then before the fire, then before the hardest thing ever asked of a father. And it was one man. And every time, his answer was the same.",
       events:
-        "Prophet Ibrahim (Abraham) lived among people who worshipped stone idols and stars. From a young age, Ibrahim knew that statues couldn't hear or help anyone. One day, when the people were away, he smashed all their idols except the biggest one. When they returned and asked him who did it, he smartly pointed to the big idol and said, 'Ask him, if he can speak!' They realized statues couldn't talk or protect themselves. But instead of believing him, the angry king Namrud ordered Ibrahim to be thrown into a massive, roaring fire. But a great miracle happened! Allah commanded the fire to be cool and safe for Ibrahim. He walked out completely unhurt!",
+        "Then he did something no one expected of him. His people went out to their festival, and Ibrahim went in to their idols {and made them into fragments, except a large one among them}. The people came back and saw, and questioned him, and he said: {Rather, this — the largest of them — did it, so ask them, if they should speak.} They fell silent a moment, then said: {You have already known that these do not speak.} You know they cannot talk. And that was exactly what he wanted: for them to say it with their own tongues.",
       lesson:
-        "Using our minds helps us understand the truth. We also learn that if we rely completely on Allah, He will protect us from any harm, just as He protected Ibrahim from the fire.",
+        "Whoever hands his affair to Allah does not lose, however hard it looks at the start.",
       next:
         "Ibrahim was saved from the fire. But what about his nephew, who was sent to a beautiful city full of people who did very bad and unnatural things? Next up is Prophet Lut!",
       quranProse:
@@ -1321,14 +1567,36 @@ export const stories: Story[] = [
         keepsake: "An olive branch",
         note: "A reminder that whoever relies on Allah is not harmed by fire, nor by anything fiercer.",
       },
+      arc: {
+        idea: "One man who stood before his people with a question, before the fire with a heart, and before the hardest command with his son.",
+        setting:
+          "Ibrahim grew up among a people who worshipped statues, and his father was one of them. He did not begin by shouting at them; he began by asking: {What are these statues to which you are devoted?} Then he showed them with their own reason: he looked at a star and said this is my lord, and when it set he said {I do not like those that set}; then the moon; then the sun — until he brought them to: {Indeed, I have turned my face toward He who created the heavens and the earth.}",
+        keyMoment:
+          "They found no answer to his argument but fire: {They said, burn him and support your gods.} They gathered a great fire and threw him into it. And here Allah said two words and no more: {O fire, be coolness and safety upon Ibrahim.} Notice \"and safety\": had it been only \"coolness,\" the cold itself would have harmed him; \"safety\" made it a place with no harm in it at all. Fire did not change its nature for anyone; its command changed for one man who stood alone.",
+        resolution:
+          "Then came the third test, the heaviest: to sacrifice his son. And he did not do it behind his son's back; he came to him and said: {O my son, indeed I have seen in a dream that I must sacrifice you, so see what you think.} The son said: {O my father, do as you are commanded. You will find me, if Allah wills, of the steadfast.} And when they had both submitted, Allah called to him: {You have fulfilled the vision}, and ransomed him with a great sacrifice. Then Ibrahim and his son Ismail built the Kaaba, raising the foundations and saying: {Our Lord, accept this from us} — they built the House, and then feared it might not be accepted from them.",
+        word: { term: "Fragments", meaning: "Broken pieces, small and useless — nothing left to be put back." },
+        lessons: [
+          "Begin with someone who disagrees with you by asking, not by shouting.",
+          "Stand with the truth even alone; Ibrahim was a whole nation by himself.",
+          "Do the work well and then fear it may not be accepted; that is what the builders of the Kaaba did.",
+        ],
+        think:
+          "Ibrahim asked his son's view on the hardest thing of all rather than ordering him. Why do you think that was? And how do you want your father to speak to you about hard things?",
+        tryToday:
+          "When you disagree with someone today, ask them a question instead of raising your voice.",
+      },
     },
     image: "/stories/prophets/ibrahim.jpg",
     title: "قصة سيدنا إبراهيم (خليل الرحمن)",
     surahName: "",
-    hook: "هل أنتم شجعان؟ هل تخافون من النار؟ بطل قصتنا اليوم هو شاب شجاع جداً، واجه ملكاً جباراً، ورُمي في نار ضخمة جداً، ولكن حدثت مفاجأة مذهلة جعلته يخرج منها سليماً يبتسم!",
-    events: "سيدنا إبراهيم هو 'أبو الأنبياء'، كان ذكياً جداً واستخدم عقله ليعلم قومه أن الأصنام والكواكب لا تضر ولا تنفع. وفي يوم من الأيام، عندما ذهب قومه للاحتفال، دخل إبراهيم وكسر كل أصنامهم بشجاعة! غضب الملك 'النمرود' وقومه غضباً شديداً، وأشعلوا ناراً ضخمة جداً وألقوا سيدنا إبراهيم فيها. ولكن لأن إبراهيم كان يتوكل على الله، أمر الله النار ألا تحرقه، بل أن تكون برداً وسلاماً عليه، فخرج منها دون أن يُصاب بخدش! وبعد ذلك، هاجر سيدنا إبراهيم وبنى 'الكعبة المشرفة' مع ابنه سيدنا إسماعيل.",
+    hook:
+      "في هذه القصة ثلاثة اختبارات، كلّ واحد منها يكفي رجلًا كاملًا: أن يقف أمام قومه كلهم، ثم أمام النار، ثم أمام أصعب أمر يُطلب من أب. وصاحبها رجل واحد. وفي كل مرّة كان جوابه واحدًا.",
+    events:
+      "ثم فعل شيئًا لم يكن أحد ينتظره منه. خرج القوم إلى عيدهم، فدخل إبراهيم على أصنامهم ﴿فَجَعَلَهُمْ جُذَاذًا إِلَّا كَبِيرًا لَّهُمْ﴾ — كسّرها كلها إلا الكبير منها. ورجع القوم فرأوا ما رأوا، فسألوه، فقال: ﴿بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ﴾. فسكتوا قليلًا، ثم قالوا: ﴿لَقَدْ عَلِمْتَ مَا هَٰؤُلَاءِ يَنطِقُونَ﴾ — أنت تعرف أنها لا تتكلّم. وهذا بالضبط ما أراد: أن يقولوها بألسنتهم هم.",
     quranProse: "يقول الله تعالى عن معجزة النار: {قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ}.",
-    lesson: "استخدام العقل والتفكير يقودنا دائماً لمعرفة الله. ونتعلم أيضاً أن من يثق بالله ويتوكل عليه، فإن الله سيحميه وينقذه من أي خطر.",
+    lesson:
+      "من سلّم أمره لله لم يخسر، مهما بدا الأمر صعبًا في أوّله.",
     next: "سيدنا إبراهيم كان له ابن أخ عاش في نفس الزمن وأصبح نبياً أيضاً، وذهب لقرية كان أهلها يفعلون أشياء سيئة جداً لم يفعلها أحد من قبل! من هو هذا النبي؟ إنه سيدنا لوط!",
     source: {
       reliability: "🟢",
@@ -1346,17 +1614,36 @@ export const stories: Story[] = [
       keepsake: "غصن زيتون",
       note: "يذكّرك أن من توكّل على الله لم تضرّه نار ولا نارٌ أشدّ منها.",
     },
+    arc: {
+      idea: "رجلٌ واحد وقف أمام قومه بسؤال، ثم أمام النار بقلب، ثم أمام أصعب أمر بابنه.",
+      setting:
+        "نشأ إبراهيم عليه السلام في قوم يعبدون التماثيل، وأبوه منهم. ولم يبدأ معهم بالصياح، بل بدأ بالسؤال: ﴿مَا هَٰذِهِ التَّمَاثِيلُ الَّتِي أَنتُمْ لَهَا عَاكِفُونَ﴾. ثم أراهم بعقولهم: نظر إلى كوكب فقال هذا ربي، فلمّا غاب قال ﴿لَا أُحِبُّ الْآفِلِينَ﴾، ثم القمر، ثم الشمس — حتى انتهى بهم إلى: ﴿إِنِّي وَجَّهْتُ وَجْهِيَ لِلَّذِي فَطَرَ السَّمَاوَاتِ وَالْأَرْضَ﴾.",
+      keyMoment:
+        "فلم يجدوا جوابًا على حجّته إلا النار: ﴿قَالُوا حَرِّقُوهُ وَانصُرُوا آلِهَتَكُمْ﴾. وجمعوا نارًا عظيمة وألقوه فيها. وهنا قال الله كلمتين لا ثالث لهما: ﴿يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ﴾. وانتبه إلى «وسلامًا»: لو قيل «بردًا» وحدها لآذاه شدّة البرد، فجاءت «سلامًا» لتكون سلامة لا أذى فيها أصلًا. النار لم تتغيّر طبيعتها لأحد؛ تغيّر أمرها لأجل رجل واحد وقف وحده.",
+      resolution:
+        "ثم جاء الاختبار الثالث، وهو أثقلها: أن يذبح ابنه. ولم يفعلها من وراء ابنه، بل جاءه وقال: ﴿يَا بُنَيَّ إِنِّي أَرَىٰ فِي الْمَنَامِ أَنِّي أَذْبَحُكَ فَانظُرْ مَاذَا تَرَىٰ﴾. فقال الابن: ﴿يَا أَبَتِ افْعَلْ مَا تُؤْمَرُ سَتَجِدُنِي إِن شَاءَ اللَّهُ مِنَ الصَّابِرِينَ﴾. فلمّا أسلما ناداه الله: ﴿قَدْ صَدَّقْتَ الرُّؤْيَا﴾، وفداه بذبح عظيم. ثم بنى إبراهيم وابنه إسماعيل الكعبة، وكانا يرفعان القواعد ويقولان: ﴿رَبَّنَا تَقَبَّلْ مِنَّا﴾ — بنيا البيت، ثم خافا ألّا يُقبل منهما.",
+      word: { term: "جُذَاذًا", meaning: "قطعًا صغيرة مكسّرة، لا يصلح منها شيء." },
+      lessons: [
+        "ابدأ مع من يخالفك بالسؤال لا بالصياح.",
+        "قف مع الحقّ ولو كنتَ وحدك؛ فقد كان إبراهيم أمّةً وحده.",
+        "أحسِن العمل ثم خَف ألّا يُقبل؛ هكذا فعل من بنى الكعبة بيديه.",
+      ],
+      think:
+        "سأل إبراهيمُ ابنَه رأيه في أصعب أمر، ولم يأمره به أمرًا. لماذا في رأيك؟ وكيف تحبّ أن يكلّمك أبوك في الأمر الصعب؟",
+      tryToday:
+        "حين تختلف اليوم مع أحد، اسأله سؤالًا بدل أن ترفع صوتك عليه.",
+    },
   },
   {
     chapter: "prophets", slug: "lut",
     en: {
       title: "Prophet Lut and the Ruined City",
       hook:
-        "If all your friends started doing something very bad and wrong, would you join them or tell them to stop? Our prophet today stood firm against a whole city doing bad things.",
+        "What do you do when you are the only one in your town who can see that what people are doing is wrong? No one with you, no one listening, and you know you are right. In today's story, a prophet lived that for years, until he said a sentence anyone who has felt alone will understand.",
       events:
-        "Prophet Lut (Lot) was the nephew of Prophet Ibrahim. Allah sent him to a beautiful green city called Sodom. However, the people of Sodom used to do very bad and unnatural things that no one in the world had done before. They were also very mean to strangers and travelers. Prophet Lut kindly told them to stop these bad habits and obey Allah, but they wouldn't listen and told him to leave. Finally, Allah sent angels to save Lut and his believing family, telling them to leave the city at night and never look back. In the morning, a terrible shower of stones destroyed the bad city completely.",
+        "Lut said to them: {Do you commit such immorality as no one has preceded you with among the worlds?} He reminded them and advised them, and it went on a long time. He said: {Is there not among you a man of reason?} And what was their answer? {And the answer of his people was only that they said, expel them from your city. Indeed, they are people who keep themselves pure.} Look at the charge: expel them because they keep themselves clean. Their purity had become the fault they were driven out for.",
       lesson:
-        "We should never copy people when they do bad or unnatural things, even if everyone else is doing them. We must always choose to be good and pure.",
+        "When everyone agrees on something wrong, it does not become right — even if you are the only one who says so.",
       next:
         "Prophet Lut stood for what is pure. In our next story, we will meet a handsome young boy whose own brothers threw him into a dark well out of jealousy, but he grew up to become a great minister! It's Prophet Yusuf!",
       quranProse:
@@ -1372,14 +1659,36 @@ export const stories: Story[] = [
         keepsake: "A house key",
         note: "A reminder that good company protects you, and safety starts with a decision.",
       },
+      arc: {
+        idea: "A prophet who was the only one in his town saying \"this is not right\" — until saying it became the reason to drive him out.",
+        setting:
+          "Lut, peace be upon him, was sent to towns whose people had committed an immorality no one before them in the worlds had committed, and who also cut off the road and did what was wrong openly in their gatherings. And Lut had no one among them supporting him; no clan to protect him and no group behind him. {And to Lut We gave judgement and knowledge, and We saved him from the city that was committing wicked deeds.}",
+        keyMoment:
+          "Then the angels came to Lut as guests he did not recognise, and his people came rushing to him wanting his guests, and he stood defending them alone. And here he said the line the story turns on: {If only I had against you some power or could take refuge in a strong support.} If only I had strength against you, or a strong back to lean on. A prophet said that. And the angels moved to reassure him: {O Lut, indeed we are messengers of your Lord; they will never reach you.} He thought he had no support, and his support was standing inside his house.",
+        resolution:
+          "He was told to leave with his family by night and that none of them should look back. He left — except his wife: {except his wife; she was of those who remained behind} — because her heart was with the people, not with him. Then Allah turned those towns upside down and rained on them stones of hard clay. The one who was alone and without strength walked out safe; and of the many, not one remained.",
+        word: { term: "A strong support", meaning: "A strong back to lean on and take shelter behind — like a solid wall to stand against." },
+        lessons: [
+          "The truth is not known by how many people say it.",
+          "When things close in on you, know that your strong support is Allah.",
+          "Being close to someone righteous does not help if you go against them; Lut's wife lived in a prophet's house.",
+        ],
+        think:
+          "Lut said \"if only I had some power against you\" — and he was a prophet. Has there been a time when you felt completely alone? Who did you turn to?",
+        tryToday:
+          "If you see something today that you know is wrong and everyone is joining in, do not join in — walking away is enough.",
+      },
     },
     image: "/stories/prophets/lut.jpg",
     title: "قصة سيدنا لوط",
     surahName: "",
-    hook: "إذا رأيتم مجموعة من الناس يفعلون أفعالاً سيئة جداً، هل تقلدونهم أم تبتعدون عنهم وتنصحونهم؟ نبينا اليوم كان يعيش في قرية كل أهلها يفعلون الشر، فكيف تصرف معهم؟",
-    events: "عاصر سيدنا لوط عمه سيدنا إبراهيم عليهما السلام، وأرسله الله إلى قرى تُسمى 'سَدُوم'. كان أهل هذه القرى سيئين جداً، وتغمرهم أخلاق سيئة وأفعال لم يسبقهم إليها أحد من العالمين. كان سيدنا لوط ينصحهم دائماً ويحاول إصلاحهم، لكنهم كانوا يسخرون منه ويريدون طرده من القرية. ولأنهم أصروا على الانحطاط الأخلاقي ولم يسمعوا كلام نبيهم، أمر الله سيدنا لوطاً أن يخرج من القرية ليلاً مع أهله الطيبين، ثم عاقب الله الأشرار بأن قَلَب قراهم وجعل عاليها سافلها، وأمطر عليهم حجارة من طين صلب (سجيل).",
+    hook:
+      "ماذا تفعل حين تكون الوحيد في مدينتك الذي يرى أن ما يفعله الناس خطأ؟ لا أحد معك، ولا أحد يسمعك، وأنت تعرف أنك على حقّ. في قصة اليوم نبيٌّ عاش هذا سنين، حتى قال جملة يفهمها كل من شعر بالوحدة.",
+    events:
+      "قال لهم لوط: ﴿أَتَأْتُونَ الْفَاحِشَةَ مَا سَبَقَكُم بِهَا مِنْ أَحَدٍ مِّنَ الْعَالَمِينَ﴾، وذكّرهم ونصحهم وطال ذلك. وقال لهم: ﴿أَلَيْسَ مِنكُمْ رَجُلٌ رَّشِيدٌ﴾ — أما فيكم رجل واحد رشيد؟ فماذا كان جوابهم؟ ﴿وَمَا كَانَ جَوَابَ قَوْمِهِ إِلَّا أَن قَالُوا أَخْرِجُوهُم مِّن قَرْيَتِكُمْ إِنَّهُمْ أُنَاسٌ يَتَطَهَّرُونَ﴾. انظر إلى التهمة: أخرجوهم لأنهم يتطهّرون! صار نقاؤهم عيبًا يُطردون به.",
     quranProse: "يقول الله تعالى عن عقابهم: {فَلَمَّا جَاءَ أَمْرُنَا جَعَلْنَا عَالِيَهَا سَافِلَهَا وَأَمْطَرْنَا عَلَيْهَا حِجَارَةً مِّن سِجِّيلٍ مَّنضُودٍ}.",
-    lesson: "يجب أن نبتعد دائماً عن الأفعال السيئة والأخلاق القبيحة، وألا نقلد الأشرار أبداً. الله يحب الأشخاص الذين يحافظون على أخلاقهم الجميلة ونظافتهم.",
+    lesson:
+      "إذا اجتمع الناس على الخطأ لم يصر الخطأ صوابًا، ولو كنتَ وحدك.",
     next: "نجا سيدنا لوط بفضل الله. والآن، استعدوا لقصة مليئة بالمغامرات العجيبة! قصة فيها بئر، وسجن، وقصر، وحلم جميل يتحقق بعد سنوات طويلة! إنها القصة التي سُميت في القرآن بـ 'أحسن القصص'.. قصة سيدنا يوسف!",
     source: {
       reliability: "🟢",
@@ -1397,17 +1706,36 @@ export const stories: Story[] = [
       keepsake: "مفتاح بيت",
       note: "يذكّرك أن الصحبة الصالحة تحميك، وأن النجاة تبدأ بقرار.",
     },
+    arc: {
+      idea: "نبيٌّ كان الوحيد في مدينته الذي يقول: هذا لا يصحّ — حتى صار قوله سببًا لطرده.",
+      setting:
+        "أُرسل لوط عليه السلام إلى قرى تُسمّى المؤتفكات، وكان أهلها قد فعلوا فاحشةً لم يسبقهم إليها أحد من العالمين، وكانوا مع ذلك يقطعون السبيل ويأتون في مجالسهم المنكر. ولم يكن مع لوط أحد من قومه يؤيّده؛ لا عشيرة تحميه ولا جماعة تسنده. ﴿وَلُوطًا آتَيْنَاهُ حُكْمًا وَعِلْمًا وَنَجَّيْنَاهُ مِنَ الْقَرْيَةِ الَّتِي كَانَت تَّعْمَلُ الْخَبَائِثَ﴾.",
+      keyMoment:
+        "ثم جاءت الملائكة إلى لوط في صورة ضيوف لا يعرفهم، فجاءه قومه يهرعون إليه يريدون ضيوفه، ووقف يدافع عنهم وحده. وهنا قال الجملة التي تدور عليها القصة: ﴿لَوْ أَنَّ لِي بِكُمْ قُوَّةً أَوْ آوِي إِلَىٰ رُكْنٍ شَدِيدٍ﴾ — ليت لي بكم قوّة، أو ظهرًا قويًّا ألجأ إليه. قالها نبيٌّ. فهمّت الملائكة عندها أن تطمئنه: ﴿يَا لُوطُ إِنَّا رُسُلُ رَبِّكَ لَن يَصِلُوا إِلَيْكَ﴾. كان يظنّ أنه بلا سند، والسند كان واقفًا في بيته.",
+      resolution:
+        "فأُمر أن يخرج بأهله ليلًا ولا يلتفت منهم أحد. وخرج، إلا امرأته: ﴿إِلَّا امْرَأَتَهُ كَانَتْ مِنَ الْغَابِرِينَ﴾ — كانت ممّن بقي، لأن قلبها كان مع القوم لا معه. ثم جعل الله عالي تلك القرى سافلها، وأمطر عليها حجارة من سجّيل. والذي كان بالأمس وحده بلا قوّة، خرج سالمًا؛ والذين كانوا كثرة، لم يبقَ منهم أحد.",
+      word: { term: "رُكْن شديد", meaning: "ظهرٌ قويّ يُلجأ إليه ويُحتمى به — كجدار متين تستند إليه." },
+      lessons: [
+        "الحقّ لا يُعرف بعدد من يقول به.",
+        "إذا ضاق بك الأمر فاعلم أن ركنك الشديد هو الله.",
+        "القرب من الصالح لا ينفع مع مخالفته؛ فامرأة لوط كانت في بيت نبيّ.",
+      ],
+      think:
+        "قال لوط: «لو أنّ لي بكم قوّة»، وهو نبيّ. هل مرّ بك موقف شعرتَ فيه أنك وحدك تمامًا؟ إلى من لجأت؟",
+      tryToday:
+        "إذا رأيت اليوم شيئًا تعرف أنه خطأ واشترك فيه الجميع، فلا تشترك فيه أنت — ويكفي أن تنصرف.",
+    },
   },
   {
     chapter: "prophets", slug: "yusuf",
     en: {
       title: "Prophet Yusuf and the Beautiful Dream",
       hook:
-        "Have you ever had a dream that came true? Our hero today had a dream about the sun, the moon, and stars bowing to him! Let's dive into the most beautiful story in the Quran.",
+        "A boy thrown into a well by his brothers. Then sold like goods. Then put in prison though he was innocent. At any one of those moments you would have said: that is the end of him. And yet the story ends with him over the treasuries of Egypt — and then forgiving.",
       events:
-        "Prophet Yusuf (Joseph) was a very handsome and good boy, deeply loved by his father, Prophet Yaqub. His older brothers became very jealous of him. One day, they took him to play but threw him into a deep, dark well! Some travelers found him and sold him in Egypt. Even though Yusuf faced many hard times — like being away from his father and being put in prison unfairly — he was always patient and never stopped doing good. Allah gave him the special gift of understanding dreams. Because of this, he saved Egypt from a great famine and became a powerful minister. In the end, he forgave his brothers, and his family was reunited in a beautiful happy ending!",
+        "His brothers took him and threw him into the well, then came to their father at night weeping. A passing caravan picked him up and sold him in Egypt {for a reduced price — a few dirhams}. He grew up in the house of Egypt's minister, and then was called to what is forbidden behind closed doors, and said: {I seek the refuge of Allah}, and ran for the door. He was imprisoned though innocent, and said: {My Lord, prison is more to my liking than that to which they invite me.} And in prison he did not sit and wait: he made himself useful to those with him, interpreted their dreams, and called them to Allah. Then the king had a dream no one could interpret, and Yusuf was remembered, and he came out.",
       lesson:
-        "Jealousy is a bad feeling that ruins relationships. We learn from Yusuf to be patient during hard times and to forgive those who hurt us when we become strong.",
+        "What looks to you like the end of the road may be its beginning; Allah arranges things from where you cannot see.",
       next:
         "Yusuf was patient in the well and in prison. But what if a prophet got very, very sick for many years and lost everything he owned? Let's meet the champion of patience, Prophet Ayyub!",
       quranProse:
@@ -1423,14 +1751,36 @@ export const stories: Story[] = [
         keepsake: "Yusuf's shirt",
         note: "A reminder that the finest victory is to forgive when you are able to take revenge.",
       },
+      arc: {
+        idea: "A whole story in a single surah: from the bottom of a well to the treasuries of Egypt, and from envy to forgiveness.",
+        setting:
+          "Yusuf, peace be upon him, was the son of Yaqub, and the most beloved of his children to him. As a boy Yusuf had a dream and told his father: {Indeed, I have seen eleven stars and the sun and the moon; I saw them prostrating to me.} His father said: {O my son, do not relate your vision to your brothers, or they will contrive against you a plan} — do not tell your blessing to those who might envy you for it. But the envy was already there before the dream.",
+        keyMoment:
+          "The moment the story turns on is not his release from prison, nor his being put over the treasuries of Egypt. It is when his brothers stood before him, and he was the minister and they had nothing, and it was entirely in his hands to do to them whatever he wished after everything they had done. They said: {By Allah, certainly has Allah preferred you over us, and indeed, we have been sinners.} And what did he say? {No blame will there be upon you today. Allah will forgive you; and He is the most merciful of the merciful.} One sentence ended long years.",
+        resolution:
+          "Then he sent his shirt to be cast over his father's face, and his sight returned, and he brought his whole family to Egypt. {And he raised his parents upon the throne, and they bowed to him in prostration. And he said, O my father, this is the explanation of my vision of before; my Lord has made it reality.} The dream he saw as a boy came true after all that long road. Then he prayed — and what did he ask for? {Cause me to die a Muslim and join me with the righteous.} He reached the highest place in Egypt, and asked Allah to let him die a Muslim.",
+        word: { term: "No blame", meaning: "No reproach, no scolding, no bringing up what happened — the most beautiful thing to say to someone who wronged you." },
+        lessons: [
+          "Do not tell every blessing you have to everyone.",
+          "Be patient and useful where you are; Yusuf helped the people around him while in prison.",
+          "Forgiving when you have the power to punish is harder than revenge, and finer.",
+        ],
+        think:
+          "Yusuf forgave his brothers at the exact moment he had complete power over them. Have you ever forgiven someone when you could have paid them back? How did you feel afterwards?",
+        tryToday:
+          "Forgive someone today that you are carrying something against — even silently, without telling them.",
+      },
     },
     image: "/stories/prophets/yusuf.jpg",
     title: "قصة سيدنا يوسف (أحسن القصص)",
     surahName: "",
-    hook: "هل تحبون قصص المغامرات؟ قصتنا اليوم هي الوحيدة في القرآن الكريم التي ذُكرت كاملة في سورة واحدة، وفيها أحداث مشوقة جداً تبدأ بحلم جميل وتنتهي بأن يصبح البطل وزيراً كبيراً!",
-    events: "سيدنا يوسف هو ابن النبي يعقوب (الذي يُعرف أيضاً باسم إسرائيل). كان طفلاً جميلاً وطيباً، رأى في منامه أن الكواكب والشمس والقمر تسجد له. غار إخوته منه كثيراً، فأخذوه وألقوه في بئر عميقة (الجُب)! وجده بعض المسافرين وباعوه في مصر، فعاش في قصر رجل مهم، ثم دَخل السجن ظلماً. لكن يوسف لم ييأس، وكان يفسر الأحلام للناس في السجن. وفي يوم، حلم مَلِك مصر بحلم غريب، ولم يعرف تفسيره إلا سيدنا يوسف، فأنقذ مصر من الجوع. كافأه الملك وجعله مسؤولاً عن خزائن مصر! وفي النهاية، جاء إخوته إليه وهم لا يعرفونه، فسامحهم على ما فعلوه به، وعادوا جميعاً ليعيشوا مع أبيهم يعقوب في سعادة.",
+    hook:
+      "طفلٌ ألقاه إخوته في بئر. ثم بيع كما تُباع البضاعة. ثم دخل السجن وهو بريء. ولو رأيتَه في أيّ لحظة من هذه اللحظات لقلتَ: انتهى أمره. ومع ذلك انتهت القصة بأن صار على خزائن مصر — ثم سامَح.",
+    events:
+      "أخذه إخوته وألقوه في الجُبّ، ثم جاءوا أباهم عشاءً يبكون. فالتقطته قافلة مارّة فباعته في مصر ﴿بِثَمَنٍ بَخْسٍ دَرَاهِمَ مَعْدُودَةٍ﴾. فنشأ في بيت عزيز مصر، ثم دُعي إلى الحرام وأُغلقت الأبواب، فقال: ﴿مَعَاذَ اللَّهِ﴾، وفرّ إلى الباب. فسُجن وهو بريء، وقال: ﴿رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ﴾. وفي السجن لم يجلس ينتظر؛ صار ينفع من معه، ويفسّر رؤاهم، ويدعوهم إلى الله. ثم رأى الملك رؤيا عجز الناس عن تفسيرها، فذُكر يوسف، فخرج.",
     quranProse: "سمى الله هذه القصة بأجمل اسم وقال: {نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ بِمَا أَوْحَيْنَا إِلَيْكَ هَٰذَا الْقُرْآنَ}.",
-    lesson: "نتعلم من سيدنا يوسف قيمة الصبر على المشاكل، وحسن الظن بالله. ونتعلم أهم درس: أن نسامح من أساء إلينا عندما نصبح أقوى منهم.",
+    lesson:
+      "ما يبدو لك نهايةَ الطريق قد يكون أوّله؛ والله يدبّر من حيث لا ترى.",
     next: "صبر سيدنا يوسف كثيراً في السجن. ولكن في القصة القادمة، سنتعرف على نبي يُضرب به المثل الأعلى في الصبر! مرض مرضاً شديداً جداً وفقد كل ألعابه وأمواله، لكنه لم يغضب من الله أبداً! من هو؟ إنه سيدنا أيوب.",
     source: {
       reliability: "🟢",
@@ -1448,17 +1798,36 @@ export const stories: Story[] = [
       keepsake: "قميص يوسف",
       note: "يذكّرك أن أجمل انتصار أن تسامح وأنت قادر على الانتقام.",
     },
+    arc: {
+      idea: "قصّةٌ كاملة في سورة واحدة: من قاع البئر إلى خزائن مصر، ومن الحسد إلى العفو.",
+      setting:
+        "يوسف عليه السلام ابن يعقوب عليه السلام، وكان أحبّ أولاده إليه. ورأى يوسف وهو صغير رؤيا فحكاها لأبيه: ﴿إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا وَالشَّمْسَ وَالْقَمَرَ رَأَيْتُهُمْ لِي سَاجِدِينَ﴾. فقال له أبوه: ﴿يَا بُنَيَّ لَا تَقْصُصْ رُؤْيَاكَ عَلَىٰ إِخْوَتِكَ فَيَكِيدُوا لَكَ كَيْدًا﴾ — أي لا تحكِ نعمتك لمن قد يحسدك عليها. لكنّ الحسد كان قد سبق الرؤيا.",
+      keyMoment:
+        "واللحظة التي تدور عليها القصة ليست خروجه من السجن، ولا أن صار على خزائن مصر. هي حين وقف إخوته أمامه وهو العزيز، وهم لا يملكون شيئًا، وقد صار في يده أن يفعل بهم ما شاء بعد كل ما فعلوه. فقالوا: ﴿تَاللَّهِ لَقَدْ آثَرَكَ اللَّهُ عَلَيْنَا وَإِن كُنَّا لَخَاطِئِينَ﴾. فماذا قال؟ ﴿لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ يَغْفِرُ اللَّهُ لَكُمْ وَهُوَ أَرْحَمُ الرَّاحِمِينَ﴾ — لا لوم عليكم اليوم. كلمةٌ واحدة أنهت سنين طويلة.",
+      resolution:
+        "ثم أرسل قميصه ليُلقى على وجه أبيه فارتدّ بصيرًا، وجاء بأهله كلهم إلى مصر. ﴿وَرَفَعَ أَبَوَيْهِ عَلَى الْعَرْشِ وَخَرُّوا لَهُ سُجَّدًا وَقَالَ يَا أَبَتِ هَٰذَا تَأْوِيلُ رُؤْيَايَ مِن قَبْلُ قَدْ جَعَلَهَا رَبِّي حَقًّا﴾. الرؤيا التي رآها طفلًا تحقّقت بعد كل هذا الطريق الطويل. ثم دعا ربه فماذا سأل؟ ﴿تَوَفَّنِي مُسْلِمًا وَأَلْحِقْنِي بِالصَّالِحِينَ﴾. بلغ أعلى مكان في مصر، فسأل الله أن يموت مسلمًا.",
+      word: { term: "لا تَثْريب", meaning: "لا لوم ولا عتاب ولا تذكير بما مضى — وهي أجمل ما يقال لمن أخطأ في حقّك." },
+      lessons: [
+        "لا تحكِ كلّ نعمة عندك لكلّ أحد.",
+        "اصبر واعمل حيث أنت؛ فقد نفع يوسفُ من كان معه وهو في السجن.",
+        "العفو عند المقدرة أصعب من الانتقام، وأجمل منه.",
+      ],
+      think:
+        "سامح يوسفُ إخوته في اللحظة التي كان يقدر فيها عليهم تمامًا. هل سامحتَ أحدًا وأنت قادر على أن تردّ له إساءته؟ بماذا شعرتَ بعدها؟",
+      tryToday:
+        "سامِح اليوم شخصًا تحمل في قلبك شيئًا عليه، ولو لم تقل له شيئًا ولم يعرف.",
+    },
   },
   {
     chapter: "prophets", slug: "ayoub",
     en: {
       title: "Prophet Ayyub, the Champion of Patience",
       hook:
-        "What do you do when you get sick? You might feel a little sad until you get better. But what if someone was very sick for many years? Today we meet a prophet whose patience was stronger than mountains!",
+        "If you lost everything — your money, your home, the people you love, your health — what would you say to your Lord? In today's story, all of that happened to one man. Then he prayed in two short sentences, and asked for nothing in them.",
       events:
-        "Prophet Ayyub (Job) was a very wealthy man with a big, happy family and lots of farms. But Allah wanted to test his faith. Suddenly, Ayyub lost all his money, his children passed away, and he became very, very sick for many years. Despite all this pain and sadness, he never complained or got angry with Allah. He just kept praying and thanking Allah for everything. Finally, he prayed for Allah's mercy. Allah answered his prayer, telling him to strike the ground with his foot. A cool spring of water gushed out. When he washed with it, he was completely healed! Allah then gave him back his wealth and a beautiful family as a reward for his amazing patience.",
+        "The illness went on so long that people withdrew from him, and no one was left with him but his wife. The Quran does not say that he complained to anyone, or that he asked: why me in particular? As for how long the illness lasted and the details of what he lost, that comes from the commentators, not from the Quran. The Quran gives you what matters in a story and leaves out what will not help you.",
       lesson:
-        "When bad things happen or we get sick, we should not complain or be angry. We must be patient, trust Allah, and know that relief will surely come.",
+        "Patience is not staying silent about pain; it is staying with Allah while you are in it.",
       next:
         "Prophet Ayyub taught us ultimate patience. Next we witness the sea splitting in half for a prophet and his people. Get ready for the greatest of miracles!",
       quranProse:
@@ -1474,14 +1843,36 @@ export const stories: Story[] = [
         keepsake: "A drop from the spring",
         note: "A reminder that patience is not silence under pain, but trust that relief is coming.",
       },
+      arc: {
+        idea: "A man who lost everything, and prayed in two sentences — asking for nothing in either of them.",
+        setting:
+          "Ayub, peace be upon him, was a prophet whom Allah had given wealth, children and health. Then Allah tested him: his wealth went, his children went, and an illness took hold of his body and stayed. A trial is not always a punishment; Allah tests those He loves in order to raise them. The Prophet was asked which people are tested most severely, and he said: the prophets, then the next best, then the next.",
+        keyMoment:
+          "Then he prayed. And look at how he prayed, because this is the most beautiful thing in the story: {And Ayub, when he called to his Lord, Indeed, adversity has touched me, and You are the most merciful of the merciful.} Two sentences, no more. In the first he states his condition: adversity has touched me. In the second he mentions his Lord: and You are the most merciful of the merciful. He did not say \"heal me.\" He did not say \"give me back my wealth and my children.\" He laid his condition before the One who knows, and then went quiet. That is a manner of asking which teaches you that the One who knows your state does not need it spelled out.",
+        resolution:
+          "And the answer came: {So We responded to him and removed what afflicted him of adversity. And We gave him back his family and the like thereof with them as mercy from Us.} And he was told: {Strike with your foot; this is a cool bath and drink.} He struck the ground and cool water came out; he washed with it and drank and was healed. Then Allah said of him the highest thing that can be said of a man: {Indeed, We found him patient, an excellent servant. Indeed, he was one repeatedly turning back to Allah.}",
+        word: { term: "Repeatedly turning back", meaning: "Someone who returns to Allah in every state — in hardship and in ease alike." },
+        lessons: [
+          "Lay your need before Allah with good manners, and do not rush the answer.",
+          "A trial can be a raising rather than a punishment.",
+          "No one's patience is wasted; Allah gave Ayub back his family and the like of them with them.",
+        ],
+        think:
+          "Ayub mentioned his state, then his Lord's mercy, and asked for nothing. Try writing your own prayer in two lines that way — what would you say?",
+        tryToday:
+          "Name one thing that hurts you today, and say: my Lord, You are the most merciful of the merciful. Then stop, and add nothing.",
+      },
     },
     image: "/stories/prophets/ayoub.jpg",
     title: "قصة سيدنا أيوب",
     surahName: "",
-    hook: "عندما نمرض ونتناول الدواء المر، قد نبكي ونغضب. لكن ماذا لو أخبرتكم عن نبي مرض لسنوات طويلة جداً، وفقد أمواله، ومع ذلك كان دائماً يبتسم ويشكر الله؟ تعالوا نتعرف على بطل الصبر، سيدنا أيوب.",
-    events: "كان سيدنا أيوب رجلاً غنياً جداً، لديه أموال كثيرة، ومزارع، وأبناء كثيرون، وصحة قوية. أراد الله أن يختبر قوة إيمانه، فابتلاه بأن أخذ منه ماله وولده، وأصابه بمرض شديد في جسده. استمر المرض سنوات طويلة، ورغم ذلك، لم يشتكِ أيوب أبداً، بل صبر واحتسب وظل يذكر الله. وفي يوم من الأيام، دعا ربه بكلمات رقيقة وقال: 'يا رب إني مسني الضر وأنت أرحم الراحمين'. فاستجاب الله دعاءه فوراً، وأمره أن يضرب الأرض بقدمه، فخرج نبع ماء بارد، اغتسل منه فشُفي تماماً، وكشف الله ضره وعوضه عن كل ما فقده بأموال وأبناء أكثر من قبل!",
+    hook:
+      "لو ضاع منك كل شيء: مالك، وبيتك، ومن تحبّ، وصحّتك — ماذا كنت ستقول لربّك؟ في قصة اليوم رجلٌ حدث له هذا كله. ثم دعا بجملتين قصيرتين، ولم يطلب فيهما شيئًا.",
+    events:
+      "وطال المرض حتى ابتعد عنه الناس، ولم يبقَ معه إلا امرأته. ولم يُذكر في القرآن أنه شكا إلى أحد من الناس، ولا أنه قال: لماذا أنا بالذات؟ وأمّا كم لبث في مرضه، وما تفاصيل ما فقده، فهذا من أقوال المفسّرين لا من القرآن. والقرآن يذكر لك المهمّ في القصة ويترك ما لا ينفعك منها.",
     quranProse: "يقول الله تعالى يعلمنا دعاء سيدنا أيوب الجميل: {وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ}.",
-    lesson: "يُضرب المثل الأعلى بسيدنا أيوب في الصبر. نتعلم منه أننا عندما نمرض أو نفقد شيئاً نحبه، يجب أن نصبر ولا نغضب، وندعو الله دائماً، فالله يعوض الصابرين بأشياء أجمل بكثير.",
+    lesson:
+      "الصبر ليس أن تسكت على الألم، بل أن تبقى مع الله وأنت فيه.",
     next: "تعلمنا الصبر من سيدنا أيوب. والآن، استعدوا لقصة نبي ولد في زمن كان الملك فيه يقتل الأطفال! فوضعته أمه في صندوق ورمته في النهر، ليصل إلى قصر ذلك الملك الشرير ويربى فيه! من هو؟ إنه سيدنا موسى كليم الله!",
     source: {
       reliability: "🟢",
@@ -1499,17 +1890,36 @@ export const stories: Story[] = [
       keepsake: "قطرة من العين",
       note: "تذكّرك أن الصبر ليس سكوتاً على الألم، بل ثقة بأن الفرج قادم.",
     },
+    arc: {
+      idea: "رجلٌ فقد كل شيء، فدعا بجملتين — ولم يسأل فيهما شيئًا.",
+      setting:
+        "كان أيوب عليه السلام نبيًّا آتاه الله المال والولد والصحّة. ثم ابتلاه الله: ذهب ماله، وذهب ولده، وأصابه في جسده مرضٌ طال به الزمن. والابتلاء ليس عقوبةً دائمًا؛ فالله يبتلي من يحبّ ليرفع درجته. وقد سُئل النبي ﷺ: أيّ الناس أشدّ بلاءً؟ فقال: الأنبياء، ثم الأمثل فالأمثل.",
+      keyMoment:
+        "ثم دعا. وانظر كيف دعا، فهذا هو أجمل ما في القصة: ﴿وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ﴾. جملتان لا غير. الأولى يخبر فيها بحاله: مسّني الضرّ. والثانية يذكر فيها ربّه: وأنت أرحم الراحمين. ولم يقل: اشفني، ولم يقل: أعِد إليّ مالي وولدي. عرض حاله على من يعلم، ثم سكت. وهذا أدبٌ يعلّمك أن الذي يعرف حالك لا يحتاج أن تفصّل له.",
+      resolution:
+        "فجاء الجواب: ﴿فَاسْتَجَبْنَا لَهُ فَكَشَفْنَا مَا بِهِ مِن ضُرٍّ وَآتَيْنَاهُ أَهْلَهُ وَمِثْلَهُم مَّعَهُمْ رَحْمَةً مِّنْ عِندِنَا﴾. وقيل له: ﴿ارْكُضْ بِرِجْلِكَ هَٰذَا مُغْتَسَلٌ بَارِدٌ وَشَرَابٌ﴾ — اضرب الأرض بقدمك، فخرج ماءٌ بارد اغتسل منه وشرب فشُفي. ثم قال الله عنه كلمة هي أعلى ما يُقال في رجل: ﴿إِنَّا وَجَدْنَاهُ صَابِرًا نِّعْمَ الْعَبْدُ إِنَّهُ أَوَّابٌ﴾.",
+      word: { term: "أَوَّاب", meaning: "كثير الرجوع إلى الله في كل حال: في الشدّة وفي الرخاء جميعًا." },
+      lessons: [
+        "اعرض حاجتك على الله بأدب، ولا تستعجل الجواب.",
+        "البلاء قد يكون رفعةً لا عقوبة.",
+        "من صبر لم يضع صبره؛ فقد ردّ الله لأيوب أهله ومثلهم معهم.",
+      ],
+      think:
+        "دعا أيوب فذكر حاله ثم ذكر رحمة ربّه، ولم يطلب شيئًا. جرّب أن تصوغ دعاءك أنت في سطرين على هذه الطريقة — ماذا ستقول؟",
+      tryToday:
+        "اذكر اليوم شيئًا واحدًا يؤلمك، وقل: يا ربّ، أنت أرحم الراحمين. ثم اسكت ولا تزد شيئًا.",
+    },
   },
   {
     chapter: "prophets", slug: "musa-and-harun",
     en: {
       title: "Prophet Musa and the Parting of the Sea",
       hook:
-        "Imagine standing in front of a huge, deep sea, and an evil army is chasing you! How could you cross without a boat? Let's witness one of the greatest miracles ever!",
+        "The most dangerous place in all of Egypt was Pharaoh's palace. And it was there exactly, in the house of the man who was killing the children, that Allah raised the child who would one day stand before him. How does that happen?",
       events:
-        "Prophet Musa (Moses) and the believers were running away from the evil Pharaoh and his army. They reached the edge of the Red Sea and had nowhere to go. The people were very scared! But Musa had complete trust in Allah. He struck the water with his wooden staff, and a great miracle happened! The massive sea split into two halves, creating a safe, dry sandy path in the middle with giant walls of water on both sides! The believers crossed safely, but when Pharaoh tried to follow them, the water crashed down, and the evil army was destroyed.",
+        "She placed him in the river, and Pharaoh's household picked him up: {And the family of Pharaoh picked him up so that he would become to them an enemy and a source of grief.} The baby refused to nurse from any woman, until his sister pointed them to a woman who could nurse him — his own mother. {So We restored him to his mother that she might be content and not grieve.} She nursed her own son and was paid for it, in the house of the man who was killing children. Then Musa grew up, left Egypt after an incident, lived in Madyan for years, and then returned. And on his way back, in a sacred valley called Tuwa, Allah called to him.",
       lesson:
-        "Trusting Allah brings miracles. Allah always saves the good believers and defeats the unjust oppressors, no matter how powerful they seem.",
+        "When things close in until you can see no way out, the way out is with Allah, not with you.",
       next:
         "Musa's staff parted the sea. But in the next story, a prophet made the sun itself stop moving in the sky! Who is he? It's Prophet Yusha!",
       quranProse:
@@ -1525,14 +1935,36 @@ export const stories: Story[] = [
         keepsake: "A wooden staff",
         note: "A reminder that the way can open at the very moment you think it closed.",
       },
+      arc: {
+        idea: "A baby his mother placed in the river at Allah's command, raised in his palace by the man who was killing the children.",
+        setting:
+          "Pharaoh had enslaved the Children of Israel: {Indeed, Pharaoh exalted himself in the land and made its people into factions, oppressing a sector among them, slaughtering their sons.} And it was in exactly that time that Musa was born. So Allah inspired his mother with an astonishing instruction: {Suckle him; but when you fear for him, cast him into the river and do not fear and do not grieve. Indeed, We will return him to you and will make him one of the messengers.} When you fear for him — put him in the water.",
+        keyMoment:
+          "Allah gave him two signs — the staff and the hand — and then commanded the hardest thing: {Go to Pharaoh. Indeed, he has transgressed.} Musa said: {My Lord, expand for me my breast. And ease for me my task. And untie the knot from my tongue, that they may understand my speech.} And he asked for his brother: {And appoint for me a minister from my family — Harun, my brother.} Allah gave him all of it. Then notice the instruction they set out with towards the most tyrannical man on earth: {And speak to him with gentle speech, that perhaps he may be reminded or fear Allah.} Gentle speech — to Pharaoh.",
+        resolution:
+          "They went. The magicians were gathered to defeat Musa, and when they saw the truth they prostrated and said: {We have believed in the Lord of the worlds} — the ones brought to beat him were the first to believe in him. Then Musa left with the Children of Israel by night, and Pharaoh followed with his army until they were between the sea ahead and the army behind. His companions said: {Indeed, we are to be overtaken.} He said: {No! Indeed, with me is my Lord; He will guide me.} {And it parted, and each portion was like a great towering mountain.} They crossed — and what Pharaoh had been chasing caught him instead.",
+        word: { term: "A towering mountain", meaning: "A great, immovable mountain, firmly fixed in place." },
+        lessons: [
+          "Do what you are told even when it sounds frightening; Musa's mother put her baby in the water to keep him safe.",
+          "Speak gently to those you disagree with; Musa was told to do it with Pharaoh himself.",
+          "Ask for help from those around you; Musa asked that his brother be with him.",
+        ],
+        think:
+          "Musa's companions said \"we are to be overtaken,\" and he said \"with me is my Lord; He will guide me.\" Both were looking at the same sea and the same army. What was different?",
+        tryToday:
+          "If you face something today you think is impossible, say before you start: \"with me is my Lord; He will guide me\" — then start.",
+      },
     },
     image: "/stories/prophets/musa-and-harun.jpg",
     title: "قصة سيدنا موسى وأخيه هارون",
     surahName: "",
-    hook: "تخيلوا طفلاً رضيعاً تضعه أمه في صندوق خشبي، ثم تلقيه في مياه النهر الواسع! هل سيغرق؟ لا، بل سيأخذه النهر مباشرة إلى قصر الملك الشرير الذي يبحث عنه ليقتله.. ولكنه سيعيش هناك كأمير! كيف حدث ذلك؟",
-    events: "وُلد سيدنا موسى في زمن كان فيه فرعون الظالم يقتل الأطفال الصغار. خافت أم موسى عليه، فأوحى لها الله أن تضعه في صندوق وتلقيه في النهر (اليم). وصل الصندوق إلى قصر فرعون، وهناك أحبته زوجة فرعون الطيبة وربته كابن لها! ولما كبر موسى، كلّفه الله بالرسالة في الوادي المقدس (طوى)، وأعطاه معجزات مذهلة، مثل العصا التي تتحول إلى ثعبان حقيقي. ذهب موسى ومعه أخوه هارون (الذي كان فصيحاً ومساعداً له) ليطلبا من فرعون أن يعبد الله ويترك الناس أحراراً. وعندما طاردهم فرعون بجيشه، ضرب موسى البحر بعصاه، فانشق البحر نصفين وصار طريقاً يابساً ليعبر منه المؤمنون وينجوا، بينما غرق فرعون وجيشه.",
+    hook:
+      "أخطر مكان في مصر كلها كان قصر فرعون. وهناك بالضبط، بين يدي الرجل الذي كان يقتل الأطفال، ربّى الله الطفل الذي سيقف في وجهه يومًا. كيف يحدث هذا؟",
+    events:
+      "فألقته في اليمّ، فالتقطه آل فرعون: ﴿فَالْتَقَطَهُ آلُ فِرْعَوْنَ لِيَكُونَ لَهُمْ عَدُوًّا وَحَزَنًا﴾. ورفض الطفل أن يرضع من أيّ امرأة، حتى دلّتهم أخته على امرأة ترضعه — وهي أمّه. ﴿فَرَدَدْنَاهُ إِلَىٰ أُمِّهِ كَيْ تَقَرَّ عَيْنُهَا وَلَا تَحْزَنَ﴾. فصارت ترضع ابنها وتأخذ على ذلك أجرًا، في بيت الرجل الذي كان يقتل الأطفال. ثم كبر موسى، وخرج من مصر بعد حادثة وقعت له، وعاش في مَدْيَن سنين، ثم رجع. وفي طريق رجوعه، في وادٍ مقدّس اسمه طُوى، ناداه الله.",
     quranProse: "يقول الله تعالى آمراً سيدنا موسى أن يأخذ أخاه معه: {اذْهَبْ أَنتَ وَأَخُوكَ بِآيَاتِي وَلَا تَنِيَا فِي ذِكْرِي}.",
-    lesson: "الله يحفظ الصغار والضعفاء دائماً. ونتعلم أيضاً أهمية التعاون بين الإخوة؛ فكما ساعد هارون أخاه موسى، يجب علينا أن نساعد إخوتنا ونحبهم وندافع عنهم.",
+    lesson:
+      "إذا اشتدّ بك الأمر حتى لا ترى مخرجًا، فالمخرج عند الله لا عندك.",
     next: "نجا بنو إسرائيل وعبروا البحر.. ولكنهم بعد موسى احتاجوا لقائد شجاع ليدخل بهم مدينة مقدسة. هل تعرفون من هو الشاب الذي قادهم وكان الفتى المرافق لسيدنا موسى في رحلاته؟ إنه سيدنا يوشع بن نون!",
     source: {
       reliability: "🟢",
@@ -1550,17 +1982,36 @@ export const stories: Story[] = [
       keepsake: "عصا من خشب",
       note: "تذكّرك أن الطريق قد ينفتح في اللحظة التي تظنّ فيها أنه انغلق.",
     },
+    arc: {
+      idea: "طفلٌ ألقته أمّه في النهر بأمر من الله، فربّاه في قصره الرجلُ الذي كان يقتل الأطفال.",
+      setting:
+        "كان فرعون قد استعبد بني إسرائيل: ﴿إِنَّ فِرْعَوْنَ عَلَا فِي الْأَرْضِ وَجَعَلَ أَهْلَهَا شِيَعًا يَسْتَضْعِفُ طَائِفَةً مِّنْهُمْ يُذَبِّحُ أَبْنَاءَهُمْ﴾. وفي هذا الزمن بالذات وُلد موسى. فأوحى الله إلى أمّه بأمر عجيب: ﴿أَنْ أَرْضِعِيهِ فَإِذَا خِفْتِ عَلَيْهِ فَأَلْقِيهِ فِي الْيَمِّ وَلَا تَخَافِي وَلَا تَحْزَنِي إِنَّا رَادُّوهُ إِلَيْكِ وَجَاعِلُوهُ مِنَ الْمُرْسَلِينَ﴾ — إن خفتِ عليه فألقيه في الماء.",
+      keyMoment:
+        "وآتاه الله آيتين — العصا واليد — ثم أمره بأصعب أمر: ﴿اذْهَبْ إِلَىٰ فِرْعَوْنَ إِنَّهُ طَغَىٰ﴾. فقال موسى: ﴿رَبِّ اشْرَحْ لِي صَدْرِي * وَيَسِّرْ لِي أَمْرِي * وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي * يَفْقَهُوا قَوْلِي﴾، وسأل أن يكون معه أخوه: ﴿وَاجْعَل لِّي وَزِيرًا مِّنْ أَهْلِي هَارُونَ أَخِي﴾. فأعطاه الله ذلك كلّه. ثم انتبه إلى الوصية التي خرجا بها إلى أطغى رجل في الأرض: ﴿فَقُولَا لَهُ قَوْلًا لَّيِّنًا لَّعَلَّهُ يَتَذَكَّرُ أَوْ يَخْشَىٰ﴾. قولًا ليّنًا — لفرعون.",
+      resolution:
+        "وذهبا. فجُمع السحرة ليغلبوا موسى، فلمّا رأوا الحقّ سجدوا وقالوا: ﴿آمَنَّا بِرَبِّ الْعَالَمِينَ﴾ — الذين جاءوا ليهزموه صاروا أوّل من آمن به. ثم خرج موسى ببني إسرائيل ليلًا، فتبعهم فرعون بجيشه حتى صاروا بين البحر أمامهم والجيش خلفهم. فقال أصحابه: ﴿إِنَّا لَمُدْرَكُونَ﴾. فقال: ﴿كَلَّا إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ﴾. ﴿فَانفَلَقَ فَكَانَ كُلُّ فِرْقٍ كَالطَّوْدِ الْعَظِيمِ﴾ — انشقّ البحر حتى صار كل جزء منه كالجبل. فعبروا، وأدرك فرعونَ ما كان يفرّ منه.",
+      word: { term: "الطَّوْد", meaning: "الجبل العظيم الراسخ الذي لا يتحرّك." },
+      lessons: [
+        "افعل ما أُمرت به وإن بدا مخيفًا؛ فقد ألقت أمُّ موسى ابنها في الماء لتحفظه.",
+        "كلّم من تخالفه بلين؛ فقد أُمر موسى بذلك مع فرعون نفسه.",
+        "اطلب العون ممّن حولك؛ فقد سأل موسى ربّه أن يكون معه أخوه.",
+      ],
+      think:
+        "قال أصحاب موسى: إنّا لمدركون، وقال هو: إنّ معي ربي سيهدين. وكلاهما يرى نفس البحر ونفس الجيش. فما الذي كان مختلفًا بينهما؟",
+      tryToday:
+        "إذا واجهك اليوم أمرٌ تظنّه مستحيلًا، فقل قبل أن تبدأ: «إنّ معي ربي سيهدين»، ثم ابدأ فيه.",
+    },
   },
   {
     chapter: "prophets", slug: "yusha",
     en: {
       title: "Prophet Yusha and the Frozen Sun",
       hook:
-        "Have you ever wished the day would be just a little longer so you could finish something important? For this brave prophet, the sun actually stopped setting!",
+        "Has the sun ever stopped? In an authentic hadith reported by Bukhari and Muslim, a prophet went out on an expedition, and the sun was held back for him until his victory was complete. The hadith does not give his name. So who was he? The answer to that is more honest than you expect.",
       events:
-        "After Musa, Prophet Yusha (Joshua) led the believers. They were trying to enter a holy city to free it from bad people. The battle was long, and the sun was about to set. If it got dark, they couldn't finish their mission, and the next day was a day of rest for them. So, Yusha looked at the sun and said, 'You are commanded by Allah, and I am commanded.' He prayed to Allah to hold the sun for them. Miraculously, the sun stopped moving and didn't set until they won the battle and freed the city!",
+        "The Prophet said that this prophet told his people before they set out: let no man follow me who has married a woman and wishes to consummate the marriage but has not yet; nor a man who has built houses and not yet put the roofs on; nor a man who has bought sheep or pregnant camels and is waiting for them to give birth. And why? Because such a man's heart would stay in his house rather than on the task. So he chose those whose whole heart would come with them, not merely their feet.",
       lesson:
-        "Time and the universe are completely under Allah's control. When we work hard for a good cause, Allah helps us in ways we cannot even imagine.",
+        "Whoever wants something to succeed should clear his heart for it before he clears his hands.",
       next:
         "The sun stopped for Yusha. In the next story, we will meet a prophet who could mold hard iron with his bare hands like soft clay! It's Prophet Dawud!",
       quranProse:
@@ -1576,14 +2027,36 @@ export const stories: Story[] = [
         keepsake: "A disc of the sun",
         note: "A reminder that supplication is a weapon, but only after you have done your part.",
       },
+      arc: {
+        idea: "A prophet the sun was held back for until victory was complete — whom the hadith never names, and this page says so plainly.",
+        setting:
+          "In Bukhari and Muslim, the Prophet said: \"A prophet from among the prophets went on an expedition…\" Notice the opening: a prophet from among the prophets, with no name. Many commentators held that it was Yusha ibn Nun, the young companion of Musa who is mentioned in Surah Al-Kahf — also without a name. And the name \"Yusha\" is not in the Quran at all. So the event is established in the soundest of books, and the naming is a scholarly judgement — which is why you will see the yellow mark at the bottom of this page.",
+        keyMoment:
+          "He drew near the town in the late afternoon, with the sun close to setting and the matter not yet finished. He turned to the sun and said the words the hadith records: \"You are under command and I am under command. O Allah, hold it back for us.\" And it was held back until Allah granted him the victory. Look at what he said first: you are under command and I am under command. He did not say \"I command you.\" He knew the sun was not his to own, and that he was under command exactly as it was — and then he asked the One who commands them both.",
+        resolution:
+          "Then they gathered the spoils, and fire came to consume them as happened for the nations before us — and it did not consume them. So he knew someone among them had taken something. He had each tribe pledge to him, and one man's hand stuck to his; he had taken something from the spoils and hidden it. He returned it, and the fire consumed the spoils. Then the Prophet ended the hadith with a mercy for us: \"So spoils were made lawful for us. Allah saw our weakness and our inability, and made them lawful for us.\"",
+        word: { term: "Pregnant camels", meaning: "She-camels expecting young, whose owner is waiting each day for them to give birth." },
+        lessons: [
+          "Do not begin something with your heart attached somewhere else.",
+          "Know your limit; he said \"you are under command and I am under command,\" and then prayed to Allah.",
+          "Taking what is not yours from what belongs to everyone spoils everyone's work, not just your own.",
+        ],
+        think:
+          "This prophet chose to take with him only those whose hearts were not tied to something else. What occupies your heart while you are studying or praying? How could you set it aside?",
+        tryToday:
+          "Do one thing today with your whole heart present: put everything that distracts you out of reach, then begin.",
+      },
     },
     image: "/stories/prophets/yusha.jpg",
     title: "قصة سيدنا يوشع بن نون",
     surahName: "",
-    hook: "هل حدث وأن كنتم تلعبون مباراة مهمة، واقتربت الشمس من الغروب والوقت كاد ينتهي قبل أن تفوزوا؟ تمنيتم لو تتوقف الشمس قليلاً.. نبينا اليوم حدثت له هذه المعجزة وتوقفت الشمس من أجله!",
-    events: "سيدنا يوشع بن نون كان فتى شاباً شجاعاً، ومرافقاً دائماً لسيدنا موسى يتعلم منه الخير. وبعد وفاة موسى، اختاره الله ليكون هو النبي والقائد لبني إسرائيل. قادهم يوشع بن نون بشجاعة لفتح 'بيت المقدس' ليعيدوه مدينة تعبد الله. وفي يوم المعركة، اقترب وقت غروب الشمس، وكان يوشع خائفاً أن يدخل الليل قبل أن يحققوا الانتصار. فدعا الله أن يوقف الشمس قليلاً ولا تغرب حتى يكملوا المعركة.. فاستجاب الله له، وتوقفت الشمس في السماء كمعجزة عظيمة، وانتصر المؤمنون!",
+    hook:
+      "هل توقّفت الشمس يومًا؟ في حديث صحيح رواه البخاري ومسلم أن نبيًّا من الأنبياء غزا، فحُبست له الشمس حتى تمّ له النصر. ولم يذكر الحديث اسمه. فمن هو؟ الجواب على هذا السؤال أصدق ممّا تتوقّع.",
+    events:
+      "قال النبي ﷺ إن هذا النبيّ قال لقومه قبل أن يخرجوا: لا يتبعني رجل قد تزوّج امرأة وهو يريد أن يبني بها ولمّا يبنِ بعد، ولا رجل بنى بيوتًا ولم يرفع سقوفها، ولا رجل اشترى غنمًا أو خَلِفات — وهي النوق الحوامل — وهو ينتظر ولادها. ولماذا؟ لأن قلب هذا الرجل سيبقى في بيته لا في مهمّته. فاختار من يذهب قلبه كله معه، لا من تذهب قدماه وحدها.",
     quranProse: "لم يُذكر اسمه صراحة في القرآن، لكن الله ذكره بلقب (الفتى) في سورة الكهف حين كان برفقة موسى: {وَإِذْ قَالَ مُوسَىٰ لِفَتَاهُ لَا أَبْرَحُ حَتَّىٰ أَبْلُغَ مَجْمَعَ الْبَحْرَيْنِ أَوْ أَمْضِيَ حُقُبًا}.",
-    lesson: "نتعلم من يوشع بن نون أن الشاب الصغير يمكن أن يصبح قائداً عظيماً إذا تعلم من معلميه الصالحين وكان شجاعاً. وأن الله ينصر من يدافع عن الحق.",
+    lesson:
+      "من أراد أن يتمّ له أمر، فليفرّغ له قلبه قبل أن يفرّغ له يده.",
     next: "بعد فترة، ظهر في جيش المؤمنين شاب صغير آخر، واجه أقوى وأضخم جندي في جيش الأعداء، وهزمه بحجر صغير فقط! وأصبح بعدها مَلِكاً ونبياً.. من هو؟ إنه سيدنا داود.",
     source: {
       reliability: "🟡",
@@ -1601,17 +2074,36 @@ export const stories: Story[] = [
       keepsake: "قرص الشمس",
       note: "يذكّرك أن الدعاء سلاح، لكن لا يُرفع إلا بعد أن تبذل جهدك.",
     },
+    arc: {
+      idea: "نبيٌّ حُبست له الشمس حتى يتمّ النصر — ولم يسمِّه الحديث، وهذه الصفحة تقول لك ذلك بصراحة.",
+      setting:
+        "في الصحيحين عن النبي ﷺ أنه قال: «غزا نبيٌّ من الأنبياء…». وانتبه إلى أوّل الحديث: نبيٌّ من الأنبياء، بغير تسمية. وقد ذهب كثير من المفسّرين إلى أنه يوشع بن نون، فتى موسى الذي ذُكر في سورة الكهف بغير اسم كذلك. واسم «يوشع» ليس في القرآن أصلًا. فالحدث ثابت في أصحّ الكتب، والتسمية اجتهاد — ولهذا تجد العلامة الصفراء في آخر هذه الصفحة.",
+      keyMoment:
+        "ثم دنا من القرية عند العصر، وقاربت الشمس أن تغرب، والأمر لم يتمّ بعد. فالتفت إلى الشمس وقال كلمة يرويها الحديث: «إنكِ مأمورة وأنا مأمور، اللهمّ احبسها علينا». فحُبست حتى فتح الله عليه. وانظر ماذا قال أوّلًا: إنكِ مأمورة وأنا مأمور. لم يقل: أنا آمركِ. عرف أن الشمس ليست ملكًا له، وأنه هو أيضًا مأمور مثلها، ثم توجّه بالطلب إلى الذي يأمرهما جميعًا.",
+      resolution:
+        "ثم جمعوا الغنائم، فجاءت النار لتأكلها كما كان يحدث في الأمم قبلنا، فلم تأكلها. فعلم أن فيهم من أخذ شيئًا، فأمر كل قبيلة أن تبايعه، فلصقت يد رجل بيده، فإذا هو قد أخذ من الغنيمة شيئًا فأخفاه. فردّه، فأكلت النار الغنائم. ثم قال النبي ﷺ في آخر الحديث كلمة فيها رحمة بنا: «فأُحلّت لنا الغنائم، رأى الله ضعفنا وعجزنا فأحلّها لنا».",
+      word: { term: "الخَلِفات", meaning: "النوق الحوامل التي ينتظر صاحبها ولادها في كل يوم." },
+      lessons: [
+        "لا تبدأ عملًا وقلبك معلّق بشيء آخر.",
+        "اعرف حدّك؛ فقد قال: إنكِ مأمورة وأنا مأمور، ثم دعا الله.",
+        "أخذ ما ليس لك من مال الجماعة يفسد عمل الجميع لا عملك وحدك.",
+      ],
+      think:
+        "اختار هذا النبيّ أن يخرج معه من ليس قلبه معلّقًا بشيء آخر. فما الذي يشغل قلبك أنت وأنت تذاكر أو تصلّي؟ وكيف تضعه جانبًا؟",
+      tryToday:
+        "افعل اليوم شيئًا واحدًا بقلبٍ حاضر: ضع كل ما يشغلك بعيدًا عنك، ثم ابدأ فيه.",
+    },
   },
   {
     chapter: "prophets", slug: "dawud",
     en: {
       title: "Prophet Dawud and the Soft Iron",
       hook:
-        "Have you ever played with soft clay? Imagine if someone could play with hard, cold iron just like clay without using any fire!",
+        "What is the strangest sound you have ever heard? In today's story there was a man whose praise of Allah was joined by the mountains, and the birds were gathered to repeat after him. And through all of that he worked with his hands and ate from what his hands made.",
       events:
-        "Prophet Dawud (David) was a very brave and strong prophet. When he was young, he defeated the giant tyrant Jalut (Goliath) with just a small slingshot! Allah gave Dawud a beautiful voice; when he sang the praises of Allah (reading the Psalms/Zabur), the mountains and birds would join him in praising Allah! Allah also gave him an amazing miracle: hard iron would become soft in his bare hands, just like dough. He used this miracle to make strong shields and armor to protect the good people.",
+        "Allah gave him remarkable things. First, his voice: {Indeed, We subjected the mountains to exalt Allah with him in the evening and after sunrise, and the birds, gathered, all with him repeating praises.} Second: {And We made pliable for him iron} — iron softened in his hand the way clay softens in yours — and He told him: {Make full coats of mail and calculate precisely the links.} Third, wisdom and decisive speech: the ability to judge between people and get it right.",
       lesson:
-        "True strength comes from Allah. We should use our talents and strength to protect others and always praise Allah for His blessings.",
+        "The best food you eat is what your own hands made, even if the whole world is in your hands.",
       next:
         "Dawud could mold iron. But his son was given a kingdom like no other; he could talk to animals and control the wind! Let's meet Prophet Sulaiman!",
       quranProse:
@@ -1627,14 +2119,36 @@ export const stories: Story[] = [
         keepsake: "A ring of iron",
         note: "A reminder that Allah puts blessing in work done for His sake.",
       },
+      arc: {
+        idea: "A young man who beat a tyrant with a stone and then became a king — and the most famous thing about his reign is that he worked with his hands.",
+        setting:
+          "Dawud's story began when he was a young man in Talut's army, with nobody expecting anything of him. He killed Jalut, {and Allah gave him the kingship and wisdom and taught him from that which He willed.} He became a prophet and a king at the same time, which few people have ever combined. Allah revealed the Zabur to him, and his voice in reciting it was among the most beautiful of any man's.",
+        keyMoment:
+          "Now the question the story turns on: a man with a kingdom in his hand, receiving revelation, with iron softening between his fingers — why would he tire himself making coats of mail at all? The answer is in the Prophet's words: \"No one has ever eaten better food than what he eats from the work of his own hands, and the prophet of Allah Dawud used to eat from the work of his hands.\" He ruled the land, and ate from what his own hands made. That is the whole story in one line.",
+        resolution:
+          "And with all that, he worshipped in the finest way. The Prophet said: \"The most beloved prayer to Allah is the prayer of Dawud, and the most beloved fasting to Allah is the fasting of Dawud. He would sleep half the night, stand a third of it, and sleep a sixth; and he would fast one day and not the next.\" Allah said of him: {And remember Our servant Dawud, a man of strength; indeed, he was one repeatedly turning back to Allah.} A man of strength — and his strength was in his worship and his work together, not in his army.",
+        word: { term: "Full coats of mail", meaning: "Long, wide armour that covers and protects the one wearing it." },
+        lessons: [
+          "Work with your hands, and never look down on useful work however simple.",
+          "Real strength is strength in obedience, not in authority.",
+          "The deed Allah loves most is the steadiest one, even if it is small; Dawud fasted every other day all his life.",
+        ],
+        think:
+          "Dawud could have taken whatever he wished from the treasury, and chose instead to make things and eat from what he made. Why do you think that was? What is the difference between something you take and something you make?",
+        tryToday:
+          "Make one thing with your hands today — however small — and then use it yourself or give it to someone.",
+      },
     },
     image: "/stories/prophets/dawud.jpg",
     title: "قصة سيدنا داود",
     surahName: "",
-    hook: "تخيلوا جبلاً ضخماً وطيوراً جميلة تغني وتسبح الله معكم كلما قرأتم القرآن! وتخيلوا أن تمسكوا بقطعة حديد صلبة، فتصبح في أيديكم لينة كالصلصال! هذه كانت حياة نبي وملك عظيم.. سيدنا داود.",
-    events: "كان داود شاباً صغيراً في جيش المؤمنين بقيادة طالوت، واستطاع بشجاعته أن يهزم قائداً جباراً اسمه جالوت. بعد ذلك، أعطاه الله الملك والنبوة والحكمة. كان سيدنا داود يملك صوتاً جميلاً جداً؛ وعندما كان يسبح الله ويقرأ كتابه (الزبور)، كانت الجبال والطيور تردد معه بصوت جميل! وأعطاه الله معجزة أخرى مدهشة، فقد ألان له الحديد في يده كأنه عجينة، ليصنع منه دروعاً قوية تحمي الجنود في المعارك.",
+    hook:
+      "ما أغرب صوت سمعتَه في حياتك؟ في قصة اليوم رجلٌ كان إذا سبّح الله سبّحت الجبال معه، وجُمعت له الطير فردّدت وراءه. وكان مع ذلك كله يعمل بيده ويأكل ممّا تصنعه يداه.",
+    events:
+      "وآتاه الله أشياء عجيبة. أوّلها صوته: ﴿إِنَّا سَخَّرْنَا الْجِبَالَ مَعَهُ يُسَبِّحْنَ بِالْعَشِيِّ وَالْإِشْرَاقِ * وَالطَّيْرَ مَحْشُورَةً كُلٌّ لَّهُ أَوَّابٌ﴾. وثانيها: ﴿وَأَلَنَّا لَهُ الْحَدِيدَ﴾ — لان الحديد في يده كما يلين الطين في يدك، وقال له: ﴿أَنِ اعْمَلْ سَابِغَاتٍ وَقَدِّرْ فِي السَّرْدِ﴾ — أي اصنع الدروع الواسعة وأحكِم نسجها حلقةً حلقة. وثالثها الحكمة وفصل الخطاب، أي أن يقضي بين الناس فيصيب.",
     quranProse: "يقول الله تعالى يصف معجزاته: {يَا جِبَالُ أَوِّبِي مَعَهُ وَالطَّيْرَ ۖ وَأَلَنَّا لَهُ الْحَدِيدَ}. (أوِّبي معه يعني سبِّحي معه).",
-    lesson: "القوة الحقيقية ليست بحجم الجسم، بل بالشجاعة والإيمان بالله. ومهما أعطانا الله من قوة أو أموال أو مهارات، يجب أن نستخدمها في عمل الخير كما كان يفعل سيدنا داود الذي كان يشكر الله دائماً.",
+    lesson:
+      "أطيب ما تأكله ما عملته يدك، ولو كانت الدنيا كلها في يدك.",
     next: "سيدنا داود كان ملكاً عظيماً، لكنه ورّث الملك لابن سيطلب من الله مُلكاً لن يحصل عليه أحد من بعده أبداً! ملك يتحكم في الريح، والجن، ويفهم لغة الطيور! إنه سيدنا سليمان.",
     source: {
       reliability: "🟢",
@@ -1652,17 +2166,36 @@ export const stories: Story[] = [
       keepsake: "حلقة من حديد",
       note: "تذكّرك أن الله يجعل في العمل بركة حين يكون لله.",
     },
+    arc: {
+      idea: "فتىً هزم جبّارًا بحجر ثم صار ملكًا — وأشهر ما ذُكر عن مُلكه أنه كان يصنع بيده.",
+      setting:
+        "بدأت قصة داود عليه السلام وهو فتى صغير في جيش طالوت، لا ينتظر منه أحد شيئًا. فقتل جالوت، ﴿وَآتَاهُ اللَّهُ الْمُلْكَ وَالْحِكْمَةَ وَعَلَّمَهُ مِمَّا يَشَاءُ﴾. فصار نبيًّا وملكًا في وقت واحد، وهذا لم يجتمع لكثير من الناس. وأنزل الله عليه الزَّبور، وكان من أحسن الناس صوتًا بالقراءة.",
+      keyMoment:
+        "والآن السؤال الذي تدور عليه القصة: رجلٌ في يده مُلك، ويوحى إليه، والحديد يلين بين أصابعه — فلماذا يتعب نفسه في صناعة الدروع أصلًا؟ الجواب في حديث النبي ﷺ: «ما أكل أحدٌ طعامًا قطّ خيرًا من أن يأكل من عمل يده، وإنّ نبيّ الله داود عليه السلام كان يأكل من عمل يده». ملَك الأرض، وأكل ممّا صنعته يداه. وهذه هي القصة كلها في سطر.",
+      resolution:
+        "وكان مع ذلك كثير العبادة على أحسن وجه. قال النبي ﷺ: «أحبّ الصلاة إلى الله صلاة داود، وأحبّ الصيام إلى الله صيام داود؛ كان ينام نصف الليل ويقوم ثلثه وينام سدسه، وكان يصوم يومًا ويفطر يومًا». وقال الله عنه: ﴿وَاذْكُرْ عَبْدَنَا دَاوُودَ ذَا الْأَيْدِ إِنَّهُ أَوَّابٌ﴾ — ذا الأيد، أي صاحب القوّة. وكانت قوّته في عبادته وفي عمله جميعًا، لا في جيشه.",
+      word: { term: "سَابِغَات", meaning: "الدروع الواسعة الطويلة التي تغطّي لابسها وتقيه." },
+      lessons: [
+        "اعمل بيدك، ولا تستصغر عملًا نافعًا مهما كان بسيطًا.",
+        "القوّة الحقيقية قوّةٌ في الطاعة، لا في السلطان.",
+        "أحبّ العمل إلى الله أدومه وإن قلّ؛ صام داود يومًا وأفطر يومًا طول عمره.",
+      ],
+      think:
+        "كان داود يستطيع أن يأخذ ما شاء من بيت المال، فاختار أن يصنع بيده ويأكل من صنعه. لماذا في رأيك؟ وما الفرق بين شيء تأخذه وشيء تصنعه أنت؟",
+      tryToday:
+        "اصنع اليوم شيئًا بيدك — ولو كان صغيرًا — ثم استعمله أنت أو أعطه لأحد.",
+    },
   },
   {
     chapter: "prophets", slug: "sulaiman",
     en: {
       title: "Prophet Sulaiman's Great Kingdom",
       hook:
-        "Imagine being a king who can order the wind to carry you, talk to birds, and have jinn build castles for you! This was the greatest kingdom on earth.",
+        "If Allah said to you: ask for whatever you want — what would you ask for? In today's story a man was given exactly that, and asked for something extraordinary: a kingdom that would belong to no one after him, ever. Why ask for that in particular? And what did he do with it once he had it?",
       events:
-        "Prophet Sulaiman (Solomon) asked Allah for a kingdom that no one else would ever have, and Allah granted his prayer! Sulaiman could understand the languages of all animals, birds, and insects. He commanded the wind to transport him quickly across the world. He also controlled the strong Jinn, who built huge palaces, beautiful statues, and deep-sea diving ships for him. Despite all this immense power and wealth, Sulaiman was always humble, constantly praying and thanking Allah, knowing it was all a test.",
+        "Allah gave him what he asked and more. He made the wind serve him: {its morning course a month's journey and its afternoon course a month's journey.} He made the jinn work before him, making {elevated chambers, statues, bowls like reservoirs, and stationary kettles.} He taught him the speech of birds, so he understood what the birds and the ants said. And an army was gathered for him of jinn, men and birds, {and they were held in order} — the front held back for the rear because of how many they were.",
       lesson:
-        "Power and wealth are a test from Allah. A true believer stays humble, fair, and thankful, no matter how much they own.",
+        "A blessing is a test; the question is not how much you have, but what you do with what you have.",
       next:
         "Sulaiman had the greatest kingdom. But our next prophet didn't ask for a kingdom; he just asked for a child when he was very, very old. Did his prayer come true? Let's meet Prophet Zakariya!",
       quranProse:
@@ -1678,14 +2211,36 @@ export const stories: Story[] = [
         keepsake: "The king's ring",
         note: "A reminder that the greatest kingdom is the one whose owner gives thanks for it.",
       },
+      arc: {
+        idea: "A king who asked for a kingdom no one after him would have, and then stood thanking Allah because he had understood an ant.",
+        setting:
+          "Sulaiman inherited prophethood and kingship from his father Dawud. Allah said of him a line that explains everything that follows: {An excellent servant; indeed, he was one repeatedly turning back to Allah.} Among the first things he did in his reign was pray: {My Lord, forgive me and grant me a kingdom such as will not belong to anyone after me. Indeed, You are the Bestower.} Notice the order of the prayer: he began with forgiveness before he asked for the kingdom.",
+        keyMoment:
+          "And with all of that, look at what he did when he heard a small ant warning her people about him and his soldiers. He did not take offence and he was not arrogant. {So he smiled, amused at her speech, and said, My Lord, enable me to be grateful for Your favour.} Elsewhere, when the throne of the queen of Saba was brought to him in the blink of an eye, he said: {This is from the favour of my Lord to test me whether I will be grateful or ungrateful.} This is a test for me. The man who owned what no one else had seen every blessing as an exam, not a prize.",
+        resolution:
+          "At the end of his life he died leaning on his staff, and the jinn kept working, thinking he was still standing and watching them — until a termite, a small creature that eats wood, ate through his staff and he fell. {And when he fell, it became clear to the jinn that if they had known the unseen, they would not have remained in humiliating punishment.} The greatest kingdom ever given to a human being was finally revealed by a small creature eating a stick.",
+        word: { term: "Staff", meaning: "The walking stick a person leans on and steadies himself with." },
+        lessons: [
+          "Begin your prayer with forgiveness, as Sulaiman did before asking for a kingdom.",
+          "With every blessing, say: this is from the favour of my Lord.",
+          "Never look down on something small; Sulaiman listened to an ant, and a termite brought down his staff.",
+        ],
+        think:
+          "Sulaiman said of a blessing: \"to test me whether I will be grateful or ungrateful.\" Pick one blessing you have and ask yourself: how do I thank Allah for it in action, not in words?",
+        tryToday:
+          "Thank someone who helped you today, out loud and to their face: may Allah reward you — that really helped me.",
+      },
     },
     image: "/stories/prophets/sulaiman.jpg",
     title: "قصة سيدنا سليمان",
     surahName: "",
-    hook: "إذا كان بإمكانكم أن تطلبوا أمنية واحدة فقط، فماذا ستكون؟ سيدنا سليمان طلب من الله مملكة عجيبة لا يستطيع أحد أن يصنع مثلها أبداً! ماذا كان يوجد في هذه المملكة؟",
-    events: "ورث سيدنا سليمان الملك عن أبيه داود، وسأل الله أن يعطيه مُلكاً لا ينبغي لأحد من بعده. فاستجاب الله له، وسخّر له أشياء لا يمكن تخيلها! جعل الرياح تحمله وتنقله بسرعة إلى أماكن بعيدة، وجعل الجن يعملون عنده ويبنون له القصور الجميلة، بل وعلمه لغة الطيور والحيوانات! ورغم كل هذه القوة العجيبة، كان سيدنا سليمان متواضعاً جداً، وكان دائماً يسجد لله ويشكره على هذه النعم الكبيرة ولا يتكبر أبداً.",
+    hook:
+      "لو قال لك الله: اطلب ما شئت — فماذا تطلب؟ في قصة اليوم رجلٌ حدث له هذا، فطلب شيئًا عجيبًا: أن يؤتيه الله مُلكًا لا يكون لأحد من بعده أبدًا. فلماذا طلب هذا بالذات؟ وماذا فعل به لمّا أُعطيه؟",
+    events:
+      "فأعطاه الله ما سأل وزاده. سخّر له الريح: ﴿غُدُوُّهَا شَهْرٌ وَرَوَاحُهَا شَهْرٌ﴾ — تسير به في أوّل النهار مسيرة شهر، وفي آخره مسيرة شهر. وسخّر له الجنّ يعملون بين يديه ﴿مَحَارِيبَ وَتَمَاثِيلَ وَجِفَانٍ كَالْجَوَابِ وَقُدُورٍ رَّاسِيَاتٍ﴾. وعلّمه منطق الطير، فكان يفهم ما تقوله الطير والنمل. وجُمع له جندٌ من الجنّ والإنس والطير ﴿فَهُمْ يُوزَعُونَ﴾ — أي يُحبس أوّلهم على آخرهم من كثرتهم حتى ينتظموا.",
     quranProse: "يقول الله تعالى يخبرنا عن دعاء سيدنا سليمان: {قَالَ رَبِّ اغْفِرْ لِي وَهَبْ لِي مُلْكًا لَّا يَنبَغِي لِأَحَدٍ مِّن بَعْدِي ۖ إِنَّكَ أَنتَ الْوَهَّابُ}.",
-    lesson: "مهما أصبحنا أغنياء أو ناجحين، ومهما كانت الألعاب والأشياء التي نملكها كثيرة، يجب ألا نتكبر على أحد، وأن نقول دائماً: 'الحمد لله الذي أعطانا هذا'.",
+    lesson:
+      "النعمة اختبار؛ فالسؤال ليس كم عندك، بل ماذا تصنع بما عندك.",
     next: "سيدنا سليمان كان ملكاً غنياً وقوياً. لكن ماذا عن رجل عجوز جداً، كان فقيراً وليس لديه أبناء، ويدعو الله دائماً في صلاته أن يرزقه بطفل؟ هل سيستجيب الله له بعد أن أصبح شعره أبيض؟ تعالوا نعرف قصة سيدنا زكريا وابنه يحيى.",
     source: {
       reliability: "🟢",
@@ -1703,17 +2258,36 @@ export const stories: Story[] = [
       keepsake: "خاتم الملك",
       note: "يذكّرك أن أعظم الملك ما شكر صاحبه عليه.",
     },
+    arc: {
+      idea: "ملكٌ سأل الله مُلكًا لا يكون لأحد بعده، ثم وقف يشكر لأنه فهم كلام نملة.",
+      setting:
+        "ورث سليمان عليه السلام النبوّة والمُلك عن أبيه داود. وقال الله عنه كلمةً تفسّر كلّ ما جاء بعدها: ﴿نِعْمَ الْعَبْدُ إِنَّهُ أَوَّابٌ﴾. وكان من أوّل ما فعل في مُلكه أن دعا: ﴿رَبِّ اغْفِرْ لِي وَهَبْ لِي مُلْكًا لَّا يَنبَغِي لِأَحَدٍ مِّنْ بَعْدِي إِنَّكَ أَنتَ الْوَهَّابُ﴾. وانتبه إلى ترتيب الدعاء: بدأ بالمغفرة قبل أن يطلب المُلك.",
+      keyMoment:
+        "ومع هذا كله، انظر ماذا فعل حين سمع نملةً صغيرة تحذّر قومها منه ومن جنوده. لم يغضب ولم يتكبّر. ﴿فَتَبَسَّمَ ضَاحِكًا مِّن قَوْلِهَا وَقَالَ رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ﴾. وفي موضع آخر، لمّا جيء له بعرش ملكة سبأ في طرفة عين قال: ﴿هَٰذَا مِن فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ﴾ — أي: هذا اختبار لي. الرجل الذي ملك ما لم يملكه أحد، كان يرى كل نعمة امتحانًا لا جائزة.",
+      resolution:
+        "وفي آخر أمره مات وهو متّكئ على عصاه، فبقي الجنّ يعملون وهم يحسبونه قائمًا يراهم، حتى أكلت الأَرَضة — وهي دويبة صغيرة تأكل الخشب — عصاه فسقط. ﴿فَلَمَّا خَرَّ تَبَيَّنَتِ الْجِنُّ أَن لَّوْ كَانُوا يَعْلَمُونَ الْغَيْبَ مَا لَبِثُوا فِي الْعَذَابِ الْمُهِينِ﴾. أعظم مُلك أُعطيه بشر، كُشف أمره في النهاية بدويبة صغيرة تأكل عصا.",
+      word: { term: "مِنسَأَة", meaning: "العصا التي يتوكّأ عليها الماشي ويستند إليها." },
+      lessons: [
+        "ابدأ دعاءك بالمغفرة، كما بدأ سليمان قبل أن يسأل المُلك.",
+        "قل عند كل نعمة: هذا من فضل ربي.",
+        "لا تحتقر صغيرًا؛ فقد أصغى سليمان لنملة، وسقطت عصاه بدويبة.",
+      ],
+      think:
+        "قال سليمان عن النعمة: «ليبلوني أأشكر أم أكفر». اختر نعمةً واحدة عندك، واسأل نفسك: كيف أشكرها عملًا لا كلامًا؟",
+      tryToday:
+        "اشكر اليوم من أحسن إليك بكلمة صريحة تقولها له في وجهه: جزاك الله خيرًا، لقد نفعتني فعلًا.",
+    },
   },
   {
     chapter: "prophets", slug: "zakariya-and-yahya",
     en: {
       title: "Prophet Zakariya and the Miracle Baby",
       hook:
-        "Can an old man whose hair is completely white have a baby? When we ask Allah, we should never lose hope!",
+        "Have you ever prayed for something you quietly believed would never happen? In today's story, a man had grown old until his hair was white, and his wife could not bear children, and then he prayed. And he did not raise his voice — he prayed secretly, between himself and his Lord.",
       events:
-        "Prophet Zakariya (Zechariah) was a very kind and old man who worked hard in the mosque. He and his wife were very old, and they never had any children. Zakariya wanted a good son to continue teaching people after him. One day, he saw how Allah provided fresh fruits to Maryam (Mary) out of season. This gave him great hope! He prayed secretly and sincerely to Allah for a child. Allah answered his prayer and sent angels to give him the glad tidings of a boy named Yahya (John), who would be a great and pure prophet.",
+        "{There, Zakariya called upon his Lord} — there, at that very moment, as he watched provision arrive from no visible cause. {When he called to his Lord a private call. He said, My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy.} Look at how he described his state: my bones have weakened, my head has filled with white. And then a line of remarkable manners: never have I been unhappy in my supplication to You — I have been asking You for a long time, and You have never once turned me away.",
       lesson:
-        "We should never give up hope or stop praying to Allah, because Allah can make the impossible happen.",
+        "Never think a prayer too small, and never think anything too much for Allah.",
       next:
         "Zakariya had a miracle son in his old age. But the next miracle is even more amazing: a baby born without a father, who spoke from his cradle! It's Prophet Isa!",
       quranProse:
@@ -1729,14 +2303,36 @@ export const stories: Story[] = [
         keepsake: "A small prayer niche",
         note: "A reminder that a supplication is never wasted, even if the answer takes years.",
       },
+      arc: {
+        idea: "An old man who asked his Lord privately for a son, and Allah named the boy with a name no one had carried before.",
+        setting:
+          "Zakariya, peace be upon him, was an elderly prophet, and he was the one who cared for Maryam in the sanctuary. Whenever he entered upon her he found provision with her, and he would ask: {From where is this to you?} She would say: {It is from Allah. Indeed, Allah provides for whom He wills without account.} So every day he saw with his own eyes that Allah gives outside the causes people know. And in that very place, it occurred to him to ask.",
+        keyMoment:
+          "The answer came faster than anyone would imagine, and it contained something he had not asked for at all: {O Zakariya, indeed We give you good tidings of a boy whose name will be Yahya. We have not assigned to any before this name.} He was not told \"you will be given a son.\" He was told: his name is Yahya — Allah named him before he existed, with a name no one had carried before. Zakariya said in astonishment: {My Lord, how will I have a boy when my wife has been barren and I have reached extreme old age?} He was told: {Thus it will be; your Lord says, it is easy for Me.} Easy. One word ended every calculation.",
+        resolution:
+          "And Yahya was born. And what did Allah say of him? {O Yahya, take the Scripture with determination. And We gave him judgement while yet a boy} — understanding and wisdom while he was still a child. Then: {And affection from Us and purity, and he was fearing of Allah, and dutiful to his parents, and he was not a disobedient tyrant.} Merciful, pure, God-fearing, good to his parents, neither arrogant nor disobedient. The child his father had asked for quietly in the sanctuary became all of that.",
+        word: { term: "Extreme old age", meaning: "Reaching an age where the bones have dried and the body has weakened." },
+        lessons: [
+          "Pray to Allah privately; the supplication He loves most is the quiet one.",
+          "What causes cannot manage, your Lord is not unable to do; \"it is easy for Me.\"",
+          "Take what you learn with determination; Yahya was told: take the Scripture with determination.",
+        ],
+        think:
+          "Zakariya prayed for something that looked impossible, and was not embarrassed to ask. What is something you wish for and have never prayed for, because you think it is out of reach?",
+        tryToday:
+          "Make one prayer today in private where no one can hear you, and ask for something big — something you would be shy to say aloud.",
+      },
     },
     image: "/stories/prophets/zakariya-and-yahya.jpg",
     title: "قصة سيدنا زكريا وابنه يحيى",
     surahName: "",
-    hook: "هل رأيتم رجلاً عجوزاً جداً شعره أبيض بالكامل يرزق بطفل صغير؟ هذه معجزة! نبينا اليوم كان يحب الأطفال كثيراً وتمنى أن يكون له طفل يعلمه الخير، فهل حقق الله أمنيته؟",
-    events: "كان سيدنا زكريا رجلاً طيباً وكبيراً في السن، وكان هو من يتكفل برعاية السيدة مريم العذراء في المسجد. وعندما كان يرى فاكهة الصيف تأتي لمريم في الشتاء بأمر الله، علم أن الله قادر على كل شيء! فدعا ربه سراً وقال: يا رب لقد كبرت وعظمي ضعف، وزوجتي كبيرة، فارزقني بطفل صالح. فاستجاب الله له وبشره بطفل اسمه (يحيى). كان يحيى طفلاً ذكياً ومميزاً، فقد أعطاه الله الحكمة والعلم وهو لا يزال صبياً صغيراً، وكان باراً بوالديه ومحباً لقراءة الكتاب المقدس بجد واجتهاد.",
+    hook:
+      "هل دعوتَ يومًا بشيء تظنّ في قلبك أنه لن يحدث أبدًا؟ في قصة اليوم رجلٌ كبر حتى اشتعل رأسه شيبًا، وامرأته لا تلد، ثم دعا. ولم يرفع صوته بالدعاء — دعا سرًّا، بينه وبين ربه.",
+    events:
+      "﴿هُنَالِكَ دَعَا زَكَرِيَّا رَبَّهُ﴾ — هنالك، أي في تلك اللحظة بالذات، وهو يرى الرزق يأتي من حيث لا سبب. ﴿إِذْ نَادَىٰ رَبَّهُ نِدَاءً خَفِيًّا * قَالَ رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا﴾. انظر كيف وصف حاله: عظمي ضعف، ورأسي اشتعل شيبًا. ثم قال كلمة فيها أدب عجيب: ولم أكن بدعائك ربّ شقيًّا — أي أنا أدعوك من زمن طويل، وما رددتني مرّة واحدة.",
     quranProse: "يقول الله تعالى آمراً سيدنا يحيى وهو طفل: {يَا يَحْيَىٰ خُذِ الْكِتَابَ بِقُوَّةٍ ۖ وَآتَيْنَاهُ الْحُكْمَ صَبِيًّا}.",
-    lesson: "الدعاء مثل السحر الحلال، إذا دعونا الله بصدق، سيحقق لنا ما نتمناه مهما بدا صعباً. ونتعلم من سيدنا يحيى أن نقرأ الكتب المفيدة ونتعلم ونحن صغار لنكون أذكياء وصالحين.",
+    lesson:
+      "لا تستصغر دعوة، ولا تستكثر على الله شيئًا.",
     next: "سيدنا يحيى كان طفلاً ذكياً.. ولكن ماذا لو أخبرتكم عن طفل آخر، وُلد من غير أب، وتكلم وهو لا يزال رضيعاً في المهد (السرير الصغير) ليحمي أمه! هذه من أعظم المعجزات! سنتعرف عليها في قصة سيدنا عيسى!",
     source: {
       reliability: "🟢",
@@ -1754,17 +2350,36 @@ export const stories: Story[] = [
       keepsake: "محراب صغير",
       note: "يذكّرك أن الدعاء لا يُردّ، ولو تأخّر الجواب سنين.",
     },
+    arc: {
+      idea: "شيخٌ كبير دعا ربّه سرًّا أن يرزقه ولدًا، فسمّاه الله باسم لم يُسمَّ به أحد قبله.",
+      setting:
+        "كان زكريا عليه السلام نبيًّا كبير السنّ، وكان هو الذي يكفل مريم عليها السلام في المحراب. وكان كلّما دخل عليها وجد عندها رزقًا، فيسألها: ﴿أَنَّىٰ لَكِ هَٰذَا﴾؟ فتقول: ﴿هُوَ مِنْ عِندِ اللَّهِ إِنَّ اللَّهَ يَرْزُقُ مَن يَشَاءُ بِغَيْرِ حِسَابٍ﴾. فكان يرى بعينه كل يوم أن الله يعطي من غير الأسباب التي يعرفها الناس. وفي ذلك الموضع بالذات خطر له أن يسأل.",
+      keyMoment:
+        "فجاء الجواب أسرع ممّا يتخيّل أحد، وفيه شيء لم يطلبه أصلًا: ﴿يَا زَكَرِيَّا إِنَّا نُبَشِّرُكَ بِغُلَامٍ اسْمُهُ يَحْيَىٰ لَمْ نَجْعَل لَّهُ مِن قَبْلُ سَمِيًّا﴾. لم يقل له: ستُرزق ولدًا. قال: اسمه يحيى — سمّاه الله قبل أن يُخلق، باسم لم يُسمَّ به أحد قبله. فقال زكريا متعجّبًا: ﴿أَنَّىٰ يَكُونُ لِي غُلَامٌ وَكَانَتِ امْرَأَتِي عَاقِرًا وَقَدْ بَلَغْتُ مِنَ الْكِبَرِ عِتِيًّا﴾؟ فقيل له: ﴿كَذَٰلِكَ قَالَ رَبُّكَ هُوَ عَلَيَّ هَيِّنٌ﴾. هيّن. كلمة واحدة أنهت كل الأسباب.",
+      resolution:
+        "ووُلد يحيى. فماذا قال الله عنه؟ ﴿يَا يَحْيَىٰ خُذِ الْكِتَابَ بِقُوَّةٍ وَآتَيْنَاهُ الْحُكْمَ صَبِيًّا﴾ — آتاه الفهم والحكمة وهو ما يزال صبيًّا. ثم: ﴿وَحَنَانًا مِّن لَّدُنَّا وَزَكَاةً وَكَانَ تَقِيًّا * وَبَرًّا بِوَالِدَيْهِ وَلَمْ يَكُن جَبَّارًا عَصِيًّا﴾ — رحيمًا، طاهرًا، تقيًّا، بارًّا بوالديه، ليس متكبّرًا ولا عاصيًا. الولد الذي دعا به أبوه سرًّا في المحراب، صار هذا كلّه.",
+      word: { term: "عِتِيًّا", meaning: "أن يبلغ الإنسان من الكبر مبلغًا ييبس فيه عظمه ويضعف." },
+      lessons: [
+        "ادعُ الله سرًّا؛ فأحبّ الدعاء إليه ما كان خفيًّا.",
+        "ما عجزت عنه الأسباب لا يعجز عنه ربّك؛ ﴿هو عليّ هيّن﴾.",
+        "خذ ما تتعلّمه بقوّة وجدّ؛ فقد قيل ليحيى: ﴿خذ الكتاب بقوّة﴾.",
+      ],
+      think:
+        "دعا زكريا بشيء يبدو مستحيلًا، ولم يستحِ أن يطلبه. فما الشيء الذي تتمنّاه ولم تدعُ الله به لأنك تظنّه بعيدًا عنك؟",
+      tryToday:
+        "ادعُ اليوم دعوة واحدة سرًّا لا يسمعك فيها أحد، واطلب فيها شيئًا كبيرًا تستحي أن تقوله لأحد.",
+    },
   },
   {
     chapter: "prophets", slug: "isa",
     en: {
       title: "Prophet Isa, the Miracle Child",
       hook:
-        "Have you ever heard a newborn baby speak like a grown-up? Our prophet today spoke to defend his mother when he was just a few days old!",
+        "The first word he spoke in his life was not \"mother.\" It was a defence of his mother, in front of people who had come to accuse her. He was a few days old, still in the cradle.",
       events:
-        "Prophet Isa (Jesus) was born to the pure Virgin Maryam without a father, by the great power of Allah. When Maryam brought the baby to her people, they were shocked and asked her bad questions. Maryam just pointed to her baby. The people said, 'How can we talk to a baby in a cradle?' Suddenly, baby Isa spoke clearly! He said, 'I am a servant of Allah. He has given me the Scripture and made me a prophet.' When he grew up, Allah gave him miracles like healing the sick, curing the blind, and even bringing the dead back to life by Allah's permission.",
+        "Maryam came back to her people carrying him: {Then she brought him to her people, carrying him. They said, O Maryam, you have certainly done a thing unprecedented.} Allah had already commanded her not to speak: {And say, Indeed, I have vowed to the Most Merciful abstention, so I will not speak today to any man.} So she did not defend herself with a single word, did not explain and did not argue. {So she pointed to him.} She pointed at the baby. And they said in disbelief: {How can we speak to one who is in the cradle a child?}",
       lesson:
-        "Allah can create anything He wills. Isa was a great human messenger who brought love, healing, and the truth of worshipping Allah alone.",
+        "The noblest thing a human being can be called is a servant of Allah.",
       next:
         "Isa brought great miracles. But who is the final prophet? The one who brought a message for all people until the end of time? It's Prophet Muhammad (pbuh)!",
       quranProse:
@@ -1780,14 +2395,36 @@ export const stories: Story[] = [
         keepsake: "A palm frond",
         note: "A reminder that Allah is able to do all things, and the innocent are cleared.",
       },
+      arc: {
+        idea: "A prophet who spoke in the cradle to defend his mother, and the first thing he said was: I am the servant of Allah.",
+        setting:
+          "Isa, peace be upon him, was created without a father, by a word from Allah: {Indeed, the example of Isa to Allah is like that of Adam. He created him from dust; then He said to him, Be, and he was.} Maryam carried him — she who had grown up in the sanctuary and was known for her purity. Then the pains came and she gave birth alone beneath a palm tree, and said, knowing exactly what people would say: {Oh, I wish I had died before this and was in oblivion, forgotten.}",
+        keyMoment:
+          "And the baby spoke. {He said, Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet.} Notice the first words of his life: \"I am the servant of Allah.\" Before saying he was a prophet, he said he was a servant. And that is precisely the word that those who went astray after him went astray over — raising him above the station Allah placed him in, while he had begun his life by defining it himself. Then he went on: {And He has made me blessed wherever I am and has enjoined upon me prayer and charity as long as I remain alive. And dutiful to my mother, and He has not made me a wretched tyrant.}",
+        resolution:
+          "When he grew, Allah supported him with great signs: he would form from clay the shape of a bird and breathe into it and it would become a bird, and he would heal the blind and the leper, and revive the dead — and with every one of them the Quran says {by permission of Allah}, so that no power is attributed to anyone but its owner. Then those who disbelieved plotted against him and sought to kill him, and Allah said: {And they did not kill him, nor did they crucify him; but it was made to appear so to them}, {Rather, Allah raised him to Himself. And ever is Allah Exalted in Might and Wise.} They never reached him.",
+        word: { term: "A thing unprecedented", meaning: "Something grave and outrageous, never seen before — the accusation they threw at Maryam." },
+        lessons: [
+          "Be good to your mother; the first thing Isa mentioned after his Lord was that he was dutiful to her.",
+          "Of everything you can do, say: by the permission of Allah.",
+          "Do not raise anyone above the station Allah placed them in, not even a prophet.",
+        ],
+        think:
+          "Maryam stayed silent and did not defend herself, and the defence came from where no one expected. Have you ever borne an unfair accusation patiently? What happened afterwards?",
+        tryToday:
+          "Do one thing today that makes your mother happy — unasked, and without waiting to be thanked.",
+      },
     },
     image: "/stories/prophets/isa.jpg",
     title: "قصة سيدنا عيسى ابن مريم",
     surahName: "",
-    hook: "هل سمعتم يوماً طفلاً رضيعاً لم يتعلم المشي بعد، يتحدث بطلاقة ويدافع عن أمه؟ هذه معجزة لا يصدقها العقل، لكنها حدثت مع نبي عظيم خلقه الله بطريقة فريدة وعجيبة جداً! تعالوا نتعرف على سيدنا عيسى.",
-    events: "سيدنا عيسى عليه السلام هو نبي كريم، وهو الكلمة التي ألقاها الله إلى السيدة مريم العذراء وروح منه. معجزته الأولى أنه خُلق بلا أب، وعندما تعجب الناس من ذلك، تكلم في المهد (سرير الرضيع) صبياً ليبرئ أمه الطيبة ويخبرهم أنه نبي الله. ولما كبر، أيّده الله بمعجزات باهرة جداً ومدهشة؛ فكان يمسح على عيني الأعمى فيبصر، ويعالج المريض بمرض جلدي (الأبرص) فيُشفى، بل وكان يحيي الموتى بإذن الله! حاول بعض الأشرار أن يؤذوه ويصلبوه، لكن الله حماه، وانتهت رسالته في الأرض بأن رفعه الله إلى السماء ونجّاه من مكرهم.",
+    hook:
+      "أوّل كلمة قالها في حياته لم تكن «أمّي». كانت دفاعًا عن أمّه أمام قوم جاءوا يتّهمونها. وكان عمره أيامًا معدودة، وهو في المهد.",
+    events:
+      "ثم رجعت مريم إلى قومها تحمله: ﴿فَأَتَتْ بِهِ قَوْمَهَا تَحْمِلُهُ قَالُوا يَا مَرْيَمُ لَقَدْ جِئْتِ شَيْئًا فَرِيًّا﴾. وكان الله قد أمرها ألّا تتكلّم: ﴿فَقُولِي إِنِّي نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًا فَلَنْ أُكَلِّمَ الْيَوْمَ إِنسِيًّا﴾. فلم تدافع عن نفسها بكلمة واحدة، ولم تشرح ولم تجادل. ﴿فَأَشَارَتْ إِلَيْهِ﴾ — أشارت إلى الطفل. فقالوا مستنكرين: ﴿كَيْفَ نُكَلِّمُ مَن كَانَ فِي الْمَهْدِ صَبِيًّا﴾؟",
     quranProse: "يقول الله تعالى يصف كلمات سيدنا عيسى وهو رضيع: {قَالَ إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا}.",
-    lesson: "قدرة الله لا يحدها شيء؛ فهو يخلق ما يشاء ويشفي من يشاء. ونتعلم من سيدنا عيسى أهمية بر الوالدين، فقد كان باراً جداً بأمه ودافع عنها.",
+    lesson:
+      "أشرف ما يُوصف به الإنسان أنه عبدٌ لله.",
     next: "سيدنا عيسى بَشَّر قومه بأن هناك نبياً عظيماً سيأتي من بعده ليكون آخر الأنبياء للعالمين. فمن هو هذا النبي الخاتم؟ إنه حبيبنا ونبينا محمد صلى الله عليه وسلم!",
     source: {
       reliability: "🟢",
@@ -1805,17 +2442,36 @@ export const stories: Story[] = [
       keepsake: "سعفة نخل",
       note: "تذكّرك أن الله على كل شيء قدير، وأن براءة الصادق تظهر.",
     },
+    arc: {
+      idea: "نبيٌّ تكلّم في المهد ليدافع عن أمّه، وأوّل ما قال: إني عبد الله.",
+      setting:
+        "خُلق عيسى عليه السلام من غير أب، بكلمة من الله: ﴿إِنَّ مَثَلَ عِيسَىٰ عِندَ اللَّهِ كَمَثَلِ آدَمَ خَلَقَهُ مِن تُرَابٍ ثُمَّ قَالَ لَهُ كُن فَيَكُونُ﴾. وحملت به مريم، وهي التي نشأت في المحراب وعُرفت بالطهر. ثم جاءها المخاض فولدت وحدها تحت نخلة، وقالت من شدّة ما تعلم أن الناس سيقولونه: ﴿يَا لَيْتَنِي مِتُّ قَبْلَ هَٰذَا وَكُنتُ نَسْيًا مَّنسِيًّا﴾.",
+      keyMoment:
+        "فتكلّم الطفل. ﴿قَالَ إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا﴾. وانتبه إلى أوّل كلمة نطق بها في حياته: «إني عبد الله». قبل أن يقول إنه نبيّ، قال إنه عبد. وهذه الكلمة بالذات هي التي ضلّ فيها من ضلّ من بعده، فرفعوه فوق منزلته التي وضعه الله فيها، وهو قد بدأ حياته بأن حدّدها بنفسه. ثم تابع: ﴿وَجَعَلَنِي مُبَارَكًا أَيْنَ مَا كُنتُ وَأَوْصَانِي بِالصَّلَاةِ وَالزَّكَاةِ مَا دُمْتُ حَيًّا * وَبَرًّا بِوَالِدَتِي وَلَمْ يَجْعَلْنِي جَبَّارًا شَقِيًّا﴾.",
+      resolution:
+        "ولمّا كبر أيّده الله بآيات عظيمة: يخلق من الطين كهيئة الطير فينفخ فيه فيكون طيرًا، ويبرئ الأكمه والأبرص، ويحيي الموتى — وفي كل واحدة منها يقول القرآن: ﴿بِإِذْنِ اللَّهِ﴾، فلا تُنسب قدرة إلى غير صاحبها. ثم مكر به الذين كفروا وأرادوا قتله، فقال الله: ﴿وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِن شُبِّهَ لَهُمْ﴾، ﴿بَل رَّفَعَهُ اللَّهُ إِلَيْهِ وَكَانَ اللَّهُ عَزِيزًا حَكِيمًا﴾. لم يصلوا إليه.",
+      word: { term: "فَرِيًّا", meaning: "أمرًا عظيمًا منكَرًا لم يُعهد مثله — وهي التهمة التي رمَوا بها مريم." },
+      lessons: [
+        "أحسِن إلى أمّك؛ فأوّل ما ذكره عيسى بعد ربّه أنه بارٌّ بوالدته.",
+        "قل عن كل ما تقدر عليه: بإذن الله.",
+        "لا ترفع أحدًا فوق المنزلة التي وضعه الله فيها، ولو كان نبيًّا.",
+      ],
+      think:
+        "سكتت مريم ولم تدافع عن نفسها، فجاء الدفاع من حيث لا يتوقّعه أحد. هل صبرتَ يومًا على تهمة ظالمة؟ وماذا حدث بعدها؟",
+      tryToday:
+        "افعل اليوم شيئًا واحدًا يُفرح أمّك، من غير أن تطلب منك ومن غير أن تنتظر شكرًا.",
+    },
   },
   {
     chapter: "prophets", slug: "muhammad",
     en: {
       title: "Prophet Muhammad, the Final Messenger",
       hook:
-        "Who is the man whose message reached every corner of the world? He brought a book that has never changed, full of light and guidance for everyone!",
+        "Every prophet in this chapter you read about after his story had ended, written down in a surah. But this story had the Quran coming down while it was happening: on the day of a battle, on a day of grief, on the day someone was wronged. What difference does that make?",
       events:
-        "Prophet Muhammad (peace be upon him) is the final prophet and messenger of Allah. He was born in Mecca and was known as 'The Honest and Trustworthy'. When he was 40 years old, Allah sent the Angel Jibril (Gabriel) to give him the Holy Quran. Prophet Muhammad faced many hardships, but he was always merciful, even to his enemies. His greatest miracle is the Quran itself, a book of wisdom that teaches us how to live in peace, love, and justice. He taught us to be kind to orphans, animals, and neighbors. His message is a mercy to all the worlds, concluding the beautiful chain of prophets.",
+        "Here is what separates his story from those before it. The prophets of this chapter you read about once their accounts were complete. But with the Prophet, the Quran came down alongside the event itself as it happened. Verses came down on the day of Badr; verses after Uhud explaining to people what had happened and why; verses during the Confederates while Madinah was under siege; verses clearing someone wrongly accused; and verses containing a reproach of the Prophet himself: {He frowned and turned away, because the blind man came to him.} And he was the one who conveyed them to people.",
       lesson:
-        "Prophet Muhammad is our greatest role model. We learn from him to be honest, merciful to all creatures, and to follow the beautiful teachings of the Quran.",
+        "The truest proof that a message is genuine is that the one carrying it conveyed what was against him as fully as what was for him.",
       next:
         "And with Prophet Muhammad (pbuh), the golden chain of prophets is complete! We have learned so many lessons from their amazing lives. Are you ready for more adventures? Check out the other sections!",
       quranProse:
@@ -1831,14 +2487,36 @@ export const stories: Story[] = [
         keepsake: "A stone from the Ka'bah",
         note: "A reminder that people trust your character before they hear your words.",
       },
+      arc: {
+        idea: "A prophet whose account did not come down in one surah after it ended — it came down with him over twenty-three years.",
+        setting:
+          "Muhammad was born in Mecca in the Year of the Elephant, an orphan: his father died before he was born, and his mother died while he was small. He grew up among his people until they called him \"the truthful, the trustworthy,\" years before he was sent — and those same people denied him afterwards, not because they thought him a liar, but because what he brought was heavy on them. Then revelation came to him in the cave of Hira when he was forty: {Recite in the name of your Lord who created.}",
+        keyMoment:
+          "This is the moment to stop at for a long while. A man receives a book from his Lord, and in it is a reproach of himself — and he recites it to people exactly as it is, without cutting a letter. {And if he had made up about Us some sayings, We would have seized him by the right hand.} Had the book been his own, he would have removed what reproached him and added what would comfort and elevate him. Instead he delivered all of it: what was for him and what was against him. That alone is an answer to anyone who ever asked where this Quran came from.",
+        resolution:
+          "In twenty-three years the religion was completed, and near the end came: {This day I have perfected for you your religion and completed My favour upon you and have approved for you Islam as religion.} Then the Prophet died and left behind no gold, no silver and no palace. He left this Book, which you read today in the very same letters, unchanged; and he left a life whose details you will find in the Seerah section of this site, station by station and story by story, each with its source.",
+        word: { term: "The truthful, the trustworthy", meaning: "The name his people knew him by before prophethood: true in what he says, and safe to leave anything with." },
+        lessons: [
+          "Be truthful until people know you for truth before you even speak.",
+          "Do not hide what you are rightly criticised for, even when it is against you.",
+          "The Quran in your hands is the same one that came down to him.",
+        ],
+        think:
+          "The Prophet was known as \"the truthful, the trustworthy\" years before he was sent — and by his own people. What do your friends know you for today? And are you happy with it?",
+        tryToday:
+          "Open the Seerah section of this site today, read one story from it, and then tell it to someone at home.",
+      },
     },
     image: "/stories/prophets/muhammad.jpg",
     title: "قصة سيدنا محمد (خاتم الأنبياء)",
     surahName: "",
-    hook: "بعد أن سافرنا عبر الزمن وتعرفنا على قصص كل الأنبياء، وصلنا الآن إلى مسك الختام. نبيٌ أُرسل رحمة للعالمين جميعاً، ولم يكتفِ القرآن بسرد قصص من قبله، بل كان يسجل بطولاته وبطولات أصحابه لحظة بلحظة ليصنع أعظم أمة!",
-    events: "سيدنا محمد صلى الله عليه وسلم هو خاتم الأنبياء والمرسلين. القرآن الكريم لم يكن فقط يحكي قصص الماضي، بل كان سجلاً حياً يوثق الأحداث التي عاصرها النبي، ليوجه المسلمين ويعلمهم. فقد وثّق القرآن أحداث غزوة بدر الكبرى التي انتصر فيها المسلمون، وغزوة أحد التي قدمت دروساً عظيمة في الثبات والطاعة، وغزوة الأحزاب (الخندق) حينما حاصر الأعداء المدينة. كما حذر القرآن الكريم من الأشرار الذين حاولوا إيذاء النبي مثل أبي لهب، ليكون ذلك سلاحاً في كشف الحقائق للجيل الأول من المسلمين.",
+    hook:
+      "كلّ نبيّ في هذا الباب قرأتَ قصّته بعد أن انتهت، مكتوبةً في سورة. أمّا هذه القصة فقد كان القرآن ينزل فيها وهي تحدث: في يوم الحرب، وفي يوم الحزن، وفي اليوم الذي ظُلم فيه إنسان. فما الفرق الذي يصنعه ذلك؟",
+    events:
+      "وهنا يظهر الفرق بين قصّته وقصص من قبله. أنبياء هذا الباب قرأتَ أخبارهم بعد أن تمّت. أمّا القرآن مع النبي ﷺ فكان ينزل مع الحدث نفسه وهو يقع. نزلت آيات يوم بدر، وآيات بعد أُحُد تشرح للناس ما الذي جرى ولماذا، وآيات يوم الأحزاب والمدينة محاصرة، وآيات تبرّئ مظلومًا من تهمة قِيلت فيه، وآيات فيها عتابٌ للنبي ﷺ نفسه: ﴿عَبَسَ وَتَوَلَّىٰ * أَن جَاءَهُ الْأَعْمَىٰ﴾. وهو الذي كان يبلّغها للناس بنفسه.",
     quranProse: "يقول الله تعالى واصفاً رسالة نبينا الكريم: {وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ}. أي أن رسالته جاءت لتنشر الخير والسلام والرحمة لكل الناس.",
-    lesson: "نتعلم من نبينا الكريم الثبات في وقت الشدائد، وأن طاعة الله ورسوله هي سبب النجاح في الدنيا والآخرة، وأن نكون دائماً مصدر رحمة وحب لمن حولنا.",
+    lesson:
+      "أصدق دليل على صدق الرسالة أن صاحبها بلّغ ما عليه كما بلّغ ما له.",
     next: "قصة نبينا محمد صلى الله عليه وسلم مليئة بالمغامرات، والدروس، والمواقف العظيمة التي لا تكفيها قصة واحدة! لذلك، جهزنا لكم يا أصدقائي قسماً جديداً كاااملاً وممتعاً جداً.. سنسافر فيه مع نبينا منذ نشأته وطفولته، ونحضر لحظة النبوة والدعوة، ونهاجر معه في رحلة الهجرة النبوية المثيرة، ونقف بجانبه في الغزوات، حتى وفاته صلى الله عليه وسلم. هل أنتم مستعدون للانطلاق إلى 'قسم السيرة النبوية'؟ هيا بنا!",
     source: {
       reliability: "🟢",
@@ -1855,6 +2533,25 @@ export const stories: Story[] = [
       badge: "أمينٌ مثل نبيّي",
       keepsake: "حجر من الكعبة",
       note: "يذكّرك أن الناس تثق بك قبل أن تسمع كلامك، من أخلاقك.",
+    },
+    arc: {
+      idea: "نبيٌّ لم ينزل خبره في سورة واحدة بعد أن انتهى، بل نزل معه ثلاثًا وعشرين سنة.",
+      setting:
+        "وُلد محمد ﷺ في مكة عام الفيل، يتيمًا: مات أبوه قبل أن يُولد، وماتت أمّه وهو صغير. ونشأ بين قومه حتى صاروا يسمّونه «الصادق الأمين» قبل أن يُبعث بسنين — وهم أنفسهم الذين كذّبوه بعد ذلك، لا لأنهم يظنّونه كاذبًا، بل لأن ما جاء به كان ثقيلًا عليهم. ثم نزل عليه الوحي في غار حراء وهو ابن أربعين سنة: ﴿اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ﴾.",
+      keyMoment:
+        "وهذه هي اللحظة التي ينبغي أن تقف عندها طويلًا. رجلٌ يأتيه كتاب من ربّه، وفيه عتابٌ له هو، فيقرؤه على الناس كما هو ولا يحذف منه حرفًا. ﴿وَلَوْ تَقَوَّلَ عَلَيْنَا بَعْضَ الْأَقَاوِيلِ * لَأَخَذْنَا مِنْهُ بِالْيَمِينِ﴾. ولو كان الكتاب من عنده لحذف منه ما يعاتبه، ولزاد فيه ما يريحه ويرفعه. لكنه بلّغه كلّه: ما له وما عليه. وهذا وحده جوابٌ لمن سأل يومًا: من أين جاء هذا القرآن؟",
+      resolution:
+        "وفي ثلاث وعشرين سنة تمّ الدين، ونزل في آخرها: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا﴾. ثم مات النبي ﷺ ولم يترك ذهبًا ولا فضّة ولا قصرًا؛ ترك هذا الكتاب الذي تقرؤه أنت اليوم بحروفه نفسها لم تتغيّر، وترك سيرةً تجد تفصيلها في قسم السيرة في هذا الموقع، محطّةً محطّة وقصّةً قصّة، مع مصدر كل واحدة منها.",
+      word: { term: "الصادق الأمين", meaning: "اللقب الذي عرفه به قومه قبل النبوّة: الذي يصدق في قوله، ويُؤتمن على ما يُترك عنده." },
+      lessons: [
+        "اصدُق حتى يعرفك الناس بالصدق قبل أن تتكلّم.",
+        "لا تخفِ ما يُعاتَب عليه وإن كان عليك أنت.",
+        "القرآن الذي بين يديك هو نفسه الذي نزل عليه ﷺ.",
+      ],
+      think:
+        "عُرف النبي ﷺ بـ«الصادق الأمين» قبل أن يُبعث بسنين، ومن قومه أنفسهم. فبماذا يعرفك أصحابك اليوم؟ وهل يرضيك ما يقولونه عنك؟",
+      tryToday:
+        "افتح اليوم قسم السيرة في هذا الموقع، واقرأ منه قصّة واحدة، ثم احكِها لأحد في بيتك.",
     },
   },
   {
