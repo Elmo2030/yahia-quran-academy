@@ -13,7 +13,7 @@ import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Link } from "wouter";
 import {
   BookOpen, Check, ChevronLeft, ChevronRight, Download, HardDrive, Pencil, Plus, Settings2, ShieldAlert,
-  ShieldCheck, Star, Trash2, Upload, UserRound, Users,
+  KeyRound, ShieldCheck, Star, Trash2, Upload, UserRound, Users,
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
@@ -111,6 +111,7 @@ const copy = {
     removeGuest: "امسح تقدّم الضيف",
     removeConfirm: "نعم، احذف نهائيًا",
     removeWarning: "سيُحذف الملف وكل تقدّمه من هذا الجهاز، ولا يمكن التراجع إلا من نسخة احتياطية.",
+    parentCorner: "ركن وليّ الأمر",
     home: "الرئيسية",
   },
   en: {
@@ -190,6 +191,7 @@ const copy = {
     removeGuest: "Clear the guest’s progress",
     removeConfirm: "Yes, delete for good",
     removeWarning: "The profile and all its progress will be removed from this device. Only a backup can bring it back.",
+    parentCorner: "The parent’s corner",
     home: "Home",
   },
 } as const;
@@ -445,6 +447,9 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
 
           <SettingsPanel t={t} profile={profile} onChange={patch => commit(updateSettings(store, profile.id, patch))} />
           <DeviceData t={t} store={store} commit={commit} profile={profile} />
+          <p className="hifz-parent-link">
+            <Link href="/hifz/parent" className="text-link"><KeyRound size={15} aria-hidden="true" /> {t.parentCorner}</Link>
+          </p>
         </div>
       </section>
     </>

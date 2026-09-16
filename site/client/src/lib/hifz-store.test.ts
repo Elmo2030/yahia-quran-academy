@@ -7,6 +7,7 @@ import {
   MAX_PROFILES,
   activeProfile,
   cleanName,
+  confirmDeclarations,
   createProfile,
   declareMemorized,
   emptyStore,
@@ -22,6 +23,7 @@ import {
   restartReviews,
   saveStore,
   selectProfile,
+  setParentLock,
   surahProgress,
   updateProfile,
   updateSettings,
@@ -284,5 +286,29 @@ describe("reviews", () => {
     const reviews = activeProfile(s)!.ayahs["114:1"].reviews;
     expect(reviews).toHaveLength(30);
     expect(reviews.at(-1)).toBe(350);
+  });
+});
+
+describe("the parent's side", () => {
+  it("keeps and clears the device lock", () => {
+    const lock = { salt: "s", hash: "sha256:abc", createdAt: 10 };
+    const locked = setParentLock(emptyStore(), lock);
+    expect(locked.parentLock).toEqual(lock);
+    expect(parseStore(JSON.parse(JSON.stringify(locked))).parentLock).toEqual(lock);
+    expect(setParentLock(locked, null).parentLock).toBeUndefined();
+  });
+
+  it("puts the parent's name only on what the child already declared", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = declareMemorized(store, profile.id, 112, 1, "child", 10);
+    s = declareMemorized(s, profile.id, 112, 2, "parent", 20);
+    s = markListened(s, profile.id, 112, 3, 30); // listened, never declared
+    const after = confirmDeclarations(s, profile.id, 112, 4);
+    const ayahs = activeProfile(after)!.ayahs;
+    expect(ayahs["112:1"]).toMatchObject({ declaredBy: "parent", declaredAt: 10 });
+    expect(ayahs["112:2"]).toMatchObject({ declaredBy: "parent", declaredAt: 20 });
+    expect(ayahs["112:3"].declaredAt).toBeUndefined();
+    // Nothing left to confirm leaves the store alone.
+    expect(confirmDeclarations(after, profile.id, 112, 4)).toBe(after);
   });
 });

@@ -15,6 +15,8 @@
 // yields a smaller store, never an exception on a child's screen.
 // =============================================================================
 
+import type { ParentLock } from "@/lib/parent-lock";
+
 export const HIFZ_KEY = "yahya.hifz.v1";
 export const HIFZ_VERSION = 1;
 export const MAX_PROFILES = 8;
@@ -70,6 +72,8 @@ export type HifzStore = {
   version: typeof HIFZ_VERSION;
   profiles: ChildProfile[];
   activeProfileId: string | null;
+  /** the device's parent lock, if one was set */
+  parentLock?: ParentLock;
   updatedAt: number;
 };
 
@@ -182,10 +186,14 @@ export function parseStore(value: unknown): HifzStore {
     profiles.push(profile);
   }
   const active = typeof value.activeProfileId === "string" && seen.has(value.activeProfileId) ? value.activeProfileId : null;
+  const lock = value.parentLock;
   return {
     version: HIFZ_VERSION,
     profiles,
     activeProfileId: active,
+    ...(isObject(lock) && typeof lock.salt === "string" && typeof lock.hash === "string"
+      ? { parentLock: { salt: lock.salt, hash: lock.hash, createdAt: isTime(lock.createdAt) ? lock.createdAt : Date.now() } }
+      : {}),
     updatedAt: isTime(value.updatedAt) ? value.updatedAt : 0,
   };
 }
@@ -376,6 +384,37 @@ export const restartReviews = (store: HifzStore, profileId: string, surah: numbe
 
 export const withdrawDeclaration = (store: HifzStore, profileId: string, surah: number, ayah: number) =>
   withAyah(store, profileId, surah, ayah, ({ declaredAt: _at, declaredBy: _by, ...rest }) => ({ ...rest, reviews: [] }));
+
+/** Sets or clears the device's parent lock. */
+export function setParentLock(store: HifzStore, lock: ParentLock | null): HifzStore {
+  if (!lock) {
+    const { parentLock: _lock, ...rest } = store;
+    return { ...rest, updatedAt: Date.now() };
+  }
+  return touch(store, { parentLock: lock });
+}
+
+/**
+ * A parent putting their name to what a child declared in one surah. It only
+ * moves declarations the child made themselves; it never declares an ayah the
+ * child has not.
+ */
+export function confirmDeclarations(store: HifzStore, profileId: string, surah: number, total: number): HifzStore {
+  const profile = store.profiles.find(p => p.id === profileId);
+  if (!profile) return store;
+  const ayahs = { ...profile.ayahs };
+  let changed = false;
+  for (let ayah = 1; ayah <= total; ayah++) {
+    const key = ayahKey(surah, ayah);
+    const record = ayahs[key];
+    if (record?.declaredAt && record.declaredBy === "child") {
+      ayahs[key] = { ...record, declaredBy: "parent" };
+      changed = true;
+    }
+  }
+  if (!changed) return store;
+  return touch(store, { profiles: store.profiles.map(p => (p.id === profileId ? { ...p, ayahs } : p)) });
+}
 
 export type SurahProgress = { total: number; listened: number; recorded: number; declared: number };
 

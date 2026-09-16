@@ -1150,3 +1150,25 @@
 .hifz-review-prompt { margin: 0; text-align: center; }
 .hifz-review-actions { justify-content: center; }
 .hifz-review-art { justify-self: center; inline-size: 150px; max-block-size: 190px; object-fit: contain; object-position: bottom; filter: drop-shadow(0 10px 14px rgb(var(--shadow-rgb) / 16%)); }
+
+/* --- The parent's corner ------------------------------------------------- */
+.hifz-parent-link { display: flex; justify-content: center; margin: .2rem 0 0; }
+.hifz-parent-link a { display: inline-flex; align-items: center; gap: .35rem; font-size: .85rem; }
+.hifz-report { gap: 1.2rem; }
+.hifz-report__head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .8rem; }
+.hifz-report__head > div { display: grid; gap: .1rem; }
+.hifz-report__head b { color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.2rem; font-weight: 800; }
+.hifz-report__head small { color: var(--ink-soft); font-size: .82rem; }
+.hifz-report__rank { inline-size: 48px; block-size: 48px; object-fit: contain; }
+.hifz-report h3 { margin: 0 0 .5rem; color: var(--ink); font-size: .95rem; font-weight: 800; }
+.hifz-report__facts { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.hifz-report__facts li { padding: .3rem .7rem; border-radius: 99px; background: var(--surface-3); color: var(--ink-soft); font-size: .8rem; font-weight: 700; }
+.hifz-report__surahs, .hifz-report__takes { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.hifz-report__surahs li, .hifz-report__takes li { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .7rem; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); }
+.hifz-report__surahs b { color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1rem; font-weight: 800; min-inline-size: 5rem; }
+.hifz-report__surahs small, .hifz-report__takes small { color: var(--ink-soft); font-size: .78rem; flex: 1; }
+.hifz-report__surahs em { color: var(--brand); font-size: .8rem; font-weight: 700; font-style: normal; }
+.hifz-report__surahs .button, .hifz-report__takes .button { min-height: 38px; padding: .35rem .8rem; font-size: .8rem; }
+.hifz-report__takes span { color: var(--ink); font-size: .88rem; font-weight: 700; }
+.hifz-report__player { inline-size: 100%; margin-block-start: .6rem; }
+.hifz-parent-foot { gap: .8rem; }

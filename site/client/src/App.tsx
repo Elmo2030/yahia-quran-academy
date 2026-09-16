@@ -28,6 +28,7 @@ const Terms = lazyWithRetry(() => import("./pages/Terms"));
 const Hifz = lazyWithRetry(() => import("./pages/Hifz"));
 const HifzSurah = lazyWithRetry(() => import("./pages/HifzSurah"));
 const HifzReview = lazyWithRetry(() => import("./pages/HifzReview"));
+const HifzParent = lazyWithRetry(() => import("./pages/HifzParent"));
 
 /** Shown only while a route chunk is in flight. Deliberately quiet: a spinner
  *  that flashes for 80ms is worse than a blank moment. */
@@ -60,6 +61,7 @@ function Router() {
       <Route path={"/terms"} component={Terms} />
       <Route path={"/hifz"} component={Hifz} />
       <Route path={"/hifz/review"} component={HifzReview} />
+      <Route path={"/hifz/parent"} component={HifzParent} />
       <Route path={"/hifz/:surah"} component={HifzSurah} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
