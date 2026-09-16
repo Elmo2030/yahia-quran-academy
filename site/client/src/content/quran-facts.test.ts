@@ -74,3 +74,38 @@ describe("quran facts", () => {
     }
   });
 });
+
+/**
+ * A hundred statements about the Quran, told to children as fact. Each one has
+ * to say where it comes from — and the ones scholars differ over have to say
+ * that too, rather than borrow the confidence of the ones that don't.
+ */
+describe("every fact says where it comes from", () => {
+  it("carries a source with both languages filled in", () => {
+    for (const fact of quranFacts) {
+      expect(fact.source, `#${fact.number} ${fact.slug}`).toBeTruthy();
+      for (const field of ["reference", "note"] as const) {
+        expect(fact.source[field].ar.length, `${fact.slug} ${field} ar`).toBeGreaterThan(10);
+        expect(fact.source[field].en.length, `${fact.slug} ${field} en`).toBeGreaterThan(10);
+      }
+    }
+  });
+
+  it("marks each one either settled or awaiting review, and nothing else", () => {
+    for (const fact of quranFacts) {
+      expect(["🟢", "🟡"], `${fact.slug}`).toContain(fact.source.reliability);
+    }
+  });
+
+  /**
+   * A card the parent is asked to rule on must say what the disagreement is,
+   * otherwise the mark is decoration. "تحتاج" / "awaits" is that sentence.
+   */
+  it("says what is unsettled on any card awaiting review", () => {
+    const open = quranFacts.filter(fact => fact.source.reliability === "🟡");
+    expect(open.length).toBeGreaterThan(0);
+    for (const fact of open) {
+      expect(fact.source.note.ar, `${fact.slug}`).toMatch(/مراجعت|قرارك|تصحيح/);
+    }
+  });
+});

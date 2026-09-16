@@ -119,6 +119,8 @@ const copy = {
     hidden: "بطاقة لم تُقلب بعد",
     heroAlt: "مصحف مفتوح على مرج أخضر، يخرج منه نور ذهبي يحمل فانوسًا وغصن زيتون وريشة كتابة، ونملة صغيرة تدور حوله.",
     close: "أغلق البطاقة",
+    source: "من أين نعرف هذا؟",
+    needsReview: "بانتظار مراجعة أهل العلم",
     quizOpen: "اختبر معلوماتك",
     quizClose: "أغلق الاختبار",
     quizTitle: "اختبر معلوماتك",
@@ -148,6 +150,8 @@ const copy = {
     hidden: "A card not yet turned over",
     heroAlt: "An open mushaf on green grass, golden light rising from it carrying a lantern, an olive branch and a writing quill, with a small ant circling it.",
     close: "Close the card",
+    source: "How do we know this?",
+    needsReview: "Awaiting a scholar\u2019s review",
     quizOpen: "Test yourself",
     quizClose: "Close the quiz",
     quizTitle: "Test yourself",
@@ -203,6 +207,15 @@ function FactCard({ fact, open, onOpen, onClose }: {
           <figcaption lang="ar" dir="rtl">{ayah.ref}</figcaption>
         </figure>
       ))}
+      {/* Every card says where it comes from. A child skims past it; the parent
+          reading over their shoulder is the one who needs it. */}
+      <footer className="fact-card__source">
+        <span className="fact-card__source-label">
+          {fact.source.reliability} {fact.source.reliability === "🟡" ? t.needsReview : t.source}
+        </span>
+        <b>{fact.source.reference[locale]}</b>
+        <small>{fact.source.note[locale]}</small>
+      </footer>
     </article>
   );
 }

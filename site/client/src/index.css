@@ -715,6 +715,12 @@
 .fact-card__badge { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; color: var(--fact-from,#7d631c); font-size: .75rem; font-weight: 800; }
 .fact-card--open h3 { color: var(--ink); margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.18rem; font-weight: 800; line-height: 1.5; }
 .fact-card--open p { color: var(--teal-ink); margin: 0; font-size: .88rem; line-height: 1.95; }
+/* Where a card's claim comes from — quiet under the card, never competing
+   with the fact itself, but always there. */
+.fact-card__source { display: grid; gap: .15rem; margin-block-start: .75rem; padding-block-start: .7rem; border-block-start: 1px dashed var(--line); }
+.fact-card__source-label { color: var(--ink-soft); font-size: .68rem; font-weight: 800; letter-spacing: .01em; }
+.fact-card__source b { color: var(--ink); font-size: .76rem; font-weight: 700; }
+.fact-card__source small { color: var(--ink-soft); font-size: .72rem; line-height: 1.65; }
 .fact-card__ayah { margin: .3rem 0 0; padding: .7rem .85rem; border-radius: 14px; background: var(--surface-green); border: 1px solid var(--line-green); }
 .fact-card__ayah blockquote { color: var(--ink); margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.08rem; line-height: 2; }
 .fact-card__ayah figcaption { color: var(--gold-ink); margin-top: .35rem; font-size: .75rem; font-weight: 800; }
@@ -1411,3 +1417,9 @@
   .today-band { padding: .9rem 1rem; }
   .today-band .button { inline-size: 100%; }
 }
+
+/* The two reliability marks, explained on the about page. */
+.about-marks { display: grid; gap: .3rem; margin: 1rem 0; padding: 1rem 1.15rem; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.about-marks dt { color: var(--ink); font-size: .85rem; font-weight: 800; }
+.about-marks dd { margin: 0 0 .5rem; color: var(--ink-soft); font-size: .84rem; line-height: 1.8; }
+.about-marks dd:last-child { margin-block-end: 0; }

@@ -9,6 +9,26 @@
 
 export type FactAyah = { text: string; ref: string };
 
+/**
+ * Where a card's claim comes from, and how settled it is.
+ *
+ * The section states a hundred things about the Quran as fact, to children.
+ * Some are plainly in an ayah; some are counts; a few are reports scholars
+ * differ over. Saying which is which is the difference between a teaching site
+ * and a page of trivia, so every card carries its source and one of two marks:
+ *
+ *   🟢  established by an explicit text, an authentic hadith, or a count we
+ *       ran ourselves over the Uthmani text this site serves
+ *   🟡  awaiting a scholar's ruling — shown with the disagreement named
+ *
+ * No card is published as 🟢 on the strength of being widely repeated.
+ */
+export type FactSource = {
+  reliability: "🟢" | "🟡";
+  reference: { ar: string; en: string };
+  note: { ar: string; en: string };
+};
+
 export type QuranFact = {
   /** Shown on the face-down card, and stable across reorderings. */
   number: number;
@@ -18,6 +38,7 @@ export type QuranFact = {
   title: { ar: string; en: string };
   body: { ar: string; en: string };
   ayahs: FactAyah[];
+  source: FactSource;
 };
 
 export const quranFacts: QuranFact[] = [
@@ -33,6 +54,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّهُ مِن سُلَيْمَانَ وَإِنَّهُ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", ref: "النمل: 30" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة التوبة وسورة النمل: 30", en: "The Quran, Surah At-Tawbah and Surah An-Naml: 30" },
+      note: { ar: "الأمران يُريان في المصحف نفسه: التوبة وحدها تبدأ بلا بسملة، والنمل فيها بسملة ثانية داخل الآية 30.", en: "Both are visible in the mushaf itself: At-Tawbah alone opens without the basmala, and An-Naml carries a second one inside verse 30." },
+    },
   },
   {
     number: 2,
@@ -46,6 +72,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَقَالَ ادْخُلُوا مِصْرَ إِن شَاءَ اللَّهُ آمِنِينَ", ref: "يوسف: 99" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — يونس: 87، يوسف: 21 و99، الزخرف: 51، البقرة: 61", en: "Counted in the Uthmani text — Yunus: 87, Yusuf: 21 and 99, Az-Zukhruf: 51, Al-Baqarah: 61" },
+      note: { ar: "عددنا المواضع في النص الذي يعرضه الموقع نفسه فكانت خمسة.", en: "We counted the occurrences in the text this site itself serves: five." },
+    },
   },
   {
     number: 3,
@@ -57,6 +88,11 @@ export const quranFacts: QuranFact[] = [
       en: "There are fifteen places in the Quran where a reader prostrates — the prostrations of recitation. Surah Al-Hajj stands out: it has two of them.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "كتب الفقه — مواضع سجود التلاوة", en: "Books of fiqh — the places of the prostration of recitation" },
+      note: { ar: "مصحف المدينة يعلّم خمسة عشر موضعًا، وبعض المذاهب تعدّها أربعة عشر ولا تعدّ موضع «ص» سجدة تلاوة. الرقم ينتظر مراجعتك.", en: "The Madinah mushaf marks fifteen places; some schools count fourteen and treat the one in Surah Sad as a prostration of thanks rather than of recitation. The number awaits your review." },
+    },
   },
   {
     number: 4,
@@ -70,6 +106,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ", ref: "العصر: 1-2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "أسماء السور في المصحف — الفجر، الضحى، الليل، العصر", en: "Surah names in the mushaf — Al-Fajr, Ad-Duha, Al-Layl, Al-Asr" },
+      note: { ar: "أسماء السور كما هي مثبتة في المصحف، والقسم في أول العصر بنص السورة.", en: "The surah names as written in the mushaf, and the oath opening Al-Asr is the surah's own words." },
+    },
   },
   {
     number: 5,
@@ -83,6 +124,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَالشَّمْسِ وَضُحَاهَا ۝ وَالْقَمَرِ إِذَا تَلَاهَا", ref: "الشمس: 1-2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "أسماء السور في المصحف — الشمس، القمر، النجم", en: "Surah names in the mushaf — Ash-Shams, Al-Qamar, An-Najm" },
+      note: { ar: "ثلاث سور تحمل هذه الأسماء في المصحف.", en: "Three surahs carry these names in the mushaf." },
+    },
   },
   {
     number: 6,
@@ -96,6 +142,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَتَفَقَّدَ الطَّيْرَ فَقَالَ مَا لِيَ لَا أَرَى الْهُدْهُدَ أَمْ كَانَ مِنَ الْغَائِبِينَ", ref: "النمل: 20" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النمل: 20-22 وسورة المائدة: 31", en: "The Quran, Surah An-Naml: 20-22 and Surah Al-Ma'idah: 31" },
+      note: { ar: "الهدهد في قصة سليمان، والغراب في قصة ابني آدم، كلاهما بنص الآيات.", en: "The hoopoe in Sulaiman's account and the crow in the account of Adam's two sons, both in the words of the verses." },
+    },
   },
   {
     number: 7,
@@ -109,6 +160,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يَخْرُجُ مِنْهُمَا اللُّؤْلُؤُ وَالْمَرْجَانُ", ref: "الرحمن: 22" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، الرحمن: 22، الحديد: 25، التوبة: 34", en: "The Quran, Ar-Rahman: 22, Al-Hadid: 25, At-Tawbah: 34" },
+      note: { ar: "اللؤلؤ والمرجان في الرحمن، والحديد في سورته، والذهب والفضة في التوبة.", en: "Pearl and coral in Ar-Rahman, iron in the surah named for it, gold and silver in At-Tawbah." },
+    },
   },
   {
     number: 8,
@@ -122,6 +178,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَيَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ", ref: "الكهف: 31" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الكهف: 31", en: "The Quran, Surah Al-Kahf: 31" },
+      note: { ar: "أسماء الأقمشة الثلاثة مذكورة بنص الآية.", en: "The three fabrics are named in the words of the verse." },
+    },
   },
   {
     number: 9,
@@ -135,6 +196,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّهَا بَقَرَةٌ صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ", ref: "البقرة: 69" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، البقرة: 69، فاطر: 27، الرحمن: 76، طه: 102، آل عمران: 106", en: "The Quran, Al-Baqarah: 69, Fatir: 27, Ar-Rahman: 76, Ta-Ha: 102, Aal-Imran: 106" },
+      note: { ar: "كل لون مذكور بنصّه في آية، والصفراء في قصة البقرة.", en: "Each colour is named in a verse, the yellow one inside the account of the cow." },
+    },
   },
   {
     number: 10,
@@ -149,6 +215,11 @@ export const quranFacts: QuranFact[] = [
       { text: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ", ref: "العلق: 1" },
       { text: "وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَى اللَّهِ", ref: "البقرة: 281" },
     ],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "صحيح البخاري (3) ومسلم (160) لأول آية؛ وفي آخر آية أقوال", en: "Sahih al-Bukhari (3) and Muslim (160) for the first verse; the last is disputed" },
+      note: { ar: "أن أول ما نزل ﴿اقْرَأْ﴾ ثابت في الصحيحين. أما آخر آية فللعلماء فيها أقوال: البقرة 281 عن ابن عباس، وقيل آية الدَّين، وقيل غيرها. تحتاج قرارك.", en: "That the first revelation was Iqra is established in both Sahihs. The last verse, though, has several reported answers — Al-Baqarah 281 from Ibn Abbas, the verse of debt, and others. Needs your decision." },
+    },
   },
   {
     number: 11,
@@ -162,6 +233,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ", ref: "الكوثر: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — البقرة والكوثر", en: "Counted in the mushaf — Al-Baqarah and Al-Kawthar" },
+      note: { ar: "البقرة أطول سورة بالاتفاق. والكوثر ثلاث آيات وهي أقلّ السور كلمات وحروفًا، وإن شاركتها العصر والنصر في عدد الآيات.", en: "Al-Baqarah is the longest by agreement. Al-Kawthar's three verses are the fewest in words and letters, though Al-Asr and An-Nasr share its verse count." },
+    },
   },
   {
     number: 12,
@@ -175,6 +251,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلْيَتَلَطَّفْ", ref: "الكهف: 19" },
     ],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "قول في كتب علوم القرآن بلا إسناد متصل", en: "A statement in the sciences-of-the-Quran literature, with no connected chain" },
+      note: { ar: "المشهور أن ﴿وَلْيَتَلَطَّفْ﴾ منتصف القرآن بالحروف، وهو قول مذكور في كتب علوم القرآن ولم يثبت بإسناد، والعدّ الحاسوبي لا يوافقه تمامًا. ينتظر مراجعتك.", en: "The familiar claim is that walyatalattaf marks the midpoint by letters. It appears in the classical literature without a connected chain, and a machine count does not land exactly there. Awaiting your review." },
+    },
   },
   {
     number: 13,
@@ -188,6 +269,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "قَدْ سَمِعَ اللَّهُ قَوْلَ الَّتِي تُجَادِلُكَ فِي زَوْجِهَا", ref: "المجادلة: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — سورة المجادلة", en: "Counted in the Uthmani text — Surah Al-Mujadilah" },
+      note: { ar: "عددنا آيات السورة الاثنتين والعشرين في النص الذي يعرضه الموقع، فوجدنا لفظ الجلالة في كل آية منها.", en: "We checked all twenty-two verses in the text this site serves and found the name of Allah in every one." },
+    },
   },
   {
     number: 14,
@@ -201,6 +287,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "قُل لَّئِنِ اجْتَمَعَتِ الْإِنسُ وَالْجِنُّ عَلَىٰ أَن يَأْتُوا بِمِثْلِ هَٰذَا الْقُرْآنِ لَا يَأْتُونَ بِمِثْلِهِ", ref: "الإسراء: 88" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الإسراء: 88", en: "The Quran, Surah Al-Isra: 88" },
+      note: { ar: "التحدي بنص الآية، ومثله في البقرة: 23 ويونس: 38.", en: "The challenge is in the words of the verse, and again at Al-Baqarah 23 and Yunus 38." },
+    },
   },
   {
     number: 15,
@@ -214,6 +305,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا", ref: "الكهف: 25" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الكهف: 25", en: "The Quran, Surah Al-Kahf: 25" },
+      note: { ar: "العدد بنص الآية، والفرق بين الشمسي والقمري حساب صحيح: ثلاثمائة سنة شمسية تساوي 309 قمرية، وهو تفسير جمهور المفسرين للزيادة.", en: "The number is in the verse itself, and the solar-to-lunar arithmetic holds: three hundred solar years are 309 lunar ones, which is how most commentators read the addition." },
+    },
   },
   {
     number: 16,
@@ -227,6 +323,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "قُلْ هُوَ اللَّهُ أَحَدٌ", ref: "الإخلاص: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "صحيح البخاري (5013) وصحيح مسلم (811)", en: "Sahih al-Bukhari (5013) and Sahih Muslim (811)" },
+      note: { ar: "حديث صحيح متفق عليه: «إنها لتعدل ثلث القرآن».", en: "An authentic hadith agreed upon by both: it equals a third of the Quran." },
+    },
   },
   {
     number: 17,
@@ -240,6 +341,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ", ref: "الملك: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "سنن أبي داود (1400) وسنن الترمذي (2891) — حديث حسن", en: "Sunan Abi Dawud (1400) and Sunan at-Tirmidhi (2891) — a hasan hadith" },
+      note: { ar: "الحديث حسّنه الترمذي: سورة ثلاثون آية شفعت لرجل حتى غُفر له. درجته حسن لا صحيح، وهذا مذكور هنا كما هو.", en: "Graded hasan by at-Tirmidhi: a surah of thirty verses interceded for a man until he was forgiven. Hasan rather than sahih, and that is stated here as it stands." },
+    },
   },
   {
     number: 18,
@@ -253,6 +359,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ", ref: "يوسف: 3" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة يوسف: 3", en: "The Quran, Surah Yusuf: 3" },
+      note: { ar: "وصف يُرى في المصحف نفسه: القصة كاملة في سورة واحدة، والآية تسمّيها «أحسن القصص».", en: "A description anyone can see in the mushaf: the whole account sits in one surah, which the verse calls the best of accounts." },
+    },
   },
   {
     number: 19,
@@ -266,6 +377,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَأَكَلَهُ الذِّئْبُ", ref: "يوسف: 17" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة يوسف: 17", en: "The Quran, Surah Yusuf: 17" },
+      note: { ar: "الذئب بنص الآية على لسان إخوة يوسف، والكلب في الكهف: 18، والخيل في النحل: 8.", en: "The wolf is in the words of the verse, spoken by Yusuf's brothers; the dog is at Al-Kahf 18 and the horses at An-Nahl 8." },
+    },
   },
   {
     number: 20,
@@ -279,6 +395,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَأَنبَتْنَا عَلَيْهِ شَجَرَةً مِّن يَقْطِينٍ", ref: "الصافات: 146" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الصافات: 146", en: "The Quran, Surah As-Saffat: 146" },
+      note: { ar: "اسم النبتة بنص الآية.", en: "The plant is named in the verse itself." },
+    },
   },
   {
     number: 21,
@@ -292,6 +413,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "الم ۝ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ", ref: "البقرة: 1-2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — 29 سورة", en: "Counted in the mushaf — 29 surahs" },
+      note: { ar: "عددنا السور التي تفتتح بالحروف المقطّعة في النص الذي يعرضه الموقع فكانت تسعًا وعشرين.", en: "We counted the surahs opening with the disjointed letters in the text this site serves: twenty-nine." },
+    },
   },
   {
     number: 22,
@@ -305,6 +431,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ", ref: "الفاتحة: 2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — الفاتحة والأنعام والكهف وسبأ وفاطر", en: "Counted in the mushaf — Al-Fatihah, Al-An'am, Al-Kahf, Saba and Fatir" },
+      note: { ar: "أربع سور تبدأ بها أول آياتها، والفاتحة تبدأ بها بعد البسملة التي هي آيتها الأولى.", en: "Four surahs open their first verse with it; Al-Fatihah opens with it after the basmala, which is its own first verse." },
+    },
   },
   {
     number: 23,
@@ -318,6 +449,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ", ref: "الناس: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — الجن والكافرون والإخلاص والفلق والناس", en: "Counted in the mushaf — Al-Jinn, Al-Kafirun, Al-Ikhlas, Al-Falaq and An-Nas" },
+      note: { ar: "عددنا السور التي أول كلمة فيها ﴿قُلْ﴾ فكانت خمسًا.", en: "We counted the surahs whose first word is Qul: five." },
+    },
   },
   {
     number: 24,
@@ -331,6 +467,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّا أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ", ref: "نوح: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "أسماء السور في المصحف — يونس وهود ويوسف وإبراهيم ومحمد ونوح", en: "Surah names in the mushaf — Yunus, Hud, Yusuf, Ibrahim, Muhammad and Nuh" },
+      note: { ar: "ستة أسماء أنبياء تحملها سور في المصحف.", en: "Six surahs in the mushaf carry the names of prophets." },
+    },
   },
   {
     number: 25,
@@ -344,6 +485,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يُخْرِجْ لَنَا مِمَّا تُنبِتُ الْأَرْضُ مِن بَقْلِهَا وَقِثَّائِهَا وَفُومِهَا وَعَدَسِهَا وَبَصَلِهَا", ref: "البقرة: 61" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة البقرة: 61", en: "The Quran, Surah Al-Baqarah: 61" },
+      note: { ar: "أسماء الخضروات الأربعة بنص الآية.", en: "The four are named in the words of the verse." },
+    },
   },
   {
     number: 26,
@@ -357,6 +503,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ", ref: "المسد: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة المسد", en: "The Quran, Surah Al-Masad" },
+      note: { ar: "السورة كلها في أبي لهب بكنيته، وليس في القرآن كنية لأحد من أعداء النبي ﷺ غيره.", en: "The whole surah names Abu Lahab by his kunya, and no other opponent of the Prophet ﷺ is named that way in the Quran." },
+    },
   },
   {
     number: 27,
@@ -370,6 +521,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "مَن كَانَ عَدُوًّا لِّلَّهِ وَمَلَائِكَتِهِ وَرُسُلِهِ وَجِبْرِيلَ وَمِيكَالَ", ref: "البقرة: 98" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، البقرة: 98 والزخرف: 77", en: "The Quran, Al-Baqarah: 98 and Az-Zukhruf: 77" },
+      note: { ar: "جبريل وميكال في البقرة، ومالك في الزخرف، كلها بنص الآيات.", en: "Jibril and Mikal in Al-Baqarah, Malik in Az-Zukhruf, all in the words of the verses." },
+    },
   },
   {
     number: 28,
@@ -381,6 +537,11 @@ export const quranFacts: QuranFact[] = [
       en: "There is a striking balance in the Quran's numbers: the word “dunya” — this world — appears 115 times, and “akhirah” — the hereafter — appears exactly 115 times too.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — 115 و115", en: "Counted in the Uthmani text — 115 and 115" },
+      note: { ar: "عددنا الكلمتين بأنفسنا في النص الذي يعرضه الموقع: «الدنيا» 115 مرة، و«الآخرة» بصورها كلها (الآخرة، والآخرة، بالآخرة، للآخرة) 115 مرة. وهو توازن لافت في اللفظ، لا يُبنى عليه حكم.", en: "We counted both words in the text this site serves: ad-dunya 115 times, and al-akhirah in all its forms 115 times. It is a striking balance in wording, and nothing is built on it." },
+    },
   },
   {
     number: 29,
@@ -394,6 +555,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ", ref: "الحجر: 9" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الحجر: 9", en: "The Quran, Surah Al-Hijr: 9" },
+      note: { ar: "التعهّد بالحفظ بنص الآية.", en: "The promise of preservation is the verse's own words." },
+    },
   },
   {
     number: 30,
@@ -407,6 +573,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِّلنَّاسِ", ref: "النحل: 69" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النحل: 69", en: "The Quran, Surah An-Nahl: 69" },
+      note: { ar: "العسل وشفاؤه بنص الآية، واللبن في النحل: 66، والماء في الأنبياء: 30.", en: "Honey and its healing are in the verse itself; milk at An-Nahl 66 and water at Al-Anbiya 30." },
+    },
   },
   {
     number: 31,
@@ -420,6 +591,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يَا أَهْلَ يَثْرِبَ لَا مُقَامَ لَكُمْ فَارْجِعُوا", ref: "الأحزاب: 13" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، آل عمران: 96 والأحزاب: 13", en: "The Quran, Aal-Imran: 96 and Al-Ahzab: 13" },
+      note: { ar: "«بكة» في آل عمران و«يثرب» في الأحزاب، كلاهما بنص الآية.", en: "Bakkah in Aal-Imran and Yathrib in Al-Ahzab, each in the words of its verse." },
+    },
   },
   {
     number: 32,
@@ -433,6 +609,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "صُحُفِ إِبْرَاهِيمَ وَمُوسَىٰ", ref: "الأعلى: 19" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، الأعلى: 19 والنساء: 163 والمائدة: 46", en: "The Quran, Al-A'la: 19, An-Nisa: 163 and Al-Ma'idah: 46" },
+      note: { ar: "صحف إبراهيم وموسى في الأعلى، والزبور في النساء، والإنجيل والتوراة في المائدة.", en: "The scriptures of Ibrahim and Musa in Al-A'la, the Zabur in An-Nisa, the Injil and Tawrat in Al-Ma'idah." },
+    },
   },
   {
     number: 33,
@@ -446,6 +627,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّ اللَّهَ لَا يَسْتَحْيِي أَن يَضْرِبَ مَثَلًا مَّا بَعُوضَةً فَمَا فَوْقَهَا", ref: "البقرة: 26" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، البقرة: 26 والحج: 73", en: "The Quran, Al-Baqarah: 26 and Al-Hajj: 73" },
+      note: { ar: "البعوضة مثلًا في البقرة، والذباب مثلًا في الحج.", en: "The gnat is the example in Al-Baqarah, the fly in Al-Hajj." },
+    },
   },
   {
     number: 34,
@@ -459,6 +645,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ", ref: "البقرة: 255" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "صحيح مسلم (810) وصحيح البخاري (2311)", en: "Sahih Muslim (810) and Sahih al-Bukhari (2311)" },
+      note: { ar: "أنها أعظم آية ثابت في مسلم من حديث أُبيّ بن كعب، وأنها حفظ لقارئها ثابت في البخاري.", en: "That it is the greatest verse is in Muslim from Ubayy ibn Ka'b; that it guards its reciter is in al-Bukhari." },
+    },
   },
   {
     number: 35,
@@ -472,6 +663,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ", ref: "النحل: 98" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النحل: 98", en: "The Quran, Surah An-Nahl: 98" },
+      note: { ar: "الأمر بالاستعاذة بنص الآية.", en: "The command to seek refuge is the verse's own words." },
+    },
   },
   {
     number: 36,
@@ -485,6 +681,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "حَتَّىٰ إِذَا فُتِحَتْ يَأْجُوجُ وَمَأْجُوجُ وَهُم مِّن كُلِّ حَدَبٍ يَنسِلُونَ", ref: "الأنبياء: 96" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، الفجر: 6-9 والأنبياء: 96", en: "The Quran, Al-Fajr: 6-9 and Al-Anbiya: 96" },
+      note: { ar: "عاد وثمود في الفجر، ويأجوج ومأجوج في الأنبياء.", en: "Ad and Thamud in Al-Fajr, Yajuj and Majuj in Al-Anbiya." },
+    },
   },
   {
     number: 37,
@@ -498,6 +699,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَقَارُونَ وَفِرْعَوْنَ وَهَامَانَ", ref: "العنكبوت: 39" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة العنكبوت: 39", en: "The Quran, Surah Al-Ankabut: 39" },
+      note: { ar: "الثلاثة مذكورون معًا بنص الآية.", en: "All three are named together in the verse." },
+    },
   },
   {
     number: 38,
@@ -511,6 +717,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "عَيْنًا فِيهَا تُسَمَّىٰ سَلْسَبِيلًا", ref: "الإنسان: 18" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، الإنسان: 18 والمطففين: 27 والكوثر: 1", en: "The Quran, Al-Insan: 18, Al-Mutaffifin: 27 and Al-Kawthar: 1" },
+      note: { ar: "سلسبيل في الإنسان، وتسنيم في المطففين، والكوثر في سورته.", en: "Salsabil in Al-Insan, Tasnim in Al-Mutaffifin, and Al-Kawthar in the surah named for it." },
+    },
   },
   {
     number: 39,
@@ -524,6 +735,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا", ref: "الإسراء: 23" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الإسراء: 23", en: "The Quran, Surah Al-Isra: 23" },
+      note: { ar: "الترتيب بنص الآية: قضى ألا تعبدوا إلا إياه وبالوالدين إحسانًا.", en: "The order is the verse's own: worship none but Him, and be good to parents." },
+    },
   },
   {
     number: 40,
@@ -537,6 +753,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "لَمْ يَلِدْ وَلَمْ يُولَدْ", ref: "الإخلاص: 3" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — سورة الإخلاص", en: "Counted in the Uthmani text — Surah Al-Ikhlas" },
+      note: { ar: "عددنا علامات الكسر في السورة كلها في النص الذي يعرضه الموقع فكانت واحدة، تحت اللام في ﴿يَلِدْ﴾.", en: "We counted every kasra in the surah in the text this site serves: exactly one, under the lam of yalid." },
+    },
   },
   {
     number: 41,
@@ -548,6 +769,11 @@ export const quranFacts: QuranFact[] = [
       en: "The Quran is divided into thirty parts so it can be finished in a month, and each part into two hizbs — sixty in all.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "تقسيم المصاحف المطبوعة", en: "The division used in printed mushafs" },
+      note: { ar: "الأجزاء والأحزاب تقسيم اصطلاحي وُضع لتيسير القراءة، وليس من القرآن نفسه.", en: "Parts and hizbs are a convention added to make reading easier; they are not part of the Quran itself." },
+    },
   },
   {
     number: 42,
@@ -559,6 +785,11 @@ export const quranFacts: QuranFact[] = [
       en: "By the count used in the copies we read today, the Quran has 6,236 verses.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — العدّ الكوفي", en: "Counted in the Uthmani text — the Kufan numbering" },
+      note: { ar: "عددنا آيات المصحف الذي يعرضه الموقع فكانت 6236، وهو العدّ الكوفي المعتمد في مصحف المدينة. ولأهل العدّ أعداد أخرى تختلف في مواضع الفواصل لا في النص.", en: "We counted the verses in the mushaf this site serves: 6,236, the Kufan numbering used in the Madinah mushaf. Other schools of numbering differ over where verses end, never over the text." },
+    },
   },
   {
     number: 43,
@@ -570,6 +801,11 @@ export const quranFacts: QuranFact[] = [
       en: "The surahs divide into Makki and Madani: 87 came down before the Hijrah, and 27 after it.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "كتب علوم القرآن — المكي والمدني", en: "Sciences of the Quran — the Makki and Madani division" },
+      note: { ar: "التقسيم المشهور 86 مكية و28 مدنية عند كثير من العلماء، وبعض السور مختلف فيها كالرعد والرحمن. الرقمان هنا (87 و27) ينتظران مراجعتك.", en: "The familiar split is 86 Makki and 28 Madani for many scholars, with several surahs disputed — Ar-Ra'd and Ar-Rahman among them. The two numbers here await your review." },
+    },
   },
   {
     number: 44,
@@ -583,6 +819,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَلَا تَقُل لَّهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا", ref: "الإسراء: 23" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الإسراء: 23", en: "The Quran, Surah Al-Isra: 23" },
+      note: { ar: "الكلمة بنصها في الآية.", en: "The word is in the verse itself." },
+    },
   },
   {
     number: 45,
@@ -596,6 +837,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَالتِّينِ وَالزَّيْتُونِ", ref: "التين: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة التين: 1", en: "The Quran, Surah At-Tin: 1" },
+      note: { ar: "القسم بالتين والزيتون بنص أول السورة.", en: "The oath by the fig and the olive opens the surah." },
+    },
   },
   {
     number: 46,
@@ -607,6 +853,11 @@ export const quranFacts: QuranFact[] = [
       en: "The Quran describes the sky, the seas and the growing of a child in the womb with a precision people would not reach for hundreds of years.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "باب الإعجاز العلمي — فيه اجتهاد واسع", en: "The field of scientific inference — widely debated" },
+      note: { ar: "ربط الآيات بالاكتشافات الحديثة اجتهاد يختلف فيه أهل العلم، وبعضه يتغيّر بتغيّر النظريات. البطاقة عامة بلا أمثلة، وأقترح إما حذفها أو تخصيصها بمثال متفق عليه. تنتظر قرارك.", en: "Tying verses to modern discoveries is an interpretive move scholars differ over, and some of it shifts as theories do. The card is general and gives no example; I would either drop it or pin it to one agreed case. Awaiting your decision." },
+    },
   },
   {
     number: 47,
@@ -620,6 +871,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَالْفَجْرِ ۝ وَلَيَالٍ عَشْرٍ", ref: "الفجر: 1-2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — 15 سورة", en: "Counted in the mushaf — 15 surahs" },
+      note: { ar: "عددنا السور التي تفتتح بواو القسم في النص الذي يعرضه الموقع فكانت خمس عشرة، آخرها العصر.", en: "We counted the surahs opening with an oath in the text this site serves: fifteen, the last of them Al-Asr." },
+    },
   },
   {
     number: 48,
@@ -633,6 +889,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَاللَّهُ عَزِيزٌ حَكِيمٌ", ref: "البقرة: 220" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة البقرة: 220", en: "The Quran, Surah Al-Baqarah: 220" },
+      note: { ar: "ملاحظة أسلوبية تُرى في المصحف نفسه، والآية المذكورة مثال عليها.", en: "A feature of style anyone can see in the mushaf; the cited verse is one example of it." },
+    },
   },
   {
     number: 49,
@@ -646,6 +907,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "تَبَارَكَ الَّذِي نَزَّلَ الْفُرْقَانَ عَلَىٰ عَبْدِهِ لِيَكُونَ لِلْعَالَمِينَ نَذِيرًا", ref: "الفرقان: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، الفرقان: 1 والإسراء: 82 والبقرة: 2", en: "The Quran, Al-Furqan: 1, Al-Isra: 82 and Al-Baqarah: 2" },
+      note: { ar: "كل اسم من هذه الأسماء وصف به القرآن نفسه في آية.", en: "Each of these names is one the Quran gives itself in a verse." },
+    },
   },
   {
     number: 50,
@@ -657,6 +923,11 @@ export const quranFacts: QuranFact[] = [
       en: "The Quran was first gathered into a single book in the time of Abu Bakr as-Siddiq, on a suggestion from Umar ibn al-Khattab, so that it would be kept for everyone after them.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "صحيح البخاري (4986) — حديث زيد بن ثابت", en: "Sahih al-Bukhari (4986) — the report of Zayd ibn Thabit" },
+      note: { ar: "قصة الجمع في عهد أبي بكر باقتراح عمر ثابتة في البخاري بتفصيلها.", en: "The collection in Abu Bakr's time at Umar's suggestion is in al-Bukhari in full detail." },
+    },
   },
   {
     number: 51,
@@ -670,6 +941,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ", ref: "المائدة: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — المائدة والحجرات والممتحنة", en: "Counted in the mushaf — Al-Ma'idah, Al-Hujurat and Al-Mumtahanah" },
+      note: { ar: "عددنا السور التي تبدأ بهذا النداء في النص الذي يعرضه الموقع فكانت ثلاثًا.", en: "We counted the surahs opening with this call in the text this site serves: three." },
+    },
   },
   {
     number: 52,
@@ -683,6 +959,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يَا أَيُّهَا النَّبِيُّ اتَّقِ اللَّهَ", ref: "الأحزاب: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في المصحف — الأحزاب والطلاق والتحريم", en: "Counted in the mushaf — Al-Ahzab, At-Talaq and At-Tahrim" },
+      note: { ar: "عددنا السور التي تبدأ بنداء النبي ﷺ فكانت ثلاثًا.", en: "We counted the surahs opening by addressing the Prophet ﷺ: three." },
+    },
   },
   {
     number: 53,
@@ -696,6 +977,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلَا تَذَرُنَّ وَدًّا وَلَا سُوَاعًا وَلَا يَغُوثَ وَيَعُوقَ وَنَسْرًا", ref: "نوح: 23" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة نوح: 23", en: "The Quran, Surah Nuh: 23" },
+      note: { ar: "الأسماء الخمسة بنص الآية.", en: "The five names are in the words of the verse." },
+    },
   },
   {
     number: 54,
@@ -707,6 +993,11 @@ export const quranFacts: QuranFact[] = [
       en: "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali was the first to add them, so that everyone could read it correctly.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "كتب تاريخ المصحف — ضبط المصحف", en: "Histories of the mushaf — its pointing and vowelling" },
+      note: { ar: "المشهور أن أبا الأسود الدؤلي وضع الشكل (علامات الحركات)، وأن نقط الحروف (الإعجام) لنصر بن عاصم ويحيى بن يعمر. البطاقة تنسب الأمرين إليه وحده، وهذا يحتاج تصحيحًا أو مراجعتك.", en: "The common account is that Abu al-Aswad ad-Du'ali added the vowel marks, while the dots distinguishing letters came from Nasr ibn Asim and Yahya ibn Ya'mar. The card credits him with both, which needs correcting or your review." },
+    },
   },
   {
     number: 55,
@@ -718,6 +1009,11 @@ export const quranFacts: QuranFact[] = [
       en: "Caliph Uthman ibn Affan had copies made and sent to the Muslim cities, so that Muslims everywhere would read one and the same text.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "صحيح البخاري (4987)", en: "Sahih al-Bukhari (4987)" },
+      note: { ar: "نسخ المصاحف في عهد عثمان وإرسالها إلى الأمصار ثابت في البخاري.", en: "The copying of the mushafs in Uthman's time and their dispatch to the regions is in al-Bukhari." },
+    },
   },
   {
     number: 56,
@@ -729,6 +1025,11 @@ export const quranFacts: QuranFact[] = [
       en: "The Prophet ﷺ had companions who wrote the Quran down the moment it came — the scribes of the revelation. Among the best known was a young man named Zaid ibn Thabit.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "صحيح البخاري (4990) وكتب السيرة", en: "Sahih al-Bukhari (4990) and the Seerah literature" },
+      note: { ar: "كتابة الوحي عند نزوله وذكر زيد بن ثابت فيها ثابت في البخاري.", en: "The writing down of revelation as it came, and Zayd ibn Thabit's part in it, is in al-Bukhari." },
+    },
   },
   {
     number: 57,
@@ -742,6 +1043,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "كَلَّا سَيَعْلَمُونَ", ref: "النبأ: 4" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — 33 موضعًا في 15 سورة", en: "Counted in the Uthmani text — 33 places in 15 surahs" },
+      note: { ar: "عددنا مواضع ﴿كَلَّا﴾ في النص الذي يعرضه الموقع فكانت 33 موضعًا، كلها في النصف الأخير من المصحف وكلها في سور مكية — والقاعدة مذكورة في الإتقان للسيوطي.", en: "We counted kalla in the text this site serves: 33 places, all in the second half of the mushaf and all in Makki surahs — the rule as stated in as-Suyuti's al-Itqan." },
+    },
   },
   {
     number: 58,
@@ -755,6 +1061,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَالْخَيْلَ وَالْبِغَالَ وَالْحَمِيرَ لِتَرْكَبُوهَا وَزِينَةً", ref: "النحل: 8" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النحل: 8", en: "The Quran, Surah An-Nahl: 8" },
+      note: { ar: "الثلاثة مذكورة بنص الآية مع ذكر الركوب والزينة.", en: "All three are named in the verse, along with riding and adornment." },
+    },
   },
   {
     number: 59,
@@ -768,6 +1079,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَأَرْسَلْنَا عَلَيْهِمُ الطُّوفَانَ وَالْجَرَادَ وَالْقُمَّلَ وَالضَّفَادِعَ", ref: "الأعراف: 133" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الأعراف: 133", en: "The Quran, Surah Al-A'raf: 133" },
+      note: { ar: "الآيات الأربع مذكورة بنص الآية.", en: "The four signs are named in the verse." },
+    },
   },
   {
     number: 60,
@@ -781,6 +1097,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا", ref: "النور: 27" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النور: 27", en: "The Quran, Surah An-Nur: 27" },
+      note: { ar: "أدب الاستئذان بنص الآية.", en: "The etiquette of asking permission is the verse's own words." },
+    },
   },
   {
     number: 61,
@@ -794,6 +1115,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَانفَلَقَ فَكَانَ كُلُّ فِرْقٍ كَالطَّوْدِ الْعَظِيمِ", ref: "الشعراء: 63" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الشعراء: 63", en: "The Quran, Surah Ash-Shu'ara: 63" },
+      note: { ar: "التشبيه بالطود العظيم بنص الآية.", en: "The likeness to a great mountain is in the verse itself." },
+    },
   },
   {
     number: 62,
@@ -807,6 +1133,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَإِن لَّمْ تَجِدُوا فِيهَا أَحَدًا فَلَا تَدْخُلُوهَا حَتَّىٰ يُؤْذَنَ لَكُمْ", ref: "النور: 28" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النور: 28", en: "The Quran, Surah An-Nur: 28" },
+      note: { ar: "الحكم بنص الآية.", en: "The instruction is the verse's own words." },
+    },
   },
   {
     number: 63,
@@ -820,6 +1151,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا", ref: "الحجرات: 12" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الحجرات: 12", en: "The Quran, Surah Al-Hujurat: 12" },
+      note: { ar: "الثلاثة منهيّ عنها بنص الآية.", en: "All three are forbidden in the words of the verse." },
+    },
   },
   {
     number: 64,
@@ -833,6 +1169,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ", ref: "يوسف: 87" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة يوسف: 87", en: "The Quran, Surah Yusuf: 87" },
+      note: { ar: "النهي عن اليأس من روح الله بنص الآية.", en: "The prohibition of despairing of Allah's relief is the verse's own words." },
+    },
   },
   {
     number: 65,
@@ -846,6 +1187,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ", ref: "الإسراء: 82" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الإسراء: 82", en: "The Quran, Surah Al-Isra: 82" },
+      note: { ar: "الشفاء والرحمة بنص الآية.", en: "Healing and mercy are in the words of the verse." },
+    },
   },
   {
     number: 66,
@@ -859,6 +1205,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا", ref: "النساء: 174" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النساء: 174", en: "The Quran, Surah An-Nisa: 174" },
+      note: { ar: "وصف النور المبين بنص الآية.", en: "The description as a clear light is in the verse itself." },
+    },
   },
   {
     number: 67,
@@ -872,6 +1223,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَآتُوا حَقَّهُ يَوْمَ حَصَادِهِ", ref: "الأنعام: 141" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الأنعام: 141", en: "The Quran, Surah Al-An'am: 141" },
+      note: { ar: "الأمر بنص الآية.", en: "The command is the verse's own words." },
+    },
   },
   {
     number: 68,
@@ -885,6 +1241,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَقُل رَّبِّ زِدْنِي عِلْمًا", ref: "طه: 114" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة طه: 114", en: "The Quran, Surah Ta-Ha: 114" },
+      note: { ar: "الدعاء بنصه في الآية.", en: "The supplication is in the verse itself." },
+    },
   },
   {
     number: 69,
@@ -898,6 +1259,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّا بَلَوْنَاهُمْ كَمَا بَلَوْنَا أَصْحَابَ الْجَنَّةِ", ref: "القلم: 17" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة القلم: 17", en: "The Quran, Surah Al-Qalam: 17" },
+      note: { ar: "القصة بتمامها في سورة القلم: 17-33.", en: "The account runs through Al-Qalam 17-33." },
+    },
   },
   {
     number: 70,
@@ -911,6 +1277,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ", ref: "العصر: 3" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة العصر", en: "The Quran, Surah Al-Asr" },
+      note: { ar: "الأربعة مذكورة بنص السورة الثلاث آيات.", en: "All four are named in the surah's three verses." },
+    },
   },
   {
     number: 71,
@@ -924,6 +1295,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ", ref: "الفاتحة: 6" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الفاتحة: 6", en: "The Quran, Surah Al-Fatihah: 6" },
+      note: { ar: "الدعاء بنص الآية، وعدد السبع عشرة هو عدد ركعات الصلوات الخمس المفروضة في اليوم، والفاتحة تُقرأ في كل ركعة.", en: "The supplication is the verse's own words; seventeen is the number of obligatory rak'ahs in a day, and Al-Fatihah is recited in each." },
+    },
   },
   {
     number: 72,
@@ -937,6 +1313,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "اعْدِلُوا هُوَ أَقْرَبُ لِلتَّقْوَىٰ", ref: "المائدة: 8" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة المائدة: 8", en: "The Quran, Surah Al-Ma'idah: 8" },
+      note: { ar: "الأمر بالعدل مع من نكره بنص الآية.", en: "The command to be just even with those we dislike is in the verse itself." },
+    },
   },
   {
     number: 73,
@@ -950,6 +1331,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "ص ۚ وَالْقُرْآنِ ذِي الذِّكْرِ", ref: "ص: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة ص: 1", en: "The Quran, Surah Sad: 1" },
+      note: { ar: "وصف الذكر بنص أول السورة.", en: "The description as a reminder opens the surah." },
+    },
   },
   {
     number: 74,
@@ -963,6 +1349,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَجَنَّةٍ عَرْضُهَا السَّمَاوَاتُ وَالْأَرْضُ أُعِدَّتْ لِلْمُتَّقِينَ", ref: "آل عمران: 133" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة آل عمران: 133", en: "The Quran, Surah Aal-Imran: 133" },
+      note: { ar: "السعة والمسارعة بنص الآية.", en: "The breadth and the call to hasten are the verse's own words." },
+    },
   },
   {
     number: 75,
@@ -976,6 +1367,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَيَسْأَلُونَكَ عَن ذِي الْقَرْنَيْنِ ۖ قُلْ سَأَتْلُو عَلَيْكُم مِّنْهُ ذِكْرًا", ref: "الكهف: 83" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الكهف: 83", en: "The Quran, Surah Al-Kahf: 83" },
+      note: { ar: "القصة بتمامها في الكهف: 83-98.", en: "The account runs through Al-Kahf 83-98." },
+    },
   },
   {
     number: 76,
@@ -989,6 +1385,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ", ref: "المائدة: 2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة المائدة: 2", en: "The Quran, Surah Al-Ma'idah: 2" },
+      note: { ar: "الأمر والنهي معًا بنص الآية.", en: "Both the command and the prohibition are in the verse." },
+    },
   },
   {
     number: 77,
@@ -1002,6 +1403,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ ۖ إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ", ref: "لقمان: 13" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة لقمان: 13", en: "The Quran, Surah Luqman: 13" },
+      note: { ar: "الوصايا في لقمان: 13-19، وأولها النهي عن الشرك.", en: "The counsels run through Luqman 13-19, the first of them against associating partners with Allah." },
+    },
   },
   {
     number: 78,
@@ -1015,6 +1421,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنفُسِهِمْ", ref: "الرعد: 11" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الرعد: 11", en: "The Quran, Surah Ar-Ra'd: 11" },
+      note: { ar: "السنّة الإلهية بنص الآية.", en: "The principle is stated in the verse itself." },
+    },
   },
   {
     number: 79,
@@ -1028,6 +1439,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ", ref: "آل عمران: 190" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة آل عمران: 190", en: "The Quran, Surah Aal-Imran: 190" },
+      note: { ar: "الدعوة إلى التفكّر بنص الآية.", en: "The call to reflect is the verse's own words." },
+    },
   },
   {
     number: 80,
@@ -1041,6 +1457,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا", ref: "الشرح: 5-6" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الشرح: 5-6", en: "The Quran, Surah Ash-Sharh: 5-6" },
+      note: { ar: "الوعد مكرّر مرتين بنص الآيتين.", en: "The promise is repeated twice in the two verses." },
+    },
   },
   {
     number: 81,
@@ -1054,6 +1475,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ", ref: "القمر: 17" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "النشر في القراءات العشر لابن الجزري", en: "An-Nashr fi al-Qira'at al-Ashr by Ibn al-Jazari" },
+      note: { ar: "تواتر القراءات العشر هو قول الجمهور، وابن الجزري حرّر ذلك في النشر.", en: "That the ten readings are mutawatir is the position of the majority, set out by Ibn al-Jazari in an-Nashr." },
+    },
   },
   {
     number: 82,
@@ -1067,6 +1493,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "مِنْهُ آيَاتٌ مُّحْكَمَاتٌ هُنَّ أُمُّ الْكِتَابِ وَأُخَرُ مُتَشَابِهَاتٌ", ref: "آل عمران: 7" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة آل عمران: 7", en: "The Quran, Surah Aal-Imran: 7" },
+      note: { ar: "التقسيم بنص الآية.", en: "The division is stated in the verse itself." },
+    },
   },
   {
     number: 83,
@@ -1080,6 +1511,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ", ref: "البقرة: 158" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة البقرة: 158", en: "The Quran, Surah Al-Baqarah: 158" },
+      note: { ar: "هذه أسماء مأخوذة من كلمات وردت في القرآن — كالصفا والمروة في هذه الآية — لا أسماء أعلام ذُكرت فيه.", en: "These are names taken from words that occur in the Quran — Safa and Marwah in this verse — not names of people the Quran mentions." },
+    },
   },
   {
     number: 84,
@@ -1093,6 +1529,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّا أَنزَلْنَاهُ قُرْآنًا عَرَبِيًّا لَّعَلَّكُمْ تَعْقِلُونَ", ref: "يوسف: 2" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة يوسف: 2", en: "The Quran, Surah Yusuf: 2" },
+      note: { ar: "كون القرآن عربيًّا بنص الآية، وأن المترجم معناه لا لفظه أمرٌ متفق عليه عند أهل العلم.", en: "That the Quran is in Arabic is the verse's own words, and that translation carries the meaning rather than the text is agreed among scholars." },
+    },
   },
   {
     number: 85,
@@ -1106,6 +1547,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "كَلَّا لَا تُطِعْهُ وَاسْجُدْ وَاقْتَرِب ۩", ref: "العلق: 19" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة العلق: 19", en: "The Quran, Surah Al-Alaq: 19" },
+      note: { ar: "الأمر بالسجود في خاتمة السورة بنصها.", en: "The command to prostrate closes the surah." },
+    },
   },
   {
     number: 86,
@@ -1119,6 +1565,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا", ref: "النساء: 82" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النساء: 82", en: "The Quran, Surah An-Nisa: 82" },
+      note: { ar: "الاستدلال بنص الآية نفسها.", en: "The argument is the verse's own." },
+    },
   },
   {
     number: 87,
@@ -1130,6 +1581,11 @@ export const quranFacts: QuranFact[] = [
       en: "Abu Bakr, Umar, Uthman and Ali were all scribes of the revelation, writing the Quran down before the Prophet ﷺ as it came.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "الطبقات الكبرى لابن سعد، والإتقان للسيوطي — أسماء كُتّاب الوحي", en: "Ibn Sa'd's Tabaqat and as-Suyuti's al-Itqan — the lists of the scribes of revelation" },
+      note: { ar: "الخلفاء الأربعة مذكورون في قوائم كُتّاب الوحي عند أهل السير.", en: "The four caliphs appear in the lists of the scribes of revelation kept by the historians of the Seerah." },
+    },
   },
   {
     number: 88,
@@ -1143,6 +1599,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "قُلْ تَعَالَوْا أَتْلُ مَا حَرَّمَ رَبُّكُمْ عَلَيْكُمْ", ref: "الأنعام: 151" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، الأنعام: 151-153 والإسراء: 23-39", en: "The Quran, Al-An'am: 151-153 and Al-Isra: 23-39" },
+      note: { ar: "الوصايا في الموضعين بنص الآيات.", en: "The counsels in both places are the verses' own words." },
+    },
   },
   {
     number: 89,
@@ -1156,6 +1617,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ", ref: "النساء: 11" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النساء: 11", en: "The Quran, Surah An-Nisa: 11" },
+      note: { ar: "الأنصبة مفصّلة بنص الآيات 11-12 و176.", en: "The shares are set out in the words of verses 11-12 and 176." },
+    },
   },
   {
     number: 90,
@@ -1169,6 +1635,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَقُرْآنًا فَرَقْنَاهُ لِتَقْرَأَهُ عَلَى النَّاسِ عَلَىٰ مُكْثٍ", ref: "الإسراء: 106" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الإسراء: 106", en: "The Quran, Surah Al-Isra: 106" },
+      note: { ar: "النزول على مُكث بنص الآية، ومدة الثلاث والعشرين سنة (13 بمكة و10 بالمدينة) معروفة في كتب السيرة.", en: "The gradual revelation is the verse's own words; the span of twenty-three years — thirteen in Mecca, ten in Medina — is standard in the Seerah." },
+    },
   },
   {
     number: 91,
@@ -1182,6 +1653,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ", ref: "النساء: 11" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة النساء: 11", en: "The Quran, Surah An-Nisa: 11" },
+      note: { ar: "موضوعات السور المدنية تُرى في السور نفسها، والمواريث مثال عليها.", en: "The subjects of the Madani surahs are visible in the surahs themselves; inheritance is one example." },
+    },
   },
   {
     number: 92,
@@ -1195,6 +1671,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "الم", ref: "البقرة: 1" },
     ],
+    source: {
+      reliability: "🟡",
+      reference: { ar: "كتب علوم القرآن — المكي والمدني", en: "Sciences of the Quran — the Makki and Madani division" },
+      note: { ar: "الاستثناء ليس اثنتين فقط: البقرة وآل عمران مدنيتان بالاتفاق، وسورة الرعد مختلف فيها وتُعدّ مدنية في مصحف المدينة. القاعدة هنا تحتاج تصحيحًا أو مراجعتك.", en: "The exceptions are not only two: Al-Baqarah and Aal-Imran are Madani by agreement, and Ar-Ra'd is disputed and marked Madani in the Madinah mushaf. The rule as written needs correcting or your review." },
+    },
   },
   {
     number: 93,
@@ -1208,6 +1689,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَمِنَ النَّاسِ مَن يَقُولُ آمَنَّا بِاللَّهِ وَبِالْيَوْمِ الْآخِرِ وَمَا هُم بِمُؤْمِنِينَ", ref: "البقرة: 8" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة البقرة: 8", en: "The Quran, Surah Al-Baqarah: 8" },
+      note: { ar: "وصف من يقول ما ليس في قلبه بنص الآية.", en: "The description of those who say what is not in their hearts is the verse's own words." },
+    },
   },
   {
     number: 94,
@@ -1221,6 +1707,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "أَنُلْزِمُكُمُوهَا وَأَنتُمْ لَهَا كَارِهُونَ", ref: "هود: 28" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — سورة هود: 28", en: "Counted in the Uthmani text — Surah Hud: 28" },
+      note: { ar: "عددنا حروف الكلمة فكانت عشرة.", en: "We counted the word's letters: ten." },
+    },
   },
   {
     number: 95,
@@ -1234,6 +1725,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ", ref: "الرحمن: 13" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — سورة الرحمن", en: "Counted in the Uthmani text — Surah Ar-Rahman" },
+      note: { ar: "عددنا مواضع السؤال في السورة في النص الذي يعرضه الموقع فكانت إحدى وثلاثين.", en: "We counted the question in the surah in the text this site serves: thirty-one times." },
+    },
   },
   {
     number: 96,
@@ -1245,6 +1741,11 @@ export const quranFacts: QuranFact[] = [
       en: "Surah Al-Hajj stands alone in having two prostrations — one near its start and one near its end — in the view of most Shafi'i and Hanbali scholars.",
     },
     ayahs: [],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "كتب الفقه — الشافعية والحنابلة", en: "Books of fiqh — the Shafi'i and Hanbali schools" },
+      note: { ar: "البطاقة تنسب القول إلى أصحابه، وهذا هو الصواب: السجدة الثانية في الحج يعدّها الشافعية والحنابلة دون غيرهم.", en: "The card attributes the view to those who hold it, which is right: the second prostration in Al-Hajj is counted by the Shafi'is and Hanbalis and not by others." },
+    },
   },
   {
     number: 97,
@@ -1258,6 +1759,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "وَالصُّبْحِ إِذَا تَنَفَّسَ", ref: "التكوير: 18" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة التكوير: 18", en: "The Quran, Surah At-Takwir: 18" },
+      note: { ar: "الصورة بنص الآية.", en: "The image is the verse's own words." },
+    },
   },
   {
     number: 98,
@@ -1271,6 +1777,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ", ref: "العلق: 1" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "صحيح البخاري (3) وصحيح مسلم (160) — حديث بدء الوحي", en: "Sahih al-Bukhari (3) and Sahih Muslim (160) — the account of the first revelation" },
+      note: { ar: "حديث عائشة في بدء الوحي بغار حراء متفق عليه.", en: "A'ishah's report of the beginning of revelation at the cave of Hira is agreed upon by both." },
+    },
   },
   {
     number: 99,
@@ -1284,6 +1795,11 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "فَأَنزَلْنَا مِنَ السَّمَاءِ مَاءً فَأَسْقَيْنَاكُمُوهُ", ref: "الحجر: 22" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "عدٌّ في النص العثماني — سورة الحجر: 22", en: "Counted in the Uthmani text — Surah Al-Hijr: 22" },
+      note: { ar: "أحد عشر حرفًا بالرسم الإملائي؛ وفي الرسم العثماني تُكتب بألف محذوفة فتصير عشرة، والعدّ هنا على الإملائي.", en: "Eleven letters in ordinary spelling; the Uthmani script drops one alif, making ten. The count here is the ordinary spelling." },
+    },
   },
   {
     number: 100,
@@ -1297,5 +1813,10 @@ export const quranFacts: QuranFact[] = [
     ayahs: [
       { text: "إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ", ref: "الحجر: 9" },
     ],
+    source: {
+      reliability: "🟢",
+      reference: { ar: "القرآن الكريم، سورة الحجر: 9", en: "The Quran, Surah Al-Hijr: 9" },
+      note: { ar: "التعهّد بالحفظ بنص الآية.", en: "The promise of preservation is the verse's own words." },
+    },
   },
 ];

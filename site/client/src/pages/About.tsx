@@ -55,6 +55,18 @@ const copy = {
     accuracyTwo: "ومع ذلك، فإننا نرحب بكل ملاحظة أو تصحيح أو تنبيه من أهل العلم والمتخصصين والزوار.",
     accuracyThree:
       "إذا لاحظت أي معلومة تحتاج إلى مراجعة، أو لديك ملاحظة تتعلق بالمحتوى أو المصادر، نرجو التواصل مع إدارة الموقع، وسنقوم بمراجعتها بعناية.",
+    craftTitle: "كيف نصنع المحتوى؟",
+    craftLead:
+      "كل بطاقة في «في رحاب القرآن» والعقيدة، وكل قصة في السيرة، تحمل تحتها مصدرها وعلامة تقول إلى أي حدّ هو مستقرّ. وهذه هي العلامتان:",
+    craftGreen: "ثابت بنصّ آية، أو بحديث في كتب الصحيح، أو بعدٍّ أجريناه بأنفسنا على النص العثماني الذي يعرضه الموقع.",
+    craftGreenLabel: "🟢 مستقرّ",
+    craftAmberLabel: "🟡 بانتظار مراجعة أهل العلم",
+    craftAmber:
+      "معلومة اختلف فيها أهل العلم، أو اشتهرت بلا إسناد. تبقى ظاهرة ومعها بيان موضع الخلاف، ولا تُعرض على الطفل بثقة ليست لها.",
+    craftCount:
+      "الأرقام التي يمكن عدّها — عدد الآيات، وتكرار كلمة، وعدد السور التي تبدأ بشيء — عددناها في نص المصحف نفسه ولم نأخذها من غيرنا.",
+    craftMissing:
+      "قصص القرآن الاثنتان والأربعون تذكر آيتها وسورتها، ولم نُضِف إليها بعدُ سطر المصدر الكامل مثل باقي الأقسام.",
     contactTitle: "تواصل معنا",
     contactBody: "للملاحظات والتصحيحات، راسلنا على واتساب:",
     contactCta: "راسلنا على واتساب",
@@ -95,6 +107,19 @@ const copy = {
       "Nevertheless, we welcome any feedback, correction, or notification from scholars, specialists, parents, and visitors.",
     accuracyThree:
       "If you notice any information that you believe requires review, or if you have any feedback regarding the content or its sources, please contact the website administration. We will carefully review your comments and take appropriate action when necessary.",
+    craftTitle: "How the content is made",
+    craftLead:
+      "Every card in the Quran facts and the creed section, and every story in the Seerah, carries its source underneath and a mark saying how settled it is. The two marks are these:",
+    craftGreenLabel: "🟢 Settled",
+    craftGreen:
+      "Established by the words of a verse, by a hadith in the authentic collections, or by a count we ran ourselves over the Uthmani text this site serves.",
+    craftAmberLabel: "🟡 Awaiting a scholar\u2019s review",
+    craftAmber:
+      "Something scholars differ over, or a claim that became familiar without a chain. It stays visible, with the disagreement named, and is never told to a child with a confidence it has not earned.",
+    craftCount:
+      "Anything countable — the number of verses, how often a word occurs, how many surahs open a certain way — we counted in the text of the mushaf itself rather than taking someone else\u2019s figure.",
+    craftMissing:
+      "The forty-two Quran stories name their verse and surah; they do not yet carry the full source line the other sections do.",
     contactTitle: "Contact us",
     contactBody: "For feedback and corrections, message us on WhatsApp:",
     contactCta: "Message us on WhatsApp",
@@ -156,6 +181,23 @@ export default function About() {
               <p>{t.accuracyOne}</p>
               <p>{t.accuracyTwo}</p>
               <p>{t.accuracyThree}</p>
+            </section>
+
+            {/* What the reliability marks mean. A parent handing a child a
+                site of religious facts deserves to be told the method, not
+                just reassured about it. */}
+            <section className="about-block" aria-labelledby="craft-title">
+              <span className="eyebrow eyebrow--gold"><ShieldCheck size={15} aria-hidden="true" /> {t.craftTitle}</span>
+              <h2 id="craft-title">{t.craftTitle}</h2>
+              <p>{t.craftLead}</p>
+              <dl className="about-marks">
+                <dt>{t.craftGreenLabel}</dt>
+                <dd>{t.craftGreen}</dd>
+                <dt>{t.craftAmberLabel}</dt>
+                <dd>{t.craftAmber}</dd>
+              </dl>
+              <p>{t.craftCount}</p>
+              <p>{t.craftMissing}</p>
             </section>
 
             <section className="about-block about-contact" aria-labelledby="contact-title">
