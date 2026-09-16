@@ -57,6 +57,9 @@ writeFileSync(join(outDir, "index.json"), JSON.stringify({
     display_name_ar: recitations[id].display_name_ar,
     display_name_en: recitations[id].display_name_en,
     timing_status: recitations[id].timing_status,
+    // What a recitation is for: the teaching ones drive the reader and the
+    // memorization screens, a listening one is a complete mushaf to play.
+    use: recitations[id].use === "listening" ? "listening" : "learning",
     has_surahs: Object.keys(recitations[id].surahs ?? {}).length > 0,
   })),
 }));
@@ -72,6 +75,24 @@ const keep = surah => ({
     ? { unavailable_timing_ayahs: surah.unavailable_timing_ayahs }
     : {}),
 });
+
+// The listening section needs one small file: every surah's length for the
+// mushaf being offered, so the index does not fetch 114 surah files to draw a
+// list of durations.
+for (const id of ids) {
+  const rec = recitations[id];
+  if (rec.use !== "listening") continue;
+  const surahs = rec.surahs ?? {};
+  if (Object.keys(surahs).length === 0) continue;
+  writeFileSync(join(outDir, `listening-${id}.json`), JSON.stringify({
+    id,
+    display_name_ar: rec.display_name_ar,
+    display_name_en: rec.display_name_en,
+    surahs: Object.values(surahs)
+      .sort((a, b) => a.surah - b.surah)
+      .map(s => ({ surah: s.surah, duration_ms: s.duration_ms, ayah_count: s.ayah_count })),
+  }));
+}
 
 let written = 0;
 for (let surah = 1; surah <= TOTAL_SURAHS; surah += 1) {

@@ -282,6 +282,29 @@ for (let surah = 1; surah <= surahNames.length; surah += 1) {
   `));
 }
 
+// Listening ------------------------------------------------------------------
+add("/listen", section("ar", `
+  <h1>الاستماع — المصحف المرتل كاملًا</h1>
+  <p>المصحف المرتل كاملًا بصوت الشيخ محمد صديق المنشاوي، 114 سورة، يُشغَّل من المتصفح مباشرة بلا حساب ولا تسجيل.</p>
+  ${list(surahNames.map((name, i) => link(`/listen/${i + 1}`, `${String(i + 1).padStart(3, "0")} — ${name}`)))}
+`) + section("en", `
+  <h2>Listening — the complete murattal mushaf</h2>
+  <p>The complete murattal mushaf recited by Muhammad Siddiq al-Minshawi, all 114 surahs, played straight from the browser with no account and no tracking.</p>
+`));
+
+for (let surah = 1; surah <= surahNames.length; surah += 1) {
+  const count = ayahCounts?.[surah - 1];
+  add(`/listen/${surah}`, section("ar", `
+    <h1>استمع إلى سورة ${esc(surahNames[surah - 1])}</h1>
+    <p>سورة ${esc(surahNames[surah - 1])} كاملة${count ? `، وعدد آياتها ${count}` : ""} — بصوت الشيخ محمد صديق المنشاوي، تلاوة مرتلة.</p>
+    ${surah > 1 ? p(`السابقة: سورة ${surahNames[surah - 2]}`) : ""}
+    ${surah < surahNames.length ? p(`التالية: سورة ${surahNames[surah]}`) : ""}
+  `) + section("en", `
+    <h2>Listen to Surah ${esc(englishSurahNames[surah - 1])}</h2>
+    <p>The whole of Surah ${esc(englishSurahNames[surah - 1])}${count ? `, ${count} verses` : ""} — recited by Muhammad Siddiq al-Minshawi.</p>
+  `));
+}
+
 // ---------------------------------------------------------------- write it out
 
 // The home page is written back over index.html, so a second run without a

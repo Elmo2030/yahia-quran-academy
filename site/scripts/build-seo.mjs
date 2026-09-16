@@ -48,8 +48,10 @@ const urls = [
   { loc: "/terms", priority: "0.3" },
   { loc: "/quran-facts", priority: "0.8" },
   { loc: "/read", priority: "0.9" },
+  { loc: "/listen", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/read/${i + 1}`, priority: "0.7" })),
+  ...Array.from({ length: 114 }, (_, i) => ({ loc: `/listen/${i + 1}`, priority: "0.6" })),
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
   ...stories.map(s => ({ loc: `/stories/${s.chapter}/${s.slug}`, priority: "0.7" })),
   { loc: "/seerah", priority: "0.8" },
@@ -137,6 +139,10 @@ Non-commercial and educational.
 - [The reader](${ORIGIN}/read): all 114 surahs in the Uthmani text, each with
   a verified teaching recitation. Individual surahs are at ${ORIGIN}/read/1
   through ${ORIGIN}/read/114.
+- [Listening](${ORIGIN}/listen): the complete murattal mushaf recited by
+  Muhammad Siddiq al-Minshawi, about 28 hours of audio, one page per surah at
+  ${ORIGIN}/listen/1 through ${ORIGIN}/listen/114. Playback only — no account,
+  no tracking.
 
 ## Stories from the Quran
 ${chapterLines.join("\n")}

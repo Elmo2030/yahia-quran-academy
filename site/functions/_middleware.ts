@@ -172,6 +172,21 @@ function metaForPath(pathname: string) {
       : notFound(path);
   }
 
+  if (head === "listen") {
+    if (!parts[1]) return {
+      ...base,
+      path,
+      title: `الاستماع — المصحف المرتل كاملًا · ${SITE}`,
+      description: "استمع إلى المصحف المرتل كاملًا بصوت الشيخ محمد صديق المنشاوي، سورة سورة، من المتصفح مباشرة.",
+    };
+    const surah = Number(parts[1]);
+    const name = Number.isInteger(surah) && surah >= 1 && surah <= 114 ? surahNames[surah - 1] : null;
+    return name
+      ? { ...base, path, title: `استمع إلى سورة ${name} — المنشاوي المرتل · ${SITE}`,
+          description: `استمع إلى سورة ${name} كاملة بصوت الشيخ محمد صديق المنشاوي، بتلاوة مرتلة هادئة تناسب البيت والسيارة.` }
+      : notFound(path);
+  }
+
   if (head === "stories") {
     if (parts[1] === "library") {
       // A personal shelf kept on the reader's own device: a crawler sees an

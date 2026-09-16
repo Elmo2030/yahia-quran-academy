@@ -337,6 +337,29 @@ export const metaForPath = (pathname: string): Meta => {
       : FALLBACK_NOT_FOUND;
   }
 
+  if (head === "listen") {
+    if (!parts[1]) {
+      return {
+        path,
+        title: `الاستماع — المصحف المرتل كاملًا · ${SITE_NAME}`,
+        description: "استمع إلى المصحف المرتل كاملًا بصوت الشيخ محمد صديق المنشاوي، سورة سورة، من المتصفح مباشرة.",
+        image: DEFAULT_IMAGE,
+        i18n: { en: { title: `Listening — the complete murattal mushaf · ${SITE_NAME_EN}`, description: "Listen to the complete murattal mushaf recited by Muhammad Siddiq al-Minshawi, surah by surah, straight from the browser." } },
+      };
+    }
+    const n = Number(parts[1]);
+    const name = surahsByNumber.get(n);
+    return name
+      ? {
+          path,
+          title: `استمع إلى سورة ${name} — المنشاوي المرتل · ${SITE_NAME}`,
+          description: `استمع إلى سورة ${name} كاملة بصوت الشيخ محمد صديق المنشاوي، بتلاوة مرتلة هادئة تناسب البيت والسيارة.`,
+          image: DEFAULT_IMAGE,
+          i18n: { en: { title: `Listen to Surah ${englishSurahNames[n - 1] ?? name} — al-Minshawi murattal · ${SITE_NAME_EN}`, description: `Listen to the whole of Surah ${englishSurahNames[n - 1] ?? name} recited by Muhammad Siddiq al-Minshawi, a calm murattal reading for the home or the car.` } },
+        }
+      : FALLBACK_NOT_FOUND;
+  }
+
   if (head === "stories") {
     // A shelf kept on the reader's own device. A crawler sees an empty page,
     // and no two visitors' are the same. Googlebot renders the app and reads

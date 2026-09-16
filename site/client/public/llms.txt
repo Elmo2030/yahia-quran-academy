@@ -11,6 +11,10 @@ Non-commercial and educational.
 - [The reader](https://yahyaquran.com/read): all 114 surahs in the Uthmani text, each with
   a verified teaching recitation. Individual surahs are at https://yahyaquran.com/read/1
   through https://yahyaquran.com/read/114.
+- [Listening](https://yahyaquran.com/listen): the complete murattal mushaf recited by
+  Muhammad Siddiq al-Minshawi, about 28 hours of audio, one page per surah at
+  https://yahyaquran.com/listen/1 through https://yahyaquran.com/listen/114. Playback only — no account,
+  no tracking.
 
 ## Stories from the Quran
 - [Animals in the Quran — حيوانات في القرآن](https://yahyaquran.com/stories/animals): 8 stories. Eight stories about animals the Quran names, and what they teach.

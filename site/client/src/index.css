@@ -1296,3 +1296,68 @@
 .hifz-meter > span { display: block; block-size: 100%; background: var(--brand-solid); }
 .hifz-storage__list { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
 .hifz-storage__list li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem .8rem; padding: .55rem .8rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); color: var(--ink); font-size: .85rem; }
+
+/* --- The listening section ---------------------------------------------- */
+.listen-hero { padding-block: clamp(2.2rem, 6vw, 3.4rem) 1rem; }
+.listen-hero__inner { display: grid; gap: .7rem; max-inline-size: 60ch; }
+.listen-hero h1 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.7rem, 5vw, 2.6rem); font-weight: 800; line-height: 1.35; text-wrap: balance; }
+.listen-hero p { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.9; }
+.listen-facts { display: flex; flex-wrap: wrap; gap: .5rem .9rem; margin: .4rem 0 0; }
+.listen-facts > div { display: grid; gap: .1rem; padding: .45rem .8rem; border-radius: 14px; background: var(--surface-gold); border: 1px solid var(--line-gold); }
+.listen-facts dt { color: var(--gold-ink-deep); font-size: .72rem; font-weight: 800; }
+.listen-facts dd { margin: 0; color: var(--ink); font-size: .92rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.listen-section { padding-block: 1rem clamp(2.4rem, 7vw, 4rem); }
+.listen-stack { display: grid; gap: 1rem; }
+.listen-note { display: flex; align-items: center; gap: .5rem; margin: 0; padding: 1rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); }
+
+.listen-resume { display: flex; align-items: center; gap: .7rem; padding: .8rem 1rem; border-radius: 18px; border: 1px solid var(--line-gold); background: var(--surface-gold); color: var(--ink); text-decoration: none; }
+.listen-resume:hover { border-color: var(--gold); }
+.listen-resume span { display: grid; gap: .1rem; flex: 1; min-inline-size: 0; }
+.listen-resume b { font-family: "Noto Naskh Arabic", serif; font-size: 1rem; font-weight: 800; }
+.listen-resume small { color: var(--ink-soft); font-size: .84rem; }
+.listen-resume svg { flex: none; color: var(--gold-ink-deep); }
+
+.listen-list { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.listen-row { display: flex; align-items: center; gap: .8rem; padding: .7rem .9rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; transition: border-color .14s ease, transform .14s ease; }
+.listen-row:hover { border-color: var(--line-green-strong); transform: translateY(-1px); }
+.listen-row:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.listen-row__number { display: grid; place-items: center; flex: none; inline-size: 2.4rem; block-size: 2.4rem; border-radius: 50%; background: var(--surface-3); color: var(--gold-ink-deep); font-size: .85rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.listen-row__text { display: grid; gap: .1rem; flex: 1; min-inline-size: 0; }
+.listen-row__text b { font-family: "Noto Naskh Arabic", serif; font-size: 1rem; font-weight: 800; }
+.listen-row__text small { color: var(--ink-soft); font-size: .8rem; }
+.listen-row__mark { flex: none; padding: .1rem .5rem; border-radius: 99px; background: var(--surface-gold); color: var(--gold-ink-deep); font-size: .74rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.listen-row > svg { flex: none; color: var(--brand); }
+
+/* --- One surah, playing -------------------------------------------------- */
+.listen-player__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.listen-player { display: grid; gap: .9rem; padding: clamp(1.1rem, 4vw, 1.8rem); border-radius: 24px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 16px 34px rgb(var(--shadow-rgb) / 8%); }
+.listen-player h1 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.6rem, 5vw, 2.3rem); font-weight: 800; text-align: center; }
+.listen-facts--player { justify-content: center; }
+
+.listen-seek { display: flex; align-items: center; gap: .6rem; }
+.listen-seek input { flex: 1; min-inline-size: 0; accent-color: var(--brand-solid); }
+.listen-seek__time { flex: none; color: var(--ink-soft); font-size: .8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.listen-resumed { display: flex; align-items: center; justify-content: center; gap: .5rem; margin: 0; color: var(--ink-soft); font-size: .84rem; }
+
+.listen-controls { display: flex; align-items: center; justify-content: center; gap: .6rem; }
+.listen-round { display: grid; place-items: center; inline-size: 46px; block-size: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); cursor: pointer; }
+.listen-round:hover:not(:disabled) { border-color: var(--gold); color: var(--gold-ink-deep); }
+.listen-round:disabled { opacity: .4; cursor: default; }
+.listen-play { display: grid; place-items: center; inline-size: 68px; block-size: 68px; border-radius: 50%; border: none; background: var(--brand-solid); color: #fff; cursor: pointer; box-shadow: 0 10px 22px rgb(var(--shadow-rgb) / 18%); }
+.listen-play:hover { filter: brightness(1.06); }
+.listen-round:focus-visible, .listen-play:focus-visible, .listen-sleep button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.listen-options { display: grid; gap: .8rem; padding-block-start: .4rem; border-block-start: 1px solid var(--line); }
+@media (min-width: 640px) { .listen-options { grid-template-columns: 1fr auto; align-items: start; gap: 1.4rem; } }
+.listen-toggle { display: flex; align-items: flex-start; gap: .5rem; cursor: pointer; }
+.listen-toggle input { margin-block-start: .25rem; accent-color: var(--brand-solid); }
+.listen-toggle span { display: grid; gap: .1rem; color: var(--ink); font-size: .9rem; font-weight: 700; }
+.listen-toggle small { color: var(--ink-soft); font-size: .8rem; font-weight: 400; }
+.listen-sleep { display: grid; gap: .35rem; }
+.listen-sleep__label { display: flex; align-items: center; gap: .4rem; color: var(--ink); font-size: .9rem; font-weight: 700; }
+.listen-sleep__choices { display: flex; flex-wrap: wrap; gap: .35rem; }
+.listen-sleep__choices button { padding: .3rem .7rem; border-radius: 99px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); font-size: .8rem; font-weight: 700; cursor: pointer; }
+.listen-sleep__choices button.is-on { border-color: var(--gold); background: var(--surface-gold); color: var(--gold-ink-deep); }
+.listen-sleep__left { margin: 0; color: var(--ink-soft); font-size: .8rem; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .listen-row { transition: none; } .listen-row:hover { transform: none; } }

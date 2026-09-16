@@ -105,7 +105,9 @@ export default function Reader() {
     Promise.all([listRecitations(), defaultRecitationId()])
       .then(([list, fallback]) => {
         if (!live) return;
-        setRecitations(list);
+        // The complete mushafs belong to the listening section; the reader
+        // offers the teaching recitations it can follow along with.
+        setRecitations(list.filter(r => r.use === "learning"));
         setRecitationId(current => current ?? fallback);
       })
       .catch(() => undefined);

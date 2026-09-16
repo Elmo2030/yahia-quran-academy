@@ -20,12 +20,18 @@ const surahUrl = (surah: number) => `/recitations/surah-${String(surah).padStart
 
 export type RecitationId = string;
 
+export type RecitationUse = "learning" | "listening";
+
 export type Recitation = {
   id: RecitationId;
   nameAr: string;
   nameEn: string;
   /** true when the manifest declares usable timings for this recitation */
   hasTiming: boolean;
+  /** a teaching recitation for the reader, or a mushaf to sit and listen to */
+  use: RecitationUse;
+  /** false while a recitation has names but no audio uploaded yet */
+  hasAudio: boolean;
 };
 
 export type SurahAudioSource = {
@@ -53,6 +59,7 @@ type Catalogue = {
     display_name_ar: string;
     display_name_en: string;
     timing_status: string;
+    use?: string;
     has_surahs: boolean;
   }[];
 };
@@ -111,8 +118,43 @@ export async function listRecitations(): Promise<Recitation[]> {
     nameAr: r.display_name_ar,
     nameEn: r.display_name_en,
     hasTiming: r.timing_status !== "unavailable" && r.has_surahs,
+    use: r.use === "listening" ? "listening" : "learning",
+    hasAudio: r.has_surahs,
   }));
 }
+
+/** The complete mushafs, for the listening section. */
+export const listeningRecitations = async () =>
+  (await listRecitations()).filter(r => r.use === "listening" && r.hasAudio);
+
+export type ListeningCatalogue = {
+  id: RecitationId;
+  nameAr: string;
+  nameEn: string;
+  surahs: { surah: number; durationMs: number; ayahCount: number }[];
+};
+
+/**
+ * Every surah's length for one complete mushaf, in a single small file. The
+ * index would otherwise fetch 114 surah files to print a list of durations.
+ */
+export async function loadListeningCatalogue(id: RecitationId): Promise<ListeningCatalogue | null> {
+  try {
+    const raw = await loadJson<{
+      id: string; display_name_ar: string; display_name_en: string;
+      surahs: { surah: number; duration_ms: number; ayah_count: number }[];
+    }>(`/recitations/listening-${id}.json`);
+    return {
+      id: raw.id,
+      nameAr: raw.display_name_ar,
+      nameEn: raw.display_name_en,
+      surahs: raw.surahs.map(s => ({ surah: s.surah, durationMs: s.duration_ms, ayahCount: s.ayah_count })),
+    };
+  } catch {
+    return null;
+  }
+}
+
 
 export async function defaultRecitationId(): Promise<RecitationId> {
   const catalogue = await loadCatalogue();

@@ -31,6 +31,8 @@ const HifzReview = lazyWithRetry(() => import("./pages/HifzReview"));
 const HifzParent = lazyWithRetry(() => import("./pages/HifzParent"));
 const HifzCertificate = lazyWithRetry(() => import("./pages/HifzCertificate"));
 const HifzLooks = lazyWithRetry(() => import("./pages/HifzLooks"));
+const Listen = lazyWithRetry(() => import("./pages/Listen"));
+const ListenSurah = lazyWithRetry(() => import("./pages/ListenSurah"));
 
 /** Shown only while a route chunk is in flight. Deliberately quiet: a spinner
  *  that flashes for 80ms is worse than a blank moment. */
@@ -45,6 +47,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/read"} component={Reader} />
       <Route path={"/read/:surah"} component={Reader} />
+      <Route path={"/listen"} component={Listen} />
+      <Route path={"/listen/:surah"} component={ListenSurah} />
       <Route path={"/stories"} component={Stories} />
       <Route path={"/stories/:chapter"} component={Stories} />
       <Route path={"/stories/:chapter/:slug"} component={Stories} />
