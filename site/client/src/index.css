@@ -968,3 +968,119 @@
 .hifz-guest__button b { font-size: .92rem; font-weight: 800; }
 .hifz-guest__avatar { inline-size: 46px; block-size: 46px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; background: var(--surface-3); filter: none; }
 .hifz-guest__avatar.hifz-art--placeholder { aspect-ratio: 1; border-width: 1px; }
+
+/* --- Journey surah list (phase 2; the map replaces it in phase 3) -------- */
+.hifz-journey { background: var(--surface); border-color: var(--line); }
+.hifz-journey__head { display: grid; gap: 1rem; }
+@media (min-width: 640px) { .hifz-journey__head { grid-template-columns: 1fr auto; align-items: center; } }
+.hifz-surahs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .6rem; margin: 0; padding: 0; list-style: none; }
+.hifz-surah { position: relative; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .15rem .6rem; padding: .7rem .8rem .9rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-2); color: var(--ink); text-decoration: none; overflow: hidden; transition: border-color .14s ease, transform .14s ease; }
+.hifz-surah:hover { border-color: var(--line-green-strong); transform: translateY(-2px); }
+.hifz-surah:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.hifz-surah__number { grid-row: span 2; display: grid; place-items: center; inline-size: 34px; block-size: 34px; border-radius: 50%; border: 1px solid var(--line-gold); color: var(--gold-ink-deep); font-size: .78rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.hifz-surah b { font-family: "Noto Naskh Arabic", serif; font-size: 1.02rem; font-weight: 800; line-height: 1.4; }
+.hifz-surah small { color: var(--ink-faint); font-size: .74rem; font-variant-numeric: tabular-nums; }
+.hifz-surah__bar { position: absolute; inset-inline: 0; inset-block-end: 0; block-size: 4px; background: var(--line); }
+.hifz-surah__bar span { display: block; block-size: 100%; background: var(--brand-solid); }
+.hifz-surah.is-current { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.hifz-surah.is-done { background: var(--surface-green); border-color: var(--line-green); }
+.hifz-surah.is-done small { color: var(--brand); font-weight: 700; }
+
+/* --- The memorization screen ------------------------------------------- */
+.hifz-screen { background: var(--page); }
+.hifz-memorize { padding-block: 1.2rem 3rem; background-color: var(--page); background-image: url("/hifz-art/backgrounds/hifz-light-720.webp"); background-size: cover; background-position: center top; background-attachment: scroll; }
+@media (min-width: 768px) { .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-light-1536.webp"); } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-dark-720.webp"); } }
+:root[data-theme="dark"] .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-dark-720.webp"); }
+@media (min-width: 768px) {
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-dark-1536.webp"); } }
+  :root[data-theme="dark"] .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-dark-1536.webp"); }
+}
+.hifz-memorize__inner { display: grid; gap: 1rem; max-width: 900px; }
+.hifz-memorize__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; }
+.hifz-back { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border-radius: 99px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-size: .85rem; font-weight: 700; text-decoration: none; }
+.hifz-back:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.hifz-memorize__title { display: grid; justify-items: end; gap: .05rem; text-align: end; }
+.hifz-memorize__title h1 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1.4; }
+.hifz-memorize__title span { color: var(--ink-soft); font-size: .85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hifz-notice-title { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.5rem; font-weight: 800; }
+
+.hifz-dots { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.hifz-dot { display: grid; place-items: center; min-inline-size: 30px; block-size: 30px; padding: 0 .3rem; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); color: var(--ink-soft); font: inherit; font-size: .74rem; font-weight: 800; font-variant-numeric: tabular-nums; cursor: pointer; }
+.hifz-dot:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.hifz-dot.is-listened { background: var(--surface-3); color: var(--ink); }
+.hifz-dot.is-recorded { background: var(--surface-gold); border-color: var(--line-gold); color: var(--gold-ink-deep); }
+.hifz-dot.is-declared { background: var(--brand-solid); border-color: var(--brand-solid); color: #fff; }
+.hifz-dot.is-current { box-shadow: 0 0 0 3px var(--gold); }
+
+.hifz-stage { display: grid; grid-template-columns: minmax(0, 34%) 1fr; align-items: end; gap: .6rem; }
+.hifz-stage__character { position: relative; display: grid; justify-items: center; align-self: stretch; align-content: end; }
+.hifz-stage__art { inline-size: 100%; max-inline-size: 240px; max-block-size: 320px; object-fit: contain; object-position: bottom; filter: drop-shadow(0 12px 16px rgb(var(--shadow-rgb) / 16%)); animation: hifz-pose-in .28s cubic-bezier(.23,1,.32,1); }
+@keyframes hifz-pose-in { from { opacity: .4; transform: translateY(6px) scale(.98); } to { opacity: 1; transform: none; } }
+.hifz-bubble { order: -1; margin: 0 0 .4rem; padding: .45rem .8rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-size: .84rem; font-weight: 800; text-align: center; min-block-size: 2.2rem; box-shadow: 0 6px 14px rgb(var(--shadow-rgb) / 8%); }
+.hifz-bubble.is-yourTurn { background: var(--surface-gold); border-color: var(--line-gold); color: var(--gold-ink-deep); }
+.hifz-bubble.is-playing, .hifz-bubble.is-between { background: var(--surface-green); border-color: var(--line-green); color: var(--brand-deep-ink); }
+
+.hifz-ayah { display: grid; place-items: center; min-block-size: 220px; padding: 1.4rem 1.2rem; border-radius: 26px; background: rgb(var(--sheen-rgb) / 82%); border: 1px solid var(--line); box-shadow: 0 16px 34px rgb(var(--shadow-rgb) / 9%); }
+:root[data-theme="dark"] .hifz-ayah { background: rgb(24 33 46 / 88%); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hifz-ayah { background: rgb(24 33 46 / 88%); } }
+.hifz-ayah p { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; line-height: 2.25; text-align: center; text-wrap: balance; }
+.hifz-ayah--0 p { font-size: clamp(1.5rem, 4.4vw, 2.1rem); }
+.hifz-ayah--1 p { font-size: clamp(1.8rem, 5.4vw, 2.6rem); }
+.hifz-ayah--2 p { font-size: clamp(2.1rem, 6.6vw, 3.2rem); }
+.hifz-ayah__number { display: inline-grid; place-items: center; min-inline-size: 1.7em; block-size: 1.7em; margin-inline-start: .2em; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold-ink-deep); font-size: .5em; vertical-align: middle; }
+.hifz-loading { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink-soft); font-size: 1rem; }
+@media (max-width: 639px) {
+  .hifz-stage { grid-template-columns: 1fr; }
+  .hifz-stage__character { grid-template-columns: auto 1fr; align-items: end; justify-items: start; gap: .5rem; }
+  .hifz-stage__art { max-inline-size: 110px; max-block-size: 150px; }
+  .hifz-bubble { order: 0; margin: 0 0 .8rem; text-align: start; }
+  .hifz-ayah { min-block-size: 180px; }
+}
+
+.hifz-controls { display: grid; justify-items: center; gap: .8rem; padding: 1rem; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
+.hifz-voice { display: inline-grid; grid-template-columns: 1fr 1fr; gap: .3rem; padding: .3rem; border-radius: 99px; background: var(--surface-3); max-inline-size: 100%; }
+.hifz-voice button { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; min-block-size: 42px; padding: .4rem .9rem; border: 0; border-radius: 99px; background: transparent; color: var(--ink-soft); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; white-space: nowrap; }
+.hifz-voice button.is-selected { background: var(--surface); color: var(--ink); box-shadow: 0 3px 10px rgb(var(--shadow-rgb) / 12%); }
+.hifz-voice button:focus-visible, .hifz-repeat button:focus-visible, .hifz-round:focus-visible, .hifz-play:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.hifz-transport { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.hifz-round { display: grid; place-items: center; inline-size: 52px; block-size: 52px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); cursor: pointer; }
+.hifz-round:disabled { opacity: .4; cursor: default; }
+.hifz-play { display: grid; justify-items: center; gap: .05rem; min-inline-size: 132px; padding: .75rem 1.4rem; border: 0; border-radius: 28px; background: var(--brand-solid); color: #fff; font: inherit; cursor: pointer; box-shadow: 0 12px 24px rgb(85 107 47 / 28%); transition: transform .14s ease; }
+.hifz-play:active { transform: scale(.97); }
+.hifz-play span { font-size: 1rem; font-weight: 800; }
+.hifz-play small { font-size: .74rem; opacity: .9; font-variant-numeric: tabular-nums; }
+.hifz-play.is-playing { background: var(--gold-deep); box-shadow: 0 12px 24px rgb(175 141 17 / 28%); }
+.hifz-play:disabled { opacity: .55; cursor: default; }
+.hifz-repeat { display: flex; align-items: center; gap: .35rem; }
+.hifz-repeat span { margin-inline-end: .3rem; color: var(--ink-soft); font-size: .8rem; font-weight: 700; }
+.hifz-repeat button { inline-size: 36px; block-size: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); font: inherit; font-size: .85rem; font-weight: 800; cursor: pointer; }
+.hifz-repeat button.is-selected { background: var(--brand-solid); border-color: var(--brand-solid); color: #fff; }
+.hifz-autonext { display: flex; align-items: center; gap: .6rem; margin: 0; color: var(--ink-soft); font-size: .88rem; }
+
+.hifz-steps { display: grid; gap: .8rem; }
+@media (min-width: 720px) { .hifz-steps { grid-template-columns: 1fr 1fr; align-items: start; } }
+.hifz-recorder, .hifz-declare { display: grid; gap: .6rem; padding: 1rem; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); }
+.hifz-record { inline-size: 100%; background: var(--surface-gold); color: var(--gold-ink-deep); border: 1px solid var(--line-gold); }
+.hifz-record small { font-weight: 700; font-variant-numeric: tabular-nums; }
+.hifz-record.is-recording { background: var(--surface-danger); color: var(--danger-ink); border-color: var(--line-danger); animation: hifz-pulse 1.4s ease-in-out infinite; }
+@keyframes hifz-pulse { 50% { box-shadow: 0 0 0 6px rgb(160 48 34 / 12%); } }
+.hifz-take { display: grid; gap: .3rem; color: var(--ink-soft); font-size: .82rem; font-weight: 700; }
+.hifz-take audio { inline-size: 100%; }
+.hifz-declare__button { inline-size: 100%; min-block-size: 54px; background: var(--brand-solid); color: #fff; font-size: 1.02rem; }
+.hifz-declare__button:hover { background: var(--brand-deep); }
+.hifz-declared { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; margin: 0; padding: .7rem .9rem; border-radius: 14px; background: var(--surface-green); color: var(--brand-deep-ink); font-weight: 800; }
+
+.hifz-done { grid-template-columns: auto 1fr; align-items: center; background: linear-gradient(135deg, var(--surface-gold), var(--surface)); border-color: var(--line-gold); }
+.hifz-done__art { inline-size: 110px; max-block-size: 170px; object-fit: contain; }
+.hifz-done h2 { font-size: 1.4rem; }
+@media (max-width: 480px) { .hifz-done { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hifz-stage__art, .hifz-record.is-recording { animation: none; }
+  .hifz-surah, .hifz-play { transition: none; }
+  .hifz-surah:hover { transform: none; }
+}
+.hifz-surah__icon { grid-row: span 2; inline-size: 44px; block-size: 44px; object-fit: contain; }
+/* Nothing to say yet: the live region stays for screen readers, the pill does not show. */
+.hifz-bubble.is-quiet { opacity: 0; box-shadow: none; }

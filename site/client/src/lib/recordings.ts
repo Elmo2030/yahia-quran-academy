@@ -21,6 +21,10 @@ export type Recording = {
   mimeType: string;
   seconds: number;
   recordedAt: number;
+  /** Set by the memorization journey, which records one ayah at a time for
+   *  one child. The reader's whole-surah recordings leave both out. */
+  ayah?: number;
+  profileId?: string;
 };
 
 /** Metadata without the audio, for listing. */
@@ -78,10 +82,12 @@ async function toBytes(blob: Blob): Promise<ArrayBuffer> {
 }
 
 export async function saveRecording(
-  input: { surah: number; blob: Blob; mimeType: string; seconds: number },
+  input: { surah: number; blob: Blob; mimeType: string; seconds: number; ayah?: number; profileId?: string },
 ): Promise<RecordingSummary> {
   const record: Recording = {
     surah: input.surah,
+    ...(input.ayah ? { ayah: input.ayah } : {}),
+    ...(input.profileId ? { profileId: input.profileId } : {}),
     bytes: await toBytes(input.blob),
     mimeType: input.mimeType,
     seconds: input.seconds,
@@ -104,6 +110,19 @@ export async function listRecordings(surah: number): Promise<RecordingSummary[]>
 /** Every recording on this device, newest first. The per-surah list is what a
  *  child uses while reciting; a parent looking for what their child has been
  *  doing needs the whole set without opening 114 pages to find it. */
+/** One child's takes of one ayah, newest first. */
+export async function listAyahRecordings(surah: number, ayah: number, profileId: string): Promise<RecordingSummary[]> {
+  return (await listRecordings(surah)).filter(r => r.ayah === ayah && r.profileId === profileId);
+}
+
+export function pickRecordingMimeType(): string | undefined {
+  if (typeof MediaRecorder === "undefined") return undefined;
+  for (const type of ["audio/webm", "audio/mp4", "audio/ogg"]) {
+    if (MediaRecorder.isTypeSupported(type)) return type;
+  }
+  return undefined;
+}
+
 export async function listAllRecordings(): Promise<RecordingSummary[]> {
   const all = await run<Recording[]>("readonly", store => store.getAll());
   return all

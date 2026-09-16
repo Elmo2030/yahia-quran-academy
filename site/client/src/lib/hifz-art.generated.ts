@@ -347,5 +347,61 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
    512
   ],
   "ratio": 1
+ },
+ "/hifz-art/surahs/001": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/078": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/079": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/080": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/081": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/082": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/083": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
  }
 };

@@ -8,17 +8,22 @@ import {
   activeProfile,
   cleanName,
   createProfile,
+  declareMemorized,
   emptyStore,
   enterAsGuest,
   exportBackup,
   importBackup,
   loadStore,
+  markListened,
+  markRecorded,
   parseStore,
   removeProfile,
   saveStore,
   selectProfile,
+  surahProgress,
   updateProfile,
   updateSettings,
+  withdrawDeclaration,
   type HifzStore,
 } from "./hifz-store";
 
@@ -204,5 +209,45 @@ describe("backup", () => {
     expect(importBackup(JSON.stringify({ app: "yahya-hifz", version: 2, store: {} }))).toEqual({ ok: false, reason: "newer-version" });
     expect(importBackup(exportBackup(emptyStore()))).toEqual({ ok: false, reason: "empty" });
     expect(importBackup(" ".repeat(MAX_BACKUP_BYTES + 1))).toEqual({ ok: false, reason: "too-large" });
+  });
+});
+
+describe("what a child did with an ayah", () => {
+  it("records listening, recording and a declaration on the right child", () => {
+    const { store, profile } = withChild("Bilal");
+    const other = createProfile(store, { name: "Asma", character: "fatima" });
+    if (!other.ok) throw new Error(other.reason);
+    let s = markListened(other.store, profile.id, 114, 1, 100);
+    s = markRecorded(s, profile.id, 114, 1, 200);
+    s = declareMemorized(s, profile.id, 114, 1, "child", 300);
+    const bilal = s.profiles.find(p => p.id === profile.id)!;
+    expect(bilal.ayahs["114:1"]).toEqual({ listenedAt: 100, recordedAt: 200, declaredAt: 300, declaredBy: "child", reviews: [] });
+    expect(s.profiles.find(p => p.id === other.profile.id)!.ayahs).toEqual({});
+  });
+
+  it("keeps the first declaration date and never downgrades a parent's word", () => {
+    const { store, profile } = withChild();
+    let s = declareMemorized(store, profile.id, 112, 2, "parent", 10);
+    s = declareMemorized(s, profile.id, 112, 2, "child", 99);
+    expect(activeProfile(s)!.ayahs["112:2"]).toMatchObject({ declaredAt: 10, declaredBy: "parent" });
+    s = withdrawDeclaration(s, profile.id, 112, 2);
+    expect(activeProfile(s)!.ayahs["112:2"]).toEqual({ reviews: [] });
+  });
+
+  it("ignores an ayah that cannot exist or a child who does not", () => {
+    const { store, profile } = withChild();
+    expect(markListened(store, profile.id, 115, 1)).toBe(store);
+    expect(markListened(store, profile.id, 1, 0)).toBe(store);
+    expect(markListened(store, "nobody", 1, 1)).toBe(store);
+  });
+
+  it("counts a surah's progress", () => {
+    const { store, profile } = withChild();
+    let s = markListened(store, profile.id, 113, 1, 1);
+    s = markListened(s, profile.id, 113, 2, 1);
+    s = markRecorded(s, profile.id, 113, 2, 1);
+    s = declareMemorized(s, profile.id, 113, 5, "parent", 1);
+    s = markListened(s, profile.id, 114, 1, 1); // another surah
+    expect(surahProgress(activeProfile(s)!, 113, 5)).toEqual({ total: 5, listened: 2, recorded: 1, declared: 1 });
   });
 });

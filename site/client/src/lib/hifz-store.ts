@@ -310,6 +310,68 @@ export function removeProfile(store: HifzStore, id: string): HifzStore {
 }
 
 // ---------------------------------------------------------------------------
+// What a child did with an ayah
+// ---------------------------------------------------------------------------
+
+export const ayahKey = (surah: number, ayah: number) => `${surah}:${ayah}`;
+
+function withAyah(
+  store: HifzStore,
+  profileId: string,
+  surah: number,
+  ayah: number,
+  change: (record: AyahRecord) => AyahRecord,
+): HifzStore {
+  if (!Number.isInteger(surah) || surah < 1 || surah > 114 || !Number.isInteger(ayah) || ayah < 1 || ayah > 286) return store;
+  if (!store.profiles.some(p => p.id === profileId)) return store;
+  const key = ayahKey(surah, ayah);
+  return touch(store, {
+    profiles: store.profiles.map(p => {
+      if (p.id !== profileId) return p;
+      const next = change(p.ayahs[key] ?? { reviews: [] });
+      return { ...p, ayahs: { ...p.ayahs, [key]: next } };
+    }),
+  });
+}
+
+/** Every chosen repeat of the ayah played to its end. */
+export const markListened = (store: HifzStore, profileId: string, surah: number, ayah: number, now = Date.now()) =>
+  withAyah(store, profileId, surah, ayah, r => ({ ...r, listenedAt: now }));
+
+/** The child recorded themselves reciting it. */
+export const markRecorded = (store: HifzStore, profileId: string, surah: number, ayah: number, now = Date.now()) =>
+  withAyah(store, profileId, surah, ayah, r => ({ ...r, recordedAt: now }));
+
+/**
+ * "I have memorized it" — said by the child or by a parent, and recorded as
+ * exactly that. Declaring again keeps the first date, so the review schedule
+ * counts from when it was first learned.
+ */
+export const declareMemorized = (store: HifzStore, profileId: string, surah: number, ayah: number, by: DeclaredBy, now = Date.now()) =>
+  withAyah(store, profileId, surah, ayah, r => ({
+    ...r,
+    declaredAt: r.declaredAt ?? now,
+    declaredBy: r.declaredBy === "parent" ? "parent" : by,
+  }));
+
+export const withdrawDeclaration = (store: HifzStore, profileId: string, surah: number, ayah: number) =>
+  withAyah(store, profileId, surah, ayah, ({ declaredAt: _at, declaredBy: _by, ...rest }) => ({ ...rest, reviews: [] }));
+
+export type SurahProgress = { total: number; listened: number; recorded: number; declared: number };
+
+export function surahProgress(profile: ChildProfile, surah: number, total: number): SurahProgress {
+  const progress: SurahProgress = { total, listened: 0, recorded: 0, declared: 0 };
+  for (let ayah = 1; ayah <= total; ayah++) {
+    const record = profile.ayahs[ayahKey(surah, ayah)];
+    if (!record) continue;
+    if (record.listenedAt) progress.listened++;
+    if (record.recordedAt) progress.recorded++;
+    if (record.declaredAt) progress.declared++;
+  }
+  return progress;
+}
+
+// ---------------------------------------------------------------------------
 // Backup
 // ---------------------------------------------------------------------------
 

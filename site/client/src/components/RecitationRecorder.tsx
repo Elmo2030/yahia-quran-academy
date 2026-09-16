@@ -18,6 +18,7 @@ import {
   deleteRecording,
   getRecording,
   listRecordings,
+  pickRecordingMimeType,
   recordingsAvailable,
   saveRecording,
   type RecordingSummary,
@@ -67,13 +68,7 @@ const copy = {
 } as const;
 
 /** Safari does not produce webm; ask the browser what it can actually write. */
-function pickMimeType(): string | undefined {
-  if (typeof MediaRecorder === "undefined") return undefined;
-  for (const type of ["audio/webm", "audio/mp4", "audio/ogg"]) {
-    if (MediaRecorder.isTypeSupported(type)) return type;
-  }
-  return undefined;
-}
+const pickMimeType = pickRecordingMimeType;
 
 const mmss = (seconds: number) =>
   `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
@@ -107,7 +102,8 @@ export function RecitationRecorder({ surah }: { surah: number }) {
 
   const refresh = useCallback(async () => {
     try {
-      setSaved(await listRecordings(surah));
+      // Ayah takes from the memorization journey live on its own screen.
+      setSaved((await listRecordings(surah)).filter(r => !r.ayah));
     } catch {
       setSaved([]);
     }

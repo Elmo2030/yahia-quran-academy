@@ -48,5 +48,9 @@ export function useHifzStore() {
     return !lastSaveFailed;
   }, []);
 
-  return { store, commit, saveFailed: lastSaveFailed };
+  /** Applies a change to the store as it is now, not as it was when a
+   *  component last rendered — for anything that finishes after an await. */
+  const update = useCallback((change: (latest: HifzStore) => HifzStore) => commit(change(snapshot())), [commit]);
+
+  return { store, commit, update, saveFailed: lastSaveFailed };
 }

@@ -42,6 +42,8 @@ function plan(stem) {
   }
   // Badges, gift boxes and region treasures: square, painted at 48-200 CSS px.
   if (/^(rank-[1-5]|gift-(closed|open)|treasure-[1-4])$/.test(stem)) return { dir: "hifz-art/rewards", name: stem, widths: [128, 256, 512], alpha: true };
+  // Surah icons, drawn at 34-90 CSS px in the list and on the map.
+  if (/^surah-\d{3}$/.test(stem)) return { dir: "hifz-art/surahs", name: stem.slice(6), widths: [96, 192, 384], alpha: true };
   // Screen backgrounds: the tall ones fill a phone, the wide ones a desk or tablet.
   if (/^bg-(hifz-light|hifz-dark|review)$/.test(stem)) return { dir: "hifz-art/backgrounds", name: stem.slice(3), widths: [720, 1080, 1536], alpha: false };
   if (/^bg-(profiles|parent)$/.test(stem)) return { dir: "hifz-art/backgrounds", name: stem.slice(3), widths: [960, 1600, 2400], alpha: false };

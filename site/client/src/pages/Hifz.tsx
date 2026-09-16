@@ -5,8 +5,8 @@
 // guest. Each child picks a character and their own settings. Everything stays
 // on the device; the backup file is how it moves to another one.
 //
-// The ayah-by-ayah screen and the Juz Amma map arrive in the next phases. Until
-// then the journey card says so plainly and points at the reader.
+// The surah list leads to the ayah-by-ayah screen (HifzSurah). The Juz Amma map
+// replaces the list in phase 3.
 // =============================================================================
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
@@ -20,10 +20,12 @@ import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
-import { CHARACTERS, characterArt, characterById, type Pose } from "@/lib/hifz-characters";
+import { CHARACTERS, characterArt, characterById, surahIcon, type Pose } from "@/lib/hifz-characters";
+import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
+import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import {
   MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup,
-  checkPersistence, importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, updateProfile, updateSettings,
+  checkPersistence, importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, updateProfile, updateSettings,
   type CharacterId, type ChildProfile, type FontStep, type HifzStore, type ImportResult, type Persistence,
   type ReciterChoice,
 } from "@/lib/hifz-store";
@@ -51,9 +53,11 @@ const copy = {
     hello: (name: string) => `أهلًا يا ${name}`,
     helloGuest: "أهلًا بك",
     switchChild: "غيّر الطفل",
-    journeyTitle: "خريطة جزء عمّ",
-    journeyBody: "الخريطة وشاشة الحفظ آيةً آية تُفتحان في التحديث القادم. إعداداتك محفوظة وستعمل معهما.",
-    journeyCta: "اقرأ سورة الناس الآن",
+    journeyTitle: "سور الرحلة",
+    journeyBody: "ابدأ بالفاتحة ثم جزء عمّ من الناس صعودًا. خريطة الرحلة تأتي في التحديث القادم.",
+    continueWith: (name: string) => `أكمل: سورة ${name}`,
+    surahProgress: (declared: number, total: number) => `حفظتَ ${declared} من ${total}`,
+    surahDone: "حُفظت كلها",
     settingsTitle: "إعدادات الحفظ",
     repeatLabel: "كم مرة تُعاد الآية؟",
     repeatUnit: (n: number) => (n === 1 ? "مرة" : n === 2 ? "مرتان" : `${n} مرات`),
@@ -113,9 +117,11 @@ const copy = {
     hello: (name: string) => `Welcome, ${name}`,
     helloGuest: "Welcome",
     switchChild: "Switch child",
-    journeyTitle: "The Juz Amma map",
-    journeyBody: "The map and the ayah-by-ayah screen open in the next update. Your settings are saved and will carry over.",
-    journeyCta: "Read Surah an-Nas now",
+    journeyTitle: "Surahs on the journey",
+    journeyBody: "Start with al-Fatiha, then Juz Amma from an-Nas upwards. The journey map comes in the next update.",
+    continueWith: (name: string) => `Continue: Surah ${name}`,
+    surahProgress: (declared: number, total: number) => `${declared} of ${total} memorized`,
+    surahDone: "All memorized",
     settingsTitle: "Memorization settings",
     repeatLabel: "How many times does each ayah repeat?",
     repeatUnit: (n: number) => (n === 1 ? "once" : n === 2 ? "twice" : `${n} times`),
@@ -400,19 +406,57 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
             />
           )}
 
-          <article className="hifz-card hifz-journey">
-            <div>
-              <h2><BookOpen size={20} aria-hidden="true" /> {t.journeyTitle}</h2>
-              <p>{t.journeyBody}</p>
-            </div>
-            <Link href="/read/114" className="button button--primary">{t.journeyCta} <Arrow size={17} aria-hidden="true" /></Link>
-          </article>
+          <SurahList t={t} profile={profile} />
 
           <SettingsPanel t={t} profile={profile} onChange={patch => commit(updateSettings(store, profile.id, patch))} />
           <DeviceData t={t} store={store} commit={commit} profile={profile} />
         </div>
       </section>
     </>
+  );
+}
+
+/** The surah's own icon once it is drawn; its number until then. */
+function SurahMark({ surah }: { surah: number }) {
+  const icon = surahIcon(surah);
+  if (!icon) return <span className="hifz-surah__number">{surah}</span>;
+  return <img className="hifz-surah__icon" src={icon.src} srcSet={icon.srcSet} sizes="44px" alt="" loading="lazy" decoding="async" />;
+}
+
+/** Every journey surah with this child's progress, and a way back in. */
+function SurahList({ t, profile }: { t: Copy; profile: ChildProfile }) {
+  const { locale } = useLocale();
+  const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
+  const nameOf = (surah: number) => (locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah));
+  const rows = JOURNEY_SURAHS.map(surah => ({ surah, ...surahProgress(profile, surah, ayahCountOf(surah)) }));
+  const current = rows.find(row => row.declared < row.total) ?? rows[0];
+
+  return (
+    <section className="hifz-card hifz-journey" aria-labelledby="hifz-journey-title">
+      <div className="hifz-journey__head">
+        <div>
+          <h2 id="hifz-journey-title"><BookOpen size={20} aria-hidden="true" /> {t.journeyTitle}</h2>
+          <p>{t.journeyBody}</p>
+        </div>
+        <Link href={`/hifz/${current.surah}`} className="button button--primary">{t.continueWith(nameOf(current.surah))} <Arrow size={17} aria-hidden="true" /></Link>
+      </div>
+      <ol className="hifz-surahs">
+        {rows.map(row => {
+          const done = row.declared === row.total;
+          const started = row.listened + row.recorded + row.declared > 0;
+          return (
+            <li key={row.surah}>
+              <Link href={`/hifz/${row.surah}`} className={`hifz-surah ${done ? "is-done" : started ? "is-started" : ""} ${row.surah === current.surah ? "is-current" : ""}`}>
+                <SurahMark surah={row.surah} />
+                <b>{nameOf(row.surah)}</b>
+                <small>{done ? t.surahDone : t.surahProgress(row.declared, row.total)}</small>
+                <span className="hifz-surah__bar" aria-hidden="true"><span style={{ inlineSize: `${(row.declared / row.total) * 100}%` }} /></span>
+              </Link>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
   );
 }
 

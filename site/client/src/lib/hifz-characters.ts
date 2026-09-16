@@ -44,4 +44,7 @@ export function characterArt(character: CharacterId, pose: Pose): ArtSource | nu
   return fromIndex(`/hifz-art/characters/${character}/${pose}`);
 }
 
+/** The icon for one surah, or null until its art arrives. */
+export const surahIcon = (surah: number) => fromIndex(`/hifz-art/surahs/${String(surah).padStart(3, "0")}`);
+
 export const characterById = (id: CharacterId) => CHARACTERS.find(c => c.id === id) ?? null;
