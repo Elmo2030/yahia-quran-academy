@@ -27,6 +27,7 @@ import { nextDueDay, dayNumber, todayPlan } from "@/lib/hifz-review";
 import { nextRank, rankFor, totalStars } from "@/lib/hifz-stars";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
+import { deleteProfileRecordings } from "@/lib/recordings";
 import {
   MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup,
   checkPersistence, importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, updateProfile, updateSettings,
@@ -654,7 +655,7 @@ function DeviceData({ t, store, commit, profile }: {
     setMessage(null);
     setPending(null);
     if (!file) return;
-    const result = file.size > MAX_BACKUP_BYTES ? { ok: false as const, reason: "too-large" as const } : importBackup(await file.text());
+    const result = file.size > MAX_BACKUP_BYTES ? { ok: false as const, reason: "too-large" as const } : importBackup(await file.text(), store);
     if (result.ok) setPending(result);
     else setMessage({ kind: "error", text: t.importErrors[result.reason] });
     if (fileInput.current) fileInput.current.value = "";
@@ -708,7 +709,16 @@ function DeviceData({ t, store, commit, profile }: {
             <div className="hifz-confirm hifz-confirm--danger" role="alert">
               <p>{t.removeWarning}</p>
               <div className="hifz-actions">
-                <button type="button" className="button hifz-button-danger" onClick={() => commit(removeProfile(store, profile.id))}>{t.removeConfirm}</button>
+                <button
+                  type="button"
+                  className="button hifz-button-danger"
+                  onClick={() => {
+                    // The child's recordings go with their profile: leaving the
+                    // audio behind is neither tidy nor what "delete" means.
+                    void deleteProfileRecordings(profile.id).catch(() => {});
+                    commit(removeProfile(store, profile.id));
+                  }}
+                >{t.removeConfirm}</button>
                 <button type="button" className="button button--soft" onClick={() => setConfirmRemove(false)}>{t.cancel}</button>
               </div>
             </div>

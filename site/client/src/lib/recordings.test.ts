@@ -7,8 +7,12 @@ import "fake-indexeddb/auto";
 import { beforeEach, describe, expect, it } from "vitest";
 
 import {
+  TAKES_PER_AYAH,
+  deleteProfileRecordings,
   deleteRecording,
   getRecording,
+  listAllRecordings,
+  listAyahRecordings,
   listRecordings,
   recordingsAvailable,
   saveRecording,
@@ -77,5 +81,37 @@ describe("recordings", () => {
     await deleteRecording(drop.id);
     expect((await listRecordings(1)).map(c => c.id)).toEqual([keep.id]);
     expect(await getRecording(drop.id)).toBeUndefined();
+  });
+});
+
+describe("the memorization journey's takes", () => {
+  beforeEach(async () => {
+    for (const take of await listAllRecordings()) await deleteRecording(take.id);
+  });
+
+  it("keeps only the newest few takes of one ayah, per child", async () => {
+    for (let i = 0; i < TAKES_PER_AYAH + 3; i++) {
+      await saveRecording({ ...clip(114, i + 1), ayah: 1, profileId: "child-a" });
+    }
+    await saveRecording({ ...clip(114, 99), ayah: 1, profileId: "child-b" });
+    const mine = await listAyahRecordings(114, 1, "child-a");
+    expect(mine).toHaveLength(TAKES_PER_AYAH);
+    // The newest survive: the last three lengths recorded.
+    expect(mine.map(take => take.seconds).sort((a, b) => a - b)).toEqual([4, 5, 6]);
+    // Another child's take of the same ayah is untouched.
+    expect(await listAyahRecordings(114, 1, "child-b")).toHaveLength(1);
+  });
+
+  it("leaves the reader's whole-surah recordings uncapped", async () => {
+    for (let i = 0; i < TAKES_PER_AYAH + 2; i++) await saveRecording(clip(2, i + 1));
+    expect(await listRecordings(2)).toHaveLength(TAKES_PER_AYAH + 2);
+  });
+
+  it("removes everything one child recorded when their profile goes", async () => {
+    await saveRecording({ ...clip(114), ayah: 1, profileId: "gone" });
+    await saveRecording({ ...clip(113), ayah: 2, profileId: "gone" });
+    await saveRecording({ ...clip(112), ayah: 1, profileId: "stays" });
+    expect(await deleteProfileRecordings("gone")).toBe(2);
+    expect((await listAllRecordings()).map(t => t.profileId)).toEqual(["stays"]);
   });
 });

@@ -85,7 +85,17 @@ function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
   const walker = characterArt(profile.character, "walk");
 
   return (
-    <div className="map-region" style={{ backgroundImage: `url(/hifz-art/map/${region.art}-1080.webp)` }}>
+    <div
+      className="map-region"
+      // The band keeps the painting's shape on a wide screen, but never gets
+      // shorter than its stations need: on a small phone the cards would
+      // otherwise sit on top of one another.
+      style={{
+        ["--art-720" as string]: `url(/hifz-art/map/${region.art}-720.webp)`,
+        ["--art-1080" as string]: `url(/hifz-art/map/${region.art}-1080.webp)`,
+        ["--stations" as string]: region.surahs.length,
+      }}
+    >
       <span className="map-region__name">{name}</span>
 
       <svg className="map-path" viewBox={`0 0 100 ${VIEW_HEIGHT}`} aria-hidden="true" focusable="false">

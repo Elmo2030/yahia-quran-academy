@@ -435,7 +435,11 @@ export function surahProgress(profile: ChildProfile, surah: number, total: numbe
 // ---------------------------------------------------------------------------
 
 export function exportBackup(store: HifzStore, now = Date.now()): string {
-  return JSON.stringify({ app: BACKUP_APP, version: HIFZ_VERSION, exportedAt: new Date(now).toISOString(), store }, null, 2);
+  // The parent's number belongs to the device it was set on, not to the file a
+  // family mails to themselves; and restoring a backup must not be a way for a
+  // child to lift the lock on this one.
+  const { parentLock: _lock, ...children } = store;
+  return JSON.stringify({ app: BACKUP_APP, version: HIFZ_VERSION, exportedAt: new Date(now).toISOString(), store: children }, null, 2);
 }
 
 export type ImportResult =
@@ -445,7 +449,7 @@ export type ImportResult =
 /** A real backup of eight children who memorized all of Juz Amma is well under 200 KB. */
 export const MAX_BACKUP_BYTES = 2_000_000;
 
-export function importBackup(text: string): ImportResult {
+export function importBackup(text: string, current?: HifzStore): ImportResult {
   if (text.length > MAX_BACKUP_BYTES) return { ok: false, reason: "too-large" };
   let payload: unknown;
   try {
@@ -457,8 +461,14 @@ export function importBackup(text: string): ImportResult {
   if (typeof payload.version === "number" && payload.version > HIFZ_VERSION) return { ok: false, reason: "newer-version" };
   const store = parseStore(payload.store);
   if (store.profiles.length === 0) return { ok: false, reason: "empty" };
-  // A restored backup opens on the child picker, not inside someone's journey.
-  return { ok: true, store: { ...store, activeProfileId: null, updatedAt: Date.now() }, profiles: namedProfiles(store).length };
+  // A restored backup opens on the child picker, not inside someone's journey,
+  // and leaves this device's parent lock exactly as it was.
+  const lock = current?.parentLock;
+  return {
+    ok: true,
+    store: { ...store, ...(lock ? { parentLock: lock } : {}), activeProfileId: null, updatedAt: Date.now() },
+    profiles: namedProfiles(store).length,
+  };
 }
 
 export const backupFileName = (now = new Date()) =>

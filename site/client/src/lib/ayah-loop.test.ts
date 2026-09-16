@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { END_GUARD_MS, playAyahLoop, type MediaLike } from "./ayah-loop";
+import { END_GUARD_MS, MediaTimeout, playAyahLoop, type MediaLike } from "./ayah-loop";
 
 /** A media element whose clock moves only when the loop sleeps. */
 function fakeMedia() {
@@ -71,6 +71,13 @@ describe("playing one ayah on repeat", () => {
     expect(done).toBe(false);
     expect(passes).toEqual([]);
     expect(media.log.at(-1)).toMatch(/^pause/);
+  });
+
+  it("gives up rather than waiting forever for a file that never answers", async () => {
+    const media = fakeMedia();
+    media.addEventListener = () => {}; // a phone that lost the network mid-surah
+    await expect(playAyahLoop(media, { startMs: 0, endMs: 50 }, 1, { cancelled: () => false, timeoutMs: 20 }))
+      .rejects.toThrow(MediaTimeout);
   });
 
   it("waits for metadata before seeking a file that has not loaded", async () => {

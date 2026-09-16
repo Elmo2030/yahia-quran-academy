@@ -95,6 +95,12 @@ export async function saveRecording(
     recordedAt: Date.now(),
   };
   await run("readwrite", store => store.put(record));
+  // Journey takes are capped per ayah; the reader's whole-surah recordings are
+  // deliberate keepsakes and are left alone.
+  if (record.ayah && record.profileId) {
+    const mine = await listAyahRecordings(record.surah, record.ayah, record.profileId);
+    for (const old of mine.slice(TAKES_PER_AYAH)) await deleteRecording(old.id);
+  }
   const { bytes: _bytes, ...summary } = record;
   return summary;
 }
@@ -111,6 +117,23 @@ export async function listRecordings(surah: number): Promise<RecordingSummary[]>
  *  child uses while reciting; a parent looking for what their child has been
  *  doing needs the whole set without opening 114 pages to find it. */
 /** One child's takes of one ayah, newest first. */
+/**
+ * How many takes of one ayah are kept for one child.
+ *
+ * A child re-recording the same ayah twenty times is normal, and every take is
+ * a few hundred kilobytes of audio on a family tablet. The newest three are the
+ * ones anybody listens to.
+ */
+export const TAKES_PER_AYAH = 3;
+
+/** Deletes everything this child recorded — used when their profile is removed. */
+export async function deleteProfileRecordings(profileId: string): Promise<number> {
+  const all = await run<Recording[]>("readonly", store => store.getAll());
+  const mine = all.filter(record => record.profileId === profileId);
+  for (const record of mine) await deleteRecording(record.id);
+  return mine.length;
+}
+
 export async function listAyahRecordings(surah: number, ayah: number, profileId: string): Promise<RecordingSummary[]> {
   return (await listRecordings(surah)).filter(r => r.ayah === ayah && r.profileId === profileId);
 }

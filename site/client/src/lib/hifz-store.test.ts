@@ -207,6 +207,18 @@ describe("backup", () => {
     expect(result.store.activeProfileId).toBeNull();
   });
 
+  it("leaves the device's parent number out of the file, and keeps the one already here", () => {
+    const lock = { salt: "s", hash: "sha256:abc", createdAt: 1 };
+    const { store } = withChild("Rana");
+    const locked = setParentLock(store, lock);
+    expect(exportBackup(locked)).not.toContain("sha256:abc");
+
+    const mine = { salt: "mine", hash: "sha256:zzz", createdAt: 2 };
+    const onThisDevice = setParentLock(emptyStore(), mine);
+    const restored = importBackup(exportBackup(locked), onThisDevice);
+    expect(restored.ok && restored.store.parentLock).toEqual(mine);
+  });
+
   it("names what is wrong with a file that is not a backup", () => {
     expect(importBackup("hello")).toEqual({ ok: false, reason: "unreadable" });
     expect(importBackup(JSON.stringify({ app: "other", store: {} }))).toEqual({ ok: false, reason: "not-a-backup" });

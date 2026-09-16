@@ -883,8 +883,8 @@
 /* forms */
 .hifz-field { display: grid; gap: .6rem; margin: 0; padding: 0; border: 0; min-inline-size: 0; }
 .hifz-field > label, .hifz-field > legend { padding: 0; margin-bottom: .1rem; color: var(--ink); font-weight: 800; font-size: .95rem; }
-.hifz-field input[type="text"], .hifz-field input:not([type]) { min-height: 50px; padding: .7rem .95rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); color: var(--ink); font: inherit; font-size: 1.05rem; }
-.hifz-field input:not([type]):focus { outline: 3px solid var(--gold); outline-offset: 1px; border-color: transparent; }
+.hifz-field input:where([type="text"], [type="password"], [type="number"], [type="tel"], :not([type])) { min-height: 50px; padding: .7rem .95rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); color: var(--ink); font: inherit; font-size: 1.05rem; }
+.hifz-field input:where([type="text"], [type="password"], [type="number"], [type="tel"], :not([type])):focus { outline: 3px solid var(--gold); outline-offset: 1px; border-color: transparent; }
 .hifz-error { margin: 0; color: var(--danger-ink) !important; font-size: .88rem; font-weight: 700; }
 .hifz-success { margin: 0; color: var(--brand) !important; font-size: .9rem; font-weight: 700; }
 .hifz-alert { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 0; padding: .8rem 1rem; border: 1px solid var(--line-danger); border-radius: 14px; background: var(--surface-danger); color: var(--danger-ink); font-weight: 700; }
@@ -996,7 +996,10 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-dark-1536.webp"); } }
   :root[data-theme="dark"] .hifz-memorize { background-image: url("/hifz-art/backgrounds/hifz-dark-1536.webp"); }
 }
-.hifz-memorize__inner { display: grid; gap: 1rem; max-width: 900px; }
+.hifz-memorize__inner { display: grid; gap: 1rem; max-width: 900px; min-inline-size: 0; }
+/* Without this a single wide child — the English voice toggle — stretches the
+   whole column past a small phone's screen and the screen is cut off. */
+.hifz-memorize__inner > * { min-inline-size: 0; }
 .hifz-memorize__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; }
 .hifz-back { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border-radius: 99px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-size: .85rem; font-weight: 700; text-decoration: none; }
 .hifz-back:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
@@ -1040,7 +1043,7 @@
 
 .hifz-controls { display: grid; justify-items: center; gap: .8rem; padding: 1rem; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
 .hifz-voice { display: inline-grid; grid-template-columns: 1fr 1fr; gap: .3rem; padding: .3rem; border-radius: 99px; background: var(--surface-3); max-inline-size: 100%; }
-.hifz-voice button { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; min-block-size: 42px; padding: .4rem .9rem; border: 0; border-radius: 99px; background: transparent; color: var(--ink-soft); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; white-space: nowrap; }
+.hifz-voice button { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; min-block-size: 42px; padding: .4rem .9rem; border: 0; border-radius: 99px; background: transparent; color: var(--ink-soft); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; white-space: nowrap; min-inline-size: 0; }
 .hifz-voice button.is-selected { background: var(--surface); color: var(--ink); box-shadow: 0 3px 10px rgb(var(--shadow-rgb) / 12%); }
 .hifz-voice button:focus-visible, .hifz-repeat button:focus-visible, .hifz-round:focus-visible, .hifz-play:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .hifz-transport { display: flex; align-items: center; justify-content: center; gap: 1rem; }
@@ -1088,7 +1091,10 @@
 /* --- The journey map ----------------------------------------------------- */
 .map { display: grid; gap: 0; inline-size: 100%; max-inline-size: 460px; margin-inline: auto; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 16px 34px rgb(var(--shadow-rgb) / 10%); }
 /* The four paintings do not tile, so each band fades into the one below it. */
-.map-region { position: relative; aspect-ratio: 1536 / 2752; background-size: cover; background-position: center; }
+.map-region { position: relative; aspect-ratio: 1536 / 2752; min-block-size: calc(var(--stations, 10) * 84px); background-image: var(--art-1080); background-size: cover; background-position: center; }
+/* All four bands are on the page at once, so a phone would otherwise download
+   half a megabyte of scenery to look at one of them. */
+@media (max-width: 767px) { .map-region { background-image: var(--art-720); } }
 .map-region + .map-region { margin-block-start: -6%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 9%); mask-image: linear-gradient(180deg, transparent 0, #000 9%); }
 .map-region__name { position: absolute; inset-block-start: 2.5%; inset-inline-start: 50%; transform: translateX(-50%); padding: .3rem .85rem; border-radius: 99px; background: rgb(var(--chrome-rgb) / 88%); color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: .82rem; font-weight: 800; white-space: nowrap; }
 [dir="rtl"] .map-region__name { transform: translateX(50%); }
@@ -1204,4 +1210,12 @@
   .certificate__frame { border-color: #d4af37; }
   .certificate * { color: #1a1a1a !important; }
   .certificate__eyebrow, .certificate__stars, .certificate__site { color: #7d631c !important; }
+}
+
+/* A narrow phone in English: the two voice names do not fit side by side. */
+@media (max-width: 420px) {
+  .hifz-voice { grid-template-columns: 1fr; inline-size: 100%; }
+  .hifz-voice button { white-space: normal; }
+  .hifz-memorize__bar { gap: .5rem; }
+  .hifz-memorize__title h1 { font-size: 1.25rem; }
 }
