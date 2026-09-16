@@ -9,10 +9,18 @@
  * asked for, and never caches a navigation response as an asset. Audio is left
  * alone: one surah is several megabytes and the browser's own cache handles it.
  */
-const VERSION = "v1";
+const VERSION = "v2";
 const SHELL = `yahya-shell-${VERSION}`;
 const ASSETS = `yahya-assets-${VERSION}`;
-const SHELL_URL = "/hifz";
+/** Written by the page, never by this worker: surahs saved for offline play. */
+const AUDIO = "yahya-listen-audio-v1";
+/**
+ * Two shells, because the two sections a family opens without a connection are
+ * the journey and the listening pages. A navigation that fails falls back to
+ * whichever of them the address belongs to.
+ */
+const SHELL_URLS = ["/hifz", "/listen"];
+const shellFor = pathname => (pathname.startsWith("/listen") ? "/listen" : "/hifz");
 
 /** Paths whose answers are safe to keep: our own generated, immutable-ish files. */
 const CACHEABLE = [/^\/hifz-art\//, /^\/quran\//, /^\/recitations\//, /^\/assets\//, /^\/fonts\//, /^\/stories\//, /^\/hero\//];
@@ -29,14 +37,16 @@ self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(SHELL);
     // A failure here must not stop the worker from installing.
-    await cache.add(new Request(SHELL_URL, { cache: "reload" })).catch(() => {});
+    await Promise.all(SHELL_URLS.map(url => cache.add(new Request(url, { cache: "reload" })).catch(() => {})));
     await self.skipWaiting();
   })());
 });
 
 self.addEventListener("activate", event => {
   event.waitUntil((async () => {
-    const keep = new Set([SHELL, ASSETS]);
+    // The saved surahs are the listener's own downloads, not this worker's
+    // cache, and a version bump must never throw them away.
+    const keep = new Set([SHELL, ASSETS, AUDIO]);
     await Promise.all((await caches.keys()).filter(key => !keep.has(key)).map(key => caches.delete(key)));
     await self.clients.claim();
   })());
@@ -53,7 +63,7 @@ self.addEventListener("fetch", event => {
       try {
         return await fetch(request);
       } catch {
-        return (await caches.match(SHELL_URL)) ?? new Response("", { status: 503 });
+        return (await caches.match(shellFor(url.pathname))) ?? new Response("", { status: 503 });
       }
     })());
     return;

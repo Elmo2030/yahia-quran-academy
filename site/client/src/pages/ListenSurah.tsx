@@ -12,7 +12,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import {
-  ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Loader2, Moon, Pause, Play, RotateCcw, RotateCw, Repeat,
+  ArrowLeft, ArrowRight, Check, ChevronLeft, ChevronRight, Download, Loader2, Moon, Pause, Play,
+  RotateCcw, RotateCw, Repeat, Trash2, WifiOff, X,
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
@@ -20,7 +21,8 @@ import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SLEEP_CHOICES, clock, loadMarks, positionOf, rememberPosition, roughLength, type SleepChoice } from "@/lib/listening";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
-import { listeningRecitations, loadSurahSource, type SurahAudioSource } from "@/lib/recitations";
+import { megabytes, offlineSupported, playableSource, removeSurah, saveSurah, isSaved, keepStorage } from "@/lib/offline-audio";
+import { listeningRecitations, loadListeningCatalogue, loadSurahSource, type SurahAudioSource } from "@/lib/recitations";
 import NotFound from "@/pages/NotFound";
 
 const SKIP_SECONDS = 15;
@@ -58,6 +60,15 @@ const copy = {
     reciter: "التلاوة",
     resumed: (at: string) => `أكملنا من ${at}`,
     startOver: "من البداية",
+    save: (size: string) => `احفظها للاستماع بدون إنترنت (${size})`,
+    saving: "جاري الحفظ…",
+    cancel: "إلغاء",
+    saved: "محفوظة على الجهاز",
+    playingOffline: "تعمل من الجهاز، بلا إنترنت",
+    remove: "احذفها من الجهاز",
+    saveFailedNetwork: "الاتصال انقطع قبل ما تكتمل. جرّب تاني.",
+    saveFailedSpace: "مساحة الجهاز خلصت. احذف سورًا محفوظة وجرّب تاني.",
+    keepHint: "ضِف الموقع للشاشة الرئيسية عشان المتصفح ما يمسحش المحفوظ.",
   },
   en: {
     back: "All surahs",
@@ -83,6 +94,15 @@ const copy = {
     reciter: "Recited by",
     resumed: (at: string) => `Carried on from ${at}`,
     startOver: "From the start",
+    save: (size: string) => `Save for offline listening (${size})`,
+    saving: "Saving…",
+    cancel: "Cancel",
+    saved: "Saved on this device",
+    playingOffline: "Playing from this device, no internet",
+    remove: "Remove from this device",
+    saveFailedNetwork: "The connection dropped before it finished. Try again.",
+    saveFailedSpace: "This device is out of room. Remove a saved surah and try again.",
+    keepHint: "Add the site to your home screen so the browser keeps what you saved.",
   },
 };
 
@@ -112,6 +132,7 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const [source, setSource] = useState<SurahAudioSource | null>(null);
+  const [size, setSize] = useState(0);
   const [reciter, setReciter] = useState<{ nameAr: string; nameEn: string } | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "failed">("loading");
   const [attempt, setAttempt] = useState(0);
@@ -123,6 +144,14 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
   const [continuous, setContinuous] = useState(true);
   const [sleepAt, setSleepAt] = useState<number | null>(null);
   const [now, setNow] = useState(() => Date.now());
+
+  // The saved copy, if this surah has one.
+  const [src, setSrc] = useState<string | null>(null);
+  const [offline, setOffline] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState<{ received: number; total: number } | null>(null);
+  const [saveError, setSaveError] = useState<"network" | "space" | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
   const name = locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah);
   const Back = locale === "ar" ? ArrowRight : ArrowLeft;
@@ -137,16 +166,70 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
       .then(async list => {
         const first = list[0];
         if (!first) throw new Error("no listening recitation");
-        const loaded = await loadSurahSource(first.id, surah);
+        const [loaded, catalogue] = await Promise.all([
+          loadSurahSource(first.id, surah),
+          // Already in the browser's cache from the index; read for the exact
+          // byte count, because a download size should not be a guess.
+          loadListeningCatalogue(first.id),
+        ]);
         if (!live) return;
         if (!loaded) throw new Error("no audio for this surah");
         setReciter({ nameAr: first.nameAr, nameEn: first.nameEn });
         setSource(loaded);
+        setSize(catalogue?.surahs.find(entry => entry.surah === surah)?.sizeBytes ?? 0);
         setState("ready");
       })
       .catch(() => { if (live) setState("failed"); });
     return () => { live = false; };
   }, [surah, attempt]);
+
+  // A saved surah plays from the device; anything else streams from R2. The
+  // blob URL is revoked on the way out so a two-hour surah is not held twice.
+  useEffect(() => {
+    if (!source) return;
+    let live = true;
+    let made: string | null = null;
+    void (async () => {
+      const [playable, already] = await Promise.all([playableSource(source.playbackUrl), isSaved(source.playbackUrl)]);
+      if (!live) {
+        if (playable.offline) URL.revokeObjectURL(playable.src);
+        return;
+      }
+      if (playable.offline) made = playable.src;
+      setSrc(playable.src);
+      setOffline(playable.offline);
+      setSaved(already);
+    })();
+    return () => {
+      live = false;
+      if (made) URL.revokeObjectURL(made);
+    };
+  }, [source]);
+
+  const save = async () => {
+    if (!source) return;
+    setSaveError(null);
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setSaving({ received: 0, total: source.durationMs > 0 ? 0 : 0 });
+    const result = await saveSurah(source.playbackUrl, progress => setSaving(progress), controller.signal);
+    abortRef.current = null;
+    setSaving(null);
+    if (result.ok) {
+      setSaved(true);
+      void keepStorage();
+    } else if (result.reason === "network" || result.reason === "space") {
+      setSaveError(result.reason);
+    }
+  };
+
+  const unsave = async () => {
+    if (!source) return;
+    await removeSurah(source.playbackUrl);
+    setSaved(false);
+    setOffline(false);
+    setSrc(source.playbackUrl);
+  };
 
   // Pick up where this surah was left, once the file knows how long it is.
   const onLoaded = () => {
@@ -333,6 +416,43 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
             <button type="button" className="listen-round" onClick={() => goTo(surah + 1)} disabled={surah === 114} aria-label={t.next}><Next size={20} aria-hidden="true" /></button>
           </div>
 
+          {offlineSupported() && source && (
+            <div className="listen-offline">
+              {saved ? (
+                <>
+                  <span className="listen-offline__state"><Check size={16} aria-hidden="true" /> {t.saved}</span>
+                  {offline && <span className="listen-offline__hint"><WifiOff size={14} aria-hidden="true" /> {t.playingOffline}</span>}
+                  <button type="button" className="text-link" onClick={() => void unsave()}>
+                    <Trash2 size={14} aria-hidden="true" /> {t.remove}
+                  </button>
+                </>
+              ) : saving ? (
+                <>
+                  <span className="listen-offline__state"><Loader2 className="animate-spin" size={16} aria-hidden="true" /> {t.saving}</span>
+                  <span className="listen-offline__bar" aria-hidden="true">
+                    <span style={{ inlineSize: `${saving.total ? Math.round((saving.received / saving.total) * 100) : 0}%` }} />
+                  </span>
+                  <span className="listen-offline__count">{megabytes(saving.received, locale)}{saving.total ? ` / ${megabytes(saving.total, locale)}` : ""}</span>
+                  <button type="button" className="text-link" onClick={() => abortRef.current?.abort()}>
+                    <X size={14} aria-hidden="true" /> {t.cancel}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button type="button" className="button button--soft listen-offline__save" onClick={() => void save()}>
+                    <Download size={16} aria-hidden="true" /> {t.save(megabytes(size, locale))}
+                  </button>
+                  <span className="listen-offline__hint">{t.keepHint}</span>
+                </>
+              )}
+              {saveError && (
+                <p className="listen-offline__error" role="alert">
+                  {saveError === "space" ? t.saveFailedSpace : t.saveFailedNetwork}
+                </p>
+              )}
+            </div>
+          )}
+
           <div className="listen-options">
             <label className="listen-toggle">
               <input type="checkbox" checked={continuous} onChange={event => setContinuous(event.target.checked)} />
@@ -359,10 +479,10 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
           </div>
         </article>
 
-        {source && (
+        {src && (
           <audio
             ref={audioRef}
-            src={source.playbackUrl}
+            src={src}
             preload="metadata"
             onLoadedMetadata={onLoaded}
             onTimeUpdate={onTime}

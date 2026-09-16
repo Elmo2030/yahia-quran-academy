@@ -131,7 +131,7 @@ export type ListeningCatalogue = {
   id: RecitationId;
   nameAr: string;
   nameEn: string;
-  surahs: { surah: number; durationMs: number; ayahCount: number }[];
+  surahs: { surah: number; durationMs: number; ayahCount: number; sizeBytes: number; url: string }[];
 };
 
 /**
@@ -142,13 +142,19 @@ export async function loadListeningCatalogue(id: RecitationId): Promise<Listenin
   try {
     const raw = await loadJson<{
       id: string; display_name_ar: string; display_name_en: string;
-      surahs: { surah: number; duration_ms: number; ayah_count: number }[];
+      surahs: { surah: number; duration_ms: number; ayah_count: number; size_bytes?: number; url?: string }[];
     }>(`/recitations/listening-${id}.json`);
     return {
       id: raw.id,
       nameAr: raw.display_name_ar,
       nameEn: raw.display_name_en,
-      surahs: raw.surahs.map(s => ({ surah: s.surah, durationMs: s.duration_ms, ayahCount: s.ayah_count })),
+      surahs: raw.surahs.map(s => ({
+        surah: s.surah,
+        durationMs: s.duration_ms,
+        ayahCount: s.ayah_count,
+        sizeBytes: s.size_bytes ?? 0,
+        url: s.url ?? "",
+      })),
     };
   } catch {
     return null;

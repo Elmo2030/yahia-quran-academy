@@ -7,14 +7,15 @@
 // from the beginning for the third time is nobody's idea of a kindness.
 // =============================================================================
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
-import { ChevronLeft, ChevronRight, Headphones, History, Loader2, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Headphones, History, Loader2, Play, Trash2, WifiOff } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { clock, loadMarks, positionOf, roughLength, type ListenMarks } from "@/lib/listening";
+import { megabytes, offlineSupported, removeAll, room, savedUrls, storageIsKept } from "@/lib/offline-audio";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { loadListeningCatalogue, listeningRecitations, type ListeningCatalogue } from "@/lib/recitations";
 
@@ -35,6 +36,15 @@ const copy = {
     soon: "المصحف في طريقه — سيظهر هنا فور رفعه.",
     ayahs: (n: number) => (n === 1 ? "آية واحدة" : n === 2 ? "آيتان" : n <= 10 ? `${n} آيات` : `${n} آية`),
     home: "الرئيسية",
+    offlineTitle: "المحفوظ للاستماع بدون إنترنت",
+    offlineNone: "مفيش سور محفوظة لحد دلوقتي. افتح أي سورة واضغط «احفظها للاستماع بدون إنترنت».",
+    offlineSome: (n: number, size: string) =>
+      `${n === 1 ? "سورة واحدة محفوظة" : n === 2 ? "سورتان محفوظتان" : n <= 10 ? `${n} سور محفوظة` : `${n} سورة محفوظة`} · ${size}`,
+    offlineRoom: (used: string, quota: string) => `المستخدم من مساحة المتصفح: ${used} من ${quota}`,
+    offlineKept: "المتصفح وعد إنه ما يمسحش المحفوظ.",
+    offlineNotKept: "ضِف الموقع للشاشة الرئيسية عشان المتصفح ما يمسحش المحفوظ بعد فترة.",
+    offlineClear: "احذف كل المحفوظ",
+    offlineBadge: "محفوظة",
   },
   en: {
     eyebrow: "Listening",
@@ -52,6 +62,14 @@ const copy = {
     soon: "The mushaf is on its way — it will appear here as soon as it is uploaded.",
     ayahs: (n: number) => (n === 1 ? "1 ayah" : `${n} ayahs`),
     home: "Home",
+    offlineTitle: "Saved for offline listening",
+    offlineNone: "Nothing saved yet. Open a surah and tap “Save for offline listening”.",
+    offlineSome: (n: number, size: string) => `${n === 1 ? "1 surah saved" : `${n} surahs saved`} · ${size}`,
+    offlineRoom: (used: string, quota: string) => `Using ${used} of the ${quota} this browser allows`,
+    offlineKept: "The browser has agreed not to clear what you saved.",
+    offlineNotKept: "Add the site to your home screen so the browser keeps what you saved.",
+    offlineClear: "Remove everything saved",
+    offlineBadge: "Saved",
   },
 };
 
@@ -64,8 +82,20 @@ export default function Listen() {
   const [state, setState] = useState<"loading" | "ready" | "empty" | "failed">("loading");
   const [attempt, setAttempt] = useState(0);
   const [marks, setMarks] = useState<ListenMarks>({ at: {} });
+  const [saved, setSaved] = useState<Set<string>>(new Set());
+  const [space, setSpace] = useState<{ used: number; quota: number } | null>(null);
+  const [kept, setKept] = useState(false);
 
   useEffect(() => setMarks(loadMarks()), []);
+
+  const readOffline = useCallback(async () => {
+    const [urls, where, persisted] = await Promise.all([savedUrls(), room(), storageIsKept()]);
+    setSaved(urls);
+    setSpace(where);
+    setKept(persisted);
+  }, []);
+
+  useEffect(() => { void readOffline(); }, [readOffline]);
 
   useEffect(() => {
     let live = true;
@@ -88,6 +118,15 @@ export default function Listen() {
   const totalMs = useMemo(
     () => (catalogue ? catalogue.surahs.reduce((sum, s) => sum + s.durationMs, 0) : 0),
     [catalogue],
+  );
+
+  const savedCount = useMemo(
+    () => (catalogue ? catalogue.surahs.filter(entry => saved.has(entry.url)).length : 0),
+    [catalogue, saved],
+  );
+  const savedBytes = useMemo(
+    () => (catalogue ? catalogue.surahs.filter(entry => saved.has(entry.url)).reduce((sum, entry) => sum + entry.sizeBytes, 0) : 0),
+    [catalogue, saved],
   );
 
   const resumeSurah = marks.last && positionOf(marks, marks.last) > 0 ? marks.last : null;
@@ -126,6 +165,28 @@ export default function Listen() {
               </Link>
             )}
 
+            {offlineSupported() && catalogue && (
+              <section className="listen-offline-card" aria-labelledby="listen-offline-title">
+                <h2 id="listen-offline-title"><WifiOff size={17} aria-hidden="true" /> {t.offlineTitle}</h2>
+                {savedCount === 0 ? (
+                  <p className="hifz-muted">{t.offlineNone}</p>
+                ) : (
+                  <>
+                    <p className="listen-offline-card__count">{t.offlineSome(savedCount, megabytes(savedBytes, locale))}</p>
+                    <button
+                      type="button"
+                      className="text-link"
+                      onClick={() => { void removeAll().then(readOffline); }}
+                    >
+                      <Trash2 size={14} aria-hidden="true" /> {t.offlineClear}
+                    </button>
+                  </>
+                )}
+                {space && <p className="hifz-muted">{t.offlineRoom(megabytes(space.used, locale), megabytes(space.quota, locale))}</p>}
+                <p className="hifz-muted">{kept ? t.offlineKept : t.offlineNotKept}</p>
+              </section>
+            )}
+
             {state === "loading" && <p className="listen-note"><Loader2 className="animate-spin" size={18} aria-hidden="true" /> {t.loading}</p>}
             {state === "empty" && <p className="listen-note">{t.soon}</p>}
             {state === "failed" && (
@@ -146,6 +207,7 @@ export default function Listen() {
                           <b>{nameOf(entry.surah)}</b>
                           <small>{t.ayahs(entry.ayahCount)} · {roughLength(entry.durationMs, locale)}</small>
                         </span>
+                        {saved.has(entry.url) && <span className="listen-row__saved" title={t.offlineBadge}><WifiOff size={13} aria-hidden="true" /></span>}
                         {at > 0 && <span className="listen-row__mark">{clock(at)}</span>}
                         <Play size={17} aria-hidden="true" />
                       </Link>

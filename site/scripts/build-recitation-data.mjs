@@ -90,7 +90,9 @@ for (const id of ids) {
     display_name_en: rec.display_name_en,
     surahs: Object.values(surahs)
       .sort((a, b) => a.surah - b.surah)
-      .map(s => ({ surah: s.surah, duration_ms: s.duration_ms, ayah_count: s.ayah_count })),
+      // The byte count is here so a listener can be told what a download costs
+      // before it starts: al-Baqara alone is 125 MB.
+      .map(s => ({ surah: s.surah, duration_ms: s.duration_ms, ayah_count: s.ayah_count, size_bytes: s.size_bytes, url: s.playback_url })),
   }));
 }
 

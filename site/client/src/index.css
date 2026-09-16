@@ -1361,3 +1361,22 @@
 .listen-sleep__choices button.is-on { border-color: var(--gold); background: var(--surface-gold); color: var(--gold-ink-deep); }
 .listen-sleep__left { margin: 0; color: var(--ink-soft); font-size: .8rem; font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) { .listen-row { transition: none; } .listen-row:hover { transform: none; } }
+
+/* --- Keeping a surah on the device -------------------------------------- */
+.listen-offline { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .8rem; padding-block-start: .8rem; border-block-start: 1px solid var(--line); }
+.listen-offline__save { inline-size: auto; }
+.listen-offline__state { display: inline-flex; align-items: center; gap: .4rem; color: var(--brand); font-size: .88rem; font-weight: 800; }
+.listen-offline__hint { color: var(--ink-soft); font-size: .8rem; }
+.listen-offline__hint svg { vertical-align: -2px; margin-inline-end: .2rem; }
+.listen-offline__bar { flex: 1; min-inline-size: 8rem; block-size: 8px; border-radius: 99px; background: var(--surface-3); overflow: hidden; }
+.listen-offline__bar span { display: block; block-size: 100%; background: var(--brand-solid); transition: inline-size .2s linear; }
+.listen-offline__count { color: var(--ink-soft); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.listen-offline__error { flex-basis: 100%; margin: 0; color: var(--danger-ink); font-size: .84rem; }
+
+.listen-offline-card { display: grid; gap: .4rem; padding: .9rem 1rem; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); }
+.listen-offline-card h2 { display: flex; align-items: center; gap: .5rem; margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1rem; font-weight: 800; }
+.listen-offline-card__count { margin: 0; color: var(--ink); font-size: .92rem; font-weight: 800; }
+.listen-offline-card .hifz-muted { margin: 0; font-size: .82rem; }
+.listen-offline-card .text-link { justify-self: start; }
+.listen-row__saved { display: grid; place-items: center; flex: none; inline-size: 1.7rem; block-size: 1.7rem; border-radius: 50%; background: var(--surface-gold); color: var(--gold-ink-deep); }
+@media (prefers-reduced-motion: reduce) { .listen-offline__bar span { transition: none; } }
