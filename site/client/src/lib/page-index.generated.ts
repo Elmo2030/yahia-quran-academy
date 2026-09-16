@@ -282,72 +282,72 @@ export const storyIndex: Story[] = [
   "chapter": "animals",
   "slug": "ant-of-solomon",
   "title": "قصة نملة سليمان",
-  "hook": "هل جربتم يوماً أن تستمعوا إلى صوت نملة وهي تتحدث؟ نعم، نملة صغيرة جداً! تخيلوا جيشاً كبيراً جداً يقترب، ونملة شجاعة تقف لتنقذ أصدقاءها.. من سمعها؟ وكيف أنقذت النمل؟ تعالوا نعرف…",
+  "hook": "ما أصغر مخلوق سمعته يتكلّم؟ في قصة اليوم تتكلّم نملة. نملة واحدة، لا يراها الماشي وهو يمشي، ولا تزن شيئًا. ومع ذلك فإن كلامها مكتوب في القرآن إلى اليوم، يقرؤه الناس بعد آلاف…",
   "titleEn": "The Caring Ant",
-  "hookEn": "If you saw a huge army marching towards you, what would you do? Meet a tiny ant who saved her whole colony with one loud warning!",
+  "hookEn": "What is the smallest creature you have ever heard speak? In today's story, an ant speaks. One ant — too small to be seen by anyone walking past, weighing almost nothing. And yet…",
   "image": "/stories/animals/ant-of-solomon.jpg"
  },
  {
   "chapter": "animals",
   "slug": "hoopoe-of-solomon",
   "title": "قصة هدهد سليمان",
-  "hook": "هل تحبون الاستكشاف ومعرفة الأماكن الجديدة؟ تخيلوا طائراً جميلاً له تاج من الريش على رأسه، يطير لمسافات بعيدة جداً ليجمع الأخبار العجيبة لملك عظيم.. أين ذهب هذا الطائر؟ وماذا رأى؟…",
+  "hook": "تخيّل أنك غبتَ عن مكانك دون أن تستأذن، ثم رجعتَ فوجدت الجميع يسألون عنك، وأمامك من يملك أن يعاقبك. ماذا تقول في تلك اللحظة؟ في قصة اليوم، طائر صغير وقف هذا الموقف بالضبط أمام…",
   "titleEn": "The Hoopoe (Hudhud) of Sulaiman",
-  "hookEn": "Can a bird be a scout and a messenger for a king? Meet the Hoopoe, a beautiful bird who traveled to a faraway land and discovered a big secret!",
+  "hookEn": "Imagine leaving your place without permission, then coming back to find everyone asking where you were — and standing in front of you is someone with the power to punish you.…",
   "image": "/stories/animals/hoopoe-of-solomon.jpg"
  },
  {
   "chapter": "animals",
   "slug": "whale-of-yunus",
   "title": "قصة حوت يونس",
-  "hook": "تخيلوا أنفسكم في سفينة في وسط البحر المظلم، وفجأة تهب عاصفة قوية، وهناك حيوان بحري ضخم جداً يفتح فمه الكبير.. ليحمي نبياً من الغرق! كيف حدث ذلك؟ وهل عاش النبي داخل بطن الحوت؟…",
+  "hook": "تخيّل أنك في مكان لا ترى فيه شيئًا. لا نافذة، ولا ضوء، ولا أحد. وأنت تعلم أن أحدًا لن يجدك، وأن أحدًا لن يسمع صوتك مهما رفعته. ماذا يبقى معك؟ في قصة اليوم، نبيٌّ من أنبياء الله…",
   "titleEn": "The Whale of Prophet Yunus",
-  "hookEn": "Have you ever been in the dark and felt scared? Imagine being in the dark belly of a giant whale at the bottom of the ocean! Who was inside, and how did he get out?",
+  "hookEn": "Imagine being somewhere you cannot see anything at all. No window, no light, nobody. And you know that no one will find you, and no one will hear you however loudly you shout.…",
   "image": "/stories/animals/whale-of-yunus.jpg"
  },
  {
   "chapter": "animals",
   "slug": "elephant-of-abraha",
   "title": "قصة فيل أبرهة",
-  "hook": "هل رأيتم فيلاً من قبل؟ إنه حيوان ضخم وقوي جداً. تخيلوا أن ملكاً شريراً أراد أن يستخدم هذا الفيل الضخم لهدم مكان مقدس نحبه جميعاً.. الكعبة! ولكن الفيل العجيب فاجأ الجميع وفعل…",
+  "hook": "أكبر حيوان يمشي على الأرض، وأصغر طير يطير في السماء. في قصة اليوم يلتقيان في مكان واحد، وينتصر الصغير. فما الذي جاء الجيش كله من أجل هدمه؟ بيتٌ من حجارة، في وادٍ لا زرع فيه ولا…",
   "titleEn": "The Elephant of Abraha",
-  "hookEn": "Have you ever seen an elephant? They are huge and strong! But what happens when an evil king tries to force an elephant to do something bad? Let's find out!",
+  "hookEn": "The largest animal that walks the earth, and the smallest bird that flies. In today's story they meet in one place, and the small one wins. So what had the whole army come to…",
   "image": "/stories/animals/elephant-of-abraha.jpg"
  },
  {
   "chapter": "animals",
   "slug": "dog-of-the-cave",
   "title": "قصة كلب أهل الكهف",
-  "hook": "هل لديكم حيوان أليف تحبونه ويحبكم؟ ماذا لو كان لديكم كلب وفي جداً، يذهب معكم في مغامرة للهروب من ملك ظالم، ثم ينام معكم في كهف لمئات السنين وهو يحرسكم! قصة خيالية؟ لا، إنها قصة…",
+  "hook": "في القرآن أسماء أنبياء وملوك وأقوام. وفيه أيضًا… كلب. كلب واحد، لم يفعل شيئًا عظيمًا، ولم يتكلّم، ولم يحمل رسالة. كل ما فعله أنه تبع أصحابه ولم يتركهم. فلماذا ذكره الله في كتابه؟",
   "titleEn": "The Loyal Dog of the Cave",
-  "hookEn": "Have you ever had a loyal pet that always protected you? Let's meet the most famous and loyal dog in history, who slept for hundreds of years!",
+  "hookEn": "The Quran names prophets, kings and nations. It also names… a dog. One dog, who did nothing great, said nothing, carried no message. All it did was follow its companions and…",
   "image": "/stories/animals/dog-of-the-cave.jpg"
  },
  {
   "chapter": "animals",
   "slug": "cow-of-israel",
   "title": "قصة بقرة بني إسرائيل",
-  "hook": "هل تحبون حل الألغاز؟ تخيلوا أن هناك جريمة غامضة لا أحد يعرف من قام بها، والحل الوحيد لحل هذا اللغز يكمن في.. بقرة! نعم، بقرة صفراء جميلة جداً. كيف ساعدت هذه البقرة في كشف…",
+  "hook": "ماذا يحدث لو طلب منك أبوك شيئًا بسيطًا، فبدأتَ تسأل: أيّ واحد؟ وما لونه؟ ومن أين آتي به؟ ومتى؟ في قصة اليوم، قومٌ فعلوا هذا مع أمرٍ جاءهم من الله. وكان الأمر في أوّله سهلًا جدًّا.",
   "titleEn": "The Yellow Cow of the Children of Israel",
-  "hookEn": "Have you ever seen a bright, beautiful yellow cow? Today's story is a great mystery about a crime, and a special cow was the key to solving it!",
+  "hookEn": "What happens if your father asks you for something simple, and you start asking: which one? what colour? where from? when? In today's story, a people did exactly that with a…",
   "image": "/stories/animals/cow-of-israel.jpg"
  },
  {
   "chapter": "animals",
   "slug": "camel-of-saleh",
   "title": "قصة ناقة صالح",
-  "hook": "هل يمكن لحيوان كبير أن يخرج من صخرة قاسية في الجبل؟ الأشرار طلبوا هذا الطلب المستحيل لتعجيز النبي، لكن الله أخرج لهم معجزة مدهشة، ناقة ضخمة وجميلة خرجت من الحجر! ماذا حدث لهذه…",
+  "hook": "لو طلبتَ علامة من الله ثم رأيتها بعينيك، فماذا تفعل بعدها؟ في قصة اليوم، قومٌ طلبوا علامة فجاءتهم، فصارت تمشي بينهم وتشرب من مائهم. ثم قرّروا أن ينهوا الأمر بأيديهم.",
   "titleEn": "The Miracle Camel of Prophet Salih",
-  "hookEn": "Can a giant camel walk right out of a mountain rock? It sounds impossible, but with Allah, everything is possible! Let's discover the story of the miracle camel.",
+  "hookEn": "If you asked Allah for a sign and then saw it with your own eyes, what would you do next? In today's story, a people asked for a sign and it came. It walked among them and drank…",
   "image": "/stories/animals/camel-of-saleh.jpg"
  },
  {
   "chapter": "animals",
   "slug": "donkey-of-uzair",
   "title": "قصة حمار عزير",
-  "hook": "تخيلوا أن تناموا لفترة طويلة جداً، مائة عام كاملة! وعندما تستيقظون، تجدون طعامكم طازجاً كما تركتموه، لكن حماركم الذي كان بجواركم أصبح مجرد عظام! قصة غريبة جداً توضح لنا قدرة الله…",
+  "hook": "تخيّل أنك نمتَ ثم استيقظت، فوجدت طعامك كما تركته لم يتغيّر، لكن الذي كان واقفًا بجوارك صار عظامًا بالية. فكم نمتَ إذًا؟ يومًا؟ في قصة اليوم رجلٌ عاش هذا بالضبط، وكان الجواب: مئة…",
   "titleEn": "The Donkey of Uzair",
-  "hookEn": "How can an animal turn completely into dry bones and then come back to life in a few seconds? Get ready to witness a mind-blowing miracle!",
+  "hookEn": "Imagine sleeping, then waking to find your food exactly as you left it, unchanged — but the one who had been standing beside you is now worn bones. So how long did you sleep? A…",
   "image": "/stories/animals/donkey-of-uzair.jpg"
  },
  {

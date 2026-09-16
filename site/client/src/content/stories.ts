@@ -56,6 +56,44 @@ export type StoryText = {
   quranProse?: string;
   challenge?: StoryChallenge;
   reward?: StoryReward;
+  arc?: StoryArc;
+};
+
+/**
+ * The rest of the arc, for a story that has been written to the content
+ * standard rather than summarised.
+ *
+ * Readers told us the stories were too short and read like abstracts. The fix
+ * is not more words around the same summary: it is the missing middle. A
+ * summary jumps from "he left his people" to "and the lesson is"; a story
+ * puts the child somewhere (`setting`), lets one thing cause the next
+ * (`events`, which stays where it was), stops at the moment the whole story
+ * turns on (`keyMoment`), and lands before it teaches (`resolution`). Only
+ * then do the three lessons, the open question, and one small thing to do
+ * today mean anything.
+ *
+ * It is optional on purpose. The forty-two move over a chapter at a time, and
+ * a story without an arc still renders in the shape it shipped with — so the
+ * section is never half-broken, only partly deepened. `stories-arc.test.ts`
+ * pins which slugs are still waiting, so that list can only shrink.
+ */
+export type StoryArc = {
+  /** one sentence, for the story card — what this story is about */
+  idea: string;
+  /** where we are, who is there, how things stand before anything happens */
+  setting: string;
+  /** the one moment the story turns on */
+  keyMoment: string;
+  /** how it actually ended, before any lesson is drawn */
+  resolution: string;
+  /** one hard word, explained — only where the story has one */
+  word?: { term: string; meaning: string };
+  /** three short lines; the central lesson stays in `lesson` above them */
+  lessons: string[];
+  /** an open question for the child. There is no right answer to mark. */
+  think: string;
+  /** one small thing to do today, so the story ends in an action */
+  tryToday: string;
 };
 
 /**
@@ -100,6 +138,7 @@ export type Story = {
   challenge: StoryChallenge;
   reward: StoryReward;
   source: StorySource;
+  arc?: StoryArc;
 };
 
 /**
@@ -1454,11 +1493,11 @@ export const stories: Story[] = [
     en: {
       title: "The Caring Ant",
       hook:
-        "If you saw a huge army marching towards you, what would you do? Meet a tiny ant who saved her whole colony with one loud warning!",
+        "What is the smallest creature you have ever heard speak? In today's story, an ant speaks. One ant — too small to be seen by anyone walking past, weighing almost nothing. And yet what she said is written in the Quran to this day, read by people thousands of years later. So what did she say?",
       events:
-        "Prophet Sulaiman (Solomon) was a great king. Allah gave him a special power: he could understand the language of animals and insects! One day, his massive army of humans, jinn, and birds was marching through a valley. A tiny, smart ant saw them coming. Instead of just saving herself, she shouted to all the other ants: 'Go into your homes so Sulaiman and his army don't crush you without knowing!' Prophet Sulaiman heard her tiny voice, smiled, and thanked Allah for this blessing, making sure his army didn't step on them.",
+        "A small ant felt the ground shaking beneath her, looked up, and saw what was coming. Now think with me: what can an ant do against an army? She cannot stop it, or speak to it, or carry her home away. So she did the one thing she could: she called out to her people. She said: {O ants, enter your dwellings that you not be crushed by Sulaiman and his soldiers while they perceive not.} Notice her last words — \"while they perceive not.\" She did not accuse them. She did not say they were wicked and meant to harm. She said they cannot see us.",
       lesson:
-        "We learn to care for our friends and family, just like the ant. We also learn that strong leaders are merciful and careful not to hurt the weak.",
+        "The smallest of us can still help those around them with what they have, and the greatest of us is never too great to listen to the smallest.",
       next:
         "The ant was tiny but very caring. Our next animal is a beautiful bird with a crown of feathers on his head, who worked as a special messenger for the very same king. It's the Hoopoe!",
       quranProse:
@@ -1474,14 +1513,36 @@ export const stories: Story[] = [
         keepsake: "A grain of wheat",
         note: "A reminder that the smallest creature can teach the biggest lesson in caring for others.",
       },
+      arc: {
+        idea: "One ant saw danger coming and warned her people — and a king unlike any other heard her.",
+        setting:
+          "Sulaiman, peace be upon him, was both a prophet and a king. Allah gave him a kingdom given to no one after him: an army of people, jinn and birds, a wind that ran at his command, and an understanding of what birds and animals say. One day he set out with that whole army, until they came near a valley where ants lived. Ants live in small houses under the soil, invisible to anyone walking over them. And the army was coming.",
+        keyMoment:
+          "Here is the moment the whole story turns on. The great king, at the head of his army, heard the voice of an ant. He actually heard it. {So he smiled, amused at her speech.} He did not take offence that she had warned people against him. He did not say, \"and who is she to talk about me?\" He smiled. That smile is the mark of someone truly great: all the power is in his hands, and his heart is still wide enough for the smallest creature that fears him.",
+        resolution:
+          "Then Sulaiman did something you might not expect: he prayed. {My Lord, enable me to be grateful for Your favour which You have bestowed upon me and upon my parents, and to do righteousness of which You approve.} In other words: my Lord, help me to thank You. The blessing he saw in that moment was not the army or the kingdom or the wind. It was that he had understood the words of an ant.",
+        word: { term: "Crushed", meaning: "Stepped on and broken — and the ant said it of people who could not even see her." },
+        lessons: [
+          "If you see danger coming to those around you, warn them, even if you are the smallest there.",
+          "Think well of people; the ant said \"they perceive not,\" not \"they mean to hurt us.\"",
+          "The more you are given, the more you thank; Sulaiman met the blessing with a prayer, not with pride.",
+        ],
+        think:
+          "The ant knew she could not stop an army, and she spoke anyway. Has there been a moment when you thought, \"I am too small to make any difference\"? What was the smallest thing you could have done then?",
+        tryToday:
+          "Find one small way to help someone today — a warning, a hand, a kind word. Do not wait until you are older.",
+      },
     },
     title: "قصة نملة سليمان",
     surahName: "",
     image: "/stories/animals/ant-of-solomon.jpg",
-    hook: "هل جربتم يوماً أن تستمعوا إلى صوت نملة وهي تتحدث؟ نعم، نملة صغيرة جداً! تخيلوا جيشاً كبيراً جداً يقترب، ونملة شجاعة تقف لتنقذ أصدقاءها.. من سمعها؟ وكيف أنقذت النمل؟ تعالوا نعرف قصة نملة سيدنا سليمان الذكية!",
-    events: "كان سيدنا سليمان ملكاً عظيماً ونبياً أعطاه الله قوة عجيبة.. لقد كان يفهم لغة الحيوانات والطيور! في يوم من الأيام، كان سيدنا سليمان يسير مع جيشه الكبير جداً من الناس والجن والطيور. وبينما هم يسيرون، اقتربوا من مكان يعيش فيه الكثير من النمل ويسمى (وادي النمل). أحست نملة صغيرة باقتراب الجيش الكبير، فخافت على أصدقائها النمل أن يدوسهم الجيش دون أن يشعروا. فوقفت النملة الشجاعة وصرخت بصوت عالٍ في عالم النمل: 'يا أيها النمل ادخلوا بيوتكم بسرعة حتى لا يدوسكم سليمان وجنوده وهم لا يشعرون!'. سمع سيدنا سليمان كلامها فتبسم وضحك من قولها، وأوقف جيشه حتى يدخل النمل إلى بيوته بأمان، وشكر الله على نعمة فهم لغة الحيوانات وأن جعله رحيماً بها.",
+    hook:
+      "ما أصغر مخلوق سمعته يتكلّم؟ في قصة اليوم تتكلّم نملة. نملة واحدة، لا يراها الماشي وهو يمشي، ولا تزن شيئًا. ومع ذلك فإن كلامها مكتوب في القرآن إلى اليوم، يقرؤه الناس بعد آلاف السنين. فماذا قالت حتى يُحفظ كلامها كل هذا الزمن؟",
+    events:
+      "أحسّت نملة صغيرة بالأرض تهتزّ تحتها، فنظرت فرأت ما رأت. وفكّر معي: ماذا تستطيع نملة أن تفعل أمام جيش؟ لا تستطيع أن توقفه، ولا أن تتكلّم معه، ولا أن تحمل بيتها وتهرب به. ففعلت الشيء الوحيد الذي تقدر عليه: نادت على قومها. قالت: ﴿يَا أَيُّهَا النَّمْلُ ادْخُلُوا مَسَاكِنَكُمْ لَا يَحْطِمَنَّكُمْ سُلَيْمَانُ وَجُنُودُهُ وَهُمْ لَا يَشْعُرُونَ﴾. وانتبه إلى آخر كلمة قالتها: «وهم لا يشعرون». لم تتّهمهم، ولم تقل إنهم أشرار يريدون أذيّتنا؛ قالت إنهم لا يروننا.",
     quranProse: "يقول الله تعالى في القرآن الكريم عن هذه النملة الذكية: {حَتَّى إِذَا أَتَوْا عَلَى وَادِ النَّمْلِ قَالَتْ نَمْلَةٌ يَا أَيُّهَا النَّمْلُ ادْخُلُوا مَسَاكِنَكُمْ لَا يَحْطِمَنَّكُمْ سُلَيْمَانُ وَجُنُودُهُ وَهُمْ لَا يَشْعُرُونَ}. وهذا يعني أن النملة حذرت أصدقاءها ليختبئوا في بيوتهم.",
-    lesson: "تعلمنا اليوم من النملة الشجاعة أن نهتم بأصدقائنا ونحذرهم إذا كان هناك خطر. وتعلمنا من سيدنا سليمان أن نكون لطفاء مع الحيوانات الصغيرة ولا نؤذيها، وأن نشكر الله دائماً على النعم التي أعطانا إياها.",
+    lesson:
+      "أصغرنا يستطيع أن ينفع من حوله بما يقدر عليه، وأعظمنا لا يكبُر عن أن يسمع الصغير.",
     next: "رأينا كيف فهم سيدنا سليمان لغة النملة الصغيرة.. لكن، هل تعرفون طائراً جميلاً كان يعمل كـ 'مستكشف' لسيدنا سليمان، وذهب في رحلة بعيدة ليأتيه بأخبار مملكة تحكمها ملكة؟ من هو هذا الطائر؟ هذا ما سنعرفه في قصتنا القادمة.. قصة هدهد سليمان!",
     source: {
       reliability: "🟢",
@@ -1499,17 +1560,36 @@ export const stories: Story[] = [
       keepsake: "حبة قمح",
       note: "تذكّرك أن أصغر المخلوقات قد تعلّمك أكبر درس في رعاية غيرك.",
     },
+    arc: {
+      idea: "نملة واحدة رأت الخطر قادمًا فنادت على قومها، فسمعها ملكٌ لم يسمع مثلَه أحد.",
+      setting:
+        "كان سيدنا سليمان عليه السلام نبيًّا وملكًا، آتاه الله مُلكًا لم يؤتَه أحد بعده: جيشٌ فيه الإنس والجنّ والطير، وريحٌ تجري بأمره، وفهمٌ لكلام الطير والحيوان. وفي يوم من الأيام خرج بجيشه كلّه يسير في الأرض، حتى اقتربوا من وادٍ يعيش فيه النمل. والنمل يسكن بيوتًا صغيرة تحت التراب، لا يراها من يمشي فوقها. والجيش قادم.",
+      keyMoment:
+        "والآن اللحظة التي تدور عليها القصة كلها: الملك العظيم، وهو على رأس جيشه، سمع صوت نملة. سمعه فعلًا. ﴿فَتَبَسَّمَ ضَاحِكًا مِّن قَوْلِهَا﴾. لم يغضب لأنها حذّرت منه، ولم يقل: ومن هذه حتى تتكلّم عنّي؟ تبسّم. وهذا التبسّم علامة العظيم حقًّا: من تكون القوة كلها في يده، ويتّسع قلبه لأصغر مخلوق يخاف منه.",
+      resolution:
+        "ثم فعل سليمان شيئًا قد لا تتوقّعه: دعا الله. ﴿رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ﴾. أي: يا ربّ، أعنّي على شكرك. فالنعمة التي رآها في تلك اللحظة لم تكن الجيش ولا المُلك ولا الريح؛ كانت أنه فهم كلمة نملة.",
+      word: { term: "لا يَحْطِمَنَّكُم", meaning: "لا يدوسكم فيكسركم — والنملة قالتها عن قوم لا يرونها أصلًا." },
+      lessons: [
+        "إذا رأيت خطرًا على من حولك فنبّههم، ولو كنت أصغرهم.",
+        "أحسِن الظنّ بالناس؛ النملة قالت «وهم لا يشعرون» ولم تقل إنهم يريدون أذيّتنا.",
+        "كلّما زاد ما عندك زاد شكرك؛ قابل سليمانُ النعمةَ بالدعاء لا بالفخر.",
+      ],
+      think:
+        "كانت النملة تعرف أنها لا تستطيع إيقاف الجيش، وتكلّمت مع ذلك. هل مرّ بك موقف قلت فيه: أنا صغير ولن أفيد بشيء؟ ما أصغر شيء كنت تستطيع فعله وقتها؟",
+      tryToday:
+        "ابحث اليوم عن شيء صغير تنفع به غيرك: تنبيه، أو مساعدة، أو كلمة طيبة. ولا تنتظر حتى تكبر.",
+    },
   },
   {
     chapter: "animals", slug: "hoopoe-of-solomon",
     en: {
       title: "The Hoopoe (Hudhud) of Sulaiman",
       hook:
-        "Can a bird be a scout and a messenger for a king? Meet the Hoopoe, a beautiful bird who traveled to a faraway land and discovered a big secret!",
+        "Imagine leaving your place without permission, then coming back to find everyone asking where you were — and standing in front of you is someone with the power to punish you. What do you say in that moment? In today's story, a small bird stood in exactly that position before the greatest king on earth. And what it said is written in the Quran.",
       events:
-        "The Hoopoe (Hudhud) was a special bird in the army of Prophet Sulaiman. One day, the Hoopoe flew very far and discovered the Kingdom of Sheba. He saw that the Queen and her people were worshipping the sun instead of Allah! The Hoopoe quickly flew back and told Prophet Sulaiman everything. The Prophet gave the smart bird a letter to deliver to the Queen, inviting her to worship Allah. Thanks to the Hoopoe's discovery, the Queen eventually became a believer!",
+        "Sulaiman said something severe: {I will surely punish him with a severe punishment or slaughter him, unless he brings me clear authorisation.} In other words: either he has a clear reason, or there will be a penalty. It was not long before the hoopoe arrived. {But he stayed not long} — and said something astonishing: {I have encompassed that which you have not, and I have come to you from Saba with certain news.} A small bird telling the greatest king: I know something you do not. Then it told him what it had seen — a land called Saba, ruled by a woman with a magnificent throne and everything she could need… but her people bow to the sun instead of Allah.",
       lesson:
-        "Even if you are small, you can do great things for the truth. We should always share important and truthful information to help others.",
+        "News worth telling is a trust: whoever knows something should pass it on truthfully, and whoever hears it should check it before believing it.",
       next:
         "The Hoopoe crossed the sky with a message. Our next animal lives in the deep, dark ocean — and a prophet spent days inside it! Get ready to dive with the Whale of Prophet Yunus!",
       quranProse:
@@ -1525,14 +1605,36 @@ export const stories: Story[] = [
         keepsake: "The hoopoe's feather",
         note: "A reminder that whoever goes away to learn something useful comes back with good for everyone.",
       },
+      arc: {
+        idea: "A small bird went missing from Sulaiman's army for a day, and came back with news that changed a whole kingdom.",
+        setting:
+          "In Sulaiman's kingdom every creature had work it knew. The hoopoe is a bird with a crown of feathers on its head, and its task was to fly, explore, and find where the water was. One day Sulaiman was inspecting the birds, going along the ranks one by one… and the hoopoe was not there. Gone. And it had told no one before leaving.",
+        keyMoment:
+          "Now look at what Sulaiman did. He did not say, \"and who are you to speak?\" He did not punish the bird for contradicting him. He said: {We will see whether you were truthful or were of the liars.} That is: we will check. He did not believe the news because he liked it, and he did not dismiss it because the one bringing it was small. He would verify first. That is the difference between someone who passes news on and someone who weighs it.",
+        resolution:
+          "Sulaiman sent a letter with the hoopoe to the queen of Saba, calling her to worship Allah alone. She read it, consulted her people, and sent him a gift to test him, which he refused. Then she came herself, saw what she saw of Sulaiman's kingdom, and ended the story with one sentence: {My Lord, indeed I have wronged myself, and I submit with Sulaiman to Allah, Lord of the worlds.} And all of it began with a bird that disappeared for a day to go and look.",
+        word: { term: "Certain news", meaning: "News confirmed beyond doubt — not something the hoopoe had merely heard from someone else." },
+        lessons: [
+          "Search, ask, explore; useful knowledge comes to whoever goes looking for it.",
+          "Before you believe a piece of news or repeat it, ask yourself: am I sure this is true?",
+          "If you were absent or in the wrong, explain honestly; an honest reason beats silence.",
+        ],
+        think:
+          "Sulaiman could have punished the hoopoe straight away, and chose to listen and then check. Has there been a day when you got angry at someone before hearing them out? What did you find out once you listened?",
+        tryToday:
+          "If you hear something about someone today, do not pass it on until you ask: is this true? And who said it?",
+      },
     },
     title: "قصة هدهد سليمان",
     surahName: "",
     image: "/stories/animals/hoopoe-of-solomon.jpg",
-    hook: "هل تحبون الاستكشاف ومعرفة الأماكن الجديدة؟ تخيلوا طائراً جميلاً له تاج من الريش على رأسه، يطير لمسافات بعيدة جداً ليجمع الأخبار العجيبة لملك عظيم.. أين ذهب هذا الطائر؟ وماذا رأى؟ تعالوا نكتشف ذلك في قصة هدهد سليمان!",
-    events: "بعد أن تعرفنا على جيش سيدنا سليمان، يجب أن تعرفوا أن كل حيوان وطائر كان له وظيفة مهمة. الهدهد كان طائراً ذكياً وظيفته البحث عن الماء واكتشاف الأماكن. في يوم من الأيام، كان سيدنا سليمان يتفقد الطيور، فلم يجد الهدهد! غضب سليمان وسأل عنه. وبعد فترة، جاء الهدهد بسرعة وقال لسيدنا سليمان: 'لقد رأيت شيئاً عجيباً لم تره أنت! لقد ذهبت إلى بلد بعيدة اسمها سبأ، ووجدت هناك ملكة تحكمهم، وعندها أموال كثيرة وعرش عظيم تجلس عليه.. ولكن المشكلة أنهم يعبدون الشمس بدلاً من الله!'. تعجب سيدنا سليمان من كلام الهدهد، وأرسل معه رسالة إلى هذه الملكة يدعوها لتعبد الله. وبفضل ذكاء الهدهد، أسلمت الملكة وقومها.",
+    hook:
+      "تخيّل أنك غبتَ عن مكانك دون أن تستأذن، ثم رجعتَ فوجدت الجميع يسألون عنك، وأمامك من يملك أن يعاقبك. ماذا تقول في تلك اللحظة؟ في قصة اليوم، طائر صغير وقف هذا الموقف بالضبط أمام أعظم ملك على الأرض — وما قاله صار مكتوبًا في القرآن.",
+    events:
+      "قال سليمان كلامًا شديدًا: ﴿لَأُعَذِّبَنَّهُ عَذَابًا شَدِيدًا أَوْ لَأَذْبَحَنَّهُ أَوْ لَيَأْتِيَنِّي بِسُلْطَانٍ مُّبِينٍ﴾ — أي: إمّا أن يكون معه عذر واضح، وإلا فالعقاب. ولم يمضِ وقت طويل حتى جاء الهدهد: ﴿فَمَكَثَ غَيْرَ بَعِيدٍ﴾. وقال جملة عجيبة: ﴿أَحَطتُ بِمَا لَمْ تُحِطْ بِهِ وَجِئْتُكَ مِن سَبَإٍ بِنَبَإٍ يَقِينٍ﴾. طائر صغير يقول لأعظم ملك: عندي خبر لا تعرفه أنت. ثم حكى ما رأى: بلدٌ اسمه سبأ، تحكمه امرأة، لها عرش عظيم، وعندها من كل شيء… لكنّ قومها يسجدون للشمس من دون الله.",
     quranProse: "يقول الله تعالى عن الهدهد عندما جاء بالخبر العجيب: {فَمَكَثَ غَيْرَ بَعِيدٍ فَقَالَ أَحَطتُ بِمَا لَمْ تُحِطْ بِهِ وَجِئْتُكَ مِن سَبَإٍ بِنَبَإٍ يَقِينٍ}. يعني أن الهدهد قال لسليمان أنه عرف خبراً مؤكداً من مدينة سبأ.",
-    lesson: "نتعلم من الهدهد الذكي أن نكون دائمي البحث عن المعرفة والأشياء المفيدة، وأن نقول الصدق دائماً. ونتعلم أيضاً أهمية نقل الأخبار بصدق وأمانة لنساعد الآخرين على معرفة الحق.",
+    lesson:
+      "الخبر النافع أمانة: من عرف شيئًا فلينقله بصدق، ومن سمعه فليتثبّت منه قبل أن يصدّقه.",
     next: "الهدهد طائر صغير طار لمسافات بعيدة.. ولكن في قصتنا القادمة، سنتعرف على حيوان ضخم جداً وكبير، يعيش في البحر الأسود العميق، وقام بابتلاع نبي كامل دون أن يؤذيه! هل حزرتم من هو؟ نعم، إنه حوت يونس! انتظرونا.",
     source: {
       reliability: "🟢",
@@ -1550,17 +1652,36 @@ export const stories: Story[] = [
       keepsake: "ريشة الهدهد",
       note: "تذكّرك أن من غاب ليتعلّم شيئاً نافعاً عاد بما ينفع الجميع.",
     },
+    arc: {
+      idea: "طائر صغير غاب يومًا عن جيش سليمان، فعاد بخبر غيّر مملكة كاملة.",
+      setting:
+        "في مملكة سليمان عليه السلام، لكل مخلوق عملٌ يعرفه. والهدهد طائر على رأسه تاج من ريش، ومهمّته أن يطير ويستكشف ويعرف أين الماء. وفي يوم من الأيام وقف سليمان يتفقّد الطير، ينظر في صفوفه صفًّا صفًّا… فلم يجد الهدهد. غائب. ولم يخبر أحدًا قبل أن يذهب.",
+      keyMoment:
+        "والآن انظر ماذا فعل سليمان. لم يقل: وكيف تتكلّم أنت؟ ولم يعاقبه لأنه خالفه. قال: ﴿سَنَنظُرُ أَصَدَقْتَ أَمْ كُنتَ مِنَ الْكَاذِبِينَ﴾. أي: سنتحقّق. لم يصدّق الخبر لأنه أعجبه، ولم يردّه لأن صاحبه صغير. سيتأكّد أوّلًا. وهذا هو الفرق بين من ينقل الكلام ومن يزنه.",
+      resolution:
+        "أرسل سليمان مع الهدهد كتابًا إلى ملكة سبأ يدعوها إلى عبادة الله وحده. فقرأته، وشاورت قومها، وأرسلت إليه هديّة ليختبروه فلم يقبلها. ثم جاءت بنفسها، ورأت من مُلك سليمان ما رأت، فختمت القصة بكلمة واحدة: ﴿رَبِّ إِنِّي ظَلَمْتُ نَفْسِي وَأَسْلَمْتُ مَعَ سُلَيْمَانَ لِلَّهِ رَبِّ الْعَالَمِينَ﴾. وكل هذا بدأ بطائر غاب يومًا ليرى.",
+      word: { term: "نَبَأ يَقِين", meaning: "خبر مؤكَّد لا شكّ فيه — وليس كلامًا سمعه الهدهد من أحد." },
+      lessons: [
+        "ابحث واسأل واستكشف؛ العلم النافع يأتي لمن يتحرّك.",
+        "قبل أن تصدّق خبرًا أو تنقله، اسأل نفسك: هل أنا متأكّد أنه صحيح؟",
+        "إذا غبتَ أو أخطأتَ فاشرح بصدق؛ العذر الصادق خير من الصمت.",
+      ],
+      think:
+        "كان سليمان يستطيع أن يعاقب الهدهد فورًا، فاختار أن يسمع ثم يتحقّق. هل مرّ بك يوم غضبتَ فيه من أحد قبل أن تسمع منه؟ وماذا اكتشفتَ بعد أن سمعت؟",
+      tryToday:
+        "إذا سمعت اليوم خبرًا عن أحد، لا تنقله حتى تسأل: هل هذا صحيح؟ ومن قاله؟",
+    },
   },
   {
     chapter: "animals", slug: "whale-of-yunus",
     en: {
       title: "The Whale of Prophet Yunus",
       hook:
-        "Have you ever been in the dark and felt scared? Imagine being in the dark belly of a giant whale at the bottom of the ocean! Who was inside, and how did he get out?",
+        "Imagine being somewhere you cannot see anything at all. No window, no light, nobody. And you know that no one will find you, and no one will hear you however loudly you shout. What is left to you? In today's story, one of Allah's prophets found himself in exactly that place — at the bottom of the sea, inside a whale.",
       events:
-        "Prophet Yunus (Jonah) left his town because his people wouldn't listen to him. He got on a ship, but a huge storm hit them. Yunus ended up in the deep ocean, and Allah commanded a giant whale to swallow him without hurting him! Inside the dark belly of the whale, Yunus realized he shouldn't have left his people. He prayed sincerely to Allah, saying he was sorry. Allah heard his prayer from the bottom of the ocean and commanded the whale to safely leave him on the shore.",
+        "The ship set out, then the wind rose and the waves turned rough, and the ship was in danger. So those aboard drew lots to choose one of them to go into the water. Allah says of Yunus: {And he drew lots and was among the losers.} So Yunus went down into the sea. It was night, the waves were over him, and there was no shore in sight. Then Allah commanded a great whale, and it swallowed him. The whale was not the end of the story, as you might think — it was the place where the real story began.",
       lesson:
-        "No matter where you are — even in the darkest place — Allah can always hear your prayers. We must always ask for forgiveness when we make a mistake.",
+        "Allah hears you wherever you are, and however tight the place becomes, the door back to Him is never shut.",
       next:
         "The whale obeyed Allah in the depths of the sea. Our next animal is the largest of them all, and it refused to march against the holy Kaaba! It's the Elephant of Abraha!",
       quranProse:
@@ -1576,14 +1697,36 @@ export const stories: Story[] = [
         keepsake: "A drop from the sea",
         note: "A reminder that Allah's door never closes, even in three layers of darkness.",
       },
+      arc: {
+        idea: "A prophet left his people in anger, found himself in three layers of darkness, and had nothing left but a prayer.",
+        setting:
+          "Yunus, peace be upon him, was a prophet Allah sent to the people of a large town, calling them to worship Allah alone. He called them, and kept calling, and they would not answer. Every time he spoke, they turned away. One day he could bear it no longer. He walked out from among them in anger, walked until he reached the sea, found a ship about to sail, and boarded it. And that is where our story begins.",
+        keyMoment:
+          "Now — what can Yunus actually do? He cannot swim out. He cannot shout and be heard. He does not even know where he is. One thing is still in his power: to call on his Lord. So he called out in the darkness — the dark of the whale, the dark of the sea, the dark of the night — and said: {There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.} Look at what he said. Not \"get me out.\" Not \"I do not deserve this.\" He began with Allah, then admitted his mistake. And Allah heard him from down there.",
+        resolution:
+          "{So We responded to him and saved him from the distress.} The whale cast him onto bare ground with no tree and no shade, and his body was weak and ill, so Allah grew a gourd plant over him to shade him until he was strong again. Then the most beautiful part of the story happened: Yunus went back to the people he had left. And those who would not listen to him before… believed. {And We sent him to a hundred thousand or more. And they believed, so We gave them enjoyment for a time.}",
+        word: { term: "Gourd plant", meaning: "A plant with wide leaves that spreads along the ground and makes shade — the family that pumpkins belong to." },
+        lessons: [
+          "Call on Allah anywhere; a prayer needs no beautiful place and no special hour.",
+          "When you make a mistake, own it instead of running from it — admitting it is the first step.",
+          "Do not give up on people too quickly; Yunus's people believed after he had walked away from them.",
+        ],
+        think:
+          "Yunus had no idea how he would get out, and he prayed anyway. Think of a hard moment when you did not know what to do — what did you say then? And what would you have said in his place?",
+        tryToday:
+          "The first thing that annoys you today, stop for one moment before you speak or get angry, and say to yourself: \"There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.\"",
+      },
     },
     title: "قصة حوت يونس",
     surahName: "",
     image: "/stories/animals/whale-of-yunus.jpg",
-    hook: "تخيلوا أنفسكم في سفينة في وسط البحر المظلم، وفجأة تهب عاصفة قوية، وهناك حيوان بحري ضخم جداً يفتح فمه الكبير.. ليحمي نبياً من الغرق! كيف حدث ذلك؟ وهل عاش النبي داخل بطن الحوت؟ تعالوا نغوص في قصة حوت سيدنا يونس!",
-    events: "كان سيدنا يونس نبياً أرسله الله إلى قومه ليعبدوا الله، لكنهم رفضوا ولم يسمعوا كلامه. غضب سيدنا يونس منهم كثيراً، فتركهم وذهب وركب سفينة في البحر دون أن ينتظر إذن الله. في وسط البحر، هبت عاصفة قوية جداً، وكادت السفينة أن تغرق. علم ركاب السفينة أنه يجب أن يلقوا بأحد الركاب في البحر لتخفيف الوزن. أجروا قرعة، ووقعت القرعة على سيدنا يونس! فرمى نفسه في البحر المظلم العاصف. لكن الله الرحيم لم يتركه، بل أمر حوتاً ضخماً جداً أن يبتلع سيدنا يونس دون أن يؤذيه أو يكسر عظامه! عاش يونس في بطن الحوت المظلم، وأخذ يدعو الله ويستغفره ويقول: 'لا إله إلا أنت سبحانك إني كنت من الظالمين'. فسمع الله دعاءه، وأمر الحوت أن يخرج يونس إلى الشاطئ بسلام.",
+    hook:
+      "تخيّل أنك في مكان لا ترى فيه شيئًا. لا نافذة، ولا ضوء، ولا أحد. وأنت تعلم أن أحدًا لن يجدك، وأن أحدًا لن يسمع صوتك مهما رفعته. ماذا يبقى معك؟ في قصة اليوم، نبيٌّ من أنبياء الله وجد نفسه في هذا المكان بالضبط… في قاع البحر، داخل بطن حوت.",
+    events:
+      "سارت السفينة، ثم اشتدّت الريح واضطرب الموج، وصارت السفينة في خطر. فاقترع من فيها، أي تساهموا ليختاروا واحدًا منهم ينزل إلى الماء. يقول الله عن يونس: ﴿فَسَاهَمَ فَكَانَ مِنَ الْمُدْحَضِينَ﴾، أي شارك في القرعة فوقعت عليه. فنزل يونس إلى البحر. وكان الليل، والموج فوقه، ولا شاطئ قريبًا يراه. ثم أمر الله حوتًا عظيمًا فالتقمه. ولم يكن الحوت نهاية القصة كما قد تظن؛ بل كان المكان الذي بدأت فيه القصة الحقيقية.",
     quranProse: "يصف لنا الله كيف دعا سيدنا يونس في بطن الحوت فيقول: {فَنَادَى فِي الظُّلُمَاتِ أَن لَّا إِلَهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ}. يعني أنه دعا الله وهو في ظلام بطن الحوت وظلام البحر وظلام الليل.",
-    lesson: "نتعلم من قصة حوت يونس أن الله يسمع دعاءنا في أي مكان، حتى لو كنا في أعماق البحر أو في مكان مظلم جداً. ونتعلم أيضاً أننا إذا أخطأنا، يجب أن نعتذر فوراً ونستغفر الله، وهو سيسامحنا لأنه رحيم.",
+    lesson:
+      "الله يسمعك من أي مكان كنت فيه، ومهما ضاق بك المكان فإن باب الرجوع إليه لا يُغلق.",
     next: "حوت يونس كان يعيش في البحر.. ولكن في قصتنا القادمة، سنتعرف على حيوان ضخم جداً يعيش على الأرض، حاول بعض الأشرار استخدامه لهدم الكعبة، لكنه رفض التحرك! من هو هذا الحيوان العجيب؟ سنتعرف عليه في قصة فيل أبرهة!",
     source: {
       reliability: "🟢",
@@ -1601,17 +1744,36 @@ export const stories: Story[] = [
       keepsake: "قطرة من البحر",
       note: "تذكّرك أن باب الله لا يُغلق، ولو كنت في ثلاث ظلمات.",
     },
+    arc: {
+      idea: "نبيٌّ ترك قومه وهو غاضب، فوجد نفسه في ثلاث ظلمات، ولم يبقَ معه إلا الدعاء.",
+      setting:
+        "كان سيدنا يونس عليه السلام نبيًّا أرسله الله إلى أهل قرية كبيرة، يدعوهم أن يعبدوا الله وحده. ودعاهم، وطال دعاؤه، وهم لا يستجيبون. وكلّما تكلّم أعرضوا عنه. وذات يوم لم يعد يحتمل، فخرج من بينهم وهو غاضب، ومشى حتى بلغ البحر، فوجد سفينة تستعد للسفر، فركب معها. وهنا تبدأ قصتنا.",
+      keyMoment:
+        "والآن، ما الذي يستطيع يونس أن يفعله؟ لا يستطيع أن يسبح، ولا أن يصرخ فيسمعه أحد، ولا أن يعرف أين هو أصلًا. بقي شيء واحد يقدر عليه: أن ينادي ربه. فنادى في الظلمات — ظلمة بطن الحوت، وظلمة البحر، وظلمة الليل — فقال: ﴿لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ﴾. وانظر ماذا قال: لم يقل «أخرجني»، ولم يقل «أنا لا أستحق هذا». بدأ بالله، ثم اعترف بخطئه. وسمع الله نداءه من هناك.",
+      resolution:
+        "﴿فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ﴾. ألقاه الحوت على أرض خالية لا شجر فيها ولا ظلّ، وكان جسمه ضعيفًا مريضًا، فأنبت الله عليه شجرة من يقطين تظلّله حتى قوي. ثم حدث أجمل ما في القصة: رجع يونس إلى قومه الذين تركهم. وهؤلاء الذين لم يسمعوا له من قبل… آمنوا. ﴿وَأَرْسَلْنَاهُ إِلَىٰ مِائَةِ أَلْفٍ أَوْ يَزِيدُونَ * فَآمَنُوا فَمَتَّعْنَاهُمْ إِلَىٰ حِينٍ﴾.",
+      word: { term: "يَقْطِين", meaning: "نبات ذو ورق عريض كبير، يمتدّ على الأرض ويصنع ظلًّا، ومنه القرع الذي تعرفه." },
+      lessons: [
+        "ادعُ الله في أي مكان؛ فالدعاء لا يحتاج إلى مكان جميل ولا وقت خاص.",
+        "إذا أخطأتَ فاعترف بخطئك ولا تهرب منه؛ الاعتراف هو أول الطريق.",
+        "لا تيأس من الناس بسرعة؛ قوم يونس آمنوا بعد أن خرج من بينهم يائسًا منهم.",
+      ],
+      think:
+        "يونس لم يكن يعرف كيف سيخرج، ومع ذلك دعا. تذكّر موقفًا صعبًا مرّ بك ولم تعرف فيه ماذا تفعل — ماذا قلت وقتها؟ وماذا كنت ستقول لو كنت مكان يونس؟",
+      tryToday:
+        "في أول شيء يضايقك اليوم، توقّف لحظة واحدة قبل أن تتكلّم أو تغضب، وقل في نفسك: «لا إله إلا أنت سبحانك إني كنت من الظالمين».",
+    },
   },
   {
     chapter: "animals", slug: "elephant-of-abraha",
     en: {
       title: "The Elephant of Abraha",
       hook:
-        "Have you ever seen an elephant? They are huge and strong! But what happens when an evil king tries to force an elephant to do something bad? Let's find out!",
+        "The largest animal that walks the earth, and the smallest bird that flies. In today's story they meet in one place, and the small one wins. So what had the whole army come to destroy? A house of stone, in a valley with no crops and no river… the Kaaba.",
       events:
-        "A long time ago, an evil king named Abraha wanted to destroy the holy Kaaba in Mecca. He brought a massive army and a huge, strong elephant named 'Mahmoud' to knock down the Kaaba. But when they pointed the elephant towards Mecca, a miracle happened! The elephant sat down and completely refused to move towards the Kaaba. If they turned him away, he would run, but towards the Kaaba, he wouldn't take a single step! Then, Allah sent flocks of birds to defeat the evil army, and the Kaaba was saved.",
+        "Abrahah assembled a large army, and with it an elephant so huge the people of Mecca had never seen its like. The army marched until it reached the edges of Mecca. The people of Mecca had no army to turn it back, and no strength to stand in its way. Abdul-Muttalib — the Prophet's grandfather — came to ask for his camels, which the army had taken. Abrahah was astonished: you ask me about your camels and say nothing of the house I have come to destroy? And he answered with words still remembered today: I am the owner of the camels, and the House has an Owner who will protect it. The Seerah literature records that when they turned the elephant towards the Kaaba it knelt on the ground and refused to move forward, and whenever they turned it any other way it rose and walked.",
       lesson:
-        "Animals know and obey Allah. We learn that Allah always protects His holy places, and no matter how big and strong the bad guys are, Allah is always stronger.",
+        "Allah protects His house and His religion, and He needs no force resembling the force of tyrants to do it.",
       next:
         "The elephant refused to harm the Kaaba. Our next animal guarded a group of believing youth at the mouth of a cave for hundreds of years — the Dog of the People of the Cave!",
       quranProse:
@@ -1627,19 +1789,41 @@ export const stories: Story[] = [
         keepsake: "A stone of sijjil",
         note: "A reminder that Allah protects what He wills by what He wills, even by small birds.",
       },
+      arc: {
+        idea: "A whole army came to destroy the Kaaba, and Allah turned it back with small birds.",
+        setting:
+          "Before the Prophet was born, Mecca was a small valley with no river and nothing growing, but it held a house every Arab knew and came to from everywhere: the Kaaba, the first house set on earth for the worship of Allah alone. In Yemen there was a ruler named Abrahah. He watched people leave everything and head for Mecca, so he built a magnificent church to draw them to it instead — and nothing drew them. So he decided to destroy the Kaaba itself.",
+        keyMoment:
+          "Then the answer came from where nobody was watching: not from an army, not from a weapon, not from a man. {And He sent against them birds in flocks, striking them with stones of hard clay.} Small birds, flock following flock, carrying small stones and dropping them. And the whole army was finished. {And He made them like eaten straw} — like the leaves of a crop after the animals have eaten them and trampled what was left.",
+        resolution:
+          "The Kaaba was not touched by a single stone. The event was so great that the Arabs began to date things by it: this happened in the Year of the Elephant. And in that very year the Prophet Muhammad was born. There is a whole surah in the Quran called Al-Fil that tells you this story in five verses — the one you recite in your prayer.",
+        word: { term: "In flocks", meaning: "Groups of birds following one after another, not a single bird and not one flock." },
+        lessons: [
+          "Visible strength is not what decides things; an army with an elephant was turned back by small birds.",
+          "When you cannot push back against injustice, know that Allah has a plan you cannot see.",
+          "Love the House of Allah and respect it; it is the first house set down for people.",
+        ],
+        think:
+          "Abdul-Muttalib said \"the House has an Owner who will protect it,\" and he had no army and no weapon. Has something bigger than you ever happened that you could do nothing about? What did you do then?",
+        tryToday:
+          "Recite Surah Al-Fil in your prayer today, and as you recite it remember that Allah protects whoever cannot protect themselves.",
+      },
     },
     title: "قصة فيل أبرهة",
     surahName: "",
     image: "/stories/animals/elephant-of-abraha.jpg",
-    hook: "هل رأيتم فيلاً من قبل؟ إنه حيوان ضخم وقوي جداً. تخيلوا أن ملكاً شريراً أراد أن يستخدم هذا الفيل الضخم لهدم مكان مقدس نحبه جميعاً.. الكعبة! ولكن الفيل العجيب فاجأ الجميع وفعل شيئاً لم يتوقعه أحد! ما الذي فعله؟ دعونا نتعرف على قصة فيل أبرهة.",
-    events: "في قديم الزمان، كان هناك ملك شرير اسمه أبرهة. كان يغار كثيراً من الكعبة المشرفة في مكة لأن الناس يحبونها ويزورونها. فقرر أن يبني كنيسة كبيرة، لكن الناس لم يذهبوا إليها. غضب أبرهة جداً، وجهز جيشاً كبيراً ومعه فيل ضخم جداً اسمه (محمود) ليهدم الكعبة! وعندما وصل الجيش إلى مكة واقتربوا من الكعبة، أمروا الفيل محمود بالتقدم لهدمها.. ولكن الفيل جلس على الأرض ورفض التحرك! حاولوا ضربه وإجباره، لكنه لم يتحرك خطوة واحدة نحو الكعبة. فجأة، أرسل الله طيوراً صغيرة جداً، تحمل حجارة صغيرة، ورمتها على الجيش الشرير فهلكوا جميعاً، وحمى الله بيته الحرام، ونجا الفيل محمود لأنه لم يرد إيذاء الكعبة.",
+    hook:
+      "أكبر حيوان يمشي على الأرض، وأصغر طير يطير في السماء. في قصة اليوم يلتقيان في مكان واحد، وينتصر الصغير. فما الذي جاء الجيش كله من أجل هدمه؟ بيتٌ من حجارة، في وادٍ لا زرع فيه ولا ماء… الكعبة.",
+    events:
+      "جهّز أبرهة جيشًا كبيرًا، وفيه فيل ضخم لم يرَ أهل مكة مثله من قبل. وسار الجيش حتى بلغ أطراف مكة. ولم يكن لأهل مكة جيش يردّونه به، ولا قوة يقفون بها في وجهه. وجاء عبد المطلب — جدّ النبي ﷺ — يطلب إبله التي أخذها الجيش، فتعجّب أبرهة: أتسألني عن إبلك وتترك بيتًا جئت لأهدمه؟ فقال كلمة بقيت إلى اليوم: أنا ربّ الإبل، وللبيت ربٌّ يحميه. وتذكر كتب السيرة أن الفيل حين وجّهوه إلى الكعبة برك على الأرض ورفض أن يتقدّم، فإذا صرفوه إلى جهة أخرى قام وسار.",
     quranProse: "يقول الله تعالى في القرآن عن هذه القصة: {أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ}. وهي بداية سورة الفيل التي تذكرنا دائماً بكيف حمى الله الكعبة من أبرهة وجيشه.",
-    lesson: "نتعلم من قصة الفيل محمود أن الله قادر على حماية بيته وأشيائه المقدسة. ونتعلم أيضاً أن الحيوانات أحياناً تعرف الصح من الخطأ وتطيع الله أكثر من الأشرار. يجب علينا دائماً أن نحترم الأماكن المقدسة ونحبها.",
+    lesson:
+      "الله يحمي بيته ودينه، ولا يحتاج في حمايته إلى قوة تشبه قوة الظالمين.",
     next: "رأينا كيف رفض الفيل مساعدة الأشرار.. في قصتنا القادمة، سنتعرف على حيوان آخر، ولكن هذا الحيوان كان وفياً جداً لمجموعة من الأصدقاء الطيبين، ونام معهم لفترة طويييييلة جداً! من هو؟ وما هي قصة كلب أهل الكهف؟ انتظرونا!",
     source: {
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة الفيل؛ وتفاصيل الحادثة في كتب السيرة", en: "The Quran, Surah Al-Fil; the details of the event in the Seerah literature" },
-      note: { ar: "الحادثة وعاقبتها بنص السورة، واسم أبرهة وتفاصيل الجيش من كتب السيرة لا من القرآن.", en: "The event and its outcome are the surah's own words; Abrahah's name and the details of the army come from the Seerah literature, not the Quran." },
+      note: { ar: "الحادثة وعاقبتها بنص السورة. أما اسم أبرهة، وبروك الفيل، وكلام عبد المطلب، فمن كتب السيرة لا من القرآن، ولذلك نُسبت إليها في نص القصة.", en: "The event and its outcome are the surah's own words. Abrahah's name, the elephant kneeling and Abdul-Muttalib's reply come from the Seerah literature, not the Quran, which is why the story attributes them to it." },
     },
     challenge: {
       question: "ماذا فعل الفيل حين وصل إلى مكة؟",
@@ -1652,17 +1836,36 @@ export const stories: Story[] = [
       keepsake: "حصاة من سجّيل",
       note: "تذكّرك أن الله يحمي ما شاء بما شاء، ولو بطير صغير.",
     },
+    arc: {
+      idea: "جيشٌ كامل جاء ليهدم الكعبة، فردّه الله عنها بطيرٍ صغير.",
+      setting:
+        "قبل أن يولد النبي ﷺ، كانت مكة واديًا صغيرًا، لا نهر فيه ولا زرع، لكن فيه بيتًا يعرفه العرب كلهم ويأتون إليه من كل مكان: الكعبة، أوّل بيت وُضع في الأرض لعبادة الله وحده. وفي اليمن كان حاكم اسمه أبرهة. رأى الناس يتركون كل شيء ويقصدون مكة، فبنى كنيسة عظيمة ليصرفهم إليها، فلم يصرفهم شيء. فقرّر أن يهدم الكعبة نفسها.",
+      keyMoment:
+        "ثم جاء الردّ من حيث لا ينتظره أحد: لا من جيش، ولا من سلاح، ولا من رجل. ﴿وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ * تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ﴾. طيرٌ صغير، جماعات يتبع بعضها بعضًا، تحمل حجارة صغيرة فترمي بها. وانتهى الجيش كله. ﴿فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ﴾ — أي صاروا كورق الزرع بعد أن أكلته الدوابّ وداسته.",
+      resolution:
+        "ولم تُمسّ الكعبة بحجر واحد. وكان الأمر عظيمًا حتى صار العرب يؤرّخون به، فيقولون: كان هذا عام الفيل. وفي ذلك العام نفسه وُلد النبي محمد ﷺ. وفي القرآن سورة كاملة اسمها «الفيل» تحكي لك هذه القصة في خمس آيات، تقرؤها أنت اليوم في صلاتك.",
+      word: { term: "أبابيل", meaning: "جماعات من الطير يتبع بعضها بعضًا، لا طائر واحد ولا سِرب واحد." },
+      lessons: [
+        "القوة الظاهرة ليست هي التي تحسم؛ جيشٌ معه فيل ردّه طيرٌ صغير.",
+        "إذا عجزتَ عن دفع الظلم فاعلم أن لله تدبيرًا لا تراه أنت.",
+        "أحبَّ بيتَ الله واحترمه؛ فهو أوّل بيت وُضع للناس.",
+      ],
+      think:
+        "قال عبد المطلب: «للبيت ربٌّ يحميه»، وهو لا يملك جيشًا ولا سلاحًا. هل مرّ بك أمر أكبر منك لم تستطع أن تفعل فيه شيئًا؟ ماذا فعلت وقتها؟",
+      tryToday:
+        "اقرأ سورة الفيل اليوم في صلاتك، وتذكّر وأنت تقرؤها أن الله يحمي من لا يستطيع أن يحمي نفسه.",
+    },
   },
   {
     chapter: "animals", slug: "dog-of-the-cave",
     en: {
       title: "The Loyal Dog of the Cave",
       hook:
-        "Have you ever had a loyal pet that always protected you? Let's meet the most famous and loyal dog in history, who slept for hundreds of years!",
+        "The Quran names prophets, kings and nations. It also names… a dog. One dog, who did nothing great, said nothing, carried no message. All it did was follow its companions and refuse to leave them. So why did Allah mention it in His book?",
       events:
-        "When the smart young men (The People of the Cave) ran away from the evil king to protect their faith, a loyal dog followed them. The young men hid inside a dark cave, and the brave dog sat right at the entrance, stretching his paws to guard them. Allah made the young men fall into a deep sleep, and the dog slept too! They stayed like that for 309 years. Anyone who looked at the cave would be too scared to enter because the loyal dog looked like a fierce guard. Allah honored this dog by mentioning him in the Holy Quran alongside the righteous believers.",
+        "As they left, the young men prayed: {Our Lord, grant us mercy from Yourself and prepare for us right guidance in our affair.} They walked until they found a cave in a mountain and went inside. The dog did not go in with them; it settled at the entrance and stretched out its forelegs. And there Allah cast sleep over them. It was no ordinary sleep: {And they remained in their cave for three hundred years and exceeded by nine.}",
       lesson:
-        "Being loyal and staying with good, righteous friends brings honor and blessings, even for an animal!",
+        "Company lifts the one who keeps it — so look carefully at who you walk beside.",
       next:
         "The dog was a loyal guard. In our next story, we will read about a bright yellow cow that helped solve a great mystery! It's the Cow of the Children of Israel!",
       quranProse:
@@ -1678,14 +1881,36 @@ export const stories: Story[] = [
         keepsake: "The dog's collar",
         note: "A reminder that keeping company with the righteous lifts you — even the dog is mentioned in the Quran because it stayed with them.",
       },
+      arc: {
+        idea: "A dog followed its companions to the cave and would not leave them, and was mentioned in the Quran alongside them.",
+        setting:
+          "In an old city ruled by a king who forced people to worship idols, a group of young men believed in Allah alone. They were few, and they knew their king would not leave them alone. So they met and made a very hard decision: to leave their homes, their families and their whole city, and go out with their faith. They did not know where they were going, or how long they would be gone, or whether they would return. And when they left, their dog followed them.",
+        keyMoment:
+          "Here is the sentence this story is told for. Allah did not say \"and they slept, and their dog with them.\" He said: {And their dog stretching out his forelegs at the entrance.} He mentioned the dog — where it was, and how it lay with its forelegs out at the threshold. An animal that carries no duty and faces no reckoning, and yet it entered the Book of Allah, read by people until the last day, because it stayed with the righteous and did not leave them.",
+        resolution:
+          "Then Allah woke them after three hundred and nine years, and they thought they had stayed a day or part of a day. They sent one of them with their silver coins to buy food — and the coins were ancient, known to no one, and the city had changed entirely, and its people worshipped Allah. So the people learned of them, and knew that Allah's promise is true and the Hour is coming. Then Allah said of them: {So do not argue about them except with an obvious argument} — do not go on disputing their number; the number was never the lesson.",
+        word: { term: "The threshold", meaning: "The entrance of the cave, its opening from the outside — exactly where the dog lay." },
+        lessons: [
+          "Choose your friends for their faith; the dog is in the Quran because of who it was with.",
+          "Loyalty is staying with people when the road gets hard, not when it is easy.",
+          "Do not spend yourself on details that do not help; Allah forbade arguing over their number.",
+        ],
+        think:
+          "The dog followed its companions to a place it did not know, for a time it could not measure. Who are the friends you would follow into something difficult? And why those ones in particular?",
+        tryToday:
+          "Think of one friend who brings you closer to what is good, and call them or sit with them today.",
+      },
     },
     title: "قصة كلب أهل الكهف",
     surahName: "",
     image: "/stories/animals/dog-of-the-cave.jpg",
-    hook: "هل لديكم حيوان أليف تحبونه ويحبكم؟ ماذا لو كان لديكم كلب وفي جداً، يذهب معكم في مغامرة للهروب من ملك ظالم، ثم ينام معكم في كهف لمئات السنين وهو يحرسكم! قصة خيالية؟ لا، إنها قصة حقيقية! تعالوا نتعرف على قصة كلب أهل الكهف.",
-    events: "كان هناك مجموعة من الفتية الشباب الطيبين، يعيشون في مدينة يحكمها ملك ظالم يجبر الناس على عبادة الأصنام. لكن هؤلاء الشباب كانوا مؤمنين ويعبدون الله وحده. قرر الشباب الهروب بدينهم حتى لا يؤذيهم الملك الشرير. في طريقهم، تبعهم كلبهم الوفي ولم يرضَ أن يتركهم. دخل الشباب إلى كهف مهجور في جبل ليختبئوا فيه، وجلس الكلب عند باب الكهف ليحرسهم. وهناك، حدثت المعجزة! ألقى الله عليهم النوم، فناموا هم وكلبهم نومة طويلة جداً.. ناموا لمدة ثلاثمائة وتسع سنين! طوال هذه المدة، كان الكلب نائماً عند الباب، يبدو وكأنه مستيقظ ومخيف ليمنع أي شخص من الاقتراب من أصدقائه. ولما استيقظوا، كان الملك الظالم قد مات، وأصبحت المدينة كلها تعبد الله.",
+    hook:
+      "في القرآن أسماء أنبياء وملوك وأقوام. وفيه أيضًا… كلب. كلب واحد، لم يفعل شيئًا عظيمًا، ولم يتكلّم، ولم يحمل رسالة. كل ما فعله أنه تبع أصحابه ولم يتركهم. فلماذا ذكره الله في كتابه؟",
+    events:
+      "قال الفتية وهم خارجون: ﴿رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا﴾. ومشَوا حتى وجدوا كهفًا في جبل فدخلوه. أما الكلب فلم يدخل معهم إلى الداخل؛ جلس عند الباب ومدّ ذراعيه. وهناك ضرب الله على آذانهم — أي ألقى عليهم النوم — فناموا. ولم يكن نومًا عاديًّا: ﴿فَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا﴾.",
     quranProse: "يصف القرآن الكريم مشهد الكلب وهو يحرسهم فيقول: {وَكَلْبُهُم بَاسِطٌ ذِرَاعَيْهِ بِالْوَصِيدِ}. الوصيد هو باب الكهف، والآية ترسم صورة جميلة لوفاء هذا الكلب لأصحابه.",
-    lesson: "نتعلم من هذه القصة الرائعة معنى الوفاء والإخلاص للأصدقاء، تماماً كما فعل الكلب. ونتعلم أيضاً أن الله يحمي دائماً من يؤمن به ويتوكل عليه، حتى لو اضطررنا للهروب والاختباء.",
+    lesson:
+      "الصحبة ترفع صاحبها؛ فانظر جيدًا في من تمشي معه.",
     next: "كان الكلب وفياً ونام طويلاً.. لكن ماذا لو طلب نبي من قومه أن يبحثوا عن بقرة بلون وشكل محدد جداً لحل لغز محير؟ قصة غريبة ومليئة بالأسئلة، وهذا ما سنعرفه في قصة بقرة بني إسرائيل!",
     source: {
       reliability: "🟢",
@@ -1703,17 +1928,36 @@ export const stories: Story[] = [
       keepsake: "طوق الكلب",
       note: "تذكّرك أن مجالسة الصالحين ترفع، حتى الكلب ذُكر في القرآن لأنه كان معهم.",
     },
+    arc: {
+      idea: "كلبٌ تبع أصحابه إلى الكهف ولم يتركهم، فذُكر في القرآن معهم.",
+      setting:
+        "في مدينة قديمة يحكمها ملك يُجبر الناس على عبادة الأصنام، عاش فتية شباب آمنوا بالله وحده. كانوا قلّة، وكانوا يعرفون أن ملكهم لن يتركهم في حالهم. فاجتمعوا وقرّروا أمرًا صعبًا جدًّا: أن يتركوا بيوتهم وأهلهم ومدينتهم كلها، ويخرجوا بدينهم. لا يعرفون إلى أين يذهبون، ولا كم سيغيبون، ولا هل سيرجعون. وحين خرجوا، تبعهم كلبهم.",
+      keyMoment:
+        "والآن الكلمة التي من أجلها تُحكى هذه القصة. لم يقل الله: وناموا وكلبهم معهم. قال: ﴿وَكَلْبُهُم بَاسِطٌ ذِرَاعَيْهِ بِالْوَصِيدِ﴾. ذكر الكلب، وذكر أين كان، وكيف كان مادًّا ذراعيه عند الباب. حيوان لا يُؤمر ولا يُحاسَب، ومع ذلك دخل في كتاب الله يقرؤه الناس إلى يوم القيامة — لأنه كان مع الصالحين ولم يفارقهم.",
+      resolution:
+        "ثم أيقظهم الله بعد ثلاثمائة وتسع سنين، وهم يظنّون أنهم لبثوا يومًا أو بعض يوم. فأرسلوا واحدًا منهم بورقهم — أي بنقودهم — يشتري طعامًا، فإذا النقود قديمة لا يعرفها أحد، وإذا المدينة قد تغيّرت كلها، وإذا أهلها يعبدون الله. فعرف الناس أمرهم، وعلموا أن وعد الله حقّ وأن الساعة آتية. ثم قال الله عنهم: ﴿فَلَا تُمَارِ فِيهِمْ إِلَّا مِرَاءً ظَاهِرًا﴾ — أي لا تُطِل الجدال في عددهم؛ فالعدد ليس هو الدرس.",
+      word: { term: "الوَصِيد", meaning: "عتبة الكهف، أي مدخله من الخارج — وهناك بالضبط جلس الكلب." },
+      lessons: [
+        "اختر أصحابك على دينهم؛ فالكلب ذُكر في القرآن لأنه كان معهم.",
+        "الوفاء أن تبقى مع من معك حين يصعب الطريق، لا حين يسهل.",
+        "لا تشغل نفسك بتفصيل لا ينفعك؛ فقد نهى الله عن الجدال في عددهم.",
+      ],
+      think:
+        "تبع الكلبُ أصحابه إلى مكان لا يعرفه ولا يعرف كم سيبقى فيه. من هم أصحابك الذين لو ذهبوا إلى أمر صعب ذهبتَ معهم؟ ولماذا هم بالذات؟",
+      tryToday:
+        "فكّر اليوم في صاحب واحد يقرّبك من الخير، ثم اتّصل به أو اجلس معه.",
+    },
   },
   {
     chapter: "animals", slug: "cow-of-israel",
     en: {
       title: "The Yellow Cow of the Children of Israel",
       hook:
-        "Have you ever seen a bright, beautiful yellow cow? Today's story is a great mystery about a crime, and a special cow was the key to solving it!",
+        "What happens if your father asks you for something simple, and you start asking: which one? what colour? where from? when? In today's story, a people did exactly that with a command that came from Allah. And at the start, the command was very easy.",
       events:
-        "A long time ago, a man from the Children of Israel was killed, and no one knew who did it. They went to Prophet Musa (Moses) for help. Musa told them that Allah commands them to slaughter a cow. Instead of just obeying and picking any cow, they started asking too many stubborn questions: 'What color is it? How old is it? What does it do?' Because they made it hard on themselves, Allah made the description very rare: it had to be a bright yellow cow, not too old, not too young, and never used for farming. When they finally found it and followed the command, a miracle happened, and the mystery was solved!",
+        "The command came through Musa: {Indeed, Allah commands you to slaughter a cow.} A cow. Any cow. It would have been enough to take the first cow they found, and the matter would have been over. But they began asking: which one? what colour? what work does it do? And with every question the matter narrowed on them. It became a cow neither old nor young, then {a yellow cow, bright in colour, pleasing to the observers}, then a cow never yoked to plough the earth or water the field, sound and without blemish. Until almost no cow on earth would do but one.",
       lesson:
-        "When we receive a clear command from Allah or our parents, we should obey immediately without arguing or asking too many unnecessary questions.",
+        "When a clear instruction reaches you, start doing it; asking on and on without need turns the easy thing hard.",
       next:
         "The cow solved a mystery for people who asked too many questions. Our next animal was the answer to a question too — a giant camel that walked straight out of a mountain! It's the Camel of Prophet Salih!",
       quranProse:
@@ -1729,14 +1973,36 @@ export const stories: Story[] = [
         keepsake: "The cow's horn",
         note: "A reminder that making obedience harder than Allah made it only weighs you down.",
       },
+      arc: {
+        idea: "One simple command, and question after question that made it harder and harder.",
+        setting:
+          "In the time of Musa, peace be upon him, a crime took place among the Children of Israel: a man was found killed and no one knew who had killed him. People began accusing one another, and the trouble was about to grow until it poisoned the whole town. So they went to Musa and asked him to pray to Allah to show them the truth. That is the moment the command reached them.",
+        keyMoment:
+          "Then Allah said of them one very short sentence, and it is the most important line in the story: {So they slaughtered her, but they could hardly do it.} They did it in the end — and they nearly did not. All that questioning and insisting had not given them more knowledge; it had given them exhaustion and hesitation. The command that first reached them was far wider than what they narrowed it to themselves.",
+        resolution:
+          "Then Allah commanded them to strike the dead man with part of the cow. They did, and Allah brought him to life for a moment; he named the one who had killed him, and returned as he was. The accusations ended and the truth was known. Then Allah closed the story: {Thus does Allah bring the dead to life, and He shows you His signs that you might reason.} The story was never about a cow. It was about this: the One who brought that man back can bring all of you back.",
+        word: { term: "Bright in colour", meaning: "A deep, clear yellow — a colour that gives pleasure to whoever looks at it." },
+        lessons: [
+          "Do what you understood of the instruction; do not go looking for a difficulty that is not in it.",
+          "Ask in order to understand, not in order to delay.",
+          "The One who brings a single dead man back can bring all people back.",
+        ],
+        think:
+          "The Children of Israel asked many questions before doing what they were told. Has there been a day when you kept asking about something you already knew was right? What was stopping you from starting?",
+        tryToday:
+          "Pick one thing your mother or father asked of you today, and do it straight away without a single question.",
+      },
     },
     title: "قصة بقرة بني إسرائيل",
     surahName: "",
     image: "/stories/animals/cow-of-israel.jpg",
-    hook: "هل تحبون حل الألغاز؟ تخيلوا أن هناك جريمة غامضة لا أحد يعرف من قام بها، والحل الوحيد لحل هذا اللغز يكمن في.. بقرة! نعم، بقرة صفراء جميلة جداً. كيف ساعدت هذه البقرة في كشف الحقيقة؟ تعالوا نتعرف على قصة بقرة بني إسرائيل.",
-    events: "في زمان سيدنا موسى عليه السلام، وقعت مشكلة كبيرة بين قومه (بني إسرائيل). فقد وُجد رجل مقتول، ولم يعرف أحد من هو القاتل، وبدأ الناس يتهمون بعضهم البعض. ذهبوا إلى سيدنا موسى وطلبوا منه أن يدعو الله ليكشف لهم الحقيقة. أوحى الله لموسى أن يأمرهم بذبح بقرة. استغرب القوم وبدؤوا يطرحون أسئلة كثيرة بدلاً من أن ينفذوا الأمر فوراً! سألوا عن عمرها، ولونها، وعملها. فشدد الله عليهم، وأخبرهم أنها يجب أن تكون بقرة لونها أصفر فاقع وجميل جداً، ولا تعمل في حراثة الأرض. بحثوا طويلاً حتى وجدوا البقرة المطلوبة عند ولد يتيم كان باراً بوالديه. اشتروها بوزنها ذهباً! وبعد ذبحها، أمرهم الله أن يضربوا المقتول بجزء منها، فحدثت المعجزة: أحيا الله الرجل للحظات، وأخبرهم باسم القاتل، ثم مات مرة أخرى.",
+    hook:
+      "ماذا يحدث لو طلب منك أبوك شيئًا بسيطًا، فبدأتَ تسأل: أيّ واحد؟ وما لونه؟ ومن أين آتي به؟ ومتى؟ في قصة اليوم، قومٌ فعلوا هذا مع أمرٍ جاءهم من الله. وكان الأمر في أوّله سهلًا جدًّا.",
+    events:
+      "جاءهم الأمر على لسان موسى: ﴿إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً﴾. بقرة. أيّ بقرة. وكان يكفي أن يأخذوا أوّل بقرة يجدونها وينتهي الأمر. لكنهم بدأوا يسألون: ما هي؟ ما لونها؟ ما عملها؟ وكلّما سألوا ضاق عليهم الأمر. صارت بقرة لا صغيرة ولا كبيرة، ثم ﴿صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ﴾، ثم بقرة لم تُذلَّل في حرث الأرض ولا في سقي الزرع، سالمة لا عيب فيها. حتى لم تكد تصلح لهم إلا بقرة واحدة.",
     quranProse: "يصف القرآن جمال لون هذه البقرة فيقول: {قَالَ إِنَّهُ يَقُولُ إِنَّهَا بَقَرَةٌ صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ}. أي أن لونها جميل جداً ويسعد من ينظر إليها.",
-    lesson: "نتعلم من هذه القصة درساً مهماً: لا يجب علينا أن نكثر الأسئلة والتعقيدات عندما يطلب منا المعلم أو الوالدان شيئاً بسيطاً. ونتعلم أيضاً أن طاعة الوالدين (كما فعل الولد اليتيم) تجلب الخير الكثير، وأن الله قادر على إحياء الموتى.",
+    lesson:
+      "إذا جاءك أمر واضح فابدأ بالعمل؛ فكثرة السؤال بغير حاجة تُصعّب السهل.",
     next: "ساعدت البقرة في حل لغز كبير.. ولكن في قصتنا القادمة، سنتعرف على حيوان كان هو نفسه معجزة! حيوان خرج من الصخرة الصلبة! هل تتخيلون ذلك؟ إنها ناقة سيدنا صالح، فانتظرونا!",
     source: {
       reliability: "🟢",
@@ -1754,17 +2020,36 @@ export const stories: Story[] = [
       keepsake: "قرن البقرة",
       note: "تذكّرك أن التشديد على النفس في الطاعة يجعلها أثقل مما أرادها الله.",
     },
+    arc: {
+      idea: "أمرٌ واحد بسيط، وسؤالٌ بعد سؤال جعله أصعب فأصعب.",
+      setting:
+        "في زمن سيدنا موسى عليه السلام، وقعت في بني إسرائيل جريمة: وُجد رجل مقتول ولم يُعرف من قتله. فبدأ الناس يتّهم بعضهم بعضًا، وكادت المشكلة تكبر حتى تفسد المدينة كلها. فذهبوا إلى موسى يسألونه أن يدعو الله ليكشف لهم الحقيقة. وهذا هو الموقف الذي جاءهم فيه الأمر.",
+      keyMoment:
+        "ثم قال الله عنهم جملة قصيرة جدًّا هي أهمّ ما في القصة: ﴿فَذَبَحُوهَا وَمَا كَادُوا يَفْعَلُونَ﴾. أي: ذبحوها في آخر الأمر، وكادوا ألّا يفعلوا. كل ذلك السؤال والتشديد لم يزدهم علمًا، بل زادهم تعبًا وتردّدًا. والأمر الذي جاءهم في أوّله كان أوسع بكثير مما انتهوا إليه بأنفسهم.",
+      resolution:
+        "ثم أمرهم الله أن يضربوا القتيل بجزء من البقرة، ففعلوا، فأحياه الله لحظة فأخبر بمن قتله، ثم عاد كما كان. فانتهت التهم وعُرف الحقّ. ثم ختم الله القصة بقوله: ﴿كَذَٰلِكَ يُحْيِي اللَّهُ الْمَوْتَىٰ وَيُرِيكُمْ آيَاتِهِ لَعَلَّكُمْ تَعْقِلُونَ﴾. فالقصة لم تكن عن بقرة؛ كانت عن أن الذي أحيا هذا القتيل قادر أن يحييكم جميعًا.",
+      word: { term: "فاقِع", meaning: "شديد الصفرة صافيها، لونٌ يَسُرّ من ينظر إليه." },
+      lessons: [
+        "نفّذ ما فهمتَه من الأمر، ولا تبحث عن تعقيد ليس فيه.",
+        "اسأل لتفهم، لا لتؤجّل.",
+        "الذي يُحيي ميتًا واحدًا قادر أن يُحيي الناس كلهم.",
+      ],
+      think:
+        "سأل بنو إسرائيل أسئلة كثيرة قبل أن يفعلوا ما أُمروا به. هل مرّ بك يوم أطلتَ فيه السؤال عن شيء تعرف أنه الصواب؟ ما الذي كان يمنعك من أن تبدأ؟",
+      tryToday:
+        "اختر اليوم أمرًا واحدًا طلبه منك أبوك أو أمك، ونفّذه فورًا بغير سؤال واحد.",
+    },
   },
   {
     chapter: "animals", slug: "camel-of-saleh",
     en: {
       title: "The Miracle Camel of Prophet Salih",
       hook:
-        "Can a giant camel walk right out of a mountain rock? It sounds impossible, but with Allah, everything is possible! Let's discover the story of the miracle camel.",
+        "If you asked Allah for a sign and then saw it with your own eyes, what would you do next? In today's story, a people asked for a sign and it came. It walked among them and drank from their water. Then they decided to end the matter with their own hands.",
       events:
-        "The people of Prophet Salih (Thamud) were very stubborn. They asked him for an impossible miracle to believe him: they wanted a huge, beautiful pregnant camel to come out of a solid mountain rock! Prophet Salih prayed to Allah, and the rock actually split open, and out walked the amazing camel! The Prophet told them to let her drink from the well and never harm her. But the bad people didn't listen and hurt the camel, so Allah punished them.",
+        "The sign came: a she-camel. {This is the she-camel of Allah, a sign for you.} The commentators say she came out of a rock for them; that is not in the Quran. What was asked of them was not hard: leave her to eat in Allah's earth, and share the water with her — {For her is a drink, and for you is a drink, each on a known day.} One day hers, one day theirs. And Salih warned them: {And do not touch her with harm, lest the punishment of a great day seize you.} A few believed; most stayed as they were. And every day the camel walked among them, reminding them of what they did not want to remember.",
       lesson:
-        "We must always respect Allah's miracles and treat animals with great kindness and care, never hurting them.",
+        "Kindness to animals is part of this religion, and injustice is never forgotten by Allah, however small it looks to the one doing it.",
       next:
         "The camel was a sign that its people refused to respect. In our last animal story, a humble donkey becomes proof of something amazing: that Allah can bring the dead back to life!",
       quranProse:
@@ -1780,19 +2065,41 @@ export const stories: Story[] = [
         keepsake: "The camel's footprint",
         note: "A reminder that harming an animal is not forgotten with Allah.",
       },
+      arc: {
+        idea: "A she-camel who was a sign from Allah, and a people who chose to kill her.",
+        setting:
+          "Thamud were a strong people. Allah gave them strength in their bodies and skill in their hands, until they were carving their houses out of mountains: {And you carve out of the mountains, homes, with skill.} So Allah sent them Salih, peace be upon him — one of them, whose honesty they knew — calling them to worship Allah alone and leave the idols. And they asked him for a sign that he was truly a messenger.",
+        keyMoment:
+          "A group of them agreed on something, and then the worst of them went out and hamstrung the camel. {So they hamstrung her, and became regretful.} Notice the last word: they regretted it. They really did. But the regret came after the act, and the act does not come back. How many things do we do in a moment of anger or defiance, and then spend a long time wishing we had not.",
+        resolution:
+          "Allah gave them three days: {Enjoy yourselves in your homes for three days. That is a promise not to be denied.} Three whole days to turn back, and they did not. Then the blast seized them and they lay lifeless in their homes, and Allah saved Salih and those who believed with him. Their carved houses stayed in the mountains for people after them to walk past — the strength they built with was no use to them on the day they needed it.",
+        word: { term: "Hamstrung", meaning: "Cut her down and killed her — the Quran's word is for something done by hand, not something that happened by accident." },
+        lessons: [
+          "Do not harm an animal that has not harmed you; Allah destroyed a people over one camel.",
+          "Regret after the act does not undo it; stop before you act, not after.",
+          "Protect the right of whoever cannot demand their own right.",
+        ],
+        think:
+          "Thamud had three full days to turn back from what they had done. If you had three days to put right something you got wrong, what would you start with?",
+        tryToday:
+          "If you see an animal today — a cat, a bird, even an ant — do not harm it, and put out water for it if you can.",
+      },
     },
     title: "قصة ناقة صالح",
     surahName: "",
     image: "/stories/animals/camel-of-saleh.jpg",
-    hook: "هل يمكن لحيوان كبير أن يخرج من صخرة قاسية في الجبل؟ الأشرار طلبوا هذا الطلب المستحيل لتعجيز النبي، لكن الله أخرج لهم معجزة مدهشة، ناقة ضخمة وجميلة خرجت من الحجر! ماذا حدث لهذه الناقة العجيبة؟ هيا نكتشف قصة ناقة سيدنا صالح.",
-    events: "كان سيدنا صالح نبياً أرسله الله إلى قوم اسمهم (ثمود)، كانوا أقوياء جداً وينحتون بيوتهم داخل الجبال. لم يصدقوا سيدنا صالحاً وطلبوا منه معجزة غريبة جداً ليؤمنوا به: أرادوا أن تخرج ناقة كبيرة من صخرة معينة في الجبل! دعا سيدنا صالح ربه، فاستجاب الله له، وانشقت الصخرة، وخرجت منها ناقة ضخمة وجميلة. آمن بعض الناس، لكن الأشرار بقوا على عنادهم. طلب سيدنا صالح من قومه أن يتركوا الناقة تأكل وتشرب بأمان، وأن يخصصوا لها يوماً لتشرب الماء وحدها، واليوم الآخر يشربون هم. لكن الأشرار لم يعجبهم ذلك، وقرروا قتل الناقة! عندما قتلوها، غضب الله عليهم غضباً شديداً، وأهلكهم بعذاب أليم بسبب ظلمهم وعنادهم.",
+    hook:
+      "لو طلبتَ علامة من الله ثم رأيتها بعينيك، فماذا تفعل بعدها؟ في قصة اليوم، قومٌ طلبوا علامة فجاءتهم، فصارت تمشي بينهم وتشرب من مائهم. ثم قرّروا أن ينهوا الأمر بأيديهم.",
+    events:
+      "فجاءتهم الآية: ناقة. ﴿هَٰذِهِ نَاقَةُ اللَّهِ لَكُمْ آيَةً﴾. ويذكر المفسرون أنها خرجت لهم من صخرة، وهذا ليس في القرآن. ولم يكن المطلوب منهم صعبًا: أن يدَعوها تأكل في أرض الله، وأن يتقاسموا معها الماء: ﴿لَهَا شِرْبٌ وَلَكُمْ شِرْبُ يَوْمٍ مَّعْلُومٍ﴾ — يوم لها ويوم لهم. وحذّرهم صالح: ﴿وَلَا تَمَسُّوهَا بِسُوءٍ فَيَأْخُذَكُمْ عَذَابُ يَوْمٍ عَظِيمٍ﴾. فآمن قليل منهم، وبقي أكثرهم على عناده. والناقة تمشي بينهم كل يوم، تذكّرهم بما لا يريدون أن يتذكّروه.",
     quranProse: "يقول الله تعالى في القرآن عن هذا الأمر: {قَالَ هَذِهِ نَاقَةٌ لَّهَا شِرْبٌ وَلَكُمْ شِرْبُ يَوْمٍ مَّعْلُومٍ * وَلَا تَمَسُّوهَا بِسُوءٍ فَيَأْخُذَكُمْ عَذَابُ يَوْمٍ عَظِيمٍ}. أي أنه حذرهم من إيذائها.",
-    lesson: "نتعلم من قصة ناقة صالح أن الله قوي وقادر على كل شيء، وأن المعجزات هي دليل على قدرته. ونتعلم أيضاً أننا يجب أن نفي بالوعود ونحذر من إيذاء الحيوانات الطيبة التي لم تؤذنا، وأن عاقبة الظلم سيئة جداً.",
+    lesson:
+      "الرفق بالحيوان دين، والظلم لا يُنسى عند الله وإن بدا في عين صاحبه صغيرًا.",
     next: "ناقة خرجت من صخرة.. معجزة عجيبة! وفي قصتنا الأخيرة من هذه المجموعة، سنتعرف على قصة رجل نام لمدة مائة عام، ولما استيقظ، وجد طعامه كما هو، لكن حماره تحول إلى عظام! كيف ذلك؟ هذه هي قصة حمار عزير!",
     source: {
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأعراف: 73-79 والشمس: 11-15 والقمر: 27-31", en: "The Quran, Al-A'raf: 73-79, Ash-Shams: 11-15, Al-Qamar: 27-31" },
-      note: { ar: "الناقة آية، وقسمة الماء، وعقرها، وعاقبة القوم، كله بنص الآيات.", en: "The she-camel as a sign, the sharing of the water, her hamstringing and the people's end are all in the verses." },
+      note: { ar: "الناقة آية، وقسمة الماء، وعقرها، وإمهالهم ثلاثًا، وعاقبة القوم، كله بنص الآيات. أما خروجها من صخرة فقول للمفسرين ليس في القرآن، ولذلك نُسب إليهم في نص القصة.", en: "The she-camel as a sign, the sharing of the water, her hamstringing, the three days' respite and the people's end are all in the verses. Her coming out of a rock is a commentators' account, not in the Quran, which is why the story attributes it to them." },
     },
     challenge: {
       question: "ماذا فعل قوم ثمود بالناقة؟",
@@ -1805,17 +2112,36 @@ export const stories: Story[] = [
       keepsake: "خفّ الناقة",
       note: "تذكّرك أن إيذاء حيوان لا يُنسى عند الله.",
     },
+    arc: {
+      idea: "ناقةٌ كانت علامةً من الله، وقومٌ اختاروا أن يقتلوها.",
+      setting:
+        "ثمود قوم أقوياء، أعطاهم الله قوّة في أجسادهم وعلمًا في أيديهم، حتى صاروا ينحتون بيوتهم في الجبال نحتًا: ﴿وَتَنْحِتُونَ مِنَ الْجِبَالِ بُيُوتًا فَارِهِينَ﴾. فأرسل الله إليهم صالحًا عليه السلام، وهو منهم يعرفونه ويعرفون صدقه، يدعوهم أن يعبدوا الله وحده ويتركوا الأصنام. فطلبوا منه علامة تدلّ على أنه رسول.",
+      keyMoment:
+        "فاتّفق نفر منهم على أمر، ثم خرج أشقاهم فعقر الناقة. ﴿فَعَقَرُوهَا فَأَصْبَحُوا نَادِمِينَ﴾. وانتبه إلى الكلمة الأخيرة: ندموا. ندموا فعلًا. لكنّ الندم جاء بعد أن وقع الفعل، والفعل لا يرجع. وكم من شيء نفعله في لحظة غضب أو تحدٍّ، ثم نقضي وقتًا طويلًا نتمنّى لو أنّا لم نفعله.",
+      resolution:
+        "وأمهلهم الله ثلاثة أيام: ﴿تَمَتَّعُوا فِي دَارِكُمْ ثَلَاثَةَ أَيَّامٍ ذَٰلِكَ وَعْدٌ غَيْرُ مَكْذُوبٍ﴾. ثلاثة أيام كاملة ليرجعوا فيها، فلم يرجعوا. ثم أخذتهم الصيحة فأصبحوا في ديارهم جاثمين، ونجّى الله صالحًا والذين آمنوا معه. وبقيت بيوتهم المنحوتة في الجبال يمرّ عليها الناس بعدهم؛ فالقوّة التي بنَوا بها لم تنفعهم يومَ احتاجوا إليها.",
+      word: { term: "عَقَرُوها", meaning: "نحروها وقتلوها — والكلمة في القرآن تدلّ على فعلٍ بيدٍ، لا على أمرٍ وقع بغير قصد." },
+      lessons: [
+        "لا تؤذِ حيوانًا لم يؤذك؛ فقد أهلك اللهُ قومًا بسبب ناقة.",
+        "الندم بعد الفعل لا يردّه؛ فتوقّف قبل أن تفعل، لا بعده.",
+        "احفظ حقّ من لا يستطيع أن يطالب بحقّه.",
+      ],
+      think:
+        "كان أمام ثمود ثلاثة أيام كاملة ليرجعوا عمّا فعلوا. لو كان أمامك ثلاثة أيام لتصلح شيئًا أخطأتَ فيه، فبماذا كنت ستبدأ؟",
+      tryToday:
+        "إذا رأيت اليوم حيوانًا — قطًّا أو طائرًا أو حتى نملة — فلا تؤذه، وضَع له ماءً إن استطعت.",
+    },
   },
   {
     chapter: "animals", slug: "donkey-of-uzair",
     en: {
       title: "The Donkey of Uzair",
       hook:
-        "How can an animal turn completely into dry bones and then come back to life in a few seconds? Get ready to witness a mind-blowing miracle!",
+        "Imagine sleeping, then waking to find your food exactly as you left it, unchanged — but the one who had been standing beside you is now worn bones. So how long did you sleep? A day? In today's story a man lived exactly this, and the answer was: a hundred years.",
       events:
-        "A righteous man named Uzair was riding his donkey when he passed by a completely ruined, dead town. He wondered, 'How will Allah bring this town back to life after its death?' To show him His immense power, Allah made Uzair die for 100 years, and then brought him back to life! Uzair's food and drink were perfectly fresh, but his poor donkey had turned into dry bones. While Uzair was watching, Allah commanded the bones of the donkey to come together, covered them with flesh, and breathed life into it. The donkey stood up alive again!",
+        "He said: {How will Allah bring this to life after its death?} — how will Allah restore this town after it has fallen? And Allah did not answer him with words he could hear. {So Allah caused him to die for a hundred years; then He revived him.} A hundred full years. Then He brought him back and asked: {How long have you remained?} He said: {I have remained a day or part of a day.} He was told: {Rather, you have remained a hundred years.}",
       lesson:
-        "This incredible miracle proves that Allah has the absolute power to bring the dead back to life, and nothing is impossible for Him.",
+        "The One who brings bones to life after a hundred years is able to do anything.",
       next:
         "And with this amazing miracle, we wrap up our animal stories!",
       quranProse:
@@ -1831,14 +2157,36 @@ export const stories: Story[] = [
         keepsake: "A fig and a grape",
         note: "A reminder that the One who revives bones after a century is able to do anything.",
       },
+      arc: {
+        idea: "A man asked how Allah could revive such ruin — and Allah showed him the answer in the nearest thing to him.",
+        setting:
+          "A righteous man passed by a ruined town, {and it had fallen into ruin upon its roofs} — its roofs had collapsed onto its walls and no one was left in it. With him were his donkey, his food and his drink. He stood looking at all that ruin, and a question came to him. It was not a question of denial; it was the question of someone who has seen with his own eyes something hard to imagine coming back.",
+        keyMoment:
+          "Then the signs came, one after another. {Look at your food and your drink; it has not changed with time} — food a hundred years old that had not spoiled. {And look at your donkey} — and the donkey was worn bones. Then: {And look at the bones — how We raise them and then We cover them with flesh.} He watched with his own eyes as the bones gathered and were joined together and covered with flesh, until the donkey stood alive in front of him. He had asked about reviving a town, and Allah showed him reviving in the nearest thing to him.",
+        resolution:
+          "{And when it became clear to him, he said, I know that Allah is over all things competent.} It was no longer something he had heard; it was something he had seen. And Allah had said to him before that: {And that We may make you a sign for the people} — this man himself became a sign, his story told by people after him until today. And you are now one of those people.",
+        word: { term: "Has not changed with time", meaning: "Did not spoil or alter, though the years passed over it." },
+        lessons: [
+          "Ask in order to understand; the man asked, and Allah showed him the answer without blaming him.",
+          "What your mind cannot manage, your Lord is not unable to do.",
+          "Resurrection after death is true, and a man before us saw it with his own eyes.",
+        ],
+        think:
+          "The man saw the answer with his own eyes, and we have not. What makes you believe in something you have not seen? And what is the biggest thing you believe in without ever having seen it?",
+        tryToday:
+          "Look at one small living thing today — a plant, a bird — and say to yourself: the One who gave this life is able to give me life after my death.",
+      },
     },
     title: "قصة حمار عزير",
     surahName: "",
     image: "/stories/animals/donkey-of-uzair.jpg",
-    hook: "تخيلوا أن تناموا لفترة طويلة جداً، مائة عام كاملة! وعندما تستيقظون، تجدون طعامكم طازجاً كما تركتموه، لكن حماركم الذي كان بجواركم أصبح مجرد عظام! قصة غريبة جداً توضح لنا قدرة الله العجيبة. تعالوا نستمع لقصة حمار عزير.",
-    events: "كان هناك رجل صالح اسمه عزير، يركب حماره ويمر بقرية مدمرة تماماً، لا يوجد فيها أحد حي. فكر عزير في نفسه وقال متعجباً: 'كيف يحيي الله هذه القرية بعد موتها؟'. أراد الله أن يري عزيراً قدرته العظيمة، فأماته الله لمدة مائة عام كاملة! ولما أحياه الله بعد المائة عام، سأله: 'كم لبثت؟' (أي كم نمت؟)، ظن عزير أنه نام يوماً أو جزءاً من يوم. فقال له الله: 'بل لبثت مائة عام!'. أمره الله أن ينظر إلى طعامه وشرابه (تين وعنب) فوجده طازجاً لم يفسد أبداً. ثم أمره أن ينظر إلى حماره، فوجده قد تحول إلى عظام قديمة! وأمام عيني عزير، أمر الله العظام أن تتجمع وتتغطى باللحم والجلد، وعاد الحمار حياً يقف أمامه! فعرف عزير قدرة الله.",
+    hook:
+      "تخيّل أنك نمتَ ثم استيقظت، فوجدت طعامك كما تركته لم يتغيّر، لكن الذي كان واقفًا بجوارك صار عظامًا بالية. فكم نمتَ إذًا؟ يومًا؟ في قصة اليوم رجلٌ عاش هذا بالضبط، وكان الجواب: مئة عام.",
+    events:
+      "قال: ﴿أَنَّىٰ يُحْيِي هَٰذِهِ اللَّهُ بَعْدَ مَوْتِهَا﴾ — أي كيف يعيد الله الحياة إلى هذه القرية بعد أن خربت؟ ولم يجبه الله بكلام يسمعه. ﴿فَأَمَاتَهُ اللَّهُ مِائَةَ عَامٍ ثُمَّ بَعَثَهُ﴾. مئة عام كاملة. ثم أحياه وسأله: ﴿كَمْ لَبِثْتَ﴾؟ فقال: ﴿لَبِثْتُ يَوْمًا أَوْ بَعْضَ يَوْمٍ﴾. فقيل له: ﴿بَل لَّبِثْتَ مِائَةَ عَامٍ﴾.",
     quranProse: "يقول الله تعالى في القرآن الكريم: {وَانْظُرْ إِلَى حِمَارِكَ وَلِنَجْعَلَكَ آيَةً لِلنَّاسِ وَانْظُرْ إِلَى الْعِظَامِ كَيْفَ نُنْشِزُهَا ثُمَّ نَكْسُوهَا لَحْمًا}. أي انظر كيف نجمع العظام ونغطيها باللحم ليعود الحمار حياً.",
-    lesson: "نتعلم من قصة عزير وحماره أن الله قادر على إحياء الموتى، وأن الموت والبعث حقيقة أكيدة. ونتعلم أن قدرة الله لا حدود لها؛ فهو قادر على حفظ الطعام من الفساد مائة عام، وقادر على إعادة العظام إلى حياة.",
+    lesson:
+      "الذي يُحيي العظام بعد مئة عام قادرٌ على كل شيء.",
     next: "وهكذا يا أصدقائي، تعرفنا على أجمل قصص الحيوانات في القرآن الكريم. كل حيوان علمنا درساً مهماً. هل أنتم مستعدون لمجموعة جديدة من القصص؟ في المرة القادمة، سنبدأ مغامرة جديدة مع قصص الأنبياء الرائعة!",
     source: {
       reliability: "🟡",
@@ -1855,6 +2203,25 @@ export const stories: Story[] = [
       badge: "أومن بقدرة الله",
       keepsake: "تينة وعنبة",
       note: "تذكّرك أن الذي يحيي العظام بعد مائة عام قادر على كل شيء.",
+    },
+    arc: {
+      idea: "رجلٌ سأل: كيف يُحيي الله هذا الخراب؟ فأراه الله الجواب في أقرب شيء إليه.",
+      setting:
+        "مرّ رجل صالح على قرية خَرِبة، ﴿وَهِيَ خَاوِيَةٌ عَلَىٰ عُرُوشِهَا﴾ — أي سقطت سقوفها على جدرانها، ولم يبقَ فيها أحد. وكان معه حماره وطعامه وشرابه. ووقف ينظر إلى هذا الخراب كله، فخطر بباله سؤال. ولم يكن سؤال إنكار، بل سؤال من رأى بعينه شيئًا يصعب أن يتخيّل عودته.",
+      keyMoment:
+        "ثم جاءت العلامات واحدة بعد واحدة. ﴿فَانظُرْ إِلَىٰ طَعَامِكَ وَشَرَابِكَ لَمْ يَتَسَنَّهْ﴾ — طعامٌ مرّت عليه مئة عام ولم يفسد. ﴿وَانظُرْ إِلَىٰ حِمَارِكَ﴾ — والحمار عظام بالية. ثم: ﴿وَانظُرْ إِلَى الْعِظَامِ كَيْفَ نُنشِزُهَا ثُمَّ نَكْسُوهَا لَحْمًا﴾ — فرأى بعينيه العظامَ تجتمع ويُركَّب بعضها إلى بعض، ثم يُكسى عليها اللحم، حتى قام الحمار حيًّا أمامه. سأل عن إحياء قرية، فأراه الله الإحياء في أقرب شيء إليه.",
+      resolution:
+        "﴿فَلَمَّا تَبَيَّنَ لَهُ قَالَ أَعْلَمُ أَنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ﴾. لم يعد الأمر عنده خبرًا سمعه؛ صار شيئًا رآه. وقد قال الله له قبل ذلك: ﴿وَلِنَجْعَلَكَ آيَةً لِّلنَّاسِ﴾ — أي إن هذا الرجل نفسه صار علامة، يحكي الناس قصته من بعده إلى اليوم. وأنت الآن واحد من هؤلاء الناس.",
+      word: { term: "لَمْ يَتَسَنَّهْ", meaning: "لم يتغيّر ولم يفسد وإن مرّت عليه السنون." },
+      lessons: [
+        "اسأل لتفهم؛ فالرجل سأل، فأراه الله الجواب ولم يعاتبه.",
+        "ما يعجز عنه عقلك لا يعجز عنه ربّك.",
+        "البعث بعد الموت حقّ، وقد رآه رجل بعينيه قبلنا.",
+      ],
+      think:
+        "رأى الرجل الجواب بعينيه، ونحن لم نره. ما الذي يجعلك تصدّق بشيء لم ترَه؟ وما أكبر شيء تؤمن به ولم ترَه قطّ؟",
+      tryToday:
+        "انظر اليوم إلى شيء حيّ صغير — نبتة أو عصفور — وقل في نفسك: الذي أحيا هذا قادرٌ أن يحييني بعد موتي.",
     },
   },
   {
@@ -2276,6 +2643,7 @@ export const storyTextFor = (story: Story, locale: "ar" | "en"): StoryText =>
         quranProse: story.quranProse,
         challenge: story.challenge,
         reward: story.reward,
+        arc: story.arc,
       };
 
 /** The question and the medal in the reader's language, falling back to the
@@ -2285,3 +2653,29 @@ export const storyChallengeFor = (story: Story, locale: "ar" | "en"): StoryChall
 
 export const storyRewardFor = (story: Story, locale: "ar" | "en"): StoryReward =>
   (locale === "en" ? story.en?.reward : undefined) ?? story.reward;
+
+/** The rest of the arc in the reader's language, or nothing where this story
+ *  has not been rewritten to the standard yet. English falls back to the
+ *  Arabic arc only when the English prose itself is falling back. */
+export const storyArcFor = (story: Story, locale: "ar" | "en"): StoryArc | undefined =>
+  locale === "en" && story.en ? story.en.arc : story.arc;
+
+/**
+ * Roughly how long this story takes a child to read, in minutes.
+ *
+ * Authored reading times go stale the moment anyone edits a paragraph, so this
+ * counts the words that are actually on the page. 120 words a minute is slow
+ * for an adult and about right for a seven-year-old reading aloud, and the
+ * number is rounded up so it never promises less than it costs.
+ */
+export const storyMinutes = (story: Story, locale: "ar" | "en"): number => {
+  const text = storyTextFor(story, locale);
+  const arc = storyArcFor(story, locale);
+  const parts = [
+    text.hook, text.events, text.lesson, text.quranProse ?? "",
+    arc?.setting ?? "", arc?.keyMoment ?? "", arc?.resolution ?? "",
+    ...(arc?.lessons ?? []), arc?.think ?? "", arc?.tryToday ?? "",
+  ];
+  const words = parts.join(" ").trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 120));
+};

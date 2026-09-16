@@ -128,16 +128,20 @@ for (const story of stories) {
   const ar = section("ar", `
     <h1>${esc(story.title)}</h1>
     ${story.surahName ? p(`من ${story.surahName}`) : ""}
-    ${p(story.hook)}${p(story.events)}
+    ${p(story.hook)}${story.arc ? p(story.arc.setting) : ""}${p(story.events)}
+    ${story.arc ? `<h2>اللحظة المهمة</h2>${p(story.arc.keyMoment)}<h2>وكيف انتهت؟</h2>${p(story.arc.resolution)}` : ""}
     ${story.ayah ? `<blockquote>${esc(story.ayah.text)}<cite>${esc(story.ayah.ref)}</cite></blockquote>` : ""}
     ${story.quranProse ? p(story.quranProse) : ""}
     <h2>الدرس المستفاد</h2>${p(story.lesson)}
+    ${story.arc ? `<ul>${story.arc.lessons.map(l => `<li>${esc(l)}</li>`).join("")}</ul><h2>فكّر قليلًا</h2>${p(story.arc.think)}<h2>جرّب اليوم</h2>${p(story.arc.tryToday)}` : ""}
     ${story.source ? `<h2>من أين هذه القصة؟</h2>${p(story.source.reference.ar)}${p(story.source.note.ar)}` : ""}
   `);
   const en = story.en ? section("en", `
     <h2>${esc(story.en.title)}</h2>
-    ${p(story.en.hook)}${p(story.en.events)}
+    ${p(story.en.hook)}${story.en.arc ? p(story.en.arc.setting) : ""}${p(story.en.events)}
+    ${story.en.arc ? `<h3>The moment it turns on</h3>${p(story.en.arc.keyMoment)}<h3>How it ended</h3>${p(story.en.arc.resolution)}` : ""}
     <h3>The lesson</h3>${p(story.en.lesson)}
+    ${story.en.arc ? `<ul>${story.en.arc.lessons.map(l => `<li>${esc(l)}</li>`).join("")}</ul><h3>Think for a moment</h3>${p(story.en.arc.think)}<h3>Try it today</h3>${p(story.en.arc.tryToday)}` : ""}
     ${story.source ? `<h3>Where this story comes from</h3>${p(story.source.reference.en)}${p(story.source.note.en)}` : ""}
   `) : "";
   add(`/stories/${story.chapter}/${story.slug}`, ar + en);

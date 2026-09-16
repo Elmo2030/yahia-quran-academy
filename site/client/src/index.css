@@ -600,6 +600,30 @@
 .story-quran-connection blockquote { margin: .6rem 0 .5rem; font-family: "Noto Naskh Arabic", serif; font-size: 1.35rem; line-height: 2.4; text-align: center; color: var(--ink); }
 .story-quran-connection__note { margin: 0; color: var(--gold-ink-soft); font-size: .75rem; }
 .story-lesson-card p { color: var(--teal-ink); margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.16rem; line-height: 2.1; }
+/* The deeper story arc. The key moment is the one section that is allowed to
+   look different from its neighbours — it is the point the child is meant to
+   stop at — and the two closing blocks (think / try today) are asides, not
+   numbered steps, because neither of them is part of the telling. */
+.story-detail-hero__meta { display: inline-flex; align-items: center; gap: .35rem; margin: 0; color: var(--gold-ink-soft); font-size: .78rem; font-weight: 700; }
+.story-list-card__meta { display: inline-flex; align-items: center; gap: .3rem; color: var(--gold-ink-soft); font-size: .72rem; font-weight: 700; }
+.story-key-moment { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; padding: 1.6rem; background: var(--surface-gold); border: 1px solid var(--line-gold); border-radius: 24px; }
+.story-key-moment .story-section-number { color: var(--on-gold); background: var(--gold); }
+.story-key-moment .story-section-label svg { color: var(--gold); vertical-align: -2px; }
+.story-key-moment h2 { color: var(--ink); margin: 0 0 .65rem; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.7rem,3vw,2.35rem); line-height: 1.3; }
+.story-key-moment p { color: var(--teal-ink); margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.2rem; line-height: 2.1; }
+/* The numbered circle already marks each section, so the eyebrow that
+   repeated the heading word for word was dropped once there were five of
+   them rather than one. */
+.story-lessons { display: grid; gap: .55rem; margin: 1rem 0 0; padding-inline-start: 1.3rem; }
+.story-lessons li { color: var(--teal-ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.08rem; line-height: 1.95; }
+.story-word-card { display: grid; gap: .25rem; padding: 1rem 1.15rem; border: 1px dashed var(--line-gold); border-radius: 18px; background: var(--surface); }
+.story-word-card b { color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.25rem; }
+.story-word-card p { margin: 0; color: var(--ink-soft); font-size: .95rem; line-height: 1.9; }
+.story-think, .story-try-today { display: grid; gap: .4rem; padding: 1.4rem 1.6rem; border-radius: 24px; background: var(--surface-green); }
+.story-think p, .story-try-today p { margin: 0; color: var(--teal-ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.14rem; line-height: 2.05; }
+.story-think .story-section-label svg, .story-try-today .story-section-label svg { vertical-align: -2px; }
+.story-try-today { background: var(--surface); border: 1px solid var(--line-gold); }
+
 .story-bridge { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding: 1.6rem; background: var(--surface-green); border-radius: 24px; }
 .story-bridge h2 { margin-top: .5rem; }
 .story-bridge p { color: var(--teal-ink); margin: 0; line-height: 2; }
@@ -623,7 +647,8 @@
   .story-detail-hero__grid, .story-article__layout { display: block !important; }
   .story-detail-hero__hook { font-size: 12pt; }
   .story-article__content > .story-image { display: none; }
-  .story-reading-section, .story-quran-connection, .story-lesson-card, .story-bridge { margin: 1.1rem 0; break-inside: avoid; }
+  .story-reading-section, .story-quran-connection, .story-lesson-card, .story-bridge,
+  .story-key-moment, .story-word-card, .story-think, .story-try-today { margin: 1.1rem 0; break-inside: avoid; }
   body { background: var(--surface); }
 }
 

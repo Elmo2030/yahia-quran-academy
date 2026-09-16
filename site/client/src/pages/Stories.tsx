@@ -1,6 +1,6 @@
 import { Link, useRoute } from "wouter";
-import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Compass, Heart, Library, PawPrint, Printer, Sparkles, Trash2, Users } from "lucide-react";
-import { chapters, stories, storyTextFor, type Story } from "@/content/stories";
+import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Clock3, Library, Lightbulb, PawPrint, Printer, Sparkles, Sun, Trash2, Users } from "lucide-react";
+import { chapters, stories, storyArcFor, storyMinutes, storyTextFor, type Story } from "@/content/stories";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -24,6 +24,9 @@ const copy = {
     prev: "السابقة", nextStory: "التالية", allStories: "كل الأبواب",
     notFound: "لم نجد هذه القصة.", backToChapter: "كل قصص الباب",
     save: "أضفها إلى مكتبتي", saved: "في مكتبتي", myLibrary: "مكتبتي",
+    setting: "أين نحن؟", keyMoment: "اللحظة المهمة", resolution: "وكيف انتهت؟",
+    word: "كلمة اليوم", think: "فكّر قليلًا", tryToday: "جرّب اليوم",
+    minutes: "دقائق قراءة", oneMinute: "دقيقة قراءة",
     print: "اطبع القصة", emptyLibrary: "مكتبتك فارغة. افتح أي قصة واحفظها لتظهر هنا.",
     libraryCount: "قصة محفوظة", back: "العودة إلى القصص", sections: "أقسام القصة", storyCount: "قصة", exploreAll: "اكتشف كل القصص", keptStories: "القصص التي اخترت الاحتفاظ بها", emptyTitle: "لا توجد قصص محفوظة بعد", remove: "إزالة من مكتبتي", onlyArabic: null as string | null,
   },
@@ -38,6 +41,9 @@ const copy = {
     prev: "Previous", nextStory: "Next", allStories: "All chapters",
     notFound: "That story could not be found.", backToChapter: "All stories in this chapter",
     save: "Add to my library", saved: "In my library", myLibrary: "My library",
+    setting: "Where we are", keyMoment: "The moment it turns on", resolution: "How it ended",
+    word: "Word of the day", think: "Think for a moment", tryToday: "Try it today",
+    minutes: "min read", oneMinute: "min read",
     print: "Print the story", emptyLibrary: "Your library is empty. Open any story and save it to see it here.",
     libraryCount: "saved", back: "Back to stories", sections: "In this story", storyCount: "stories", exploreAll: "Explore all stories", keptStories: "The stories you chose to keep", emptyTitle: "Nothing saved yet", remove: "Remove from my library", onlyArabic: "These stories are written in Arabic.",
   },
@@ -91,6 +97,8 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const text = storyTextFor(story, locale);
+  const arc = storyArcFor(story, locale);
+  const minutes = storyMinutes(story, locale);
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
@@ -98,7 +106,12 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
       <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{text.title}</h3>
-        <p>{text.hook}</p>
+        {/* The card is a decision, not a preview: one sentence of what this
+            story is, and how long it will take. The hook belongs inside. */}
+        <p>{arc?.idea ?? text.hook}</p>
+        <span className="story-list-card__meta">
+          <Clock3 size={13} aria-hidden="true" /> {minutes} {minutes === 1 ? t.oneMinute : t.minutes}
+        </span>
         <span className="story-read-pill">{t.read} <Arrow size={15} aria-hidden="true" /></span>
       </div>
     </Link>
@@ -175,6 +188,12 @@ export default function Stories() {
     const previous = index > 0 ? chapterStories[index - 1] : null;
     const following = index < chapterStories.length - 1 ? chapterStories[index + 1] : null;
     const inLibrary = has(story.slug);
+    const arc = storyArcFor(story, locale);
+    const minutes = storyMinutes(story, locale);
+    // The sections are numbered for the child, and which of them exist varies
+    // by story, so the number is counted out rather than written down.
+    let step = 0;
+    const n = () => ++step;
 
     return (
       <Chrome>
@@ -185,7 +204,12 @@ export default function Stories() {
               <div>
                 <span className="story-detail-hero__count">{t.storyOf} {index + 1} / {chapterStories.length}</span>
                 <h1>{text.title}</h1>
-                <p className="story-detail-hero__hook">{text.hook}</p>
+                {/* One sentence of what this story is. Before a story has been
+                    rewritten it has no such sentence, so its hook stands in. */}
+                <p className="story-detail-hero__hook">{arc?.idea ?? text.hook}</p>
+                <p className="story-detail-hero__meta">
+                  <Clock3 size={14} aria-hidden="true" /> {minutes} {minutes === 1 ? t.oneMinute : t.minutes}
+                </p>
                 <div className="story-detail-actions no-print">
                   <button type="button" className={`button button--soft${inLibrary ? " is-active" : ""}`} onClick={() => toggle(story.slug)} aria-pressed={inLibrary}>
                     {inLibrary ? <BookmarkCheck size={17} aria-hidden="true" /> : <BookmarkPlus size={17} aria-hidden="true" />}
@@ -206,32 +230,63 @@ export default function Stories() {
             <nav className="story-article__rail no-print" aria-label={t.sections}>
               <span className="story-section-label">{t.sections}</span>
               <a href="#story-events">{t.events}</a>
+              {arc && <a href="#story-key-moment">{t.keyMoment}</a>}
               {(story.ayah || text.quranProse) && <a href="#story-ayah">{t.ayah}</a>}
               <a href="#story-lesson">{t.lesson}</a>
               <a href="#story-challenge">{t.challenge}</a>
+              {arc && <a href="#story-try-today">{t.tryToday}</a>}
             </nav>
 
             <div className="story-article__content">
               <section className="story-reading-section story-reading-section--hook">
-                <span className="story-section-number">1</span>
+                <span className="story-section-number">{n()}</span>
                 <div>
                   <span className="story-section-label">{t.hook}</span>
                   <p className="story-reading-section__lead">{text.hook}</p>
                 </div>
               </section>
 
+              {arc && (
+                <section className="story-reading-section" id="story-setting">
+                  <span className="story-section-number">{n()}</span>
+                  <div>
+                    <h2>{t.setting}</h2>
+                    <p>{arc.setting}</p>
+                  </div>
+                </section>
+              )}
+
               <section className="story-reading-section" id="story-events">
-                <span className="story-section-number">2</span>
+                <span className="story-section-number">{n()}</span>
                 <div>
-                  <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.events}</span>
                   <h2>{t.events}</h2>
                   <p>{text.events}</p>
                 </div>
               </section>
 
+              {arc && (
+                <section className="story-key-moment" id="story-key-moment">
+                  <span className="story-section-number">{n()}</span>
+                  <div>
+                    <h2>{t.keyMoment}</h2>
+                    <p>{arc.keyMoment}</p>
+                  </div>
+                </section>
+              )}
+
+              {arc && (
+                <section className="story-reading-section" id="story-resolution">
+                  <span className="story-section-number">{n()}</span>
+                  <div>
+                    <h2>{t.resolution}</h2>
+                    <p>{arc.resolution}</p>
+                  </div>
+                </section>
+              )}
+
               {(story.ayah || text.quranProse) && (
                 <section className="story-quran-connection" id="story-ayah">
-                  <span className="story-section-number">3</span>
+                  <span className="story-section-number">{n()}</span>
                   <div>
                     <span className="story-quran-connection__heading story-section-label"><BookOpen size={14} aria-hidden="true" /> {t.ayah}</span>
                     {story.ayah && <>
@@ -247,16 +302,45 @@ export default function Stories() {
                 </section>
               )}
 
+              {arc?.word && (
+                <aside className="story-word-card">
+                  <span className="story-section-label"><BookOpen size={13} aria-hidden="true" /> {t.word}</span>
+                  <b>{arc.word.term}</b>
+                  <p>{arc.word.meaning}</p>
+                </aside>
+              )}
+
               <section className="story-lesson-card" id="story-lesson">
-                <span className="story-section-number">{story.ayah || text.quranProse ? 4 : 3}</span>
+                <span className="story-section-number">{n()}</span>
                 <div>
-                  <span className="story-section-label"><Heart size={13} aria-hidden="true" /> {t.lesson}</span>
                   <h2>{t.lesson}</h2>
                   <p>{text.lesson}</p>
+                  {arc && (
+                    <ol className="story-lessons">
+                      {arc.lessons.map(line => <li key={line}>{line}</li>)}
+                    </ol>
+                  )}
                 </div>
               </section>
 
-              <StoryChallengeSection story={story} number={story.ayah || text.quranProse ? 5 : 4} />
+              {/* An open question with no answer to mark, kept apart from the
+                  quiz below it: one asks the child to remember, this one asks
+                  them what they would have done. */}
+              {arc && (
+                <section className="story-think" id="story-think">
+                  <span className="story-section-label"><Lightbulb size={13} aria-hidden="true" /> {t.think}</span>
+                  <p>{arc.think}</p>
+                </section>
+              )}
+
+              <StoryChallengeSection story={story} number={n()} />
+
+              {arc && (
+                <section className="story-try-today" id="story-try-today">
+                  <span className="story-section-label"><Sun size={13} aria-hidden="true" /> {t.tryToday}</span>
+                  <p>{arc.tryToday}</p>
+                </section>
+              )}
 
               {/* Which of this is the Quran's own words, and which is a name or
                   a detail that came from elsewhere. The child reads past it;

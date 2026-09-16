@@ -8,7 +8,7 @@
  */
 import { describe, expect, it } from "vitest";
 
-import { chapters, stories, storyTextFor } from "@/content/stories";
+import { chapters, stories, storyMinutes, storyTextFor } from "@/content/stories";
 
 /** Stories still awaiting an English translation. Shrink this list; do not grow it.
  *  It is empty: every story reads in both languages. A new story without an
@@ -151,6 +151,86 @@ describe("every story ends in a question", () => {
         expect(reward.note.length, story.slug).toBeGreaterThan(15);
         expect(reward.icon.length, story.slug).toBeGreaterThan(0);
       }
+    }
+  });
+});
+
+/**
+ * The rewrite to the content standard.
+ *
+ * Readers told us the stories were too short and read like abstracts, so each
+ * one is being rewritten with the middle it was missing: where we are, the
+ * moment it turns on, how it ended, and something to do afterwards. That is
+ * forty-two stories in two languages, so it lands a chapter at a time.
+ *
+ * `WAITING` is the list of stories that have not been rewritten yet. It is
+ * written out by hand so the list can only shrink on purpose: a story that
+ * loses its arc fails here, and a story that gains one has to be struck off
+ * this list in the same commit.
+ */
+const WAITING = new Set<string>([
+  // nations
+  "ashab-al-kahf", "luqman", "dhul-qarnayn", "believer-of-pharaoh", "ashab-al-ukhdud",
+  "qarun", "samiri", "talut-and-jalut", "ashab-ar-rass",
+  // prophets
+  "adam", "idris", "nuh", "hud", "saleh", "shuaib", "ibrahim", "lut", "yusuf", "ayoub",
+  "musa-and-harun", "yusha", "dawud", "sulaiman", "zakariya-and-yahya", "isa", "muhammad",
+  // women
+  "maryam", "asiya", "hawwa", "sarah", "hajar", "bilqis", "imraat_alaziz", "nuh_lut",
+]);
+
+describe("the story arc", () => {
+  it("is present on every story that is not still waiting for it", () => {
+    for (const story of stories) {
+      expect(Boolean(story.arc), `${story.slug}: arc / WAITING disagree`)
+        .toBe(!WAITING.has(story.slug));
+    }
+  });
+
+  it("names only stories that exist", () => {
+    const slugs = new Set(stories.map(story => story.slug));
+    for (const slug of WAITING) expect(slugs.has(slug), `${slug} is not a story`).toBe(true);
+  });
+
+  /** A rewritten story that has no English arc would drop half its page for
+   *  English readers, which is worse than not having rewritten it at all. */
+  it("lands in both languages at once", () => {
+    for (const story of stories) {
+      if (!story.arc || !story.en) continue;
+      expect(Boolean(story.en.arc), `${story.slug} has an Arabic arc but no English one`).toBe(true);
+    }
+  });
+
+  it("carries the whole shape, not part of it", () => {
+    for (const story of stories) {
+      for (const [lang, arc] of [["ar", story.arc], ["en", story.en?.arc]] as const) {
+        if (!arc) continue;
+        const where = `${story.slug} (${lang})`;
+        // The card's one sentence. Longer than this and it is a paragraph.
+        expect(arc.idea.length, where).toBeGreaterThan(20);
+        expect(arc.idea.length, `${where}: idea is a paragraph, not a sentence`).toBeLessThan(220);
+        for (const [name, body] of [["setting", arc.setting], ["keyMoment", arc.keyMoment], ["resolution", arc.resolution]] as const) {
+          expect(body.length, `${where}: ${name} is too thin to be a scene`).toBeGreaterThan(200);
+        }
+        // One central lesson in `lesson`, three short ones under it.
+        expect(arc.lessons.length, where).toBe(3);
+        for (const line of arc.lessons) expect(line.length, where).toBeGreaterThan(20);
+        expect(arc.think.length, where).toBeGreaterThan(40);
+        expect(arc.tryToday.length, where).toBeGreaterThan(30);
+        if (arc.word) {
+          expect(arc.word.term.length, where).toBeGreaterThan(2);
+          expect(arc.word.meaning.length, where).toBeGreaterThan(20);
+        }
+      }
+    }
+  });
+
+  /** The reading time on the card is counted, not authored, so the only thing
+   *  worth pinning is that a rewritten story really is a longer read. */
+  it("makes a rewritten story a longer read than a summary", () => {
+    for (const story of stories) {
+      if (!story.arc) continue;
+      expect(storyMinutes(story, "ar"), story.slug).toBeGreaterThanOrEqual(3);
     }
   });
 });
