@@ -354,72 +354,72 @@ export const storyIndex: Story[] = [
   "chapter": "women",
   "slug": "maryam",
   "title": "مريم ابنة عمران",
-  "hook": "هل تعرفون قصة طفلة صغيرة عاشت في المسجد، وكان يأتيها طعام لذيذ من السماء؟ كيف حدث ذلك؟ ومن هي هذه الفتاة الطيبة؟",
+  "hook": "في القرآن نساءٌ كثيرات، ولكن لا تجد فيه امرأة واحدة ذُكرت باسمها إلا واحدة فقط. وسورةٌ كاملة تحمل اسمها. من هي؟ وماذا كان فيها حتى يُذكر اسمها وحدها من بين النساء كلهنّ؟",
   "titleEn": "Maryam, the Mother of Isa",
-  "hookEn": "Imagine a girl who lived inside a beautiful mosque, praying day and night, and angels brought her fresh food straight from heaven! Who is this amazing lady?",
+  "hookEn": "There are many women in the Quran, but you will not find a single one named by her own name — except one. And a whole surah carries her name. Who is she? And what was it about…",
   "image": "/stories/maryam.jpg"
  },
  {
   "chapter": "women",
   "slug": "asiya",
   "title": "آسية امرأة فرعون",
-  "hook": "تخيلوا أن تعيشوا في قصر كبير مليء بالذهب والألعاب، لكن الحاكم هناك شرير جدًا! ماذا ستفعلون؟ هل ستكونون أشرارًا مثله أم تختارون طريق الخير؟",
+  "hook": "لو كان لك كل ما تتمنّاه: قصرٌ، وخدم، وذهب، وأنت زوجة أقوى رجل على الأرض — فماذا تسأل الله؟ في قصة اليوم امرأة كانت في هذا الحال بالضبط. وسألت الله بيتًا.",
   "titleEn": "Asiya, the Wife of Pharaoh",
-  "hookEn": "If you lived in the biggest palace, with all the gold and toys in the world, but the king was evil, what would you choose? Meet a queen who chose a house in Paradise over…",
+  "hookEn": "If you had everything you could want — a palace, servants, gold, and you were married to the most powerful man on earth — what would you ask Allah for? In today's story there was…",
   "image": "/stories/asiya.jpg"
  },
  {
   "chapter": "women",
   "slug": "hawwa",
   "title": "السيدة حواء",
-  "hook": "هل سألتم أنفسكم يومًا من أين جاء كل هؤلاء الناس في العالم؟ من كان أول رجل وأول امرأة على الأرض؟",
+  "hook": "لو أخطأتَ أنت وأخوك في شيء واحد، فمن يعتذر أوّلًا؟ في قصة اليوم أوّل رجل وأوّل امرأة في الوجود أخطآ معًا. وانظر كيف جاء اعتذارهما في القرآن — فهو أهمّ ما في القصة.",
   "titleEn": "Hawwa (Eve), the First Woman",
-  "hookEn": "Who was the very first mother on Earth? Let's travel back to the beautiful Paradise to meet the woman who started the human family!",
+  "hookEn": "If you and your brother both got something wrong, who apologises first? In today's story, the first man and the first woman in existence made a mistake together. And look at how…",
   "image": "/stories/hawwa.jpg"
  },
  {
   "chapter": "women",
   "slug": "sarah",
   "title": "السيدة سارة",
-  "hook": "هل يمكن لشجرة قديمة جدًا أن تثمر فجأة تفاحًا لذيذًا؟ هذا مستحيل! لكن الله قادر على كل شيء.",
+  "hook": "ماذا تفعل لو جاءك ضيفٌ فقدّمتَ له أحسن ما عندك… فلم يمدّ يده إلى الطعام؟ في قصة اليوم حدث هذا في بيت نبيّ. وما جاء بعده غيّر حياة امرأة كانت قد يئست من شيء تتمنّاه منذ سنين.",
   "titleEn": "Lady Sarah and the Glad Tidings",
-  "hookEn": "Can you imagine getting the best news ever when you are very old and have given up hope? Today we meet a generous lady who received a magical surprise from angels!",
+  "hookEn": "What would you do if a guest came and you brought out the best you had… and they did not reach for it? In today's story that happened in a prophet's house. And what came next…",
   "image": "/stories/sarah.jpg"
  },
  {
   "chapter": "women",
   "slug": "hajar",
   "title": "السيدة هاجر",
-  "hook": "تخيلوا أنفسكم في صحراء حارة جدًا، لا يوجد بها شجر ولا ماء ولا أصدقاء تلعبون معهم. وفجأة، يبكي طفل صغير من العطش! ماذا ستفعل أمه؟",
+  "hook": "ماء زمزم الذي يشربه الناس اليوم من كل الدنيا، خرج في مكان لم يكن فيه شيء: لا شجر، ولا بئر، ولا إنسان. ولم يخرج إلا بعد أن ركضت امرأة سبع مرّات بين جبلين تبحث عن أيّ أحد. فما…",
   "titleEn": "Lady Hajar and the Well of Zamzam",
-  "hookEn": "Imagine being left alone in a hot, empty desert with a crying baby and no water! What would you do? Let's discover the story of the strongest and most patient mother!",
+  "hookEn": "The Zamzam water that people drink today from all over the world came up in a place where there was nothing: no tree, no well, no person. And it only came after a woman ran seven…",
   "image": "/stories/hajar.jpg"
  },
  {
   "chapter": "women",
   "slug": "bilqis",
   "title": "ملكة سبأ",
-  "hook": "هل تحبون القصص عن الملوك والملكات والقلاع الكبيرة؟ اليوم لدينا قصة عن ملكة ذكية جدًا، وصلتها رسالة من ملك بعيد، لم يحضرها ساعي البريد، بل أحضرها طائر!",
+  "hook": "أصعب شيء على الإنسان أن يقول: كنتُ مخطئًا. وأصعب منه أن يقولها وهو ملك، أمام قومه كلهم، بعد أن كان يفعل ذلك الخطأ سنين. في قصة اليوم ملكةٌ فعلت هذا بالضبط.",
   "titleEn": "Bilqis, the Queen of Sheba",
-  "hookEn": "Have you ever received a letter delivered by a bird? Today's story is about a very smart queen who received a special letter from a great King and Prophet!",
+  "hookEn": "The hardest thing for a person to say is: I was wrong. Harder still is saying it as a ruler, in front of all your people, after years of doing that very thing. In today's story,…",
   "image": "/stories/bilqis.jpg"
  },
  {
   "chapter": "women",
   "slug": "imraat_alaziz",
   "title": "امرأة العزيز",
-  "hook": "هل حدث وأن اتهمكم أحد بشيء لم تفعلوه؟ إنه شعور سيء جدًا! في قصتنا اليوم، هناك شاب طيب جدًا اتُهم ظلمًا…",
+  "hook": "ماذا يحدث لو أخطأتَ أنت، وتركتَ غيرك يُعاقَب مكانك؟ في قصة اليوم شابٌّ بريء دخل السجن سنين بسبب كلمة قالتها امرأة. ثم جاء يومٌ وقفت فيه أمام الناس وقالت الحقّ.",
   "titleEn": "The Wife of al-Aziz",
-  "hookEn": "Has anyone ever accused you of something you did not do? It is a horrible feeling! In our story today, a very good young man was blamed for something that was not his fault at all…",
+  "hookEn": "What happens if you do something wrong and let someone else be punished in your place? In today's story, an innocent young man spent years in prison because of what one woman…",
   "image": "/stories/imraat_alaziz.jpg"
  },
  {
   "chapter": "women",
   "slug": "nuh_lut",
   "title": "امرأة نوح وامرأة لوط",
-  "hook": "تخيلوا أن يكون زوجكم نبيًا يعلمه الله كل شيء، ويدل الناس على طريق الجنة… هل يعقل ألا تسمعوا كلامه؟",
+  "hook": "هل يكفي أن تكون في بيت صالح لتكون صالحًا؟ في القرآن آيةٌ تجيب عن هذا السؤال بأوضح ما يكون، وقد ضرب الله فيها مثلًا بامرأتين كانتا في أفضل بيتين على وجه الأرض في زمانهما.",
   "titleEn": "The Wife of Nuh and the Wife of Lut",
-  "hookEn": "Imagine your husband is a prophet whom Allah teaches everything, showing people the road to Paradise… could you really not listen to him?",
+  "hookEn": "Is it enough to be in a righteous household to be righteous yourself? There is a verse in the Quran that answers this as clearly as it can be answered, and in it Allah gives the…",
   "image": "/stories/nuh_lut.jpg"
  }
 ];

@@ -163,15 +163,12 @@ describe("every story ends in a question", () => {
  * moment it turns on, how it ended, and something to do afterwards. That is
  * forty-two stories in two languages, so it lands a chapter at a time.
  *
- * `WAITING` is the list of stories that have not been rewritten yet. It is
- * written out by hand so the list can only shrink on purpose: a story that
- * loses its arc fails here, and a story that gains one has to be struck off
- * this list in the same commit.
+ * `WAITING` is the list of stories that have not been rewritten yet. All
+ * forty-two have now landed, so it is empty — and it stays, because it is the
+ * guard: a story added later without an arc, or one that loses the arc it
+ * has, fails here until someone decides in writing that it should.
  */
-const WAITING = new Set<string>([
-  // women
-  "maryam", "asiya", "hawwa", "sarah", "hajar", "bilqis", "imraat_alaziz", "nuh_lut",
-]);
+const WAITING = new Set<string>([]);
 
 describe("the story arc", () => {
   it("is present on every story that is not still waiting for it", () => {
@@ -226,5 +223,28 @@ describe("the story arc", () => {
       if (!story.arc) continue;
       expect(storyMinutes(story, "ar"), story.slug).toBeGreaterThanOrEqual(3);
     }
+  });
+});
+
+/**
+ * What the rewrite cost, and the line it must not cross quietly.
+ *
+ * Writing the forty-two to the content standard roughly doubled this module:
+ * the Stories chunk went from about 72 KB gzipped to about 143 KB. That chunk
+ * is lazily loaded, so nobody pays for it until they open a story — but then
+ * they pay for all forty-two, in both languages, to read one.
+ *
+ * This budget holds that line. If it is ever hit, the fix is not a bigger
+ * number: it is to split this module by chapter and load only the chapter
+ * being read, which is where the waste actually is.
+ */
+describe("the story content stays affordable", () => {
+  it("fits the chapter chunk's budget", async () => {
+    const { gzipSync } = await import("node:zlib");
+    const { readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const bytes = readFileSync(join(process.cwd(), "client/src/content/stories.ts"));
+    const gzipped = gzipSync(bytes).length;
+    expect(gzipped, `stories.ts is ${(gzipped / 1024).toFixed(1)} KB gzipped`).toBeLessThan(150 * 1024);
   });
 });

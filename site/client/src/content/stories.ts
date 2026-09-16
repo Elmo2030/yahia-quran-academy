@@ -3296,11 +3296,11 @@ export const stories: Story[] = [
     en: {
       title: "Maryam, the Mother of Isa",
       hook:
-        "Imagine a girl who lived inside a beautiful mosque, praying day and night, and angels brought her fresh food straight from heaven! Who is this amazing lady?",
+        "There are many women in the Quran, but you will not find a single one named by her own name — except one. And a whole surah carries her name. Who is she? And what was it about her that her name alone is given among all the women?",
       events:
-        "Maryam (Mary) was a very pure and righteous girl. Her mother dedicated her to serve the mosque (Al-Aqsa) since she was born. Prophet Zakariya took care of her. Whenever he entered her room, he found fresh fruits that were completely out of season! Allah chose her above all women in the world to be the mother of a great prophet, Isa (Jesus), without a father, as a mighty miracle.",
+        "{So her Lord accepted her with good acceptance and caused her to grow in a good manner and put her in the care of Zakariya.} She grew up in the sanctuary, cared for by a prophet of Allah. Whenever Zakariya entered upon her he found provision with her, and would ask: {From where is this to you?} She would say: {It is from Allah. Indeed, Allah provides for whom He wills without account.} A young girl answering an elderly prophet with that — and teaching him.",
       lesson:
-        "We learn that purity, devotion to prayers, and completely trusting Allah brings miracles into our lives.",
+        "Do what you can even if it looks too small to be enough; the provision after that is from Allah.",
       next:
         "Maryam was a great and pure mother. In our next story, we meet another good and very brave woman, who lived in the palace of the most unjust king on earth — and still chose Paradise. Who is she?",
       challenge: {
@@ -3314,13 +3314,35 @@ export const stories: Story[] = [
         keepsake: "A date from the palm",
         note: "A reminder that whoever is true with Allah is provided for from where they never expected.",
       },
+      arc: {
+        idea: "A girl vowed to the house of Allah before she was born, who became the only woman named by name in the Quran.",
+        setting:
+          "Before Maryam was born, her mother, the wife of Imran, vowed what was in her womb to the service of Allah's house: {My Lord, indeed I have pledged to You what is in my womb, consecrated. So accept this from me.} Then she delivered, and it was a girl — and in their custom such a vow was for boys — so she said: {My Lord, I have delivered a female.} Then she said the words that were the first thing Maryam ever received: {And I have named her Maryam, and I seek refuge for her in You and her descendants from Satan, the expelled.}",
+        keyMoment:
+          "Then came the hardest thing she faced. She carried Isa by Allah's command without a father, knowing exactly what people would say. And when the pains came to her alone under the palm tree she said: {Oh, I wish I had died before this and was in oblivion, forgotten.} She was called: {Do not grieve; your Lord has provided beneath you a stream. And shake toward you the trunk of the palm tree; it will drop upon you ripe, fresh dates.} Notice: she was told to shake the trunk of a palm tree — a woman exhausted by labour, and a palm trunk that grown men cannot shake. Allah wanted her to act, even with an act that could not be enough, and then He would send the provision.",
+        resolution:
+          "She went back to her people carrying him, and they accused her, and she stayed silent and did not defend herself, and pointed at the child — and he spoke and defended her. And Allah said of her at the end of Surah At-Tahrim: {And Maryam, the daughter of Imran, who guarded her chastity, so We blew into it through Our angel, and she believed in the words of her Lord and His scriptures and was of the devoutly obedient.} She is the only woman named in the Quran, and a whole surah carries her name.",
+        word: { term: "The devoutly obedient", meaning: "Those constant in obedience to Allah, quietly and humbly, never breaking from it." },
+        lessons: [
+          "Provision is from Allah; the means you take are not what provides for you.",
+          "Bearing an accusation patiently can be stronger than defending yourself.",
+          "Begin your child with a prayer; Maryam's mother sought refuge for her and her descendants before she ever saw her.",
+        ],
+        think:
+          "Maryam was told to shake the palm trunk at her very weakest. Why did the dates not simply fall without her shaking? What does that teach you about work and prayer together?",
+        tryToday:
+          "If you ask Allah for something today, take one small step towards it afterwards — even knowing that step alone is not enough.",
+      },
     },
     image: "/stories/maryam.jpg",
     title: "مريم ابنة عمران",
     surahName: "آل عمران",
-    hook: "هل تعرفون قصة طفلة صغيرة عاشت في المسجد، وكان يأتيها طعام لذيذ من السماء؟ كيف حدث ذلك؟ ومن هي هذه الفتاة الطيبة؟",
-    events: "مريم كانت فتاة صالحة جدًا، أمها نذرتها لخدمة بيت الله. تكفل بها نبي الله زكريا. كان كلما دخل عليها غرفتها يجد عندها فاكهة وطعامًا غير موجود في ذلك الموسم! وعندما يسألها من أين هذا؟ تقول: «هو من عند الله». ولما كبرت، اختارها الله لتكون أمًا لنبي عظيم هو سيدنا عيسى عليه السلام، دون أن يكون له أب، لتكون معجزة للعالمين.",
-    lesson: "الله يرزق من يحبه ويطيعه بأشياء جميلة جدًا. وعلينا أن نكون مثل السيدة مريم في حبها للصلاة والدعاء، فهي مثال عظيم للطهر والاصطفاء.",
+    hook:
+      "في القرآن نساءٌ كثيرات، ولكن لا تجد فيه امرأة واحدة ذُكرت باسمها إلا واحدة فقط. وسورةٌ كاملة تحمل اسمها. من هي؟ وماذا كان فيها حتى يُذكر اسمها وحدها من بين النساء كلهنّ؟",
+    events:
+      "﴿فَتَقَبَّلَهَا رَبُّهَا بِقَبُولٍ حَسَنٍ وَأَنبَتَهَا نَبَاتًا حَسَنًا وَكَفَّلَهَا زَكَرِيَّا﴾. فنشأت في المحراب، وكفلها نبيّ من أنبياء الله. وكان زكريا كلّما دخل عليها وجد عندها رزقًا، فيسألها: ﴿أَنَّىٰ لَكِ هَٰذَا﴾؟ فتقول: ﴿هُوَ مِنْ عِندِ اللَّهِ إِنَّ اللَّهَ يَرْزُقُ مَن يَشَاءُ بِغَيْرِ حِسَابٍ﴾. فتاةٌ صغيرة تجيب نبيًّا كبيرًا بهذا الجواب، فتعلّمه هو منها.",
+    lesson:
+      "اعمل ما تقدر عليه ولو بدا قليلًا لا يكفي، والرزق بعد ذلك من عند الله.",
     next: "مريم كانت امرأة طيبة جدًا يحبها الله. وفي قصتنا القادمة سنتعرف على امرأة أخرى طيبة وشجاعة جدًا، كانت تعيش في قصر أكبر ملوك الأرض ظلمًا، لكنها اختارت الجنة… من هي؟",
     ayah: { ref: "3:37", surah: 3, number: 37, text: "كُلَّمَا دَخَلَ عَلَيْهَا زَكَرِيَّا ٱلْمِحْرَابَ وَجَدَ عِندَهَا رِزْقًۭا ۖ قَالَ يَـٰمَرْيَمُ أَنَّىٰ لَكِ هَـٰذَا ۖ قَالَتْ هُوَ مِنْ عِندِ ٱللَّهِ" },
     source: {
@@ -3339,6 +3361,25 @@ export const stories: Story[] = [
       keepsake: "رطبة من النخلة",
       note: "تذكّرك أن من صدق مع الله رزقه من حيث لا يحتسب.",
     },
+    arc: {
+      idea: "فتاةٌ نُذرت لبيت الله قبل أن تُولد، فصارت المرأة الوحيدة التي سُمّيت في القرآن باسمها.",
+      setting:
+        "قبل أن تولد مريم، كانت أمّها امرأة عمران قد نذرت ما في بطنها لخدمة بيت الله: ﴿رَبِّ إِنِّي نَذَرْتُ لَكَ مَا فِي بَطْنِي مُحَرَّرًا فَتَقَبَّلْ مِنِّي﴾. ثم وضعتها فإذا هي أنثى، وكان النذر في عادتهم للذكور، فقالت: ﴿رَبِّ إِنِّي وَضَعْتُهَا أُنثَىٰ﴾. ثم قالت كلمةً هي أوّل ما نالته مريم: ﴿وَإِنِّي سَمَّيْتُهَا مَرْيَمَ وَإِنِّي أُعِيذُهَا بِكَ وَذُرِّيَّتَهَا مِنَ الشَّيْطَانِ الرَّجِيمِ﴾.",
+      keyMoment:
+        "ثم جاء أصعب ما مرّ بها. حملت بعيسى بأمر الله من غير أب، وهي تعلم ما سيقوله الناس. ولمّا جاءها المخاض وحدها تحت النخلة قالت: ﴿يَا لَيْتَنِي مِتُّ قَبْلَ هَٰذَا وَكُنتُ نَسْيًا مَّنسِيًّا﴾. فنوديت: ﴿أَلَّا تَحْزَنِي قَدْ جَعَلَ رَبُّكِ تَحْتَكِ سَرِيًّا * وَهُزِّي إِلَيْكِ بِجِذْعِ النَّخْلَةِ تُسَاقِطْ عَلَيْكِ رُطَبًا جَنِيًّا﴾. وانتبه: أُمرت أن تهزّ جذع النخلة، وهي امرأة أنهكها المخاض، وجذع النخلة لا يهزّه الرجال. أراد الله منها أن تعمل ولو عملًا لا يكفي، ثم يأتي الرزق هو.",
+      resolution:
+        "ثم رجعت إلى قومها تحمله، فاتّهموها، فسكتت ولم تدافع عن نفسها، وأشارت إلى الطفل، فتكلّم ودافع عنها. وقال الله عنها في آخر سورة التحريم: ﴿وَمَرْيَمَ ابْنَتَ عِمْرَانَ الَّتِي أَحْصَنَتْ فَرْجَهَا فَنَفَخْنَا فِيهِ مِن رُّوحِنَا وَصَدَّقَتْ بِكَلِمَاتِ رَبِّهَا وَكُتُبِهِ وَكَانَتْ مِنَ الْقَانِتِينَ﴾. وهي المرأة الوحيدة التي ذُكر اسمها في القرآن، وسورةٌ كاملة تحمل اسمها.",
+      word: { term: "القَانِتِين", meaning: "الدائمون على طاعة الله في سكون وخشوع، لا ينقطعون عنها." },
+      lessons: [
+        "الرزق من عند الله؛ والسبب الذي تصنعه ليس هو الذي يرزقك.",
+        "الصبر على التهمة قد يكون أقوى من الدفاع عن النفس.",
+        "ابدأ ولدك بدعوة؛ فقد أعاذت أمُّ مريم ابنتها وذرّيتها قبل أن تراها.",
+      ],
+      think:
+        "أُمرت مريم أن تهزّ جذع النخلة وهي في أضعف حالاتها. فلماذا لم يسقط الرطب وحده من غير أن تهزّ؟ وما الذي يعلّمك إيّاه هذا عن العمل والدعاء معًا؟",
+      tryToday:
+        "إذا سألت الله شيئًا اليوم، فافعل بعده خطوة واحدة صغيرة نحوه — ولو كنتَ تعرف أنها وحدها لا تكفي.",
+    },
   },
   {
     chapter: "women",
@@ -3346,11 +3387,11 @@ export const stories: Story[] = [
     en: {
       title: "Asiya, the Wife of Pharaoh",
       hook:
-        "If you lived in the biggest palace, with all the gold and toys in the world, but the king was evil, what would you choose? Meet a queen who chose a house in Paradise over everything else!",
+        "If you had everything you could want — a palace, servants, gold, and you were married to the most powerful man on earth — what would you ask Allah for? In today's story there was a woman in exactly that position. And she asked Allah for a house.",
       events:
-        "Asiya was the wife of the cruel Pharaoh, but she was entirely different from him. She was kind, merciful, and a true believer in Allah. She was the one who convinced Pharaoh not to harm baby Musa and adopted him instead. When Pharaoh found out she believed in Allah, he punished her severely. But Asiya wasn't afraid of him at all. She looked up to the sky and asked Allah to build her a beautiful house in Paradise near Him.",
+        "When they found the basket in the river with a baby inside, and Pharaoh wanted him killed, it was she who said: {A comfort of the eye for me and for you. Do not kill him; perhaps he may benefit us, or we may adopt him as a son.} Musa survived because of one sentence from her. Then Musa grew up and became a prophet calling Pharaoh to Allah, and she believed in him — inside the house of the man denying him. That is the hardest picture you can imagine: your faith held in a house where it is not welcome.",
       lesson:
-        "True happiness is not found in money or palaces, but in having a pure heart that loves Allah and stands for the truth.",
+        "What matters is not where you live, but what you choose while you are there.",
       next:
         "Asiya raised a child who was not her own. But do you know who the very first mother in human history was — the first woman Allah created to live on earth with her husband?",
       challenge: {
@@ -3364,13 +3405,35 @@ export const stories: Story[] = [
         keepsake: "A brick from the house in Paradise",
         note: "A reminder that the richest person is the one who chose the next life while holding this one.",
       },
+      arc: {
+        idea: "A woman who lived in the richest palace on earth, and asked Allah for a house — with Him.",
+        setting:
+          "Asiya was the wife of Pharaoh, the man who told people: {I am your most exalted lord.} She lived in his palace and saw with her own eyes what he did to people and what was done to their sons. The Quran does not give her name; it names her by her position: {the wife of Pharaoh} — known by the house she was in, the worst house on earth. And then she herself became an example Allah set for all the believers.",
+        keyMoment:
+          "Then came the day her faith was known. And what did she say? {My Lord, build for me near You a house in Paradise, and save me from Pharaoh and his deeds, and save me from the wrongdoing people.} Notice the order of the request: she said \"near You\" before she said \"a house.\" The neighbour before the home. A woman in a palace beyond description, asking for a house — but with Allah, not on this earth.",
+        resolution:
+          "So Allah made her an example for all believers, men and women alike: {And Allah presents an example of those who believed: the wife of Pharaoh.} The man who said \"I am your most exalted lord\" was finished and drowned; and the prayer of a woman inside his own house is still recited in the Quran today. No one knows where the palace she lived in stood; and the house she asked for, Allah promised her.",
+        word: { term: "A comfort of the eye", meaning: "Something the eye delights in and settles on, so it looks for nothing beyond it." },
+        lessons: [
+          "The neighbour before the home; she asked \"near You\" before she asked for \"a house.\"",
+          "Where you are does not stop you from choosing what is right.",
+          "One sentence said at the right moment can save a life.",
+        ],
+        think:
+          "Asiya had everything this world offers, and asked for a house in Paradise. If you had one prayer that would certainly be answered, what would you ask for? And why that?",
+        tryToday:
+          "Pray Asiya's prayer today: \"My Lord, build for me near You a house in Paradise\" — and think about \"near You\" as you say it.",
+      },
     },
     image: "/stories/asiya.jpg",
     title: "آسية امرأة فرعون",
     surahName: "التحريم",
-    hook: "تخيلوا أن تعيشوا في قصر كبير مليء بالذهب والألعاب، لكن الحاكم هناك شرير جدًا! ماذا ستفعلون؟ هل ستكونون أشرارًا مثله أم تختارون طريق الخير؟",
-    events: "آسية كانت زوجة فرعون، الملك الظالم الذي كان يقول للناس «أنا ربكم الأعلى». لكن آسية كانت طيبة ومؤمنة بالله في قلبها. وعندما وجدت النبي موسى وهو طفل رضيع في الصندوق في النهر، أحبته كثيرًا وأقنعت فرعون ألا يقتله وربّته في قصرها. ولما كبر موسى وأصبح نبيًا، آمنت به آسية، وتجردت من كل نعيم الدنيا طلبًا لرضا الله. لم تخف من غضب فرعون وعذابه، بل دعت الله أن يبني لها بيتًا في الجنة لتسكن بجواره.",
-    lesson: "الشجاعة الحقيقية هي أن نقول الحق ونفعل الخير، حتى لو كان من حولنا يفعلون الشر. وأن الجنة أجمل بكثير من أي قصر في الدنيا.",
+    hook:
+      "لو كان لك كل ما تتمنّاه: قصرٌ، وخدم، وذهب، وأنت زوجة أقوى رجل على الأرض — فماذا تسأل الله؟ في قصة اليوم امرأة كانت في هذا الحال بالضبط. وسألت الله بيتًا.",
+    events:
+      "وحين وجدوا الصندوق في النهر وفيه طفل رضيع، وأراد فرعون قتله، هي التي قالت: ﴿قُرَّتُ عَيْنٍ لِّي وَلَكَ لَا تَقْتُلُوهُ عَسَىٰ أَن يَنفَعَنَا أَوْ نَتَّخِذَهُ وَلَدًا﴾. فنجا موسى بكلمة منها. ثم كبر موسى وصار نبيًّا يدعو فرعون إلى الله، فآمنت به وهي في بيت من يكذّبه. وهذه أصعب صورة يمكن أن تتخيّلها: أن يكون إيمانك في بيتٍ لا يُقبل فيه.",
+    lesson:
+      "ليس المهمّ أين تعيش، بل ما الذي تختاره وأنت هناك.",
     next: "السيدة آسية ربّت طفلًا ليس ابنها… لكن هل تعرفون من هي أول أم في تاريخ البشرية؟ أول امرأة خلقها الله لتسكن الأرض مع زوجها؟",
     ayah: { ref: "66:11", surah: 66, number: 11, text: "وَضَرَبَ ٱللَّهُ مَثَلًۭا لِّلَّذِينَ ءَامَنُوا۟ ٱمْرَأَتَ فِرْعَوْنَ إِذْ قَالَتْ رَبِّ ٱبْنِ لِى عِندَكَ بَيْتًۭا فِى ٱلْجَنَّةِ" },
     source: {
@@ -3389,6 +3452,25 @@ export const stories: Story[] = [
       keepsake: "لبنة من بيت الجنة",
       note: "تذكّرك أن أغنى الناس من اختار الآخرة وهو يملك الدنيا.",
     },
+    arc: {
+      idea: "امرأةٌ عاشت في أغنى قصر على الأرض، فسألت الله بيتًا — عنده هو.",
+      setting:
+        "آسية امرأة فرعون، الرجل الذي قال للناس: ﴿أَنَا رَبُّكُمُ الْأَعْلَىٰ﴾. عاشت في قصره، ورأت بعينها ما يصنعه بالناس وما يُقتل من أبنائهم. ولم يذكر القرآن اسمها؛ ذكرها بوصفها: ﴿امْرَأَتَ فِرْعَوْنَ﴾ — أي إنها عُرفت بالبيت الذي كانت فيه، وهو أسوأ بيت في الأرض، ثم صارت هي نفسها مثلًا ضربه الله للمؤمنين جميعًا.",
+      keyMoment:
+        "ثم جاء اليوم الذي ظهر فيه إيمانها. فماذا قالت؟ ﴿رَبِّ ابْنِ لِي عِندَكَ بَيْتًا فِي الْجَنَّةِ وَنَجِّنِي مِن فِرْعَوْنَ وَعَمَلِهِ وَنَجِّنِي مِنَ الْقَوْمِ الظَّالِمِينَ﴾. وانتبه إلى ترتيب الطلب: قالت «عندك» قبل أن تقول «بيتًا». الجار قبل الدار. امرأةٌ في قصرٍ لا يُوصف، تطلب بيتًا — لكن عند الله، لا في الأرض.",
+      resolution:
+        "فضربها الله مثلًا للمؤمنين كلهم، رجالًا ونساءً: ﴿وَضَرَبَ اللَّهُ مَثَلًا لِّلَّذِينَ آمَنُوا امْرَأَتَ فِرْعَوْنَ﴾. والذي كان يقول «أنا ربكم الأعلى» انتهى أمره وغرق؛ وبقيت دعوةُ امرأةٍ كانت في بيته تُقرأ في القرآن إلى اليوم. والقصر الذي عاشت فيه لا يعرف أحدٌ أين كان؛ أمّا البيت الذي طلبته فقد وعدها الله به.",
+      word: { term: "قُرَّة عَين", meaning: "ما تفرح به العين وتسكن إليه وتقرّ، فلا تتطلّع إلى غيره." },
+      lessons: [
+        "الجار قبل الدار؛ فقد سألت «عندك» قبل أن تسأل «بيتًا».",
+        "لا يمنعك المكان الذي أنت فيه من أن تختار الحقّ.",
+        "كلمة واحدة تقولها في وقتها قد تنقذ إنسانًا.",
+      ],
+      think:
+        "كانت آسية تملك كل ما في الدنيا، فطلبت بيتًا في الجنة. لو كان لك دعوة واحدة مستجابة، ماذا كنت ستطلب فيها؟ ولماذا هذا بالذات؟",
+      tryToday:
+        "ادعُ اليوم بدعاء آسية: «ربِّ ابنِ لي عندك بيتًا في الجنة»، وتذكّر معنى «عندك» وأنت تقولها.",
+    },
   },
   {
     chapter: "women",
@@ -3396,11 +3478,11 @@ export const stories: Story[] = [
     en: {
       title: "Hawwa (Eve), the First Woman",
       hook:
-        "Who was the very first mother on Earth? Let's travel back to the beautiful Paradise to meet the woman who started the human family!",
+        "If you and your brother both got something wrong, who apologises first? In today's story, the first man and the first woman in existence made a mistake together. And look at how their apology comes in the Quran — it is the most important thing in the story.",
       events:
-        "Hawwa (Eve) was the very first woman Allah created. She was created to be a companion and wife to Prophet Adam so they could live happily together. They lived in a beautiful Paradise and could eat from anywhere, except one tree. But the evil Iblis (Satan) whispered to them and tricked them into eating from it. They immediately felt sorry for their mistake and cried, asking Allah for forgiveness. Because Allah is The Most Merciful, He forgave them and sent them to Earth to start human life and spread goodness.",
+        "Satan came to them: {But Satan whispered to them} — to them both, not to one without the other. Then he swore to them: {And he swore to them, Indeed, I am to you from among the sincere advisers.} {So he made them fall through deception.} {And they both ate of it.} Notice the form of every verse: to them, swore to them, made them fall, and they both ate. The Quran did not lay the blame on one of them rather than the other; it named them together in every single word.",
       lesson:
-        "Everyone makes mistakes, but the best thing to do is to quickly admit our mistake and ask Allah for forgiveness, just like our mother Hawwa did.",
+        "If you were wrong together, come back together — and neither of you go looking for someone to blame.",
       next:
         "Hawwa was the first mother. In our next story, we will meet a very generous lady who received the most amazing news when she was very old! It's Lady Sarah!",
       quranProse:
@@ -3416,13 +3498,35 @@ export const stories: Story[] = [
         keepsake: "A leaf from the tree",
         note: "A reminder that a home whose people turn back to Allah is never lost.",
       },
+      arc: {
+        idea: "The first home in existence, the first mistake they fell into together — and the return they made together.",
+        setting:
+          "Allah created Adam, then created from him his wife so that each might find rest in the other: {And created from it its mate}, {that you may find tranquillity in them; and He placed between you affection and mercy.} He settled them in the Garden and said to them: {And eat from it in ease and abundance from wherever you will, but do not approach this tree.} The Quran does not give Hawwa's name; it says \"his wife.\" The name we know her by today comes from outside the Quran.",
+        keyMoment:
+          "Then came the moment this story is told for. Adam did not say \"she gave it to me.\" She did not say \"he led me to it.\" They said one sentence in one voice: {Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.} They were wrong together, and they came back together. That was the first home in existence, and the first lesson to come out of it: a home whose people return to Allah together is never lost.",
+        resolution:
+          "So Allah accepted their repentance and sent them down to the earth, and said: {And when guidance comes to you from Me, whoever follows My guidance will neither go astray nor suffer.} And from those two came all of humanity: {O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women.} Everyone you pass in the street today descends from that home that knew how to come back.",
+        word: { term: "Made them fall through deception", meaning: "Brought them down from where they were by trickery and pleasant words dressed up as advice." },
+        lessons: [
+          "Do not put your mistake on someone else, even if they had a part in it.",
+          "Whispering starts with beautiful words; watch out for whoever makes a wrong thing look good.",
+          "A home whose people return to Allah is never lost.",
+        ],
+        think:
+          "The Quran named them together at every step: whispered to them, they both ate, they both returned, they both prayed. Why do you think that is? And what does it teach you about blame between brothers and sisters at home?",
+        tryToday:
+          "If you and your brother or your friend get something wrong today, apologise first yourself, and do not wait for them to start.",
+      },
     },
     image: "/stories/hawwa.jpg",
     title: "السيدة حواء",
     surahName: "البقرة",
-    hook: "هل سألتم أنفسكم يومًا من أين جاء كل هؤلاء الناس في العالم؟ من كان أول رجل وأول امرأة على الأرض؟",
-    events: "خلق الله سيدنا آدم بيده، ثم خلق زوجته السيدة حواء لكي لا يكون وحيدًا. عاشا معًا في الجنة الجميلة يأكلان من كل الثمار، إلا شجرة واحدة منعهما الله منها. لكن الشيطان الشرير وسوس لهما وخدعهما حتى أكلا من الشجرة. حزنت حواء وآدم جدًا لأنهما لم يسمعا كلام الله، فاعتذرا وبكيا، فسامحهما الله الرحيم، وأنزلهما إلى الأرض لتبدأ قصة البشرية ونكون نحن من أحفادهما!",
-    lesson: "إذا أخطأنا ونسينا كلام الله، يجب أن نعتذر فورًا ونطلب منه السماح، والله سيغفر لنا لأنه رحيم يحب التوابين.",
+    hook:
+      "لو أخطأتَ أنت وأخوك في شيء واحد، فمن يعتذر أوّلًا؟ في قصة اليوم أوّل رجل وأوّل امرأة في الوجود أخطآ معًا. وانظر كيف جاء اعتذارهما في القرآن — فهو أهمّ ما في القصة.",
+    events:
+      "وجاءهما الشيطان: ﴿فَوَسْوَسَ لَهُمَا الشَّيْطَانُ﴾ — لهما معًا، لا لأحدهما دون الآخر. ثم حلف لهما: ﴿وَقَاسَمَهُمَا إِنِّي لَكُمَا لَمِنَ النَّاصِحِينَ﴾، ﴿فَدَلَّاهُمَا بِغُرُورٍ﴾، ﴿فَأَكَلَا مِنْهَا﴾. وانتبه إلى صيغة الآيات كلها: «لهما»، و«قاسمهما»، و«دلّاهما»، و«فأكلا». القرآن لم يُلقِ اللوم على واحد منهما دون الآخر؛ ذكرهما معًا في كل حرف من الحروف.",
+    lesson:
+      "إذا أخطأتم معًا فارجعوا معًا، ولا يبحث أحدكم عمّن يُلقي عليه اللوم.",
     next: "السيدة حواء هي أم البشر… ولكن هناك امرأة أخرى طيبة جدًا، رزقها الله بطفل جميل وهي كبيرة جدًا في السن! هل تعرفون من هي؟",
     ayah: { ref: "2:35", surah: 2, number: 35, text: "وَقُلْنَا يَـٰٓـَٔادَمُ ٱسْكُنْ أَنتَ وَزَوْجُكَ ٱلْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَـٰذِهِ ٱلشَّجَرَةَ" },
     source: {
@@ -3441,6 +3545,25 @@ export const stories: Story[] = [
       keepsake: "ورقة الشجرة",
       note: "تذكّرك أن البيت الذي يعتذر أهله لله لا يضيع.",
     },
+    arc: {
+      idea: "أوّل بيت في الوجود، وأوّل خطأ وقعا فيه معًا — ثم رجعا منه معًا.",
+      setting:
+        "خلق الله آدم، ثم خلق منه زوجه ليسكن إليها وتسكن إليه: ﴿وَخَلَقَ مِنْهَا زَوْجَهَا﴾، ﴿لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾. وأسكنهما الجنّة وقال لهما: ﴿وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَٰذِهِ الشَّجَرَةَ﴾. ولم يذكر القرآن اسم حوّاء؛ ذكرها بـ«زوجه»، والاسم الذي نعرفها به اليوم جاء من غير القرآن.",
+      keyMoment:
+        "ثم جاءت اللحظة التي من أجلها تُحكى هذه القصة. لم يقل آدم: هي التي أعطتني. ولم تقل هي: هو الذي دلّني. قالا جملةً واحدة بصوتٍ واحد: ﴿رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾. أخطآ معًا فرجعا معًا. وهذا أوّل بيت في الوجود، وأوّل درس خرج منه: أن البيت الذي يرجع أهله إلى الله معًا لا يضيع.",
+      resolution:
+        "فتاب الله عليهما، وأنزلهما إلى الأرض، وقال: ﴿فَإِمَّا يَأْتِيَنَّكُم مِّنِّي هُدًى فَمَنِ اتَّبَعَ هُدَايَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ﴾. ومن هذين الاثنين جاء الناس كلهم: ﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً﴾. فكلّ من تراه في الطريق اليوم من نسل ذلك البيت الذي عرف كيف يرجع.",
+      word: { term: "دَلَّاهُمَا بِغُرُور", meaning: "أنزلهما عمّا كانا فيه بخداعٍ وكلامٍ مزيّن يبدو نصيحة." },
+      lessons: [
+        "لا تُلقِ خطأك على غيرك، ولو كان له فيه نصيب.",
+        "الوسوسة تبدأ بكلام جميل؛ فانتبه لمن يزيّن لك الخطأ.",
+        "لا يضيع بيتٌ يرجع أهله فيه إلى الله.",
+      ],
+      think:
+        "ذكرهما القرآن معًا في كل خطوة: وُسوس لهما، وأكلا، ورجعا، ودعَوَا. لماذا في رأيك؟ وماذا يعلّمك هذا عن اللوم بين الإخوة في البيت؟",
+      tryToday:
+        "إذا أخطأتَ اليوم مع أخيك أو صاحبك في شيء، فاعتذر أنت أوّلًا ولا تنتظر أن يبدأ هو.",
+    },
   },
   {
     chapter: "women",
@@ -3448,11 +3571,11 @@ export const stories: Story[] = [
     en: {
       title: "Lady Sarah and the Glad Tidings",
       hook:
-        "Can you imagine getting the best news ever when you are very old and have given up hope? Today we meet a generous lady who received a magical surprise from angels!",
+        "What would you do if a guest came and you brought out the best you had… and they did not reach for it? In today's story that happened in a prophet's house. And what came next changed the life of a woman who had given up on something she had wanted for years.",
       events:
-        "Lady Sarah was the beautiful and righteous wife of Prophet Ibrahim. She was very old and never had any children. One day, three handsome guests visited them. Ibrahim and Sarah were very generous and quickly prepared a delicious meal for them. But the guests didn't eat! They were actually angels sent by Allah. The angels gave Ibrahim and Sarah the glad tidings that they would have a baby boy named Ishaq (Isaac). Sarah was so surprised that she laughed and touched her face, wondering how an old woman could have a baby! But with Allah, nothing is impossible.",
+        "Guests he did not know came in to Ibrahim: {And they said, peace. He answered, peace.} Look at what he did — the verses describe every step in a single word each: {Then he went to his family} — he slipped away quickly and quietly so the guest would not feel he was putting him to trouble. {And came with a fat roasted calf} — the best he had, not what was left over. {And placed it near them} — he set it beside them rather than saying \"come to the table.\" Three steps in three words, and every one of them a courtesy of hosting.",
       lesson:
-        "We learn to always be generous to our guests. We also learn that Allah's blessings can come at any time, and we should never lose hope in His mercy.",
+        "Honour your guest with the best you have, and never rule anything out of Allah's mercy.",
       next:
         "Sarah welcomed her guests and was given the best of news. Our next story follows another wife of Prophet Ibrahim, left alone in an empty desert with a thirsty baby — and the well that sprang up for her. It's Lady Hajar!",
       quranProse:
@@ -3468,13 +3591,35 @@ export const stories: Story[] = [
         keepsake: "The guests' platter",
         note: "A reminder that nothing is too much for Allah, and generosity to a guest opens doors of good news.",
       },
+      arc: {
+        idea: "Guests who did not reach for the food, and a woman well past her years — and then the good news.",
+        setting:
+          "Ibrahim and his wife had grown old and had never been given a child. The Quran does not name her; it says \"his wife.\" The name Sarah reaches us from outside the Quran. Ibrahim was known for his generosity, so much so that Allah named his guests in a whole surah: {Has there reached you the story of the honoured guests of Ibrahim?} The guests were attributed to him, and described as honoured.",
+        keyMoment:
+          "They did not eat. {But when he saw their hands not reaching for it, he distrusted them and felt from them apprehension.} They said: {Fear not. We have been sent to the people of Lut} — they were angels, who do not eat. Then: {And his wife was standing, and she smiled. Then We gave her good tidings of Ishaq, and after Ishaq, Yaqub.} Notice: they gave her news of a son, and news of a grandson after him. Two generations of provision in one sentence.",
+        resolution:
+          "She said in astonishment: {Woe to me! Shall I give birth while I am an old woman and this, my husband, is an old man? Indeed, this is an amazing thing.} And the answer came: {Are you amazed at the decree of Allah? May the mercy of Allah and His blessings be upon you, people of the house. Indeed, He is Praiseworthy and Honourable.} Ishaq was born, then Yaqub, and from Yaqub came Yusuf and his brothers. A household whose people thought their line was finished, and a whole nation came out of it.",
+        word: { term: "He went to his family", meaning: "He slipped away quickly and quietly, so his guest would not feel he was being any trouble." },
+        lessons: [
+          "Generosity is giving the best you have, not what is left over.",
+          "Never let the person you are helping feel they are wearing you out.",
+          "Do not rule anything out for Allah; \"are you amazed at the decree of Allah?\"",
+        ],
+        think:
+          "Ibrahim slipped away quietly to prepare the food instead of asking his guests, \"would you like something to eat?\" Why do you think he did it that way?",
+        tryToday:
+          "Offer something today to whoever visits you or sits with you — bring it to them, and do not wait to be asked.",
+      },
     },
     image: "/stories/sarah.jpg",
     title: "السيدة سارة",
     surahName: "هود",
-    hook: "هل يمكن لشجرة قديمة جدًا أن تثمر فجأة تفاحًا لذيذًا؟ هذا مستحيل! لكن الله قادر على كل شيء.",
-    events: "السيدة سارة هي زوجة نبي الله إبراهيم عليه السلام. كانت امرأة طيبة، لكنها كبرت في السن ولم يكن لديها أطفال. في يوم من الأيام، جاء ملائكة على شكل ضيوف لزيارة سيدنا إبراهيم، وبشّروه وبشّروا السيدة سارة بأنها ستلد طفلًا اسمه إسحاق، ومن بعده حفيد اسمه يعقوب! ضحكت السيدة سارة من المفاجأة وتعجبت وقالت: كيف ألد طفلًا وأنا عجوز كبيرة؟ فقال لها الملائكة: هل تتعجبين من قدرة الله؟ فرزقها الله بالنبي إسحاق وفرحت به كثيرًا.",
-    lesson: "قدرة الله كبيرة جدًا ولا يوجد شيء مستحيل عليه. إذا أردنا شيئًا بشدة، علينا أن ندعو الله دائمًا ولا نيأس أبدًا.",
+    hook:
+      "ماذا تفعل لو جاءك ضيفٌ فقدّمتَ له أحسن ما عندك… فلم يمدّ يده إلى الطعام؟ في قصة اليوم حدث هذا في بيت نبيّ. وما جاء بعده غيّر حياة امرأة كانت قد يئست من شيء تتمنّاه منذ سنين.",
+    events:
+      "ودخل على إبراهيم ضيوفٌ لا يعرفهم: ﴿فَقَالُوا سَلَامًا قَالَ سَلَامٌ﴾. فانظر ماذا صنع، فالآيات تصف كل خطوة بكلمة واحدة: ﴿فَرَاغَ إِلَىٰ أَهْلِهِ﴾ — مضى إليهم في خفية وسرعة حتى لا يشعر الضيف أنه كلّفه شيئًا. ﴿فَجَاءَ بِعِجْلٍ سَمِينٍ﴾ — بأحسن ما عنده، لا بما فضل عنه. ﴿فَقَرَّبَهُ إِلَيْهِمْ﴾ — قدّمه إليهم ولم يقل لهم: تفضّلوا إلى الطعام. ثلاث خطوات في ثلاث كلمات، وكلها أدبٌ في إكرام الضيف.",
+    lesson:
+      "أكرِم ضيفك بأحسن ما عندك، ولا تستبعد شيئًا على رحمة الله.",
     next: "السيدة سارة كانت تعيش مع سيدنا إبراهيم، وكان معهم سيدة طيبة أخرى اضطرت للعيش في صحراء قاحلة وحدها مع طفلها الرضيع، وبحثت عن الماء بين جبلين! هل عرفتموها؟",
     ayah: { ref: "11:72", surah: 11, number: 72, text: "قَالَتْ يَـٰوَيْلَتَىٰٓ ءَأَلِدُ وَأَنَا۠ عَجُوزٌۭ وَهَـٰذَا بَعْلِى شَيْخًا ۖ إِنَّ هَـٰذَا لَشَىْءٌ عَجِيبٌۭ" },
     source: {
@@ -3493,6 +3638,25 @@ export const stories: Story[] = [
       keepsake: "طبق الضيافة",
       note: "يذكّرك أن الله لا يعجزه شيء، وأن كرم الضيف يفتح أبواب البشرى.",
     },
+    arc: {
+      idea: "ضيوفٌ لم يمدّوا أيديهم إلى الطعام، وامرأةٌ كبيرة في السنّ — ثم جاءت البشارة.",
+      setting:
+        "إبراهيم عليه السلام وامرأته، وقد كبرا في السنّ ولم يُرزقا ولدًا. ولم يذكر القرآن اسمها؛ ذكرها بـ«امرأته»، واسم «سارة» جاءنا من غير القرآن. وكان إبراهيم معروفًا بكرمه حتى سمّى الله ضيوفه في سورة كاملة: ﴿هَلْ أَتَاكَ حَدِيثُ ضَيْفِ إِبْرَاهِيمَ الْمُكْرَمِينَ﴾ — فنُسب الضيوف إليه، ووُصفوا بأنهم مكرَمون.",
+      keyMoment:
+        "فلم يأكلوا. ﴿فَلَمَّا رَأَىٰ أَيْدِيَهُمْ لَا تَصِلُ إِلَيْهِ نَكِرَهُمْ وَأَوْجَسَ مِنْهُمْ خِيفَةً﴾ — أنكرهم وأحسّ في نفسه بخوف. فقالوا: ﴿لَا تَخَفْ إِنَّا أُرْسِلْنَا إِلَىٰ قَوْمِ لُوطٍ﴾؛ فهم ملائكة لا يأكلون. ثم: ﴿وَامْرَأَتُهُ قَائِمَةٌ فَضَحِكَتْ فَبَشَّرْنَاهَا بِإِسْحَاقَ وَمِن وَرَاءِ إِسْحَاقَ يَعْقُوبَ﴾. وانتبه: بشّروها بابن، وبشّروها بحفيدٍ من بعده. رزقُ جيلين في جملة واحدة.",
+      resolution:
+        "فقالت من شدّة العجب: ﴿يَا وَيْلَتَىٰ أَأَلِدُ وَأَنَا عَجُوزٌ وَهَٰذَا بَعْلِي شَيْخًا إِنَّ هَٰذَا لَشَيْءٌ عَجِيبٌ﴾. فكان الجواب: ﴿أَتَعْجَبِينَ مِنْ أَمْرِ اللَّهِ رَحْمَتُ اللَّهِ وَبَرَكَاتُهُ عَلَيْكُمْ أَهْلَ الْبَيْتِ إِنَّهُ حَمِيدٌ مَّجِيدٌ﴾. فوُلد إسحاق، ثم يعقوب، ومن يعقوب جاء يوسف وإخوته. بيتٌ ظنّ أهله أن أمره قد انتهى، خرجت منه أمّة.",
+      word: { term: "فَرَاغَ إلى أهله", meaning: "مضى إليهم في خفية وسرعة، لئلّا يشعر الضيف أنه أتعبه أو كلّفه شيئًا." },
+      lessons: [
+        "الكرم أن تعطي أحسن ما عندك، لا ما فضل عنك.",
+        "لا تُشعر من تُحسن إليه أنك تتعب من أجله.",
+        "لا تستبعد شيئًا على الله؛ ﴿أتعجبين من أمر الله﴾.",
+      ],
+      think:
+        "ذهب إبراهيم إلى أهله في خفية ليحضر الطعام، ولم يسأل ضيوفه: هل تريدون طعامًا؟ لماذا في رأيك فعل ذلك؟",
+      tryToday:
+        "أكرِم اليوم من يزورك أو من يجلس معك بشيء تقدّمه إليه، ولا تنتظر منه أن يطلبه.",
+    },
   },
   {
     chapter: "women",
@@ -3500,11 +3664,11 @@ export const stories: Story[] = [
     en: {
       title: "Lady Hajar and the Well of Zamzam",
       hook:
-        "Imagine being left alone in a hot, empty desert with a crying baby and no water! What would you do? Let's discover the story of the strongest and most patient mother!",
+        "The Zamzam water that people drink today from all over the world came up in a place where there was nothing: no tree, no well, no person. And it only came after a woman ran seven times between two hills, looking for anyone at all. What was her story?",
       events:
-        "Prophet Ibrahim (Abraham) had to leave his wife Hajar and their baby Ismail in a barren desert in Mecca by Allah's command. Hajar trusted Allah completely. When the baby got thirsty and started crying, she didn't just sit and give up; she ran between two hills (Safa and Marwa) seven times looking for help. Because of her great effort and deep trust, Allah sent an angel who struck the ground, and the blessed, cool water of Zamzam gushed out!",
+        "Hajar followed him saying: Ibrahim, where are you going, leaving us in this valley where there is no person and nothing at all? She said it again and again and he did not turn around. Then she asked one question that changed everything: did Allah command you to do this? He said: yes. She said: then He will not abandon us. And she went back content. This account is in Sahih al-Bukhari, from Ibn Abbas.",
       lesson:
-        "We must always put in the effort and work hard, while fully trusting that Allah will help us and never abandon us.",
+        "Strive with what you can do, and rely on the One who holds what you cannot.",
       next:
         "Hajar's patience brought water out of the desert. In our last story of this chapter, we meet a queen who ruled a mighty kingdom and used her mind to find the truth. Who is she? The Queen of Sheba!",
       challenge: {
@@ -3518,13 +3682,35 @@ export const stories: Story[] = [
         keepsake: "A waterskin",
         note: "A reminder that Allah provides for the one who strives — and Zamzam still bears witness.",
       },
+      arc: {
+        idea: "A woman left in a valley with no one in it, who asked one question — and the answer is still water people drink today.",
+        setting:
+          "Allah commanded Ibrahim to leave Hajar and her nursing son Ismail in a valley in Mecca with nothing growing, no water and no people. {Our Lord, I have settled some of my descendants in an uncultivated valley near Your sacred House.} He left with them a bag of dates and a skin of water, and then turned and walked away without looking back.",
+        keyMoment:
+          "The water ran out, and the baby grew so thirsty he writhed in front of her. She did not sit and wait. She climbed Safa to see if anyone was there, and saw no one, then went down into the valley and hurried across to Marwah, and came back. Seven times. And she knew perfectly well that running between two hills does not bring water out of the ground — but she could not sit still while her son was thirsty. Then she heard a voice and said: you have made me hear you, if you have any help. And there was the angel at the place of Zamzam, digging with his heel until the water appeared.",
+        resolution:
+          "She began to bank the water in with her hands so it would not run off, saying: gather, gather. The Prophet said: \"May Allah have mercy on the mother of Ismail; had she left Zamzam alone, it would have been a flowing spring.\" Then people came and settled near her for the water, and the empty valley became a city, and the Sacred House was built. And today people circle it and walk seven times between Safa and Marwah — walking where she walked, and drinking what she drank.",
+        word: { term: "Help", meaning: "Rescue and aid in a moment of distress — she called for it while seeing no one at all." },
+        lessons: [
+          "Ask first: is this Allah's command? If it is, He will not abandon you.",
+          "Do not sit and wait; Zamzam came after seven runs that could not produce water.",
+          "The trace of one step can become an act of worship people walk thousands of years later.",
+        ],
+        think:
+          "Hajar knew that running between the hills would not bring water. So why did she run? What does that teach you when you are stuck with nothing you can do?",
+        tryToday:
+          "If you have a problem today you think you cannot solve, take one small step in it, and then say: Allah is enough for me.",
+      },
     },
     image: "/stories/hajar.jpg",
     title: "السيدة هاجر",
     surahName: "إبراهيم",
-    hook: "تخيلوا أنفسكم في صحراء حارة جدًا، لا يوجد بها شجر ولا ماء ولا أصدقاء تلعبون معهم. وفجأة، يبكي طفل صغير من العطش! ماذا ستفعل أمه؟",
-    events: "السيدة هاجر هي زوجة سيدنا إبراهيم وأم سيدنا إسماعيل. أمر الله سيدنا إبراهيم أن يترك هاجر وطفلها الرضيع في صحراء مكة حيث لا يوجد أحد. سألته هاجر: هل أمرك الله بهذا؟ قال: نعم. فقالت بشجاعة: إذن لن يضيعنا الله! وعندما عطش الطفل وبكى، أخذت تركض بين جبلين (الصفا والمروة) سبع مرات تبحث عن ماء. وفجأة، ضرب الملَك الأرض بجناحه عند قدمي الطفل إسماعيل، فخرجت عين ماء عذبة وجميلة جدًا! إنها بئر زمزم التي نشرب منها حتى اليوم.",
-    lesson: "مهما كنا في مشكلة أو مكان صعب، يجب أن نثق في الله ونبذل جهدنا كما ركضت هاجر، والله سيرزقنا ويساعدنا من حيث لا ندري.",
+    hook:
+      "ماء زمزم الذي يشربه الناس اليوم من كل الدنيا، خرج في مكان لم يكن فيه شيء: لا شجر، ولا بئر، ولا إنسان. ولم يخرج إلا بعد أن ركضت امرأة سبع مرّات بين جبلين تبحث عن أيّ أحد. فما قصّتها؟",
+    events:
+      "فتبعته هاجر تقول: يا إبراهيم، أين تذهب وتتركنا بهذا الوادي الذي ليس فيه إنسٌ ولا شيء؟ قالتها مرارًا وهو لا يلتفت إليها. ثم سألته سؤالًا واحدًا غيّر كل شيء: آللهُ أمرك بهذا؟ قال: نعم. قالت: إذًا لا يُضيّعنا. ثم رجعت راضية. وهذا الخبر في صحيح البخاري عن ابن عباس رضي الله عنهما.",
+    lesson:
+      "اسعَ بما تقدر عليه، وتوكّل على من يملك ما لا تقدر عليه أنت.",
     next: "السيدة هاجر كانت تحب طفلها كثيرًا وتخاف عليه… ولكن في قصتنا القادمة سنتعرف على ملكة ذكية جدًا، كانت تحكم بلدًا كبيرًا، وجاءتها رسالة غريبة من طائر!",
     ayah: { ref: "14:37", surah: 14, number: 37, text: "رَّبَّنَآ إِنِّىٓ أَسْكَنتُ مِن ذُرِّيَّتِى بِوَادٍ غَيْرِ ذِى زَرْعٍ عِندَ بَيْتِكَ ٱلْمُحَرَّمِ" },
     source: {
@@ -3543,6 +3729,25 @@ export const stories: Story[] = [
       keepsake: "قربة ماء",
       note: "تذكّرك أن الله يرزق من سعى، وأن زمزم ما زالت تشهد.",
     },
+    arc: {
+      idea: "امرأةٌ تُركت في وادٍ لا أحد فيه، فسألت سؤالًا واحدًا — وبقي جوابها ماءً يشربه الناس إلى اليوم.",
+      setting:
+        "أمر الله إبراهيم عليه السلام أن يترك هاجر وابنها الرضيع إسماعيل في وادٍ بمكة، لا زرع فيه ولا ماء ولا بشر. ﴿رَّبَّنَا إِنِّي أَسْكَنتُ مِن ذُرِّيَّتِي بِوَادٍ غَيْرِ ذِي زَرْعٍ عِندَ بَيْتِكَ الْمُحَرَّمِ﴾. ووضع عندهما جرابًا فيه تمر وسقاءً فيه ماء، ثم انصرف ومضى ولم يلتفت.",
+      keyMoment:
+        "ونفد الماء، وعطش الطفل حتى تلوّى أمامها. فلم تجلس تنتظر. صعدت الصفا تنظر هل ترى أحدًا فلم ترَ أحدًا، فنزلت إلى الوادي تسعى حتى بلغت المروة، ثم رجعت. سبع مرّات. وهي تعلم أن الركض بين جبلين لا يُخرج ماءً من الأرض — لكنها لم تقدر على الجلوس وابنها يعطش. ثم سمعت صوتًا فقالت: قد أسمعتَ إن كان عندك غَواث. فإذا الملك عند موضع زمزم، فبحث بعقبه حتى ظهر الماء.",
+      resolution:
+        "فجعلت تحوّض الماء بيدها لئلّا يذهب، وتقول: زمّي، زمّي — أي اجتمعي. قال النبي ﷺ: «يرحم الله أمّ إسماعيل، لو تركت زمزم لكانت عينًا معينًا». ثم نزل الناس عندها من أجل الماء، فصار الوادي الخالي مدينة، وبُني البيت الحرام، ويطوف الناس اليوم ويسعون بين الصفا والمروة سبعة أشواط — يمشون حيث مشت هي، ويشربون ممّا شربت.",
+      word: { term: "غَواث", meaning: "الإغاثة والعون عند الشدّة — نادت بها وهي لا ترى أحدًا." },
+      lessons: [
+        "اسأل أوّلًا: هل هذا أمر الله؟ فإن كان، فلن يُضيّعك.",
+        "لا تجلس تنتظر؛ فماء زمزم جاء بعد سبعة أشواط لم تكن تأتي بماء.",
+        "قد يصير أثر خطوةٍ واحدة عبادةً يمشيها الناس بعدك بآلاف السنين.",
+      ],
+      think:
+        "كانت هاجر تعلم أن الركض بين الجبلين لن يُخرج الماء. فلماذا ركضت إذًا؟ وما الذي يعلّمك إياه هذا حين تقع في ضيق لا حيلة لك فيه؟",
+      tryToday:
+        "إن كان عندك اليوم مشكلة تظنّ أنك لا تقدر عليها، فافعل فيها خطوة واحدة صغيرة، ثم قل: حسبي الله.",
+    },
   },
   {
     chapter: "women",
@@ -3550,11 +3755,11 @@ export const stories: Story[] = [
     en: {
       title: "Bilqis, the Queen of Sheba",
       hook:
-        "Have you ever received a letter delivered by a bird? Today's story is about a very smart queen who received a special letter from a great King and Prophet!",
+        "The hardest thing for a person to say is: I was wrong. Harder still is saying it as a ruler, in front of all your people, after years of doing that very thing. In today's story, a queen did exactly that.",
       events:
-        "Bilqis was a wise queen who ruled the wealthy Kingdom of Sheba. Her people were very strong, but they worshipped the sun instead of Allah. Prophet Sulaiman (Solomon) sent her a letter with a smart bird (the Hoopoe), inviting her to worship Allah. Instead of starting a war, the wise queen decided to visit Sulaiman. When she saw his amazing kingdom and his great miracles, she used her intelligence and immediately chose to submit to Allah, the Lord of the worlds.",
+        "She gathered her people and said: {O eminent ones, indeed, to me has been delivered a noble letter.} Then: {Advise me in my affair. I would not decide a matter until you witness for me.} A queen taking counsel. They said: {We are men of strength and of great military might.} We are strong; we can fight. She did not take their advice, and said something wise: {Indeed, kings, when they enter a city, ruin it.} Then she tested him: {But indeed, I will send to them a gift and see with what the messengers return} — is he a king who wants wealth, or someone calling to something else?",
       lesson:
-        "A true leader uses their mind to seek the truth and avoid unnecessary fights. Wisdom always leads a person to the right path.",
+        "The bravest people are those who let go of their own opinion once the truth is clear.",
       next:
         "And with this wise queen we finish the women of the Quran. Are you ready for more? Let's head to the next chapter!",
       challenge: {
@@ -3568,13 +3773,35 @@ export const stories: Story[] = [
         keepsake: "A small throne",
         note: "A reminder that the bravest people are those who let go of their opinion when the truth becomes clear.",
       },
+      arc: {
+        idea: "A queen who received a letter, took counsel and did not rush — and then gave up her whole position when she saw the truth.",
+        setting:
+          "Saba was a wealthy kingdom ruled by a woman. The hoopoe said of her when it returned to Sulaiman: {Indeed, I found a woman ruling them, and she has been given of all things, and she has a great throne.} But it mentioned the problem in the same report: {I found her and her people prostrating to the sun instead of Allah.} So Sulaiman sent her a letter calling her not to be haughty with him and to come to him in submission.",
+        keyMoment:
+          "Sulaiman refused the gift and would not accept it, so she knew he was not after wealth. She came herself. When she arrived she found her own throne already there ahead of her; then she entered the palace and took the floor for water and uncovered her shins, and was told: {It is a palace whose floor is made smooth with glass.} Glass, not water. And here is the moment: a clear-minded woman understood in a single instant that her own eyes can deceive her, and that what she sees is not always what it is. So she said: {My Lord, indeed I have wronged myself, and I submit with Sulaiman to Allah, Lord of the worlds.}",
+        resolution:
+          "Look exactly at what she said — there are two lessons in her words. She said \"I have wronged myself\" — not \"my people wronged me,\" and not \"this is how I found my forefathers.\" And she said \"I submit with Sulaiman to Allah\" — with Sulaiman, not to Sulaiman; submitting to Allah alone, with Sulaiman beside her and not above her. A queen who left what she had been on in front of all her people, and saw in it no defeat and nothing to be ashamed of.",
+        word: { term: "A palace smoothed with glass", meaning: "A smooth floor made of glass, which anyone looking at it takes for water." },
+        lessons: [
+          "Take counsel before you decide; \"I would not decide a matter until you witness for me.\"",
+          "Do not rush into a fight; she chose to make sure before making war.",
+          "Say \"I was wrong\" without hunting for whoever passed the mistake on to you.",
+        ],
+        think:
+          "The queen said \"I have wronged myself,\" and she could have said \"this is how I found my people and my forefathers.\" Why do you think she chose to carry it herself?",
+        tryToday:
+          "If it becomes clear today that you were wrong about something, even something small, say it out loud: I was wrong.",
+      },
     },
     image: "/stories/bilqis.jpg",
     title: "ملكة سبأ",
     surahName: "النمل",
-    hook: "هل تحبون القصص عن الملوك والملكات والقلاع الكبيرة؟ اليوم لدينا قصة عن ملكة ذكية جدًا، وصلتها رسالة من ملك بعيد، لم يحضرها ساعي البريد، بل أحضرها طائر!",
-    events: "بلقيس كانت ملكة غنية وقوية تحكم مملكة سبأ، لكنها وقومها كانوا يخطئون ويعبدون الشمس. علم بذلك سيدنا سليمان عن طريق طائره الهدهد، فأرسل لها رسالة يطلب منها أن تعبد الله وحده. جمعت بلقيس وزراءها لتستشيرهم، فقالوا لها نحن أقوياء ويمكننا محاربته، لكنها بذكائها رفضت الحرب، وقررت أن تذهب بنفسها لترى سيدنا سليمان. وعندما وصلت وشاهدت قدرة الله والملك العظيم لسيدنا سليمان، قادها عقلها للإيمان، وعرفت أن عبادة الشمس كانت خطأ، فأسلمت لله رب العالمين.",
-    lesson: "الشخص الذكي هو الذي يفكر قبل أن يغضب، ويستمع للحق، ولا يخجل من الاعتراف بخطئه وتصحيحه كما فعلت الملكة بلقيس.",
+    hook:
+      "أصعب شيء على الإنسان أن يقول: كنتُ مخطئًا. وأصعب منه أن يقولها وهو ملك، أمام قومه كلهم، بعد أن كان يفعل ذلك الخطأ سنين. في قصة اليوم ملكةٌ فعلت هذا بالضبط.",
+    events:
+      "فجمعت قومها وقالت: ﴿يَا أَيُّهَا الْمَلَأُ إِنِّي أُلْقِيَ إِلَيَّ كِتَابٌ كَرِيمٌ﴾، ثم قالت: ﴿أَفْتُونِي فِي أَمْرِي مَا كُنتُ قَاطِعَةً أَمْرًا حَتَّىٰ تَشْهَدُونِ﴾ — ما كنتُ أقطع أمرًا حتى تحضروا وتشيروا عليّ. ملكةٌ تستشير. فقالوا: ﴿نَحْنُ أُولُو قُوَّةٍ وَأُولُو بَأْسٍ شَدِيدٍ﴾ — نحن أقوياء ونستطيع الحرب. فلم تأخذ برأيهم، وقالت كلمةً عاقلة: ﴿إِنَّ الْمُلُوكَ إِذَا دَخَلُوا قَرْيَةً أَفْسَدُوهَا﴾. ثم اختبرته: ﴿وَإِنِّي مُرْسِلَةٌ إِلَيْهِم بِهَدِيَّةٍ فَنَاظِرَةٌ بِمَ يَرْجِعُ الْمُرْسَلُونَ﴾ — أهو ملكٌ يريد مالًا، أم صاحب دعوة يريد شيئًا آخر؟",
+    lesson:
+      "أشجع الناس من يترك رأيه إذا تبيّن له الحقّ.",
     next: "الملكة بلقيس كانت ذكية واختارت طريق الإيمان. ولكن هناك نساء كنّ يعشن في بيوت مهمة جدًا، ومع ذلك اخترن طريق الأشرار! من هنّ؟",
     ayah: { ref: "27:44", surah: 27, number: 44, text: "رَبِّ إِنِّى ظَلَمْتُ نَفْسِى وَأَسْلَمْتُ مَعَ سُلَيْمَـٰنَ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ" },
     source: {
@@ -3593,6 +3820,25 @@ export const stories: Story[] = [
       keepsake: "عرش صغير",
       note: "تذكّرك أن أشجع الناس من ترك رأيه حين تبيّن له الصواب.",
     },
+    arc: {
+      idea: "ملكةٌ وصلتها رسالة فاستشارت ولم تتسرّع، ثم تركت رأيها كلّه حين رأت الحقّ.",
+      setting:
+        "سبأ مملكة غنيّة تحكمها امرأة. قال عنها الهدهد حين رجع إلى سليمان: ﴿إِنِّي وَجَدتُّ امْرَأَةً تَمْلِكُهُمْ وَأُوتِيَتْ مِن كُلِّ شَيْءٍ وَلَهَا عَرْشٌ عَظِيمٌ﴾. لكنه ذكر المشكلة أيضًا في نفس الخبر: ﴿وَجَدتُّهَا وَقَوْمَهَا يَسْجُدُونَ لِلشَّمْسِ مِن دُونِ اللَّهِ﴾. فأرسل إليها سليمان كتابًا يدعوها فيه ألّا تعلو عليه وأن تأتيه مسلمة.",
+      keyMoment:
+        "فردّ سليمان الهديّة ولم يقبلها، فعلمت أنه ليس طالب مال. فجاءت بنفسها. ولمّا وصلت وجدت عرشها عنده وقد سبقها إليه، ثم دخلت الصرح فحسبته ماءً فكشفت عن ساقيها، فقيل لها: ﴿إِنَّهُ صَرْحٌ مُّمَرَّدٌ مِّن قَوَارِيرَ﴾ — إنه زجاج لا ماء. وهنا اللحظة: امرأة عاقلة أدركت في لحظة واحدة أن عينها قد تخدعها، وأن ما تراه ليس دائمًا هو ما هو عليه. فقالت: ﴿رَبِّ إِنِّي ظَلَمْتُ نَفْسِي وَأَسْلَمْتُ مَعَ سُلَيْمَانَ لِلَّهِ رَبِّ الْعَالَمِينَ﴾.",
+      resolution:
+        "وانظر ماذا قالت بالضبط، ففي كلماتها درسان. قالت: «ظلمتُ نفسي» — ولم تقل: ظلمني قومي، ولا: هكذا وجدت آبائي. وقالت: «أسلمتُ مع سليمان لله» — مع سليمان لا لسليمان؛ أسلمت لله وحده، وسليمان معها لا فوقها. ملكةٌ تركت ما كانت عليه أمام قومها كلهم، ولم ترَ في ذلك نقصًا ولا هزيمة.",
+      word: { term: "صَرْحٌ مُمَرَّد من قوارير", meaning: "بناءٌ أملس مصنوع من الزجاج، يحسبه الناظر إليه ماءً." },
+      lessons: [
+        "استشر قبل أن تقرّر؛ ﴿ما كنتُ قاطعةً أمرًا حتى تشهدون﴾.",
+        "لا تتسرّع إلى الخصومة؛ اختارت أن تتأكّد قبل أن تحارب.",
+        "قل «أخطأتُ» ولا تبحث عمّن ورّثك الخطأ.",
+      ],
+      think:
+        "قالت الملكة: «ظلمتُ نفسي»، وكانت تستطيع أن تقول: هكذا وجدتُ آبائي وقومي. فلماذا في رأيك اختارت أن تحمل الأمر على نفسها؟",
+      tryToday:
+        "إذا تبيّن لك اليوم أنك كنتَ مخطئًا في شيء ولو صغير، فقل بصوت مسموع: كنتُ مخطئًا.",
+    },
   },
   {
     chapter: "women",
@@ -3600,11 +3846,11 @@ export const stories: Story[] = [
     en: {
       title: "The Wife of al-Aziz",
       hook:
-        "Has anyone ever accused you of something you did not do? It is a horrible feeling! In our story today, a very good young man was blamed for something that was not his fault at all…",
+        "What happens if you do something wrong and let someone else be punished in your place? In today's story, an innocent young man spent years in prison because of what one woman said. And then came a day when she stood in front of everyone and told the truth.",
       events:
-        "The Prophet Yusuf lived as a young man in the palace of an important man called al-Aziz. The wife of al-Aziz treated him badly and wanted him to do wrong things that would not please Allah. Because Yusuf was good and refused to do wrong, she became angry with him and lied about him, saying that he was the one at fault — and he was put in prison unfairly for long years! But Allah did not abandon him. Years later the king wanted him released, because he was honest and wise. And here the wife of al-Aziz felt regret, and decided to admit the truth and tell everyone that Yusuf had been truthful all along, and that she was the one who had lied.",
+        "She sought to tempt him, closed the doors, and called him to what would not please Allah. He said one sentence: {I seek the refuge of Allah. Indeed, he is my master, who has made good my residence.} I seek Allah's protection — and this man treated me well, so how could I betray him? And he ran for the door. She accused him in front of her husband, and a witness from her own family testified from his shirt that he was truthful and that she was the one who had sought him. And even so: {Then it appeared to them after they had seen the signs that he should be imprisoned for a time.} They imprisoned him after seeing the proof of his innocence with their own eyes.",
       lesson:
-        "Lying is a very bad thing and it hurts other people. And if we do wrong and lie, we must be brave enough to tell the truth in the end, so that what is right goes back to the one it belongs to.",
+        "Tell the truth even when it is against you, and even if it comes late.",
       next:
         "The wife of al-Aziz admitted her mistake in the end… but in our last story we will meet two women who were married to two great prophets, and who never admitted the truth at all!",
       challenge: {
@@ -3618,13 +3864,35 @@ export const stories: Story[] = [
         keepsake: "A door key",
         note: "A reminder that admitting the truth is courage, even when it comes late.",
       },
+      arc: {
+        idea: "A woman whose lie kept an innocent man in prison for years — and who finally told the truth in front of everyone.",
+        setting:
+          "Yusuf was sold in Egypt, and bought by al-Aziz, one of the leading men, who said to his wife: {Make his residence comfortable. Perhaps he will benefit us, or we will adopt him as a son.} So Yusuf grew up in their house. The Quran does not give this woman's name; it calls her \"the wife of al-Aziz,\" and nothing said about naming her is established.",
+        keyMoment:
+          "Years passed with him in prison. Then the king wanted him released, and Yusuf refused to come out until his innocence was known: {Return to your master and ask him what is the case of the women who cut their hands.} The women were gathered and questioned, and said: {Perfect is Allah! We know about him no evil.} And here she spoke, in front of them all: {Now the truth has become evident. It was I who sought to seduce him, and indeed, he is of the truthful.} Now the truth has come out; I am the one who was wrong, and he is truthful.",
+        resolution:
+          "Then she added a sentence showing she had understood what had happened to her: {And I do not acquit myself. Indeed, the soul is a persistent enjoiner of evil, except those upon which my Lord has mercy.} I do not clear myself; the soul pushes its owner towards wrong, except whoever Allah has mercy on. And Yusuf came out of prison with a clean name, so that no one afterwards could say he was released without the matter being settled. The confession came years late — but it came, and that is better than never.",
+        word: { term: "The truth has become evident", meaning: "It has come out clearly and settled, after being hidden and mixed with other things." },
+        lessons: [
+          "If you are invited to something that would displease Allah, say \"I seek Allah's refuge,\" and walk away without arguing.",
+          "Never let an innocent person be punished for something you did.",
+          "A late confession is better than one that never comes.",
+        ],
+        think:
+          "Yusuf refused to leave prison until his innocence was clear, though he could have walked out that day. Why do you think he chose to wait?",
+        tryToday:
+          "If someone is being blamed today for something you did, tell the truth before the day ends.",
+      },
     },
     image: "/stories/imraat_alaziz.jpg",
     title: "امرأة العزيز",
     surahName: "يوسف",
-    hook: "هل حدث وأن اتهمكم أحد بشيء لم تفعلوه؟ إنه شعور سيء جدًا! في قصتنا اليوم، هناك شاب طيب جدًا اتُهم ظلمًا…",
-    events: "عاش النبي يوسف وهو شاب في قصر رجل مهم يسمى العزيز. وكانت امرأة العزيز تعامله بقسوة وأرادت منه أن يفعل أشياء خاطئة لا ترضي الله. ولأن سيدنا يوسف كان طيبًا ويرفض الخطأ، غضبت منه واتهمته كذبًا بأنه هو من أخطأ، فدخل السجن ظلمًا لسنوات طويلة! لكن الله لم يتركه. وبعد سنوات، أراد الملك أن يخرجه لأنه شخص صادق وحكيم. وهنا، شعرت امرأة العزيز بالندم، وقررت أن تعترف بالحقيقة وتقول للجميع إن يوسف كان صادقًا وهي من كذبت.",
-    lesson: "الكذب شيء سيء جدًا ويؤذي الآخرين. وإذا أخطأنا وكذبنا، يجب أن نتحلى بالشجاعة ونقول الحقيقة في النهاية لكي نعيد الحق لأصحابه.",
+    hook:
+      "ماذا يحدث لو أخطأتَ أنت، وتركتَ غيرك يُعاقَب مكانك؟ في قصة اليوم شابٌّ بريء دخل السجن سنين بسبب كلمة قالتها امرأة. ثم جاء يومٌ وقفت فيه أمام الناس وقالت الحقّ.",
+    events:
+      "ثم راودته عن نفسه، وغلّقت الأبواب، ودعته إلى ما لا يرضي الله. فقال كلمة واحدة: ﴿مَعَاذَ اللَّهِ إِنَّهُ رَبِّي أَحْسَنَ مَثْوَايَ﴾ — أستجير بالله، وهذا الرجل أحسن إليّ فكيف أخونه؟ وفرّ إلى الباب. فاتّهمته عند زوجها، فشهد شاهدٌ من أهلها بقميصه أنه صادق وأنها هي التي طلبته. ثم مع ذلك: ﴿ثُمَّ بَدَا لَهُم مِّن بَعْدِ مَا رَأَوُا الْآيَاتِ لَيَسْجُنُنَّهُ حَتَّىٰ حِينٍ﴾ — سجنوه بعد أن رأوا الدليل على براءته بأعينهم.",
+    lesson:
+      "قل الحقّ ولو كان عليك، ولو جاء متأخّرًا.",
     next: "امرأة العزيز اعترفت بخطئها في النهاية… ولكن في قصتنا الأخيرة سنتعرف على امرأتين كانتا متزوجتين من نبيين عظيمين، لكنهما لم تعترفا بالحق أبدًا!",
     ayah: { ref: "12:51", surah: 12, number: 51, text: "ٱلْـَٔـٰنَ حَصْحَصَ ٱلْحَقُّ أَنَا۠ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ وَإِنَّهُۥ لَمِنَ ٱلصَّـٰدِقِينَ" },
     source: {
@@ -3643,6 +3911,25 @@ export const stories: Story[] = [
       keepsake: "مفتاح الباب",
       note: "يذكّرك أن الاعتراف بالحق شجاعة، ولو جاء متأخراً.",
     },
+    arc: {
+      idea: "امرأةٌ كذبت فسُجن بسببها بريءٌ سنين، ثم قالت الحقّ أمام الناس في النهاية.",
+      setting:
+        "بيع يوسف عليه السلام في مصر، فاشتراه العزيز — وهو رجل من كبار القوم — وقال لامرأته: ﴿أَكْرِمِي مَثْوَاهُ عَسَىٰ أَن يَنفَعَنَا أَوْ نَتَّخِذَهُ وَلَدًا﴾. فنشأ يوسف في بيتهم، وكبر فيه. ولم يذكر القرآن اسم هذه المرأة؛ ذكرها بـ«امرأة العزيز»، وما يُقال في تسميتها لا يثبت منه شيء.",
+      keyMoment:
+        "ومرّت سنون وهو في السجن. ثم أراد الملك أن يُخرجه، فأبى يوسف أن يخرج حتى يُعرف أنه بريء: ﴿ارْجِعْ إِلَىٰ رَبِّكَ فَاسْأَلْهُ مَا بَالُ النِّسْوَةِ اللَّاتِي قَطَّعْنَ أَيْدِيَهُنَّ﴾. فجُمعت النسوة وسُئلن، فقلن: ﴿حَاشَ لِلَّهِ مَا عَلِمْنَا عَلَيْهِ مِن سُوءٍ﴾. وهنا تكلّمت هي أمام الجميع: ﴿الْآنَ حَصْحَصَ الْحَقُّ أَنَا رَاوَدتُّهُ عَن نَّفْسِهِ وَإِنَّهُ لَمِنَ الصَّادِقِينَ﴾ — الآن ظهر الحقّ؛ أنا التي أخطأت، وهو صادق.",
+      resolution:
+        "ثم زادت جملة تدلّ على أنها فهمت ما جرى لها: ﴿وَمَا أُبَرِّئُ نَفْسِي إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي﴾ — لا أبرّئ نفسي؛ فالنفس تدعو صاحبها إلى السوء إلا من رحمه الله. وخرج يوسف من السجن نظيف السيرة، لا يستطيع أحد بعدها أن يقول: خرج ولم يُعرف أمره. أمّا الاعتراف فقد جاء متأخّرًا سنين — لكنه جاء، وهذا خير من ألّا يأتي.",
+      word: { term: "حَصْحَصَ الحقّ", meaning: "ظهر وتبيّن واستقرّ بعد أن كان مخفيًّا مختلطًا بغيره." },
+      lessons: [
+        "إذا دُعيتَ إلى ما لا يرضي الله فقل: معاذ الله، ثم امشِ ولا تناقش.",
+        "لا تترك بريئًا يُعاقَب بذنبٍ فعلتَه أنت.",
+        "الاعتراف المتأخّر خيرٌ من اعترافٍ لا يأتي أبدًا.",
+      ],
+      think:
+        "أبى يوسف أن يخرج من السجن حتى تظهر براءته، وكان يستطيع أن يخرج في يومه. لماذا في رأيك اختار أن ينتظر؟",
+      tryToday:
+        "إن كان أحدٌ يُلام اليوم بسبب شيء فعلتَه أنت، فقل الحقّ قبل أن ينتهي اليوم.",
+    },
   },
   {
     chapter: "women",
@@ -3650,11 +3937,11 @@ export const stories: Story[] = [
     en: {
       title: "The Wife of Nuh and the Wife of Lut",
       hook:
-        "Imagine your husband is a prophet whom Allah teaches everything, showing people the road to Paradise… could you really not listen to him?",
+        "Is it enough to be in a righteous household to be righteous yourself? There is a verse in the Quran that answers this as clearly as it can be answered, and in it Allah gives the example of two women who lived in the two finest homes on earth in their time.",
       events:
-        "Nuh and Lut were two great prophets who called people to worship Allah and to leave bad deeds behind. But the sad surprise is that the wife of Nuh and the wife of Lut were not believers! They did not believe their husbands, and they helped the wrongdoers against the believers. And because Allah is just, He holds every person to account for their own deeds, whoever their family may be. So when the punishment came upon the wrongdoers, the wife of Nuh was lost along with those who did not board the ship, and the wife of Lut was lost along with her people, because she chose the path of wrong.",
+        "Notice the word {but they both betrayed them}, because something other than its meaning may come to mind. The scholars said the betrayal here is betrayal in religion: they did not believe, and they stood with the people against the two prophets, passing things to them and taking their side. The wives of prophets are protected from anything beyond that. So Nuh's wife lived with a man who called his people for nine hundred and fifty years and heard him every day; and Lut's wife lived in the house of the only man in the town who told people: this is not right.",
       lesson:
-        "Every person is responsible for what they do. Coming from a good family will not help us if our own deeds are bad. We must always choose our friends and our path carefully.",
+        "No one else's deeds will help you on the Day of Judgement; only your own will.",
       next:
         "And with that we have finished the stories of the women in the Quran. In the collections to come we will begin the stories of the prophets and messengers!",
       challenge: {
@@ -3668,13 +3955,35 @@ export const stories: Story[] = [
         keepsake: "A closed door",
         note: "A reminder that lineage is no help without deeds — every soul has what it earned.",
       },
+      arc: {
+        idea: "Two women in the houses of two prophets, whom the house did not help — and a woman in Pharaoh's house, whom the house did not harm.",
+        setting:
+          "At the end of Surah At-Tahrim, Allah gives three examples in a row: two of people whose household did not help them, then two of women whom their surroundings did not harm. First: {Allah presents an example of those who disbelieved: the wife of Nuh and the wife of Lut. They were under two of Our righteous servants, but they both betrayed them.} Two prophets, two households, and complete closeness to what is good.",
+        keyMoment:
+          "Then the outcome comes in half a verse: {So they did not avail them from Allah at all, and it was said, enter the Fire with those who enter.} Two prophets availed them nothing. That is the clearest thing in this whole chapter: closeness to someone righteous does not make you righteous. They heard the truest words on earth, and then chose otherwise. Nearness to good gives you the chance; it does not give you the outcome. The outcome is made by your own choosing.",
+        resolution:
+          "When Allah commanded Nuh to take his family aboard the ship, the exception came: {except those against whom the word has already been decreed.} When Lut was told to leave with his family by night, he was told: {except your wife.} Then Allah closed the three examples with the wife of Pharaoh and Maryam, daughter of Imran: one in the worst house on earth who was saved, and one raised in the sanctuary who believed. The house does not decide; the person in it decides.",
+        word: { term: "They both betrayed them", meaning: "They betrayed them in religion: they did not believe and stood with the deniers — not a betrayal of honour; the wives of prophets are protected from that." },
+        lessons: [
+          "Do not lean on your household or your lineage; every soul is held for what it earned.",
+          "Nearness to good is an opportunity; the choice remains yours.",
+          "Whoever lived beside the truth and did not take it has seen it without benefiting from it.",
+        ],
+        think:
+          "Nuh's wife heard her husband's call for centuries and did not answer. Is there advice you hear at home every day and do not act on? What stops you?",
+        tryToday:
+          "Pick one piece of advice you hear from your mother or father every day, and act on it fully once today — before they ask you to.",
+      },
     },
     image: "/stories/nuh_lut.jpg",
     title: "امرأة نوح وامرأة لوط",
     surahName: "التحريم",
-    hook: "تخيلوا أن يكون زوجكم نبيًا يعلمه الله كل شيء، ويدل الناس على طريق الجنة… هل يعقل ألا تسمعوا كلامه؟",
-    events: "سيدنا نوح وسيدنا لوط كانا نبيين عظيمين يدعوان الناس لعبادة الله وترك الأفعال السيئة. لكن المفاجأة الحزينة أن امرأة نوح وامرأة لوط لم تكونا مؤمنتين! كانتا لا تصدقان زوجيهما، وتساعدان الأشرار ضد المؤمنين. ولأن الله عادل، فإنه يحاسب كل شخص على أفعاله، بغض النظر عن عائلته. لذلك، عندما جاء العذاب للأشرار، هلكت امرأة نوح مع الذين لم يركبوا السفينة، وهلكت امرأة لوط مع قومها لأنها اختارت طريق الشر.",
-    lesson: "كل إنسان مسؤول عن أفعاله. لن ينفعنا أن نكون من عائلة طيبة إذا كانت أفعالنا نحن سيئة. يجب أن نختار دائمًا أصدقاءنا وطريقنا بشكل صحيح.",
+    hook:
+      "هل يكفي أن تكون في بيت صالح لتكون صالحًا؟ في القرآن آيةٌ تجيب عن هذا السؤال بأوضح ما يكون، وقد ضرب الله فيها مثلًا بامرأتين كانتا في أفضل بيتين على وجه الأرض في زمانهما.",
+    events:
+      "وانتبه إلى كلمة ﴿فَخَانَتَاهُمَا﴾، فقد يسبق إلى ذهنك غير معناها. قال أهل العلم إن الخيانة هنا خيانةٌ في الدين: أي أنهما لم تؤمنا، وكانتا مع القوم على النبيَّين، تنقلان إليهم وتقفان في صفّهم. ونساء الأنبياء محفوظات من غير ذلك. فامرأة نوح تعيش مع رجل يدعو قومه تسعمائة وخمسين سنة وتسمع كلامه كل يوم؛ وامرأة لوط في بيت الرجل الوحيد في القرية الذي يقول للناس: هذا لا يصحّ.",
+    lesson:
+      "لن ينفعك يوم القيامة عملُ أحد؛ إنما ينفعك عملك أنت.",
     next: "وهكذا انتهينا من قصص النساء في القرآن. في المجموعات القادمة سنبدأ بقصص الأنبياء والرسل!",
     ayah: { ref: "66:10", surah: 66, number: 10, text: "ضَرَبَ ٱللَّهُ مَثَلًۭا لِّلَّذِينَ كَفَرُوا۟ ٱمْرَأَتَ نُوحٍۢ وَٱمْرَأَتَ لُوطٍۢ ۖ كَانَتَا تَحْتَ عَبْدَيْنِ مِنْ عِبَادِنَا صَـٰلِحَيْنِ فَخَانَتَاهُمَا" },
     source: {
@@ -3692,6 +4001,25 @@ export const stories: Story[] = [
       badge: "عملي هو الذي ينفعني",
       keepsake: "باب مغلق",
       note: "يذكّرك أن النسب لا ينفع بلا عمل، وأن لكل نفس ما كسبت.",
+    },
+    arc: {
+      idea: "امرأتان في بيتَي نبيَّين، ولم ينفعهما البيت — وامرأةٌ في بيت فرعون، ولم يضرّها البيت.",
+      setting:
+        "في آخر سورة التحريم ضرب الله ثلاثة أمثال متتابعة: مثلين لمن لم ينفعهما بيتهما، ثم مثلين لمن لم يضرّها ما حولها. قال أولًا: ﴿ضَرَبَ اللَّهُ مَثَلًا لِّلَّذِينَ كَفَرُوا امْرَأَتَ نُوحٍ وَامْرَأَتَ لُوطٍ كَانَتَا تَحْتَ عَبْدَيْنِ مِنْ عِبَادِنَا صَالِحَيْنِ فَخَانَتَاهُمَا﴾. نبيّان، وبيتان، وقرب كامل من الخير.",
+      keyMoment:
+        "ثم جاءت النتيجة في نصف آية واحدة: ﴿فَلَمْ يُغْنِيَا عَنْهُمَا مِنَ اللَّهِ شَيْئًا وَقِيلَ ادْخُلَا النَّارَ مَعَ الدَّاخِلِينَ﴾ — فلم يُغنِ عنهما نبيّان شيئًا. وهذا أوضح ما في الباب كله: القرب من الصالح لا يجعلك صالحًا. سمعتا أصدق كلام على وجه الأرض، ثم اختارتا غيره. فالقرب من الخير يعطيك الفرصة، ولا يعطيك النتيجة؛ والنتيجة يصنعها اختيارك أنت.",
+      resolution:
+        "ولمّا أمر الله نوحًا أن يحمل أهله في السفينة، جاء الاستثناء: ﴿إِلَّا مَن سَبَقَ عَلَيْهِ الْقَوْلُ﴾. ولمّا أُمر لوط أن يخرج بأهله ليلًا، قيل له: ﴿إِلَّا امْرَأَتَكَ﴾. ثم ختم الله الأمثال الثلاثة بامرأة فرعون ومريم ابنة عمران: واحدةٌ كانت في أسوأ بيت في الأرض فنجت، وواحدةٌ نشأت في المحراب فصدّقت. فالبيت ليس هو الذي يقرّر؛ صاحبه هو الذي يقرّر.",
+      word: { term: "فَخَانَتَاهُمَا", meaning: "خانتاهما في الدين: لم تؤمنا وكانتا مع المكذّبين — وليست خيانةً في العِرض، فنساء الأنبياء محفوظات من ذلك." },
+      lessons: [
+        "لا تتّكل على بيتك ولا على نسبك؛ ﴿كلّ نفس بما كسبت رهينة﴾.",
+        "القرب من الخير فرصةٌ، والاختيار يبقى اختيارك أنت.",
+        "من عاش مع الحقّ ولم يأخذ به فقد رآه ولم ينتفع به.",
+      ],
+      think:
+        "سمعت امرأة نوح دعوة زوجها قرونًا ولم تستجب. هل هناك نصيحةٌ تسمعها في بيتك كل يوم ولا تعمل بها؟ ما الذي يمنعك؟",
+      tryToday:
+        "اختر نصيحةً تسمعها من أبيك أو أمك كل يوم، واعمل بها اليوم مرّة واحدة كاملة من غير أن يطلبوها منك.",
     },
   },
 ];
