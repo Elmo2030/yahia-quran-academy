@@ -70,3 +70,6 @@ site/functions/page-data.js
 # under site/client/public/hifz-art/ ship; build them with
 # node site/scripts/build-hifz-art.mjs "صور-رحلة-الحفظ/hifz-art"
 /صور-رحلة-الحفظ/
+
+# Raw art drops and downloaded audio: worked on by hand, never committed.
+/downloaded-assets/
