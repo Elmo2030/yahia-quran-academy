@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
+import { HifzBottomBar } from "@/components/HifzBottomBar";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
@@ -88,6 +89,7 @@ export default function HifzLooks() {
           </div>
         </section>
       </div>
+    <HifzBottomBar />
     </main>
   );
 }

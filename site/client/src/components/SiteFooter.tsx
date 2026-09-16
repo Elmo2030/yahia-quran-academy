@@ -34,19 +34,19 @@ export function SiteFooter() {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <Link
             href="/"
-            className="hover:text-[var(--brand-navy)] hover:underline"
+            className="inline-flex min-h-[32px] items-center hover:text-[var(--brand-navy)] hover:underline"
           >
             {t.home}
           </Link>
           <Link
             href="/privacy"
-            className="hover:text-[var(--brand-navy)] hover:underline"
+            className="inline-flex min-h-[32px] items-center hover:text-[var(--brand-navy)] hover:underline"
           >
             {t.privacy}
           </Link>
           <Link
             href="/terms"
-            className="hover:text-[var(--brand-navy)] hover:underline"
+            className="inline-flex min-h-[32px] items-center hover:text-[var(--brand-navy)] hover:underline"
           >
             {t.terms}
           </Link>

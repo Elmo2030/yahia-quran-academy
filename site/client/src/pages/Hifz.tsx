@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
+import { HifzBottomBar } from "@/components/HifzBottomBar";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
@@ -233,6 +234,7 @@ export default function Hifz() {
           <Link href="/" className="text-link">{t.home}</Link>
         </div>
       </footer>
+    <HifzBottomBar />
     </main>
   );
 }

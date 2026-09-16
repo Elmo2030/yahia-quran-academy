@@ -1459,3 +1459,80 @@
 @media (min-width: 900px) {
   .seerah-map { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); overflow-x: visible; }
 }
+
+/* ===========================================================================
+   The phone, treated as the first screen rather than the leftover one.
+
+   Measured at 390px, which is the iPhone most of these children hold. Two
+   things were wrong and one of them was bad: the header's controls did not
+   fit, and because the site is right-to-left the overflow pushed the whole
+   document sideways — on the reader the page sat 54px off, so the surah a
+   child opened arrived already scrolled away from the edge of their screen.
+
+   The wordmark is what gives way. "Yahya Quran Academy" spelled out costs
+   160px of a 390px line to say what the seal beside it already says, and the
+   seal still carries the name to a screen reader.
+=========================================================================== */
+@media (max-width: 560px) {
+  /* The name, spelled out, is the one thing on that line a phone can spare. */
+  .brand-mark > span:not(.brand-mark__seal) { display: none; }
+  .site-header__inner, .reader-header__inner { gap: .5rem; }
+  .header-actions { flex: 0 1 auto; min-inline-size: 0; }
+}
+
+/* Fingers, not cursors. A theme switch at 32px and a language button at 25px
+   are a pointer's targets; a six-year-old misses them. Nothing here is below
+   40px on a phone, and the row still fits once the wordmark steps aside. */
+@media (max-width: 820px) {
+  .theme-toggle { inline-size: 40px; block-size: 40px; }
+  .language-toggle button { min-width: 36px; min-height: 36px; padding: 0 .45rem; font-size: .8rem; }
+  .mobile-menu-button { inline-size: 44px; block-size: 44px; }
+  .header-reader-link { display: inline-grid; place-items: center; inline-size: 40px; block-size: 40px; border: 1px solid var(--line); border-radius: 12px; background: rgb(var(--sheen-rgb) / 72%); }
+  .header-reader-link svg { width: 20px; height: 20px; }
+}
+
+/* Inline links sat at exactly 24px — the floor WCAG 2.2 sets for a target,
+   with nothing to spare and no room for a child's aim. On a phone they get a
+   little height of their own without changing how they read. */
+@media (max-width: 820px) {
+  .text-link, .story-back-link, .stories-hero__library-link, .header-auth-link {
+    min-block-size: 32px;
+  }
+  .text-link, .story-back-link, .stories-hero__library-link { align-items: center; }
+}
+
+/* ---------------------------------------------------------------------------
+   The journey's own bar, on a phone only.
+
+   Four places a child returns to daily. It clears the phone's home indicator
+   with the safe-area inset, and the journey screens reserve its height at the
+   bottom so nothing it covers is ever the last line of something.
+--------------------------------------------------------------------------- */
+.hifz-bottom-bar { display: none; }
+
+@media (max-width: 820px) {
+  .hifz-bottom-bar {
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 40;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: .4rem .4rem calc(.4rem + env(safe-area-inset-bottom, 0px));
+    background: rgb(var(--sheen-rgb) / 96%);
+    border-block-start: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+  }
+  .hifz-bottom-bar__item {
+    display: grid; justify-items: center; gap: .15rem;
+    min-block-size: 52px; padding: .45rem .2rem; border-radius: 14px;
+    color: var(--ink-soft); font-size: .68rem; font-weight: 700; text-align: center;
+  }
+  .hifz-bottom-bar__item.is-current { color: var(--brand); background: var(--surface-gold); }
+  .hifz-bottom-bar__item:active { transform: scale(.96); }
+  .hifz-bottom-bar__icon { position: relative; display: grid; place-items: center; }
+  .hifz-bottom-bar__badge {
+    position: absolute; inset-block-start: -6px; inset-inline-end: -10px;
+    min-inline-size: 17px; padding: 0 .25rem; border-radius: 999px;
+    background: var(--brand-solid); color: #fff;
+    font-size: .63rem; font-weight: 800; line-height: 17px; text-align: center;
+  }
+  /* Room for the bar, so a last button is never trapped under it. */
+  .site-shell.hifz { padding-block-end: calc(76px + env(safe-area-inset-bottom, 0px)); }
+}

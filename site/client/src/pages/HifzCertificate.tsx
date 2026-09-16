@@ -12,6 +12,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, Printer, Star } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
+import { HifzBottomBar } from "@/components/HifzBottomBar";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
@@ -94,6 +95,7 @@ export default function HifzCertificate() {
           </div>
         </section>
       </div>
+    <HifzBottomBar />
     </main>
   );
 }
