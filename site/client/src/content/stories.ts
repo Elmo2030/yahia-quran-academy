@@ -168,11 +168,11 @@ export const stories: Story[] = [
     en: {
       title: "The People of the Cave",
       hook:
-        "Have you ever tried sleeping and waking up to find everything around you has changed? In our story today, a group of good young men slept for a very long time... not for a day or two, but for hundreds of years! How did that happen?",
+        "If you had to choose between staying home among your family and hiding what you believe, or walking out alone to a place you do not know and cannot tell when you will leave — which would you choose? In today's story, some young men stood at exactly that choice. What they chose changed their lives for three centuries.",
       events:
-        "In ancient times, there was a cruel, pagan king who forced people to worship statues. But there was a group of smart young men who believed in Allah alone. Fearing for their faith and their lives from the evil king, they ran away and hid in a cave with their loyal dog. Inside the cave, Allah cast a deep sleep over them, and they slept peacefully for 309 lunar years! Allah protected their bodies all this time by turning them to the right and left. When they woke up and felt hungry, they sent one of them to buy food, only to discover that the evil king had died a long, long time ago, and their entire city now worshipped Allah!",
+        "They gathered and said one sentence that settled everything: {Our Lord is the Lord of the heavens and the earth. Never will we invoke besides Him any deity.} Then they said to one another: {And when you have withdrawn from them and that which they worship other than Allah, retreat to the cave.} So they left their homes and their whole city, went into a cave in a mountain, and prayed: {Our Lord, grant us mercy from Yourself and prepare for us right guidance in our affair.} Then they slept.",
       lesson:
-        "The story of the People of the Cave is a wonderful proof of Allah's power to bring the dead back to life. We also learn from it that Allah always rescues and protects the youth who choose the path of faith and monotheism.",
+        "Whoever gives something up for Allah is given something better in return, in a way they never imagined.",
       next:
         "The People of the Cave were smart youth who chose faith. In our next story, we will meet a great man who wasn't a prophet, but was very famous for something called 'Wisdom', and he gave his son golden advice! Who is he? He is Luqman the Wise!",
       quranProse:
@@ -188,13 +188,35 @@ export const stories: Story[] = [
         keepsake: "The lamp of the cave",
         note: "A reminder that Allah guards whoever turns to Him, even through three centuries of sleep.",
       },
+      arc: {
+        idea: "Young men who chose their Lord over their whole city, slept three centuries, and woke to a different world.",
+        setting:
+          "{Indeed, they were youths who believed in their Lord, and We increased them in guidance} — youths, young men. They lived in a city where something other than Allah was worshipped, and its king forced people to it and accepted nothing else. They had no family strong enough to shield them and no power to defend themselves. And they knew that if their faith became known, they would not be left alone. That is the situation they met in.",
+        keyMoment:
+          "The sleep is not a small detail in this story; it is the story. {So We cast a cover of sleep over their ears within the cave for a number of years.} They went into the cave thinking they were hiding for a day or a few days, and Allah kept them there three hundred years and nine, the sun leaning away from their cave as it rose and as it set so it would not harm them, while they slept and knew nothing of it. They did what they could — leave, and take shelter — and Allah took care of what they could not.",
+        resolution:
+          "Then Allah woke them, and they asked each other: how long did we stay? A day, or part of a day. They sent one of them with their coins to buy food, telling him to be careful and let no one notice them — still afraid of a king who had died centuries earlier. So their story became known, and they found that the city they had fled from now believed. The king they feared left not even a name behind, and they remain in the Book of Allah, their story read to this day.",
+        word: { term: "Youths", meaning: "Young men, early in life — the Quran chose this word to tell you who it was that took this stand." },
+        lessons: [
+          "A young person can stand with the truth even when a whole city stands on the other side.",
+          "Do what is in your power, and leave what is not in your power to Allah.",
+          "Begin every hard thing with a prayer; that is how the youths began before they slept.",
+        ],
+        think:
+          "The youths left their homes without knowing where they were going. What is the hardest thing you have given up because you knew it was not right? How did you feel afterwards?",
+        tryToday:
+          "Pick one thing today that you know Allah does not love, and leave it — just for today. Then see tomorrow whether you can leave it another day.",
+      },
     },
     title: "قصة أصحاب الكهف",
     surahName: "",
-    hook: "هل جربتم يوماً أن تناموا وتستيقظوا لتجدوا أن كل شيء من حولكم قد تغير؟ في قصتنا اليوم، هناك مجموعة من الشباب الطيبين ناموا نومة طويلة جداً.. لم تكن ليوم أو يومين، بل لمئات السنين! كيف حدث ذلك؟",
-    events: "في زمان قديم، كان هناك ملك وثني ظالم يجبر الناس على عبادة الأصنام. لكن كان هناك مجموعة من الفتية (الشباب) الأذكياء الذين آمنوا بالله وحده. ولأنهم خافوا على دينهم وأنفسهم من الملك الشرير، هربوا بعيداً واختبأوا في كهف ومعهم كلبهم الوفي. وفي الكهف، ألقى الله عليهم النوم، فناموا بسلام لمدة 309 سنين قمرية! كان الله يحفظ أجسادهم طوال هذه المدة بقلبهم يميناً ويساراً. ولما استيقظوا وشعروا بالجوع، أرسلوا أحدهم ليشتري طعاماً، فاكتشفوا أن الملك الظالم قد مات منذ زمن طويييل، وأن مدينتهم أصبحت كلها تعبد الله!",
+    hook:
+      "لو خُيِّرتَ بين أن تبقى في بيتك بين أهلك وتخفي ما تؤمن به، وبين أن تخرج وحدك إلى مكان لا تعرفه ولا تعرف متى ترجع منه… ماذا تختار؟ في قصة اليوم فتية صغار وقفوا أمام هذا الاختيار بالضبط، وما اختاروه غيّر حياتهم ثلاثة قرون.",
+    events:
+      "فاجتمعوا وقالوا كلمة واحدة حسمت كل شيء: ﴿رَبُّنَا رَبُّ السَّمَاوَاتِ وَالْأَرْضِ لَن نَّدْعُوَ مِن دُونِهِ إِلَٰهًا﴾. ثم قال بعضهم لبعض: ﴿وَإِذِ اعْتَزَلْتُمُوهُمْ وَمَا يَعْبُدُونَ إِلَّا اللَّهَ فَأْوُوا إِلَى الْكَهْفِ﴾ — أي ما دمتم قد فارقتموهم فالجأوا إلى الكهف. فخرجوا من بيوتهم ومن مدينتهم كلها، ودخلوا كهفًا في جبل، ودعوا: ﴿رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا﴾. ثم ناموا.",
     quranProse: "يقول الله تعالى في القرآن عن نومهم العجيب: {فَضَرَبْنَا عَلَىٰ آذَانِهِمْ فِي الْكَهْفِ سِنِينَ عَدَدًا}. (أي ألقينا عليهم نوماً عميقاً).",
-    lesson: "قصة أصحاب الكهف هي دليل رائع على قدرة الله على إحياء الموتى والبعث. ونتعلم منها أيضاً أن الله ينقذ ويحمي دائماً الشباب الذين يختارون طريق الإيمان والتوحيد.",
+    lesson:
+      "من ترك شيئًا لله عوّضه الله خيرًا منه، بطريقة لا تخطر له على بال.",
     next: "أصحاب الكهف كانوا شباباً أذكياء اختاروا الإيمان. وفي قصتنا القادمة، سنتعرف على رجل عظيم لم يكن نبياً، ولكنه كان مشهوراً جداً بشيء اسمه 'الحكمة'، وأعطى ابنه نصائح ذهبية نكتبها بماء الذهب! من هو؟ إنه لقمان الحكيم!",
     source: {
       reliability: "🟢",
@@ -212,6 +234,25 @@ export const stories: Story[] = [
       keepsake: "مصباح الكهف",
       note: "يذكّرك أن الله يحفظ من لجأ إليه، ولو نام الزمن كله.",
     },
+    arc: {
+      idea: "فتيةٌ اختاروا ربّهم على مدينتهم كلها، فناموا ثلاثة قرون واستيقظوا على دنيا أخرى.",
+      setting:
+        "﴿إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ وَزِدْنَاهُمْ هُدًى﴾ — فتية، أي شباب صغار في السنّ. كانوا يعيشون في مدينة يُعبد فيها غير الله، وملكُها يجبر الناس على ذلك ولا يقبل منهم غيره. ولم يكن لهم أهل يحمونهم، ولا قوة يدفعون بها عن أنفسهم. وكانوا يعرفون أن أمرهم إن ظهر لم يُتركوا. وهذا هو الموقف الذي اجتمعوا فيه.",
+      keyMoment:
+        "والنوم هنا ليس تفصيلًا صغيرًا في القصة؛ هو القصة. ﴿فَضَرَبْنَا عَلَىٰ آذَانِهِمْ فِي الْكَهْفِ سِنِينَ عَدَدًا﴾. دخلوا الكهف يظنّون أنهم يختبئون يومًا أو أيامًا، فإذا الله يحفظهم ثلاثمائة سنة وتسعًا، والشمس تميل عن كهفهم إذا طلعت وإذا غربت فلا تؤذيهم، وهم نائمون لا يعلمون. فعلوا ما يقدرون عليه — أن يخرجوا ويلجأوا — وتولّى الله ما لا يقدرون عليه.",
+      resolution:
+        "ثم أيقظهم الله، فتساءلوا بينهم: كم لبثنا؟ يومًا أو بعض يوم. وأرسلوا واحدًا منهم بنقودهم يشتري طعامًا، وأوصوه أن يتلطّف ولا يشعر بهم أحد — وهم ما زالوا يخافون ملكًا مات من مئات السنين. فعُرف أمرهم، ووجدوا المدينة التي هربوا منها قد آمنت كلها. والملك الذي خافوه لم يبقَ منه اسم، وهم باقون في كتاب الله يُقرأ خبرهم إلى اليوم.",
+      word: { term: "فِتْيَة", meaning: "شباب صغار في السنّ — والقرآن اختار هذه الكلمة ليخبرك من الذي وقف هذا الموقف." },
+      lessons: [
+        "الصغير يستطيع أن يقف مع الحقّ ولو كانت المدينة كلها في الجهة الأخرى.",
+        "افعل ما تقدر عليه، ودَعْ ما لا تقدر عليه على الله.",
+        "ابدأ كل أمر صعب بدعاء؛ فهكذا بدأ الفتية قبل أن يناموا.",
+      ],
+      think:
+        "خرج الفتية من بيوتهم وهم لا يعرفون إلى أين يذهبون. ما أصعب شيء تركتَه لأنك تعرف أنه لا يصحّ؟ وماذا شعرتَ بعد أن تركته؟",
+      tryToday:
+        "اختر اليوم شيئًا واحدًا تعرف أن الله لا يحبّه، واتركه اليوم فقط. ثم انظر غدًا هل تستطيع أن تتركه يومًا آخر.",
+    },
   },
   {
     chapter: "nations", slug: "luqman",
@@ -219,11 +260,11 @@ export const stories: Story[] = [
     en: {
       title: "Luqman the Wise",
       hook:
-        "If you want to be successful and loved, where do you get advice from? From a 'wise' person, of course! Today we will learn about a very wise father, mentioned by Allah in the Quran so we can learn from the advice he gave his son.",
+        "The Quran is full of counsel from Allah to people. It also holds the counsel of one man to his son — a man who was not a prophet, not a king, and whose wealth is never mentioned. So what did he say to his son, that his words are kept in the Book of Allah thousands of years later?",
       events:
-        "Luqman was not a prophet, but a very righteous human being. Allah gave him a great blessing called 'Wisdom', which is to think correctly and say useful words at the right time. Luqman sat with his young son one day to give him great advice; he told him: O my son, never associate partners with Allah, keep up your prayers, be dutiful and obedient to your parents, do not walk among people with arrogance or pride, and speak with a calm and moderate voice.",
+        "Luqman sat with his son {while he was instructing him} — instruction from someone who loves you, not someone who is angry — and said: {O my son, do not associate anything with Allah.} He began with the most important thing of all. Then he charged him with his parents, then said: {O my son, establish prayer, enjoin what is right, forbid what is wrong, and be patient over what befalls you.} Then he moved to what you might think small: {And do not turn your cheek in contempt toward people and do not walk through the earth exultantly.} Then: {And be moderate in your pace and lower your voice.} He gathered the whole religion for him — belief, worship, and character, down to how he walks and how loudly he speaks.",
       lesson:
-        "True wisdom begins with believing in Allah and thanking Him for His blessings. We learn from Luqman's advice to respect our parents, to be humble and not act arrogantly towards anyone, because Allah does not like the arrogant.",
+        "The most valuable thing a father gives his child is a true word, and the first word is that the child should know their Lord.",
       next:
         "Luqman used his wisdom in speaking kind words. But in the next story, we will meet a great king who used his power and engineering wisdom to build a massive wall of iron! Why did he build it? And who are Gog and Magog? Let's find out the story of Dhul-Qarnayn!",
       quranProse:
@@ -239,13 +280,35 @@ export const stories: Story[] = [
         keepsake: "The mat of wisdom",
         note: "A reminder that the most precious thing a father leaves a child is a true word.",
       },
+      arc: {
+        idea: "A father who was no prophet sat with his son, and what he said is kept in the Quran to this day.",
+        setting:
+          "Luqman was a righteous man whom Allah gave wisdom. Wisdom is not knowing a great deal; it is knowing what helps, and when to say it, and how. {And We had certainly given Luqman wisdom, [saying], be grateful to Allah} — notice the first thing said to him along with wisdom: be grateful. Most scholars hold that he was not a prophet; that is, he was a man like us, who learned and grew wise, with no revelation coming down to him.",
+        keyMoment:
+          "Among all that counsel is one sentence that could fill a lifetime by itself. He said: {O my son, indeed if a deed should be the weight of a mustard seed, and it should be within a rock or in the heavens or in the earth, Allah will bring it forth.} A mustard seed is very small. He is telling his son: if your deed were as small as that seed, hidden inside a rock, or in the furthest place in the sky, Allah knows it and will bring it out. Nothing small is ever lost — not of good, and not of bad.",
+        resolution:
+          "And the counsel ended. Luqman left his son no wealth that is mentioned, no kingdom, no army. He left him words. And the words are what lasted: a whole surah in the Quran carrying his name, read today by children he did not know would be born, in lands he did not know existed. That is what a true word does.",
+        word: { term: "The weight of a mustard seed", meaning: "The weight of a very small seed — the proverb for something tiny." },
+        lessons: [
+          "Begin with what matters most: knowing Allah, before any other advice.",
+          "How you treat people is part of your religion, down to your walk and your voice.",
+          "Never think a small deed is nothing; Allah brings forth even a mustard seed's weight.",
+        ],
+        think:
+          "Luqman gave his son many pieces of advice in a few verses. If you could give only one to your younger brother or your friend, which would you choose? And why that one?",
+        tryToday:
+          "Lower your voice once today where you were about to raise it, and remember Luqman's words: {and lower your voice}.",
+      },
     },
     title: "قصة لقمان الحكيم",
     surahName: "",
-    hook: "إذا أردتم أن تكونوا ناجحين ومحبوبين، فمن أين تأخذون النصائح؟ من شخص 'حكيم' طبعاً! واليوم سنتعرف على أب حكيم جداً، ذكره الله في القرآن لنتعلم من نصائحه التي قدمها لابنه.",
-    events: "لقمان لم يكن نبياً، بل كان رجلاً بشرياً صالحاً جداً. أعطاه الله نعمة كبيرة تُسمى 'الحكمة'، وهي أن يفكر بعقله بشكل صحيح ويقول الكلام المفيد في الوقت المناسب. جلس لقمان يوماً مع ابنه الصغير ليقدم له وصايا عظيمة؛ فقال له: يا بني، لا تشرك بالله أبداً، وحافظ على صلاتك، وكن باراً بوالديك ومطيعاً لهما، ولا تمشِ بين الناس متكبراً أو مغروراً، وتحدث بصوت هادئ ومعتدل.",
+    hook:
+      "في القرآن وصايا كثيرة من الله للناس. وفيه أيضًا وصايا رجل واحد لابنه — رجل لم يكن نبيًّا ولا ملكًا ولا غنيًّا ذُكر غناه. فماذا قال لابنه حتى يبقى كلامه محفوظًا في كتاب الله آلاف السنين؟",
+    events:
+      "جلس لقمان مع ابنه ﴿وَهُوَ يَعِظُهُ﴾ — والوعظ كلام محبّ لا كلام غاضب — فقال: ﴿يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ﴾. بدأ بأهمّ شيء قبل كل شيء. ثم أوصاه بوالديه، ثم قال: ﴿يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ﴾. ثم انتقل إلى ما قد تحسبه صغيرًا: ﴿وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا﴾ — لا تُدِر وجهك عن الناس تكبّرًا، ولا تمشِ مختالًا. ثم: ﴿وَاقْصِدْ فِي مَشْيِكَ وَاغْضُضْ مِن صَوْتِكَ﴾. فجمع له الدين كلّه: عقيدةً، وعبادةً، وخُلقًا، حتى في مشيه وصوته.",
     quranProse: "يقول الله تعالى عن إعطائه الحكمة للقمان: {وَلَقَدْ آتَيْنَا لُقْمَانَ الْحِكْمَةَ أَنِ اشْكُرْ لِلَّهِ ۚ وَمَن يَشْكُرْ فَإِنَّمَا يَشْكُرُ لِنَفْسِهِ}.",
-    lesson: "الحكمة الحقيقية تبدأ بالإيمان بالله وشكره على نعمه. ونتعلم من نصائح لقمان أن نحترم والدينا، وأن نكون متواضعين ولا نتكبر على أحد، لأن الله لا يحب المغرورين.",
+    lesson:
+      "أغلى ما يعطيه الأب لابنه كلمةٌ صادقة، وأوّل الكلام أن يعرف ابنه ربّه.",
     next: "لقمان استخدم حكمته في الكلام الطيب. لكن في القصة القادمة، سنتعرف على ملك عظيم استخدم قوته وحكمته الهندسية ليبني سداً ضخماً جداً من الحديد! لماذا بناه؟ ومن هم يأجوج ومأجوج؟ تعالوا نعرف قصة ذو القرنين!",
     source: {
       reliability: "🟢",
@@ -263,6 +326,25 @@ export const stories: Story[] = [
       keepsake: "حصيرة الحكمة",
       note: "تذكّرك أن أغلى ما يورّثه الأب لابنه كلمة صادقة.",
     },
+    arc: {
+      idea: "أبٌ ليس نبيًّا جلس مع ابنه فقال له كلامًا حفظه القرآن إلى اليوم.",
+      setting:
+        "لقمان رجل صالح آتاه الله الحكمة. والحكمة ليست أن تعرف كثيرًا، بل أن تعرف ما ينفع، ومتى تقوله، وكيف. ﴿وَلَقَدْ آتَيْنَا لُقْمَانَ الْحِكْمَةَ أَنِ اشْكُرْ لِلَّهِ﴾ — وانتبه إلى أول ما قيل له مع الحكمة: أن يشكر. وجمهور العلماء على أنه لم يكن نبيًّا؛ أي أنه رجل مثلنا، تعلّم فحكُم، وليس معه وحي يُنزَّل عليه.",
+      keyMoment:
+        "وبين هذه الوصايا جملة تكفي وحدها عمرًا كاملًا. قال له: ﴿يَا بُنَيَّ إِنَّهَا إِن تَكُ مِثْقَالَ حَبَّةٍ مِّنْ خَرْدَلٍ فَتَكُن فِي صَخْرَةٍ أَوْ فِي السَّمَاوَاتِ أَوْ فِي الْأَرْضِ يَأْتِ بِهَا اللَّهُ﴾. وحبّة الخردل حبّة صغيرة جدًّا. يقول لابنه: لو كان عملك في صغر هذه الحبّة، ومخبّأً داخل صخرة، أو في أبعد موضع في السماء، يعلمه الله ويأتي به. فلا صغير يضيع؛ لا في الخير ولا في الشرّ.",
+      resolution:
+        "وانتهت الوصايا. ولم يورّث لقمانُ ابنَه مالًا ذُكر، ولا مُلكًا، ولا جيشًا. ورّثه كلامًا. والكلام هو الذي بقي: سورة كاملة في القرآن تحمل اسمه، يقرؤها اليوم أطفال لم يكن يعلم أنهم سيولدون، في بلاد لم يكن يعرف أنها موجودة. وهذا ما تفعله الكلمة الصادقة.",
+      word: { term: "مِثْقَال حَبَّةٍ من خَرْدَل", meaning: "وزن حبّة صغيرة جدًّا، يُضرب بها المثل في الصِّغر." },
+      lessons: [
+        "ابدأ بالأهمّ: معرفة الله قبل كل وصية أخرى.",
+        "أخلاقك مع الناس جزء من دينك، حتى في مشيك وصوتك.",
+        "لا تحقر عملًا صغيرًا؛ فمثقال حبّة الخردل يأتي الله بها.",
+      ],
+      think:
+        "أوصى لقمان ابنه وصايا كثيرة في آيات قليلة. لو كان عليك أن تقول وصيّة واحدة فقط لأخيك الصغير أو لصاحبك، فماذا تختار؟ ولماذا هذه بالذات؟",
+      tryToday:
+        "اخفض صوتك اليوم في موضع كنتَ سترفعه فيه، وتذكّر وصية لقمان: ﴿وَاغْضُضْ مِن صَوْتِكَ﴾.",
+    },
   },
   {
     chapter: "nations", slug: "dhul-qarnayn",
@@ -270,11 +352,11 @@ export const stories: Story[] = [
     en: {
       title: "The Story of Dhul-Qarnayn",
       hook:
-        "Do you love stories of powerful kings who travel to discover the world? Our hero today is a very strong and just king who traveled to very far places in the East and West to help people and spread goodness.",
+        "If you could go anywhere on earth and do whatever you wished there, what would you do? In today's story there was a man who truly could. He reached the setting place of the sun and its rising place — and then stood before a people who could barely understand his speech, and did the greatest thing he ever did.",
       events:
-        "Dhul-Qarnayn was a just ruler whom Allah established on earth and gave him the means (power, knowledge, and tools) to everything. Dhul-Qarnayn traveled across the eastern and western parts of the earth. On one of his journeys, he reached a weak group of people living between two mountains. They complained to him about evil people named (Gog and Magog) who were spreading corruption in the land. Dhul-Qarnayn decided to use his power and engineering to help them. He asked them to bring huge pieces of iron and molten copper, and he built for them a very massive and strong barrier that prevented the evil ones from reaching them.",
+        "In the west he found a people, and Allah gave him the choice between punishing and doing good. He said: {As for one who wrongs, we will punish him… But as for one who believes and does righteousness, he will have a reward of the best} — justice built on deeds, not on a ruler's mood. Then he went east and found a people {for whom We had not made against it any shelter}, and left them as they were without wronging them. Then he reached a place between two mountains and found a people {who could hardly understand speech}. They complained to him of corruption in the land from Gog and Magog, and offered to gather him payment to build a barrier between them.",
       lesson:
-        "If Allah gives us power, money, or knowledge, we must use it to support the weak and help others, just exactly as the just ruler Dhul-Qarnayn did.",
+        "Strength is a blessing its owner is asked about: did he shield the weak with it, or only enlarge himself?",
       next:
         "Dhul-Qarnayn was a king who helped the weak. But what if the king is the evil oppressor? How can one person defend the truth inside the palace of this evil king? This is what we will know in the story of the brave hero: The Believer of Pharaoh's Family!",
       quranProse:
@@ -290,13 +372,35 @@ export const stories: Story[] = [
         keepsake: "A piece of copper",
         note: "A reminder that strength is a gift, and its finest use is shielding the weak.",
       },
+      arc: {
+        idea: "A king who reached the earth's east and west, and when he built the greatest thing he built, said: this is not from me.",
+        setting:
+          "{Indeed, We established him upon the earth, and We gave him to everything a way} — Allah gave him the power, the knowledge and the means to reach whatever he set out for. The Quran does not tell us who he was, or when he lived, or where his kingdom stood; it tells us what he did. He travelled the earth three times: once westward, once eastward, and once until he reached a place between two barriers.",
+        keyMoment:
+          "Then he said the sentence the whole story turns on: {That in which my Lord has established me is better, so assist me with strength.} That is: what my Lord has given me is better than your money, so I will take nothing from you — but help me with your own hands. A king who owns the earth refuses the payment, and asks a weak people to work beside him rather than watch him. Then he built: blocks of iron between the two mountains, then fire until the iron glowed, then molten copper poured over it. And it became a wall {so they were unable to pass over it, nor were they able to bore through it}.",
+        resolution:
+          "Then he stood before this great work that no one before him had managed — and what did he say? {This is a mercy from my Lord; but when the promise of my Lord comes, He will make it level.} That is: this is not from me, it is a mercy from my Lord, and a day will come when He levels it with the ground. He did not write his name on it. He did not say, look what I made. Between that sentence and Qarun's — \"I was only given it because of knowledge I have\" — lies the whole difference.",
+        word: { term: "Blocks of iron", meaning: "Large pieces of iron, built with the way others build with stone." },
+        lessons: [
+          "If you are given strength, use it to stand up for those who have none.",
+          "Take your reward from Allah, and help people to help themselves.",
+          "Give credit where it belongs; of his greatest work he said, a mercy from my Lord.",
+        ],
+        think:
+          "He could have taken their money and built it himself, and he refused and asked them to work with him. Why do you think that was? And what is the difference between giving someone something and working alongside them?",
+        tryToday:
+          "Help someone today with something they are doing with their own hands — work with them rather than doing it instead of them.",
+      },
     },
     title: "قصة ذو القرنين",
     surahName: "",
-    hook: "هل تحبون قصص الملوك الأقوياء الذين يسافرون لاكتشاف العالم؟ بطلنا اليوم هو مَلِك عادل وقوي جداً، سافر إلى أماكن بعيدة جداً في الشرق والغرب لمساعدة الناس ونشر الخير.",
-    events: "ذو القرنين هو حاكم عادل مكنه الله في الأرض وأعطاه من كل شيء سبباً (أي أعطاه القوة والعلم والأدوات). طاف ذو القرنين مشارق الأرض ومغاربها. وفي إحدى رحلاته، وصل إلى قوم ضعفاء يعيشون بين جبلين، واشتكوا له من أشرار اسمهم (يأجوج ومأجوج) يفسدون في الأرض. قرر ذو القرنين أن يستخدم قوته وهندسته لمساعدتهم، وطلب منهم أن يحضروا قطعاً ضخمة من الحديد والنحاس المذاب، وبنى لهم سداً عظيماً جداً وقوياً يمنع الأشرار من الوصول إليهم.",
+    hook:
+      "لو كان بيدك أن تذهب إلى أيّ مكان في الأرض، وأن تفعل فيه ما تشاء، فماذا كنت ستفعل؟ في قصة اليوم رجلٌ كان يملك ذلك فعلًا: بلغ مغرب الشمس ومشرقها، ثم وقف أمام قوم لا يكادون يفهمون كلامه، فكان أعظم ما فعله معهم.",
+    events:
+      "في المغرب وجد قومًا، فخيّره الله فيهم بين أن يعذّب وأن يُحسن، فقال: ﴿أَمَّا مَن ظَلَمَ فَسَوْفَ نُعَذِّبُهُ… وَأَمَّا مَنْ آمَنَ وَعَمِلَ صَالِحًا فَلَهُ جَزَاءً الْحُسْنَىٰ﴾ — عدلٌ مبنيّ على العمل، لا على مزاج الحاكم. ثم مضى إلى المشرق فوجد قومًا ﴿لَّمْ نَجْعَل لَّهُم مِّن دُونِهَا سِتْرًا﴾، فتركهم على حالهم ولم يظلمهم. ثم بلغ موضعًا بين جبلين، ووجد قومًا ﴿لَّا يَكَادُونَ يَفْقَهُونَ قَوْلًا﴾، فشكوا إليه فسادًا في الأرض من يأجوج ومأجوج، وعرضوا عليه مالًا يجمعونه له ليبني بينهم وبينهم سدًّا.",
     quranProse: "يقول الله تعالى عن هذا السد القوي الذي بناه ذو القرنين: {فَمَا اسْطَاعُوا أَن يَظْهَرُوهُ وَمَا اسْتَطَاعُوا لَهُ نَقْبًا}. (أي لم يستطع الأشرار أن يتسلقوه أو يثقبوه).",
-    lesson: "إذا أعطانا الله القوة أو المال أو العلم، يجب أن نستخدمه في نصرة المستضعفين ومساعدة الآخرين، تماماً كما فعل الحاكم العادل ذو القرنين.",
+    lesson:
+      "القوة نعمةٌ يُسأل عنها صاحبها: أحمى بها ضعيفًا، أم زاد بها نفسه؟",
     next: "ذو القرنين كان ملكاً يساعد الضعفاء. ولكن ماذا لو كان الملك هو الشرير الظالم؟ كيف يمكن لشخص واحد أن يدافع عن الحق داخل قصر هذا الملك الشرير؟ هذا ما سنعرفه في قصة البطل الشجاع: مؤمن آل فرعون!",
     source: {
       reliability: "🟢",
@@ -314,6 +418,25 @@ export const stories: Story[] = [
       keepsake: "قطعة نحاس",
       note: "تذكّرك أن القوة نعمة، وأجمل ما فيها أن تحمي بها الضعيف.",
     },
+    arc: {
+      idea: "ملكٌ بلغ الأرض شرقًا وغربًا، وحين بنى أعظم ما بنى قال: هذا ليس مني.",
+      setting:
+        "﴿إِنَّا مَكَّنَّا لَهُ فِي الْأَرْضِ وَآتَيْنَاهُ مِن كُلِّ شَيْءٍ سَبَبًا﴾ — أي آتاه الله القوّة والعلم والأدوات التي يبلغ بها ما يريد. ولم يخبرنا القرآن من هو، ولا في أيّ زمان كان، ولا أين كانت مملكته؛ أخبرنا بما فعل. وقد سار في الأرض ثلاث مرّات: مرّةً نحو المغرب، ومرّةً نحو المشرق، ومرّةً حتى بلغ موضعًا بين سدّين.",
+      keyMoment:
+        "فقال كلمةً هي قلب القصة كلها: ﴿مَا مَكَّنِّي فِيهِ رَبِّي خَيْرٌ فَأَعِينُونِي بِقُوَّةٍ﴾ — أي: ما أعطاني ربي خيرٌ من مالكم، فلا آخذ منكم شيئًا؛ لكن أعينوني بسواعدكم. ملكٌ يملك الأرض، يردّ الأجر، ويطلب من القوم الضعفاء أن يعملوا معه بأيديهم لا أن يتفرّجوا عليه. ثم بنى: زُبَر الحديد بين الجبلين، ثم النار حتى صار الحديد كالنار، ثم النحاس المذاب يُفرَغ فوقه. فصار جدارًا ﴿فَمَا اسْطَاعُوا أَن يَظْهَرُوهُ وَمَا اسْتَطَاعُوا لَهُ نَقْبًا﴾.",
+      resolution:
+        "ثم وقف أمام هذا البناء العظيم الذي عجز عنه الناس قبله، فماذا قال؟ ﴿هَٰذَا رَحْمَةٌ مِّن رَّبِّي فَإِذَا جَاءَ وَعْدُ رَبِّي جَعَلَهُ دَكَّاءَ﴾ — أي: هذا ليس مني، بل رحمة من ربي، وسيأتي يوم يجعله مستويًا بالأرض. لم يكتب اسمه عليه، ولم يقل: انظروا ماذا صنعتُ. وبين هذه الكلمة وكلمة قارون — «إنما أوتيته على علم عندي» — يقع الفرق كلّه.",
+      word: { term: "زُبَر الحديد", meaning: "القطع الكبيرة من الحديد، يُبنى بها كما يُبنى بالحجارة." },
+      lessons: [
+        "إذا ملكتَ قوّة فاستعملها في نصرة من لا قوّة له.",
+        "خذ أجرك من الله، وأعِن الناس على أن يعينوا أنفسهم.",
+        "انسب الفضل لصاحبه؛ فأعظم ما بناه قال عنه: رحمةٌ من ربي.",
+      ],
+      think:
+        "كان يستطيع أن يأخذ مالهم ويبني لهم وحده، فرفض وطلب منهم أن يعملوا معه. لماذا في رأيك؟ وما الفرق بين أن تعطي أحدًا شيئًا وبين أن تعمل معه؟",
+      tryToday:
+        "أعِن اليوم أحدًا في شيء يعمله بيده، واعمل معه ولا تفعله بدلًا منه.",
+    },
   },
   {
     chapter: "nations", slug: "believer-of-pharaoh",
@@ -321,11 +444,11 @@ export const stories: Story[] = [
     en: {
       title: "The Believer of Pharaoh's Family",
       hook:
-        "Does a person need a sword to be brave? Sometimes a word is stronger than a sword! Our hero today is a single man who stood before the most dangerous and unjust king in history to speak the truth and defend the Prophet of Allah.",
+        "The bravest thing a person does is not to carry a sword. It is to say a true word in a place where it is not said, in front of someone who could kill them for it. In today's story, one man did exactly that — inside Pharaoh's own palace, surrounded by his men.",
       events:
-        "In the palace of the unjust Pharaoh, who claimed to be a god, there was a good man who hid his faith and didn't tell anyone about it. When Pharaoh got angry and decided to kill Prophet Musa (Moses), this believing man did not stay silent! He stood bravely among all of Pharaoh's guards and used logic and reason to defend Musa. He told them: 'Would you kill a good man just because he says (My Lord is Allah)? And he has come to you with miracles and clear proofs?' He reminded them that injustice would lead to their destruction. So, Allah protected him from Pharaoh's anger and evil plot.",
+        "Pharaoh said before his court: {Let me kill Musa and let him call upon his Lord.} Here this man could have stayed silent. He had hidden his faith all those years; no one knew, and no one would have blamed him. But he stood up. {And a believing man from the family of Pharaoh who concealed his faith said, Do you kill a man because he says, My Lord is Allah?} He did not say \"I am with him.\" He said to them: do you kill a man for saying my Lord is Allah? And he argued with their own reason: {while he has brought you clear proofs from your Lord}, reminded them what had befallen nations before them, and said: {And if he should be lying, then upon him is his lie} — if he is lying, his lie is on him, not on you; so why kill him?",
       lesson:
-        "True bravery is the courage to speak up and defend the oppressed and the prophets. We learn that Allah always stands with those who defend the truth, even if they are alone against an entire army.",
+        "A true word needs no army; it needs a heart that fears no one but Allah.",
       next:
         "The believer of Pharaoh's family defended the truth bravely. But in the next story, we will learn about an entire group of believers who decided to stand firm and not give up their belief in Allah, even if they were thrown into trenches filled with fire! Who are they? They are the People of the Ditch!",
       quranProse:
@@ -341,13 +464,35 @@ export const stories: Story[] = [
         keepsake: "A shaft of light",
         note: "A reminder that a true word needs no army — only a brave heart.",
       },
+      arc: {
+        idea: "A man who hid his faith for years, then spoke in the one moment when silence would have been easiest.",
+        setting:
+          "In Egypt, inside Pharaoh's own palace — the man who said {I am your most exalted lord} — lived a man of his household who believed in Allah and kept it hidden. He could not show it; if he had, he would have been killed. Every day he heard what was said about Musa, saw how he was treated, and said nothing. Until a day came when silence was no longer possible: Pharaoh decided to kill Musa.",
+        keyMoment:
+          "Notice exactly what he did, because it is the most remarkable thing in the story. He did not shout, or curse, or announce his faith and lose everything in an instant. He spoke with reason, and stood as their adviser rather than their enemy: {O my people, sovereignty is yours today, prevailing in the land. But who would protect us from the punishment of Allah if it came to us?} He said \"my people,\" and he said \"protect us\" — placing himself among them while disagreeing with them. That is courage and wisdom together: to say the whole truth, and to say it in a way that can actually be heard.",
+        resolution:
+          "Then he ended with a sentence after which he feared nothing: {And I entrust my affair to Allah. Indeed, Allah is Seeing of His servants.} And the outcome? {So Allah protected him from the evils they plotted, and the people of Pharaoh were enveloped by the worst of punishment.} Allah shielded him from all their scheming, and the ones he had feared were destroyed. The Quran never gives his name, so he is known by what he did rather than who he was: the believer of Pharaoh's family.",
+        word: { term: "I entrust my affair to Allah", meaning: "I hand the whole matter to Him and trust Him with it — what you say once you have done your part and the rest is not yours." },
+        lessons: [
+          "Say the truth even if you are alone; one person with Allah is more than a full palace.",
+          "Say it with reason and calm; a word that gets heard beats a shout that gets dismissed.",
+          "When you have done your part, entrust the rest to Allah.",
+        ],
+        think:
+          "The man hid his faith for years, then spoke at the most dangerous moment. When have you spoken up where staying quiet would have been easier? What made you speak?",
+        tryToday:
+          "If you see someone wronged or mocked today, say one sentence in their defence — even just: that is not right.",
+      },
     },
     title: "قصة مؤمن آل فرعون",
     surahName: "",
-    hook: "هل يحتاج الإنسان إلى سيف ليكون شجاعاً؟ أحياناً تكون الكلمة أقوى من السيف! بطلنا اليوم رجل واحد وقف أمام أخطر وأظلم ملك في التاريخ ليقول كلمة حق ويدافع عن نبي الله.",
-    events: "في قصر فرعون الظالم الذي كان يدّعي أنه إله، كان هناك رجل طيب يكتم إيمانه ولا يخبر أحداً به. وعندما غضب فرعون وقرر أن يقتل سيدنا موسى عليه السلام، لم يسكت هذا الرجل المؤمن! وقف بشجاعة وسط كل حراس فرعون، واستخدم المنطق والعقل ليدافع عن موسى، وقال لهم: هل تقتلون رجلاً طيباً فقط لأنه يقول (ربي الله)؟ وقد جاءكم بالمعجزات والأدلة الواضحة؟ وذكّرهم بأن الظلم سيؤدي بهم إلى الهلاك. فحماه الله من غضب فرعون ومكره.",
+    hook:
+      "أشجع ما يفعله الإنسان ليس أن يحمل سيفًا. أشجع ما يفعله أن يقول كلمة حقّ في مكان لا يُقال فيه، أمام من يملك أن يقتله عليها. في قصة اليوم رجل واحد فعل ذلك — داخل قصر فرعون نفسه، ووسط رجاله.",
+    events:
+      "وقال فرعون أمام مَلَئه: ﴿ذَرُونِي أَقْتُلْ مُوسَىٰ وَلْيَدْعُ رَبَّهُ﴾. وهنا كان يستطيع هذا الرجل أن يسكت؛ فهو لم يكشف إيمانه طول هذه السنين، ولا أحد يعلم به، ولن يلومه أحد. لكنه قام. ﴿وَقَالَ رَجُلٌ مُّؤْمِنٌ مِّنْ آلِ فِرْعَوْنَ يَكْتُمُ إِيمَانَهُ أَتَقْتُلُونَ رَجُلًا أَن يَقُولَ رَبِّيَ اللَّهُ﴾. ولم يقل: أنا معه. قال لهم: أتقتلون رجلًا لأنه قال ربي الله؟ وحاجّهم بعقولهم: ﴿وَقَدْ جَاءَكُم بِالْبَيِّنَاتِ مِن رَّبِّكُمْ﴾، وذكّرهم بما حلّ بالأمم قبلهم، وقال: ﴿وَإِن يَكُ كَاذِبًا فَعَلَيْهِ كَذِبُهُ﴾ — إن كان كاذبًا فكذبه عليه لا عليكم، فلماذا تقتلونه؟",
     quranProse: "يقول الله تعالى واصفاً شجاعة هذا الرجل: {وَقَالَ رَجُلٌ مُّؤْمِنٌ مِّنْ آلِ فِرْعَوْنَ يَكْتُمُ إِيمَانَهُ أَتَقْتُلُونَ رَجُلًا أَن يَقُولَ رَبِّيَ اللَّهُ}.",
-    lesson: "الشجاعة الحقيقية هي شجاعة الكلمة والدفاع عن المظلومين والأنبياء. ونتعلم أن الله يقف دائماً مع من يدافع عن الحق حتى لو كان وحده أمام جيش كامل.",
+    lesson:
+      "كلمة الحقّ لا تحتاج إلى جيش؛ تحتاج إلى قلب لا يخاف إلا الله.",
     next: "مؤمن آل فرعون دافع عن الحق بشجاعة. ولكن في القصة القادمة، سنتعرف على مجموعة كاملة من المؤمنين، قرروا الصمود وعدم التخلي عن توحيد الله حتى لو ألقوا في خنادق مليئة بالنار! من هم؟ إنهم أصحاب الأخدود!",
     source: {
       reliability: "🟢",
@@ -365,6 +510,25 @@ export const stories: Story[] = [
       keepsake: "شعاع النور",
       note: "يذكّرك أن كلمة الحق لا تحتاج جيشاً، تحتاج قلباً شجاعاً.",
     },
+    arc: {
+      idea: "رجلٌ كتم إيمانه سنين، ثم تكلّم في اللحظة التي كان السكوت فيها أسهل شيء.",
+      setting:
+        "في مصر، وفي قصر فرعون نفسه — الرجل الذي قال: ﴿أَنَا رَبُّكُمُ الْأَعْلَىٰ﴾ — عاش رجل من أهل بيته يؤمن بالله ويكتم إيمانه. لم يكن يستطيع أن يظهره، فلو ظهر لقُتل. وكان يسمع كل يوم ما يُقال عن موسى، ويرى كيف يُعامَل، ويسكت. حتى جاء يوم لم يعد السكوت فيه ممكنًا: قرّر فرعون أن يقتل موسى.",
+      keyMoment:
+        "وانتبه إلى ما فعله بالضبط، فهو أعجب ما في القصة. لم يصرخ، ولم يشتم، ولم يعلن إيمانه فيخسر كل شيء في لحظة. تكلّم بالعقل، ووقف موقف الناصح لهم لا الخصم: ﴿يَا قَوْمِ لَكُمُ الْمُلْكُ الْيَوْمَ ظَاهِرِينَ فِي الْأَرْضِ فَمَن يَنصُرُنَا مِن بَأْسِ اللَّهِ إِن جَاءَنَا﴾. قال «يا قوم»، وقال «ينصرنا» — جعل نفسه منهم وهو يخالفهم. هذه شجاعة وحكمة معًا: أن تقول الحقّ كاملًا، وأن تقوله بطريقة يمكن أن تُسمَع.",
+      resolution:
+        "ثم ختم كلامه بكلمة لم يخف بعدها: ﴿وَأُفَوِّضُ أَمْرِي إِلَى اللَّهِ إِنَّ اللَّهَ بَصِيرٌ بِالْعِبَادِ﴾. فماذا كانت النتيجة؟ ﴿فَوَقَاهُ اللَّهُ سَيِّئَاتِ مَا مَكَرُوا وَحَاقَ بِآلِ فِرْعَوْنَ سُوءُ الْعَذَابِ﴾. حماه الله من مكرهم كله، وهلك من كان يخافهم. ولم يذكر القرآن اسمه، فبقي معروفًا بما فعل لا بمن هو: مؤمن آل فرعون.",
+      word: { term: "أُفَوِّض أمري إلى الله", meaning: "أُسلِم أمري كله إليه وأثق أنه يتولّاه — تقولها حين تفعل ما عليك ولا تملك ما بعده." },
+      lessons: [
+        "قل الحقّ ولو كنت وحدك؛ فواحد مع الله أكثر من قصر مملوء.",
+        "قل الحقّ بعقل وهدوء؛ الكلمة التي تُسمع خير من صرخة تُردّ.",
+        "إذا فعلتَ ما عليك ففوّض الباقي إلى الله.",
+      ],
+      think:
+        "كتم الرجل إيمانه سنين، ثم تكلّم في أخطر لحظة. متى تكلّمتَ أنت في موقف كان السكوت فيه أسهل؟ وماذا جعلك تتكلّم؟",
+      tryToday:
+        "إن رأيت اليوم أحدًا يُظلم أو يُسخر منه، فقل كلمة واحدة تدافع بها عنه، ولو كانت: هذا لا يصحّ.",
+    },
   },
   {
     chapter: "nations", slug: "ashab-al-ukhdud",
@@ -372,11 +536,11 @@ export const stories: Story[] = [
     en: {
       title: "The People of the Ditch",
       hook:
-        "What is the most precious thing you own? For the heroes in our story today, their faith in Allah was more precious than their own lives! Today's story is full of steadfastness and great challenge against a tyrant king.",
+        "Who is stronger: a king who holds the army, the prison and all the people, or a boy who holds nothing at all? In today's story the two met face to face. And it ended with the whole city believing the boy.",
       events:
-        "There was a tyrant and evil king who wanted people to worship only him. But the righteous believers refused to give up monotheism and their belief in the true God. The king got very angry and ordered his soldiers to dig deep trenches (ditches) in the ground and light a massive fire in them! The king gave the believers a choice: either leave your religion or be thrown into the fire. With great courage and amazing faith, the believers chose to be thrown into the fire rather than disbelieve in Allah. Even though their bodies perished, their souls triumphed and ascended to Paradise happily.",
+        "One day a great beast blocked the road so that people could not pass. The boy took a stone and said: O Allah, if the way of the monk is more beloved to You than the way of the sorcerer, then kill this beast so the people can go on. He threw it, the beast died, and the people passed. That day the boy knew which of the two roads was true. Then Allah began to heal the sick and the blind at his hands, and people were amazed. Word reached the king, who seized the boy and tried everything to turn him from his faith and could not, and tried again and again to be rid of him — and each time the boy prayed, O Allah, deal with them however You wish, and each time he was saved.",
       lesson:
-        "We learn from this story the power of great faith; the victory of the soul and belief is much more important than the survival of the body. We also learn that Allah sees everything the evil ones do and will punish them, and He will reward the believers with Paradise.",
+        "Whoever loses this world and does not lose their faith has lost nothing.",
       next:
         "We saw how the believers preferred Allah over their lives. But in our next story, we will meet a man who preferred his money and gold over Allah! He claimed with 'scientific arrogance' that his wealth came only from his intelligence! So what happened to his palace and his money? It's the story of Qarun!",
       quranProse:
@@ -392,13 +556,35 @@ export const stories: Story[] = [
         keepsake: "A cooled ember",
         note: "A reminder that whoever loses the world for their faith has lost nothing.",
       },
+      arc: {
+        idea: "A small boy learned that Allah is greater than the king — and because of him a whole city believed.",
+        setting:
+          "The Prophet told us of a king who had a sorcerer, and when the sorcerer grew old he asked the king for a boy to teach his craft to. The boy would go to him, and on the way he passed a monk — a man devoted to worship — and would sit with him and listen, and liked what he heard. So the boy had two roads he walked between every day: one where he was taught sorcery, and one where he was taught belief in Allah. And he did not yet know which of them was true.",
+        keyMoment:
+          "The boy went back to the king himself and said something extraordinary: you will not be able to kill me until you do as I tell you. Gather the people in one place, then take an arrow from my quiver and say: in the name of Allah, the Lord of the boy. The king did as he said, and the boy died in front of all the people. But look at what happened in that same moment: all the people said, we believe in the Lord of the boy. The king meant to finish him in front of everyone — and the boy had made his own end into the proof.",
+        resolution:
+          "The king was enraged, and ordered ditches — long trenches dug in the ground — and fire was lit in them, and the people were given the choice between turning back from their faith and standing firm. They stood firm. There is a surah in the Quran that tells it: {Cursed were the companions of the trench} — cursed are those who dug it. Then Allah said of the oppressors: {Indeed, those who have tortured the believing men and believing women and then have not repented will have the punishment of Hell}, and of the believers: {They will have gardens beneath which rivers flow. That is the great attainment.} So who won in the end?",
+        word: { term: "The trench", meaning: "A long channel dug into the ground; the plural is trenches." },
+        lessons: [
+          "A young person can recognise the truth and hold on to it.",
+          "Sit with those who teach you good; it was the monk who showed the boy his Lord.",
+          "What counts is with Allah, not what people see; and the great attainment is Paradise.",
+        ],
+        think:
+          "The boy chose to make the last thing he did into a proof that people would believe. What is the thing you would want people to remember about you?",
+        tryToday:
+          "Learn one thing about your Lord today from your father, your mother or your teacher — and ask about it until you really understand it.",
+      },
     },
     title: "قصة أصحاب الأخدود",
     surahName: "",
-    hook: "ما هو أغلى شيء تملكونه؟ بالنسبة للأبطال في قصتنا اليوم، كان إيمانهم بالله أغلى من حياتهم نفسها! قصة اليوم مليئة بالصمود والتحدي العظيم أمام ملك جبار.",
-    events: "كان هناك ملك جبار وشرير يريد من الناس أن يعبدوه هو فقط. لكن المؤمنين الصالحين رفضوا التخلي عن التوحيد والإيمان بالله الحقيقي. غضب الملك غضباً شديداً، وأمر جنوده بحفر خنادق عميقة في الأرض (أخاديد) وأشعل فيها ناراً ضخمة جداً! خيّر الملك المؤمنين: إما أن تتركوا دينكم أو تُرموا في النار. وبشجاعة عظيمة وصمود عقدي مذهل، اختار المؤمنون أن يُلقوا في النار على أن يكفروا بالله. ورغم أن أجسادهم فنيت، إلا أن أرواحهم انتصرت وصعدت إلى الجنة بسعادة.",
+    hook:
+      "من أقوى: مَلِكٌ يملك الجيش والسجن والناس كلهم، أم غلامٌ صغير لا يملك شيئًا؟ في قصة اليوم التقى الاثنان وجهًا لوجه. وانتهى الأمر بأن المدينة كلها صدّقت الغلام.",
+    events:
+      "وذات يوم اعترضت الناسَ في طريقهم دابّة عظيمة حبستهم فلم يستطيعوا المرور. فأخذ الغلام حجرًا وقال: اللهم إن كان أمر الراهب أحبَّ إليك من أمر الساحر فاقتل هذه الدابّة حتى يمضي الناس. ورمى، فماتت الدابّة، ومضى الناس. فعرف الغلام يومها أيُّ الطريقين هو الحقّ. ثم صار الله يشفي على يديه المريض والأعمى، والناس يتعجّبون. وبلغ الخبر الملك، فأخذ الغلام وحاول أن يردّه عن دينه بكل ما يستطيع فلم يستطع، وحاول أن يتخلّص منه مرّة بعد مرّة، فكان الغلام يدعو: اللهم اكفنيهم بما شئت، فينجو في كل مرّة.",
     quranProse: "يقول الله تعالى عنهم في سورة البروج: {قُتِلَ أَصْحَابُ الْأُخْدُودِ * النَّارِ ذَاتِ الْوَقُودِ}. (أي لُعن الأشرار الذين حفروا الأخدود وأشعلوا فيه النار).",
-    lesson: "نتعلم من هذه القصة قوة الصمود العقدي العظيم؛ فانتصار الروح والعقيدة أهم بكثير من فناء الجسد. ونتعلم أن الله يرى كل ما يفعله الأشرار وسيعاقبهم، وسيكافئ المؤمنين بالجنة.",
+    lesson:
+      "من خسر دنياه ولم يخسر إيمانه، لم يخسر شيئًا.",
     next: "رأينا كيف فضل المؤمنون الله على حياتهم. لكن في قصتنا القادمة، سنتعرف على رجل فضل أمواله وذهبه على الله! وادعى بـ 'الغرور العلمي' أن ثروته جاءت بذكائه فقط! فماذا حدث لقصره ولأمواله؟ إنها قصة قارون!",
     source: {
       reliability: "🟢",
@@ -416,6 +602,25 @@ export const stories: Story[] = [
       keepsake: "جمرة خامدة",
       note: "تذكّرك أن الذي يخسر الدنيا على إيمانه لم يخسر شيئاً.",
     },
+    arc: {
+      idea: "غلامٌ صغير عرف أن الله أكبر من الملك، فآمنت بسببه مدينة كاملة.",
+      setting:
+        "حكى لنا النبي ﷺ خبر مَلِكٍ كان له ساحر، فلمّا كبر الساحر طلب من الملك غلامًا يعلّمه سحره. فكان الغلام يذهب إليه، وفي الطريق يمرّ على راهب — رجل عابد منقطع للعبادة — فيجلس إليه ويسمع كلامه فيعجبه ويحبّه. فصار للغلام طريقان يمشي بينهما كل يوم: طريق يتعلّم فيه السحر، وطريق يتعلّم فيه الإيمان بالله. ولم يكن قد عرف بعد أيّهما الحقّ.",
+      keyMoment:
+        "فرجع الغلام إلى الملك بنفسه وقال له كلمة عجيبة: إنك لن تستطيع قتلي حتى تفعل ما آمرك به. اجمع الناس في مكان واحد، ثم خذ سهمًا من كنانتي وقل: بسم الله ربِّ الغلام. ففعل الملك ما قال، ومات الغلام أمام الناس جميعًا. لكن انظر ماذا حدث في تلك اللحظة نفسها: قال الناس كلهم: آمنّا بربّ الغلام. أراد الملك أن ينهي أمره أمام الناس، فإذا الغلام قد جعل نهايته هي الدليل.",
+      resolution:
+        "فغضب الملك، وأمر بالأخاديد — وهي حفر طويلة في الأرض — فأُوقدت فيها النار، وخُيِّر الناس بين أن يرجعوا عن إيمانهم وبين أن يثبتوا، فثبتوا. وفي القرآن سورة تحكي الخبر: ﴿قُتِلَ أَصْحَابُ الْأُخْدُودِ﴾ — أي لُعن الذين حفروها. ثم قال الله عن الظالمين: ﴿إِنَّ الَّذِينَ فَتَنُوا الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ ثُمَّ لَمْ يَتُوبُوا فَلَهُمْ عَذَابُ جَهَنَّمَ﴾، وقال عن المؤمنين: ﴿لَهُمْ جَنَّاتٌ تَجْرِي مِن تَحْتِهَا الْأَنْهَارُ ذَٰلِكَ الْفَوْزُ الْكَبِيرُ﴾. فمن الذي فاز في آخر الأمر؟",
+      word: { term: "الأُخْدُود", meaning: "الحفرة الطويلة الممتدّة في الأرض، وجمعها أخاديد." },
+      lessons: [
+        "الصغير يستطيع أن يعرف الحقّ ويثبت عليه.",
+        "اجلس إلى من يعلّمك الخير؛ فالراهب هو الذي دلّ الغلام على ربّه.",
+        "العبرة بما عند الله لا بما يراه الناس؛ والفوز الكبير هو الجنة.",
+      ],
+      think:
+        "اختار الغلام أن يكون آخر ما يفعله دليلًا يؤمن به الناس. ما الشيء الذي تحبّ أن يتذكّره الناس عنك أنت؟",
+      tryToday:
+        "تعلّم اليوم شيئًا واحدًا عن ربّك من أبيك أو أمك أو معلّمك، واسأل عنه حتى تفهمه فهمًا حقيقيًّا.",
+    },
   },
   {
     chapter: "nations", slug: "qarun",
@@ -423,11 +628,11 @@ export const stories: Story[] = [
     en: {
       title: "The Story of Qarun",
       hook:
-        "Imagine someone owning so many boxes of treasure and gold that just the keys to these boxes needed very strong men to carry them! Did this much money make him a good or bad person? Let's find out in the story of Qarun.",
+        "Imagine that the keys to your treasure chests alone need a group of strong men to carry them. Not the chests — just the keys. This was a real man the Quran tells us about, the richest of everyone around him. Did that make him the happiest of them too?",
       events:
-        "Qarun was a man who lived during the time of Prophet Musa (Moses). Allah had given him enormous wealth and treasures. But Qarun was afflicted with the temptation of wealth and arrogance! Instead of thanking Allah for these blessings and helping the poor, he acted arrogantly towards them. He claimed that his massive wealth came from his own effort, his pure knowledge, and because he was very smart. Good people advised him to be humble and not to be arrogant, but he refused. So, his punishment was that Allah caused the earth to swallow him and his grand palace. The earth swallowed all his money and arrogance in a single moment!",
+        "His people came to him with beautiful advice, and it is in the Quran word for word: {Do not exult. Indeed, Allah does not like the exultant. But seek, through that which Allah has given you, the home of the Hereafter; and do not forget your share of the world; and do good as Allah has done good to you.} See how balanced it is: they did not tell him to give up his wealth. They said seek the Hereafter with it, take your share of this world, and do good to people as Allah has done good to you. Advice that deprives him of nothing. And what was his answer?",
       lesson:
-        "Wealth and intelligence are gifts from Allah. We learn from Qarun that it is wrong to rely only on material reasons without thanking Allah (The Provider). We must be humble and help others with what Allah has given us.",
+        "What is in your hand is on loan from Allah, and whoever forgets it is a loan is close to losing it.",
       next:
         "Qarun loved gold and money and became arrogant. But what if someone used gold to make a statue and deceive people with it? A strange story starring a very deceitful man... It's the Samiri!",
       quranProse:
@@ -443,13 +648,35 @@ export const stories: Story[] = [
         keepsake: "A coin of sand",
         note: "A reminder that what is in your hand is on loan, and boasting is the fastest way to lose it.",
       },
+      arc: {
+        idea: "A man who thought what he held came from himself — and the earth swallowed him with everything he had gathered.",
+        setting:
+          "Qarun was a man from the people of Musa, {and he tyrannised them} — he grew arrogant over them and wronged them. Allah had given him treasures given to no one around him: {And We gave him of treasures whose keys would burden a band of strong men} — the keys alone were heavy enough to weigh down a group of the strongest. And note from the start: wealth is no fault, and treasure is no sin. This story is not about his money.",
+        keyMoment:
+          "He answered with a few words that summed up everything wrong with him: {I was only given it because of knowledge I have.} That is: this is mine, from my own cleverness and effort; it is no one's favour to me. There is the whole sickness — not in the wealth, but in forgetting where the wealth came from. Then he went out before the people in his finery, and those who saw him split in two: some wished they were in his place, and some said {Woe to you! The reward of Allah is better for one who believes and does righteousness.}",
+        resolution:
+          "{And We caused the earth to swallow him and his home.} {And there was for him no company to aid him other than Allah, nor was he of those who could defend themselves.} No one around him was any use, and he could not save himself. As for those who had wished to be in his place the day before, they now said: {Ah, Allah extends provision to whom He wills of His servants and restricts it.} In a single day they saw with their own eyes what a whole lifetime had not taught them.",
+        word: { term: "Would burden a band", meaning: "Heavy enough to weigh down a group of strong men and nearly make them stagger." },
+        lessons: [
+          "Say: this is from the favour of my Lord — not: this is from my own cleverness.",
+          "Wealth is used to seek the Hereafter, not abandoned; the advice was \"seek,\" not \"give up.\"",
+          "Do good to people the way Allah has done good to you.",
+        ],
+        think:
+          "Those who wished to be in Qarun's place yesterday thanked Allah they were not in it today. Have you ever wanted something someone else had? If Allah gave it to you, what would you do with it?",
+        tryToday:
+          "Look at something you love among the things you have today and say: this is from the favour of my Lord. Then give a part of it to someone else.",
+      },
     },
     title: "قصة قارون",
     surahName: "",
-    hook: "تخيلوا شخصاً يملك صناديق من الكنوز والذهب كثيرة جداً، لدرجة أن مفاتيح هذه الصناديق وحدها تحتاج إلى رجال أقوياء جداً لحملها! هل هذا المال الكثير جعله إنساناً طيباً أم شريراً؟ تعالوا نتعرف على قصة قارون.",
-    events: "قارون كان رجلاً يعيش في زمن سيدنا موسى، وقد أعطاه الله أموالاً وكنوزاً هائلة. لكن قارون أصيب بفتنة المال والغرور العلمي! بدلاً من أن يشكر الله على هذه النعم ويساعد الفقراء، تكبر عليهم، وادعى أن ثروته الهائلة جاءت بجهده وعلمه الخالص وأنه ذكي جداً. نصحه الناس الطيبون أن يتواضع ولا يغتر، لكنه رفض. فكان عقابه أن خسف الله به وبقصره العظيم الأرض، فابتلعت الأرض كل أمواله وغروره في لحظة واحدة!",
+    hook:
+      "تخيّل أن مفاتيح خزائنك وحدها تحتاج جماعة من الرجال الأقوياء ليحملوها. ليست الخزائن — المفاتيح فقط. هذا رجل ذكره القرآن فعلًا، وكان أغنى من حوله. فهل جعله ذلك أسعد من حوله أيضًا؟",
+    events:
+      "جاءه قومه بنصيحة جميلة، وهي في القرآن بنصّها: ﴿لَا تَفْرَحْ إِنَّ اللَّهَ لَا يُحِبُّ الْفَرِحِينَ * وَابْتَغِ فِيمَا آتَاكَ اللَّهُ الدَّارَ الْآخِرَةَ وَلَا تَنسَ نَصِيبَكَ مِنَ الدُّنْيَا وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ﴾. وانظر كم هي معتدلة: لم يقولوا له اترك مالك. قالوا: اطلب به الآخرة، وخذ نصيبك من الدنيا، وأحسِن إلى الناس كما أحسن الله إليك. نصيحة لا تحرمه شيئًا. فماذا كان جوابه؟",
     quranProse: "يقول الله تعالى يصف غرور قارون: {قَالَ إِنَّمَا أُوتِيتُهُ عَلَىٰ عِلْمٍ عِندِي}. (أي كان يظن أنه حصل على المال بذكائه فقط وليس من فضل الله).",
-    lesson: "المال والذكاء هي هدايا من الله. ونتعلم من قارون بطلان الاعتماد على الأسباب المادية فقط دون شكر الله (المُسبب). يجب أن نكون متواضعين ونساعد الآخرين بما أعطانا الله.",
+    lesson:
+      "ما في يدك عاريةٌ من الله، ومن نسي أنها عارية أوشك أن يفقدها.",
     next: "قارون أحب الذهب والمال وتكبر. ولكن ماذا لو استخدم شخص الذهب ليصنع تمثالاً ويخدع به الناس؟ قصة غريبة بطلها رجل مخادع جداً.. إنه السامري!",
     source: {
       reliability: "🟢",
@@ -467,6 +694,25 @@ export const stories: Story[] = [
       keepsake: "عملة من رمل",
       note: "تذكّرك أن ما في يدك عارية، والفخر بها أسرع طريق لضياعها.",
     },
+    arc: {
+      idea: "رجلٌ ظنّ أن ما في يده من عند نفسه، فابتلعته الأرض ومعه كل ما جمع.",
+      setting:
+        "قارون رجل من قوم موسى، ﴿فَبَغَىٰ عَلَيْهِمْ﴾ — أي تكبّر عليهم وظلمهم. وقد آتاه الله من الكنوز ما لم يؤتِ أحدًا حوله: ﴿وَآتَيْنَاهُ مِنَ الْكُنُوزِ مَا إِنَّ مَفَاتِحَهُ لَتَنُوءُ بِالْعُصْبَةِ أُولِي الْقُوَّةِ﴾ — أي إن حمل المفاتيح وحدها يُثقِل جماعة من الرجال الأشدّاء. وانتبه من الآن: المال ليس عيبًا، والكنوز ليست ذنبًا. القصة ليست عن ماله.",
+      keyMoment:
+        "أجاب بأربع كلمات لخّصت كل ما فيه: ﴿إِنَّمَا أُوتِيتُهُ عَلَىٰ عِلْمٍ عِندِي﴾ — إنما أُعطيته بعلمٍ عندي أنا. أي: هذا مني، بذكائي وبتعبي؛ ليس فضلًا من أحد. وهنا المرض كله: لا في المال، بل في أنه نسي من أين جاء المال. ثم خرج على الناس في زينته، فانقسم من رآه قسمين: قسم تمنّى أن يكون مكانه، وقسم قال: ﴿وَيْلَكُمْ ثَوَابُ اللَّهِ خَيْرٌ لِّمَنْ آمَنَ وَعَمِلَ صَالِحًا﴾.",
+      resolution:
+        "﴿فَخَسَفْنَا بِهِ وَبِدَارِهِ الْأَرْضَ﴾ — فابتلعته الأرض هو وداره. ﴿فَمَا كَانَ لَهُ مِن فِئَةٍ يَنصُرُونَهُ مِن دُونِ اللَّهِ وَمَا كَانَ مِنَ الْمُنتَصِرِينَ﴾ — لم ينفعه أحد ممّن حوله، ولم يستطع أن ينصر نفسه. وأمّا الذين تمنّوا مكانه بالأمس فأصبحوا يقولون: ﴿وَيْكَأَنَّ اللَّهَ يَبْسُطُ الرِّزْقَ لِمَن يَشَاءُ مِنْ عِبَادِهِ وَيَقْدِرُ﴾. رأوا في يوم واحد بأعينهم ما لم يفهموه في عمر كامل.",
+      word: { term: "تَنُوء بالعُصبة", meaning: "تُثقِل الجماعة من الرجال الأقوياء حتى تكاد تميل بهم من ثقلها." },
+      lessons: [
+        "قل: هذا من فضل ربي، ولا تقل: هذا بذكائي.",
+        "المال يُطلب به الآخرة ولا يُترك؛ فالنصيحة كانت «وابتغِ» لا «واترك».",
+        "أحسِن إلى الناس كما أحسن الله إليك.",
+      ],
+      think:
+        "الذين تمنّوا مكان قارون بالأمس حمدوا الله اليوم أنهم ليسوا مكانه. هل تمنّيتَ يومًا شيئًا عند غيرك؟ ولو أعطاك الله إيّاه، ماذا كنت ستفعل به؟",
+      tryToday:
+        "انظر اليوم إلى شيء تحبّه ممّا عندك، وقل: هذا من فضل ربي. ثم أعطِ منه شيئًا لغيرك.",
+    },
   },
   {
     chapter: "nations", slug: "samiri",
@@ -474,11 +720,11 @@ export const stories: Story[] = [
     en: {
       title: "The Story of the Samiri",
       hook:
-        "Can a statue made of gold speak or benefit anyone? Of course not! But in our story today, there is a deceitful man who took advantage of the Prophet's absence to make a strange statue to trick the people.",
+        "A sound coming out of a statue. That is all it was. It could not speak, it knew nothing, it helped no one — but people heard the sound and believed. How does that happen? And why do people sometimes believe what makes no sense?",
       events:
-        "When Prophet Musa went to receive Allah's commands, a man named 'The Samiri' took advantage of his absence to deceive the people. The Samiri gathered the jewelry and gold of the Children of Israel and made a statue in the shape of a calf (a small cow). He made it hollow in a way that let the air enter it and make a sound (a calf's body that lowed). The Samiri falsely made the people believe that this calf was their god! When Prophet Musa returned, he was extremely angry at this deviation and invention, and he destroyed the calf. As for the Samiri, his punishment was absolute social isolation in this worldly life; he lived alone and outcast, saying to anyone who came near him, 'Touch me not'.",
+        "One of them — the Samiri — gathered the people's gold jewellery and made from it {a calf, a body, that had a lowing sound} — a body shaped like a calf that made a noise like cattle. And he said to them: {This is your god and the god of Musa.} Many of them followed him. Harun stood among them warning them: {O my people, you are only being tested by it, and indeed your Lord is the Most Merciful, so follow me and obey my order.} And what did they answer? {We will never cease being devoted to it until Musa returns to us.}",
       lesson:
-        "We must not believe deceivers or follow wrong ideas (innovations). Allah Almighty is not a statue; He is the Great Creator whom nothing resembles. The consequence of a deceiver is always loneliness and a bad end.",
+        "Before you follow something, ask one question: can it actually do anything for me?",
       next:
         "We learned not to follow deceivers. In the next story, we will learn how to choose a true leader! Do we choose him because he is rich? Or because he is strong and smart? Let's find out the story of Talut and Jalut!",
       quranProse:
@@ -494,13 +740,35 @@ export const stories: Story[] = [
         keepsake: "A speck of gold",
         note: "A reminder that everything worshipped besides Allah comes to an end, and Allah remains.",
       },
+      arc: {
+        idea: "A man used his prophet's forty-night absence to make something with a voice, and told people: this is your god.",
+        setting:
+          "Musa went to his Lord's appointment for thirty nights, which Allah completed with forty, and left his brother Harun among his people, saying: {Take my place among my people, do right, and do not follow the way of the corrupters.} The Children of Israel had only recently left Egypt and everything they had seen there of statues being worshipped. Forty nights, with their prophet away. That was all it took.",
+        keyMoment:
+          "Musa returned angry and grieved, and asked one question that exposed the whole thing: {Did they not see that it could not return to them any speech and that it possessed for them neither harm nor benefit?} Did they not see that it does not answer a single word, and cannot hurt them or help them? A simple question — and if each of them had asked it on the first day, not one would have followed. A deceiver only survives in the place where people have stopped asking.",
+        resolution:
+          "Then Musa said of the calf: {We will surely burn it and then scatter it into the sea with a blast.} And so the \"god\" they had made with their own hands was finished, and it defended itself from nothing. As for the Samiri, Musa said to him: {So go. And indeed, it is for you in this life to say, no contact} — to live alone, no one coming near him and him coming near no one, saying to anyone who approached: no contact. He wanted to gather people around him, and ended with no one who would sit with him.",
+        word: { term: "A lowing sound", meaning: "The noise cattle make — the Quran called it a sound, and never called it speech." },
+        lessons: [
+          "Do not follow something because other people followed it; ask about it first.",
+          "Hold to the truth when the one who reminds you of it is away.",
+          "Deception may win a day, and then the end exposes it.",
+        ],
+        think:
+          "One question was enough to expose it: can it answer me? What is the question you ask before you believe something new?",
+        tryToday:
+          "If someone invites you to something today, ask before you agree: what good is it? And is it right?",
+      },
     },
     title: "قصة السامري",
     surahName: "",
-    hook: "هل يمكن لتمثال مصنوع من الذهب أن يتحدث أو ينفع أحداً؟ بالطبع لا! لكن في قصتنا اليوم، هناك رجل مخادع استغل غياب النبي ليصنع تمثالاً عجيباً يخدع به الناس.",
-    events: "عندما ذهب سيدنا موسى ليتلقى أوامر الله، استغل رجل يُدعى 'السامري' غيابه ليقوم بخداع الناس. جمع السامري حُليّ وذهب بني إسرائيل، وصنع منه تمثالاً على شكل عجل (بقرة صغيرة)، وجعله مجوفاً بطريقة تجعل الهواء يدخل فيه فيصدر صوتاً (عجلاً جسداً له خوار). أوهم السامري الناس كذباً بأن هذا العجل هو إلههم! وعندما عاد سيدنا موسى، غضب غضباً شديداً من هذا الانحراف العقدي والابتداع، فقام بتدمير العجل. أما السامري، فكان عقابه النبذ الاجتماعي المطلق في الحياة الدنيا، حيث أصبح يعيش وحيداً ومطروداً ويقول لكل من يقترب منه 'لا مِساس' (أي لا تلمسني).",
+    hook:
+      "صوتٌ يخرج من تمثال. هذا كل ما في الأمر. لم يكن يتكلّم، ولا يعرف شيئًا، ولا ينفع أحدًا — لكن الناس سمعوا الصوت فصدّقوا. كيف يحدث هذا؟ ولماذا يصدّق الناس أحيانًا ما لا يُعقل؟",
+    events:
+      "فجمع رجل منهم — هو السامري — حُليّ القوم من الذهب، ثم صنع منه ﴿عِجْلًا جَسَدًا لَّهُ خُوَارٌ﴾ — أي جسدًا على صورة عجل، له صوت كصوت البقر. وقال لهم: ﴿هَٰذَا إِلَٰهُكُمْ وَإِلَٰهُ مُوسَىٰ﴾. فاتّبعه منهم كثير. وقام هارون عليه السلام يحذّرهم: ﴿يَا قَوْمِ إِنَّمَا فُتِنتُم بِهِ وَإِنَّ رَبَّكُمُ الرَّحْمَٰنُ فَاتَّبِعُونِي وَأَطِيعُوا أَمْرِي﴾. فماذا أجابوه؟ ﴿لَن نَّبْرَحَ عَلَيْهِ عَاكِفِينَ حَتَّىٰ يَرْجِعَ إِلَيْنَا مُوسَىٰ﴾ — لن نتركه حتى يرجع موسى.",
     quranProse: "يقول الله تعالى عن صنيع هذا المخادع: {فَأَخْرَجَ لَهُمْ عِجْلًا جَسَدًا لَّهُ خُوَارٌ فَقَالُوا هَٰذَا إِلَٰهُكُمْ وَإِلَٰهُ مُوسَىٰ فَنَسِيَ}.",
-    lesson: "يجب ألا نصدق المخادعين أو نتبع الأفكار الخاطئة (الابتداع). الله سبحانه وتعالى ليس تمثالاً، بل هو الخالق العظيم الذي لا يشبهه شيء. وعاقبة المخادع دائماً هي الوحدة وسوء الخاتمة.",
+    lesson:
+      "قبل أن تتبع شيئًا، اسأل سؤالًا واحدًا: هل يملك أن ينفعني؟",
     next: "تعلمنا ألا نتبع المخادعين. في القصة القادمة، سنتعلم كيف نختار القائد الحقيقي! هل نختاره لأنه غني؟ أم لأنه قوي وذكي؟ تعالوا نعرف قصة طالوت وجالوت!",
     source: {
       reliability: "🟢",
@@ -518,6 +786,25 @@ export const stories: Story[] = [
       keepsake: "ذرّة ذهب",
       note: "تذكّرك أن كل ما يُعبد من دون الله ينتهي، ويبقى الله.",
     },
+    arc: {
+      idea: "رجلٌ استغلّ غياب نبيّه أربعين ليلة، فصنع شيئًا له صوت وقال للناس: هذا إلهكم.",
+      setting:
+        "ذهب موسى عليه السلام إلى ميقات ربّه ثلاثين ليلة أتمّها الله أربعين، وترك أخاه هارون عليه السلام في قومه وقال له: ﴿اخْلُفْنِي فِي قَوْمِي وَأَصْلِحْ وَلَا تَتَّبِعْ سَبِيلَ الْمُفْسِدِينَ﴾. وكان بنو إسرائيل قريبي عهد بمصر وبما رأوه فيها من عبادة التماثيل. أربعون ليلة فقط، ونبيّهم غائب. هذا كل ما لزم.",
+      keyMoment:
+        "ورجع موسى غضبانَ أسِفًا، فسأل سؤالًا واحدًا كشف الأمر كله: ﴿أَفَلَا يَرَوْنَ أَلَّا يَرْجِعُ إِلَيْهِمْ قَوْلًا وَلَا يَمْلِكُ لَهُمْ ضَرًّا وَلَا نَفْعًا﴾ — أفلا يرون أنه لا يردّ عليهم كلمة واحدة، ولا يملك أن يضرّهم ولا أن ينفعهم؟ سؤال بسيط، لو سأله كل واحد منهم لنفسه من أوّل يوم ما اتّبعه أحد. والمخادع لا يعيش إلا في المكان الذي يتوقّف فيه الناس عن السؤال.",
+      resolution:
+        "ثم قال موسى عن العجل: ﴿لَّنُحَرِّقَنَّهُ ثُمَّ لَنَنسِفَنَّهُ فِي الْيَمِّ نَسْفًا﴾ — لنحرقنّه ثم لنذرينّه في البحر ذرًّا. فانتهى «الإله» الذي صنعوه بأيديهم، ولم يدفع عن نفسه شيئًا. وأمّا السامري فقال له موسى: ﴿فَاذْهَبْ فَإِنَّ لَكَ فِي الْحَيَاةِ أَن تَقُولَ لَا مِسَاسَ﴾ — أن يعيش وحده، لا يقترب منه أحد ولا يقترب هو من أحد، يقول لكل من دنا منه: لا مِساس. أراد أن يجمع الناس حوله، فصار لا يجلس معه أحد.",
+      word: { term: "خُوار", meaning: "صوت البقر — والقرآن سمّاه صوتًا ولم يسمّه كلامًا." },
+      lessons: [
+        "لا تتبع شيئًا لأن الناس تبعوه؛ اسأل عنه أولًا.",
+        "اثبت على الحقّ في غياب من يذكّرك به.",
+        "الخداع قد يكسب يومًا، ثم تفضحه العاقبة.",
+      ],
+      think:
+        "كان يكفي سؤال واحد ليكشف الخدعة: هل يستطيع أن يردّ عليّ؟ ما السؤال الذي تسأله أنت قبل أن تصدّق شيئًا جديدًا؟",
+      tryToday:
+        "إذا دعاك أحد اليوم إلى شيء، اسأل قبل أن توافق: ما فائدته؟ وهل هو صواب؟",
+    },
   },
   {
     chapter: "nations", slug: "talut-and-jalut",
@@ -525,11 +812,11 @@ export const stories: Story[] = [
     en: {
       title: "Talut and Jalut (Saul and Goliath)",
       hook:
-        "If you wanted to choose a team leader, who would you choose? Would you choose the person who has many toys, or the person who is smart and strong? Today's story will teach us how Allah chose a king to lead the army of believers.",
+        "If you were choosing a captain for your team, what would you choose them for? The richest? The tallest? The most famous? In today's story Allah chose a commander for a whole army, and the people objected to the choice. Then the story ended with a young man nobody had counted on.",
       events:
-        "In ancient times, the Children of Israel asked to have a king to lead them in battle against a large polytheist army led by a giant tyrant named 'Jalut' (Goliath). So, Allah chose for them a good man named 'Talut' (Saul). The people were surprised because Talut was not rich! But Allah chose him not for his money, but because Allah gave him an increase in knowledge and bodily strength, establishing the true standards of leadership. Talut tested his soldiers with a river to separate the bad from the good, forbidding them to drink from it except a little. In the end, by the grace of Allah and then the bravery of Talut and his soldiers, the small believing group defeated the large polytheist army led by Jalut.",
+        "Allah said: {Indeed, Allah has sent to you Talut as a king.} They objected at once: {How can he have kingship over us while we are more worthy of kingship than him and he has not been given any measure of wealth?} — how can he rule us when he is not rich? And the answer came: {Indeed, Allah has chosen him over you and has increased him abundantly in knowledge and stature} — knowledge first, then stature; not wealth. Then Talut set out with the army and tested them on the way at a river: {Whoever drinks from it is not of me, and whoever does not taste it is indeed of me, except for one who takes a sip with his hand.} And they drank, except a few. And so the large army became a small one before the battle had even begun.",
       lesson:
-        "Leadership and success require knowledge and physical strength, not just lots of money. We also learn that a small group that obeys Allah can defeat a large group by Allah's permission.",
+        "A leader is chosen for knowledge, capability and trustworthiness — not for wealth or fame.",
       next:
         "Talut and his soldiers succeeded because they obeyed Allah. But what happens to those who stubbornly oppose the messengers and harm them? In our final story, we will meet evil people who threw their prophet into a well! They are the People of the Well.",
       quranProse:
@@ -545,13 +832,35 @@ export const stories: Story[] = [
         keepsake: "A smooth pebble",
         note: "A reminder that Allah gives victory through little, when certainty is with it.",
       },
+      arc: {
+        idea: "A commander Allah chose whom the people objected to, and a young man who settled the battle with a stone.",
+        setting:
+          "The Children of Israel asked their prophet to send them a king to fight alongside in the way of Allah. Their enemy was a great army led by a tyrant named Jalut. Their prophet said to them: {Would you perhaps refrain from fighting if fighting was prescribed for you?} — are you actually serious? They said: why would we not fight, when we have been driven from our homes and our children? So Allah chose Talut for them.",
+        keyMoment:
+          "When the few who were left stood before Jalut's army, some of them said: {There is no power for us today against Jalut and his soldiers.} And here those with certainty said the sentence the story turns on: {How many a small company has overcome a large company by permission of Allah.} Then they prayed: {Our Lord, pour upon us patience and plant firmly our feet.} And out of that small army came a young man who was neither king nor commander — named Dawud — and he killed Jalut. A stone in a young man's hand finished what an army could not.",
+        resolution:
+          "{So they defeated them by permission of Allah, and Dawud killed Jalut, and Allah gave him the kingship and wisdom and taught him from that which He willed.} The young man nobody had counted on became a prophet and a king. And look how Allah arranged the story: He tested them at the river so their number shrank; their number shrank so it was clear that victory is not about numbers; and once that was clear, everyone knew it was {by permission of Allah}.",
+        word: { term: "Abundance in knowledge and stature", meaning: "Extra measure in both: knowledge to know what to do, and strength to be able to do it." },
+        lessons: [
+          "Choose your friend and your leader for their knowledge and character, not for what they own.",
+          "A small test shows who is fit for the large task.",
+          "Being few is no excuse; how many a small company has overcome a large one by Allah's permission.",
+        ],
+        think:
+          "Talut tested his soldiers with a drink of water — a very small thing. Why do you think small things reveal what people are really like?",
+        tryToday:
+          "Test yourself with something small today: hold back once from something you like, and see whether you can.",
+      },
     },
     title: "قصة طالوت وجالوت",
     surahName: "",
-    hook: "إذا أردتم اختيار قائد للفريق، من تختارون؟ هل تختارون الشخص الذي يملك ألعاباً كثيرة، أم تختارون الشخص الذكي والقوي؟ قصة اليوم ستعلمنا كيف اختار الله ملكاً ليقود جيش المؤمنين.",
-    events: "في زمان قديم، طلب بنو إسرائيل أن يكون لهم ملك ليقودهم في المعركة ضد جيش مشرك وكبير بقيادة رجل جبار اسمه 'جالوت'. فاختار الله لهم رجلاً طيباً اسمه 'طالوت'. تعجب الناس لأن طالوت لم يكن غنياً! لكن الله اختاره لا لماله، بل لأن الله أعطاه بسطة (زيادة) في العلم وقوة في الجسم لتؤسس القصة لمعايير القيادة الحقيقية. واختبر طالوت جنوده بنهر ليميز الخبيث من الطيب، ومنعهم من الشرب منه إلا قليلاً. وفي النهاية، بفضل الله ثم شجاعة طالوت وجنوده، انتصرت الفئة القليلة المؤمنة على الفئة الكثيرة المشركة بقيادة جالوت.",
+    hook:
+      "لو اخترتَ قائدًا لفريقك، فبمَ تختاره؟ بأغناهم؟ بأطولهم؟ بأشهرهم؟ في قصة اليوم اختار الله قائدًا لجيش كامل، فاعترض الناس على اختياره. ثم انتهت القصة بفتى صغير لم يكن في حساب أحد.",
+    events:
+      "قال الله: ﴿إِنَّ اللَّهَ قَدْ بَعَثَ لَكُمْ طَالُوتَ مَلِكًا﴾. فاعترضوا فورًا: ﴿أَنَّىٰ يَكُونُ لَهُ الْمُلْكُ عَلَيْنَا وَنَحْنُ أَحَقُّ بِالْمُلْكِ مِنْهُ وَلَمْ يُؤْتَ سَعَةً مِّنَ الْمَالِ﴾ — كيف يكون ملكًا علينا وليس غنيًّا؟ فجاء الجواب: ﴿إِنَّ اللَّهَ اصْطَفَاهُ عَلَيْكُمْ وَزَادَهُ بَسْطَةً فِي الْعِلْمِ وَالْجِسْمِ﴾ — العلم أولًا ثم الجسم؛ لا المال. ثم خرج طالوت بالجيش، وامتحنهم في الطريق بنهر: ﴿فَمَن شَرِبَ مِنْهُ فَلَيْسَ مِنِّي وَمَن لَّمْ يَطْعَمْهُ فَإِنَّهُ مِنِّي إِلَّا مَنِ اغْتَرَفَ غُرْفَةً بِيَدِهِ﴾. فشربوا إلا قليلًا. وهكذا صار الجيش الكبير جيشًا صغيرًا قبل أن تبدأ المعركة.",
     quranProse: "يقول الله تعالى يعلمنا سبب اختيار طالوت: {إِنَّ اللَّهَ اصْطَفَاهُ عَلَيْكُمْ وَزَادَهُ بَسْطَةً فِي الْعِلْمِ وَالْجِسْمِ}.",
-    lesson: "القيادة والنجاح يحتاجان إلى العلم والمعرفة والقوة البدنية، وليس فقط إلى كثرة المال. كما نتعلم أن الفئة القليلة التي تطيع الله يمكنها أن تهزم الفئة الكبيرة بإذن الله.",
+    lesson:
+      "يُختار القائد بعلمه وقدرته وأمانته، لا بماله ولا بشهرته.",
     next: "نجح طالوت وجنوده لأنهم أطاعوا الله. لكن ماذا يحدث لمن يعاند الرسل ويؤذيهم؟ في قصتنا الأخيرة، سنتعرف على قوم أشرار رموا نبيهم في البئر! إنهم أصحاب الرس.",
     source: {
       reliability: "🟢",
@@ -569,6 +878,25 @@ export const stories: Story[] = [
       keepsake: "حصاة ملساء",
       note: "تذكّرك أن الله ينصر بالقليل إذا كان معه اليقين.",
     },
+    arc: {
+      idea: "قائدٌ اختاره الله فاعترض الناس عليه، وفتى صغير حسم المعركة بحجر.",
+      setting:
+        "طلب بنو إسرائيل من نبيّهم أن يبعث لهم ملكًا يقاتلون معه في سبيل الله، وكان عدوّهم جيشًا كبيرًا على رأسه رجل جبّار اسمه جالوت. فقال لهم نبيّهم: ﴿هَلْ عَسَيْتُمْ إِن كُتِبَ عَلَيْكُمُ الْقِتَالُ أَلَّا تُقَاتِلُوا﴾ — أي هل أنتم صادقون فعلًا؟ فقالوا: وما لنا ألّا نقاتل وقد أُخرجنا من ديارنا وأبنائنا؟ فاختار الله لهم طالوت.",
+      keyMoment:
+        "ولمّا صار القليل الباقي أمام جيش جالوت، قال بعضهم: ﴿لَا طَاقَةَ لَنَا الْيَوْمَ بِجَالُوتَ وَجُنُودِهِ﴾. وهنا قال الذين معهم اليقين كلمة هي قلب القصة: ﴿كَم مِّن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً بِإِذْنِ اللَّهِ﴾. ثم دعوا: ﴿رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا﴾. وخرج من هذا الجيش الصغير فتى ليس ملكًا ولا قائدًا، اسمه داود، فقتل جالوت. حجرٌ في يد فتى أنهى ما لم ينهه جيش.",
+      resolution:
+        "﴿فَهَزَمُوهُم بِإِذْنِ اللَّهِ وَقَتَلَ دَاوُودُ جَالُوتَ وَآتَاهُ اللَّهُ الْمُلْكَ وَالْحِكْمَةَ وَعَلَّمَهُ مِمَّا يَشَاءُ﴾. فالفتى الذي لم يكن أحد يحسب له حسابًا صار نبيًّا وملكًا. وانظر كيف رتّب الله القصة: امتحنهم بالنهر فقلّ عددهم، وقلّ عددهم فظهر أن النصر ليس بالعدد، وظهر ذلك فعُلم أنه ﴿بِإِذْنِ اللَّهِ﴾.",
+      word: { term: "بَسْطة في العلم والجسم", meaning: "سَعَةٌ وزيادة: علمٌ يعرف به ما يصنع، وقوّةٌ يقدر بها عليه." },
+      lessons: [
+        "اختر صاحبك وقائدك بعلمه وخلقه، لا بما يملك.",
+        "الامتحان الصغير يكشف من يصلح للأمر الكبير.",
+        "قلّة العدد ليست عذرًا؛ ﴿كم من فئة قليلة غلبت فئة كثيرة بإذن الله﴾.",
+      ],
+      think:
+        "امتحن طالوت جنوده بشربة ماء، وهي شيء صغير جدًّا. لماذا في رأيك تكشف الأشياء الصغيرة حقيقة الناس؟",
+      tryToday:
+        "امتحن نفسك اليوم في شيء صغير: امتنع عن شيء تحبّه مرّة واحدة، وانظر هل تقدر.",
+    },
   },
   {
     chapter: "nations", slug: "ashab-ar-rass",
@@ -576,11 +904,11 @@ export const stories: Story[] = [
     en: {
       title: "The People of the Well (Ashab ar-Rass)",
       hook:
-        "Do you remember the dark well where Prophet Yusuf was thrown? What if there were evil people who did the same thing to their prophet and refused to listen to his words? This is the scary story of the People of the Well!",
+        "What do you do when you read a name in the Quran and cannot find its story? That is what happens with the Companions of the Well. Allah names them twice, among peoples whose accounts you know in full — and then tells us nothing about them. So what do we actually know? And what do we not?",
       events:
-        "The word 'Ar-Rass' in the Arabic language means an unlined well (one without a built wall). The People of the Well were an evil nation mentioned in the Holy Quran alongside the peoples of 'Aad and Thamud. These people used to worship idols and trees instead of Allah. When Allah sent them a good prophet to teach them the path of goodness, they didn't just refuse his words, but they denied him, and historical accounts say they buried their prophet alive in the well. Because they committed this heinous act of denying and harming their messenger, Allah destroyed them completely, and the earth swallowed them.",
+        "As for who exactly they were, where they lived, in what age, what they worshipped, and what they did to their prophet — all of that comes from reports the commentators disagree over. Some said they were the people of a well into which they cast their prophet; others said otherwise; and there is nothing in the Quran or in an authentic hadith that settles any of it. So we will say it plainly here: this story is reported, not established — and that is why you will see the yellow mark at the bottom of this page.",
       lesson:
-        "Harming good people and teachers who advise us is a very great sin. The Quranic context confirms that whoever denies the messengers and insists on harming them, Allah will punish them severely and remove their trace.",
+        "What Allah has not told you, do not invent; and saying \"I do not know\" is part of being truthful.",
       next:
         "And so, my friends, we have finished our wonderful journey with the characters and peoples of the Holy Quran. We learned from the wise and were warned against the evil. Are you ready for more exciting stories on our website? Wait for us in the other sections!",
       quranProse:
@@ -596,13 +924,35 @@ export const stories: Story[] = [
         keepsake: "An empty bucket",
         note: "A reminder that nations fall when they close their ears to the truth.",
       },
+      arc: {
+        idea: "A people the Quran names twice among the destroyed nations without telling their story — and that itself is the lesson.",
+        setting:
+          "\"Ar-Rass\" in Arabic means a well whose walls were never built up with stone. The Companions of the Well are a people Allah names in exactly two places in the Quran: {And Aad and Thamud and the companions of the well and many generations between them}, and {The people of Nuh denied before them, and the companions of the well and Thamud.} In both places they stand in the same setting: nations that denied their messengers and were destroyed.",
+        keyMoment:
+          "Now notice the most important thing on this page. Why did Allah name them and not tell their story? Because the point is not their names or their details; the point is that they are on the list. They are placed beside Aad, Thamud and the people of Nuh, as if the verse is saying: and this too is what happens to whoever denies their messengers and persists. The Quran does not tell stories to entertain you; it tells them to warn you. And there is a difference here worth learning while you are young: saying \"I do not know\" about something Allah has not told you is better for you than saying something and attributing it to Him.",
+        resolution:
+          "So what is left that is certain? That they existed, that they denied their messenger, that Allah destroyed them, and that He named them for us to take heed. Everything past that is a report you cannot build on. And Allah closed the verse in Al-Furqan with: {And for each We presented examples, and each We destroyed with destruction} — every one of those nations was given examples and warned first, and only then came what came. Punishment has never fallen on a people who were not warned.",
+        word: { term: "Ar-Rass", meaning: "A well whose walls were never built up with stone — that is what the word means in Arabic, not a report about the people." },
+        lessons: [
+          "Be careful never to attribute to Allah or His religion something you have not verified.",
+          "Allah's punishment never comes without warning; \"for each We presented examples.\"",
+          "Listen to whoever advises you, before the time for it passes.",
+        ],
+        think:
+          "Some things in the Quran Allah told us in detail, and some He named without detail. Why do you think that is? And what do you say to a friend who asks you about something you do not know?",
+        tryToday:
+          "If you are asked about something today that you do not know, say: I do not know, and I will find out. Then actually find out, and ask someone who knows.",
+      },
     },
     title: "قصة أصحاب الرس",
     surahName: "",
-    hook: "هل تذكرون البئر المظلمة التي أُلقي فيها سيدنا يوسف؟ ماذا لو كان هناك قوم أشرار فعلوا نفس الشيء بنبيهم ورفضوا أن يسمعوا كلامه؟ هذه هي القصة المخيفة لأصحاب الرس!",
-    events: "كلمة 'الرّس' في اللغة تعني البئر غير المطوية (التي ليس لها جدار مبني). أصحاب الرس كانوا قوماً أشراراً اقترن ذكرهم في القرآن الكريم بقوم عاد وثمود. كان هؤلاء القوم يعبدون الأصنام والأشجار من دون الله (كما تشير بعض الروايات التاريخية حول هويتهم). وعندما أرسل الله إليهم نبياً طيباً ليعلمهم طريق الخير، لم يكتفوا برفض كلامه، بل كذبوه، وتقول الروايات إنهم رسوا (أي دفنوا) نبيهم حياً في البئر. ولأنهم فعلوا هذا الفعل الشنيع لتكذيبهم لرسلهم، أهلكهم الله بعذاب الاستئصال، وخسف بهم الأرض.",
+    hook:
+      "ماذا تفعل حين تقرأ اسمًا في القرآن ولا تجد قصته؟ هذا ما يحدث مع أصحاب الرسّ. ذكرهم الله مرّتين، مع أقوام تعرف أخبارهم كلها، ثم لم يخبرنا عنهم شيئًا. فما الذي نعرفه عنهم فعلًا؟ وما الذي لا نعرفه؟",
+    events:
+      "أمّا من هم بالتحديد، وأين عاشوا، وفي أي زمان، وماذا كانوا يعبدون، وماذا صنعوا بنبيّهم — فهذا كلّه رواياتٌ يختلف فيها المفسّرون. قال بعضهم إنهم أصحاب بئر رسُوا فيها نبيّهم، وقال بعضهم غير ذلك، وليس في القرآن ولا في حديث صحيح ما يقطع بقولٍ منها. ولذلك نقول لك هنا بصراحة: هذه القصة تُروى ولا يُجزم بها، وهذا سبب العلامة الصفراء التي تراها في آخر الصفحة.",
     quranProse: "يقول الله تعالى محذراً من مصيرهم: {وَعَادًا وَثَمُودَ وَأَصْحَابَ الرَّسِّ وَقُرُونًا بَيْنَ ذَلِكَ كَثِيرًا}.",
-    lesson: "إيذاء الناس الطيبين والمعلمين الذين ينصحوننا هو ذنب كبير جداً. السياق القرآني يؤكد أن من يكذب الرسل ويصر على الأذى، فإن الله يعاقبه بشدة ويزيل أثره.",
+    lesson:
+      "ما لم يخبرك الله به لا تخترعه؛ وقولُ «لا أعلم» جزءٌ من الصدق.",
     next: "وهكذا يا أصدقائي، أنهينا رحلتنا الرائعة مع شخصيات وأقوام القرآن الكريم. تعلمنا من الحكماء، وحذرنا من الأشرار. هل أنتم مستعدون لمزيد من القصص الشيقة في موقعنا؟ انتظرونا في الأقسام الأخرى!",
     source: {
       reliability: "🟡",
@@ -619,6 +969,25 @@ export const stories: Story[] = [
       badge: "أُصغي لمن ينصحني",
       keepsake: "دلو فارغ",
       note: "يذكّرك أن الأمم تُهلك حين تغلق آذانها عن الحق.",
+    },
+    arc: {
+      idea: "أمّةٌ ذكرها القرآن مرّتين مع الأمم الهالكة ولم يفصّل خبرها — وفي هذا نفسه درس.",
+      setting:
+        "«الرَّسّ» في اللغة هي البئر التي لم تُبنَ جدرانها بالحجارة. وأصحاب الرسّ قومٌ ذكرهم الله في موضعين اثنين من القرآن: ﴿وَعَادًا وَثَمُودَ وَأَصْحَابَ الرَّسِّ وَقُرُونًا بَيْنَ ذَٰلِكَ كَثِيرًا﴾، و﴿كَذَّبَتْ قَبْلَهُمْ قَوْمُ نُوحٍ وَأَصْحَابُ الرَّسِّ وَثَمُودُ﴾. وفي الموضعين هم في سياق واحد: أممٌ كذّبت رسلها فأهلكها الله.",
+      keyMoment:
+        "والآن انتبه إلى أهمّ ما في هذه الصفحة. لماذا ذكرهم الله ولم يفصّل خبرهم؟ لأن المقصود ليس أسماءهم ولا تفاصيلهم؛ المقصود أنهم في القائمة. وُضعوا مع عاد وثمود وقوم نوح، وكأن الآية تقول: وهذا أيضًا ما يحدث لمن كذّب رسله وأصرّ. والقرآن لا يحكي ليسلّيك، بل ليحذّرك. وهنا فرقٌ ينبغي أن تعرفه وأنت صغير: أن تقول «لا أعلم» عن شيء لم يخبرك الله به خيرٌ لك من أن تقول كلامًا ثم تنسبه إليه.",
+      resolution:
+        "فما الذي بقي في أيدينا مؤكّدًا؟ أنهم كانوا، وأنهم كذّبوا رسولهم، وأن الله أهلكهم، وأنه ذكرهم لنا لنتّعظ بهم. وما بعد ذلك رواياتٌ لا يُبنى عليها. وقد ختم الله آية الفرقان بقوله: ﴿وَكُلًّا ضَرَبْنَا لَهُ الْأَمْثَالَ وَكُلًّا تَبَّرْنَا تَتْبِيرًا﴾ — أي إن كل أمّة منهم ضُربت لها الأمثال وأُنذرت أولًا، ثم كان ما كان. فلم ينزل العذاب قطّ بقومٍ لم يُحذَّروا.",
+      word: { term: "الرَّسّ", meaning: "البئر التي لم تُبنَ جدرانها بالحجارة — وهذا معنى الكلمة في اللغة، لا خبرًا عن القوم." },
+      lessons: [
+        "احذر أن تنسب إلى الله أو إلى دينه شيئًا لم تتأكّد منه.",
+        "لا يأتي عقاب الله بغير إنذار؛ ﴿وكلًّا ضربنا له الأمثال﴾.",
+        "اسمع ممّن ينصحك قبل أن يفوت الوقت.",
+      ],
+      think:
+        "في القرآن أمورٌ أخبرنا الله بها بالتفصيل، وأمورٌ ذكرها ولم يفصّلها. لماذا في رأيك؟ وماذا تقول لصاحبك إذا سألك عن شيء لا تعرف جوابه؟",
+      tryToday:
+        "إذا سُئلتَ اليوم عن شيء لا تعرفه، فقل: لا أعرف، وسأبحث عنه. ثم ابحث عنه فعلًا واسأل من يعلم.",
     },
   },
   {
