@@ -32,6 +32,21 @@ import {
   type SeerahStory,
 } from "@/content/seerah";
 
+/** One mark per station, in the section's own language: places and things,
+ *  never people. They carry the shape of the life at a glance. */
+const stationCount = (count: number, locale: "ar" | "en") => {
+  if (locale === "en") return `${count} ${count === 1 ? "story" : "stories"}`;
+  // Arabic counts in three bands, and "15 قصص" reads as plainly wrong to a
+  // parent as "15 storys" would.
+  if (count === 1) return "قصة واحدة";
+  if (count === 2) return "قصتان";
+  return count <= 10 ? `${count} قصص` : `${count} قصة`;
+};
+
+const STATION_MARKS: Record<number, string> = {
+  1: "🌱", 2: "🤝", 3: "✨", 4: "📣", 5: "🌙", 6: "🐪", 7: "🛡️", 8: "🕊️", 9: "🤍",
+};
+
 const copy = {
   ar: {
     home: "الرئيسية", quranStories: "قصص القرآن", eyebrow: "السيرة النبوية",
@@ -43,6 +58,8 @@ const copy = {
     ageGroup: "اختيار الفئة العمرية", chooseStory: "اختر قصة",
     correct: "أحسنت! إجابة صحيحة 🎉", wrong: "ليست هذه — اقرأ القصة مرة أخرى وجرّب اختياراً آخر 💪",
     missing: "هذه القصة غير موجودة.",
+    mapLabel: "خريطة حياة النبي ﷺ", mapHint: "اختر محطة لتقرأ قصصها",
+    showAll: "اعرض كل المحطات", showOne: "محطة واحدة في كل مرة", youAreHere: "أنت هنا",
   },
   en: {
     home: "Home", quranStories: "Quran stories", eyebrow: "The Prophet’s Seerah",
@@ -54,6 +71,8 @@ const copy = {
     ageGroup: "Choose an age group", chooseStory: "Choose a story",
     correct: "Well done — that’s right 🎉", wrong: "Not that one — read the story again and try another answer 💪",
     missing: "This story does not exist.",
+    mapLabel: "A map of the Prophet\u2019s life \uFEFF\u0635\u0644\u0649 \u0627\u0644\u0644\u0647 \u0639\u0644\u064a\u0647 \u0648\u0633\u0644\u0645", mapHint: "Pick a station to read its stories",
+    showAll: "Show every station", showOne: "One station at a time", youAreHere: "You are here",
   },
 } as const;
 
@@ -362,7 +381,72 @@ export default function Seerah() {
           </figure>
         </div>
       </section>
-      {seerahStations.map(station => {
+      <SeerahStationMap />
+    </Chrome>
+  );
+}
+
+/**
+ * The nine stations as a map, and one station's stories at a time.
+ *
+ * The page used to lay all hundred stories end to end: nine headings and a
+ * hundred cards in one scroll. That is a fine index and a poor way in — a
+ * child of eight meets a wall of titles and has no sense of where the life
+ * they are reading about begins or ends.
+ *
+ * The map gives them the shape first — nine stops from the birth to the
+ * farewell — and then only the stories of the stop they chose. Crawlers are
+ * unaffected: the prerendered page still carries all hundred links, so nothing
+ * is hidden from search by being one tap away here.
+ */
+function SeerahStationMap() {
+  const { locale } = useLocale();
+  const t = copy[locale];
+  const [openStation, setOpenStation] = useState<number | null>(seerahStations[0]?.stationId ?? 1);
+  const shown = openStation === null
+    ? seerahStations
+    : seerahStations.filter(station => station.stationId === openStation);
+
+  return (
+    <>
+      <section className="seerah-map-section" aria-labelledby="seerah-map-title">
+        <div className="container">
+          <div className="stories-section__heading" {...langAttrs(locale)}>
+            <span className="eyebrow eyebrow--gold">{t.mapLabel}</span>
+            <h2 id="seerah-map-title">{t.mapHint}</h2>
+          </div>
+          <ol className="seerah-map" {...langAttrs(locale)}>
+            {seerahStations.map(station => {
+              const count = seerahStories.filter(story => story.stationId === station.stationId).length;
+              if (count === 0) return null;
+              const active = openStation === station.stationId;
+              return (
+                <li key={station.stationId}>
+                  <button
+                    type="button"
+                    className={`seerah-map__stop${active ? " is-current" : ""}`}
+                    aria-pressed={active}
+                    onClick={() => setOpenStation(station.stationId)}
+                  >
+                    <span className="seerah-map__mark" aria-hidden="true">{STATION_MARKS[station.stationId] ?? "•"}</span>
+                    <b>{locale === "en" ? station.titleEn : station.titleAr}</b>
+                    <small>{stationCount(count, locale)}</small>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+          <button
+            type="button"
+            className="button button--soft seerah-map__toggle"
+            onClick={() => setOpenStation(current => (current === null ? seerahStations[0].stationId : null))}
+          >
+            {openStation === null ? t.showOne : t.showAll}
+          </button>
+        </div>
+      </section>
+
+      {shown.map(station => {
         const list = seerahStories.filter(story => story.stationId === station.stationId);
         if (list.length === 0) return null;
         return (
@@ -387,6 +471,6 @@ export default function Seerah() {
           </section>
         );
       })}
-    </Chrome>
+    </>
   );
 }

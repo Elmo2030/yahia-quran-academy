@@ -1428,3 +1428,34 @@
 .story-source-card { display: grid; gap: .2rem; margin-block-start: 1.6rem; padding: 1rem 1.15rem; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
 .story-source-card b { color: var(--ink); font-size: .86rem; font-weight: 800; }
 .story-source-card p { margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.8; }
+
+/* ---------------------------------------------------------------------------
+   The Seerah as nine stops rather than one long scroll.
+
+   The rail scrolls sideways on a phone and wraps into a grid once there is
+   room, so a child sees the whole shape of the life before picking a part of
+   it. The current stop is the only one that carries the gold.
+--------------------------------------------------------------------------- */
+.seerah-map-section { padding: 3rem 0 0; }
+.seerah-map {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(10.5rem, 1fr);
+  gap: .7rem; margin: 1.2rem 0 0; padding: 0 0 .8rem; list-style: none;
+  overflow-x: auto; scroll-snap-type: x proximity; overscroll-behavior-x: contain;
+}
+.seerah-map > li { scroll-snap-align: start; }
+.seerah-map__stop {
+  inline-size: 100%; block-size: 100%; display: grid; gap: .25rem; justify-items: center; text-align: center;
+  padding: 1rem .7rem; border: 1px solid var(--line); border-radius: 20px;
+  background: var(--surface); color: var(--ink);
+  transition: transform .16s cubic-bezier(.23,1,.32,1), border-color .16s ease, background .16s ease;
+}
+.seerah-map__stop:hover { border-color: var(--line-gold); transform: translateY(-2px); }
+.seerah-map__stop.is-current { background: var(--surface-gold); border-color: var(--line-gold); box-shadow: 0 10px 22px rgb(var(--shadow-rgb) / 10%); }
+.seerah-map__mark { font-size: 1.5rem; line-height: 1.2; }
+.seerah-map__stop b { font-size: .84rem; font-weight: 800; line-height: 1.45; }
+.seerah-map__stop small { color: var(--ink-soft); font-size: .72rem; }
+.seerah-map__toggle { margin-block-start: .3rem; }
+
+@media (min-width: 900px) {
+  .seerah-map { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); overflow-x: visible; }
+}
