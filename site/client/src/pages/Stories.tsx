@@ -9,6 +9,7 @@ import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { StoryPicture } from "@/components/StoryPicture";
+import { StoryChallengeSection } from "@/components/StoryChallengeSection";
 import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 
 const copy = {
@@ -17,7 +18,7 @@ const copy = {
     intro: "أبواب من القصص للأطفال، كل قصة تنتهي بسؤال يقود إلى التي بعدها.",
     chooseChapter: "اختر بابًا", soon: "قريبًا", storiesCount: "قصة",
     read: "اقرأ القصة", storyOf: "القصة", hook: "قبل أن نبدأ", events: "ما حدث",
-    ayah: "من القرآن", lesson: "ماذا نتعلم؟", next: "وفي القصة القادمة",
+    ayah: "من القرآن", lesson: "ماذا نتعلم؟", next: "وفي القصة القادمة", challenge: "تحدي الفهم",
     source: "من أين هذه القصة؟", needsReview: "بانتظار مراجعة أهل العلم",
     openInReader: "افتح السورة في القارئ", surahLabel: "سورة",
     prev: "السابقة", nextStory: "التالية", allStories: "كل الأبواب",
@@ -31,7 +32,7 @@ const copy = {
     intro: "Chapters of stories for children, each ending with a question that leads into the next.",
     chooseChapter: "Choose a chapter", soon: "Coming soon", storiesCount: "stories",
     read: "Read the story", storyOf: "Story", hook: "Before we begin", events: "What happened",
-    ayah: "From the Quran", lesson: "What we learn", next: "In the next story",
+    ayah: "From the Quran", lesson: "What we learn", next: "In the next story", challenge: "Comprehension challenge",
     source: "Where this story comes from", needsReview: "Awaiting a scholar\u2019s review",
     openInReader: "Open the surah in the reader", surahLabel: "Surah",
     prev: "Previous", nextStory: "Next", allStories: "All chapters",
@@ -207,6 +208,7 @@ export default function Stories() {
               <a href="#story-events">{t.events}</a>
               {(story.ayah || text.quranProse) && <a href="#story-ayah">{t.ayah}</a>}
               <a href="#story-lesson">{t.lesson}</a>
+              <a href="#story-challenge">{t.challenge}</a>
             </nav>
 
             <div className="story-article__content">
@@ -253,6 +255,8 @@ export default function Stories() {
                   <p>{text.lesson}</p>
                 </div>
               </section>
+
+              <StoryChallengeSection story={story} number={story.ayah || text.quranProse ? 5 : 4} />
 
               {/* Which of this is the Quran's own words, and which is a name or
                   a detail that came from elsewhere. The child reads past it;

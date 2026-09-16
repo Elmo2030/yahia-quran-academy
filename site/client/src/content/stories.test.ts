@@ -102,3 +102,45 @@ describe("every story says where it comes from", () => {
     }
   });
 });
+
+/**
+ * Every story ends in a question the child can actually answer from what they
+ * just read, and a medal they only see once they have. The Seerah and the
+ * creed have had this from the start; these forty-two were the section a child
+ * could only read at.
+ */
+describe("every story ends in a question", () => {
+  it("has three options and a real answer, in both languages", () => {
+    for (const story of stories) {
+      for (const challenge of [story.challenge, story.en?.challenge]) {
+        if (!challenge) continue;
+        expect(challenge.options.length, story.slug).toBe(3);
+        expect(new Set(challenge.options).size, `${story.slug} repeats an option`).toBe(3);
+        expect(challenge.correctAnswer, story.slug).toBeGreaterThanOrEqual(0);
+        expect(challenge.correctAnswer, story.slug).toBeLessThan(challenge.options.length);
+        expect(challenge.question.length, story.slug).toBeGreaterThan(10);
+      }
+    }
+  });
+
+  /** A translated question that points at a different option than the Arabic
+   *  one would mark a right answer wrong for English readers. */
+  it("marks the same answer in Arabic and in English", () => {
+    for (const story of stories) {
+      if (!story.en?.challenge) continue;
+      expect(story.en.challenge.correctAnswer, story.slug).toBe(story.challenge.correctAnswer);
+    }
+  });
+
+  it("gives a medal with a name and a keepsake", () => {
+    for (const story of stories) {
+      for (const reward of [story.reward, story.en?.reward]) {
+        if (!reward) continue;
+        expect(reward.badge.length, story.slug).toBeGreaterThan(2);
+        expect(reward.keepsake.length, story.slug).toBeGreaterThan(2);
+        expect(reward.note.length, story.slug).toBeGreaterThan(15);
+        expect(reward.icon.length, story.slug).toBeGreaterThan(0);
+      }
+    }
+  });
+});

@@ -54,6 +54,31 @@ export type StoryText = {
   lesson: string;
   next: string;
   quranProse?: string;
+  challenge?: StoryChallenge;
+  reward?: StoryReward;
+};
+
+/**
+ * One question at the end of a story, and the medal behind it.
+ *
+ * The Seerah and the creed have had these from the start; the Quran stories
+ * were the one section a child could only read at. The question is always
+ * answerable from the story just read — it checks that they were there, it
+ * does not test them — and the medal stays hidden until the answer is right,
+ * so there is something to earn rather than something to scroll past.
+ */
+export type StoryChallenge = {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+};
+
+export type StoryReward = {
+  /** shown in the middle of the drawn medal */
+  icon: string;
+  badge: string;
+  keepsake: string;
+  note: string;
 };
 
 export type Story = {
@@ -72,6 +97,8 @@ export type Story = {
   ayah?: { ref: string; surah: number; number: number; text: string };
   /** the animal chapter carries its citation inside its own prose */
   quranProse?: string;
+  challenge: StoryChallenge;
+  reward: StoryReward;
   source: StorySource;
 };
 
@@ -111,6 +138,17 @@ export const stories: Story[] = [
         "The People of the Cave were smart youth who chose faith. In our next story, we will meet a great man who wasn't a prophet, but was very famous for something called 'Wisdom', and he gave his son golden advice! Who is he? He is Luqman the Wise!",
       quranProse:
         "Allah Almighty says in the Quran about their wondrous sleep: {Therefore We covered up their (sense of) hearing in the cave for a number of years.}",
+      challenge: {
+        question: "How many lunar years did the People of the Cave sleep?",
+        options: ["A hundred", "309", "A thousand"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🕳️",
+        badge: "Steadfast on the truth",
+        keepsake: "The lamp of the cave",
+        note: "A reminder that Allah guards whoever turns to Him, even through three centuries of sleep.",
+      },
     },
     title: "قصة أصحاب الكهف",
     surahName: "",
@@ -123,6 +161,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة الكهف: 9-26", en: "The Quran, Surah Al-Kahf: 9-26" },
       note: { ar: "القصة كلها في سورة الكهف، ومنها عدد سنيّ نومهم وذكر كلبهم. ولم يبيّن القرآن عددهم ولا زمانهم، وما يُروى في ذلك أقوال.", en: "The whole account is in Surah Al-Kahf, including the years of their sleep and the mention of their dog. The Quran does not say how many they were or when they lived; what is told of that is opinion." },
+    },
+    challenge: {
+      question: "كم سنة قمرية نام أصحاب الكهف؟",
+      options: ["مئة سنة", "309 سنوات", "ألف سنة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🕳️",
+      badge: "ثابت على الحق",
+      keepsake: "مصباح الكهف",
+      note: "يذكّرك أن الله يحفظ من لجأ إليه، ولو نام الزمن كله.",
     },
   },
   {
@@ -140,6 +189,17 @@ export const stories: Story[] = [
         "Luqman used his wisdom in speaking kind words. But in the next story, we will meet a great king who used his power and engineering wisdom to build a massive wall of iron! Why did he build it? And who are Gog and Magog? Let's find out the story of Dhul-Qarnayn!",
       quranProse:
         "Allah says about giving wisdom to Luqman: {And We had certainly given Luqman wisdom [saying], 'Be grateful to Allah.' And whoever is grateful is grateful for [the benefit of] himself.}",
+      challenge: {
+        question: "What was the first thing Luqman told his son?",
+        options: ["Never to associate anything with Allah", "To gather wealth", "To travel far away"],
+        correctAnswer: 0,
+      },
+      reward: {
+        icon: "🌳",
+        badge: "A little wise one",
+        keepsake: "The mat of wisdom",
+        note: "A reminder that the most precious thing a father leaves a child is a true word.",
+      },
     },
     title: "قصة لقمان الحكيم",
     surahName: "",
@@ -152,6 +212,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة لقمان: 12-19", en: "The Quran, Surah Luqman: 12-19" },
       note: { ar: "الوصايا بنص الآيات. ولقمان رجل صالح آتاه الله الحكمة، وجمهور العلماء على أنه لم يكن نبياً.", en: "The counsels are the verses' own words. Luqman was a righteous man given wisdom; most scholars hold that he was not a prophet." },
+    },
+    challenge: {
+      question: "ما أول وصية أوصى بها لقمان ابنه؟",
+      options: ["ألا يشرك بالله شيئاً", "أن يجمع المال", "أن يسافر بعيداً"],
+      correctAnswer: 0,
+    },
+    reward: {
+      icon: "🌳",
+      badge: "حكيم صغير",
+      keepsake: "حصيرة الحكمة",
+      note: "تذكّرك أن أغلى ما يورّثه الأب لابنه كلمة صادقة.",
     },
   },
   {
@@ -169,6 +240,17 @@ export const stories: Story[] = [
         "Dhul-Qarnayn was a king who helped the weak. But what if the king is the evil oppressor? How can one person defend the truth inside the palace of this evil king? This is what we will know in the story of the brave hero: The Believer of Pharaoh's Family!",
       quranProse:
         "Allah says about this strong barrier built by Dhul-Qarnayn: {So they [Gog and Magog] were unable to pass over it, nor were they able [to make] a hole in it.}",
+      challenge: {
+        question: "What did Dhul-Qarnayn build the barrier from?",
+        options: ["Clay and straw", "Blocks of iron and molten copper", "Sand"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🧱",
+        badge: "Strong and trustworthy",
+        keepsake: "A piece of copper",
+        note: "A reminder that strength is a gift, and its finest use is shielding the weak.",
+      },
     },
     title: "قصة ذو القرنين",
     surahName: "",
@@ -181,6 +263,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة الكهف: 83-98", en: "The Quran, Surah Al-Kahf: 83-98" },
       note: { ar: "القصة بنص الآيات. ولم يبيّن القرآن من هو ذو القرنين ولا في أي زمان كان، وما يُذكر في تعيينه أقوال لا يثبت منها شيء.", en: "The account is the verses' own words. The Quran does not say who Dhul-Qarnayn was or when he lived, and the attempts to identify him are opinions, none established." },
+    },
+    challenge: {
+      question: "من أي شيء بنى ذو القرنين السدّ؟",
+      options: ["من الطين والقش", "من زبر الحديد والنحاس المذاب", "من الرمل"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🧱",
+      badge: "قويٌّ أمين",
+      keepsake: "قطعة نحاس",
+      note: "تذكّرك أن القوة نعمة، وأجمل ما فيها أن تحمي بها الضعيف.",
     },
   },
   {
@@ -198,6 +291,17 @@ export const stories: Story[] = [
         "The believer of Pharaoh's family defended the truth bravely. But in the next story, we will learn about an entire group of believers who decided to stand firm and not give up their belief in Allah, even if they were thrown into trenches filled with fire! Who are they? They are the People of the Ditch!",
       quranProse:
         "Allah says, describing the bravery of this man: {And a believing man from the family of Pharaoh who concealed his faith said, 'Do you kill a man [merely] because he says, My Lord is Allah?'}",
+      challenge: {
+        question: "What did the believer of Pharaoh's house do when Pharaoh moved to kill Musa?",
+        options: ["Stayed silent out of fear", "Stood up and argued in his defence", "Fled the palace"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🕯️",
+        badge: "A voice in the dark",
+        keepsake: "A shaft of light",
+        note: "A reminder that a true word needs no army — only a brave heart.",
+      },
     },
     title: "قصة مؤمن آل فرعون",
     surahName: "",
@@ -210,6 +314,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة غافر: 28-45", en: "The Quran, Surah Ghafir: 28-45" },
       note: { ar: "حجاجه ودفاعه عن موسى بنص الآيات، ولم يسمِّه القرآن.", en: "His argument and his defence of Musa are the verses' own words; the Quran does not name him." },
+    },
+    challenge: {
+      question: "ماذا فعل مؤمن آل فرعون حين همّ فرعون بقتل موسى؟",
+      options: ["سكت خوفاً", "وقف يدافع عنه بالحجة", "هرب من القصر"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🕯️",
+      badge: "صوتٌ في الظلمة",
+      keepsake: "شعاع النور",
+      note: "يذكّرك أن كلمة الحق لا تحتاج جيشاً، تحتاج قلباً شجاعاً.",
     },
   },
   {
@@ -227,6 +342,17 @@ export const stories: Story[] = [
         "We saw how the believers preferred Allah over their lives. But in our next story, we will meet a man who preferred his money and gold over Allah! He claimed with 'scientific arrogance' that his wealth came only from his intelligence! So what happened to his palace and his money? It's the story of Qarun!",
       quranProse:
         "Allah says about them in Surah Al-Buruj: {Cursed were the companions of the trench. [Containing] the fire full of fuel.}",
+      challenge: {
+        question: "What did the People of the Ditch hold on to?",
+        options: ["Their wealth", "Their faith in Allah", "Their positions"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🔥",
+        badge: "A heart that will not break",
+        keepsake: "A cooled ember",
+        note: "A reminder that whoever loses the world for their faith has lost nothing.",
+      },
     },
     title: "قصة أصحاب الأخدود",
     surahName: "",
@@ -239,6 +365,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة البروج: 4-9؛ وقصة الغلام في صحيح مسلم (3005)", en: "The Quran, Surah Al-Buruj: 4-9; the account of the boy in Sahih Muslim (3005)" },
       note: { ar: "ذكرهم في البروج، وتفصيل قصة الغلام والساحر والراهب في صحيح مسلم.", en: "They are named in Al-Buruj, and the fuller account of the boy, the sorcerer and the monk is in Sahih Muslim." },
+    },
+    challenge: {
+      question: "علام ثبت أصحاب الأخدود؟",
+      options: ["على المال", "على إيمانهم بالله", "على منصبهم"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🔥",
+      badge: "قلبٌ لا ينكسر",
+      keepsake: "جمرة خامدة",
+      note: "تذكّرك أن الذي يخسر الدنيا على إيمانه لم يخسر شيئاً.",
     },
   },
   {
@@ -256,6 +393,17 @@ export const stories: Story[] = [
         "Qarun loved gold and money and became arrogant. But what if someone used gold to make a statue and deceive people with it? A strange story starring a very deceitful man... It's the Samiri!",
       quranProse:
         "Allah says, describing Qarun's arrogance: {He said, 'I was only given it because of knowledge I have.'}",
+      challenge: {
+        question: "What did Qarun say when he looked at his treasures?",
+        options: ["All praise is for Allah", "“I was given it because of knowledge I have”", "This is from Allah"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🕋",
+        badge: "Grateful, not proud",
+        keepsake: "A coin of sand",
+        note: "A reminder that what is in your hand is on loan, and boasting is the fastest way to lose it.",
+      },
     },
     title: "قصة قارون",
     surahName: "",
@@ -268,6 +416,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة القصص: 76-83", en: "The Quran, Surah Al-Qasas: 76-83" },
       note: { ar: "كنوزه وقوله وخسف الأرض به، كله بنص الآيات.", en: "His treasures, his words and the earth swallowing him are all in the verses themselves." },
+    },
+    challenge: {
+      question: "ماذا قال قارون حين رأى كنوزه؟",
+      options: ["الحمد لله", "«إنما أوتيته على علم عندي»", "هذا من عند الله"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🕋",
+      badge: "شاكرٌ لا متكبّر",
+      keepsake: "عملة من رمل",
+      note: "تذكّرك أن ما في يدك عارية، والفخر بها أسرع طريق لضياعها.",
     },
   },
   {
@@ -285,6 +444,17 @@ export const stories: Story[] = [
         "We learned not to follow deceivers. In the next story, we will learn how to choose a true leader! Do we choose him because he is rich? Or because he is strong and smart? Let's find out the story of Talut and Jalut!",
       quranProse:
         "Allah says about what this deceiver did: {And he extracted for them [the statue of] a calf which had a lowing sound, and they said, 'This is your god and the god of Moses, but he forgot.'}",
+      challenge: {
+        question: "What did Musa do with the calf the Samiri made?",
+        options: ["Kept it", "Burned it and scattered it in the sea", "Gave it to the people"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🌊",
+        badge: "I worship none but Allah",
+        keepsake: "A speck of gold",
+        note: "A reminder that everything worshipped besides Allah comes to an end, and Allah remains.",
+      },
     },
     title: "قصة السامري",
     surahName: "",
@@ -297,6 +467,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة طه: 85-97", en: "The Quran, Surah Ta-Ha: 85-97" },
       note: { ar: "صنع العجل ونهايته بنص الآيات.", en: "The making of the calf and its end are the verses' own words." },
+    },
+    challenge: {
+      question: "ماذا فعل موسى بالعجل الذي صنعه السامري؟",
+      options: ["احتفظ به", "أحرقه ونسفه في اليمّ", "أعطاه للناس"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🌊",
+      badge: "لا أعبد إلا الله",
+      keepsake: "ذرّة ذهب",
+      note: "تذكّرك أن كل ما يُعبد من دون الله ينتهي، ويبقى الله.",
     },
   },
   {
@@ -314,6 +495,17 @@ export const stories: Story[] = [
         "Talut and his soldiers succeeded because they obeyed Allah. But what happens to those who stubbornly oppose the messengers and harm them? In our final story, we will meet evil people who threw their prophet into a well! They are the People of the Well.",
       quranProse:
         "Allah says, teaching us the reason for choosing Talut: {Indeed, Allah has chosen him over you and has increased him abundantly in knowledge and stature.}",
+      challenge: {
+        question: "With what did Dawud overcome Jalut?",
+        options: ["A large army", "A sling and a stone", "A long sword"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🪨",
+        badge: "Small, with a large heart",
+        keepsake: "A smooth pebble",
+        note: "A reminder that Allah gives victory through little, when certainty is with it.",
+      },
     },
     title: "قصة طالوت وجالوت",
     surahName: "",
@@ -326,6 +518,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة البقرة: 246-251", en: "The Quran, Surah Al-Baqarah: 246-251" },
       note: { ar: "اختيار طالوت وابتلاء النهر وقتل داود لجالوت، كله بنص الآيات.", en: "Talut's selection, the test at the river and Dawud's killing of Jalut are all in the verses." },
+    },
+    challenge: {
+      question: "بأي شيء غلب داود جالوت؟",
+      options: ["بجيش كبير", "بمقلاع وحجر", "بسيف طويل"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🪨",
+      badge: "صغيرٌ بقلب كبير",
+      keepsake: "حصاة ملساء",
+      note: "تذكّرك أن الله ينصر بالقليل إذا كان معه اليقين.",
     },
   },
   {
@@ -343,6 +546,17 @@ export const stories: Story[] = [
         "And so, my friends, we have finished our wonderful journey with the characters and peoples of the Holy Quran. We learned from the wise and were warned against the evil. Are you ready for more exciting stories on our website? Wait for us in the other sections!",
       quranProse:
         "Allah says, warning of their fate: {And [We destroyed] 'Aad and Thamud and the companions of the well and many generations between them.}",
+      challenge: {
+        question: "What does the word “Rass” mean?",
+        options: ["A high mountain", "A well with no built wall", "A great tree"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🏜️",
+        badge: "I listen to the one who advises me",
+        keepsake: "An empty bucket",
+        note: "A reminder that nations fall when they close their ears to the truth.",
+      },
     },
     title: "قصة أصحاب الرس",
     surahName: "",
@@ -355,6 +569,17 @@ export const stories: Story[] = [
       reliability: "🟡",
       reference: { ar: "القرآن الكريم، الفرقان: 38 وق: 12 — وما عدا ذلك روايات مختلفة", en: "The Quran, Al-Furqan: 38 and Qaf: 12 — beyond that, differing reports" },
       note: { ar: "القرآن ذكرهم في موضعين مع الأمم المهلكة ولم يفصّل خبرهم. وكل ما في القصة بعد ذلك — من هم، وماذا عبدوا، وكيف صنعوا بنبيهم — روايات يختلف فيها المفسرون، والبطاقة تقولها بصيغة الرواية. ينتظر مراجعتك.", en: "The Quran names them twice among the destroyed nations and gives no detail. Everything else in the story — who they were, what they worshipped, what they did to their prophet — comes from reports the commentators differ over, and the card tells them as reports. Awaiting your review." },
+    },
+    challenge: {
+      question: "ما معنى كلمة «الرسّ»؟",
+      options: ["الجبل العالي", "البئر التي لا جدار لها", "الشجرة الكبيرة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🏜️",
+      badge: "أُصغي لمن ينصحني",
+      keepsake: "دلو فارغ",
+      note: "يذكّرك أن الأمم تُهلك حين تغلق آذانها عن الحق.",
     },
   },
   {
@@ -371,6 +596,17 @@ export const stories: Story[] = [
         "Prophet Adam was the first man and prophet. In our next story, we will meet his great-grandson, a prophet who loved to read and write and was raised to a very high place! Who is he? He is Prophet Idris!",
       quranProse:
         "Allah says in the Quran: {And He taught Adam the names - all of them.}",
+      challenge: {
+        question: "What did Adam do after eating from the tree?",
+        options: ["Denied it", "Said sorry to his Lord and asked forgiveness", "Blamed someone else"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🌍",
+        badge: "Quick to turn back",
+        keepsake: "A leaf from the garden",
+        note: "A reminder that a mistake is not the end of the road — an apology is its beginning.",
+      },
     },
     image: "/stories/prophets/adam.jpg",
     title: "قصة سيدنا آدم (أبو البشر)",
@@ -384,6 +620,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، البقرة: 30-38 والأعراف: 11-25", en: "The Quran, Al-Baqarah: 30-38 and Al-A'raf: 11-25" },
       note: { ar: "الخلق وتعليم الأسماء وسجود الملائكة والتوبة، كله بنص الآيات.", en: "The creation, the teaching of the names, the angels' prostration and the repentance are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا فعل آدم بعد أن أكل من الشجرة؟",
+      options: ["أنكر ذلك", "اعتذر لربه وطلب المغفرة", "ألقى اللوم على غيره"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🌍",
+      badge: "سريع التوبة",
+      keepsake: "ورقة من شجر الجنة",
+      note: "تذكّرك أن الخطأ ليس نهاية الطريق، والاعتذار أوّله.",
     },
   },
   {
@@ -400,6 +647,17 @@ export const stories: Story[] = [
         "Idris loved learning. But what happens when people forget Allah and do bad things for a very long time? In our next story, a prophet built a massive ship on top of a mountain! It's Prophet Nuh!",
       quranProse:
         "Allah says: {And mention in the Book, Idris. Indeed, he was a man of truth and a prophet. And We raised him to a high station.}",
+      challenge: {
+        question: "How does Allah describe Idris?",
+        options: ["As wealthy", "As truthful and patient", "As strong"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "✒️",
+        badge: "Always truthful",
+        keepsake: "A reed pen",
+        note: "A reminder that truthfulness raises a person, even when no one is watching.",
+      },
     },
     image: "/stories/prophets/idris.jpg",
     title: "قصة سيدنا إدريس",
@@ -413,6 +671,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، مريم: 56-57 والأنبياء: 85", en: "The Quran, Maryam: 56-57 and Al-Anbiya: 85" },
       note: { ar: "وصفه بالصدق والصبر ورفعه مكاناً علياً بنص الآيتين. ولم يذكر القرآن غير ذلك من خبره.", en: "His truthfulness, his patience and his being raised to a high place are the words of the two verses. The Quran says nothing further of him." },
+    },
+    challenge: {
+      question: "بماذا وصف الله إدريس عليه السلام؟",
+      options: ["بالغنى", "بالصدق والصبر", "بالقوة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "✒️",
+      badge: "صادق دائماً",
+      keepsake: "قلم من قصب",
+      note: "يذكّرك أن الصدق يرفع صاحبه، ولو لم يره أحد.",
     },
   },
   {
@@ -429,6 +698,17 @@ export const stories: Story[] = [
         "Nuh's ark saved the believers. In the next story, we will meet a very strong nation that built giant homes out of rocks, but they became too proud. Let's learn about Prophet Hud!",
       quranProse:
         "Allah describes the great flood: {And it sailed with them through waves like mountains...}",
+      challenge: {
+        question: "How long did Nuh call his people?",
+        options: ["One year", "A very long time", "A month"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🚢",
+        badge: "Patient and never weary",
+        keepsake: "A nail from the ark",
+        note: "A reminder that someone calling to good does not measure success by how many answered.",
+      },
     },
     image: "/stories/prophets/nuh.jpg",
     title: "قصة سيدنا نوح (شيخ المرسلين)",
@@ -442,6 +722,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة نوح، وهود: 25-49، والمؤمنون: 23-30", en: "The Quran, Surah Nuh, Hud: 25-49, Al-Mu'minun: 23-30" },
       note: { ar: "الدعوة والسفينة والطوفان وابنه، كله بنص الآيات.", en: "The call, the ark, the flood and his son are all in the verses." },
+    },
+    challenge: {
+      question: "كم لبث نوح يدعو قومه؟",
+      options: ["سنة واحدة", "زمناً طويلاً جداً", "شهراً"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🚢",
+      badge: "صابرٌ لا يملّ",
+      keepsake: "مسمار من السفينة",
+      note: "يذكّرك أن الداعي إلى الخير لا يقيس نجاحه بعدد من استجاب.",
     },
   },
   {
@@ -458,6 +749,17 @@ export const stories: Story[] = [
         "The strong people of 'Aad were destroyed by wind. Our next story features people who carved their homes directly into solid mountains! And their miracle was a giant camel! It's Prophet Salih!",
       quranProse:
         "Allah says: {And to 'Aad [We sent] their brother Hud. He said, 'O my people, worship Allah; you have no deity other than Him.'}",
+      challenge: {
+        question: "With what did Allah destroy the people of Ad?",
+        options: ["Water", "Wind", "An earthquake"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🌪️",
+        badge: "I will not be arrogant",
+        keepsake: "A grain of sand",
+        note: "A reminder that the strongest bodies cannot stand before a wind from Allah.",
+      },
     },
     image: "/stories/prophets/hud.jpg",
     title: "قصة سيدنا هود وقوم عاد",
@@ -471,6 +773,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأعراف: 65-72 وهود: 50-60 والحاقة: 6-8", en: "The Quran, Al-A'raf: 65-72, Hud: 50-60, Al-Haqqah: 6-8" },
       note: { ar: "قوم عاد وإرم وعاقبتهم بالريح، كله بنص الآيات.", en: "Ad, Iram and their end by the wind are all in the verses." },
+    },
+    challenge: {
+      question: "بماذا أهلك الله قوم عاد؟",
+      options: ["بالماء", "بالريح", "بالزلزال"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🌪️",
+      badge: "لا أتكبّر",
+      keepsake: "حبة رمل",
+      note: "تذكّرك أن أقوى الأجساد لا تقف أمام ريح من الله.",
     },
   },
   {
@@ -487,6 +800,17 @@ export const stories: Story[] = [
         "We learned about the giant camel of Salih. Next we meet a prophet who taught a whole city of traders to stop cheating with their scales. It's Prophet Shu'ayb!",
       quranProse:
         "Allah says: {And to Thamud [We sent] their brother Salih. He said, 'O my people, worship Allah; you have no deity other than Him.'}",
+      challenge: {
+        question: "What sign did Allah give the people of Thamud?",
+        options: ["A river of milk", "A great she-camel", "A mountain of gold"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐫",
+        badge: "Kind to animals",
+        keepsake: "The camel's bell",
+        note: "A reminder that kindness to animals is part of faith, and cruelty never passes unnoticed.",
+      },
     },
     image: "/stories/prophets/saleh.jpg",
     title: "قصة سيدنا صالح وقوم ثمود",
@@ -500,6 +824,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأعراف: 73-79 وهود: 61-68 والشمس: 11-15", en: "The Quran, Al-A'raf: 73-79, Hud: 61-68, Ash-Shams: 11-15" },
       note: { ar: "الناقة وعقرها وعاقبة ثمود، كله بنص الآيات.", en: "The she-camel, its hamstringing and the end of Thamud are all in the verses." },
+    },
+    challenge: {
+      question: "ما الآية التي أعطاها الله لقوم ثمود؟",
+      options: ["نهر من لبن", "ناقة عظيمة", "جبل من ذهب"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐫",
+      badge: "رفيق بالحيوان",
+      keepsake: "جرس الناقة",
+      note: "يذكّرك أن الرفق بالحيوان من الإيمان، وأن الظلم لا يمرّ.",
     },
   },
   {
@@ -516,6 +851,17 @@ export const stories: Story[] = [
         "Prophet Shu'ayb taught us honesty. In our next story, we will meet a brave young man who stood alone against an entire city of idol worshippers, and even a massive fire couldn't burn him! It's Prophet Ibrahim!",
       quranProse:
         "Allah says: {And to Madyan [We sent] their brother Shu'ayb. He said, 'O my people, worship Allah... and do not decrease from the measure and the scale.'}",
+      challenge: {
+        question: "What did Shuaib call his people to?",
+        options: ["Building palaces", "Honesty in weight and measure", "Leaving farming"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "⚖️",
+        badge: "Honest in the small things",
+        keepsake: "A small balance",
+        note: "A reminder that trustworthiness shows in small things before large ones.",
+      },
     },
     image: "/stories/prophets/shuaib.jpg",
     title: "قصة سيدنا شعيب (خطيب الأنبياء)",
@@ -529,6 +875,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأعراف: 85-93 وهود: 84-95 والشعراء: 176-191", en: "The Quran, Al-A'raf: 85-93, Hud: 84-95, Ash-Shu'ara: 176-191" },
       note: { ar: "دعوته أهل مدين إلى العدل في الكيل والميزان بنص الآيات.", en: "His call to the people of Madyan to be honest in weight and measure is in the verses." },
+    },
+    challenge: {
+      question: "إلامَ دعا شعيب قومه؟",
+      options: ["إلى بناء القصور", "إلى العدل في الكيل والميزان", "إلى ترك الزراعة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "⚖️",
+      badge: "أمينٌ في الصغير",
+      keepsake: "ميزان صغير",
+      note: "يذكّرك أن الأمانة تظهر في الأشياء الصغيرة قبل الكبيرة.",
     },
   },
   {
@@ -545,6 +902,17 @@ export const stories: Story[] = [
         "Ibrahim was saved from the fire. But what about his nephew, who was sent to a beautiful city full of people who did very bad and unnatural things? Next up is Prophet Lut!",
       quranProse:
         "Allah says: {We said, 'O fire, be coolness and safety upon Abraham.'}",
+      challenge: {
+        question: "What did Allah say to the fire when Ibrahim was thrown into it?",
+        options: ["Burn hotter", "Be coolness and peace", "Go out by yourself"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🔥",
+        badge: "The friend of the Most Merciful",
+        keepsake: "An olive branch",
+        note: "A reminder that whoever relies on Allah is not harmed by fire, nor by anything fiercer.",
+      },
     },
     image: "/stories/prophets/ibrahim.jpg",
     title: "قصة سيدنا إبراهيم (خليل الرحمن)",
@@ -558,6 +926,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأنبياء: 51-70 والصافات: 83-113 والبقرة: 124-129", en: "The Quran, Al-Anbiya: 51-70, As-Saffat: 83-113, Al-Baqarah: 124-129" },
       note: { ar: "تحطيم الأصنام والنار والذبح وبناء الكعبة، كله بنص الآيات.", en: "Breaking the idols, the fire, the sacrifice and the building of the Ka'bah are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا قال الله للنار حين أُلقي فيها إبراهيم؟",
+      options: ["اشتعلي أكثر", "كوني برداً وسلاماً", "انطفئي وحدك"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🔥",
+      badge: "خليل الرحمن",
+      keepsake: "غصن زيتون",
+      note: "يذكّرك أن من توكّل على الله لم تضرّه نار ولا نارٌ أشدّ منها.",
     },
   },
   {
@@ -574,6 +953,17 @@ export const stories: Story[] = [
         "Prophet Lut stood for what is pure. In our next story, we will meet a handsome young boy whose own brothers threw him into a dark well out of jealousy, but he grew up to become a great minister! It's Prophet Yusuf!",
       quranProse:
         "Allah says: {And [We had sent] Lot when he said to his people, 'Do you commit such immorality as no one has preceded you with from among the worlds?'}",
+      challenge: {
+        question: "What did Lut ask of his people?",
+        options: ["To leave wrongdoing and obey Allah", "To build a new city", "To farm the land"],
+        correctAnswer: 0,
+      },
+      reward: {
+        icon: "🌅",
+        badge: "I choose the right road",
+        keepsake: "A house key",
+        note: "A reminder that good company protects you, and safety starts with a decision.",
+      },
     },
     image: "/stories/prophets/lut.jpg",
     title: "قصة سيدنا لوط",
@@ -587,6 +977,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، هود: 77-83 والأعراف: 80-84 والحجر: 57-77", en: "The Quran, Hud: 77-83, Al-A'raf: 80-84, Al-Hijr: 57-77" },
       note: { ar: "دعوته وعاقبة قومه وامرأته، كله بنص الآيات.", en: "His call, the fate of his people and of his wife are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا طلب لوط من قومه؟",
+      options: ["أن يتركوا الفواحش ويطيعوا الله", "أن يبنوا مدينة جديدة", "أن يزرعوا الأرض"],
+      correctAnswer: 0,
+    },
+    reward: {
+      icon: "🌅",
+      badge: "أختار الطريق الصحيح",
+      keepsake: "مفتاح بيت",
+      note: "يذكّرك أن الصحبة الصالحة تحميك، وأن النجاة تبدأ بقرار.",
     },
   },
   {
@@ -603,6 +1004,17 @@ export const stories: Story[] = [
         "Yusuf was patient in the well and in prison. But what if a prophet got very, very sick for many years and lost everything he owned? Let's meet the champion of patience, Prophet Ayyub!",
       quranProse:
         "Allah says: {We relate to you, [O Muhammad], the best of stories in what We have revealed to you of this Qur'an.}",
+      challenge: {
+        question: "What did Yusuf say to his brothers when he finally met them?",
+        options: ["Punished them harshly", "“No blame upon you today”", "Sent them away from Egypt"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "👕",
+        badge: "I forgive when I could punish",
+        keepsake: "Yusuf's shirt",
+        note: "A reminder that the finest victory is to forgive when you are able to take revenge.",
+      },
     },
     image: "/stories/prophets/yusuf.jpg",
     title: "قصة سيدنا يوسف (أحسن القصص)",
@@ -616,6 +1028,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة يوسف كاملة", en: "The Quran, the whole of Surah Yusuf" },
       note: { ar: "القصة كاملة في سورة واحدة من أولها إلى آخرها، وهي أتمّ قصة في القرآن.", en: "The account runs whole through a single surah from beginning to end — the most complete narrative in the Quran." },
+    },
+    challenge: {
+      question: "ماذا قال يوسف لإخوته حين التقاهم أخيراً؟",
+      options: ["عاقبهم بشدة", "«لا تثريب عليكم اليوم»", "طردهم من مصر"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "👕",
+      badge: "أعفو عند المقدرة",
+      keepsake: "قميص يوسف",
+      note: "يذكّرك أن أجمل انتصار أن تسامح وأنت قادر على الانتقام.",
     },
   },
   {
@@ -632,6 +1055,17 @@ export const stories: Story[] = [
         "Prophet Ayyub taught us ultimate patience. Next we witness the sea splitting in half for a prophet and his people. Get ready for the greatest of miracles!",
       quranProse:
         "Allah says: {Indeed, We found him patient, an excellent servant. Indeed, he was one repeatedly turning back [to Allah].}",
+      challenge: {
+        question: "What is Ayyub best known for?",
+        options: ["His wealth", "His patience", "His travels"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "💧",
+        badge: "Patient and grateful",
+        keepsake: "A drop from the spring",
+        note: "A reminder that patience is not silence under pain, but trust that relief is coming.",
+      },
     },
     image: "/stories/prophets/ayoub.jpg",
     title: "قصة سيدنا أيوب",
@@ -645,6 +1079,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأنبياء: 83-84 وص: 41-44", en: "The Quran, Al-Anbiya: 83-84 and Sad: 41-44" },
       note: { ar: "البلاء والدعاء والشفاء بالماء ورد أهله إليه، كله بنص الآيات. أما مدة مرضه وتفاصيل ما فقده فمن أقوال المفسرين لا من القرآن.", en: "The trial, the supplication, the healing by water and the return of his family are all in the verses. How long he was ill and what exactly he lost come from the commentators, not from the Quran." },
+    },
+    challenge: {
+      question: "بماذا اشتهر أيوب عليه السلام؟",
+      options: ["بالغنى", "بالصبر", "بالسفر"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "💧",
+      badge: "صابرٌ شاكر",
+      keepsake: "قطرة من العين",
+      note: "تذكّرك أن الصبر ليس سكوتاً على الألم، بل ثقة بأن الفرج قادم.",
     },
   },
   {
@@ -661,6 +1106,17 @@ export const stories: Story[] = [
         "Musa's staff parted the sea. But in the next story, a prophet made the sun itself stop moving in the sky! Who is he? It's Prophet Yusha!",
       quranProse:
         "Allah says: {And We inspired to Moses, 'Strike with your staff the sea,' and it parted, and each portion was like a great towering mountain.}",
+      challenge: {
+        question: "What did Allah do to the sea when Musa struck it with his staff?",
+        options: ["Froze it", "Split it, each part like a great mountain", "Dried it completely"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🌊",
+        badge: "With Allah I am not afraid",
+        keepsake: "A wooden staff",
+        note: "A reminder that the way can open at the very moment you think it closed.",
+      },
     },
     image: "/stories/prophets/musa-and-harun.jpg",
     title: "قصة سيدنا موسى وأخيه هارون",
@@ -674,6 +1130,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة طه، والقصص: 1-46، والشعراء: 10-68", en: "The Quran, Surah Ta-Ha, Al-Qasas: 1-46, Ash-Shu'ara: 10-68" },
       note: { ar: "المولد والتابوت والعصا وفرعون وفلق البحر، كله بنص الآيات.", en: "The birth, the basket, the staff, Pharaoh and the parting of the sea are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا فعل الله بالبحر حين أمر موسى أن يضربه بعصاه؟",
+      options: ["جمّده", "فلقه فصار كل فرق كالطود العظيم", "جفّفه تماماً"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🌊",
+      badge: "لا أخاف مع الله",
+      keepsake: "عصا من خشب",
+      note: "تذكّرك أن الطريق قد ينفتح في اللحظة التي تظنّ فيها أنه انغلق.",
     },
   },
   {
@@ -690,6 +1157,17 @@ export const stories: Story[] = [
         "The sun stopped for Yusha. In the next story, we will meet a prophet who could mold hard iron with his bare hands like soft clay! It's Prophet Dawud!",
       quranProse:
         "Allah says about giving them victory: {And Allah restored to them the city...} (As mentioned in the Prophetic Hadith about the sun stopping for him).",
+      challenge: {
+        question: "What did the leader ask his Lord for on the day of the battle?",
+        options: ["For rain", "That the sun hold back from setting", "For wind"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "☀️",
+        badge: "I trust, then I act",
+        keepsake: "A disc of the sun",
+        note: "A reminder that supplication is a weapon, but only after you have done your part.",
+      },
     },
     image: "/stories/prophets/yusha.jpg",
     title: "قصة سيدنا يوشع بن نون",
@@ -703,6 +1181,17 @@ export const stories: Story[] = [
       reliability: "🟡",
       reference: { ar: "لم يُذكر اسمه في القرآن؛ والحديث في صحيح البخاري (3124) ومسلم (1747) بلا تسمية", en: "Not named in the Quran; the hadith is in Sahih al-Bukhari (3124) and Muslim (1747) without naming him" },
       note: { ar: "حبس الشمس ثابت في الصحيحين، لكن الحديث يقول «غزا نبيٌّ من الأنبياء» ولم يسمِّه، وتسميته يوشع بن نون من أقوال المفسرين. واسم يوشع ليس في القرآن أصلاً. ينتظر مراجعتك.", en: "The holding back of the sun is established in both Sahihs, but the hadith says only that a prophet went out to battle and does not name him; identifying him as Yusha ibn Nun comes from the commentators, and the name is not in the Quran at all. Awaiting your review." },
+    },
+    challenge: {
+      question: "ماذا طلب القائد من ربه يوم المعركة؟",
+      options: ["أن ينزل المطر", "أن تتأخر الشمس عن الغروب", "أن تهبّ الريح"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "☀️",
+      badge: "أتوكّل ثم أعمل",
+      keepsake: "قرص الشمس",
+      note: "يذكّرك أن الدعاء سلاح، لكن لا يُرفع إلا بعد أن تبذل جهدك.",
     },
   },
   {
@@ -719,6 +1208,17 @@ export const stories: Story[] = [
         "Dawud could mold iron. But his son was given a kingdom like no other; he could talk to animals and control the wind! Let's meet Prophet Sulaiman!",
       quranProse:
         "Allah says: {And We certainly gave David from Us bounty. [We said], 'O mountains, repeat [Our] praises with him, and the birds [as well].' And We made pliable for him iron.}",
+      challenge: {
+        question: "What did the mountains and birds do with Dawud?",
+        options: ["Slept", "Glorified Allah with him", "Disappeared"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🎵",
+        badge: "A voice that remembers Allah",
+        keepsake: "A ring of iron",
+        note: "A reminder that Allah puts blessing in work done for His sake.",
+      },
     },
     image: "/stories/prophets/dawud.jpg",
     title: "قصة سيدنا داود",
@@ -732,6 +1232,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، البقرة: 251 وص: 17-26 والأنبياء: 79-80 وسبأ: 10-11", en: "The Quran, Al-Baqarah: 251, Sad: 17-26, Al-Anbiya: 79-80, Saba: 10-11" },
       note: { ar: "الملك والزبور وتسبيح الجبال والطير وإلانة الحديد، كله بنص الآيات.", en: "The kingship, the Zabur, the mountains and birds glorifying with him, and the softening of iron are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا كان يفعل الجبال والطير مع داود؟",
+      options: ["تنام", "تسبّح معه", "تختفي"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🎵",
+      badge: "صوتٌ يذكر الله",
+      keepsake: "حلقة من حديد",
+      note: "تذكّرك أن الله يجعل في العمل بركة حين يكون لله.",
     },
   },
   {
@@ -748,6 +1259,17 @@ export const stories: Story[] = [
         "Sulaiman had the greatest kingdom. But our next prophet didn't ask for a kingdom; he just asked for a child when he was very, very old. Did his prayer come true? Let's meet Prophet Zakariya!",
       quranProse:
         "Allah says: {He said, 'My Lord, forgive me and grant me a kingdom such as will not belong to anyone after me. Indeed, You are the Bestower.'}",
+      challenge: {
+        question: "What did Sulaiman ask his Lord for?",
+        options: ["A lot of money", "A kingdom no one after him would have", "A long life"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "👑",
+        badge: "Thankful for the gift",
+        keepsake: "The king's ring",
+        note: "A reminder that the greatest kingdom is the one whose owner gives thanks for it.",
+      },
     },
     image: "/stories/prophets/sulaiman.jpg",
     title: "قصة سيدنا سليمان",
@@ -761,6 +1283,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة النمل: 15-44 وسبأ: 12-14 وص: 30-40", en: "The Quran, Surah An-Naml: 15-44, Saba: 12-14, Sad: 30-40" },
       note: { ar: "الملك وتسخير الريح والجن ومنطق الطير وخبر بلقيس، كله بنص الآيات.", en: "The kingdom, the wind and the jinn made subject to him, the speech of birds and the account of the queen are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا طلب سليمان من ربه؟",
+      options: ["مالاً كثيراً", "ملكاً لا ينبغي لأحد من بعده", "عمراً طويلاً"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "👑",
+      badge: "شكرٌ على النعمة",
+      keepsake: "خاتم الملك",
+      note: "يذكّرك أن أعظم الملك ما شكر صاحبه عليه.",
     },
   },
   {
@@ -777,6 +1310,17 @@ export const stories: Story[] = [
         "Zakariya had a miracle son in his old age. But the next miracle is even more amazing: a baby born without a father, who spoke from his cradle! It's Prophet Isa!",
       quranProse:
         "Allah says: {He said, 'My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy.'}",
+      challenge: {
+        question: "What good news did Allah give Zakariyya in his old age?",
+        options: ["Much wealth", "A boy named Yahya", "A new home"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🕊️",
+        badge: "I call, and never despair",
+        keepsake: "A small prayer niche",
+        note: "A reminder that a supplication is never wasted, even if the answer takes years.",
+      },
     },
     image: "/stories/prophets/zakariya-and-yahya.jpg",
     title: "قصة سيدنا زكريا وابنه يحيى",
@@ -790,6 +1334,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة مريم: 2-15 وآل عمران: 38-41", en: "The Quran, Surah Maryam: 2-15 and Aal-Imran: 38-41" },
       note: { ar: "الدعاء والبشارة بيحيى وصفاته، كله بنص الآيات.", en: "The supplication, the glad tidings of Yahya and his qualities are all in the verses." },
+    },
+    challenge: {
+      question: "بماذا بشّر الله زكريا وهو كبير في السن؟",
+      options: ["بمال كثير", "بغلام اسمه يحيى", "ببيت جديد"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🕊️",
+      badge: "أدعو ولا أيأس",
+      keepsake: "محراب صغير",
+      note: "يذكّرك أن الدعاء لا يُردّ، ولو تأخّر الجواب سنين.",
     },
   },
   {
@@ -806,6 +1361,17 @@ export const stories: Story[] = [
         "Isa brought great miracles. But who is the final prophet? The one who brought a message for all people until the end of time? It's Prophet Muhammad (pbuh)!",
       quranProse:
         "Allah says: {[Jesus] said, 'Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet.'}",
+      challenge: {
+        question: "What did Isa do while still in the cradle?",
+        options: ["Only cried", "Spoke, and defended his mother", "Slept"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🕊️",
+        badge: "A sign among Allah's signs",
+        keepsake: "A palm frond",
+        note: "A reminder that Allah is able to do all things, and the innocent are cleared.",
+      },
     },
     image: "/stories/prophets/isa.jpg",
     title: "قصة سيدنا عيسى ابن مريم",
@@ -819,6 +1385,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة مريم: 16-36 وآل عمران: 42-59 والمائدة: 110-118", en: "The Quran, Surah Maryam: 16-36, Aal-Imran: 42-59, Al-Ma'idah: 110-118" },
       note: { ar: "الولادة والكلام في المهد والمعجزات ورفعه، كله بنص الآيات.", en: "The birth, the speaking in the cradle, the miracles and his being raised are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا فعل عيسى وهو في المهد؟",
+      options: ["بكى فقط", "تكلّم ودافع عن أمه", "نام"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🕊️",
+      badge: "آية من آيات الله",
+      keepsake: "سعفة نخل",
+      note: "تذكّرك أن الله على كل شيء قدير، وأن براءة الصادق تظهر.",
     },
   },
   {
@@ -835,6 +1412,17 @@ export const stories: Story[] = [
         "And with Prophet Muhammad (pbuh), the golden chain of prophets is complete! We have learned so many lessons from their amazing lives. Are you ready for more adventures? Check out the other sections!",
       quranProse:
         "Allah says: {And We have not sent you, [O Muhammad], except as a mercy to the worlds.}",
+      challenge: {
+        question: "What was the Prophet Muhammad ﷺ called before prophethood?",
+        options: ["The truthful, the trustworthy", "The king", "The poet"],
+        correctAnswer: 0,
+      },
+      reward: {
+        icon: "🌙",
+        badge: "Trustworthy like my Prophet",
+        keepsake: "A stone from the Ka'bah",
+        note: "A reminder that people trust your character before they hear your words.",
+      },
     },
     image: "/stories/prophets/muhammad.jpg",
     title: "قصة سيدنا محمد (خاتم الأنبياء)",
@@ -848,6 +1436,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم في مواضع، وكتب السيرة المعتمدة", en: "The Quran in several places, and the established Seerah literature" },
       note: { ar: "ما في القرآن من خبره — كالإسراء في سورة الإسراء وحادثة الفيل في سورة الفيل — بنص الآيات، وباقي تفاصيل السيرة من كتب السيرة المعتمدة. وقسم السيرة في الموقع يذكر مصدر كل قصة على حدة.", en: "What the Quran tells of him — the night journey in Surah Al-Isra, the elephant in Surah Al-Fil — is in the verses; the rest comes from the established Seerah literature. The Seerah section of this site cites a source for each story separately." },
+    },
+    challenge: {
+      question: "بماذا كان يُلقّب النبي محمد ﷺ قبل البعثة؟",
+      options: ["الصادق الأمين", "الملك", "الشاعر"],
+      correctAnswer: 0,
+    },
+    reward: {
+      icon: "🌙",
+      badge: "أمينٌ مثل نبيّي",
+      keepsake: "حجر من الكعبة",
+      note: "يذكّرك أن الناس تثق بك قبل أن تسمع كلامك، من أخلاقك.",
     },
   },
   {
@@ -864,6 +1463,17 @@ export const stories: Story[] = [
         "The ant was tiny but very caring. Our next animal is a beautiful bird with a crown of feathers on his head, who worked as a special messenger for the very same king. It's the Hoopoe!",
       quranProse:
         "Allah says: {An ant said, 'O ants, enter your dwellings that you not be crushed by Solomon and his soldiers while they perceive not.'}",
+      challenge: {
+        question: "What did the ant say to the other ants?",
+        options: ["Run from the rain", "Enter your homes so Sulaiman and his soldiers do not crush you", "Build a new home"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐜",
+        badge: "I look out for those around me",
+        keepsake: "A grain of wheat",
+        note: "A reminder that the smallest creature can teach the biggest lesson in caring for others.",
+      },
     },
     title: "قصة نملة سليمان",
     surahName: "",
@@ -877,6 +1487,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة النمل: 18-19", en: "The Quran, Surah An-Naml: 18-19" },
       note: { ar: "قول النملة وتبسّم سليمان بنص الآيتين.", en: "The ant's words and Sulaiman's smile are the words of the two verses." },
+    },
+    challenge: {
+      question: "ماذا قالت النملة لبنات جنسها؟",
+      options: ["اهربن من المطر", "ادخلن مساكنكن لا يحطمنّكم سليمان وجنوده", "ابنين بيتاً جديداً"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐜",
+      badge: "أنتبه لمن حولي",
+      keepsake: "حبة قمح",
+      note: "تذكّرك أن أصغر المخلوقات قد تعلّمك أكبر درس في رعاية غيرك.",
     },
   },
   {
@@ -893,6 +1514,17 @@ export const stories: Story[] = [
         "The Hoopoe crossed the sky with a message. Our next animal lives in the deep, dark ocean — and a prophet spent days inside it! Get ready to dive with the Whale of Prophet Yunus!",
       quranProse:
         "The Hoopoe confidently told the Prophet: {I have encompassed [in knowledge] that which you have not encompassed, and I have come to you from Sheba with certain news.}",
+      challenge: {
+        question: "What did the hoopoe bring Sulaiman?",
+        options: ["Food", "News of the kingdom of Saba", "A feather"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐦",
+        badge: "I search and I learn",
+        keepsake: "The hoopoe's feather",
+        note: "A reminder that whoever goes away to learn something useful comes back with good for everyone.",
+      },
     },
     title: "قصة هدهد سليمان",
     surahName: "",
@@ -906,6 +1538,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة النمل: 20-44", en: "The Quran, Surah An-Naml: 20-44" },
       note: { ar: "غياب الهدهد وخبره عن سبأ وما بعده، كله بنص الآيات.", en: "The hoopoe's absence, its news of Saba and what followed are all in the verses." },
+    },
+    challenge: {
+      question: "بماذا جاء الهدهد سليمان؟",
+      options: ["بطعام", "بخبر عن مملكة سبأ", "بريشة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐦",
+      badge: "أبحث وأتعلّم",
+      keepsake: "ريشة الهدهد",
+      note: "تذكّرك أن من غاب ليتعلّم شيئاً نافعاً عاد بما ينفع الجميع.",
     },
   },
   {
@@ -922,6 +1565,17 @@ export const stories: Story[] = [
         "The whale obeyed Allah in the depths of the sea. Our next animal is the largest of them all, and it refused to march against the holy Kaaba! It's the Elephant of Abraha!",
       quranProse:
         "Prophet Yunus prayed in the darkness: {There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.}",
+      challenge: {
+        question: "What did Yunus call out inside the whale?",
+        options: ["“There is no god but You, glory be to You, I was among the wrongdoers”", "He asked for food", "He called his people"],
+        correctAnswer: 0,
+      },
+      reward: {
+        icon: "🐋",
+        badge: "I turn back to Allah",
+        keepsake: "A drop from the sea",
+        note: "A reminder that Allah's door never closes, even in three layers of darkness.",
+      },
     },
     title: "قصة حوت يونس",
     surahName: "",
@@ -935,6 +1589,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الصافات: 139-148 والأنبياء: 87-88", en: "The Quran, As-Saffat: 139-148 and Al-Anbiya: 87-88" },
       note: { ar: "التقامه ودعاؤه في الظلمات وخروجه وإنبات اليقطين، كله بنص الآيات.", en: "His being swallowed, his call from the darkness, his coming out and the gourd plant are all in the verses." },
+    },
+    challenge: {
+      question: "بماذا دعا يونس وهو في بطن الحوت؟",
+      options: ["﴿لا إله إلا أنت سبحانك إني كنت من الظالمين﴾", "طلب طعاماً", "نادى قومه"],
+      correctAnswer: 0,
+    },
+    reward: {
+      icon: "🐋",
+      badge: "أرجع إلى الله",
+      keepsake: "قطرة من البحر",
+      note: "تذكّرك أن باب الله لا يُغلق، ولو كنت في ثلاث ظلمات.",
     },
   },
   {
@@ -951,6 +1616,17 @@ export const stories: Story[] = [
         "The elephant refused to harm the Kaaba. Our next animal guarded a group of believing youth at the mouth of a cave for hundreds of years — the Dog of the People of the Cave!",
       quranProse:
         "Allah says in Surah Al-Fil: {Have you not considered, [O Muhammad], how your Lord dealt with the companions of the elephant?}",
+      challenge: {
+        question: "What did the elephant do when it reached Mecca?",
+        options: ["Entered and destroyed the Ka'bah", "Knelt and refused to go forward", "Went back with the army"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐘",
+        badge: "Allah protects His House",
+        keepsake: "A stone of sijjil",
+        note: "A reminder that Allah protects what He wills by what He wills, even by small birds.",
+      },
     },
     title: "قصة فيل أبرهة",
     surahName: "",
@@ -964,6 +1640,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة الفيل؛ وتفاصيل الحادثة في كتب السيرة", en: "The Quran, Surah Al-Fil; the details of the event in the Seerah literature" },
       note: { ar: "الحادثة وعاقبتها بنص السورة، واسم أبرهة وتفاصيل الجيش من كتب السيرة لا من القرآن.", en: "The event and its outcome are the surah's own words; Abrahah's name and the details of the army come from the Seerah literature, not the Quran." },
+    },
+    challenge: {
+      question: "ماذا فعل الفيل حين وصل إلى مكة؟",
+      options: ["دخل وهدم الكعبة", "برك ورفض أن يتقدّم", "رجع بجيشه"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐘",
+      badge: "الله يحمي بيته",
+      keepsake: "حصاة من سجّيل",
+      note: "تذكّرك أن الله يحمي ما شاء بما شاء، ولو بطير صغير.",
     },
   },
   {
@@ -980,6 +1667,17 @@ export const stories: Story[] = [
         "The dog was a loyal guard. In our next story, we will read about a bright yellow cow that helped solve a great mystery! It's the Cow of the Children of Israel!",
       quranProse:
         "Allah says: {And their dog stretched his forelegs at the entrance.}",
+      challenge: {
+        question: "Where was the dog of the People of the Cave?",
+        options: ["Asleep inside with them", "Stretching its paws at the entrance", "Outside the mountain"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐕",
+        badge: "Good company",
+        keepsake: "The dog's collar",
+        note: "A reminder that keeping company with the righteous lifts you — even the dog is mentioned in the Quran because it stayed with them.",
+      },
     },
     title: "قصة كلب أهل الكهف",
     surahName: "",
@@ -993,6 +1691,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة الكهف: 18 و22", en: "The Quran, Surah Al-Kahf: 18 and 22" },
       note: { ar: "وضع الكلب على عتبة الكهف بنص الآية، والآية 22 تنهى عن الخوض في عددهم.", en: "The dog at the threshold is in the verse itself, and verse 22 warns against arguing over their number." },
+    },
+    challenge: {
+      question: "أين كان كلب أهل الكهف؟",
+      options: ["داخل الكهف نائماً معهم", "باسط ذراعيه عند مدخل الكهف", "خارج الجبل"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐕",
+      badge: "الصحبة الصالحة",
+      keepsake: "طوق الكلب",
+      note: "تذكّرك أن مجالسة الصالحين ترفع، حتى الكلب ذُكر في القرآن لأنه كان معهم.",
     },
   },
   {
@@ -1009,6 +1718,17 @@ export const stories: Story[] = [
         "The cow solved a mystery for people who asked too many questions. Our next animal was the answer to a question too — a giant camel that walked straight out of a mountain! It's the Camel of Prophet Salih!",
       quranProse:
         "Allah says describing it: {He says, 'It is a yellow cow, bright in color - pleasing to the observers.'}",
+      challenge: {
+        question: "Why did the matter of the cow become hard for the Children of Israel?",
+        options: ["It was expensive", "They kept asking and making it harder", "It was far away"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐄",
+        badge: "I hear and I obey",
+        keepsake: "The cow's horn",
+        note: "A reminder that making obedience harder than Allah made it only weighs you down.",
+      },
     },
     title: "قصة بقرة بني إسرائيل",
     surahName: "",
@@ -1022,6 +1742,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة البقرة: 67-73", en: "The Quran, Surah Al-Baqarah: 67-73" },
       note: { ar: "أمر الذبح وتشديدهم في السؤال وصفة البقرة، كله بنص الآيات.", en: "The command, their insistent questioning and the cow's description are all in the verses." },
+    },
+    challenge: {
+      question: "لماذا شقّ على بني إسرائيل أمر البقرة؟",
+      options: ["لأنها كانت غالية", "لأنهم أكثروا السؤال والتشديد", "لأنها كانت بعيدة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐄",
+      badge: "أسمع وأطيع",
+      keepsake: "قرن البقرة",
+      note: "تذكّرك أن التشديد على النفس في الطاعة يجعلها أثقل مما أرادها الله.",
     },
   },
   {
@@ -1038,6 +1769,17 @@ export const stories: Story[] = [
         "The camel was a sign that its people refused to respect. In our last animal story, a humble donkey becomes proof of something amazing: that Allah can bring the dead back to life!",
       quranProse:
         "Prophet Salih told them: {O my people, this is the she-camel of Allah - [she is] to you a sign. So let her feed upon Allah's earth, and do not touch her with harm.}",
+      challenge: {
+        question: "What did the people of Thamud do to the she-camel?",
+        options: ["Fed it", "Hamstrung it", "Left it to drink"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🐫",
+        badge: "I am gentle with the weak",
+        keepsake: "The camel's footprint",
+        note: "A reminder that harming an animal is not forgotten with Allah.",
+      },
     },
     title: "قصة ناقة صالح",
     surahName: "",
@@ -1051,6 +1793,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، الأعراف: 73-79 والشمس: 11-15 والقمر: 27-31", en: "The Quran, Al-A'raf: 73-79, Ash-Shams: 11-15, Al-Qamar: 27-31" },
       note: { ar: "الناقة آية، وقسمة الماء، وعقرها، وعاقبة القوم، كله بنص الآيات.", en: "The she-camel as a sign, the sharing of the water, her hamstringing and the people's end are all in the verses." },
+    },
+    challenge: {
+      question: "ماذا فعل قوم ثمود بالناقة؟",
+      options: ["أطعموها", "عقروها", "تركوها تشرب"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🐫",
+      badge: "أرفق بالضعيف",
+      keepsake: "خفّ الناقة",
+      note: "تذكّرك أن إيذاء حيوان لا يُنسى عند الله.",
     },
   },
   {
@@ -1067,6 +1820,17 @@ export const stories: Story[] = [
         "And with this amazing miracle, we wrap up our animal stories!",
       quranProse:
         "Allah says: {And look at your donkey - and that We may make you a sign for the people. And look at the bones [of this donkey] - how We raise them and then We cover them with flesh.}",
+      challenge: {
+        question: "How long was the man dead before Allah brought him back?",
+        options: ["One day", "A hundred years", "Ten years"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🌿",
+        badge: "I believe in Allah's power",
+        keepsake: "A fig and a grape",
+        note: "A reminder that the One who revives bones after a century is able to do anything.",
+      },
     },
     title: "قصة حمار عزير",
     surahName: "",
@@ -1080,6 +1844,17 @@ export const stories: Story[] = [
       reliability: "🟡",
       reference: { ar: "القرآن الكريم، سورة البقرة: 259 — والآية لا تسمّي الرجل", en: "The Quran, Surah Al-Baqarah: 259 — the verse does not name the man" },
       note: { ar: "القصة كلها بنص الآية: الإماتة مائة عام، والطعام الذي لم يتسنّه، والحمار الذي أُعيد. لكن الآية تقول ﴿أَوْ كَالَّذِي مَرَّ عَلَىٰ قَرْيَةٍ﴾ ولم تسمِّه، وتسميته عزيراً قول للمفسرين لا يثبت. ينتظر مراجعتك.", en: "The whole account is in the verse: the hundred years, the food that did not spoil, the donkey restored. But the verse says only one who passed by a town and does not name him; calling him Uzair is a commentators' opinion, not established. Awaiting your review." },
+    },
+    challenge: {
+      question: "كم لبث الرجل ميتاً قبل أن يحييه الله؟",
+      options: ["يوماً واحداً", "مائة عام", "عشر سنين"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🌿",
+      badge: "أومن بقدرة الله",
+      keepsake: "تينة وعنبة",
+      note: "تذكّرك أن الذي يحيي العظام بعد مائة عام قادر على كل شيء.",
     },
   },
   {
@@ -1095,6 +1870,17 @@ export const stories: Story[] = [
         "We learn that purity, devotion to prayers, and completely trusting Allah brings miracles into our lives.",
       next:
         "Maryam was a great and pure mother. In our next story, we meet another good and very brave woman, who lived in the palace of the most unjust king on earth — and still chose Paradise. Who is she?",
+      challenge: {
+        question: "What did Zakariyya find with Maryam whenever he entered her sanctuary?",
+        options: ["Books", "Provision from Allah", "Children"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🌴",
+        badge: "Pure of heart",
+        keepsake: "A date from the palm",
+        note: "A reminder that whoever is true with Allah is provided for from where they never expected.",
+      },
     },
     image: "/stories/maryam.jpg",
     title: "مريم ابنة عمران",
@@ -1108,6 +1894,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة مريم: 16-36 وآل عمران: 35-47", en: "The Quran, Surah Maryam: 16-36 and Aal-Imran: 35-47" },
       note: { ar: "نذر أمها، وكفالة زكريا، والرزق في المحراب، والبشارة، كله بنص الآيات. ومريم المرأة الوحيدة التي سُمّيت باسمها في القرآن.", en: "Her mother's vow, Zakariyya's care, the provision in the sanctuary and the glad tidings are all in the verses. Maryam is the only woman named by name in the Quran." },
+    },
+    challenge: {
+      question: "ماذا وجدت مريم عند زكريا كلما دخل عليها المحراب؟",
+      options: ["كتباً", "رزقاً من عند الله", "أطفالاً"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🌴",
+      badge: "طاهرة القلب",
+      keepsake: "رطبة من النخلة",
+      note: "تذكّرك أن من صدق مع الله رزقه من حيث لا يحتسب.",
     },
   },
   {
@@ -1123,6 +1920,17 @@ export const stories: Story[] = [
         "True happiness is not found in money or palaces, but in having a pure heart that loves Allah and stands for the truth.",
       next:
         "Asiya raised a child who was not her own. But do you know who the very first mother in human history was — the first woman Allah created to live on earth with her husband?",
+      challenge: {
+        question: "What did Pharaoh's wife ask her Lord for?",
+        options: ["A palace in this world", "“My Lord, build me a house with You in Paradise”", "A great deal of money"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🏰",
+        badge: "I choose Paradise",
+        keepsake: "A brick from the house in Paradise",
+        note: "A reminder that the richest person is the one who chose the next life while holding this one.",
+      },
     },
     image: "/stories/asiya.jpg",
     title: "آسية امرأة فرعون",
@@ -1136,6 +1944,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة التحريم: 11 والقصص: 9", en: "The Quran, Surah At-Tahrim: 11 and Al-Qasas: 9" },
       note: { ar: "دعاؤها وضربها مثلاً للمؤمنين بنص الآية، ولم يسمِّها القرآن؛ واسم «آسية» جاء في السنة وكتب التفسير.", en: "Her supplication and her being set as an example for the believers are in the verse; the Quran does not name her, and the name Asiyah comes from the sunnah and the commentaries." },
+    },
+    challenge: {
+      question: "بماذا دعت امرأة فرعون ربها؟",
+      options: ["بقصر في الدنيا", "﴿ربِّ ابنِ لي عندك بيتاً في الجنة﴾", "بمال كثير"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🏰",
+      badge: "أختار الجنة",
+      keepsake: "لبنة من بيت الجنة",
+      note: "تذكّرك أن أغنى الناس من اختار الآخرة وهو يملك الدنيا.",
     },
   },
   {
@@ -1153,6 +1972,17 @@ export const stories: Story[] = [
         "Hawwa was the first mother. In our next story, we will meet a very generous lady who received the most amazing news when she was very old! It's Lady Sarah!",
       quranProse:
         "Allah says about their prayer for forgiveness: {They said, 'Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.'}",
+      challenge: {
+        question: "What did Adam and his wife do after eating from the tree?",
+        options: ["Argued", "Turned back together and asked forgiveness", "Hid what happened"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🍃",
+        badge: "We say sorry together",
+        keepsake: "A leaf from the tree",
+        note: "A reminder that a home whose people turn back to Allah is never lost.",
+      },
     },
     image: "/stories/hawwa.jpg",
     title: "السيدة حواء",
@@ -1166,6 +1996,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة البقرة: 35-37 والأعراف: 19-23", en: "The Quran, Surah Al-Baqarah: 35-37 and Al-A'raf: 19-23" },
       note: { ar: "القصة بنص الآيات، والقرآن يسمّيها ﴿زَوْجُهُ﴾ ولم يذكر اسم «حواء»؛ الاسم في السنة وكتب التفسير.", en: "The account is in the verses, where she is called his wife; the name Hawwa is not in the Quran but in the sunnah and the commentaries." },
+    },
+    challenge: {
+      question: "ماذا فعل آدم وزوجه بعد أن أكلا من الشجرة؟",
+      options: ["تخاصما", "تابا معاً وطلبا المغفرة", "خبّآ الأمر"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🍃",
+      badge: "نعتذر معاً",
+      keepsake: "ورقة الشجرة",
+      note: "تذكّرك أن البيت الذي يعتذر أهله لله لا يضيع.",
     },
   },
   {
@@ -1183,6 +2024,17 @@ export const stories: Story[] = [
         "Sarah welcomed her guests and was given the best of news. Our next story follows another wife of Prophet Ibrahim, left alone in an empty desert with a thirsty baby — and the well that sprang up for her. It's Lady Hajar!",
       quranProse:
         "Allah says: {And his wife was standing, and she smiled. Then We gave her good tidings of Isaac, and after Isaac, Jacob.}",
+      challenge: {
+        question: "What good news was Ibrahim's wife given in her old age?",
+        options: ["Wealth", "Ishaq, and after Ishaq, Yaqub", "A journey"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "😊",
+        badge: "Nothing is beyond Allah",
+        keepsake: "The guests' platter",
+        note: "A reminder that nothing is too much for Allah, and generosity to a guest opens doors of good news.",
+      },
     },
     image: "/stories/sarah.jpg",
     title: "السيدة سارة",
@@ -1196,6 +2048,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة هود: 69-73 والذاريات: 24-30", en: "The Quran, Surah Hud: 69-73 and Adh-Dhariyat: 24-30" },
       note: { ar: "البشارة بإسحاق وضحكها بنص الآيات، والقرآن يسمّيها ﴿امْرَأَتُهُ﴾ ولم يذكر اسم «سارة»؛ الاسم من كتب التفسير.", en: "The glad tidings of Ishaq and her laughter are in the verses, where she is called his wife; the name Sarah comes from the commentaries, not the Quran." },
+    },
+    challenge: {
+      question: "بم بُشّرت زوجة إبراهيم وهي كبيرة؟",
+      options: ["بمال", "بإسحاق ومن وراء إسحاق يعقوب", "برحلة"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "😊",
+      badge: "لا شيء على الله بعزيز",
+      keepsake: "طبق الضيافة",
+      note: "يذكّرك أن الله لا يعجزه شيء، وأن كرم الضيف يفتح أبواب البشرى.",
     },
   },
   {
@@ -1211,6 +2074,17 @@ export const stories: Story[] = [
         "We must always put in the effort and work hard, while fully trusting that Allah will help us and never abandon us.",
       next:
         "Hajar's patience brought water out of the desert. In our last story of this chapter, we meet a queen who ruled a mighty kingdom and used her mind to find the truth. Who is she? The Queen of Sheba!",
+      challenge: {
+        question: "Between which two hills did Hajar run looking for water?",
+        options: ["Uhud and Thawr", "Safa and Marwah", "Arafah and Mina"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "💧",
+        badge: "I strive, and I trust",
+        keepsake: "A waterskin",
+        note: "A reminder that Allah provides for the one who strives — and Zamzam still bears witness.",
+      },
     },
     image: "/stories/hajar.jpg",
     title: "السيدة هاجر",
@@ -1224,6 +2098,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "صحيح البخاري (3364)؛ وإسكان الذرية في القرآن، سورة إبراهيم: 37", en: "Sahih al-Bukhari (3364); the settling of the family in the Quran, Surah Ibrahim: 37" },
       note: { ar: "دعاء إبراهيم عند البيت بنص الآية. أما تفصيل قصتها والسعي وزمزم ففي صحيح البخاري، ولم يذكر القرآن اسمها.", en: "Ibrahim's supplication at the House is in the verse. The fuller account — the running and Zamzam — is in Sahih al-Bukhari, and the Quran does not give her name." },
+    },
+    challenge: {
+      question: "بين أي جبلين سعت هاجر تبحث عن الماء؟",
+      options: ["أحد وثور", "الصفا والمروة", "عرفة ومنى"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "💧",
+      badge: "أسعى وأتوكّل",
+      keepsake: "قربة ماء",
+      note: "تذكّرك أن الله يرزق من سعى، وأن زمزم ما زالت تشهد.",
     },
   },
   {
@@ -1239,6 +2124,17 @@ export const stories: Story[] = [
         "A true leader uses their mind to seek the truth and avoid unnecessary fights. Wisdom always leads a person to the right path.",
       next:
         "And with this wise queen we finish the women of the Quran. Are you ready for more? Let's head to the next chapter!",
+      challenge: {
+        question: "What did the queen of Saba do when she recognised the truth?",
+        options: ["Denied it", "Submitted with Sulaiman to Allah, Lord of the worlds", "Ran away"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "☀️",
+        badge: "I follow the truth once I know it",
+        keepsake: "A small throne",
+        note: "A reminder that the bravest people are those who let go of their opinion when the truth becomes clear.",
+      },
     },
     image: "/stories/bilqis.jpg",
     title: "ملكة سبأ",
@@ -1252,6 +2148,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة النمل: 22-44", en: "The Quran, Surah An-Naml: 22-44" },
       note: { ar: "خبرها ومشورتها وإسلامها بنص الآيات، والقرآن يسمّيها ﴿امْرَأَةً تَمْلِكُهُمْ﴾ ولم يذكر اسم «بلقيس»؛ الاسم من كتب التاريخ والتفسير.", en: "Her story, her counsel and her submission are in the verses, where she is a woman ruling over them; the name Bilqis comes from the historians and commentators, not the Quran." },
+    },
+    challenge: {
+      question: "ماذا فعلت ملكة سبأ حين عرفت الحق؟",
+      options: ["أنكرته", "أسلمت مع سليمان لله رب العالمين", "هربت"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "☀️",
+      badge: "أتبع الحق إذا عرفته",
+      keepsake: "عرش صغير",
+      note: "تذكّرك أن أشجع الناس من ترك رأيه حين تبيّن له الصواب.",
     },
   },
   {
@@ -1267,6 +2174,17 @@ export const stories: Story[] = [
         "Lying is a very bad thing and it hurts other people. And if we do wrong and lie, we must be brave enough to tell the truth in the end, so that what is right goes back to the one it belongs to.",
       next:
         "The wife of al-Aziz admitted her mistake in the end… but in our last story we will meet two women who were married to two great prophets, and who never admitted the truth at all!",
+      challenge: {
+        question: "What did the governor's wife finally say?",
+        options: ["Denied everything", "Admitted that Yusuf was truthful", "Accused him again"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🗝️",
+        badge: "I tell the truth even against myself",
+        keepsake: "A door key",
+        note: "A reminder that admitting the truth is courage, even when it comes late.",
+      },
     },
     image: "/stories/imraat_alaziz.jpg",
     title: "امرأة العزيز",
@@ -1280,6 +2198,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة يوسف: 23-35 و51", en: "The Quran, Surah Yusuf: 23-35 and 51" },
       note: { ar: "القصة واعترافها بالحق في الآية 51، كله بنص الآيات، ولم يسمِّها القرآن.", en: "The account and her admission of the truth in verse 51 are in the verses; the Quran does not name her." },
+    },
+    challenge: {
+      question: "ماذا قالت امرأة العزيز في النهاية؟",
+      options: ["أنكرت كل شيء", "اعترفت بأن يوسف من الصادقين", "اتهمته مرة أخرى"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🗝️",
+      badge: "أقول الحق ولو على نفسي",
+      keepsake: "مفتاح الباب",
+      note: "يذكّرك أن الاعتراف بالحق شجاعة، ولو جاء متأخراً.",
     },
   },
   {
@@ -1295,6 +2224,17 @@ export const stories: Story[] = [
         "Every person is responsible for what they do. Coming from a good family will not help us if our own deeds are bad. We must always choose our friends and our path carefully.",
       next:
         "And with that we have finished the stories of the women in the Quran. In the collections to come we will begin the stories of the prophets and messengers!",
+      challenge: {
+        question: "Did being close to a prophet help the wives of Nuh and Lut?",
+        options: ["Yes, it did", "No, because they betrayed", "The Quran does not say"],
+        correctAnswer: 1,
+      },
+      reward: {
+        icon: "🚪",
+        badge: "My own deeds are what help me",
+        keepsake: "A closed door",
+        note: "A reminder that lineage is no help without deeds — every soul has what it earned.",
+      },
     },
     image: "/stories/nuh_lut.jpg",
     title: "امرأة نوح وامرأة لوط",
@@ -1308,6 +2248,17 @@ export const stories: Story[] = [
       reliability: "🟢",
       reference: { ar: "القرآن الكريم، سورة التحريم: 10", en: "The Quran, Surah At-Tahrim: 10" },
       note: { ar: "ضربهما مثلاً للذين كفروا، وأن القرابة لا تنفع مع الخيانة، بنص الآية.", en: "They are set as an example of those who disbelieved, and that closeness does not help where there is betrayal — the verse's own words." },
+    },
+    challenge: {
+      question: "هل نفعت القرابة امرأة نوح وامرأة لوط؟",
+      options: ["نعم نفعتهما", "لا، لأنهما خانتا", "لم يذكر القرآن ذلك"],
+      correctAnswer: 1,
+    },
+    reward: {
+      icon: "🚪",
+      badge: "عملي هو الذي ينفعني",
+      keepsake: "باب مغلق",
+      note: "يذكّرك أن النسب لا ينفع بلا عمل، وأن لكل نفس ما كسبت.",
     },
   },
 ];
@@ -1323,4 +2274,14 @@ export const storyTextFor = (story: Story, locale: "ar" | "en"): StoryText =>
         lesson: story.lesson,
         next: story.next,
         quranProse: story.quranProse,
+        challenge: story.challenge,
+        reward: story.reward,
       };
+
+/** The question and the medal in the reader's language, falling back to the
+ *  Arabic when a chapter's translation has not landed yet. */
+export const storyChallengeFor = (story: Story, locale: "ar" | "en"): StoryChallenge =>
+  (locale === "en" ? story.en?.challenge : undefined) ?? story.challenge;
+
+export const storyRewardFor = (story: Story, locale: "ar" | "en"): StoryReward =>
+  (locale === "en" ? story.en?.reward : undefined) ?? story.reward;
