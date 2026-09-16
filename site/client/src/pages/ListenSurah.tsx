@@ -69,6 +69,7 @@ const copy = {
     saveFailedNetwork: "الاتصال انقطع قبل ما تكتمل. جرّب تاني.",
     saveFailedSpace: "مساحة الجهاز خلصت. احذف سورًا محفوظة وجرّب تاني.",
     keepHint: "ضِف الموقع للشاشة الرئيسية عشان المتصفح ما يمسحش المحفوظ.",
+    needsTap: "المتصفح مش سامح بالتشغيل التلقائي — اضغط تشغيل لإكمال السورة.",
   },
   en: {
     back: "All surahs",
@@ -103,6 +104,7 @@ const copy = {
     saveFailedNetwork: "The connection dropped before it finished. Try again.",
     saveFailedSpace: "This device is out of room. Remove a saved surah and try again.",
     keepHint: "Add the site to your home screen so the browser keeps what you saved.",
+    needsTap: "This browser will not start the next surah on its own — tap play to carry on.",
   },
 };
 
@@ -121,7 +123,7 @@ export default function ListenSurah() {
       <SkipLink />
       <SiteChrome />
       <div id={MAIN_CONTENT_ID}>
-        <Player key={surah} t={t} surah={surah} locale={locale} />
+        <Player t={t} surah={surah} locale={locale} />
       </div>
     </main>
   );
@@ -151,7 +153,29 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState<{ received: number; total: number } | null>(null);
   const [saveError, setSaveError] = useState<"network" | "space" | null>(null);
+  /** true when the browser refused to start the next surah on its own */
+  const [needsTap, setNeedsTap] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  const lastWrite = useRef(0);
+
+  // Safari treats a freshly created <audio> as one the listener never touched,
+  // and refuses to play it without a tap. The element is therefore kept for the
+  // whole visit and only its src changes, so the tap that started the first
+  // surah still carries the next one. Everything about the old surah is cleared
+  // here instead of by remounting.
+  useEffect(() => {
+    setSrc(null);
+    setOffline(false);
+    setSaved(false);
+    setSaving(null);
+    setSaveError(null);
+    setAt(0);
+    setDuration(0);
+    setResumedFrom(0);
+    setNeedsTap(false);
+    lastWrite.current = 0;
+    abortRef.current?.abort();
+  }, [surah]);
 
   const name = locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah);
   const Back = locale === "ar" ? ArrowRight : ArrowLeft;
@@ -231,6 +255,13 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
     setSrc(source.playbackUrl);
   };
 
+  useEffect(() => {
+    const media = audioRef.current;
+    if (!media || !src) return;
+    media.src = src;
+    media.load();
+  }, [src]);
+
   // Pick up where this surah was left, once the file knows how long it is.
   const onLoaded = () => {
     const media = audioRef.current;
@@ -242,18 +273,18 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
       setAt(mark);
       setResumedFrom(mark);
     }
-    // Handed over from the surah before: carry on without asking again.
+    // Handed over from the surah before: carry on without asking again. If the
+    // browser still refuses, the screen says so rather than sitting silent.
     if (continueInto === surah) {
       continueInto = null;
       media.currentTime = 0;
       setResumedFrom(0);
-      void media.play().catch(() => undefined);
+      media.play().then(() => setNeedsTap(false)).catch(() => setNeedsTap(true));
     }
   };
 
   // The place is written every few seconds rather than every frame: this is a
   // two-hour surah, and localStorage is synchronous.
-  const lastWrite = useRef(0);
   const onTime = () => {
     const media = audioRef.current;
     if (!media) return;
@@ -280,6 +311,9 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
 
   const goTo = (next: number) => {
     if (next < 1 || next > 114) return;
+    // Skipping while it plays should not stop the sound: a listener who taps
+    // "next" wants the next surah, not silence.
+    if (audioRef.current && !audioRef.current.paused) continueInto = next;
     navigate(`/listen/${next}`);
   };
 
@@ -394,7 +428,7 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
 
           {resumedFrom > 0 && (
             <p className="listen-resumed">
-              {t.resumed(clock(resumedFrom))}
+              <span>{t.resumed(clock(resumedFrom))}</span>
               <button
                 type="button"
                 className="text-link"
@@ -453,6 +487,8 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
             </div>
           )}
 
+          {needsTap && !playing && <p className="listen-needs-tap" role="status">{t.needsTap}</p>}
+
           <div className="listen-options">
             <label className="listen-toggle">
               <input type="checkbox" checked={continuous} onChange={event => setContinuous(event.target.checked)} />
@@ -479,19 +515,17 @@ function Player({ t, surah, locale }: { t: Copy; surah: number; locale: "ar" | "
           </div>
         </article>
 
-        {src && (
-          <audio
+        {/* One element for the whole visit — see the reset above. */}
+        <audio
             ref={audioRef}
-            src={src}
             preload="metadata"
             onLoadedMetadata={onLoaded}
             onTimeUpdate={onTime}
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
             onEnded={onEnded}
-            onError={() => setState("failed")}
+            onError={() => { if (audioRef.current?.getAttribute("src")) setState("failed"); }}
           />
-        )}
       </div>
     </section>
   );

@@ -1380,3 +1380,4 @@
 .listen-offline-card .text-link { justify-self: start; }
 .listen-row__saved { display: grid; place-items: center; flex: none; inline-size: 1.7rem; block-size: 1.7rem; border-radius: 50%; background: var(--surface-gold); color: var(--gold-ink-deep); }
 @media (prefers-reduced-motion: reduce) { .listen-offline__bar span { transition: none; } }
+.listen-needs-tap { margin: 0; text-align: center; color: var(--gold-ink-deep); font-size: .86rem; font-weight: 700; }
