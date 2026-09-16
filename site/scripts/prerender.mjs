@@ -246,6 +246,10 @@ const aboutSide = (c, lang) => section(lang, `
   ${p(c.sadaqaBody)}${p(c.sadaqaAsk)}
   <h2>${esc(c.accuracyTitle)}</h2>
   ${p(c.accuracyOne)}${p(c.accuracyTwo)}${p(c.accuracyThree)}
+  <h2>${esc(c.craftTitle)}</h2>
+  ${p(c.craftLead)}
+  ${list([`${esc(c.craftGreenLabel)} — ${esc(c.craftGreen)}`, `${esc(c.craftAmberLabel)} — ${esc(c.craftAmber)}`])}
+  ${p(c.craftCount)}${p(c.craftMissing)}
   ${p(c.closing)}
 `);
 add("/about", aboutSide(about.ar, "ar") + aboutSide(about.en, "en"));
