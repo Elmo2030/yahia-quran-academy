@@ -25,7 +25,7 @@ import { chapters, stories, surahNames, seerahStations, seerahStories, aqeedahCa
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
-const DEFAULT_IMAGE = "/og-yahya.jpg";
+const DEFAULT_IMAGE = "/og-yahya-hero.jpg";
 const ORIGIN = "https://yahyaquran.com";
 
 // Descriptions arrive already shortened by scripts/build-seo.mjs, which is the

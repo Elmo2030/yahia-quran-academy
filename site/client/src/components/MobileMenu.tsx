@@ -41,11 +41,11 @@ const LINKS = [
   { href: "/", key: "home" },
   { href: "/read/1", key: "reader" },
   { href: "/hifz", key: "hifz" },
-  { href: "/listen", key: "listen" },
   { href: "/stories", key: "stories" },
   { href: "/seerah", key: "seerah" },
   { href: "/quran-facts", key: "facts" },
   { href: "/aqeedah", key: "aqeedah" },
+  { href: "/listen", key: "listen" },
   { href: "/about", key: "about" },
 ] as const;
 

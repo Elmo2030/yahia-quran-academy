@@ -58,11 +58,11 @@ export function SiteChrome({ variant = "full" }: { variant?: "full" | "reader" }
         {variant === "full" && (
           <nav aria-label={t.nav} className="site-nav">
             <Link href="/hifz">{t.hifz}</Link>
-            <Link href="/listen">{t.listen}</Link>
             <Link href="/stories">{t.stories}</Link>
             <Link href="/seerah">{t.seerah}</Link>
             <Link href="/quran-facts">{t.facts}</Link>
             <Link href="/aqeedah">{t.aqeedah}</Link>
+            <Link href="/listen">{t.listen}</Link>
             <Link href="/about">{t.about}</Link>
           </nav>
         )}
