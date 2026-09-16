@@ -588,7 +588,63 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 1
  },
+ "/hifz-art/surahs/107": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/108": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
  "/hifz-art/surahs/109": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/110": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/111": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/112": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/113": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/114": {
   "widths": [
    96,
    192,
