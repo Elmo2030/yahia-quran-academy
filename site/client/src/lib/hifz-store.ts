@@ -16,6 +16,7 @@
 // =============================================================================
 
 import type { ParentLock } from "@/lib/parent-lock";
+import { DEFAULT_LOOKS, parseLooks, type Looks } from "@/lib/hifz-looks";
 
 export const HIFZ_KEY = "yahya.hifz.v1";
 export const HIFZ_VERSION = 1;
@@ -65,6 +66,8 @@ export type ChildProfile = {
   character: CharacterId;
   createdAt: number;
   settings: HifzSettings;
+  /** the frame, card, companion and stickers this child picked */
+  looks: Looks;
   ayahs: Record<string, AyahRecord>;
 };
 
@@ -166,6 +169,7 @@ function parseProfile(value: unknown): ChildProfile | null {
     character,
     createdAt: isTime(value.createdAt) ? value.createdAt : Date.now(),
     settings: parseSettings(value.settings),
+    looks: parseLooks(value.looks),
     ayahs: parseAyahs(value.ayahs),
   };
 }
@@ -266,6 +270,7 @@ export function createProfile(store: HifzStore, input: { name: string; character
     character: input.character === "fatima" ? "fatima" : "yahya",
     createdAt: Date.now(),
     settings: { ...DEFAULT_SETTINGS },
+    looks: { ...DEFAULT_LOOKS },
     ayahs: {},
   };
   return { ok: true, profile, store: touch(store, { profiles: [...store.profiles, profile], activeProfileId: profile.id }) };
@@ -276,7 +281,8 @@ export function enterAsGuest(store: HifzStore): HifzStore {
   const guest = store.profiles.find(p => p.character === "guest");
   if (guest) return touch(store, { activeProfileId: guest.id });
   const profile: ChildProfile = {
-    id: newId(), name: "", character: "guest", createdAt: Date.now(), settings: { ...DEFAULT_SETTINGS }, ayahs: {},
+    id: newId(), name: "", character: "guest", createdAt: Date.now(),
+    settings: { ...DEFAULT_SETTINGS }, looks: { ...DEFAULT_LOOKS }, ayahs: {},
   };
   return touch(store, { profiles: [...store.profiles, profile], activeProfileId: profile.id });
 }
@@ -312,6 +318,23 @@ export function updateProfile(
 export function updateSettings(store: HifzStore, id: string, patch: Partial<HifzSettings>): HifzStore {
   return touch(store, {
     profiles: store.profiles.map(p => (p.id === id ? { ...p, settings: parseSettings({ ...p.settings, ...patch }) } : p)),
+  });
+}
+
+/** A look is chosen by tapping it, so this both sets and clears. */
+export function updateLooks(store: HifzStore, id: string, patch: Partial<Looks>): HifzStore {
+  return touch(store, {
+    profiles: store.profiles.map(p => (p.id === id ? { ...p, looks: parseLooks({ ...p.looks, ...patch }) } : p)),
+  });
+}
+
+/** Adds a sticker to the shelf, or takes it off again. */
+export function toggleSticker(store: HifzStore, id: string, sticker: string): HifzStore {
+  const profile = store.profiles.find(p => p.id === id);
+  if (!profile) return store;
+  const on = profile.looks.stickers.includes(sticker);
+  return updateLooks(store, id, {
+    stickers: on ? profile.looks.stickers.filter(s => s !== sticker) : [...profile.looks.stickers, sticker],
   });
 }
 

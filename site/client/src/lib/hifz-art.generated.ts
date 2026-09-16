@@ -516,6 +516,14 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 1
  },
+ "/hifz-art/shop/stickers/moon": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
  "/hifz-art/shop/stickers/palm": {
   "widths": [
    96,

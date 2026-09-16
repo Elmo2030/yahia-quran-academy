@@ -873,6 +873,11 @@
 .hifz-profile:hover { transform: translateY(-3px); border-color: var(--line-green-strong); box-shadow: 0 14px 26px rgb(var(--shadow-rgb) / 10%); }
 .hifz-profile:focus-visible, .hifz-character:focus-within, .hifz-segments label:focus-within, .hifz-options label:focus-within, .hifz-switch:focus-within, .hifz-file:focus-within { outline: 3px solid var(--gold); outline-offset: 3px; }
 .hifz-profile b { font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; font-weight: 800; line-height: 1.4; overflow-wrap: anywhere; text-align: center; }
+/* The chosen scene sits behind the card, dimmed enough for the name to read. */
+.hifz-profile { background-size: cover; background-position: center; }
+.hifz-profile__figure { position: relative; display: grid; place-items: center; inline-size: 120px; block-size: 120px; }
+.hifz-profile__frame { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: contain; pointer-events: none; }
+.hifz-profile b { padding: .1rem .55rem; border-radius: 99px; background: rgb(var(--chrome-rgb) / 88%); }
 .hifz-profile__avatar { inline-size: 88px; block-size: 88px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; background: var(--surface-gold); border: 3px solid var(--line-gold); filter: none; aspect-ratio: 1; }
 .hifz-profile__avatar.hifz-art--placeholder { border-style: solid; }
 .hifz-profile__avatar.hifz-art--placeholder b { font-size: 2.1rem; }
@@ -1004,7 +1009,7 @@
 .hifz-back { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .8rem; border-radius: 99px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-size: .85rem; font-weight: 700; text-decoration: none; }
 .hifz-back:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .hifz-memorize__title { display: grid; justify-items: end; gap: .05rem; text-align: end; }
-.hifz-memorize__title h1 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1.4; }
+.hifz-memorize__title h1 { display: flex; align-items: center; gap: .45rem; margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1.4; }
 .hifz-memorize__title span { color: var(--ink-soft); font-size: .85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .hifz-notice-title { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.5rem; font-weight: 800; }
 
@@ -1191,6 +1196,37 @@
 .hifz-report__takes span { color: var(--ink); font-size: .88rem; font-weight: 700; }
 .hifz-report__player { inline-size: 100%; margin-block-start: .6rem; }
 .hifz-parent-foot { gap: .8rem; }
+
+/* --- Making the card your own ------------------------------------------- */
+.hifz-looks h2 { display: flex; align-items: center; gap: .5rem; margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; font-weight: 800; }
+.hifz-looks__row { display: flex; flex-wrap: wrap; gap: .6rem; margin: .2rem 0 0; padding: 0; list-style: none; }
+.hifz-look { position: relative; display: grid; justify-items: center; gap: .3rem; inline-size: 6.2rem; padding: .5rem .35rem .55rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: .76rem; font-weight: 700; cursor: pointer; transition: transform .14s ease, border-color .14s ease; }
+.hifz-look:hover { transform: translateY(-2px); border-color: var(--gold); }
+.hifz-look:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.hifz-look.is-on { border-color: var(--gold); background: var(--surface-gold); box-shadow: 0 0 0 2px rgb(212 175 55 / 35%); }
+.hifz-look__art { inline-size: 72px; block-size: 56px; object-fit: contain; }
+/* A card background is a scene, so it is shown as one rather than cut out. */
+.hifz-look__art--card { inline-size: 100%; block-size: 46px; object-fit: cover; border-radius: 9px; }
+.hifz-look__empty { display: block; inline-size: 72px; block-size: 56px; border-radius: 12px; border: 1px dashed var(--line); }
+.hifz-look__tick { position: absolute; inset-block-start: .3rem; inset-inline-end: .3rem; color: var(--gold-ink-deep); }
+
+.hifz-looks-preview { gap: .8rem; }
+.hifz-preview { position: relative; display: grid; justify-items: center; align-content: center; gap: .4rem; min-block-size: 190px; padding: 1.1rem; border-radius: 18px; background: var(--surface-3) center / cover no-repeat; overflow: hidden; }
+.hifz-preview__figure { position: relative; inline-size: 132px; block-size: 132px; display: grid; place-items: center; }
+.hifz-preview__avatar { inline-size: 74px; block-size: 74px; border-radius: 50%; object-fit: contain; background: rgb(var(--chrome-rgb) / 90%); }
+.hifz-preview__avatar--placeholder { display: grid; place-items: center; color: var(--gold-ink-deep); font-family: "Noto Naskh Arabic", serif; font-size: 1.6rem; font-weight: 800; }
+.hifz-preview__frame { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: contain; pointer-events: none; }
+.hifz-preview__name { padding: .2rem .8rem; border-radius: 99px; background: rgb(var(--chrome-rgb) / 90%); color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.05rem; font-weight: 800; }
+.hifz-preview__pet { position: absolute; inset-block-end: .6rem; inset-inline-start: .8rem; inline-size: 64px; max-block-size: 64px; object-fit: contain; }
+[dir="rtl"] .hifz-preview__pet { transform: scaleX(-1); }
+
+.hifz-shelf { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: 0; padding: .6rem .8rem; border-radius: 14px; border: 1px dashed var(--line-gold); list-style: none; min-block-size: 3.4rem; }
+.hifz-shelf img { inline-size: 44px; block-size: 44px; object-fit: contain; }
+.hifz-shelf__empty { color: var(--ink-soft); font-size: .84rem; }
+
+/* The companion walks beside the child on the map. */
+.map-pet { flex: none; inline-size: 38px; max-block-size: 44px; object-fit: contain; object-position: bottom; }
+[dir="rtl"] .map-pet { transform: scaleX(-1); }
 
 /* --- Installing, and the certificate ------------------------------------ */
 .hifz-install h2 svg { color: var(--gold-ink-deep); }

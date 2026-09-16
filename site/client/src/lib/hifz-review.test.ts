@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   REVIEW_STEPS_DAYS, activeDays, dayNumber, dueDayFor, nextDueDay, reviewQueue, streakDays, todayPlan, wasActiveToday,
 } from "./hifz-review";
+import { DEFAULT_LOOKS } from "./hifz-looks";
 import { DEFAULT_SETTINGS, type AyahRecord, type ChildProfile } from "./hifz-store";
 
 const DAY = 86_400_000;
@@ -11,7 +12,7 @@ const daysAgo = (n: number) => NOON - n * DAY;
 
 function child(ayahs: Record<string, Partial<AyahRecord>>): ChildProfile {
   return {
-    id: "c", name: "Test", character: "yahya", createdAt: NOON, settings: { ...DEFAULT_SETTINGS },
+    id: "c", name: "Test", character: "yahya", createdAt: NOON, settings: { ...DEFAULT_SETTINGS }, looks: { ...DEFAULT_LOOKS },
     ayahs: Object.fromEntries(Object.entries(ayahs).map(([k, v]) => [k, { reviews: [], ...v }])),
   };
 }

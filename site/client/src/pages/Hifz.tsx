@@ -9,17 +9,18 @@
 // replaces the list in phase 3.
 // =============================================================================
 
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { Link } from "wouter";
 import {
   BookOpen, Check, ChevronLeft, ChevronRight, Download, HardDrive, Pencil, Plus, Settings2, ShieldAlert,
-  Award, KeyRound, ShieldCheck, Star, Trash2, Upload, UserRound, Users,
+  Award, KeyRound, ShieldCheck, Sparkles, Star, Trash2, Upload, UserRound, Users,
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
+import { lookArt, lookName } from "@/lib/hifz-looks";
 import { InstallCard } from "@/components/InstallCard";
 import { JourneyMap } from "@/components/JourneyMap";
 import { CHARACTERS, characterArt, characterById, surahIcon, type Pose } from "@/lib/hifz-characters";
@@ -115,6 +116,8 @@ const copy = {
     removeGuest: "امسح تقدّم الضيف",
     removeConfirm: "نعم، احذف نهائيًا",
     removeWarning: "سيُحذف الملف وكل تقدّمه من هذا الجهاز، ولا يمكن التراجع إلا من نسخة احتياطية.",
+    looksLink: "زيّن بطاقتك",
+    shelfTitle: "رفّ الملصقات",
     parentCorner: "ركن وليّ الأمر",
     certificate: "شهادة الرحلة",
     home: "الرئيسية",
@@ -196,6 +199,8 @@ const copy = {
     removeGuest: "Clear the guest’s progress",
     removeConfirm: "Yes, delete for good",
     removeWarning: "The profile and all its progress will be removed from this device. Only a backup can bring it back.",
+    looksLink: "Make it yours",
+    shelfTitle: "Sticker shelf",
     parentCorner: "The parent’s corner",
     certificate: "Journey certificate",
     home: "Home",
@@ -249,6 +254,35 @@ function CharacterArt({ character, pose, sizes, className = "", alt = "" }: {
   return <img className={`hifz-art ${className}`} src={art.src} srcSet={art.srcSet} sizes={sizes} alt={alt} loading="lazy" decoding="async" draggable={false} />;
 }
 
+/** The scene a child chose, painted behind their own card and nowhere else. */
+function cardScene(profile: ChildProfile): CSSProperties | undefined {
+  const art = profile.looks.card ? lookArt("card", profile.looks.card) : null;
+  return art ? { backgroundImage: `url(${art.src})` } : undefined;
+}
+
+function ChosenFrame({ profile }: { profile: ChildProfile }) {
+  const art = profile.looks.frame ? lookArt("frame", profile.looks.frame) : null;
+  if (!art) return null;
+  return <img className="hifz-profile__frame" src={art.src} srcSet={art.srcSet} sizes="132px" alt="" loading="lazy" />;
+}
+
+/** What the child stuck on their shelf. It only appears once something is on it. */
+function Shelf({ t, profile }: { t: Copy; profile: ChildProfile }) {
+  const { locale } = useLocale();
+  if (profile.looks.stickers.length === 0) return null;
+  return (
+    <section className="hifz-card hifz-looks" aria-labelledby="hifz-shelf-title">
+      <h2 id="hifz-shelf-title"><Sparkles size={18} aria-hidden="true" /> {t.shelfTitle}</h2>
+      <ul className="hifz-shelf" role="list">
+        {profile.looks.stickers.map(id => {
+          const art = lookArt("sticker", id);
+          return <li key={id}>{art ? <img src={art.src} srcSet={art.srcSet} sizes="44px" alt={lookName("sticker", id, locale)} /> : <span>{lookName("sticker", id, locale)}</span>}</li>;
+        })}
+      </ul>
+    </section>
+  );
+}
+
 function displayName(t: Copy, profile: ChildProfile) {
   return profile.character === "guest" ? t.guestName : profile.name;
 }
@@ -282,8 +316,16 @@ function ProfilePicker({ t, store, commit }: { t: Copy; store: HifzStore; commit
             <ul className="hifz-profiles" role="list">
               {children.map(child => (
                 <li key={child.id}>
-                  <button type="button" className="hifz-profile" onClick={() => commit(selectProfile(store, child.id))}>
-                    <CharacterArt character={child.character} pose="avatar" sizes="96px" className="hifz-profile__avatar" />
+                  <button
+                    type="button"
+                    className="hifz-profile"
+                    style={cardScene(child)}
+                    onClick={() => commit(selectProfile(store, child.id))}
+                  >
+                    <span className="hifz-profile__figure">
+                      <CharacterArt character={child.character} pose="avatar" sizes="96px" className="hifz-profile__avatar" />
+                      <ChosenFrame profile={child} />
+                    </span>
                     <b>{child.name}</b>
                   </button>
                 </li>
@@ -454,7 +496,9 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
           <SettingsPanel t={t} profile={profile} onChange={patch => commit(updateSettings(store, profile.id, patch))} />
           <InstallCard />
           <DeviceData t={t} store={store} commit={commit} profile={profile} />
+          <Shelf t={t} profile={profile} />
           <p className="hifz-parent-link">
+            <Link href="/hifz/looks" className="text-link"><Sparkles size={15} aria-hidden="true" /> {t.looksLink}</Link>
             <Link href="/hifz/parent" className="text-link"><KeyRound size={15} aria-hidden="true" /> {t.parentCorner}</Link>
             <Link href="/hifz/certificate" className="text-link"><Award size={15} aria-hidden="true" /> {t.certificate}</Link>
           </p>

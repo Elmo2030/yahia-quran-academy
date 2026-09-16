@@ -18,6 +18,7 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { characterArt, surahIcon } from "@/lib/hifz-characters";
+import { lookArt } from "@/lib/hifz-looks";
 import { starsFor, type Stars } from "@/lib/hifz-stars";
 import type { ChildProfile } from "@/lib/hifz-store";
 import { REGIONS, type Region } from "@/lib/journey-map";
@@ -91,8 +92,11 @@ function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
   const earned = region.surahs.reduce((sum, surah) => sum + stars[surah], 0);
   const opened = region.surahs.every(surah => stars[surah] > 0);
   const name = locale === "ar" ? region.nameAr : region.nameEn;
-  // The child's own character stands in the region they are walking through.
-  const walker = region.surahs.includes(currentSurah) ? characterArt(profile.character, "walk") : null;
+  // The child's own character stands in the region they are walking through,
+  // with whichever companion they chose beside them.
+  const walking = region.surahs.includes(currentSurah);
+  const walker = walking ? characterArt(profile.character, "walk") : null;
+  const pet = walking && profile.looks.pet ? lookArt("pet", profile.looks.pet) : null;
 
   // One nudge moves about two cards. In Arabic the rail runs the other way, and
   // so does the scroll offset the browser reports.
@@ -123,6 +127,7 @@ function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
           title={opened ? t.treasureOpen(name) : t.treasureLocked(name)}
           loading="lazy"
         />
+        {pet && <img className="map-pet" src={pet.src} srcSet={pet.srcSet} sizes="38px" alt="" />}
         {walker && <img className="map-walker" src={walker.src} srcSet={walker.srcSet} sizes="52px" alt="" />}
         <div className="map-region__text">
           <h3 className="map-region__name">{name}</h3>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { RANKS, nextRank, nextStarHint, rankFor, starsFor, totalStars } from "./hifz-stars";
+import { DEFAULT_LOOKS } from "./hifz-looks";
 import { DEFAULT_SETTINGS, type AyahRecord, type ChildProfile } from "./hifz-store";
 
 const DAY = 86_400_000;
@@ -8,7 +9,7 @@ const MONDAY = 1_700_000_000_000;
 
 function child(ayahs: Record<string, Partial<AyahRecord>>): ChildProfile {
   return {
-    id: "c", name: "Test", character: "yahya", createdAt: MONDAY, settings: { ...DEFAULT_SETTINGS },
+    id: "c", name: "Test", character: "yahya", createdAt: MONDAY, settings: { ...DEFAULT_SETTINGS }, looks: { ...DEFAULT_LOOKS },
     ayahs: Object.fromEntries(Object.entries(ayahs).map(([key, value]) => [key, { reviews: [], ...value }])),
   };
 }
