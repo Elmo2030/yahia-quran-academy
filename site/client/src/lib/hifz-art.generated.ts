@@ -404,6 +404,150 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 1
  },
+ "/hifz-art/surahs/084": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/085": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/086": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/087": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/088": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/089": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/090": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/091": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/092": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/093": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/094": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/095": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/096": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/097": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/098": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/099": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/100": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/surahs/101": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
  "/hifz-art/surahs/109": {
   "widths": [
    96,
