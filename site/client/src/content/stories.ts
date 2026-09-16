@@ -568,7 +568,7 @@ export const stories: Story[] = [
     source: {
       reliability: "🟡",
       reference: { ar: "القرآن الكريم، الفرقان: 38 وق: 12 — وما عدا ذلك روايات مختلفة", en: "The Quran, Al-Furqan: 38 and Qaf: 12 — beyond that, differing reports" },
-      note: { ar: "القرآن ذكرهم في موضعين مع الأمم المهلكة ولم يفصّل خبرهم. وكل ما في القصة بعد ذلك — من هم، وماذا عبدوا، وكيف صنعوا بنبيهم — روايات يختلف فيها المفسرون، والبطاقة تقولها بصيغة الرواية. ينتظر مراجعتك.", en: "The Quran names them twice among the destroyed nations and gives no detail. Everything else in the story — who they were, what they worshipped, what they did to their prophet — comes from reports the commentators differ over, and the card tells them as reports. Awaiting your review." },
+      note: { ar: "القرآن ذكرهم في موضعين مع الأمم المهلكة ولم يفصّل خبرهم. وكل ما في القصة بعد ذلك — من هم، وماذا عبدوا، وكيف صنعوا بنبيهم — روايات يختلف فيها المفسرون، ولذلك تبقى القصة بهذه العلامة وتُروى بصيغة الرواية لا بصيغة الجزم.", en: "The Quran names them twice among the destroyed nations and gives no detail. Everything else in the story — who they were, what they worshipped, what they did to their prophet — comes from reports the commentators differ over. That is why the mark stays, and why the story is told as a report rather than as settled fact." },
     },
     challenge: {
       question: "ما معنى كلمة «الرسّ»؟",
@@ -1180,7 +1180,7 @@ export const stories: Story[] = [
     source: {
       reliability: "🟡",
       reference: { ar: "لم يُذكر اسمه في القرآن؛ والحديث في صحيح البخاري (3124) ومسلم (1747) بلا تسمية", en: "Not named in the Quran; the hadith is in Sahih al-Bukhari (3124) and Muslim (1747) without naming him" },
-      note: { ar: "حبس الشمس ثابت في الصحيحين، لكن الحديث يقول «غزا نبيٌّ من الأنبياء» ولم يسمِّه، وتسميته يوشع بن نون من أقوال المفسرين. واسم يوشع ليس في القرآن أصلاً. ينتظر مراجعتك.", en: "The holding back of the sun is established in both Sahihs, but the hadith says only that a prophet went out to battle and does not name him; identifying him as Yusha ibn Nun comes from the commentators, and the name is not in the Quran at all. Awaiting your review." },
+      note: { ar: "حبس الشمس ثابت في الصحيحين، لكن الحديث يقول «غزا نبيٌّ من الأنبياء» ولم يسمِّه، وتسميته يوشع بن نون من أقوال المفسرين. واسم يوشع ليس في القرآن أصلاً، ولذلك تبقى القصة بهذه العلامة: الحدث ثابت، والتسمية اجتهاد.", en: "The holding back of the sun is established in both Sahihs, but the hadith says only that a prophet went out to battle and does not name him; identifying him as Yusha ibn Nun comes from the commentators, and the name is not in the Quran at all. That is why the mark stays: the event is established, the name is an inference." },
     },
     challenge: {
       question: "ماذا طلب القائد من ربه يوم المعركة؟",
@@ -1843,7 +1843,7 @@ export const stories: Story[] = [
     source: {
       reliability: "🟡",
       reference: { ar: "القرآن الكريم، سورة البقرة: 259 — والآية لا تسمّي الرجل", en: "The Quran, Surah Al-Baqarah: 259 — the verse does not name the man" },
-      note: { ar: "القصة كلها بنص الآية: الإماتة مائة عام، والطعام الذي لم يتسنّه، والحمار الذي أُعيد. لكن الآية تقول ﴿أَوْ كَالَّذِي مَرَّ عَلَىٰ قَرْيَةٍ﴾ ولم تسمِّه، وتسميته عزيراً قول للمفسرين لا يثبت. ينتظر مراجعتك.", en: "The whole account is in the verse: the hundred years, the food that did not spoil, the donkey restored. But the verse says only one who passed by a town and does not name him; calling him Uzair is a commentators' opinion, not established. Awaiting your review." },
+      note: { ar: "القصة كلها بنص الآية: الإماتة مائة عام، والطعام الذي لم يتسنّه، والحمار الذي أُعيد. لكن الآية تقول ﴿أَوْ كَالَّذِي مَرَّ عَلَىٰ قَرْيَةٍ﴾ ولم تسمِّه، وتسميته عزيراً قول للمفسرين لا يثبت، ولذلك تبقى القصة بهذه العلامة: الآية ثابتة، والاسم ليس فيها.", en: "The whole account is in the verse: the hundred years, the food that did not spoil, the donkey restored. But the verse says only one who passed by a town and does not name him; calling him Uzair is a commentators' opinion, not established. That is why the mark stays: the verse is certain, the name is not in it." },
     },
     challenge: {
       question: "كم لبث الرجل ميتاً قبل أن يحييه الله؟",

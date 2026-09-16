@@ -88,9 +88,19 @@ describe("every story says where it comes from", () => {
     }
   });
 
-  it("says what is unsettled on any story awaiting review", () => {
-    for (const story of stories.filter(entry => entry.source.reliability === "🟡")) {
-      expect(story.source.note.ar, story.slug).toMatch(/مراجعت|قرارك|يختلف|أقوال/);
+  /**
+   * Three stories keep the amber mark for good: the People of ar-Rass, Yusha
+   * ibn Nun, and the donkey of Uzair. It is not a decision left pending — it
+   * is what the reports themselves are. So each of them has to do two things:
+   * name the disagreement, and say why the mark stays, rather than wear a
+   * colour the reader has to interpret.
+   */
+  it("names the disagreement and why the mark stays", () => {
+    const open = stories.filter(entry => entry.source.reliability === "🟡");
+    expect(open.map(entry => entry.slug).sort()).toEqual(["ashab-ar-rass", "donkey-of-uzair", "yusha"]);
+    for (const story of open) {
+      expect(story.source.note.ar, `${story.slug} names no disagreement`).toMatch(/يختلف|أقوال|لا يثبت|روايات/);
+      expect(story.source.note.ar, `${story.slug} does not say why the mark stays`).toContain("بهذه العلامة");
     }
   });
 
