@@ -356,6 +356,14 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 1
  },
+ "/hifz-art/shop/cards/courtyard": {
+  "widths": [
+   480,
+   960,
+   1600
+  ],
+  "ratio": 1.778
+ },
  "/hifz-art/shop/cards/dawn": {
   "widths": [
    480,
@@ -373,6 +381,14 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   "ratio": 1.778
  },
  "/hifz-art/shop/cards/garden": {
+  "widths": [
+   480,
+   960,
+   1600
+  ],
+  "ratio": 1.778
+ },
+ "/hifz-art/shop/cards/night": {
   "widths": [
    480,
    960,
@@ -433,6 +449,86 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
    128,
    256,
    512
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/pets/bird": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/pets/camel": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/pets/cat": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/book": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/date": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/dove": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/drop": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/lantern": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/palm": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/shop/stickers/star": {
+  "widths": [
+   96,
+   192,
+   384
   ],
   "ratio": 1
  },
