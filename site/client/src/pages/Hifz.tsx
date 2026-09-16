@@ -13,14 +13,16 @@ import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Link } from "wouter";
 import {
   BookOpen, Check, ChevronLeft, ChevronRight, Download, HardDrive, Pencil, Plus, Settings2, ShieldAlert,
-  ShieldCheck, Trash2, Upload, UserRound, Users,
+  ShieldCheck, Star, Trash2, Upload, UserRound, Users,
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
+import { JourneyMap } from "@/components/JourneyMap";
 import { CHARACTERS, characterArt, characterById, surahIcon, type Pose } from "@/lib/hifz-characters";
+import { nextRank, rankFor, totalStars } from "@/lib/hifz-stars";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import {
@@ -53,8 +55,14 @@ const copy = {
     hello: (name: string) => `أهلًا يا ${name}`,
     helloGuest: "أهلًا بك",
     switchChild: "غيّر الطفل",
-    journeyTitle: "سور الرحلة",
-    journeyBody: "ابدأ بالفاتحة ثم جزء عمّ من الناس صعودًا. خريطة الرحلة تأتي في التحديث القادم.",
+    journeyTitle: "خريطة الرحلة",
+    journeyBody: "ابدأ من الواحة تحت واطلع للجبال. اضغط على أي سورة لتبدأ فيها.",
+    rankLabel: "رتبتك",
+    starsCount: (n: number) => `${n} نجمة`,
+    nextRankIn: (n: number, name: string) => `${n} نجمة للوصول إلى «${name}»`,
+    topRank: "أعلى رتبة في الرحلة",
+    starsHow: "النجمة الأولى للاستماع الكامل، والثانية للتسجيل، والثالثة لإعلان الحفظ ومراجعته في يوم آخر.",
+    listView: "اعرض السور كقائمة",
     continueWith: (name: string) => `أكمل: سورة ${name}`,
     surahProgress: (declared: number, total: number) => `حفظتَ ${declared} من ${total}`,
     surahDone: "حُفظت كلها",
@@ -117,8 +125,14 @@ const copy = {
     hello: (name: string) => `Welcome, ${name}`,
     helloGuest: "Welcome",
     switchChild: "Switch child",
-    journeyTitle: "Surahs on the journey",
-    journeyBody: "Start with al-Fatiha, then Juz Amma from an-Nas upwards. The journey map comes in the next update.",
+    journeyTitle: "The journey map",
+    journeyBody: "Start at the oasis below and climb to the mountains. Tap any surah to begin there.",
+    rankLabel: "Your rank",
+    starsCount: (n: number) => `${n} stars`,
+    nextRankIn: (n: number, name: string) => `${n} more stars to reach “${name}”`,
+    topRank: "The highest rank on the journey",
+    starsHow: "The first star is for listening all the way through, the second for recording, the third for saying it is memorized and coming back to it another day.",
+    listView: "Show the surahs as a list",
     continueWith: (name: string) => `Continue: Surah ${name}`,
     surahProgress: (declared: number, total: number) => `${declared} of ${total} memorized`,
     surahDone: "All memorized",
@@ -406,6 +420,7 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
             />
           )}
 
+          <RankCard t={t} profile={profile} />
           <SurahList t={t} profile={profile} />
 
           <SettingsPanel t={t} profile={profile} onChange={patch => commit(updateSettings(store, profile.id, patch))} />
@@ -440,7 +455,10 @@ function SurahList({ t, profile }: { t: Copy; profile: ChildProfile }) {
         </div>
         <Link href={`/hifz/${current.surah}`} className="button button--primary">{t.continueWith(nameOf(current.surah))} <Arrow size={17} aria-hidden="true" /></Link>
       </div>
-      <ol className="hifz-surahs">
+      <JourneyMap profile={profile} currentSurah={current.surah} />
+      <details className="hifz-list-fallback">
+        <summary>{t.listView}</summary>
+        <ol className="hifz-surahs">
         {rows.map(row => {
           const done = row.declared === row.total;
           const started = row.listened + row.recorded + row.declared > 0;
@@ -455,7 +473,28 @@ function SurahList({ t, profile }: { t: Copy; profile: ChildProfile }) {
             </li>
           );
         })}
-      </ol>
+        </ol>
+      </details>
+    </section>
+  );
+}
+
+/** Rank, stars, and what the next rank needs. */
+function RankCard({ t, profile }: { t: Copy; profile: ChildProfile }) {
+  const { locale } = useLocale();
+  const stars = totalStars(profile);
+  const rank = rankFor(stars);
+  const upcoming = nextRank(stars);
+  return (
+    <section className="hifz-card hifz-rank">
+      <img className="hifz-rank__badge" src={`/hifz-art/rewards/rank-${rank.level}-256.webp`} alt="" loading="lazy" />
+      <div className="hifz-rank__text">
+        <span className="hifz-rank__label">{t.rankLabel}</span>
+        <b>{locale === "ar" ? rank.nameAr : rank.nameEn}</b>
+        <p className="hifz-rank__stars"><Star size={15} fill="currentColor" aria-hidden="true" /> {t.starsCount(stars)}</p>
+        <small>{upcoming ? t.nextRankIn(upcoming.remaining, locale === "ar" ? upcoming.rank.nameAr : upcoming.rank.nameEn) : t.topRank}</small>
+      </div>
+      <p className="hifz-rank__how">{t.starsHow}</p>
     </section>
   );
 }

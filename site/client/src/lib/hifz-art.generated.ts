@@ -403,5 +403,13 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
    384
   ],
   "ratio": 1
+ },
+ "/hifz-art/surahs/109": {
+  "widths": [
+   96,
+   192,
+   384
+  ],
+  "ratio": 1
  }
 };

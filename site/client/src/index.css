@@ -1084,3 +1084,52 @@
 .hifz-surah__icon { grid-row: span 2; inline-size: 44px; block-size: 44px; object-fit: contain; }
 /* Nothing to say yet: the live region stays for screen readers, the pill does not show. */
 .hifz-bubble.is-quiet { opacity: 0; box-shadow: none; }
+
+/* --- The journey map ----------------------------------------------------- */
+.map { display: grid; gap: 0; inline-size: 100%; max-inline-size: 460px; margin-inline: auto; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 16px 34px rgb(var(--shadow-rgb) / 10%); }
+/* The four paintings do not tile, so each band fades into the one below it. */
+.map-region { position: relative; aspect-ratio: 1536 / 2752; background-size: cover; background-position: center; }
+.map-region + .map-region { margin-block-start: -6%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 9%); mask-image: linear-gradient(180deg, transparent 0, #000 9%); }
+.map-region__name { position: absolute; inset-block-start: 2.5%; inset-inline-start: 50%; transform: translateX(-50%); padding: .3rem .85rem; border-radius: 99px; background: rgb(var(--chrome-rgb) / 88%); color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: .82rem; font-weight: 800; white-space: nowrap; }
+[dir="rtl"] .map-region__name { transform: translateX(50%); }
+.map-path { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; }
+.map-path polyline { stroke: rgb(var(--sheen-rgb) / 75%); stroke-width: 1.1; stroke-linecap: round; stroke-dasharray: 2.4 3.4; }
+:root[data-theme="dark"] .map-path polyline { stroke: rgb(255 255 255 / 45%); }
+.map-stations { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; }
+.map-stations > li { position: absolute; transform: translateX(-50%); }
+[dir="rtl"] .map-stations > li { transform: translateX(50%); }
+.map-station { display: grid; justify-items: center; gap: .15rem; inline-size: max-content; padding: .3rem .4rem .35rem; border-radius: 16px; background: rgb(var(--chrome-rgb) / 86%); border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform .16s cubic-bezier(.23,1,.32,1); }
+.map-station:hover { transform: translateY(-3px); }
+.map-station:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.map-station__mark { display: grid; place-items: center; inline-size: 54px; block-size: 54px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line-gold); overflow: hidden; }
+.map-station__mark img { inline-size: 100%; block-size: 100%; object-fit: contain; }
+.map-station__mark b { color: var(--gold-ink-deep); font-size: .95rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.map-station__name { max-inline-size: 7.5rem; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: .8rem; font-weight: 800; line-height: 1.35; text-align: center; }
+.map-station.is-full .map-station__mark { border-color: var(--brand-solid); box-shadow: inset 0 0 0 2px var(--brand-solid); }
+.map-station.is-here { background: var(--surface-gold); border-color: var(--gold); box-shadow: 0 0 0 3px rgb(212 175 55 / 35%); }
+.map-here { padding: .1rem .5rem; border-radius: 99px; background: var(--gold-deep); color: #fff; font-size: .68rem; font-weight: 800; }
+.map-stars { display: inline-flex; gap: .1rem; color: var(--line); }
+.map-stars .is-on { color: var(--gold-deep); }
+.map-treasure { position: absolute; inset-block-start: 3%; inset-inline-end: 6%; inline-size: 54px; block-size: 54px; object-fit: contain; filter: grayscale(1) opacity(.45); }
+.map-treasure.is-open { filter: none; }
+@media (max-width: 420px) {
+  .map-station__mark { inline-size: 44px; block-size: 44px; }
+  .map-station__name { font-size: .72rem; max-inline-size: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .map-station { transition: none; } .map-station:hover { transform: none; } }
+
+.hifz-list-fallback > summary { cursor: pointer; color: var(--ink-soft); font-size: .85rem; font-weight: 700; padding: .4rem 0; }
+.hifz-list-fallback[open] > summary { margin-block-end: .6rem; }
+
+.hifz-rank { grid-template-columns: auto 1fr; align-items: center; background: linear-gradient(135deg, var(--surface-gold), var(--surface)); border-color: var(--line-gold); }
+.hifz-rank__badge { inline-size: 84px; block-size: 84px; object-fit: contain; }
+.hifz-rank__text { display: grid; gap: .1rem; }
+.hifz-rank__label { color: var(--gold-ink-deep); font-size: .74rem; font-weight: 800; }
+.hifz-rank__text b { color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.25rem; font-weight: 800; }
+.hifz-rank__stars { display: flex; align-items: center; gap: .3rem; margin: 0 !important; color: var(--gold-ink-deep) !important; font-weight: 800; font-size: .92rem; }
+.hifz-rank__text small { color: var(--ink-soft); font-size: .8rem; }
+.hifz-rank__how { grid-column: 1 / -1; margin: 0; color: var(--ink-soft) !important; font-size: .82rem !important; line-height: 1.8; }
+/* The character standing at the station the child is on. */
+.map-walker { position: absolute; inset-block-end: .2rem; inset-inline-start: calc(100% + .3rem); inline-size: 70px; max-block-size: 96px; object-fit: contain; object-position: bottom; pointer-events: none; filter: drop-shadow(0 8px 10px rgb(var(--shadow-rgb) / 22%)); }
+[dir="rtl"] .map-walker { transform: scaleX(-1); }
+@media (max-width: 420px) { .map-walker { inline-size: 54px; } }
