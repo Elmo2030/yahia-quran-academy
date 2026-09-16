@@ -29,7 +29,7 @@ import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { deleteProfileRecordings } from "@/lib/recordings";
 import {
-  MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup,
+  MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup, markBackedUp,
   checkPersistence, importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, updateProfile, updateSettings,
   type CharacterId, type ChildProfile, type FontStep, type HifzStore, type ImportResult, type Persistence,
   type ReciterChoice,
@@ -640,6 +640,7 @@ function DeviceData({ t, store, commit, profile }: {
   }, [hasChildren]);
 
   const download = () => {
+    commit(markBackedUp(store));
     const blob = new Blob([exportBackup(store)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");

@@ -1219,3 +1219,11 @@
   .hifz-memorize__bar { gap: .5rem; }
   .hifz-memorize__title h1 { font-size: 1.25rem; }
 }
+
+/* --- The backup reminder and the storage meter -------------------------- */
+.hifz-backup.is-stale { border-color: var(--line-gold); background: linear-gradient(135deg, var(--surface-gold), var(--surface)); }
+.hifz-backup__when { color: var(--ink) !important; font-weight: 800; }
+.hifz-meter { display: block; block-size: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.hifz-meter > span { display: block; block-size: 100%; background: var(--brand-solid); }
+.hifz-storage__list { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.hifz-storage__list li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem .8rem; padding: .55rem .8rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); color: var(--ink); font-size: .85rem; }

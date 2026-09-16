@@ -74,6 +74,8 @@ export type HifzStore = {
   activeProfileId: string | null;
   /** the device's parent lock, if one was set */
   parentLock?: ParentLock;
+  /** when a backup file was last saved from this device */
+  lastBackupAt?: number;
   updatedAt: number;
 };
 
@@ -191,6 +193,7 @@ export function parseStore(value: unknown): HifzStore {
     version: HIFZ_VERSION,
     profiles,
     activeProfileId: active,
+    ...(isTime(value.lastBackupAt) ? { lastBackupAt: value.lastBackupAt } : {}),
     ...(isObject(lock) && typeof lock.salt === "string" && typeof lock.hash === "string"
       ? { parentLock: { salt: lock.salt, hash: lock.hash, createdAt: isTime(lock.createdAt) ? lock.createdAt : Date.now() } }
       : {}),
@@ -438,7 +441,7 @@ export function exportBackup(store: HifzStore, now = Date.now()): string {
   // The parent's number belongs to the device it was set on, not to the file a
   // family mails to themselves; and restoring a backup must not be a way for a
   // child to lift the lock on this one.
-  const { parentLock: _lock, ...children } = store;
+  const { parentLock: _lock, lastBackupAt: _backedUp, ...children } = store;
   return JSON.stringify({ app: BACKUP_APP, version: HIFZ_VERSION, exportedAt: new Date(now).toISOString(), store: children }, null, 2);
 }
 
@@ -470,6 +473,26 @@ export function importBackup(text: string, current?: HifzStore): ImportResult {
     profiles: namedProfiles(store).length,
   };
 }
+
+/**
+ * Remembers that a backup was saved. Everything else here is on one device, so
+ * this date is the only thing that can tell a family their copy is old.
+ */
+export const markBackedUp = (store: HifzStore, now = Date.now()): HifzStore => touch(store, { lastBackupAt: now });
+
+/** Days since the last backup, or null if none was ever saved. */
+export function daysSinceBackup(store: HifzStore, now = Date.now()): number | null {
+  if (!store.lastBackupAt) return null;
+  return Math.max(0, Math.floor((now - store.lastBackupAt) / 86_400_000));
+}
+
+/** A month between copies is the point at which the page starts asking. */
+export const BACKUP_REMINDER_DAYS = 30;
+
+export const backupIsStale = (store: HifzStore, now = Date.now()) => {
+  const days = daysSinceBackup(store, now);
+  return days === null ? store.profiles.length > 0 : days >= BACKUP_REMINDER_DAYS;
+};
 
 export const backupFileName = (now = new Date()) =>
   `yahya-hifz-backup-${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}.json`;

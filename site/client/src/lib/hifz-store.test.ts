@@ -1,20 +1,24 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  BACKUP_REMINDER_DAYS,
   HIFZ_KEY,
   MAX_BACKUP_BYTES,
   MAX_NAME_LENGTH,
   MAX_PROFILES,
   activeProfile,
   cleanName,
+  backupIsStale,
   confirmDeclarations,
   createProfile,
+  daysSinceBackup,
   declareMemorized,
   emptyStore,
   enterAsGuest,
   exportBackup,
   importBackup,
   loadStore,
+  markBackedUp,
   markListened,
   markReviewed,
   markRecorded,
@@ -322,5 +326,33 @@ describe("the parent's side", () => {
     expect(ayahs["112:3"].declaredAt).toBeUndefined();
     // Nothing left to confirm leaves the store alone.
     expect(confirmDeclarations(after, profile.id, 112, 4)).toBe(after);
+  });
+});
+
+describe("the backup reminder", () => {
+  const DAY = 86_400_000;
+  const NOW = 1_800_000_000_000;
+
+  it("knows nothing was ever saved, and asks once there is a child to lose", () => {
+    expect(daysSinceBackup(emptyStore(), NOW)).toBeNull();
+    // An empty device has nothing worth reminding anyone about.
+    expect(backupIsStale(emptyStore(), NOW)).toBe(false);
+    expect(backupIsStale(withChild("Amina").store, NOW)).toBe(true);
+  });
+
+  it("counts the days since the last copy and asks again after a month", () => {
+    const { store } = withChild("Amina");
+    const saved = markBackedUp(store, NOW - 3 * DAY);
+    expect(daysSinceBackup(saved, NOW)).toBe(3);
+    expect(backupIsStale(saved, NOW)).toBe(false);
+
+    const old = markBackedUp(store, NOW - BACKUP_REMINDER_DAYS * DAY);
+    expect(backupIsStale(old, NOW)).toBe(true);
+  });
+
+  it("survives a reload and stays out of the backup file itself", () => {
+    const saved = markBackedUp(withChild("Amina").store, NOW);
+    expect(parseStore(JSON.parse(JSON.stringify(saved))).lastBackupAt).toBe(NOW);
+    expect(exportBackup(saved)).not.toContain("lastBackupAt");
   });
 });

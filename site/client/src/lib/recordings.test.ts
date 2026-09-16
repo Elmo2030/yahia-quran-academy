@@ -12,6 +12,7 @@ import {
   deleteRecording,
   getRecording,
   listAllRecordings,
+  recordingsUse,
   listAyahRecordings,
   listRecordings,
   recordingsAvailable,
@@ -113,5 +114,35 @@ describe("the memorization journey's takes", () => {
     await saveRecording({ ...clip(112), ayah: 1, profileId: "stays" });
     expect(await deleteProfileRecordings("gone")).toBe(2);
     expect((await listAllRecordings()).map(t => t.profileId)).toEqual(["stays"]);
+  });
+});
+
+describe("how much of the device the recordings use", () => {
+  beforeEach(async () => {
+    for (const take of await listAllRecordings()) await deleteRecording(take.id);
+  });
+
+  it("adds up the audio, per child", async () => {
+    await saveRecording({ ...clip(114), ayah: 1, profileId: "a" });
+    await saveRecording({ ...clip(113), ayah: 1, profileId: "a" });
+    await saveRecording({ ...clip(112), ayah: 1, profileId: "b" });
+    const use = await recordingsUse();
+    expect(use.takes).toBe(3);
+    expect(use.bytes).toBe(12); // four bytes a clip in these tests
+    expect(use.byProfile.a).toEqual({ takes: 2, bytes: 8 });
+    expect(use.byProfile.b).toEqual({ takes: 1, bytes: 4 });
+    expect(use.reader).toEqual({ takes: 0, bytes: 0 });
+  });
+
+  it("counts the reader's own recordings apart from the journey's", async () => {
+    await saveRecording(clip(2)); // the reader: no child, no ayah
+    await saveRecording({ ...clip(114), ayah: 1, profileId: "a" });
+    const use = await recordingsUse();
+    expect(use.reader).toEqual({ takes: 1, bytes: 4 });
+    expect(use.byProfile).toEqual({ a: { takes: 1, bytes: 4 } });
+  });
+
+  it("reports an empty device as empty", async () => {
+    expect(await recordingsUse()).toEqual({ takes: 0, bytes: 0, byProfile: {}, reader: { takes: 0, bytes: 0 } });
   });
 });

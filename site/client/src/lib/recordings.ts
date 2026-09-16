@@ -157,6 +157,46 @@ export function pickRecordingMimeType(): string | undefined {
   return undefined;
 }
 
+export type StorageUse = {
+  takes: number;
+  bytes: number;
+  /** journey takes, by child */
+  byProfile: Record<string, { takes: number; bytes: number }>;
+  /** whole-surah recordings from the reader, which belong to no child */
+  reader: { takes: number; bytes: number };
+};
+
+/**
+ * How much of the device the recordings are using. Read by the parent's corner:
+ * a family should be able to see this before the tablet tells them it is full.
+ */
+export async function recordingsUse(): Promise<StorageUse> {
+  const all = await run<Recording[]>("readonly", store => store.getAll());
+  const use: StorageUse = { takes: all.length, bytes: 0, byProfile: {}, reader: { takes: 0, bytes: 0 } };
+  for (const record of all) {
+    const bytes = record.bytes?.byteLength ?? 0;
+    use.bytes += bytes;
+    if (!record.profileId) {
+      use.reader = { takes: use.reader.takes + 1, bytes: use.reader.bytes + bytes };
+      continue;
+    }
+    const entry = use.byProfile[record.profileId] ?? { takes: 0, bytes: 0 };
+    use.byProfile[record.profileId] = { takes: entry.takes + 1, bytes: entry.bytes + bytes };
+  }
+  return use;
+}
+
+/** What the browser says about this origin's storage, when it says anything. */
+export async function storageEstimate(): Promise<{ usage: number; quota: number } | null> {
+  try {
+    const estimate = await navigator.storage?.estimate?.();
+    if (!estimate || typeof estimate.usage !== "number" || typeof estimate.quota !== "number") return null;
+    return { usage: estimate.usage, quota: estimate.quota };
+  } catch {
+    return null;
+  }
+}
+
 export async function listAllRecordings(): Promise<RecordingSummary[]> {
   const all = await run<Recording[]>("readonly", store => store.getAll());
   return all
