@@ -18,6 +18,13 @@
 /stories/*
   Cache-Control: public, max-age=604800
 
+# The worker must never be served from a stale cache, or an old one keeps
+# control after a deploy.
+/sw.js
+  Cache-Control: no-cache
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600
+
 # Memorization journey art. Not fingerprinted; replaced rarely, in batches.
 /hifz-art/*
   Cache-Control: public, max-age=604800

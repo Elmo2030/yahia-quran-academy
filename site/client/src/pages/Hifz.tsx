@@ -13,13 +13,14 @@ import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Link } from "wouter";
 import {
   BookOpen, Check, ChevronLeft, ChevronRight, Download, HardDrive, Pencil, Plus, Settings2, ShieldAlert,
-  KeyRound, ShieldCheck, Star, Trash2, Upload, UserRound, Users,
+  Award, KeyRound, ShieldCheck, Star, Trash2, Upload, UserRound, Users,
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
+import { InstallCard } from "@/components/InstallCard";
 import { JourneyMap } from "@/components/JourneyMap";
 import { CHARACTERS, characterArt, characterById, surahIcon, type Pose } from "@/lib/hifz-characters";
 import { nextDueDay, dayNumber, todayPlan } from "@/lib/hifz-review";
@@ -112,6 +113,7 @@ const copy = {
     removeConfirm: "نعم، احذف نهائيًا",
     removeWarning: "سيُحذف الملف وكل تقدّمه من هذا الجهاز، ولا يمكن التراجع إلا من نسخة احتياطية.",
     parentCorner: "ركن وليّ الأمر",
+    certificate: "شهادة الرحلة",
     home: "الرئيسية",
   },
   en: {
@@ -192,6 +194,7 @@ const copy = {
     removeConfirm: "Yes, delete for good",
     removeWarning: "The profile and all its progress will be removed from this device. Only a backup can bring it back.",
     parentCorner: "The parent’s corner",
+    certificate: "Journey certificate",
     home: "Home",
   },
 } as const;
@@ -446,9 +449,11 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
           <SurahList t={t} profile={profile} />
 
           <SettingsPanel t={t} profile={profile} onChange={patch => commit(updateSettings(store, profile.id, patch))} />
+          <InstallCard />
           <DeviceData t={t} store={store} commit={commit} profile={profile} />
           <p className="hifz-parent-link">
             <Link href="/hifz/parent" className="text-link"><KeyRound size={15} aria-hidden="true" /> {t.parentCorner}</Link>
+            <Link href="/hifz/certificate" className="text-link"><Award size={15} aria-hidden="true" /> {t.certificate}</Link>
           </p>
         </div>
       </section>

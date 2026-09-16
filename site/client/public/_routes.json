@@ -1,6 +1,8 @@
 {
   "version": 1,
-  "include": ["/*"],
+  "include": [
+    "/*"
+  ],
   "exclude": [
     "/assets/*",
     "/stories/*.jpg",
@@ -20,6 +22,11 @@
     "/og-yahya.jpg",
     "/robots.txt",
     "/sitemap.xml",
-    "/llms.txt"
+    "/llms.txt",
+    "/sw.js",
+    "/manifest.webmanifest",
+    "/app-icon-192.png",
+    "/app-icon-512.png",
+    "/app-icon-maskable-512.png"
   ]
 }

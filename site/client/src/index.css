@@ -1172,3 +1172,36 @@
 .hifz-report__takes span { color: var(--ink); font-size: .88rem; font-weight: 700; }
 .hifz-report__player { inline-size: 100%; margin-block-start: .6rem; }
 .hifz-parent-foot { gap: .8rem; }
+
+/* --- Installing, and the certificate ------------------------------------ */
+.hifz-install h2 svg { color: var(--gold-ink-deep); }
+.hifz-install-done { margin: 0; }
+.hifz-ios-steps { display: flex; align-items: flex-start; gap: .5rem; margin: 0; padding: .7rem .9rem; border-radius: 14px; background: var(--surface-3); color: var(--ink) !important; font-size: .88rem; }
+.hifz-ios-steps svg { flex: none; margin-block-start: .15rem; }
+.hifz-parent-link { gap: 1.2rem; flex-wrap: wrap; }
+
+.certificate { display: grid; padding: .5rem; background: linear-gradient(135deg, var(--surface-gold), var(--surface)); border-radius: 24px; border: 1px solid var(--line-gold); }
+.certificate__frame { display: grid; justify-items: center; gap: .55rem; padding: 2.2rem 1.4rem; border: 3px double var(--gold); border-radius: 18px; text-align: center; }
+.certificate__eyebrow { margin: 0; color: var(--gold-ink-deep) !important; font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
+.certificate__to { margin: 0; color: var(--ink-soft) !important; font-size: .9rem; }
+.certificate__name { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 800; line-height: 1.3; }
+.certificate__line { margin: 0; color: var(--ink) !important; font-family: "Noto Naskh Arabic", serif; font-size: 1.2rem; line-height: 1.9; }
+.certificate__of { color: var(--ink-soft); font-size: .92rem; }
+.certificate__witness { color: var(--brand) !important; font-size: 1rem !important; }
+.certificate__stars { display: flex; align-items: center; gap: .4rem; margin: .2rem 0 0 !important; color: var(--gold-ink-deep) !important; font-weight: 800; font-size: .95rem; }
+.certificate__surahs { display: grid; gap: .25rem; max-inline-size: 46ch; margin-block-start: .6rem; }
+.certificate__surahs span { color: var(--ink-soft); font-size: .78rem; font-weight: 800; }
+.certificate__surahs p { margin: 0; color: var(--ink) !important; font-family: "Noto Naskh Arabic", serif; font-size: 1rem; line-height: 2; }
+.certificate__date { margin: .6rem 0 0 !important; color: var(--ink-soft) !important; font-size: .88rem; }
+.certificate__honest { max-inline-size: 48ch; margin: .4rem 0 0 !important; color: var(--ink-faint) !important; font-size: .76rem !important; line-height: 1.8; }
+.certificate__site { margin: .2rem 0 0 !important; color: var(--brand) !important; font-size: .82rem; font-weight: 800; }
+
+@media print {
+  .hifz-no-print, .site-footer, .site-header { display: none !important; }
+  .hifz-section { padding: 0 !important; }
+  body, .site-shell, .hifz { background: #fff !important; }
+  .certificate { break-inside: avoid; border-color: #d4af37; background: #fff; }
+  .certificate__frame { border-color: #d4af37; }
+  .certificate * { color: #1a1a1a !important; }
+  .certificate__eyebrow, .certificate__stars, .certificate__site { color: #7d631c !important; }
+}
