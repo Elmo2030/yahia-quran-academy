@@ -33,6 +33,12 @@ const aqeedahChapters = pickFrom(aqeedahSource, "aqeedahChapters", "aqeedah.ts")
 const aqeedahCards = pickFrom(aqeedahSource, "aqeedahCards", "aqeedah.ts");
 if (aqeedahCards.length === 0) throw new Error("no aqeedah cards parsed — check aqeedah.ts shape");
 const seerahStories = pickFrom(seerahSource, "seerahStories", "seerah.ts");
+
+// The hundred facts each have a page of their own now, so the sitemap, the
+// llms listing and both copies of the metadata all need to know them.
+const factsSource = readFileSync(join(root, "client/src/content/quran-facts.ts"), "utf8");
+const quranFacts = pickFrom(factsSource, "quranFacts", "quran-facts.ts");
+if (quranFacts.length === 0) throw new Error("no quran facts parsed — check quran-facts.ts shape");
 if (seerahStories.length === 0) throw new Error("no seerah stories parsed — check seerah.ts shape");
 if (seerahStations.length === 0) throw new Error("no seerah stations parsed — check seerah.ts shape");
 for (const story of seerahStories) {
@@ -47,6 +53,7 @@ const urls = [
   { loc: "/privacy", priority: "0.3" },
   { loc: "/terms", priority: "0.3" },
   { loc: "/quran-facts", priority: "0.8" },
+  ...quranFacts.map(f => ({ loc: `/quran-facts/${f.slug}`, priority: "0.6" })),
   { loc: "/read", priority: "0.9" },
   { loc: "/listen", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
@@ -168,6 +175,8 @@ ${seerahLines.join("\n")}
 ${seerahStoryLines.join("\n")}
 
 ## In the Realm of the Quran
+${quranFacts.map(f => `- [${f.title.en}](${ORIGIN}/quran-facts/${f.slug}): ${f.body.en.replace(/\s+/g, " ").trim()}`).join("\n")}
+
 - [Discover the Quran](${ORIGIN}/quran-facts): one hundred short facts about the Quran
   for children — what it names, how it is arranged, and what is remarkable about
   it — presented as cards a child turns over one at a time.
@@ -220,6 +229,7 @@ type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
+type Fact = { number: number; slug: string; title: string; body: string; titleEn: string; bodyEn: string };
 export const chapterIndex: Chapter[] = ${JSON.stringify(chapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, descriptionAr: c.descriptionAr,
   titleEn: c.titleEn ?? null, descriptionEn: c.descriptionEn ?? null,
@@ -254,6 +264,12 @@ export const aqeedahCardIndex: AqeedahCard[] = ${JSON.stringify(aqeedahCards.map
   titleEn: c.en?.title ?? null, valueEn: c.en ? clip(c.en.value) : null,
   image: c.image ?? null,
 })), null, 1)};
+
+export const factIndex: Fact[] = ${JSON.stringify(quranFacts.map(f => ({
+  number: f.number, slug: f.slug,
+  title: f.title.ar, body: clip(f.body.ar),
+  titleEn: f.title.en, bodyEn: clip(f.body.en),
+})), null, 1)};
 `);
 
 // Both consumers are handed text that is already the right length: the app
@@ -275,8 +291,11 @@ writeFileSync(join(root, "functions/page-data.js"),
 `export const seerahStories = ${JSON.stringify(seerahStories.map(s => ({
   stationId: s.stationId, slug: s.slug, title: s.title, image: s.image ?? null,
   narrative: clip(s.content.tier_1_age_6_8.narrative),
+})), null, 1)};\n` +
+`export const quranFacts = ${JSON.stringify(quranFacts.map(f => ({
+  number: f.number, slug: f.slug, title: f.title.ar, body: clip(f.body.ar),
 })), null, 1)};\n`);
 
 console.log(`  sitemap.xml: ${urls.length} URLs`);
 console.log(`  robots.txt + llms.txt written`);
-console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories, ${seerahStations.length} seerah stations, ${seerahStories.length} seerah stories`);
+console.log(`  functions/page-data.js: ${chapters.length} chapters, ${stories.length} stories, ${seerahStations.length} seerah stations, ${seerahStories.length} seerah stories, ${quranFacts.length} facts`);

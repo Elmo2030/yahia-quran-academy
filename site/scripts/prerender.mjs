@@ -239,6 +239,26 @@ add("/quran-facts",
     ${facts.map(f => factBlock(f, "en")).join("")}
   `));
 
+// One page per fact. The index above lists all hundred and stays the way in;
+// these are what a search result, and a link someone sends, can point at.
+for (const fact of facts) {
+  add(`/quran-facts/${fact.slug}`,
+    section("ar", `
+      <h1>${esc(fact.title.ar)}</h1>
+      ${p(fact.body.ar)}
+      ${fact.ayahs.map(a => `<blockquote lang="ar" dir="rtl">${esc(a.text)}<cite>${esc(a.ref)}</cite></blockquote>`).join("")}
+      <h2>من أين نعرف هذا؟</h2>
+      ${p(fact.source.reference.ar)}${p(fact.source.note.ar)}
+      ${list([link("/quran-facts", "كل المعلومات المئة")])}
+    `) +
+    section("en", `
+      <h2>${esc(fact.title.en)}</h2>
+      ${p(fact.body.en)}
+      <h3>How do we know this?</h3>
+      ${p(fact.source.reference.en)}${p(fact.source.note.en)}
+    `));
+}
+
 // About, privacy, terms ------------------------------------------------------
 const aboutSide = (c, lang) => section(lang, `
   <h1>${esc(c.title)}</h1>

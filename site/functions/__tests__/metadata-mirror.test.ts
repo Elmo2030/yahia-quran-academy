@@ -19,7 +19,7 @@ import { join } from "node:path";
 import { beforeAll, afterAll, describe, expect, it } from "vitest";
 
 import { metaForPath } from "@/lib/page-meta";
-import { chapterIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index.generated";
+import { chapterIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex, factIndex } from "@/lib/page-index.generated";
 
 const bundle = join(process.cwd(), "functions", "__tests__", ".mirror.bundle.mjs");
 let onRequest: (context: unknown) => Promise<Response>;
@@ -75,6 +75,8 @@ const ROUTES = [
   ...spread(seerahStoryIndex, 8).map(story => `/seerah/${story.slug}`),
   ...spread(aqeedahCardIndex, 6).map(card => `/aqeedah/${card.slug}`),
   "/aqeedah/nope",
+  ...spread(factIndex, 8).map(fact => `/quran-facts/${fact.slug}`),
+  "/quran-facts/nope",
   "/read/1", "/read/18", "/read/114",
   // Addresses that name no surah: this is where the two copies drifted once,
   // the function answering 200 to a page whose title said it did not exist.

@@ -7,6 +7,7 @@ type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
+type Fact = { number: number; slug: string; title: string; body: string; titleEn: string; bodyEn: string };
 export const chapterIndex: Chapter[] = [
  {
   "slug": "animals",
@@ -1714,5 +1715,808 @@ export const aqeedahCardIndex: AqeedahCard[] = [
   "titleEn": "My Map of Faith",
   "valueEn": "I knew my Lord, so I loved Him, so I obeyed Him — and it showed in what I do.",
   "image": "/stories/aqeedah/my-map-of-faith.jpg"
+ }
+];
+
+export const factIndex: Fact[] = [
+ {
+  "number": 1,
+  "slug": "bismillah",
+  "title": "سورة بلا بسملة، وسورة ببسملتين",
+  "body": "سورة «التوبة» هي السورة الوحيدة التي لا تبدأ بـ «بسم الله الرحمن الرحيم». أما سورة «النمل» ففيها بسملتان: واحدة في أولها، والثانية داخل قصة النبي سليمان.",
+  "titleEn": "One Surah without it, one with two",
+  "bodyEn": "Surah At-Tawbah is the only surah that does not open with “Bismillah ir-Rahman ir-Rahim”. Surah An-Naml has two: one at its beginning, and one inside the story of Prophet Sulaiman."
+ },
+ {
+  "number": 2,
+  "slug": "egypt",
+  "title": "مصر في القرآن",
+  "body": "اسم «مصر» ذُكر صراحةً في القرآن الكريم خمس مرات. منها ترحيب الله بنبيه يعقوب وعائلته حين دخلوها.",
+  "titleEn": "Egypt in the Quran",
+  "bodyEn": "The name “Misr” — Egypt — is named outright in the Quran five times. One of them welcomes Prophet Yaqub and his family as they arrive."
+ },
+ {
+  "number": 3,
+  "slug": "sajdah",
+  "title": "خمسة عشر موضعاً للسجود",
+  "body": "في المصحف الذي بين أيدينا خمسة عشر موضعاً معلَّماً، إذا قرأناها سجدنا لله تعالى، وتُسمى سجدات التلاوة. وسورة «الحج» مميزة لأن فيها سجدتين!",
+  "titleEn": "Fifteen places to prostrate",
+  "bodyEn": "The mushaf we read marks fifteen places where a reader prostrates — the prostrations of recitation. Surah Al-Hajj stands out: it has two of them."
+ },
+ {
+  "number": 4,
+  "slug": "times",
+  "title": "سور سُمّيت بأسماء الأوقات",
+  "body": "سمّى الله بعض السور بأسماء الأوقات ليذكّرنا بأهمية الوقت: الفجر، والضحى، والليل، والعصر التي تبدأ بقسم عظيم.",
+  "titleEn": "Surahs named after times of day",
+  "bodyEn": "Some surahs are named after moments of the day, a reminder of how much time matters: Al-Fajr (dawn), Ad-Duha (morning), Al-Layl (night), and Al-Asr, which opens with a great oath."
+ },
+ {
+  "number": 5,
+  "slug": "cosmos",
+  "title": "الشمس والقمر والنجم",
+  "body": "القرآن مليء بأسماء الظواهر الكونية العظيمة، فهناك سور كاملة تحمل أسماء: الشمس، والقمر، والنجم.",
+  "titleEn": "The sun, the moon and the star",
+  "bodyEn": "The Quran is full of the great things in the sky — whole surahs carry their names: The Sun, The Moon, and The Star."
+ },
+ {
+  "number": 6,
+  "slug": "birds",
+  "title": "طيور ذكية بمهام عظيمة",
+  "body": "ذكر القرآن طيوراً قامت بأعمال مهمة: الغراب الذي علّم الإنسان الأول، والهدهد الذي اكتشف مملكة سبأ.",
+  "titleEn": "Clever birds with real work to do",
+  "bodyEn": "The Quran names birds that did important work: the crow that taught the first human, and the hoopoe that discovered the Kingdom of Sheba."
+ },
+ {
+  "number": 7,
+  "slug": "minerals",
+  "title": "معادن وأحجار كريمة",
+  "body": "ذكر القرآن الكريم معادن وأحجاراً ما زلنا نستخدمها حتى اليوم: الذهب، والفضة، والحديد، واللؤلؤ، والمرجان.",
+  "titleEn": "Metals and precious stones",
+  "bodyEn": "The Quran names metals and stones we still use today: gold, silver, iron, pearls and coral."
+ },
+ {
+  "number": 8,
+  "slug": "paradise-clothes",
+  "title": "ملابس أهل الجنة",
+  "body": "أخبرنا القرآن أن ملابس أهل الجنة من أفخر أنواع القماش: الحرير، والسندس، والإستبرق.",
+  "titleEn": "What the people of Paradise wear",
+  "bodyEn": "The Quran tells us the people of Paradise wear the finest cloth there is: silk, sundus and istabraq."
+ },
+ {
+  "number": 9,
+  "slug": "colours",
+  "title": "ألوان في القرآن",
+  "body": "ذكر القرآن الكريم كثيراً من الألوان: الأبيض، والأسود، والأحمر، والأخضر، والأزرق، والأصفر — كما في قصة البقرة العجيبة.",
+  "titleEn": "Colours in the Quran",
+  "bodyEn": "The Quran names many colours: white, black, red, green, blue and yellow — as in the story of the remarkable cow."
+ },
+ {
+  "number": 10,
+  "slug": "first-and-last",
+  "title": "أول ما نزل، ومن آخر ما نزل",
+  "body": "أول ما نزل من القرآن أمرَ بالعلم والقراءة. ومن آخر ما نزل آيةٌ تذكّرنا بالعودة إلى الله — وللعلماء أقوال في أيّها آخرها.",
+  "titleEn": "The first revealed, and among the last",
+  "bodyEn": "The first thing revealed of the Quran commanded learning and reading. Among the last to come down is a verse reminding us of the return to Allah — and scholars report more than…"
+ },
+ {
+  "number": 11,
+  "slug": "longest-shortest",
+  "title": "أطول سورة وأقصر سورة",
+  "body": "أطول سورة في القرآن هي «البقرة»، وأقصر سورة هي «الكوثر» ولا تتكوّن إلا من ثلاث آيات.",
+  "titleEn": "The longest surah and the shortest",
+  "bodyEn": "The longest surah in the Quran is Al-Baqarah. The shortest is Al-Kawthar — just three verses."
+ },
+ {
+  "number": 12,
+  "slug": "middle-word",
+  "title": "كلمة واحدة اسمها اللطف",
+  "body": "فتية الكهف لما أرسلوا واحداً منهم يشتري طعاماً، أوصوه بكلمة واحدة: ﴿وَلْيَتَلَطَّفْ﴾ — أي ليكن لطيفاً في كلامه ومشيه وتعامله، حتى لا يؤذيه أحد ولا يؤذي أحداً.",
+  "titleEn": "One word, and it means gentleness",
+  "bodyEn": "When the young men of the cave sent one of them to buy food, they gave him a single instruction: walyatalattaf — let him be gentle. Gentle in what he says, how he walks, how he…"
+ },
+ {
+  "number": 13,
+  "slug": "al-mujadilah",
+  "title": "سورة اسم الله في كل آية",
+  "body": "سورة «المجادلة» هي السورة الوحيدة في القرآن التي ذُكر فيها اسم «الله» في كل آية من آياتها.",
+  "titleEn": "The surah that names Allah in every verse",
+  "bodyEn": "Surah Al-Mujadilah is the only surah in which the name of Allah appears in every single verse."
+ },
+ {
+  "number": 14,
+  "slug": "the-challenge",
+  "title": "التحدي الذي لم يُجَب",
+  "body": "تحدّى الله الإنس والجن أن يأتوا بكتاب مثل القرآن، أو حتى بسورة واحدة مثله، فلم يستطيعوا.",
+  "titleEn": "A challenge no one could meet",
+  "bodyEn": "Allah challenged humans and jinn together to bring a book like the Quran — or even one surah like it. They never could."
+ },
+ {
+  "number": 15,
+  "slug": "cave-years",
+  "title": "ثلاثمائة سنة… وتسع",
+  "body": "ذكر القرآن مدة نوم أصحاب الكهف بدقة عجيبة: ثلاثمائة سنة شمسية، وهي تساوي بالضبط 309 سنوات قمرية.",
+  "titleEn": "Three hundred years, and nine",
+  "bodyEn": "The Quran gives the sleep of the People of the Cave with striking precision: three hundred solar years, which is exactly 309 lunar years."
+ },
+ {
+  "number": 16,
+  "slug": "al-ikhlas",
+  "title": "ثلث القرآن في أربع آيات",
+  "body": "قراءة سورة «الإخلاص» على قِصرها تعدل في أجرها ثلث القرآن الكريم، لأنها تتحدث عن صفات الله الواحد.",
+  "titleEn": "A third of the Quran in four verses",
+  "bodyEn": "Reciting Surah Al-Ikhlas, short as it is, carries the reward of a third of the Quran — because it is about who Allah is."
+ },
+ {
+  "number": 17,
+  "slug": "al-mulk",
+  "title": "سورة تشفع لصاحبها",
+  "body": "سورة «الملك» ثلاثون آية فقط، وتشفع لصاحبها يوم القيامة وتحميه.",
+  "titleEn": "The surah that speaks for its reader",
+  "bodyEn": "Surah Al-Mulk is only thirty verses, and it intercedes for the one who reads it on the Day of Judgement."
+ },
+ {
+  "number": 18,
+  "slug": "yusuf-complete",
+  "title": "القصة الوحيدة الكاملة",
+  "body": "قصة النبي يوسف عليه السلام هي القصة الوحيدة في القرآن التي ذُكرت كاملة من البداية إلى النهاية في سورة واحدة.",
+  "titleEn": "The one story told all at once",
+  "bodyEn": "The story of Prophet Yusuf is the only one in the Quran told from beginning to end inside a single surah."
+ },
+ {
+  "number": 19,
+  "slug": "animals",
+  "title": "حيوانات في القرآن",
+  "body": "ذكر القرآن حيوانات كثيرة، منها الذئب والكلب والخيل. والذئب ذُكر في قصة يوسف على لسان إخوته.",
+  "titleEn": "Animals in the Quran",
+  "bodyEn": "The Quran names many animals — among them the wolf, the dog and horses. The wolf appears in the story of Yusuf, in what his brothers claimed."
+ },
+ {
+  "number": 20,
+  "slug": "yaqteen",
+  "title": "النبتة التي أظلّت يونس",
+  "body": "ذكر القرآن نبات «اليقطين»، وهو النبات اللطيف الذي أنبته الله ليحمي النبي يونس بعد خروجه من بطن الحوت.",
+  "titleEn": "The plant that shaded Yunus",
+  "bodyEn": "The Quran names the yaqteen — the gourd plant Allah grew to shelter Prophet Yunus after he came out of the whale."
+ },
+ {
+  "number": 21,
+  "slug": "muqattaat",
+  "title": "الحروف التي في أول السور",
+  "body": "تسع وعشرون سورة تبدأ بحروف تُسمّى «الحروف المقطّعة» مثل (الم) و(حم). وهي تحدٍّ من الله: القرآن مبنيّ من الحروف نفسها التي يتكلّم بها الناس، ومع ذلك لا يستطيعون أن يأتوا بمثله.",
+  "titleEn": "The letters that open a surah",
+  "bodyEn": "Twenty-nine surahs open with letters called al-muqatta'at, like Alif-Lam-Mim. They are a challenge: the Quran is built from the very letters people speak with, and still no one…"
+ },
+ {
+  "number": 22,
+  "slug": "alhamdulillah",
+  "title": "خمس سور تبدأ بالحمد",
+  "body": "خمس سور في القرآن تبدأ بـ «الحمد لله»: الفاتحة، والأنعام، والكهف، وسبأ، وفاطر — لتعلّمنا أن نشكر الله دائماً.",
+  "titleEn": "Five surahs that open with praise",
+  "bodyEn": "Five surahs open with “Alhamdulillah”: Al-Fatihah, Al-An'am, Al-Kahf, Saba' and Fatir — teaching us to thank Allah first."
+ },
+ {
+  "number": 23,
+  "slug": "qul",
+  "title": "خمس سور تبدأ بـ «قل»",
+  "body": "خمس سور تبدأ بكلمة «قل»: الجن، والكافرون، والإخلاص، والفلق، والناس.",
+  "titleEn": "Five surahs that begin with “Say”",
+  "bodyEn": "Five surahs begin with the word “Qul” — Say: Al-Jinn, Al-Kafirun, Al-Ikhlas, Al-Falaq and An-Nas."
+ },
+ {
+  "number": 24,
+  "slug": "prophet-surahs",
+  "title": "ست سور بأسماء أنبياء",
+  "body": "ست سور في القرآن سُمّيت بأسماء أنبياء: يونس، وهود، ويوسف، وإبراهيم، ومحمد، ونوح.",
+  "titleEn": "Six surahs named after prophets",
+  "bodyEn": "Six surahs carry a prophet's name: Yunus, Hud, Yusuf, Ibrahim, Muhammad and Nuh."
+ },
+ {
+  "number": 25,
+  "slug": "vegetables",
+  "title": "خضروات على مائدة القرآن",
+  "body": "ذكر القرآن خضروات نأكلها حتى اليوم: البصل، والفوم (الثوم)، والعدس، والقِثّاء (الخيار) — في قصة بني إسرائيل.",
+  "titleEn": "Vegetables the Quran names",
+  "bodyEn": "The Quran names vegetables still on our tables: onions, garlic, lentils and cucumbers — in the story of the Children of Israel."
+ },
+ {
+  "number": 26,
+  "slug": "abu-lahab",
+  "title": "الوحيد الذي ذُكر بكنيته",
+  "body": "لم يذكر القرآن أحداً من أعداء النبي ﷺ بكنيته إلا «أبا لهب»، وتوعّده الله بالنار في سورة المسد وهو ما زال حياً.",
+  "titleEn": "The only one named by his nickname",
+  "bodyEn": "Of all those who opposed the Prophet ﷺ, only Abu Lahab is named in the Quran by his nickname — and Surah Al-Masad foretold his end while he was still alive."
+ },
+ {
+  "number": 27,
+  "slug": "angels",
+  "title": "ملائكة ذُكرت بأسمائها",
+  "body": "ذكر القرآن أسماء بعض الملائكة صراحةً: جبريل، وميكائيل، ومالك.",
+  "titleEn": "Angels named outright",
+  "bodyEn": "A few angels are named outright in the Quran: Jibril, Mikail and Malik."
+ },
+ {
+  "number": 28,
+  "slug": "dunya-akhirah",
+  "title": "توازن عجيب في الأرقام",
+  "body": "في القرآن توازن رقمي لافت: كلمة «الدنيا» تكرّرت 115 مرة، وكلمة «الآخرة» تكرّرت 115 مرة بالضبط.",
+  "titleEn": "A balance you can count",
+  "bodyEn": "There is a striking balance in the Quran's numbers: the word “dunya” — this world — appears 115 times, and “akhirah” — the hereafter — appears exactly 115 times too."
+ },
+ {
+  "number": 29,
+  "slug": "preserved",
+  "title": "كتاب تعهّد الله بحفظه",
+  "body": "القرآن هو الكتاب الوحيد الذي تعهّد الله بحفظه من أي تغيير إلى يوم القيامة.",
+  "titleEn": "A book Allah promised to keep",
+  "bodyEn": "The Quran is the one book Allah promised to preserve from any change, until the Day of Judgement."
+ },
+ {
+  "number": 30,
+  "slug": "drinks",
+  "title": "أطيب المشروبات",
+  "body": "ذكر القرآن أطيب المشروبات وأنفعها: الماء، واللبن، والعسل الذي فيه شفاء للناس.",
+  "titleEn": "The best things to drink",
+  "bodyEn": "The Quran names the best drinks there are: water, milk, and honey — in which there is healing for people."
+ },
+ {
+  "number": 31,
+  "slug": "holy-cities",
+  "title": "مدن ذكرها القرآن بأسمائها",
+  "body": "ذكر القرآن مكة باسم «بكة»، والمدينة المنورة باسمها القديم «يثرب».",
+  "titleEn": "Cities the Quran names",
+  "bodyEn": "The Quran calls Mecca “Bakkah”, and names Medina by the name it carried before — “Yathrib”."
+ },
+ {
+  "number": 32,
+  "slug": "earlier-books",
+  "title": "كتب نزلت قبل القرآن",
+  "body": "ذكر القرآن الكتب السماوية التي سبقته: التوراة، والإنجيل، والزبور، وصحف إبراهيم وموسى.",
+  "titleEn": "The books that came before",
+  "bodyEn": "The Quran names the revelations that came before it: the Torah, the Injeel, the Zabur, and the scriptures of Ibrahim and Musa."
+ },
+ {
+  "number": 33,
+  "slug": "insects",
+  "title": "دروس كبيرة من حشرات صغيرة",
+  "body": "ضرب القرآن أمثالاً بأصغر المخلوقات ليعلّمنا أكبر الدروس، كالذبابة والبعوضة.",
+  "titleEn": "Big lessons from small insects",
+  "bodyEn": "The Quran draws its lessons from the smallest creatures there are — the fly and the mosquito among them."
+ },
+ {
+  "number": 34,
+  "slug": "ayat-al-kursi",
+  "title": "أعظم آية في القرآن",
+  "body": "أعظم آية في القرآن هي «آية الكرسي» في سورة البقرة، ومن قرأها كانت له حفظاً.",
+  "titleEn": "The greatest verse in the Quran",
+  "bodyEn": "The greatest verse in the Quran is Ayat al-Kursi, in Surah Al-Baqarah. Whoever reads it is kept safe by it."
+ },
+ {
+  "number": 35,
+  "slug": "isti-adha",
+  "title": "ماذا نقول قبل القراءة؟",
+  "body": "أمرنا الله أن نستعيذ به من الشيطان الرجيم قبل أن نبدأ قراءة القرآن.",
+  "titleEn": "What to say before you read",
+  "bodyEn": "Before opening the Quran we are told to seek refuge in Allah from the outcast Satan."
+ },
+ {
+  "number": 36,
+  "slug": "ancient-nations",
+  "title": "أمم قديمة جداً",
+  "body": "ذكر القرآن أسماء أمم وقبائل قديمة: عاد، وثمود، ويأجوج ومأجوج.",
+  "titleEn": "Nations from long ago",
+  "bodyEn": "The Quran names nations from the deep past: 'Aad, Thamud, and Gog and Magog."
+ },
+ {
+  "number": 37,
+  "slug": "tyrants",
+  "title": "طغاة حذّرنا منهم القرآن",
+  "body": "حذّرنا القرآن من طغاة تكبّروا في الأرض فعاقبهم الله: فرعون، وهامان، وقارون.",
+  "titleEn": "The tyrants the Quran warns about",
+  "bodyEn": "The Quran warns of those who grew arrogant on the earth and were brought down: Pharaoh, Haman and Qarun."
+ },
+ {
+  "number": 38,
+  "slug": "paradise-springs",
+  "title": "أسماء من أنهار الجنة",
+  "body": "في القرآن أسماء جميلة لعيون الجنة وأنهارها، صارت أسماءً للبنات: تسنيم، وسلسبيل، وكوثر.",
+  "titleEn": "Names from the rivers of Paradise",
+  "bodyEn": "The Quran names the springs and rivers of Paradise — Tasneem, Salsabil and Kawthar — and they became names for girls."
+ },
+ {
+  "number": 39,
+  "slug": "parents",
+  "title": "أهم وصية بعد التوحيد",
+  "body": "جمع القرآن أهم الأخلاق والوصايا، وجعل بعد عبادة الله مباشرةً الإحسان إلى الوالدين.",
+  "titleEn": "The command that comes right after faith",
+  "bodyEn": "Of everything the Quran asks of us, the one placed directly after worshipping Allah alone is kindness to your parents."
+ },
+ {
+  "number": 40,
+  "slug": "one-kasrah",
+  "title": "كسرة واحدة في سورة كاملة",
+  "body": "سورة «الإخلاص» ليس في كلماتها كسرة إلا في موضع واحد فقط (غير البسملة): تحت اللام في كلمة «يَلِدْ».",
+  "titleEn": "A single kasrah in a whole surah",
+  "bodyEn": "In all of Surah Al-Ikhlas there is only one kasrah — the vowel written beneath a letter — outside the basmalah: under the lam in “yalid”."
+ },
+ {
+  "number": 41,
+  "slug": "thirty-parts",
+  "title": "ثلاثون جزءاً وستون حزباً",
+  "body": "القرآن مقسّم إلى ثلاثين جزءاً ليسهل ختمه في شهر، وكل جزء مقسّم إلى حزبين، فيصير المجموع ستين حزباً.",
+  "titleEn": "Thirty parts, sixty halves",
+  "bodyEn": "The Quran is divided into thirty parts so it can be finished in a month, and each part into two hizbs — sixty in all."
+ },
+ {
+  "number": 42,
+  "slug": "verse-count",
+  "title": "ستة آلاف ومئتان وستٌّ وثلاثون",
+  "body": "عدد آيات القرآن الكريم في العدّ المعتمد في مصاحفنا اليوم هو 6236 آية.",
+  "titleEn": "Six thousand two hundred and thirty-six",
+  "bodyEn": "By the count used in the copies we read today, the Quran has 6,236 verses."
+ },
+ {
+  "number": 43,
+  "slug": "makki-madani",
+  "title": "مكية ومدنية",
+  "body": "سور القرآن تنقسم إلى مكية ومدنية: المشهور أن 86 سورة نزلت قبل الهجرة، و28 سورة نزلت بعدها — وبعض السور اختلف العلماء في أيّهما هي.",
+  "titleEn": "Makki and Madani",
+  "bodyEn": "The surahs divide into Makki and Madani: the familiar count is 86 revealed before the Hijrah and 28 after it — with a few surahs scholars place on either side."
+ },
+ {
+  "number": 44,
+  "slug": "uff",
+  "title": "أقصر كلمة، وأثقلها ميزاناً",
+  "body": "أقصر كلمة في القرآن تحمل معنى مستقلاً هي ﴿أُفٍّ﴾، واختارها الله ليعلّمنا ألا نُظهر للوالدين حتى أخفّ ضيق.",
+  "titleEn": "The shortest word, and the heaviest",
+  "bodyEn": "The shortest word in the Quran that stands on its own is ﴿uff﴾ — and it is there to teach us not to show our parents even the smallest impatience."
+ },
+ {
+  "number": 45,
+  "slug": "at-teen",
+  "title": "سورة باسم فاكهة",
+  "body": "سورة «التين» سُمّيت باسم فاكهة، ويبدأ الله سبحانه السورة بالقسم بها وبالزيتون.",
+  "titleEn": "A surah named after a fruit",
+  "bodyEn": "Surah At-Teen is named after a fruit — the fig — and it opens with an oath by it and by the olive."
+ },
+ {
+  "number": 46,
+  "slug": "science",
+  "title": "خلقٌ من بعد خلق",
+  "body": "وصف القرآن خلق الإنسان في بطن أمه مرحلةً بعد مرحلة: نطفة، ثم علقة، ثم مضغة، ثم عظام يُكسى عليها اللحم — بترتيب يذكره القرآن نفسه.",
+  "titleEn": "A making after a making",
+  "bodyEn": "The Quran describes the making of a human being in the womb one stage after another: a drop, then a clinging form, then a lump, then bones clothed in flesh — in an order the…"
+ },
+ {
+  "number": 47,
+  "slug": "oaths",
+  "title": "خمس عشرة سورة تبدأ بقسم",
+  "body": "خمس عشرة سورة في القرآن تبدأ بقسم، يقسم الله فيها بمخلوقاته العظيمة ليلفت انتباهنا إليها.",
+  "titleEn": "Fifteen surahs that open with an oath",
+  "bodyEn": "Fifteen surahs open with an oath — Allah swearing by things He made, to make us look at them properly."
+ },
+ {
+  "number": 48,
+  "slug": "verse-endings",
+  "title": "خواتيم الآيات تناسب معناها",
+  "body": "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة.",
+  "titleEn": "Endings that match what came before",
+  "bodyEn": "Many verses close with two of Allah's names chosen to fit what the verse is about: the Forgiving, the Merciful where it speaks of repentance; the Almighty, the Wise where it…"
+ },
+ {
+  "number": 49,
+  "slug": "quran-names",
+  "title": "أسماء أخرى للقرآن",
+  "body": "للقرآن الكريم أسماء أخرى جميلة: الكتاب، والفرقان، والنور، والشفاء.",
+  "titleEn": "The Quran's other names",
+  "bodyEn": "The Quran carries other names too: the Book, al-Furqan — the Criterion — the Light, and the Healing."
+ },
+ {
+  "number": 50,
+  "slug": "first-collection",
+  "title": "أول مرة جُمع في مصحف",
+  "body": "جُمع القرآن وكُتب في مصحف واحد لأول مرة في عهد الخليفة أبي بكر الصديق رضي الله عنه، باقتراح من عمر بن الخطاب لحفظه للأجيال.",
+  "titleEn": "The first time it was gathered into one book",
+  "bodyEn": "The Quran was first gathered into a single book in the time of Abu Bakr as-Siddiq, on a suggestion from Umar ibn al-Khattab, so that it would be kept for everyone after them."
+ },
+ {
+  "number": 51,
+  "slug": "ya-ayyuha-alladhina-amanu",
+  "title": "ثلاث سور تبدأ بنداء المؤمنين",
+  "body": "ثلاث سور فقط تبدأ بنداء ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا﴾: المائدة، والحجرات، والممتحنة.",
+  "titleEn": "Three surahs that open by calling the believers",
+  "bodyEn": "Only three surahs open with the call ﴿O you who have believed﴾: Al-Ma'idah, Al-Hujurat and Al-Mumtahanah."
+ },
+ {
+  "number": 52,
+  "slug": "ya-ayyuha-an-nabiyy",
+  "title": "ثلاث سور تنادي النبي ﷺ",
+  "body": "ثلاث سور تبدأ بنداء خاص للنبي محمد ﷺ ﴿يَا أَيُّهَا النَّبِيُّ﴾: الأحزاب، والطلاق، والتحريم.",
+  "titleEn": "Three surahs that call the Prophet ﷺ",
+  "bodyEn": "Three surahs open with a call meant for the Prophet ﷺ alone — ﴿O Prophet﴾: Al-Ahzab, At-Talaq and At-Tahrim."
+ },
+ {
+  "number": 53,
+  "slug": "idols-of-nuh",
+  "title": "أصنام قوم نوح",
+  "body": "ذكر القرآن أسماء الأصنام التي عبدها قوم نوح — وَدّ، وسُواع، ويَغُوث، ويَعُوق، ونَسْر — ليعلّمنا أن نبتعد عن هذا كله.",
+  "titleEn": "The idols of Nuh's people",
+  "bodyEn": "The Quran names the idols Nuh's people worshipped — Wadd, Suwa', Yaghuth, Ya'uq and Nasr — so that we would keep well away from all of it."
+ },
+ {
+  "number": 54,
+  "slug": "dots-and-marks",
+  "title": "حروف بلا نقاط",
+  "body": "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي علامات الحركات، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء — حتى نقرأ القرآن…",
+  "titleEn": "Letters with no dots",
+  "bodyEn": "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali added the vowel marks; then Nasr ibn Asim and Yahya ibn Ya'mar dotted the letters so a…"
+ },
+ {
+  "number": 55,
+  "slug": "uthman-mushaf",
+  "title": "مصاحف عثمان",
+  "body": "نسخ الخليفة عثمان بن عفان رضي الله عنه المصاحف وأرسلها إلى المدن الإسلامية، حتى يقرأ المسلمون في كل مكان قراءة واحدة.",
+  "titleEn": "The copies Uthman sent out",
+  "bodyEn": "Caliph Uthman ibn Affan had copies made and sent to the Muslim cities, so that Muslims everywhere would read one and the same text."
+ },
+ {
+  "number": 56,
+  "slug": "scribes-of-revelation",
+  "title": "كُتّاب الوحي",
+  "body": "كان للنبي ﷺ صحابة يكتبون القرآن فور نزوله، يُسمَّون «كُتّاب الوحي»، ومن أشهرهم الصحابي الشاب زيد بن ثابت.",
+  "titleEn": "The scribes of the revelation",
+  "bodyEn": "The Prophet ﷺ had companions who wrote the Quran down the moment it came — the scribes of the revelation. Among the best known was a young man named Zaid ibn Thabit."
+ },
+ {
+  "number": 57,
+  "slug": "kalla-rule",
+  "title": "علامة تدلّك على السورة المكية",
+  "body": "كل سورة فيها كلمة «كَلَّا» فهي مكية نزلت قبل الهجرة — قاعدة سهلة تعرف بها موضع السورة.",
+  "titleEn": "A clue that tells you a surah is Makki",
+  "bodyEn": "Any surah containing the word kalla is Makki, revealed before the Hijrah — an easy clue that tells you where a surah belongs."
+ },
+ {
+  "number": 58,
+  "slug": "riding-animals",
+  "title": "حيوانات للركوب وللزينة",
+  "body": "ذكر القرآن الخيل والبغال والحمير، وجعلها الله لنا للركوب وللزينة معاً.",
+  "titleEn": "Animals to ride, and to enjoy",
+  "bodyEn": "The Quran mentions horses, mules and donkeys — given to us both to ride and to delight in."
+ },
+ {
+  "number": 59,
+  "slug": "locusts-and-frogs",
+  "title": "الجراد والضفادع",
+  "body": "من آيات الله على فرعون وقومه كائنات صغيرة: الطوفان والجراد والقُمَّل والضفادع.",
+  "titleEn": "Locusts and frogs",
+  "bodyEn": "Among the signs sent upon Pharaoh and his people were small creatures: the flood, the locusts, the lice and the frogs."
+ },
+ {
+  "number": 60,
+  "slug": "surah-an-nur-manners",
+  "title": "سورة النور وآداب البيوت",
+  "body": "سورة «النور» تعلّمنا أجمل آداب البيوت، ومنها الاستئذان قبل الدخول على الآخرين.",
+  "titleEn": "Surah An-Nur and the manners of a home",
+  "bodyEn": "Surah An-Nur teaches us the best manners for a home — among them asking permission before entering upon anyone."
+ },
+ {
+  "number": 61,
+  "slug": "sea-that-split",
+  "title": "البحر الذي انفلق",
+  "body": "من عجائب ما ذكره القرآن عن البحر أن الله فلقه لموسى عليه السلام، فصار كل جزء منه كالجبل العظيم.",
+  "titleEn": "The sea that split open",
+  "bodyEn": "Among the wonders the Quran tells of the sea: Allah split it for Musa, and each part of it stood like a great mountain."
+ },
+ {
+  "number": 62,
+  "slug": "asking-permission",
+  "title": "لا تدخل حتى يُؤذن لك",
+  "body": "علّمنا القرآن أدباً جميلاً: إن لم تجد أحداً في البيت فلا تدخله حتى يُؤذن لك.",
+  "titleEn": "Wait until you are welcomed in",
+  "bodyEn": "The Quran teaches a fine manner: if you find no one home, do not go in until you are given permission."
+ },
+ {
+  "number": 63,
+  "slug": "guard-your-tongue",
+  "title": "احفظ لسانك",
+  "body": "حذّرنا القرآن من سوء الظن والتجسّس والغيبة، وأمرنا أن نحفظ ألسنتنا إلا عن الخير.",
+  "titleEn": "Guard your tongue",
+  "bodyEn": "The Quran warns us away from suspicion, prying and backbiting, and asks us to keep our tongues for what is good."
+ },
+ {
+  "number": 64,
+  "slug": "never-despair",
+  "title": "لا تيأس أبداً",
+  "body": "مهما اشتدّت الصعوبات، يعلّمنا القرآن ألا نيأس من رحمة الله وفرجه.",
+  "titleEn": "Never lose hope",
+  "bodyEn": "However hard things become, the Quran teaches us never to lose hope in Allah's mercy and relief."
+ },
+ {
+  "number": 65,
+  "slug": "healing-for-hearts",
+  "title": "شفاء للقلوب",
+  "body": "القرآن شفاء حقيقي للقلب من الحزن والهمّ، ورحمة للمؤمنين.",
+  "titleEn": "A healing for hearts",
+  "bodyEn": "The Quran is a true healing for a heart carrying sadness or worry, and a mercy for those who believe."
+ },
+ {
+  "number": 66,
+  "slug": "a-clear-light",
+  "title": "نور مبين",
+  "body": "وصف الله القرآن بأنه نور مبين، يهدينا إلى الطريق الصحيح في الظلام.",
+  "titleEn": "A light that shows the way",
+  "bodyEn": "Allah calls the Quran a clear light — it shows us the right way when everything around is dark."
+ },
+ {
+  "number": 67,
+  "slug": "give-on-harvest-day",
+  "title": "وآتوا حقه يوم حصاده",
+  "body": "أمرنا القرآن أن نعطي الفقراء والمحتاجين حقهم، فتنتشر المحبة بين الناس.",
+  "titleEn": "Give its due on harvest day",
+  "bodyEn": "The Quran tells us to give the poor and the needy their share, so that love spreads among people."
+ },
+ {
+  "number": 68,
+  "slug": "rabbi-zidni-ilma",
+  "title": "ربِّ زدني علماً",
+  "body": "حثّنا القرآن على طلب العلم النافع طوال العمر، وعلّمنا دعاءً نطلب به المزيد.",
+  "titleEn": "My Lord, increase me in knowledge",
+  "bodyEn": "The Quran urges us to keep seeking useful knowledge all our lives, and teaches us a prayer for more of it."
+ },
+ {
+  "number": 69,
+  "slug": "owners-of-the-garden",
+  "title": "أصحاب الجنة",
+  "body": "قصّ علينا القرآن خبر أصحاب بستان بخلوا على المساكين، فذهبت ثمارهم — ليعلّمنا أن البخل يضيّع النعمة وأن الصدقة تبارك فيها.",
+  "titleEn": "The owners of the garden",
+  "bodyEn": "The Quran tells of the owners of an orchard who withheld from the poor and lost their fruit — a lesson that meanness wastes a blessing while giving makes it grow."
+ },
+ {
+  "number": 70,
+  "slug": "surah-al-asr",
+  "title": "ثلاث آيات تجمع الفلاح",
+  "body": "سورة «العصر» ثلاث آيات فقط، لكنها تجمع أسرار الفلاح: الإيمان، والعمل الصالح، والتواصي بالحق وبالصبر.",
+  "titleEn": "Three verses that hold the whole secret",
+  "bodyEn": "Surah Al-Asr is only three verses, yet it holds the whole secret of success: faith, good deeds, and urging one another to truth and to patience."
+ },
+ {
+  "number": 71,
+  "slug": "straight-path",
+  "title": "اهدنا الصراط المستقيم",
+  "body": "علّمنا القرآن أن نسأل الله الهداية في كل صلاة، فندعو بها سبع عشرة مرة كل يوم.",
+  "titleEn": "Guide us to the straight path",
+  "bodyEn": "The Quran taught us to ask for guidance in every prayer — a prayer we say seventeen times a day."
+ },
+ {
+  "number": 72,
+  "slug": "justice-even-with-those-we-dislike",
+  "title": "اعدل حتى مع من تكره",
+  "body": "أمرنا القرآن بالعدل مع كل الناس، حتى مع من نختلف معهم أو لا نحبهم.",
+  "titleEn": "Be fair even with someone you dislike",
+  "bodyEn": "The Quran asks us to be fair with everyone — even with people we disagree with, or simply do not like."
+ },
+ {
+  "number": 73,
+  "slug": "quran-as-reminder",
+  "title": "القرآن ذي الذكر",
+  "body": "وصف الله القرآن بأنه «ذكرى»، يذكّر كل من أراد أن يتعلّم الخير ويعمل به.",
+  "titleEn": "The Quran full of reminding",
+  "bodyEn": "Allah calls the Quran a reminder — it reminds anyone who wants to learn what is good and to live by it."
+ },
+ {
+  "number": 74,
+  "slug": "paradise-as-wide-as",
+  "title": "جنة عرضها السماوات والأرض",
+  "body": "أخبرنا القرآن أن الجنة التي أُعدّت للمتقين عرضها كالسماوات والأرض، ودعانا أن نسارع إليها.",
+  "titleEn": "A garden as wide as the sky and the earth",
+  "bodyEn": "The Quran tells us the garden prepared for the God-fearing is as wide as the heavens and the earth, and invites us to hurry towards it."
+ },
+ {
+  "number": 75,
+  "slug": "dhul-qarnayn",
+  "title": "ذو القرنين، الملك العادل",
+  "body": "قصّ علينا القرآن خبر ذي القرنين، ملك طاف الأرض ينشر الخير ويعين الضعفاء.",
+  "titleEn": "Dhul-Qarnayn, the just king",
+  "bodyEn": "The Quran tells of Dhul-Qarnayn, a king who travelled the earth spreading good and helping those who could not help themselves."
+ },
+ {
+  "number": 76,
+  "slug": "cooperate-in-good",
+  "title": "تعاونوا على البر",
+  "body": "أمرنا القرآن أن نتعاون على البر والتقوى، وحذّرنا من التعاون على الإثم والعدوان.",
+  "titleEn": "Help one another do good",
+  "bodyEn": "The Quran tells us to help one another in goodness, and warns us against helping one another in wrongdoing."
+ },
+ {
+  "number": 77,
+  "slug": "luqman-advice",
+  "title": "وصايا لقمان لابنه",
+  "body": "حفظ لنا القرآن نصائح لقمان الحكيم لابنه، وأولها ألا يشرك بالله شيئاً.",
+  "titleEn": "Luqman's advice to his son",
+  "bodyEn": "The Quran keeps for us the advice of wise Luqman to his son — and the first of it was never to associate anything with Allah."
+ },
+ {
+  "number": 78,
+  "slug": "change-begins-inside",
+  "title": "التغيير يبدأ من داخلنا",
+  "body": "أخبرنا القرآن أن الله لا يغيّر حال قوم حتى يغيّروا ما في أنفسهم إلى الأفضل.",
+  "titleEn": "Change starts inside us",
+  "bodyEn": "The Quran tells us that Allah does not change the state of a people until they change what is inside themselves for the better."
+ },
+ {
+  "number": 79,
+  "slug": "reflect-on-creation",
+  "title": "تفكّر في خلق السماوات",
+  "body": "دعانا القرآن أن نتفكّر في خلق السماوات والأرض واختلاف الليل والنهار، لنعرف عظمة الخالق.",
+  "titleEn": "Think about how the sky was made",
+  "bodyEn": "The Quran invites us to think about the making of the heavens and the earth, and the turning of night into day, and to see how great their Maker is."
+ },
+ {
+  "number": 80,
+  "slug": "ease-after-hardship",
+  "title": "مع العسر يسر",
+  "body": "وعدنا الله في القرآن أن كل عسر يأتي بعده يسر، وكرّر الوعد مرتين ليطمئن قلبك.",
+  "titleEn": "With hardship comes ease",
+  "bodyEn": "Allah promises in the Quran that ease comes with every hardship — and says it twice, so that your heart would settle."
+ },
+ {
+  "number": 81,
+  "slug": "ten-recitations",
+  "title": "عشر قراءات متواترة",
+  "body": "نزل القرآن بأوجه لغوية ميسّرة تُسمّى القراءات المتواترة، وهي عشر قراءات، ليسهل على قبائل العرب كلها أن تقرأه.",
+  "titleEn": "Ten recitations, all trusted",
+  "bodyEn": "The Quran came in several easy ways of reading — the ten trusted recitations — so that every Arab tribe could recite it comfortably."
+ },
+ {
+  "number": 82,
+  "slug": "muhkam-mutashabih",
+  "title": "مُحكَم ومُتَشابِه",
+  "body": "آيات القرآن منها المُحكَم الواضح للجميع كالحلال والحرام، ومنها المُتَشابِه الذي استأثر الله بعلم تأويله الكامل.",
+  "titleEn": "Clear verses, and deeper ones",
+  "bodyEn": "Some verses are muhkam — plain to everyone, like what is allowed and what is not — and some are mutashabih, whose full meaning Allah kept with Himself."
+ },
+ {
+  "number": 83,
+  "slug": "names-from-the-quran",
+  "title": "أسماء من كلمات القرآن",
+  "body": "كثير من أسمائنا مأخوذ من كلمات القرآن: دانية، وسجى، وصفوان، ومروة، وهدى.",
+  "titleEn": "Names taken from the Quran",
+  "bodyEn": "Many of our names come straight from words in the Quran: Daniya, Saja, Safwan, Marwa and Huda."
+ },
+ {
+  "number": 84,
+  "slug": "translated-meanings",
+  "title": "تُرجمت معانيه لا ألفاظه",
+  "body": "تُرجمت معاني القرآن إلى عشرات اللغات، لكن النص العربي وحده هو كلام الله المعجز، والترجمة تشرح المعنى لغير العرب.",
+  "titleEn": "Its meanings are translated, not its words",
+  "bodyEn": "The meanings of the Quran have been translated into dozens of languages, but the Arabic text alone is the miraculous word of Allah; a translation only explains the meaning for…"
+ },
+ {
+  "number": 85,
+  "slug": "sajdah-verses",
+  "title": "آيات السجدة",
+  "body": "في القرآن آيات إذا قرأتها سجدت، وأشهرها خاتمة سورة العلق.",
+  "titleEn": "The verses of prostration",
+  "bodyEn": "Some verses in the Quran are read and then you prostrate — the best known of them closes Surah Al-Alaq."
+ },
+ {
+  "number": 86,
+  "slug": "no-contradiction",
+  "title": "لا اختلاف فيه",
+  "body": "من دلائل أن القرآن من عند الله أنه لا يناقض بعضه بعضاً، ولو كان من عند غير الله لوجدوا فيه اختلافاً كثيراً.",
+  "titleEn": "Nothing in it disagrees with itself",
+  "bodyEn": "One sign that the Quran is from Allah is that no part of it disagrees with another. Had it come from anyone else, they would have found much in it that clashed."
+ },
+ {
+  "number": 87,
+  "slug": "four-caliphs-scribes",
+  "title": "الخلفاء الأربعة كانوا كُتّاباً للوحي",
+  "body": "أبو بكر وعمر وعثمان وعلي رضي الله عنهم كانوا جميعاً من كُتّاب الوحي، يكتبون القرآن بين يدي النبي ﷺ فور نزوله.",
+  "titleEn": "All four caliphs wrote the revelation",
+  "bodyEn": "Abu Bakr, Umar, Uthman and Ali were all scribes of the revelation, writing the Quran down before the Prophet ﷺ as it came."
+ },
+ {
+  "number": 88,
+  "slug": "ten-commandments",
+  "title": "وصايا جامعة للأخلاق",
+  "body": "جمع القرآن وصايا عظيمة للأخلاق في سورتي الأنعام والإسراء، تعلّمنا كيف نكون نافعين لمن حولنا.",
+  "titleEn": "A gathered list of manners",
+  "bodyEn": "The Quran gathers great advice on character in Surahs Al-An'am and Al-Isra, teaching us how to be of use to the people around us."
+ },
+ {
+  "number": 89,
+  "slug": "inheritance-shares",
+  "title": "حساب دقيق في سورة النساء",
+  "body": "فصّل القرآن أحكام المواريث بحساب دقيق في سورة النساء، فلا يضيع حق أحد من أهل البيت.",
+  "titleEn": "Exact arithmetic in Surah An-Nisa",
+  "bodyEn": "The Quran sets out the shares of inheritance with exact arithmetic in Surah An-Nisa, so that no one in a family loses what is theirs."
+ },
+ {
+  "number": 90,
+  "slug": "revealed-gradually",
+  "title": "نزل على مُكث",
+  "body": "لم ينزل القرآن مرة واحدة، بل نزل على مهل خلال ثلاث وعشرين سنة، تخفيفاً على الناس وهم يبنون مجتمعهم ويصلحون عاداتهم.",
+  "titleEn": "It came down little by little",
+  "bodyEn": "The Quran did not arrive all at once. It came slowly, over twenty-three years, to make it easier for people while they built their community and mended their habits."
+ },
+ {
+  "number": 91,
+  "slug": "madani-society",
+  "title": "سور بُنيت بها المدينة",
+  "body": "نزلت السور المدنية لتبني المجتمع، فجاءت ببيان العبادات وأحكام الأسرة والمواريث ونظام الحقوق بين الناس.",
+  "titleEn": "Surahs that built a community",
+  "bodyEn": "The Madani surahs came to build a community: how to worship, how a family is ordered, how inheritance is shared, and what people owe one another."
+ },
+ {
+  "number": 92,
+  "slug": "muqattaat-makki",
+  "title": "علامة أخرى للسورة المكية",
+  "body": "كل سورة تبدأ بالحروف المقطّعة فهي مكية، إلا البقرة وآل عمران فهما مدنيتان، وسورة الرعد اختلف فيها العلماء — قاعدة تعرف بها متى نزلت السورة غالباً.",
+  "titleEn": "Another clue for a Makki surah",
+  "bodyEn": "Every surah opening with the separated letters is Makki, except Al-Baqarah and Aal-Imran, which are Madani, and Ar-Ra'd, which scholars dispute — a rule that usually tells you…"
+ },
+ {
+  "number": 93,
+  "slug": "hypocrites-exposed",
+  "title": "كشف قول المنافقين",
+  "body": "اهتمت السور المدنية بكشف من يقول بلسانه ما ليس في قلبه، لتعلّمنا أن الصدق مع الله أول الطريق.",
+  "titleEn": "Words that did not match hearts",
+  "bodyEn": "The Madani surahs uncover those whose tongues said what their hearts did not hold — teaching us that being truthful with Allah comes first."
+ },
+ {
+  "number": 94,
+  "slug": "anulzimukumuha",
+  "title": "كلمة من عشرة حروف",
+  "body": "كلمة ﴿أَنُلْزِمُكُمُوهَا﴾ في سورة هود من أطول كلمات القرآن، وتتكوّن من عشرة حروف.",
+  "titleEn": "A word of ten letters",
+  "bodyEn": "The word ﴿anulzimukumuha﴾ in Surah Hud is among the longest in the Quran — ten letters in one word."
+ },
+ {
+  "number": 95,
+  "slug": "ar-rahman-refrain",
+  "title": "سؤال يتكرّر إحدى وثلاثين مرة",
+  "body": "في سورة الرحمن يتكرّر السؤال ﴿فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ﴾ إحدى وثلاثين مرة، بعد كل نعمة يذكرها الله، حتى نتوقّف ونشكر.",
+  "titleEn": "A question asked thirty-one times",
+  "bodyEn": "In Surah Ar-Rahman the question ﴿So which of your Lord's favours would you deny?﴾ returns thirty-one times, after every blessing named — so that we stop each time and give thanks."
+ },
+ {
+  "number": 96,
+  "slug": "two-prostrations-hajj",
+  "title": "سورة فيها سجدتان",
+  "body": "سورة الحج تتفرّد بأن فيها سجدتين، واحدة في أولها وأخرى في آخرها، عند جمهور الشافعية والحنابلة.",
+  "titleEn": "One surah with two prostrations",
+  "bodyEn": "Surah Al-Hajj stands alone in having two prostrations — one near its start and one near its end — in the view of most Shafi'i and Hanbali scholars."
+ },
+ {
+  "number": 97,
+  "slug": "morning-that-breathes",
+  "title": "والصبح إذا تنفّس",
+  "body": "من جمال القرآن أنه يعطي المعاني صورة حيّة تتحرّك، فيصف الصبح وكأنه يتنفّس.",
+  "titleEn": "The morning when it breathes",
+  "bodyEn": "Part of the beauty of the Quran is the living picture it draws: it speaks of the morning as if it takes a breath."
+ },
+ {
+  "number": 98,
+  "slug": "first-revelation",
+  "title": "أول ما نزل: اقرأ",
+  "body": "أول ما نزل من القرآن على النبي ﷺ في غار حراء خمس آيات من سورة العلق، أولها ﴿اقْرَأْ﴾.",
+  "titleEn": "The first word: Read",
+  "bodyEn": "The first of the Quran to come to the Prophet ﷺ, in the cave of Hira, was five verses of Surah Al-Alaq, beginning with ﴿Read﴾."
+ },
+ {
+  "number": 99,
+  "slug": "longest-word",
+  "title": "أطول كلمة في القرآن",
+  "body": "أطول كلمة في القرآن ﴿فَأَسْقَيْنَاكُمُوهُ﴾ في سورة الحجر، وتتكوّن من أحد عشر حرفاً.",
+  "titleEn": "The longest word in the Quran",
+  "bodyEn": "The longest word in the Quran is ﴿fa-asqaynakumuhu﴾ in Surah Al-Hijr — eleven letters in a single word."
+ },
+ {
+  "number": 100,
+  "slug": "preserved-forever",
+  "title": "وإنا له لحافظون",
+  "body": "تكفّل الله بحفظ القرآن من أي تحريف، فبقي كما نزل، ويبقى معجزة باقية على مرّ العصور.",
+  "titleEn": "And We will surely guard it",
+  "bodyEn": "Allah took upon Himself the guarding of the Quran from any change. It has stayed exactly as it came down, and remains a standing miracle through every age."
  }
 ];

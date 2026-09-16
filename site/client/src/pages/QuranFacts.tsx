@@ -40,6 +40,8 @@ import { SiteChrome } from "@/components/SiteChrome";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { quranFacts, type QuranFact } from "@/content/quran-facts";
+import { factOfTheDay } from "@/lib/quran-facts-index";
+import { BadgeAward } from "@/components/BadgeAward";
 
 const ICONS: Record<string, typeof BookOpen> = {
   AlignCenter, Anchor, Apple, Archive, ArrowDownToLine, AudioLines, Baby,
@@ -56,6 +58,9 @@ const ICONS: Record<string, typeof BookOpen> = {
 };
 
 const STORE_KEY = "yahya.facts.discovered.v1";
+
+/** One mark per stage, for the medal a child gets after twenty. */
+const STAGE_MEDALS = ["📖", "🌙", "⭐", "🕌", "🌿"];
 
 // Ten gradients, cycled by card number, so the deck reads as a palette rather
 // than a wall of navy. Every one of them clears 5.6:1 against white text at
@@ -134,6 +139,8 @@ const copy = {
     stageCount: (n: number, of: number) => `${n} من ${of}`,
     stageRange: (from: number, to: number) => `البطاقات ${from} – ${to}`,
     stagePick: "اختر المرحلة",
+    todayLabel: "اكتشاف اليوم", todayOpen: "افتح المعلومة", todayNote: "معلومة واحدة، تتغيّر كل يوم — والمئة كلها تحتها.",
+    medalLabel: "وسام المرحلة", medalKeepsake: "عشرون معلومة", medalNote: (n: string) => `أنهيت ${n}: عشرون معلومة قرأتها كلها.`,
     stageDone: "أنهيت هذه المرحلة!",
     nextStage: "المرحلة التالية",
     overall: (n: number, total: number) => `${n} من ${total} في كل المراحل`,
@@ -165,6 +172,8 @@ const copy = {
     stageCount: (n: number, of: number) => `${n} of ${of}`,
     stageRange: (from: number, to: number) => `Cards ${from} – ${to}`,
     stagePick: "Choose a stage",
+    todayLabel: "Today\u2019s discovery", todayOpen: "Open it", todayNote: "One fact, new every day \u2014 with all hundred below it.",
+    medalLabel: "Stage medal", medalKeepsake: "Twenty facts", medalNote: (n: string) => `You finished ${n}: twenty facts, all read.`,
     stageDone: "You finished this stage!",
     nextStage: "Next stage",
     overall: (n: number, total: number) => `${n} of ${total} across every stage`,
@@ -364,6 +373,7 @@ export default function QuranFacts() {
   // Closing every card ends the quiz; closing one does not.
   useEffect(() => { if (found === 0) setQuizOpen(false); }, [found]);
 
+  const today = factOfTheDay();
   const cards = STAGES[stage];
   const stageFound = cards.filter(fact => discovered.includes(fact.slug)).length;
   const stageDone = stageFound === cards.length;
@@ -397,6 +407,21 @@ export default function QuranFacts() {
 
         <section className="section">
           <div className="container">
+            {/* One fact a day, the same one for everybody, decided by the date
+                alone. It is a way in, not a gate: the whole hundred is still
+                right underneath it. */}
+            <section className="facts-today">
+              <div>
+                <span className="facts-today__label"><Sparkles size={14} aria-hidden="true" /> {t.todayLabel}</span>
+                <h2>{today.title[locale]}</h2>
+                <p>{today.body[locale]}</p>
+                <small>{t.todayNote}</small>
+              </div>
+              <Link href={`/quran-facts/${today.slug}`} className="button button--primary">
+                {t.todayOpen} <Arrow size={17} aria-hidden="true" />
+              </Link>
+            </section>
+
             <nav className="facts-stages" aria-label={t.stagePick}>
               {STAGES.map((group, index) => {
                 const done = group.filter(fact => discovered.includes(fact.slug)).length;
@@ -455,6 +480,21 @@ export default function QuranFacts() {
             {!canQuiz && !quizOpen && <p className="facts-quiz__hint">{t.quizLocked(QUIZ_MINIMUM)}</p>}
 
             {quizOpen && <Quiz pool={pool} onClose={() => setQuizOpen(false)} />}
+
+            {/* One medal per stage, not one per card. A hundred medals is the
+                points economy this site keeps out; twenty facts read through
+                is something a medal can honestly stand for. */}
+            {stageDone && (
+              <div className="facts-medal">
+                <BadgeAward
+                  icon={STAGE_MEDALS[stage]}
+                  badge={t.stages[stage]}
+                  keepsake={t.medalKeepsake}
+                  note={t.medalNote(t.stages[stage])}
+                  label={t.medalLabel}
+                />
+              </div>
+            )}
 
             {found === total ? (
               <p className="facts-done">{t.allDone}</p>

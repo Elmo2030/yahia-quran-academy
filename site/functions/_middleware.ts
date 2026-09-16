@@ -20,7 +20,7 @@
  * link previews show English text.
  */
 
-import { chapters, stories, surahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters } from "./page-data.js";
+import { chapters, stories, surahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_DESCRIPTION =
@@ -125,9 +125,17 @@ function metaForPath(pathname: string) {
   const base = { image: DEFAULT_IMAGE };
 
   if (head === "quran-facts") {
-    return { ...base, image: "/facts/share.jpg", path: "/quran-facts",
-      title: "في رحاب القرآن — اكتشف أسرار القرآن",
-      description: "مئة معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
+    if (!parts[1]) {
+      return { ...base, image: "/facts/share.jpg", path: "/quran-facts",
+        title: "في رحاب القرآن — اكتشف أسرار القرآن",
+        description: "مئة معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
+    }
+    const fact = quranFacts.find(entry => entry.slug === parts[1]);
+    return fact
+      ? { ...base, image: "/facts/share.jpg", path,
+          title: `${fact.title} · في رحاب القرآن`,
+          description: fact.body }
+      : notFound(path);
   }
 
   if (head === "about") {

@@ -8,6 +8,7 @@ import {
   seerahStoryIndex,
   aqeedahCardIndex,
   aqeedahChapterIndex,
+  factIndex,
 } from "./page-index.generated";
 import { englishSurahNames, surahNames } from "./quran-content";
 
@@ -277,7 +278,20 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
   if (head === "hifz") return parts[1] ? hifzInnerMeta : hifzMeta;
-  if (head === "quran-facts") return quranFactsMeta;
+  if (head === "quran-facts") {
+    if (!parts[1]) return quranFactsMeta;
+    // Each of the hundred has a page of its own now; the card's own title and
+    // opening line are what a search result and a shared link should carry.
+    const fact = factIndex.find(entry => entry.slug === parts[1]);
+    if (!fact) return FALLBACK_NOT_FOUND;
+    return {
+      path,
+      title: `${fact.title} · في رحاب القرآن`,
+      description: fact.body,
+      image: "/facts/share.jpg",
+      i18n: { en: { title: `${fact.titleEn} · In the Realm of the Quran`, description: fact.bodyEn } },
+    };
+  }
   if (head === "about") return aboutMeta;
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;

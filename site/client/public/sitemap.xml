@@ -36,6 +36,706 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://yahyaquran.com/quran-facts/bismillah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/bismillah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/bismillah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/bismillah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/egypt</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/egypt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/egypt?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/egypt" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/sajdah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/sajdah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/sajdah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/sajdah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/times</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/times" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/times?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/times" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/cosmos</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/cosmos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/cosmos?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/cosmos" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/birds</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/birds" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/birds?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/birds" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/minerals</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/minerals" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/minerals?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/minerals" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/paradise-clothes</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/paradise-clothes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/paradise-clothes?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/paradise-clothes" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/colours</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/colours" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/colours?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/colours" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/first-and-last</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/first-and-last" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/first-and-last?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/first-and-last" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/longest-shortest</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/longest-shortest" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/longest-shortest?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/longest-shortest" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/middle-word</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/middle-word" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/middle-word?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/middle-word" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/al-mujadilah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/al-mujadilah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/al-mujadilah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/al-mujadilah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/the-challenge</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/the-challenge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/the-challenge?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/the-challenge" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/cave-years</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/cave-years" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/cave-years?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/cave-years" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/al-ikhlas</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/al-ikhlas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/al-ikhlas?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/al-ikhlas" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/al-mulk</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/al-mulk" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/al-mulk?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/al-mulk" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/yusuf-complete</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/yusuf-complete" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/yusuf-complete?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/yusuf-complete" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/animals</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/animals" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/animals?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/animals" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/yaqteen</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/yaqteen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/yaqteen?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/yaqteen" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/muqattaat</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/muqattaat" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/muqattaat?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/muqattaat" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/alhamdulillah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/alhamdulillah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/alhamdulillah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/alhamdulillah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/qul</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/qul" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/qul?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/qul" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/prophet-surahs</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/prophet-surahs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/prophet-surahs?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/prophet-surahs" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/vegetables</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/vegetables" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/vegetables?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/vegetables" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/abu-lahab</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/abu-lahab" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/abu-lahab?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/abu-lahab" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/angels</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/angels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/angels?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/angels" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/dunya-akhirah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/dunya-akhirah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/dunya-akhirah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/dunya-akhirah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/preserved</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/preserved" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/preserved?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/preserved" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/drinks</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/drinks" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/drinks?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/drinks" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/holy-cities</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/holy-cities" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/holy-cities?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/holy-cities" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/earlier-books</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/earlier-books" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/earlier-books?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/earlier-books" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/insects</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/insects" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/insects?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/insects" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ayat-al-kursi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ayat-al-kursi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ayat-al-kursi?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ayat-al-kursi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/isti-adha</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/isti-adha" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/isti-adha?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/isti-adha" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ancient-nations</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ancient-nations" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ancient-nations?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ancient-nations" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/tyrants</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/tyrants" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/tyrants?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/tyrants" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/paradise-springs</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/paradise-springs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/paradise-springs?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/paradise-springs" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/parents</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/parents" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/parents?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/parents" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/one-kasrah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/one-kasrah" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/one-kasrah?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/one-kasrah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/thirty-parts</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/thirty-parts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/thirty-parts?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/thirty-parts" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/verse-count</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/verse-count" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/verse-count?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/verse-count" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/makki-madani</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/makki-madani" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/makki-madani?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/makki-madani" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/uff</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/uff" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/uff?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/uff" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/at-teen</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/at-teen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/at-teen?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/at-teen" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/science</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/science" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/science?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/science" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/oaths</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/oaths" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/oaths?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/oaths" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/verse-endings</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/verse-endings" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/verse-endings?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/verse-endings" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/quran-names</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/quran-names" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/quran-names?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/quran-names" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/first-collection</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/first-collection" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/first-collection?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/first-collection" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ya-ayyuha-alladhina-amanu</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ya-ayyuha-alladhina-amanu" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ya-ayyuha-alladhina-amanu?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ya-ayyuha-alladhina-amanu" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ya-ayyuha-an-nabiyy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ya-ayyuha-an-nabiyy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ya-ayyuha-an-nabiyy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ya-ayyuha-an-nabiyy" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/idols-of-nuh</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/idols-of-nuh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/idols-of-nuh?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/idols-of-nuh" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/dots-and-marks</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/dots-and-marks" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/dots-and-marks?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/dots-and-marks" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/uthman-mushaf</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/uthman-mushaf" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/uthman-mushaf?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/uthman-mushaf" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/scribes-of-revelation</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/scribes-of-revelation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/scribes-of-revelation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/scribes-of-revelation" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/kalla-rule</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/kalla-rule" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/kalla-rule?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/kalla-rule" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/riding-animals</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/riding-animals" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/riding-animals?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/riding-animals" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/locusts-and-frogs</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/locusts-and-frogs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/locusts-and-frogs?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/locusts-and-frogs" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/surah-an-nur-manners</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/surah-an-nur-manners" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/surah-an-nur-manners?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/surah-an-nur-manners" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/sea-that-split</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/sea-that-split" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/sea-that-split?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/sea-that-split" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/asking-permission</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/asking-permission" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/asking-permission?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/asking-permission" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/guard-your-tongue</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/guard-your-tongue" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/guard-your-tongue?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/guard-your-tongue" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/never-despair</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/never-despair" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/never-despair?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/never-despair" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/healing-for-hearts</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/healing-for-hearts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/healing-for-hearts?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/healing-for-hearts" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/a-clear-light</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/a-clear-light" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/a-clear-light?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/a-clear-light" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/give-on-harvest-day</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/give-on-harvest-day" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/give-on-harvest-day?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/give-on-harvest-day" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/rabbi-zidni-ilma</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/rabbi-zidni-ilma" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/rabbi-zidni-ilma?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/rabbi-zidni-ilma" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/owners-of-the-garden</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/owners-of-the-garden" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/owners-of-the-garden?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/owners-of-the-garden" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/surah-al-asr</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/surah-al-asr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/surah-al-asr?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/surah-al-asr" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/straight-path</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/straight-path" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/straight-path?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/straight-path" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/justice-even-with-those-we-dislike</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/justice-even-with-those-we-dislike" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/justice-even-with-those-we-dislike?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/justice-even-with-those-we-dislike" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/quran-as-reminder</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/quran-as-reminder" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/quran-as-reminder?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/quran-as-reminder" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/paradise-as-wide-as</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/paradise-as-wide-as" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/paradise-as-wide-as?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/paradise-as-wide-as" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/dhul-qarnayn</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/dhul-qarnayn" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/dhul-qarnayn?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/dhul-qarnayn" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/cooperate-in-good</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/cooperate-in-good" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/cooperate-in-good?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/cooperate-in-good" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/luqman-advice</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/luqman-advice" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/luqman-advice?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/luqman-advice" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/change-begins-inside</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/change-begins-inside" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/change-begins-inside?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/change-begins-inside" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/reflect-on-creation</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/reflect-on-creation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/reflect-on-creation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/reflect-on-creation" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ease-after-hardship</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ease-after-hardship" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ease-after-hardship?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ease-after-hardship" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ten-recitations</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ten-recitations" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ten-recitations?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ten-recitations" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/muhkam-mutashabih</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/muhkam-mutashabih" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/muhkam-mutashabih?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/muhkam-mutashabih" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/names-from-the-quran</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/names-from-the-quran" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/names-from-the-quran?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/names-from-the-quran" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/translated-meanings</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/translated-meanings" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/translated-meanings?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/translated-meanings" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/sajdah-verses</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/sajdah-verses" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/sajdah-verses?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/sajdah-verses" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/no-contradiction</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/no-contradiction" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/no-contradiction?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/no-contradiction" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/four-caliphs-scribes</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/four-caliphs-scribes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/four-caliphs-scribes?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/four-caliphs-scribes" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ten-commandments</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ten-commandments" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ten-commandments?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ten-commandments" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/inheritance-shares</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/inheritance-shares" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/inheritance-shares?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/inheritance-shares" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/revealed-gradually</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/revealed-gradually" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/revealed-gradually?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/revealed-gradually" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/madani-society</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/madani-society" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/madani-society?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/madani-society" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/muqattaat-makki</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/muqattaat-makki" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/muqattaat-makki?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/muqattaat-makki" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/hypocrites-exposed</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/hypocrites-exposed" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/hypocrites-exposed?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/hypocrites-exposed" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/anulzimukumuha</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/anulzimukumuha" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/anulzimukumuha?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/anulzimukumuha" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/ar-rahman-refrain</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/ar-rahman-refrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/ar-rahman-refrain?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/ar-rahman-refrain" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/two-prostrations-hajj</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/two-prostrations-hajj" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/two-prostrations-hajj?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/two-prostrations-hajj" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/morning-that-breathes</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/morning-that-breathes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/morning-that-breathes?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/morning-that-breathes" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/first-revelation</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/first-revelation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/first-revelation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/first-revelation" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/longest-word</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/longest-word" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/longest-word?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/longest-word" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/quran-facts/preserved-forever</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/quran-facts/preserved-forever" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/quran-facts/preserved-forever?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/quran-facts/preserved-forever" />
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://yahyaquran.com/read</loc>
     <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/read" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/read?lang=en" />
