@@ -17,10 +17,14 @@ vi.mock("@/hooks/useAuth", () => ({
 }));
 
 import {
+  nextStep,
   readLocalProgress,
   writeLocalProgress,
   mergeLibrarySlugs,
 } from "@/lib/progress";
+import {
+  createProfile, declareMemorized, emptyStore, registerDeed, saveStore,
+} from "@/lib/hifz-store";
 
 describe("local progress storage", () => {
   beforeEach(() => {
@@ -41,6 +45,48 @@ describe("local progress storage", () => {
     expect(readLocalProgress()).toBeNull();
     localStorage.setItem("yahya.progress.v1", JSON.stringify({ surah: 0, ayah: 1 }));
     expect(readLocalProgress()).toBeNull();
+  });
+});
+
+describe("nextStep", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it("returns null with nothing on this device at all", () => {
+    expect(nextStep(null)).toBeNull();
+  });
+
+  it("falls back to the reader's own progress with no hifz child on this device", () => {
+    expect(nextStep({ surah: 18, ayah: 9, updatedAt: 1 })).toEqual({
+      ref: { kind: "ayah", surah: 18, ayah: 9 },
+      href: "/read/18",
+    });
+  });
+
+  it("sends an active child to a review due in the journey, over the reader's progress", () => {
+    const DAY = 86_400_000;
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    const declared = declareMemorized(created.store, created.profile.id, 114, 1, "child", Date.now() - 2 * DAY);
+    saveStore(declared);
+
+    expect(nextStep({ surah: 18, ayah: 9, updatedAt: 1 })).toEqual({
+      ref: { kind: "ayah", surah: 114, ayah: 1 },
+      href: "/hifz/114",
+    });
+  });
+
+  it("sends an active child to a deed awaiting confirmation, once there is nothing due to review", () => {
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    const withDeed = registerDeed(created.store, created.profile.id, "nations", "luqman");
+    saveStore(withDeed);
+
+    expect(nextStep(null)).toEqual({
+      ref: { kind: "deed", chapter: "nations", slug: "luqman" },
+      href: "/stories/nations/luqman",
+    });
   });
 });
 

@@ -12,6 +12,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { getSupabase } from "@/lib/supabase";
 import { useAuth } from "@/hooks/useAuth";
+import { activeProfile, loadStore, pendingDeeds, type StepRef } from "@/lib/hifz-store";
+import { reviewQueue } from "@/lib/hifz-review";
 
 const LOCAL_KEY = "yahya.progress.v1";
 
@@ -78,6 +80,34 @@ export function mergeLibrarySlugs(local: string[], remote: string[]): string[] {
     out.push(slug);
   }
   return out;
+}
+
+export type NextStep = { ref: StepRef; href: string };
+
+/**
+ * The one thing to do next, across every kind of step the site tracks — not
+ * only the last ayah read in the public reader. An ayah due for review in the
+ * memorization journey outranks it, since a child with a review waiting has
+ * somewhere more pressing to be than the last page they read; then a deed
+ * they are waiting to have confirmed, which sends them back to that story
+ * rather than nowhere; then the plain reading progress, unchanged.
+ *
+ * The journey's local store (see hifz-store.ts) is only read here to decide
+ * what to show — nothing is written to it, and nothing about it leaves the
+ * device. A story a child started but has not finished is not offered:
+ * nothing in the store records that a story was merely opened, only that one
+ * was completed, so there is no honest way yet to say which one to resume.
+ */
+export function nextStep(local: LocalProgress | null): NextStep | null {
+  const child = activeProfile(loadStore());
+  if (child) {
+    const due = reviewQueue(child)[0];
+    if (due) return { ref: { kind: "ayah", surah: due.surah, ayah: due.ayah }, href: `/hifz/${due.surah}` };
+    const deed = pendingDeeds(child)[0];
+    if (deed) return { ref: { kind: "deed", chapter: deed.chapter, slug: deed.slug }, href: `/stories/${deed.chapter}/${deed.slug}` };
+  }
+  if (local) return { ref: { kind: "ayah", surah: local.surah, ayah: local.ayah }, href: `/read/${local.surah}` };
+  return null;
 }
 
 export function useReadingProgress() {

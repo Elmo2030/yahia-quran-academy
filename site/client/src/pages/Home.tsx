@@ -10,7 +10,7 @@ import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { RecordingsOverview } from "@/components/RecordingsOverview";
 import { getSurahName } from "@/lib/quran-content";
 import { yahyaAvatarUrl, yahyaHero, yahyaHeroSizes, yahyaHeroSrcSet } from "@/lib/hero-images";
-import { useReadingProgress } from "@/lib/progress";
+import { nextStep, useReadingProgress } from "@/lib/progress";
 import { useAuth } from "@/hooks/useAuth";
 // Not @/content/seerah: the home page shows one card per station, and importing
 // the content module put all seventy stories — both languages, both age tiers —
@@ -44,6 +44,7 @@ const copy = {
     visualLabel: "تصميم ترحيبي يعرّف بشخصية يحيى وخريطة التلقّي", imageAlt: "يحيى يحمل المصحف في بطاقة ترحيبية", map: "خريطة التلقّي", startWhere: "ابدأ من حيث يناسبك", noUnlock: "لا توجد مراحل تُفتح تلقائيًا", audio: "صوت السور", nowAvailable: "متاح الآن", withYahya: "مع يحيى", stepByStep: "خطوة بخطوة",
     textProof: "النص العثماني", unchanged: "كما هو", surahs: "114 سورة", listening: "للاستماع", selfReview: "مراجعة ذاتية", noAutoJudgement: "بلا حكم آلي",
     readerEyebrow: "القارئ", readerTitle: "افتح القرآن، واستمع إلى السورة التي تختارها", readerIntro: "قارئ عام يناسب الجوال وسطح المكتب، بالنص العثماني وروابط الصوت المتحققة.", readListen: "قراءة واستماع", allSurahs: "عرض جميع السور", continueReading: "واصل القراءة", continueReadingOf: "من حيث توقفت", continueReadingAyah: "آية",
+    continueReview: "راجع اليوم", continueDeed: "بانتظار وليّ الأمر", continueDeedBody: "فعل من إحدى القصص ينتظر تأكيدك",
     journeyEyebrow: "منهج التلقّي", mapDescription: "خريطة توضيحية لمسار التلقّي من الاستماع إلى المراجعة الذاتية",
     familyEyebrow: "للأسرة", familyTitle: "وليّ الأمر يرى النشاط، لا حكمًا على الطفل", familyBody: "مساحة وليّ الأمر تعمل اليوم داخل رحلة الحفظ، بلا حساب ولا خادم: الطفل يقول إنه حفظ الآية، وأنت تسمعه وتعتمد أو تعيدها معه.", familyOne: "الطفل يعلن، وأنت تعتمد", familyOneBody: "يظهر لك ما أعلن الطفل حفظه، فتصدّق عليه بعد أن تسمعه — لا يعرض الموقع درجة إتقان آلية.", familyTwo: "خلف رقم سري تختاره", familyTwoBody: "صفحة وليّ الأمر مقفلة برقم من اختيارك، حتى لا يعتمد الطفل تلاوته بنفسه.", familyThree: "النسخة الاحتياطية بيدك", familyThreeBody: "كل شيء محفوظ على جهازك وحده، ويمكنك تصدير ملف الرحلة واسترجاعه على جهاز آخر.", familyOpen: "افتح مساحة وليّ الأمر",
     appsEyebrow: "التطبيقات", appsTitle: "تابع الرحلة من هاتفك", appsBody: "سنضيف روابط التنزيل الرسمية فور جاهزية إصدارات Android وiOS. إلى ذلك الحين، يمكنك البدء من القارئ على الويب.", openReader: "افتح القارئ الآن", comingSoon: "سيُتاح قريبًا", soon: "قريبًا", footer: "رحلة هادئة للقرآن والتلقّي والمراجعة الذاتية.",
@@ -61,6 +62,7 @@ const copy = {
     visualLabel: "A welcome composition introducing Yahya and the learning path", imageAlt: "Yahya holding the Quran in a welcome card", map: "Learning path", startWhere: "Begin where you are", noUnlock: "Nothing unlocks automatically", audio: "Surah audio", nowAvailable: "Available now", withYahya: "With Yahya", stepByStep: "One step at a time",
     textProof: "Uthmani text", unchanged: "kept intact", surahs: "114 surahs", listening: "for listening", selfReview: "Self-review", noAutoJudgement: "without automation",
     readerEyebrow: "The reader", readerTitle: "Open the Quran and listen to the surah you choose", readerIntro: "A public reader for desktop and mobile, with Uthmani text and verified audio links.", readListen: "Read & listen", allSurahs: "Browse all surahs", continueReading: "Continue reading", continueReadingOf: "Where you left off", continueReadingAyah: "ayah",
+    continueReview: "Review today", continueDeed: "Waiting on a parent", continueDeedBody: "A deed from a story is waiting to be confirmed",
     journeyEyebrow: "Talaqqi method", mapDescription: "An explanatory talaqqi path from listening to self-review",
     familyEyebrow: "For families", familyTitle: "Parents see activity—not a verdict on the child", familyBody: "The parent space already works, inside the memorization journey, with no account and no server: the child says they have memorized an ayah, and you listen and either confirm it or go over it together.", familyOne: "The child declares, you confirm", familyOneBody: "You see what the child said they memorized and confirm it after hearing them — the site shows no automated mastery score.", familyTwo: "Behind a PIN you choose", familyTwoBody: "The parent page is locked with a number of your choosing, so a child cannot sign off their own recitation.", familyThree: "The backup is yours", familyThreeBody: "Everything is kept on your device alone, and you can export the journey file and restore it on another device.", familyOpen: "Open the parent space",
     appsEyebrow: "Apps", appsTitle: "Continue from your phone", appsBody: "Official Android and iOS links will be added when the apps are ready. Until then, start with the web reader.", openReader: "Open the reader", comingSoon: "Coming soon", soon: "Soon", footer: "A calm journey for Quran learning and self-review.",
@@ -80,6 +82,7 @@ export default function Home() {
   const t = copy[locale];
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const { progress } = useReadingProgress();
+  const step = nextStep(progress);
   const { session } = useAuth();
   // Picked off the generated index, never the content module: this page is the
   // one that loads eagerly for every visitor.
@@ -104,12 +107,24 @@ export default function Home() {
 
       <section className="trust-strip" id="about"><div className="container trust-strip__inner"><div><BookOpen size={21} /><span><b>{t.textProof}</b> {t.unchanged}</span></div><div><Headphones size={21} /><span><b>{t.surahs}</b> {t.listening}</span></div><div><Heart size={21} /><span><b>{t.selfReview}</b> {t.noAutoJudgement}</span></div></div></section>
 
-      <section className="section section--reader" aria-labelledby="reader-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold">{t.readerEyebrow}</span><h2 id="reader-title">{t.readerTitle}</h2><p>{t.readerIntro}</p></div>{progress && (
-          <Link href={`/read/${progress.surah}`} className="resume-chip" data-testid="continue-reading">
+      <section className="section section--reader" aria-labelledby="reader-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold">{t.readerEyebrow}</span><h2 id="reader-title">{t.readerTitle}</h2><p>{t.readerIntro}</p></div>{step && (
+          <Link href={step.href} className="resume-chip" data-testid="continue-reading">
             <span className="resume-chip__icon"><CirclePlay size={18} aria-hidden="true" /></span>
             <span className="resume-chip__text">
-              <b>{t.continueReading}</b>
-              <small lang="ar" dir="rtl">{getSurahName(progress.surah)}{progress.ayah > 0 ? ` · ${t.continueReadingAyah} ${progress.ayah}` : ` · ${t.continueReadingOf}`}</small>
+              {step.ref.kind === "ayah" ? (
+                <>
+                  {/* An ayah due in the memorization journey and one merely
+                      read in the public reader share this chip; the label
+                      says which, the destination already does. */}
+                  <b>{step.href.startsWith("/hifz/") ? t.continueReview : t.continueReading}</b>
+                  <small lang="ar" dir="rtl">{getSurahName(step.ref.surah)}{step.ref.ayah > 0 ? ` · ${t.continueReadingAyah} ${step.ref.ayah}` : ` · ${t.continueReadingOf}`}</small>
+                </>
+              ) : step.ref.kind === "deed" ? (
+                <>
+                  <b>{t.continueDeed}</b>
+                  <small>{t.continueDeedBody}</small>
+                </>
+              ) : null}
             </span>
             <Arrow size={18} aria-hidden="true" />
           </Link>
