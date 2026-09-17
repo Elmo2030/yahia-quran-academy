@@ -2804,6 +2804,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-10",
     stationId: 5,
     slug: "sixth-heaven-musa",
+    image: "/stories/seerah/sixth-heaven-musa.jpg",
     en: {
       title: "The Sixth Heaven: The Tear of Musa",
       content: {
@@ -4420,6 +4421,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-11",
     stationId: 7,
     slug: "letters-to-world-leaders",
+    image: "/stories/seerah/letters-to-world-leaders.jpg",
     en: {
       title: "Letters to the Kings of the Earth",
       content: {
@@ -5651,6 +5653,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-02",
     stationId: 8,
     slug: "steadfast-leader-hunayn",
+    image: "/stories/seerah/steadfast-leader-hunayn.jpg",
     en: {
       title: "The Leader Who Did Not Move",
       content: {
@@ -6574,6 +6577,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-14",
     stationId: 8,
     slug: "mosque-school-and-knowledge",
+    image: "/stories/seerah/mosque-school-and-knowledge.jpg",
     en: {
       title: "The Mosque as a School — and a Day for the Women",
       content: {
@@ -6727,6 +6731,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-01",
     stationId: 9,
     slug: "grand-call-to-hajj",
+    image: "/stories/seerah/grand-call-to-hajj.jpg",
     en: {
       title: "The Great Call: A March to Mecca",
       content: {
@@ -7342,6 +7347,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-09",
     stationId: 9,
     slug: "abu-bakr-leads-prayer",
+    image: "/stories/seerah/abu-bakr-leads-prayer.jpg",
     en: {
       title: "Tell Abu Bakr to Lead the Prayer",
       content: {
@@ -7418,6 +7424,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-10",
     stationId: 9,
     slug: "last-prayer-behind-abu-bakr",
+    image: "/stories/seerah/last-prayer-behind-abu-bakr.jpg",
     en: {
       title: "The Last Prayer He Prayed Among Them",
       content: {
@@ -7648,6 +7655,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-13",
     stationId: 9,
     slug: "to-the-highest-companion",
+    image: "/stories/seerah/to-the-highest-companion.jpg",
     en: {
       title: "Rather, the Highest Companion",
       content: {

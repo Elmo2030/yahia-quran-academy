@@ -471,6 +471,13 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960
  ],
+ "/stories/seerah/abu-bakr-leads-prayer.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
  "/stories/seerah/angels-in-badr.jpg": [
   384,
   640,
@@ -673,6 +680,13 @@ export const storyImageWidths: Record<string, number[]> = {
   960,
   1280
  ],
+ "/stories/seerah/grand-call-to-hajj.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
  "/stories/seerah/grandfather-love.jpg": [
   384,
   640,
@@ -742,6 +756,13 @@ export const storyImageWidths: Record<string, number[]> = {
   960,
   1280
  ],
+ "/stories/seerah/last-prayer-behind-abu-bakr.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
  "/stories/seerah/last-testament-prayer-and-weak.jpg": [
   384,
   640,
@@ -753,6 +774,13 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960,
   1280
+ ],
+ "/stories/seerah/letters-to-world-leaders.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
  ],
  "/stories/seerah/little-shepherd.jpg": [
   384,
@@ -796,6 +824,13 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960,
   1280
+ ],
+ "/stories/seerah/mosque-school-and-knowledge.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
  ],
  "/stories/seerah/mount-of-archers-uhud.jpg": [
   384,
@@ -899,6 +934,13 @@ export const storyImageWidths: Record<string, number[]> = {
   960,
   1280
  ],
+ "/stories/seerah/sixth-heaven-musa.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
  "/stories/seerah/smart-shepherd-footprints.jpg": [
   384,
   640,
@@ -925,6 +967,13 @@ export const storyImageWidths: Record<string, number[]> = {
   1600
  ],
  "/stories/seerah/station-5.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
+ ],
+ "/stories/seerah/steadfast-leader-hunayn.jpg": [
   384,
   640,
   960,
@@ -1004,6 +1053,13 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960,
   1280
+ ],
+ "/stories/seerah/to-the-highest-companion.jpg": [
+  384,
+  640,
+  960,
+  1280,
+  1600
  ],
  "/stories/seerah/tough-lesson-and-heroine.jpg": [
   384,

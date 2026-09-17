@@ -786,7 +786,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السماء السادسة لقي النبي ﷺ موسى عليه السلام كليم الله، فرحّب به. فلما جاوزه ليصعد بكى موسى، فقيل له: ما يبكيك؟ قال: أبكي لأن غلاماً بُعث بعدي يدخل الجنة من أمته أكثر ممن…",
   "titleEn": "The Sixth Heaven: The Tear of Musa",
   "descriptionEn": "In the sixth heaven the Prophet (pbuh) met Musa, who welcomed him. When the Prophet passed him to continue his ascent, Musa wept. He was asked: what makes you weep? He said: I…",
-  "image": null
+  "image": "/stories/seerah/sixth-heaven-musa.jpg"
  },
  {
   "stationId": 5,
@@ -975,7 +975,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لما وضعت الحرب أوزارها بعد الحديبية، لم يجلس النبي ﷺ ينتظر، بل اتخذ خاتماً نُقش عليه «محمد رسول الله»، وكتب رسائل إلى ملوك زمانه: قيصر الروم، وكسرى فارس، والمقوقس بالإسكندرية،…",
   "titleEn": "Letters to the Kings of the Earth",
   "descriptionEn": "When the fighting was set aside after Hudaybiyyah, the Prophet ﷺ did not sit and wait. He had a ring made, engraved “Muhammad, the Messenger of Allah”, and wrote letters to the…",
-  "image": null
+  "image": "/stories/seerah/letters-to-world-leaders.jpg"
  },
  {
   "stationId": 7,
@@ -1119,7 +1119,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بينما تراجع الناس، ثبت النبي ﷺ على بغلته في المقدّمة ولم يرجع خطوة، وهو يقول: «أنا النبي لا كذب، أنا ابن عبد المطلب». وأمر عمّه العباس — وكان جهير الصوت — أن ينادي: يا أصحاب…",
   "titleEn": "The Leader Who Did Not Move",
   "descriptionEn": "While the men fell back, the Prophet ﷺ held his place at the front on his mule and did not take a step backwards, saying: “I am the Prophet, this is no lie; I am the son of Abd…",
-  "image": null
+  "image": "/stories/seerah/steadfast-leader-hunayn.jpg"
  },
  {
   "stationId": 8,
@@ -1227,7 +1227,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لم يكن المسجد للصلاة وحدها: كانت تُعقد فيه حلقات يتعلّم فيها الناس. وجاءت النساء إلى النبي ﷺ فقلن: غلبنا عليك الرجال، فاجعل لنا يوماً من نفسك. فوعدهنّ يوماً، فلقيهنّ فيه وعلّمهنّ.",
   "titleEn": "The Mosque as a School — and a Day for the Women",
   "descriptionEn": "The mosque was not only for prayer: circles were held in it where people learned. Women came to the Prophet ﷺ and said: the men have taken all of you — give us a day of your own…",
-  "image": null
+  "image": "/stories/seerah/mosque-school-and-knowledge.jpg"
  },
  {
   "stationId": 8,
@@ -1245,7 +1245,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السنة العاشرة أعلن النبي ﷺ أنه حاجّ، فخرج الناس معه من كل ناحية حتى صاروا جموعاً لا تُحصى. أحرم من ذي الحُليفة في ثوبين أبيضين، ولبس الناس مثله، فما عاد يُعرف الغنيّ من…",
   "titleEn": "The Great Call: A March to Mecca",
   "descriptionEn": "In the tenth year the Prophet ﷺ announced that he would make the pilgrimage, and people came out with him from every direction until they were beyond counting. He entered the…",
-  "image": null
+  "image": "/stories/seerah/grand-call-to-hajj.jpg"
  },
  {
   "stationId": 9,
@@ -1317,7 +1317,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "حان وقت الصلاة والناس ينتظرون في المسجد. حاول النبي ﷺ أن يقوم فأُغمي عليه، ثم أفاق فحاول فأُغمي عليه. فقال: «مُروا أبا بكر فليصلِّ بالناس». فقالت عائشة رضي الله عنها: إن أبا بكر…",
   "titleEn": "Tell Abu Bakr to Lead the Prayer",
   "descriptionEn": "The time for prayer came and the people were waiting in the mosque. The Prophet ﷺ tried to rise and fainted; he came round, tried again, and fainted again. So he said: “Tell Abu…",
-  "image": null
+  "image": "/stories/seerah/abu-bakr-leads-prayer.jpg"
  },
  {
   "stationId": 9,
@@ -1326,7 +1326,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "وجد النبي ﷺ خفّة، فخرج بين رجلين إلى المسجد وأبو بكر يصلّي بالناس. فلما رآه أبو بكر أراد أن يتأخّر، فأشار إليه النبي ﷺ أن مكانك. وجلس إلى جنبه يصلّي، فكان أبو بكر يصلّي بصلاة…",
   "titleEn": "The Last Prayer He Prayed Among Them",
   "descriptionEn": "The Prophet ﷺ felt a little stronger, so he came out between two men to the mosque while Abu Bakr was leading the prayer. When Abu Bakr sensed him he began to step back, and the…",
-  "image": null
+  "image": "/stories/seerah/last-prayer-behind-abu-bakr.jpg"
  },
  {
   "stationId": 9,
@@ -1353,7 +1353,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان رأسه ﷺ على صدر عائشة رضي الله عنها، فدخل أخوها ومعه سواك رطب، فنظر إليه النبي ﷺ، فعرفت أنه يريده، فليّنته له فاستنّ به. ثم رفع بصره وجعل يقول: «مع الرفيق الأعلى»، ثم قضى ﷺ.",
   "titleEn": "Rather, the Highest Companion",
   "descriptionEn": "His head was on Aishah's chest when her brother came in with a fresh toothstick. The Prophet ﷺ looked at it, and she understood that he wanted it, so she softened it for him and…",
-  "image": null
+  "image": "/stories/seerah/to-the-highest-companion.jpg"
  },
  {
   "stationId": 9,
