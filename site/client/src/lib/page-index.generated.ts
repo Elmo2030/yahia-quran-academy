@@ -570,7 +570,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان النبي محمد ﷺ يحب أن يجلس وحده في غار هادئ فوق الجبل اسمه «غار حراء»، يفكّر في السماء والأرض ومَن خلقهما. وفي ليلة من رمضان، وعمره أربعون سنة، جاءه المَلَك جبريل عليه السلام…",
   "titleEn": "The First Light: Cave Hira and the Word Iqra",
   "descriptionEn": "Prophet Muhammad (pbuh) loved to sit alone in a quiet cave on a mountain called Cave Hira, thinking about the sky and the earth and who made them. One night in Ramadan, when he…",
-  "image": null
+  "image": "/stories/seerah/revelation-iqra.jpg"
  },
  {
   "stationId": 3,
@@ -579,7 +579,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "أخذت السيدة خديجة رضي الله عنها النبي ﷺ إلى ابن عمها ورقة بن نوفل، وكان رجلاً عجوزاً حكيماً يقرأ الكتب السماوية القديمة. ولما سمع ورقة ما حدث في الغار فرح وقال: هذا هو المَلَك…",
   "titleEn": "Waraqah ibn Nawfal: The Great Secret",
   "descriptionEn": "Lady Khadijah took the Prophet (pbuh) to her cousin Waraqah ibn Nawfal, a wise old man who read the ancient holy books. When Waraqah heard what had happened in the cave, he was…",
-  "image": null
+  "image": "/stories/seerah/revelation-waraqah.jpg"
  },
  {
   "stationId": 3,
@@ -588,7 +588,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعد اللقاء الأول تأخر جبريل عليه السلام ولم ينزل على النبي ﷺ مدة، فحزن النبي ﷺ واشتاق إلى كلام الله. وبدأ بعض المشركين يسخرون ويقولون: ترك محمداً ربُّه! ثم نزل جبريل بسورة كاملة…",
   "titleEn": "The Pause of Revelation and Surah Ad-Duha",
   "descriptionEn": "After that first meeting, Jibril was delayed and did not come to the Prophet (pbuh) for a while. He grew sad and missed hearing the words of Allah, and some of the…",
-  "image": null
+  "image": "/stories/seerah/revelation-pause.jpg"
  },
  {
   "stationId": 3,
@@ -597,7 +597,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بينما كان النبي ﷺ يمشي يوماً سمع صوتاً من السماء، فرفع رأسه فرأى جبريل عليه السلام بين السماء والأرض. فرجع إلى بيته مسرعاً وهو يقول: «دثّروني دثّروني» أي غطّوني. وهو في فراشه نزل…",
   "titleEn": "O You Wrapped in Garments: Arise and Warn",
   "descriptionEn": "One day as the Prophet (pbuh) was walking, he heard a voice from the sky. He looked up and saw Jibril between the sky and the earth. He hurried home saying: “Cover me, cover me!”…",
-  "image": null
+  "image": "/stories/seerah/revelation-muddaththir.jpg"
  },
  {
   "stationId": 3,
@@ -606,7 +606,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لم يكن الوحي يأتي بطريقة واحدة. في البداية كان النبي ﷺ يرى رؤيا في نومه فتتحقق في الصباح. وبعد النبوة كان جبريل عليه السلام يأتيه أحياناً في صورة رجل، وأحياناً يأتي الوحي قوياً…",
   "titleEn": "How Did the Revelation Come?",
   "descriptionEn": "The revelation did not come in only one way. At first the Prophet (pbuh) would see a dream in his sleep and it would come true in the morning. After the prophethood, Jibril would…",
-  "image": null
+  "image": "/stories/seerah/revelation-forms.jpg"
  },
  {
   "stationId": 4,
@@ -615,7 +615,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لما أمر الله نبيه ﷺ أن يدعو الناس، بدأ بأقرب الناس إليه سراً. فآمنت زوجته خديجة رضي الله عنها، وصديقه أبو بكر، وابن عمه الشاب علي بن أبي طالب، وزيد بن حارثة. وكان المسلمون…",
   "titleEn": "The Great Secret and Dar al-Arqam",
   "descriptionEn": "When Allah commanded the Prophet (pbuh) to call people, he began quietly with those closest to him. His wife Khadijah believed, and his friend Abu Bakr, his young cousin Ali ibn…",
-  "image": null
+  "image": "/stories/seerah/dar-al-arqam.jpg"
  },
  {
   "stationId": 4,
@@ -624,7 +624,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "أمر الله نبيه ﷺ أن يعلن دعوته للجميع، فصعد على جبل الصفا ونادى بأعلى صوته حتى اجتمعت قبائل قريش. سألهم: لو قلت لكم إن جيشاً وراء هذا الجبل يريد أن يهاجمكم، أتصدّقونني؟ قالوا:…",
   "titleEn": "Mount Safa and the Great Call",
   "descriptionEn": "Allah commanded the Prophet (pbuh) to announce his call to everyone, so he climbed Mount Safa and called out at the top of his voice until the tribes of Quraysh gathered. He…",
-  "image": null
+  "image": "/stories/seerah/mount-safa-call.jpg"
  },
  {
   "stationId": 4,
@@ -633,7 +633,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لما أعلن النبي ﷺ دعوته، بدأ المشركون يؤذون المسلمين الضعفاء. أخذوا بلال بن رباح وألقوه على رمل الصحراء الحار ووضعوا صخرة على صدره ليترك دينه، فكان يردّد كلمة واحدة: «أحدٌ..…",
   "titleEn": "Heroes Who Never Give Up: Bilal and the Family of Yasir",
   "descriptionEn": "When the Prophet (pbuh) announced his call, the idol-worshippers began to harm the weakest Muslims. They took Bilal ibn Rabah, threw him on the burning desert sand and put a rock…",
-  "image": null
+  "image": "/stories/seerah/heroes-of-patience.jpg"
  },
  {
   "stationId": 4,
@@ -642,7 +642,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لما اشتدّ الأذى على المسلمين قال لهم النبي ﷺ: اذهبوا إلى أرض الحبشة، فإن بها ملكاً لا يُظلم عنده أحد. فسافر بعضهم وعبروا البحر. أرسلت قريش هدايا إلى الملك النجاشي ليردّهم، فرفض…",
   "titleEn": "Journey to the Land of the Just King",
   "descriptionEn": "When the harm grew heavy, the Prophet (pbuh) told the Muslims: go to the land of Abyssinia, for there is a king there under whom no one is wronged. Some travelled and crossed the…",
-  "image": null
+  "image": "/stories/seerah/migration-to-abyssinia.jpg"
  },
  {
   "stationId": 4,
@@ -651,7 +651,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "اتفقت قريش على مقاطعة النبي ﷺ وكل من يقف معه، وكتبوا صحيفة ظالمة علّقوها في الكعبة. فعاش المسلمون في شِعب بين الجبال ثلاث سنوات حتى أكلوا ورق الشجر من الجوع، ثم مزّق الصحيفةَ…",
   "titleEn": "The Unjust Siege and the Year of Sorrow",
   "descriptionEn": "Quraysh agreed to boycott the Prophet (pbuh) and everyone who stood with him, writing an unjust document and hanging it in the Kaaba. The Muslims lived in a narrow valley between…",
-  "image": null
+  "image": "/stories/seerah/year-of-sorrow.jpg"
  },
  {
   "stationId": 4,
@@ -660,7 +660,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان المسلمون يصلّون سراً خوفاً من أذى قريش، حتى غضب حمزة بن عبد المطلب عمّ النبي الشجاع وأعلن إسلامه دفاعاً عن ابن أخيه. وبعده بأيام أسلم عمر بن الخطاب، وكان خارجاً بسيفه ليؤذي…",
   "titleEn": "The Islam of Heroes: Hamza and Umar",
   "descriptionEn": "The Muslims prayed in secret, fearing harm from Quraysh — until the day the Prophet's brave uncle Hamza ibn Abd al-Muttalib grew angry and announced his Islam to defend his…",
-  "image": null
+  "image": "/stories/seerah/islam-of-heroes.jpg"
  },
  {
   "stationId": 4,
@@ -669,7 +669,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "أرسلت قريش زعماءها إلى النبي ﷺ يعرضون عليه المال والملك بشرط أن يترك دينه. فردّ عليهم ردّه المشهور: والله لو وضعوا الشمس في يميني والقمر في يساري على أن أترك هذا الأمر ما تركته.",
   "titleEn": "The Sun in My Right Hand, the Moon in My Left",
   "descriptionEn": "Quraysh sent their leaders to the Prophet (pbuh) offering him wealth and kingship on one condition: that he leave his religion. He gave the answer we still remember: by Allah, if…",
-  "image": null
+  "image": "/stories/seerah/sun-and-moon.jpg"
  },
  {
   "stationId": 4,
@@ -678,7 +678,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "طلب كفار قريش من النبي ﷺ معجزة يرونها بأعينهم، فقالوا: اشقق لنا القمر. فدعا النبي ﷺ ربه، فانشقّ القمر نصفين أمام الناس، نصف فوق جبل ونصف فوق جبل آخر. ومع ذلك قالوا: سحرنا محمد،…",
   "titleEn": "A Miracle in the Sky: The Splitting of the Moon",
   "descriptionEn": "The disbelievers of Quraysh asked the Prophet (pbuh) for a miracle they could see with their own eyes: split the moon for us. He prayed to his Lord, and the moon split in two…",
-  "image": null
+  "image": "/stories/seerah/splitting-of-the-moon.jpg"
  },
  {
   "stationId": 4,
@@ -687,7 +687,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاء إلى مكة شاعر حكيم اسمه الطُّفيل بن عمرو الدَّوسي، فحذّرته قريش من سماع كلام النبي ﷺ، فوضع القطن في أذنيه. ثم فكّر وقال: أنا رجل أفهم الكلام، فلماذا لا أسمع؟ فنزع القطن وسمع…",
   "titleEn": "Cotton in the Ears: The Clever Poet",
   "descriptionEn": "A wise poet named at-Tufayl ibn Amr ad-Dawsi came to Mecca. Quraysh warned him not to hear a word from the Prophet (pbuh), so he put cotton in his ears. Then he thought again: I…",
-  "image": null
+  "image": "/stories/seerah/cotton-in-ears.jpg"
  },
  {
   "stationId": 4,
@@ -696,7 +696,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعد وفاة خديجة وأبي طالب اشتدّ الأذى، فمشى النبي ﷺ إلى الطائف يدعو أهلها، فردّوه وأمروا الصبيان أن يرموه بالحجارة حتى أدميت قدماه. فجلس يدعو ربه، فجاءه ملك الجبال يستأذنه أن يطبق…",
   "titleEn": "The Sad Journey to Taif",
   "descriptionEn": "After the deaths of Khadijah and Abu Talib the harm grew worse, so the Prophet (pbuh) walked to Taif to call its people. They turned him away and set boys to throw stones at him…",
-  "image": null
+  "image": "/stories/seerah/journey-to-taif.jpg"
  },
  {
   "stationId": 5,
@@ -705,7 +705,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بينما كان النبي ﷺ نائماً قرب الكعبة، وهو حزين بعد رحلة الطائف، نزل إليه جبريل عليه السلام ومعه مَلَك آخر. فشقّا صدره في رفق وبلا ألم، وغسلا قلبه الشريف بماء زمزم في طست من ذهب،…",
   "titleEn": "Preparing the Leader: The Opening of the Chest",
   "descriptionEn": "While the Prophet (pbuh) slept near the Kaaba, heavy with sadness after the journey to Taif, Jibril came down to him with another angel. They opened his chest gently and without…",
-  "image": null
+  "image": "/stories/seerah/chest-washing-zamzam.jpg"
  },
  {
   "stationId": 5,
@@ -714,7 +714,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "أحضر جبريل عليه السلام دابّة بيضاء من الجنة تُسمّى البُراق، أكبر من الحمار وأصغر من البغل، تضع حافرها عند آخر ما يبلغه بصرها. ولما اقترب النبي ﷺ ليركبها تحرّكت، فقال لها جبريل:…",
   "titleEn": "Al-Buraq: Swifter Than Sight",
   "descriptionEn": "Jibril brought a white creature from Paradise called al-Buraq, larger than a donkey and smaller than a mule, which placed its hoof as far as its sight could reach. When the…",
-  "image": null
+  "image": "/stories/seerah/the-amazing-buraq.jpg"
  },
  {
   "stationId": 5,
@@ -723,7 +723,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في الطريق إلى بيت المقدس طلب جبريل عليه السلام من النبي ﷺ أن ينزل فيصلّي في مواضع مباركة، منها الموضع الذي كلّم الله فيه موسى عليه السلام، والموضع الذي وُلد فيه عيسى عليه السلام.…",
   "titleEn": "The Road to Jerusalem",
   "descriptionEn": "On the road to Jerusalem, Jibril asked the Prophet (pbuh) to come down and pray at blessed places — among them where Allah spoke to Musa, and where Isa was born. On the way he…",
-  "image": null
+  "image": "/stories/seerah/road-to-jerusalem.jpg"
  },
  {
   "stationId": 5,
@@ -732,7 +732,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "وصل النبي ﷺ إلى المسجد الأقصى وربط البُراق عند الباب. ولما دخل وجد الأنبياء جميعاً من آدم إلى عيسى عليهم السلام في انتظاره. فأقيمت الصلاة، وقدّمه جبريل عليه السلام ليصلّي بهم…",
   "titleEn": "Leading the Prophets at al-Aqsa",
   "descriptionEn": "The Prophet (pbuh) reached al-Aqsa Mosque and tied al-Buraq at the door. When he entered, he found all the prophets from Adam to Isa waiting for him. The prayer was called, and…",
-  "image": null
+  "image": "/stories/seerah/leader-of-prophets.jpg"
  },
  {
   "stationId": 5,
@@ -741,7 +741,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "صعد النبي ﷺ مع جبريل عليه السلام إلى السماء الأولى. فاستأذن جبريل، فقيل: من؟ قال: جبريل. قيل: ومن معك؟ قال: محمد. ففُتح لهما، فإذا آدم عليه السلام أبو البشر، فرحّب به وقال:…",
   "titleEn": "The First Heaven: Meeting Adam",
   "descriptionEn": "The Prophet (pbuh) ascended with Jibril to the first heaven. Jibril asked to be let in. “Who is it?” “Jibril.” “And who is with you?” “Muhammad.” The gate opened, and there was…",
-  "image": null
+  "image": "/stories/seerah/the-first-heaven-adam.jpg"
  },
  {
   "stationId": 5,
@@ -750,7 +750,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "صعد النبي ﷺ وجبريل عليه السلام إلى السماء الثانية واستأذنا، ففُتح لهما، فإذا شابّان كريمان: عيسى ابن مريم ويحيى بن زكريا عليهما السلام، وهما ابنا خالة. فرحّبا به وقالا: مرحباً…",
   "titleEn": "The Second Heaven: The Cousins",
   "descriptionEn": "The Prophet (pbuh) and Jibril rose to the second heaven and asked to enter. The gate opened, and there were two noble young men: Isa the son of Maryam and Yahya the son of…",
-  "image": null
+  "image": "/stories/seerah/second-heaven-isa-yahya.jpg"
  },
  {
   "stationId": 5,
@@ -759,7 +759,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السماء الثالثة لقي النبي ﷺ يوسف عليه السلام، وقال عنه: «قد أُعطي شطر الحُسن». وهو النبي الذي صبر على غدر إخوته وعلى السجن، حتى مكّنه الله في الأرض. فرحّب بأخيه محمد ﷺ ودعا له.",
   "titleEn": "The Third Heaven: Half of All Beauty",
   "descriptionEn": "In the third heaven the Prophet (pbuh) met Yusuf, of whom he said: “He has been given half of all beauty.” This is the prophet who bore his brothers' betrayal and prison with…",
-  "image": null
+  "image": "/stories/seerah/third-heaven-yusuf.jpg"
  },
  {
   "stationId": 5,
@@ -768,7 +768,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السماء الرابعة لقي النبي ﷺ إدريس عليه السلام، الذي رفعه الله مكاناً علياً. فرحّب به وقال ما يقوله الأنبياء: مرحباً بالأخ الصالح والنبي الصالح.",
   "titleEn": "The Fourth Heaven: A High Place",
   "descriptionEn": "In the fourth heaven the Prophet (pbuh) met Idris, whom Allah raised to a high place. He welcomed him with the words every prophet said: “Welcome, righteous brother and righteous…",
-  "image": null
+  "image": "/stories/seerah/fourth-heaven-idris.jpg"
  },
  {
   "stationId": 5,
@@ -777,7 +777,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السماء الخامسة لقي النبي ﷺ شيخاً وقوراً، فسأل جبريل: من هذا؟ قال: هذا المحبَّب في قومه، هارون بن عمران، أخو موسى عليهما السلام. وكان معروفاً بلينه ولطفه، فأحبّه قومه.",
   "titleEn": "The Fifth Heaven: The Beloved Prophet",
   "descriptionEn": "In the fifth heaven the Prophet (pbuh) met a dignified elder and asked Jibril: who is this? He said: this is the one beloved by his people, Harun ibn Imran, the brother of Musa.…",
-  "image": null
+  "image": "/stories/seerah/fifth-heaven-harun.jpg"
  },
  {
   "stationId": 5,
@@ -795,7 +795,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السماء السابعة رأى النبي ﷺ رجلاً يشبهه، مسنداً ظهره إلى البيت المعمور، وهو بيت في السماء يطوف به كل يوم سبعون ألف ملَك لا يعودون إليه. إنه إبراهيم عليه السلام، فرحّب به وأرسل…",
   "titleEn": "The Seventh Heaven: Ibrahim's Greeting to Us",
   "descriptionEn": "In the seventh heaven the Prophet (pbuh) saw a man who resembled him, resting his back against al-Bayt al-Ma'mur — a House in the heavens circled each day by seventy thousand…",
-  "image": null
+  "image": "/stories/seerah/seventh-heaven-ibrahim.jpg"
  },
  {
   "stationId": 5,
@@ -804,7 +804,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "صعد النبي ﷺ حتى بلغ شجرة عظيمة تُسمّى سدرة المنتهى، إليها ينتهي كل صاعد ولا يتجاوزها مخلوق. وعندها وقف جبريل عليه السلام وقال: لو دنوتُ أنملة لاحترقت. ومضى النبي ﷺ وحده.",
   "titleEn": "Sidrat al-Muntaha: Where Everything Stops",
   "descriptionEn": "The Prophet (pbuh) rose until he reached a great tree called Sidrat al-Muntaha, where everything that ascends comes to an end and no creature passes beyond. There Jibril stopped…",
-  "image": null
+  "image": "/stories/seerah/sidrat-al-muntaha.jpg"
  },
  {
   "stationId": 5,
@@ -813,7 +813,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بلغ النبي ﷺ مكاناً سمع فيه صريف الأقلام، وهناك كلّمه الله وفرض على أمته الصلاة: خمسين صلاة في اليوم والليلة. والصلاة هي العبادة الوحيدة التي فُرضت في السماء لا في الأرض.",
   "titleEn": "The Great Gift: The Prayer",
   "descriptionEn": "The Prophet (pbuh) reached a place where he heard the scratching of the pens, and there Allah spoke to him and made the prayer obligatory on his nation: fifty prayers a day and…",
-  "image": null
+  "image": "/stories/seerah/the-great-gift-prayer.jpg"
  },
  {
   "stationId": 5,
@@ -822,7 +822,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في طريق العودة سأل موسى عليه السلام النبي ﷺ: بم أُمرت؟ قال: بخمسين صلاة. فقال: إن أمتك لا تطيق ذلك، ارجع إلى ربك فاسأله التخفيف. فلم يزل النبي ﷺ يرجع حتى صارت خمساً، وقال الله:…",
   "titleEn": "Musa's Advice: Five in Deed, Fifty in Reward",
   "descriptionEn": "On the way back, Musa asked the Prophet (pbuh): what were you commanded? He said: fifty prayers. Musa said: your nation cannot bear that — go back to your Lord and ask Him to…",
-  "image": null
+  "image": "/stories/seerah/musa-advice-reduction.jpg"
  },
  {
   "stationId": 5,
@@ -831,7 +831,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في الصباح أخبر النبي ﷺ قريشاً برحلته، فسخروا وقالوا: نسير إلى بيت المقدس شهراً وتذهب وترجع في ليلة؟ فسألوه أن يصف لهم المسجد، فجلّاه الله له فوصفه لهم وصفاً دقيقاً. وذهبوا إلى…",
   "titleEn": "The Morning of Certainty, and the Name as-Siddiq",
   "descriptionEn": "In the morning the Prophet (pbuh) told Quraysh of his journey, and they mocked him: we travel to Jerusalem in a month, and you go and return in one night? They asked him to…",
-  "image": null
+  "image": "/stories/seerah/morning-of-certainty.jpg"
  },
  {
   "stationId": 6,
@@ -840,7 +840,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "اجتمع زعماء قريش في دار الندوة يدبّرون كيف يتخلّصون من النبي ﷺ، فاتفقوا أن يأخذوا من كل قبيلة شاباً ليضربوه معاً. وأحاطوا ببيته ليلاً ينتظرون خروجه. لكن الله أطلع نبيه على ما…",
   "titleEn": "The Plot at Dar an-Nadwa and a Handful of Dust",
   "descriptionEn": "The chiefs of Quraysh met at Dar an-Nadwa to plan how to be rid of the Prophet (pbuh), and agreed to take a young man from every tribe to strike him together. They surrounded his…",
-  "image": null
+  "image": "/stories/seerah/dar-al-nadwa-dust.jpg"
  },
  {
   "stationId": 6,
@@ -849,7 +849,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "قبل أن يخرج النبي ﷺ طلب من ابن عمه الشاب علي بن أبي طالب أن ينام في فراشه ويتغطّى ببردته، حتى يظنّ من ينظر أن النبي نائم. فما تردّد علي رضي الله عنه. وطلب منه النبي ﷺ أن يبقى…",
   "titleEn": "The Hero in the Bed",
   "descriptionEn": "Before the Prophet (pbuh) left, he asked his young cousin Ali ibn Abi Talib to sleep in his bed and cover himself with his cloak, so that anyone looking in would think the…",
-  "image": null
+  "image": "/stories/seerah/hero-in-the-bed.jpg"
  },
  {
   "stationId": 6,
@@ -858,7 +858,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في شدة حرّ الظهيرة جاء النبي ﷺ إلى بيت أبي بكر رضي الله عنه فأخبره أن الله أذن له بالهجرة. فقال أبو بكر: «الصُّحبة يا رسول الله؟» قال: «الصُّحبة». فبكى أبو بكر من الفرح. تقول…",
   "titleEn": "Tears of Joy: “May I Accompany You?”",
   "descriptionEn": "In the fierce heat of midday the Prophet (pbuh) came to Abu Bakr's house and told him Allah had given him leave to migrate. Abu Bakr said: “May I accompany you, Messenger of…",
-  "image": null
+  "image": "/stories/seerah/tears-of-joy-companion.jpg"
  },
  {
   "stationId": 6,
@@ -867,7 +867,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "لما جهّزوا الزاد لم يجدوا ما يربطونه به، فقامت أسماء بنت أبي بكر رضي الله عنهما فشقّت نطاقها — أي حزامها — نصفين: ربطت بنصفه الزاد، وشدّت بالآخر ثيابها. فدعا لها النبي ﷺ بنطاقين…",
   "titleEn": "Asma, She of the Two Belts",
   "descriptionEn": "When they packed the provisions they had nothing to tie them with, so Asma bint Abi Bakr took her belt, tore it in two, tied the food with one half and her clothes with the…",
-  "image": null
+  "image": "/stories/seerah/asma-that-al-nitaqayn.jpg"
  },
  {
   "stationId": 6,
@@ -876,7 +876,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان أهل مكة بارعين في تتبّع الآثار على الرمل. فدبّر أبو بكر رضي الله عنه أن يسير راعيه عامر بن فُهَيرة بالغنم خلفهما، فتمشي الغنم على آثار أقدامهما فتمحوها. فضاع الأثر ولم يعرف…",
   "titleEn": "The Shepherd Who Erased the Tracks",
   "descriptionEn": "The people of Mecca were skilled at reading tracks in the sand. So Abu Bakr arranged for his shepherd, Amir ibn Fuhayra, to drive the flock behind them, so the sheep walked over…",
-  "image": null
+  "image": "/stories/seerah/smart-shepherd-footprints.jpg"
  },
  {
   "stationId": 7,
@@ -885,7 +885,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "صبر المسلمون في مكة ثلاث عشرة سنة على الأذى ولم يردّوا، لأن النبي ﷺ كان يأمرهم بالصبر. ولما هاجروا إلى المدينة وبنوا بيوتهم، ظلّت قريش تهدّد بالهجوم عليهم. عند ذلك أذن الله لهم…",
   "titleEn": "Why Did the Muslims Defend Themselves?",
   "descriptionEn": "The Muslims bore thirteen years of harm in Mecca without striking back, because the Prophet ﷺ told them to be patient. When they migrated to Madinah and built their homes,…",
-  "image": null
+  "image": "/stories/seerah/permission-to-defend.jpg"
  },
  {
   "stationId": 7,
@@ -894,7 +894,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "خرج المسلمون ثلاثمائة وثلاثة عشر رجلاً، فوجدوا أمامهم جيشاً يقارب الألف. فجمع النبي ﷺ أصحابه واستشارهم ولم يجبر أحداً. ولما نزلوا عند آبار بدر، قال له الحُباب بن المنذر: أهذا…",
   "titleEn": "The Well of Badr and the Strength of Counsel",
   "descriptionEn": "The Muslims set out three hundred and thirteen men, and found before them an army of nearly a thousand. The Prophet ﷺ gathered his companions and asked their view, forcing no…",
-  "image": null
+  "image": "/stories/seerah/badr-shura-counsel.jpg"
  },
  {
   "stationId": 7,
@@ -903,7 +903,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السابع عشر من رمضان التقى الجيشان ببدر. وقف النبي ﷺ يدعو ربه ويرفع يديه حتى سقط رداؤه، يسأله النصر لهذه القلّة. فاستجاب الله وأمدّهم بالملائكة، وانتصر المسلمون على قلّتهم،…",
   "titleEn": "Badr and the Soldiers of the Sky",
   "descriptionEn": "On the seventeenth of Ramadan the two armies met at Badr. The Prophet ﷺ stood praying to his Lord with his hands raised until his cloak fell from his shoulders, asking victory…",
-  "image": null
+  "image": "/stories/seerah/angels-in-badr.jpg"
  },
  {
   "stationId": 7,
@@ -912,7 +912,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعد بدر جاء الأسرى إلى المدينة، فأوصى النبي ﷺ أصحابه بهم خيراً، فكان الصحابة يطعمونهم الخبز ويأكلون هم التمر. ولما جاء وقت الإطلاق، جعل النبي ﷺ فداء من يعرف القراءة والكتابة ولا…",
   "titleEn": "The Captives of Badr, Who Taught the Children",
   "descriptionEn": "After Badr the captives came to Madinah, and the Prophet ﷺ told his companions to treat them well — so the companions gave them the bread and ate dates themselves. When the time…",
-  "image": null
+  "image": "/stories/seerah/mercy-to-captives.jpg"
  },
  {
   "stationId": 7,
@@ -921,7 +921,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاءت قريش بثلاثة آلاف مقاتل إلى أُحد. فوضع النبي ﷺ خمسين رامياً على تلّة تحمي ظهر الجيش، وقال لهم: لا تبرحوا مكانكم، إن رأيتمونا ننتصر أو نُهزم. وفي أول المعركة تقدّم المسلمون…",
   "titleEn": "The Archers' Hill and the Order",
   "descriptionEn": "Quraysh came to Uhud with three thousand fighters. The Prophet ﷺ placed fifty archers on a hill to guard the army's back, and told them: do not leave your place, whether you see…",
-  "image": null
+  "image": "/stories/seerah/mount-of-archers-uhud.jpg"
  },
  {
   "stationId": 7,
@@ -930,7 +930,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "ظنّ أكثر الرماة أن المعركة انتهت، فنزلوا من التلّة قبل أن يأذن النبي ﷺ. فالتفّت خيل قريش من ورائهم وانقلبت المعركة. وثبت النبي ﷺ ومعه قليل، وبرزت نُسيبة بنت كعب رضي الله عنها…",
   "titleEn": "The Lesson of Uhud, and Nusaybah",
   "descriptionEn": "Most of the archers thought the battle was over, and came down from the hill before the Prophet ﷺ gave them leave. The horsemen of Quraysh came round behind them and the battle…",
-  "image": null
+  "image": "/stories/seerah/tough-lesson-and-heroine.jpg"
  },
  {
   "stationId": 7,
@@ -939,7 +939,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "تجمّعت القبائل في جيش سُمّي الأحزاب، عشرة آلاف مقاتل، وزحفوا إلى المدينة. فاستشار النبي ﷺ أصحابه، فقال سلمان الفارسي رضي الله عنه: يا رسول الله، إنا كنا بفارس إذا حوصرنا خندقنا…",
   "titleEn": "Ten Thousand, and the Idea of a Trench",
   "descriptionEn": "The tribes gathered into an army called the Confederates — ten thousand fighters — and marched on Madinah. The Prophet ﷺ asked his companions for their view, and Salman al-Farisi…",
-  "image": null
+  "image": "/stories/seerah/trench-salman-idea.jpg"
  },
  {
   "stationId": 7,
@@ -948,7 +948,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "نزل النبي ﷺ يحفر مع أصحابه، وقد ربط على بطنه حجراً من الجوع. فرآه جابر بن عبد الله رضي الله عنه فذهب وذبح شاة صغيرة وطحنت زوجته صاعاً من شعير، ودعاه في نفر قليل. فنادى النبي ﷺ…",
   "titleEn": "The Leader's Pickaxe, and Food That Did Not Run Out",
   "descriptionEn": "The Prophet ﷺ came down and dug with his companions, a stone tied over his stomach from hunger. Jabir ibn Abdullah saw it, went home and slaughtered a small animal while his wife…",
-  "image": null
+  "image": "/stories/seerah/prophet-work-and-food-miracle.jpg"
  },
  {
   "stationId": 7,
@@ -957,7 +957,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "وقف المشركون عاجزين أمام الخندق شهراً، واشتدّ البرد والخوف. فدعا النبي ﷺ ربه، فأرسل الله عليهم ريحاً شديدة البرد قلعت خيامهم وأطفأت نيرانهم وكفأت قدورهم، فرحلوا في الليل. وأصبح…",
   "titleEn": "The Wind of Victory, and the End of the Confederates",
   "descriptionEn": "The idolaters stood helpless at the trench for a month, and the cold and the fear grew hard. The Prophet ﷺ prayed to his Lord, and Allah sent a bitterly cold wind that tore up…",
-  "image": null
+  "image": "/stories/seerah/cold-wind-victory-without-swords.jpg"
  },
  {
   "stationId": 7,
@@ -966,7 +966,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "خرج النبي ﷺ ومعه ألف وأربعمائة في ثياب الإحرام البيضاء يريدون العمرة، لا يحملون سلاح حرب. فمنعتهم قريش، فاختار النبي ﷺ الصلح على القتال، وقبل شروطاً بدت قاسية ليمنع الدماء.…",
   "titleEn": "Hudaybiyyah: Peace in the Clothes of Pilgrimage",
   "descriptionEn": "The Prophet ﷺ set out with one thousand four hundred companions in the white clothes of pilgrimage, carrying no weapons of war, intending the lesser pilgrimage. Quraysh turned…",
-  "image": null
+  "image": "/stories/seerah/hudaybiyyah-peace-treaty.jpg"
  },
  {
   "stationId": 7,
@@ -984,7 +984,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كانت حصون خيبر في الشمال مركزاً يموّل من يحارب المدينة، فخرج إليها النبي ﷺ ليؤمّن الحدود. ولما بلغوا أمنع الحصون قال: «لأعطينّ الراية غداً رجلاً يحبّ الله ورسوله ويحبّه الله…",
   "titleEn": "The Forts of Khaybar and the Bearer of the Banner",
   "descriptionEn": "The forts of Khaybar in the north were a base funding those who fought Madinah, so the Prophet ﷺ went out to secure the frontier. When they reached the strongest fort he said:…",
-  "image": null
+  "image": "/stories/seerah/battle-of-khaybar-hero-ali.jpg"
  },
  {
   "stationId": 7,
@@ -993,7 +993,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "نقضت قريش عهد الحديبية فأعانت على حلفاء المسلمين من خزاعة، فوجب نصرهم. فتجهّز النبي ﷺ في عشرة آلاف وسار في سرّية تامة حتى نزل قرب مكة. ثم أمر كل رجل أن يوقد ناراً، فرأت قريش…",
   "titleEn": "Ten Thousand Fires in One Night",
   "descriptionEn": "Quraysh broke the treaty of Hudaybiyyah by helping an attack on Khuza'ah, who were the Muslims' allies, so those wronged had to be defended. The Prophet ﷺ prepared ten thousand…",
-  "image": null
+  "image": "/stories/seerah/makkah-march-ten-thousand-fires.jpg"
  },
  {
   "stationId": 7,
@@ -1002,7 +1002,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "دخل النبي ﷺ مكة مطأطئ الرأس على راحلته حتى كاد يمسّ الرحل، تواضعاً لله. وقال رجل: اليوم يوم الملحمة! فردّ عليه النبي ﷺ: «اليوم يوم المرحمة». ثم طاف بالبيت وحوله ثلاثمائة وستون…",
   "titleEn": "Today Is a Day of Mercy",
   "descriptionEn": "The Prophet ﷺ entered Mecca with his head bowed low over his mount, almost touching the saddle, in humility before Allah. A man called out: “Today is a day of slaughter!” The…",
-  "image": null
+  "image": "/stories/seerah/day-of-mercy-entry.jpg"
  },
  {
   "stationId": 7,
@@ -1011,7 +1011,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "اجتمع أهل مكة عند الكعبة ينتظرون ما يُفعل بهم، وهم الذين أخرجوه وعذّبوا أصحابه عشرين سنة. فقال لهم: «ما تظنون أني فاعل بكم؟» قالوا: خيراً، أخٌ كريم وابن أخٍ كريم. فقال: «اذهبوا…",
   "titleEn": "Go — You Are Free",
   "descriptionEn": "The people of Mecca gathered at the Kaaba waiting to hear what would be done to them — the same people who had driven him out and tortured his companions for twenty years. He…",
-  "image": null
+  "image": "/stories/seerah/go-you-are-free.jpg"
  },
  {
   "stationId": 6,
@@ -1020,7 +1020,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "صعد النبي ﷺ وأبو بكر جبلاً وعراً حتى بلغا غاراً مظلماً يُسمّى غار ثور. فطلب أبو بكر أن يدخل هو أولاً ليطمئنّ على المكان، وجعل يسدّ الشقوق بقطع من ثوبه، ثم نام النبي ﷺ ورأسه في…",
   "titleEn": "Cave Thawr, and a Friend Who Went In First",
   "descriptionEn": "The Prophet ﷺ and Abu Bakr climbed a rugged mountain to a dark cave called Cave Thawr. Abu Bakr asked to go in first to check the place, and began stopping up the cracks with…",
-  "image": null
+  "image": "/stories/seerah/cave-thawr-preparation.jpg"
  },
  {
   "stationId": 6,
@@ -1029,7 +1029,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاء فرسان قريش يتبعون الأثر حتى وقفوا عند باب الغار. ويُذكر في كتب السيرة أن عنكبوتاً نسج على الباب وأن حمامة عشّشت أمامه، فقالوا: لو دخل أحد هنا ما بقي هذا كله. فانصرفوا. والذي…",
   "titleEn": "Fragile Threads, and Soldiers You Cannot See",
   "descriptionEn": "The horsemen of Quraysh followed the tracks until they stood at the mouth of the cave. The Seerah books mention that a spider had woven over the opening and a dove had nested…",
-  "image": null
+  "image": "/stories/seerah/spider-and-dove.jpg"
  },
  {
   "stationId": 6,
@@ -1038,7 +1038,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "سمع أبو بكر أصوات القوم فوق الغار، فقال: يا رسول الله، لو أن أحدهم نظر تحت قدميه لرآنا! فقال له النبي ﷺ وهو هادئ: «ما ظنّك باثنين الله ثالثهما؟» و«لا تحزن إن الله معنا». فسكن قلب…",
   "titleEn": "Do Not Grieve — Allah Is With Us",
   "descriptionEn": "Abu Bakr heard the men above the cave and said: Messenger of Allah, if one of them looked down at his feet he would see us! The Prophet ﷺ answered him calmly: “What do you think…",
-  "image": null
+  "image": "/stories/seerah/do-not-be-sad.jpg"
  },
  {
   "stationId": 6,
@@ -1047,7 +1047,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كانت قريش ترقب الطريق المعتاد إلى المدينة، فاختار النبي ﷺ طريق الساحل، وهو طريق وعر لا يسلكه الناس. واستأجر دليلاً خبيراً بالطرق اسمه عبد الله بن أُريقط، وكان على دين قومه لا…",
   "titleEn": "An Expert Guide Who Was Not a Muslim",
   "descriptionEn": "Quraysh were watching the usual road to Madinah, so the Prophet ﷺ took the coastal route — rough country that people did not travel. He hired an expert guide named Abdullah ibn…",
-  "image": null
+  "image": "/stories/seerah/expert-guide.jpg"
  },
  {
   "stationId": 6,
@@ -1056,7 +1056,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "مرّ الركب في الصحراء بخيمة امرأة كريمة تُسمّى أم مَعبَد، فطلبوا طعاماً فما وجدت عندها شيئاً، فالسنة جدبة. ورأى النبي ﷺ شاة هزيلة، فاستأذنها في حلبها، فسمّى الله ودعا، فدرّت…",
   "titleEn": "Umm Ma'bad's Tent, and a Sheep With No Milk",
   "descriptionEn": "On the way the travellers passed the tent of a generous woman called Umm Ma'bad. They asked to buy food and she had none — it was a dry year. The Prophet ﷺ saw a thin sheep,…",
-  "image": null
+  "image": "/stories/seerah/umm-mabad-tent.jpg"
  },
  {
   "stationId": 6,
@@ -1065,7 +1065,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جعلت قريش مئة ناقة لمن يردّ النبي ﷺ. فطمع سُراقة بن مالك فتبعه على فرسه، فلما قرب ساخت قوائم فرسه في الأرض فسقط، فعاد وحاول فسقط ثانية. فأيقن أن أمر النبي ﷺ محفوظ، فطلب الأمان،…",
   "titleEn": "A Hundred Camels, and a Horse That Sank",
   "descriptionEn": "Quraysh promised a hundred camels to whoever brought the Prophet ﷺ back. Suraqah ibn Malik wanted them and rode after him — and when he drew near, his horse's legs sank into the…",
-  "image": null
+  "image": "/stories/seerah/suraqa-and-hundred-camels.jpg"
  },
  {
   "stationId": 6,
@@ -1074,7 +1074,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "خرج بُرَيدة بن الحُصَيب في سبعين رجلاً من قومه يطلبون جائزة قريش. فلما لقوا النبي ﷺ سألهم عن أسمائهم وكلّمهم بلطف عن الإسلام، فأسلموا جميعاً في مجلس واحد. فحلّ بُرَيدة عمامته…",
   "titleEn": "Buraydah, and a Turban That Became a Banner",
   "descriptionEn": "Buraydah ibn al-Husayb rode out with seventy of his people after the reward Quraysh had promised. When they met the Prophet ﷺ he asked their names and spoke to them gently about…",
-  "image": null
+  "image": "/stories/seerah/buraida-white-banner.jpg"
  },
  {
   "stationId": 6,
@@ -1083,7 +1083,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "نزل النبي ﷺ في قُباء على مشارف المدينة، وأقام فيها أياماً. وأول ما عمل أن بنى مسجداً، فكان يحمل الحجارة مع أصحابه بنفسه، فهو أول مسجد بُني في الإسلام. وذكره الله في القرآن بأنه…",
   "titleEn": "Quba, and the First Mosque Built",
   "descriptionEn": "The Prophet ﷺ stopped at Quba on the edge of Madinah and stayed some days. The first thing he did was build a mosque, carrying the stones with his companions himself — the first…",
-  "image": null
+  "image": "/stories/seerah/quba-first-mosque.jpg"
  },
  {
   "stationId": 6,
@@ -1092,7 +1092,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "دخل النبي ﷺ المدينة على ناقته القصواء، فكان الأنصار كلما مرّ ببيتٍ أخذوا بزمامها يقولون: انزل عندنا يا رسول الله! فكان يقول: «دعوها فإنها مأمورة». فمشت حتى بركت عند بيت أبي أيوب…",
   "titleEn": "Al-Qaswa, and the House of Abu Ayyub",
   "descriptionEn": "The Prophet ﷺ entered Madinah on his camel al-Qaswa, and every time he passed a house the Ansar took hold of her halter, saying: stay with us, Messenger of Allah! He would…",
-  "image": null
+  "image": "/stories/seerah/commanded-camel-qaswa.jpg"
  },
  {
   "stationId": 6,
@@ -1101,7 +1101,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "خرج أهل المدينة كلهم يستقبلونه: الرجال والنساء والصبيان، حتى صعد الصبيان على البيوت. وكان يوماً ما رأوا مثله فرحاً. وتذكر كتب السيرة أن الجواري كنّ ينشدن: طلع البدر علينا. ومن…",
   "titleEn": "Yathrib Becomes the City of Light",
   "descriptionEn": "The whole city came out to meet him: men, women and children, and the children climbed onto the roofs. It was a day of joy such as they had never seen. The Seerah books mention…",
-  "image": null
+  "image": "/stories/seerah/talaa-al-badru.jpg"
  },
  {
   "stationId": 8,
@@ -1110,7 +1110,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعد فتح مكة خرج المسلمون في اثني عشر ألفاً، وهو أكبر جيش خرجوا فيه. فنظر بعضهم إلى كثرتهم وقال: لن نُغلب اليوم من قلة! فلما دخلوا وادي حُنين الضيق، باغتهم الرماة من مضايق الجبل…",
   "titleEn": "The Lesson of Hunayn: Pride in Numbers",
   "descriptionEn": "After the conquest of Mecca the Muslims went out twelve thousand strong — the largest army they had ever gathered. Some looked at their own numbers and said: we will not be…",
-  "image": null
+  "image": "/stories/seerah/hunayn-pride-in-numbers.jpg"
  },
  {
   "stationId": 8,
@@ -1128,7 +1128,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاء الخبر أن الروم يحشدون على حدود الشام، والوقت صيف شديد الحر والثمار قد نضجت. فدعا النبي ﷺ الناس إلى الخروج، وكان الزاد قليلاً حتى سُمّي «جيش العُسرة». فتسابق الصحابة في البذل:…",
   "titleEn": "The Army of Hardship, and a Race to Give",
   "descriptionEn": "Word came that the Byzantines were gathering on the Syrian frontier — in the height of summer, with the fruit ripe on the trees. The Prophet ﷺ called the people out, and supplies…",
-  "image": null
+  "image": "/stories/seerah/army-of-hardship-tabuk.jpg"
  },
  {
   "stationId": 8,
@@ -1137,7 +1137,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاء فقراء الصحابة يطلبون ما يركبونه ليخرجوا مع الجيش، فقال النبي ﷺ: «لا أجد ما أحملكم عليه»، فرجعوا وأعينهم تفيض من الدمع حزناً ألا يجدوا ما ينفقون، فسمّاهم القرآن. وتخلّف كعب بن…",
   "titleEn": "Those Who Wept, and the Man Saved by Telling the Truth",
   "descriptionEn": "Poor companions came asking for mounts so they could go with the army, and the Prophet ﷺ said: “I have nothing to carry you on.” They turned away with tears pouring down,…",
-  "image": null
+  "image": "/stories/seerah/weepers-and-true-repentance.jpg"
  },
  {
   "stationId": 8,
@@ -1146,7 +1146,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "وصل الجيش إلى تبوك على حدود الشام وعسكر هناك. فلما رأى القوم هذا الجيش الذي قطع الصحراء في عزّ الصيف، لم يخرجوا لقتاله. فأقام النبي ﷺ أياماً، وصالح أهل المناطق الحدودية على…",
   "titleEn": "The Camp at Tabuk: A Victory With No Blood",
   "descriptionEn": "The army reached Tabuk on the Syrian frontier and made camp. When the people there saw an army that had crossed the desert in high summer, no one came out to fight it. The…",
-  "image": null
+  "image": "/stories/seerah/tabuk-peace-without-bloodshed.jpg"
  },
  {
   "stationId": 8,
@@ -1155,7 +1155,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في السنة التاسعة صارت المدينة تستقبل وفوداً من كل قبائل الجزيرة، حتى سُمّي «عام الوفود». جاء وفد بني تميم يريدون المفاخرة بالشعر والخطابة، فأمر النبي ﷺ ثابت بن قيس أن يخطب وحسّان…",
   "titleEn": "The Year of Delegations: Arabia Meets at the Mosque",
   "descriptionEn": "In the ninth year Madinah was receiving delegations from every tribe in Arabia — it became known as the Year of Delegations. The delegation of Banu Tamim came wanting a contest…",
-  "image": null
+  "image": "/stories/seerah/year-of-delegations-tamim.jpg"
  },
  {
   "stationId": 8,
@@ -1164,7 +1164,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاء وفد من نصارى نجران باليمن إلى المدينة، فأنزلهم النبي ﷺ في مسجده وأكرمهم. ولما حانت صلاتهم قاموا يصلّون في ناحية المسجد، فأراد بعض الناس منعهم، فقال النبي ﷺ: دعوهم. وتحاوروا…",
   "titleEn": "The Delegation of Najran: Guests in the Mosque",
   "descriptionEn": "A delegation of the Christians of Najran in Yemen came to Madinah, and the Prophet ﷺ lodged them in his mosque and treated them generously. When the time for their prayer came…",
-  "image": null
+  "image": "/stories/seerah/delegation-of-najran-dialogue.jpg"
  },
  {
   "stationId": 8,
@@ -1173,7 +1173,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعث النبي ﷺ معاذ بن جبل رضي الله عنه إلى اليمن معلّماً وقاضياً، ومشى معه يوصيه. وقال له ولأبي موسى: «يسّرا ولا تعسّرا، وبشّرا ولا تنفّرا، وتطاوعا ولا تختلفا». وحذّره من الظلم…",
   "titleEn": "The Envoy to Yemen: Make It Easy",
   "descriptionEn": "The Prophet ﷺ sent Mu'adh ibn Jabal to Yemen as a teacher and a judge, and walked beside him giving him counsel. He said to him and to Abu Musa: “Make things easy and do not make…",
-  "image": null
+  "image": "/stories/seerah/muadh-ambassador-to-yemen.jpg"
  },
  {
   "stationId": 8,
@@ -1182,7 +1182,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "جاء ضِماد الأزدي إلى مكة وسمع الناس يقولون إن محمداً به مسّ، وكان يعالج، فعرض أن يعالجه. فسمع منه النبي ﷺ ثم قال كلمات الحمد والتوحيد، فقال ضِماد: أعد عليّ! سمعت الكهنة والسحرة…",
   "titleEn": "Dhimad and Ka'b: The Power of a Word",
   "descriptionEn": "Dhimad al-Azdi came to Mecca and heard people saying Muhammad was touched in the head. He treated such things, so he offered to treat him. The Prophet ﷺ listened to him, then…",
-  "image": null
+  "image": "/stories/seerah/dhimad-and-kab-poetry.jpg"
  },
  {
   "stationId": 8,
@@ -1191,7 +1191,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كانت القبائل تعبد أصناماً من حجر تطلب منها الرزق والشفاء. فلما دخلوا في الإسلام، بُعث إلى تلك الأصنام من يهدمها — وكثيراً ما كانوا من القبيلة نفسها. فرأى الناس بأعينهم أن الحجر…",
   "titleEn": "Stones Fall, Minds Are Freed",
   "descriptionEn": "The tribes worshipped stone idols, asking them for provision and healing. When they entered Islam, men were sent to those idols to take them down — often men from the same tribe.…",
-  "image": null
+  "image": "/stories/seerah/breaking-idols-building-hearts.jpg"
  },
  {
   "stationId": 8,
@@ -1200,7 +1200,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في مؤخّرة المسجد النبوي كان مكان مظلّل يُسمّى «الصُّفَّة»، ينزل فيه فقراء المهاجرين ممن لا بيت لهم ولا مال، ومنهم أبو هريرة رضي الله عنه. لم يكونوا مهملين: كانوا طلاب علم، وكان…",
   "titleEn": "The People of the Bench: The Poorest and the Closest",
   "descriptionEn": "At the back of the Prophet's mosque was a shaded place called the Bench, where poor migrants with no home and no money stayed — Abu Hurayrah among them. They were not neglected:…",
-  "image": null
+  "image": "/stories/seerah/mercy-to-the-weak-suffah.jpg"
  },
  {
   "stationId": 8,
@@ -1209,7 +1209,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان النبي ﷺ في سفر فذهب لحاجته، فأخذ بعض أصحابه فرخي طائر صغير، فجاءت أمّهما ترفرف فوق رؤوسهم. فلما رجع النبي ﷺ ورأى ما صنعوا قال: «من فجع هذه بولدها؟ ردّوا ولدها إليها».",
   "titleEn": "The Bird Whose Chicks Were Taken",
   "descriptionEn": "The Prophet ﷺ was on a journey and stepped away, and some of his companions took the two chicks of a small bird. The mother came and hovered over their heads. When the Prophet ﷺ…",
-  "image": null
+  "image": "/stories/seerah/kindness-to-animals-nature.jpg"
  },
  {
   "stationId": 8,
@@ -1218,7 +1218,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "مرّ النبي ﷺ على صُبرة طعام في السوق، فأدخل يده فيها فأصابت أصابعه بللاً تحت السطح الجافّ. فقال: «ما هذا يا صاحب الطعام؟» قال: أصابته السماء يا رسول الله. قال: «أفلا جعلته فوق…",
   "titleEn": "A Hand in the Grain: Whoever Cheats Is Not of Us",
   "descriptionEn": "The Prophet ﷺ passed a heap of grain in the market and put his hand into it — and his fingers found damp underneath the dry surface. He said: “What is this, seller?” The man…",
-  "image": null
+  "image": "/stories/seerah/honest-merchant-market-ethics.jpg"
  },
  {
   "stationId": 8,
@@ -1236,7 +1236,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "كان خبّاب رضي الله عنه يشكو إلى النبي ﷺ شدّة ما يلقون في مكة، فقال له: «والله ليُتمّنّ الله هذا الأمر حتى يسير الراكب من صنعاء إلى حضرموت لا يخاف إلا الله والذئب على غنمه». وبعد…",
   "titleEn": "Madinah at Peace: From Sana'a to Hadramawt",
   "descriptionEn": "In Mecca, Khabbab complained to the Prophet ﷺ about how hard the persecution was, and he answered: “By Allah, Allah will complete this matter until a rider goes from Sana'a to…",
-  "image": null
+  "image": "/stories/seerah/madinah-capital-of-light.jpg"
  },
  {
   "stationId": 9,
@@ -1254,7 +1254,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في التاسع من ذي الحجة وقف الحجيج على عرفات، وهو أعظم أركان الحجّ حتى قال النبي ﷺ: «الحجّ عرفة». لا تيجان ولا مراكب مزيّنة، الكلّ في ثوبين أبيضين يرفعون أيديهم بالدعاء. ووقف النبي…",
   "titleEn": "Arafat: A Sea of White",
   "descriptionEn": "On the ninth of Dhu al-Hijjah the pilgrims stood at Arafat — the greatest pillar of the Hajj, so much so that the Prophet ﷺ said: “The Hajj is Arafat.” No crowns, no decorated…",
-  "image": null
+  "image": "/stories/seerah/arafat-unity-and-equality.jpg"
  },
  {
   "stationId": 9,
@@ -1263,7 +1263,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "خطب النبي ﷺ في الناس فقال: «إن دماءكم وأموالكم وأعراضكم عليكم حرام كحرمة يومكم هذا في شهركم هذا في بلدكم هذا». وقال: «إن ربّكم واحد وإن أباكم واحد، لا فضل لعربيّ على أعجميّ ولا…",
   "titleEn": "The Farewell Sermon: No Arab Is Above a Non-Arab",
   "descriptionEn": "The Prophet ﷺ addressed the people: “Your blood, your property and your honour are sacred to one another, like the sanctity of this day of yours, in this month of yours, in this…",
-  "image": null
+  "image": "/stories/seerah/farewell-sermon-human-rights.jpg"
  },
  {
   "stationId": 9,
@@ -1272,7 +1272,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في وسط الخطبة خصّ النبي ﷺ النساء بوصية فقال: «استوصوا بالنساء خيراً»، وكرّرها. وكان في ذلك الزمان من يرث النساء كما يرث المتاع، ومن يئد ابنته وهي حيّة. فجاءت الوصية تقلب هذا كلّه.",
   "titleEn": "Take Good Care of the Women",
   "descriptionEn": "In the middle of the sermon the Prophet ﷺ turned to the women and said: “Take good care of the women,” and he repeated it. In that time there were people who inherited women as…",
-  "image": null
+  "image": "/stories/seerah/testament-of-women-rights.jpg"
  },
  {
   "stationId": 9,
@@ -1281,7 +1281,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "في آخر الخطبة سأل النبي ﷺ الجمع: «ألا هل بلّغت؟» فقالوا: نعم. فرفع إصبعه إلى السماء ثم نكتها إليهم وقال: «اللهم اشهد». ونزل يومئذ: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ﴾. ففرح…",
   "titleEn": "Have I Delivered It? And the Tears of Abu Bakr",
   "descriptionEn": "At the end of the sermon the Prophet ﷺ asked the gathering: “Have I delivered it?” They said yes. He raised his finger to the sky, then pointed it at them and said: “O Allah,…",
-  "image": null
+  "image": "/stories/seerah/completion-of-faith-farewell.jpg"
  },
  {
   "stationId": 9,
@@ -1290,7 +1290,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بعد رجوعه من الحجّ، خرج النبي ﷺ إلى شهداء أُحد فصلّى عليهم كالمودّع، ثم رجع فصعد المنبر وقال: «إني فَرَطُكم وأنا شهيد عليكم، وإني والله لأنظر إلى حوضي الآن. وما أخاف عليكم أن…",
   "titleEn": "Farewell to the Martyrs, and a Word from the Pulpit",
   "descriptionEn": "After returning from the pilgrimage, the Prophet ﷺ went out to the martyrs of Uhud and prayed over them like someone saying goodbye. Then he came back, climbed the pulpit and…",
-  "image": null
+  "image": "/stories/seerah/signs-of-farewell-uhud-cemetery.jpg"
  },
  {
   "stationId": 9,
@@ -1299,7 +1299,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "أمر النبي ﷺ بتجهيز جيش إلى الشام، وأمّر عليه أسامة بن زيد وهو شابّ صغير، وفي الجيش كبار الصحابة. فتكلّم بعض الناس في صغر سنّه، فخطب النبي ﷺ وقال: «إن تطعنوا في إمارته فقد كنتم…",
   "titleEn": "Usamah: A Commander at Eighteen",
   "descriptionEn": "The Prophet ﷺ ordered an army prepared for Syria and put Usamah ibn Zayd in command — a young man, with senior companions in his ranks. Some people talked about how young he was,…",
-  "image": null
+  "image": "/stories/seerah/usama-young-army-commander.jpg"
  },
  {
   "stationId": 9,
@@ -1308,7 +1308,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "اشتدّت الحمّى على النبي ﷺ حتى كان يُوعك وعكاً شديداً. ومع ذلك ظلّ يطوف على بيوت زوجاته كعادته في العدل. فلما ثقل عليه المشي جعل يسأل: «أين أنا غداً؟ أين أنا غداً؟» ففهمن أنه يريد…",
   "titleEn": "The Illness Begins: Where Am I Tomorrow?",
   "descriptionEn": "The fever grew severe on the Prophet ﷺ, and still he kept going round the houses of his wives as he always did, out of fairness. When walking became too hard he began to ask:…",
-  "image": null
+  "image": "/stories/seerah/fever-and-aisha-chamber.jpg"
  },
  {
   "stationId": 9,
@@ -1335,7 +1335,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "بينما الناس في صلاة الفجر خلف أبي بكر رضي الله عنه، كُشفت ستارة حجرة عائشة رضي الله عنها، فنظر النبي ﷺ إليهم صفوفاً في صلاتهم، فتبسّم يضحك. فكاد الناس يفتنون من الفرح، فأشار…",
   "titleEn": "The Curtain Lifts, and the Smile",
   "descriptionEn": "While the people were praying the dawn prayer behind Abu Bakr, the curtain of Aishah's room was drawn back. The Prophet ﷺ looked at them standing in their rows and smiled. They…",
-  "image": null
+  "image": "/stories/seerah/final-glance-and-smile.jpg"
  },
  {
   "stationId": 9,
@@ -1344,7 +1344,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "اشتدّ عليه ﷺ الأمر، وكان يدخل يده في إناء فيه ماء فيمسح وجهه ويقول: «لا إله إلا الله، إن للموت سكرات». وظلّ يوصي بكلمتين حتى ما كاد يُبين بلسانه: «الصلاةَ الصلاةَ، وما ملكت…",
   "titleEn": "The Prayer, the Prayer — and Those in Your Care",
   "descriptionEn": "The pain grew hard on him. He would put his hand into a vessel of water and wipe his face, saying: “There is no god but Allah; death has its agonies.” And he kept repeating two…",
-  "image": null
+  "image": "/stories/seerah/last-testament-prayer-and-weak.jpg"
  },
  {
   "stationId": 9,
@@ -1362,7 +1362,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "انتشر الخبر فاضطربت المدينة، وقام عمر رضي الله عنه يقول: ما مات! فجاء أبو بكر رضي الله عنه فكشف عن وجهه وقبّله وبكى، ثم خرج إلى الناس فقال: «من كان يعبد محمداً فإن محمداً قد مات،…",
   "titleEn": "Madinah Shakes, and Abu Bakr Holds",
   "descriptionEn": "The news spread and Madinah was shaken. Umar stood saying: he has not died! Abu Bakr came, uncovered the Prophet's face, kissed it and wept, then went out to the people and said:…",
-  "image": null
+  "image": "/stories/seerah/city-earthquake-abu-bakr-speech.jpg"
  },
  {
   "stationId": 9,
@@ -1371,7 +1371,7 @@ export const seerahStoryIndex: SeerahStory[] = [
   "description": "دُفن النبي ﷺ في الموضع الذي قُبض فيه في حجرة عائشة رضي الله عنها. ولم يترك ديناراً ولا درهماً، وإنما ترك ما هو أبقى: كتاب الله وسنّته، وأمّة تعلّمت الصدق والرحمة والعدل. وحملها…",
   "titleEn": "What Remained After Him: The Light Did Not Go Out",
   "descriptionEn": "The Prophet ﷺ was buried where he passed away, in Aishah's room. He left neither dinar nor dirham, but he left what lasts longer: the Book of Allah and his way, and a community…",
-  "image": null
+  "image": "/stories/seerah/eternal-legacy-living-sunnah.jpg"
  }
 ];
 

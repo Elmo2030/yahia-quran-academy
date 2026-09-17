@@ -471,12 +471,60 @@ export const storyImageWidths: Record<string, number[]> = {
   640,
   960
  ],
+ "/stories/seerah/angels-in-badr.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/arafat-unity-and-equality.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/army-of-hardship-tabuk.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/asma-that-al-nitaqayn.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/badr-shura-counsel.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/battle-of-khaybar-hero-ali.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/birth-of-light.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/seerah/breaking-idols-building-hearts.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/buraida-white-banner.jpg": [
+  384,
+  640,
+  960,
+  1280
  ],
  "/stories/seerah/cave-of-hira.jpg": [
   384,
@@ -485,12 +533,78 @@ export const storyImageWidths: Record<string, number[]> = {
   1280,
   1600
  ],
+ "/stories/seerah/cave-thawr-preparation.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/chest-washing-zamzam.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/city-earthquake-abu-bakr-speech.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/cold-wind-victory-without-swords.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/commanded-camel-qaswa.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/completion-of-faith-farewell.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/cotton-in-ears.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/cover.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/seerah/dar-al-arqam.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/dar-al-nadwa-dust.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/day-of-mercy-entry.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/delegation-of-najran-dialogue.jpg": [
+  384,
+  640,
+  960,
+  1280
  ],
  "/stories/seerah/desert-breeze.jpg": [
   384,
@@ -499,12 +613,84 @@ export const storyImageWidths: Record<string, number[]> = {
   1280,
   1600
  ],
+ "/stories/seerah/dhimad-and-kab-poetry.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/do-not-be-sad.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/eternal-legacy-living-sunnah.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/expert-guide.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/farewell-sermon-human-rights.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/fever-and-aisha-chamber.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/fifth-heaven-harun.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/final-glance-and-smile.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/fourth-heaven-idris.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/go-you-are-free.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/grandfather-love.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/seerah/hero-in-the-bed.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/heroes-of-patience.jpg": [
+  384,
+  640,
+  960,
+  1280
  ],
  "/stories/seerah/hilf-al-fudul.jpg": [
   384,
@@ -513,6 +699,36 @@ export const storyImageWidths: Record<string, number[]> = {
   1280,
   1600
  ],
+ "/stories/seerah/honest-merchant-market-ethics.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/hudaybiyyah-peace-treaty.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/hunayn-pride-in-numbers.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/islam-of-heroes.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/journey-to-taif.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/khadijah.jpg": [
   384,
   640,
@@ -520,12 +736,186 @@ export const storyImageWidths: Record<string, number[]> = {
   1280,
   1600
  ],
+ "/stories/seerah/kindness-to-animals-nature.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/last-testament-prayer-and-weak.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/leader-of-prophets.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/little-shepherd.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/seerah/madinah-capital-of-light.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/makkah-march-ten-thousand-fires.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/mercy-to-captives.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/mercy-to-the-weak-suffah.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/migration-to-abyssinia.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/morning-of-certainty.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/mount-of-archers-uhud.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/mount-safa-call.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/muadh-ambassador-to-yemen.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/musa-advice-reduction.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/permission-to-defend.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/prophet-work-and-food-miracle.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/quba-first-mosque.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/revelation-forms.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/revelation-iqra.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/revelation-muddaththir.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/revelation-pause.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/revelation-waraqah.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/road-to-jerusalem.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/second-heaven-isa-yahya.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/seventh-heaven-ibrahim.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/sidrat-al-muntaha.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/signs-of-farewell-uhud-cemetery.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/smart-shepherd-footprints.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/spider-and-dove.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/splitting-of-the-moon.jpg": [
+  384,
+  640,
+  960,
+  1280
  ],
  "/stories/seerah/station-4.jpg": [
   384,
@@ -541,12 +931,66 @@ export const storyImageWidths: Record<string, number[]> = {
   1280,
   1600
  ],
+ "/stories/seerah/sun-and-moon.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/suraqa-and-hundred-camels.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/tabuk-peace-without-bloodshed.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/talaa-al-badru.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/tears-of-joy-companion.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/testament-of-women-rights.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/the-amazing-buraq.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/the-black-stone.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/seerah/the-first-heaven-adam.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/the-great-gift-prayer.jpg": [
+  384,
+  640,
+  960,
+  1280
  ],
  "/stories/seerah/the-honest-merchant.jpg": [
   384,
@@ -555,11 +999,59 @@ export const storyImageWidths: Record<string, number[]> = {
   1280,
   1600
  ],
+ "/stories/seerah/third-heaven-yusuf.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/tough-lesson-and-heroine.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/trench-salman-idea.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/umm-mabad-tent.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
  "/stories/seerah/uncle-home.jpg": [
   384,
   640,
   960,
   1280,
   1600
+ ],
+ "/stories/seerah/usama-young-army-commander.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/weepers-and-true-repentance.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/year-of-delegations-tamim.jpg": [
+  384,
+  640,
+  960,
+  1280
+ ],
+ "/stories/seerah/year-of-sorrow.jpg": [
+  384,
+  640,
+  960,
+  1280
  ]
 };

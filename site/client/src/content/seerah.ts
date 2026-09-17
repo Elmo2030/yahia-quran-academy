@@ -956,6 +956,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-3-01",
     stationId: 3,
     slug: "revelation-iqra",
+    image: "/stories/seerah/revelation-iqra.jpg",
     en: {
       title: "The First Light: Cave Hira and the Word Iqra",
       content: {
@@ -1032,6 +1033,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-3-02",
     stationId: 3,
     slug: "revelation-waraqah",
+    image: "/stories/seerah/revelation-waraqah.jpg",
     en: {
       title: "Waraqah ibn Nawfal: The Great Secret",
       content: {
@@ -1108,6 +1110,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-3-03",
     stationId: 3,
     slug: "revelation-pause",
+    image: "/stories/seerah/revelation-pause.jpg",
     en: {
       title: "The Pause of Revelation and Surah Ad-Duha",
       content: {
@@ -1184,6 +1187,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-3-04",
     stationId: 3,
     slug: "revelation-muddaththir",
+    image: "/stories/seerah/revelation-muddaththir.jpg",
     en: {
       title: "O You Wrapped in Garments: Arise and Warn",
       content: {
@@ -1260,6 +1264,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-3-05",
     stationId: 3,
     slug: "revelation-forms",
+    image: "/stories/seerah/revelation-forms.jpg",
     en: {
       title: "How Did the Revelation Come?",
       content: {
@@ -1336,6 +1341,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-01",
     stationId: 4,
     slug: "dar-al-arqam",
+    image: "/stories/seerah/dar-al-arqam.jpg",
     en: {
       title: "The Great Secret and Dar al-Arqam",
       content: {
@@ -1412,6 +1418,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-02",
     stationId: 4,
     slug: "mount-safa-call",
+    image: "/stories/seerah/mount-safa-call.jpg",
     en: {
       title: "Mount Safa and the Great Call",
       content: {
@@ -1488,6 +1495,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-03",
     stationId: 4,
     slug: "heroes-of-patience",
+    image: "/stories/seerah/heroes-of-patience.jpg",
     en: {
       title: "Heroes Who Never Give Up: Bilal and the Family of Yasir",
       content: {
@@ -1564,6 +1572,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-04",
     stationId: 4,
     slug: "migration-to-abyssinia",
+    image: "/stories/seerah/migration-to-abyssinia.jpg",
     en: {
       title: "Journey to the Land of the Just King",
       content: {
@@ -1640,6 +1649,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-05",
     stationId: 4,
     slug: "year-of-sorrow",
+    image: "/stories/seerah/year-of-sorrow.jpg",
     en: {
       title: "The Unjust Siege and the Year of Sorrow",
       content: {
@@ -1716,6 +1726,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-06",
     stationId: 4,
     slug: "islam-of-heroes",
+    image: "/stories/seerah/islam-of-heroes.jpg",
     en: {
       title: "The Islam of Heroes: Hamza and Umar",
       content: {
@@ -1792,6 +1803,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-07",
     stationId: 4,
     slug: "sun-and-moon",
+    image: "/stories/seerah/sun-and-moon.jpg",
     en: {
       title: "The Sun in My Right Hand, the Moon in My Left",
       content: {
@@ -1868,6 +1880,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-08",
     stationId: 4,
     slug: "splitting-of-the-moon",
+    image: "/stories/seerah/splitting-of-the-moon.jpg",
     en: {
       title: "A Miracle in the Sky: The Splitting of the Moon",
       content: {
@@ -1944,6 +1957,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-09",
     stationId: 4,
     slug: "cotton-in-ears",
+    image: "/stories/seerah/cotton-in-ears.jpg",
     en: {
       title: "Cotton in the Ears: The Clever Poet",
       content: {
@@ -2020,6 +2034,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-4-10",
     stationId: 4,
     slug: "journey-to-taif",
+    image: "/stories/seerah/journey-to-taif.jpg",
     en: {
       title: "The Sad Journey to Taif",
       content: {
@@ -2096,6 +2111,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-01",
     stationId: 5,
     slug: "chest-washing-zamzam",
+    image: "/stories/seerah/chest-washing-zamzam.jpg",
     en: {
       title: "Preparing the Leader: The Opening of the Chest",
       content: {
@@ -2172,6 +2188,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-02",
     stationId: 5,
     slug: "the-amazing-buraq",
+    image: "/stories/seerah/the-amazing-buraq.jpg",
     en: {
       title: "Al-Buraq: Swifter Than Sight",
       content: {
@@ -2248,6 +2265,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-03",
     stationId: 5,
     slug: "road-to-jerusalem",
+    image: "/stories/seerah/road-to-jerusalem.jpg",
     en: {
       title: "The Road to Jerusalem",
       content: {
@@ -2324,6 +2342,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-04",
     stationId: 5,
     slug: "leader-of-prophets",
+    image: "/stories/seerah/leader-of-prophets.jpg",
     en: {
       title: "Leading the Prophets at al-Aqsa",
       content: {
@@ -2400,6 +2419,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-05",
     stationId: 5,
     slug: "the-first-heaven-adam",
+    image: "/stories/seerah/the-first-heaven-adam.jpg",
     en: {
       title: "The First Heaven: Meeting Adam",
       content: {
@@ -2476,6 +2496,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-06",
     stationId: 5,
     slug: "second-heaven-isa-yahya",
+    image: "/stories/seerah/second-heaven-isa-yahya.jpg",
     en: {
       title: "The Second Heaven: The Cousins",
       content: {
@@ -2552,6 +2573,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-07",
     stationId: 5,
     slug: "third-heaven-yusuf",
+    image: "/stories/seerah/third-heaven-yusuf.jpg",
     en: {
       title: "The Third Heaven: Half of All Beauty",
       content: {
@@ -2628,6 +2650,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-08",
     stationId: 5,
     slug: "fourth-heaven-idris",
+    image: "/stories/seerah/fourth-heaven-idris.jpg",
     en: {
       title: "The Fourth Heaven: A High Place",
       content: {
@@ -2704,6 +2727,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-09",
     stationId: 5,
     slug: "fifth-heaven-harun",
+    image: "/stories/seerah/fifth-heaven-harun.jpg",
     en: {
       title: "The Fifth Heaven: The Beloved Prophet",
       content: {
@@ -2856,6 +2880,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-11",
     stationId: 5,
     slug: "seventh-heaven-ibrahim",
+    image: "/stories/seerah/seventh-heaven-ibrahim.jpg",
     en: {
       title: "The Seventh Heaven: Ibrahim's Greeting to Us",
       content: {
@@ -2932,6 +2957,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-12",
     stationId: 5,
     slug: "sidrat-al-muntaha",
+    image: "/stories/seerah/sidrat-al-muntaha.jpg",
     en: {
       title: "Sidrat al-Muntaha: Where Everything Stops",
       content: {
@@ -3008,6 +3034,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-13",
     stationId: 5,
     slug: "the-great-gift-prayer",
+    image: "/stories/seerah/the-great-gift-prayer.jpg",
     en: {
       title: "The Great Gift: The Prayer",
       content: {
@@ -3084,6 +3111,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-14",
     stationId: 5,
     slug: "musa-advice-reduction",
+    image: "/stories/seerah/musa-advice-reduction.jpg",
     en: {
       title: "Musa's Advice: Five in Deed, Fifty in Reward",
       content: {
@@ -3160,6 +3188,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-5-15",
     stationId: 5,
     slug: "morning-of-certainty",
+    image: "/stories/seerah/morning-of-certainty.jpg",
     en: {
       title: "The Morning of Certainty, and the Name as-Siddiq",
       content: {
@@ -3236,6 +3265,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-01",
     stationId: 6,
     slug: "dar-al-nadwa-dust",
+    image: "/stories/seerah/dar-al-nadwa-dust.jpg",
     en: {
       title: "The Plot at Dar an-Nadwa and a Handful of Dust",
       content: {
@@ -3312,6 +3342,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-02",
     stationId: 6,
     slug: "hero-in-the-bed",
+    image: "/stories/seerah/hero-in-the-bed.jpg",
     en: {
       title: "The Hero in the Bed",
       content: {
@@ -3388,6 +3419,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-03",
     stationId: 6,
     slug: "tears-of-joy-companion",
+    image: "/stories/seerah/tears-of-joy-companion.jpg",
     en: {
       title: "Tears of Joy: “May I Accompany You?”",
       content: {
@@ -3464,6 +3496,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-04",
     stationId: 6,
     slug: "asma-that-al-nitaqayn",
+    image: "/stories/seerah/asma-that-al-nitaqayn.jpg",
     en: {
       title: "Asma, She of the Two Belts",
       content: {
@@ -3540,6 +3573,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-05",
     stationId: 6,
     slug: "smart-shepherd-footprints",
+    image: "/stories/seerah/smart-shepherd-footprints.jpg",
     en: {
       title: "The Shepherd Who Erased the Tracks",
       content: {
@@ -3616,6 +3650,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-01",
     stationId: 7,
     slug: "permission-to-defend",
+    image: "/stories/seerah/permission-to-defend.jpg",
     en: {
       title: "Why Did the Muslims Defend Themselves?",
       content: {
@@ -3692,6 +3727,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-02",
     stationId: 7,
     slug: "badr-shura-counsel",
+    image: "/stories/seerah/badr-shura-counsel.jpg",
     en: {
       title: "The Well of Badr and the Strength of Counsel",
       content: {
@@ -3768,6 +3804,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-03",
     stationId: 7,
     slug: "angels-in-badr",
+    image: "/stories/seerah/angels-in-badr.jpg",
     en: {
       title: "Badr and the Soldiers of the Sky",
       content: {
@@ -3844,6 +3881,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-04",
     stationId: 7,
     slug: "mercy-to-captives",
+    image: "/stories/seerah/mercy-to-captives.jpg",
     en: {
       title: "The Captives of Badr, Who Taught the Children",
       content: {
@@ -3920,6 +3958,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-05",
     stationId: 7,
     slug: "mount-of-archers-uhud",
+    image: "/stories/seerah/mount-of-archers-uhud.jpg",
     en: {
       title: "The Archers' Hill and the Order",
       content: {
@@ -3996,6 +4035,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-06",
     stationId: 7,
     slug: "tough-lesson-and-heroine",
+    image: "/stories/seerah/tough-lesson-and-heroine.jpg",
     en: {
       title: "The Lesson of Uhud, and Nusaybah",
       content: {
@@ -4072,6 +4112,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-07",
     stationId: 7,
     slug: "trench-salman-idea",
+    image: "/stories/seerah/trench-salman-idea.jpg",
     en: {
       title: "Ten Thousand, and the Idea of a Trench",
       content: {
@@ -4148,6 +4189,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-08",
     stationId: 7,
     slug: "prophet-work-and-food-miracle",
+    image: "/stories/seerah/prophet-work-and-food-miracle.jpg",
     en: {
       title: "The Leader's Pickaxe, and Food That Did Not Run Out",
       content: {
@@ -4224,6 +4266,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-09",
     stationId: 7,
     slug: "cold-wind-victory-without-swords",
+    image: "/stories/seerah/cold-wind-victory-without-swords.jpg",
     en: {
       title: "The Wind of Victory, and the End of the Confederates",
       content: {
@@ -4300,6 +4343,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-10",
     stationId: 7,
     slug: "hudaybiyyah-peace-treaty",
+    image: "/stories/seerah/hudaybiyyah-peace-treaty.jpg",
     en: {
       title: "Hudaybiyyah: Peace in the Clothes of Pilgrimage",
       content: {
@@ -4452,6 +4496,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-12",
     stationId: 7,
     slug: "battle-of-khaybar-hero-ali",
+    image: "/stories/seerah/battle-of-khaybar-hero-ali.jpg",
     en: {
       title: "The Forts of Khaybar and the Bearer of the Banner",
       content: {
@@ -4528,6 +4573,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-13",
     stationId: 7,
     slug: "makkah-march-ten-thousand-fires",
+    image: "/stories/seerah/makkah-march-ten-thousand-fires.jpg",
     en: {
       title: "Ten Thousand Fires in One Night",
       content: {
@@ -4604,6 +4650,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-14",
     stationId: 7,
     slug: "day-of-mercy-entry",
+    image: "/stories/seerah/day-of-mercy-entry.jpg",
     en: {
       title: "Today Is a Day of Mercy",
       content: {
@@ -4680,6 +4727,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-7-15",
     stationId: 7,
     slug: "go-you-are-free",
+    image: "/stories/seerah/go-you-are-free.jpg",
     en: {
       title: "Go — You Are Free",
       content: {
@@ -4756,6 +4804,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-06",
     stationId: 6,
     slug: "cave-thawr-preparation",
+    image: "/stories/seerah/cave-thawr-preparation.jpg",
     en: {
       title: "Cave Thawr, and a Friend Who Went In First",
       content: {
@@ -4832,6 +4881,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-07",
     stationId: 6,
     slug: "spider-and-dove",
+    image: "/stories/seerah/spider-and-dove.jpg",
     en: {
       title: "Fragile Threads, and Soldiers You Cannot See",
       content: {
@@ -4908,6 +4958,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-08",
     stationId: 6,
     slug: "do-not-be-sad",
+    image: "/stories/seerah/do-not-be-sad.jpg",
     en: {
       title: "Do Not Grieve — Allah Is With Us",
       content: {
@@ -4984,6 +5035,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-09",
     stationId: 6,
     slug: "expert-guide",
+    image: "/stories/seerah/expert-guide.jpg",
     en: {
       title: "An Expert Guide Who Was Not a Muslim",
       content: {
@@ -5060,6 +5112,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-10",
     stationId: 6,
     slug: "umm-mabad-tent",
+    image: "/stories/seerah/umm-mabad-tent.jpg",
     en: {
       title: "Umm Ma'bad's Tent, and a Sheep With No Milk",
       content: {
@@ -5136,6 +5189,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-11",
     stationId: 6,
     slug: "suraqa-and-hundred-camels",
+    image: "/stories/seerah/suraqa-and-hundred-camels.jpg",
     en: {
       title: "A Hundred Camels, and a Horse That Sank",
       content: {
@@ -5212,6 +5266,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-12",
     stationId: 6,
     slug: "buraida-white-banner",
+    image: "/stories/seerah/buraida-white-banner.jpg",
     en: {
       title: "Buraydah, and a Turban That Became a Banner",
       content: {
@@ -5288,6 +5343,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-13",
     stationId: 6,
     slug: "quba-first-mosque",
+    image: "/stories/seerah/quba-first-mosque.jpg",
     en: {
       title: "Quba, and the First Mosque Built",
       content: {
@@ -5364,6 +5420,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-14",
     stationId: 6,
     slug: "commanded-camel-qaswa",
+    image: "/stories/seerah/commanded-camel-qaswa.jpg",
     en: {
       title: "Al-Qaswa, and the House of Abu Ayyub",
       content: {
@@ -5440,6 +5497,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-6-15",
     stationId: 6,
     slug: "talaa-al-badru",
+    image: "/stories/seerah/talaa-al-badru.jpg",
     en: {
       title: "Yathrib Becomes the City of Light",
       content: {
@@ -5516,6 +5574,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-01",
     stationId: 8,
     slug: "hunayn-pride-in-numbers",
+    image: "/stories/seerah/hunayn-pride-in-numbers.jpg",
     en: {
       title: "The Lesson of Hunayn: Pride in Numbers",
       content: {
@@ -5668,6 +5727,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-03",
     stationId: 8,
     slug: "army-of-hardship-tabuk",
+    image: "/stories/seerah/army-of-hardship-tabuk.jpg",
     en: {
       title: "The Army of Hardship, and a Race to Give",
       content: {
@@ -5744,6 +5804,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-04",
     stationId: 8,
     slug: "weepers-and-true-repentance",
+    image: "/stories/seerah/weepers-and-true-repentance.jpg",
     en: {
       title: "Those Who Wept, and the Man Saved by Telling the Truth",
       content: {
@@ -5820,6 +5881,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-05",
     stationId: 8,
     slug: "tabuk-peace-without-bloodshed",
+    image: "/stories/seerah/tabuk-peace-without-bloodshed.jpg",
     en: {
       title: "The Camp at Tabuk: A Victory With No Blood",
       content: {
@@ -5896,6 +5958,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-06",
     stationId: 8,
     slug: "year-of-delegations-tamim",
+    image: "/stories/seerah/year-of-delegations-tamim.jpg",
     en: {
       title: "The Year of Delegations: Arabia Meets at the Mosque",
       content: {
@@ -5972,6 +6035,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-07",
     stationId: 8,
     slug: "delegation-of-najran-dialogue",
+    image: "/stories/seerah/delegation-of-najran-dialogue.jpg",
     en: {
       title: "The Delegation of Najran: Guests in the Mosque",
       content: {
@@ -6048,6 +6112,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-08",
     stationId: 8,
     slug: "muadh-ambassador-to-yemen",
+    image: "/stories/seerah/muadh-ambassador-to-yemen.jpg",
     en: {
       title: "The Envoy to Yemen: Make It Easy",
       content: {
@@ -6124,6 +6189,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-09",
     stationId: 8,
     slug: "dhimad-and-kab-poetry",
+    image: "/stories/seerah/dhimad-and-kab-poetry.jpg",
     en: {
       title: "Dhimad and Ka'b: The Power of a Word",
       content: {
@@ -6200,6 +6266,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-10",
     stationId: 8,
     slug: "breaking-idols-building-hearts",
+    image: "/stories/seerah/breaking-idols-building-hearts.jpg",
     en: {
       title: "Stones Fall, Minds Are Freed",
       content: {
@@ -6276,6 +6343,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-11",
     stationId: 8,
     slug: "mercy-to-the-weak-suffah",
+    image: "/stories/seerah/mercy-to-the-weak-suffah.jpg",
     en: {
       title: "The People of the Bench: The Poorest and the Closest",
       content: {
@@ -6352,6 +6420,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-12",
     stationId: 8,
     slug: "kindness-to-animals-nature",
+    image: "/stories/seerah/kindness-to-animals-nature.jpg",
     en: {
       title: "The Bird Whose Chicks Were Taken",
       content: {
@@ -6428,6 +6497,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-13",
     stationId: 8,
     slug: "honest-merchant-market-ethics",
+    image: "/stories/seerah/honest-merchant-market-ethics.jpg",
     en: {
       title: "A Hand in the Grain: Whoever Cheats Is Not of Us",
       content: {
@@ -6580,6 +6650,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-8-15",
     stationId: 8,
     slug: "madinah-capital-of-light",
+    image: "/stories/seerah/madinah-capital-of-light.jpg",
     en: {
       title: "Madinah at Peace: From Sana'a to Hadramawt",
       content: {
@@ -6732,6 +6803,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-02",
     stationId: 9,
     slug: "arafat-unity-and-equality",
+    image: "/stories/seerah/arafat-unity-and-equality.jpg",
     en: {
       title: "Arafat: A Sea of White",
       content: {
@@ -6808,6 +6880,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-03",
     stationId: 9,
     slug: "farewell-sermon-human-rights",
+    image: "/stories/seerah/farewell-sermon-human-rights.jpg",
     en: {
       title: "The Farewell Sermon: No Arab Is Above a Non-Arab",
       content: {
@@ -6884,6 +6957,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-04",
     stationId: 9,
     slug: "testament-of-women-rights",
+    image: "/stories/seerah/testament-of-women-rights.jpg",
     en: {
       title: "Take Good Care of the Women",
       content: {
@@ -6960,6 +7034,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-05",
     stationId: 9,
     slug: "completion-of-faith-farewell",
+    image: "/stories/seerah/completion-of-faith-farewell.jpg",
     en: {
       title: "Have I Delivered It? And the Tears of Abu Bakr",
       content: {
@@ -7036,6 +7111,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-06",
     stationId: 9,
     slug: "signs-of-farewell-uhud-cemetery",
+    image: "/stories/seerah/signs-of-farewell-uhud-cemetery.jpg",
     en: {
       title: "Farewell to the Martyrs, and a Word from the Pulpit",
       content: {
@@ -7112,6 +7188,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-07",
     stationId: 9,
     slug: "usama-young-army-commander",
+    image: "/stories/seerah/usama-young-army-commander.jpg",
     en: {
       title: "Usamah: A Commander at Eighteen",
       content: {
@@ -7188,6 +7265,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-08",
     stationId: 9,
     slug: "fever-and-aisha-chamber",
+    image: "/stories/seerah/fever-and-aisha-chamber.jpg",
     en: {
       title: "The Illness Begins: Where Am I Tomorrow?",
       content: {
@@ -7416,6 +7494,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-11",
     stationId: 9,
     slug: "final-glance-and-smile",
+    image: "/stories/seerah/final-glance-and-smile.jpg",
     en: {
       title: "The Curtain Lifts, and the Smile",
       content: {
@@ -7492,6 +7571,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-12",
     stationId: 9,
     slug: "last-testament-prayer-and-weak",
+    image: "/stories/seerah/last-testament-prayer-and-weak.jpg",
     en: {
       title: "The Prayer, the Prayer — and Those in Your Care",
       content: {
@@ -7644,6 +7724,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-14",
     stationId: 9,
     slug: "city-earthquake-abu-bakr-speech",
+    image: "/stories/seerah/city-earthquake-abu-bakr-speech.jpg",
     en: {
       title: "Madinah Shakes, and Abu Bakr Holds",
       content: {
@@ -7720,6 +7801,7 @@ export const seerahStories: SeerahStory[] = [
     storyId: "st-9-15",
     stationId: 9,
     slug: "eternal-legacy-living-sunnah",
+    image: "/stories/seerah/eternal-legacy-living-sunnah.jpg",
     en: {
       title: "What Remained After Him: The Light Did Not Go Out",
       content: {
