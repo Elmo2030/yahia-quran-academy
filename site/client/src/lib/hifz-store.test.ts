@@ -10,9 +10,11 @@ import {
   cleanName,
   backupIsStale,
   confirmDeclarations,
+  confirmDeed,
   createProfile,
   daysSinceBackup,
   declareMemorized,
+  declineDeed,
   emptyStore,
   enterAsGuest,
   exportBackup,
@@ -22,12 +24,16 @@ import {
   markListened,
   markReviewed,
   markRecorded,
+  markStoryDone,
   parseStore,
+  pendingDeeds,
+  registerDeed,
   removeProfile,
   restartReviews,
   saveStore,
   selectProfile,
   setParentLock,
+  stepStatus,
   surahProgress,
   updateProfile,
   updateSettings,
@@ -354,5 +360,62 @@ describe("the backup reminder", () => {
     const saved = markBackedUp(withChild("Amina").store, NOW);
     expect(parseStore(JSON.parse(JSON.stringify(saved))).lastBackupAt).toBe(NOW);
     expect(exportBackup(saved)).not.toContain("lastBackupAt");
+  });
+});
+
+describe("steps beyond an ayah", () => {
+  it("reads a v1 store saved before steps existed as having none, not as empty", () => {
+    const { store, profile } = withChild("Amina");
+    // What a pre-steps device actually had on disk: no `steps` key at all.
+    const { steps: _steps, ...profileWithoutSteps } = profile;
+    const onDisk = { ...store, profiles: [profileWithoutSteps] };
+    const parsed = parseStore(JSON.parse(JSON.stringify(onDisk)));
+    expect(parsed.profiles).toHaveLength(1);
+    expect(parsed.profiles[0].steps).toEqual({});
+  });
+
+  it("registers a deed once and ignores a second try at the same story", () => {
+    const { store, profile } = withChild("Amina");
+    const once = registerDeed(store, profile.id, "nations", "luqman", 1000);
+    expect(stepStatus(activeProfile(once)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("awaiting_parent");
+
+    const again = registerDeed(once, profile.id, "nations", "luqman", 2000);
+    // Same store, not merely an equal one: the second call changed nothing.
+    expect(again).toBe(once);
+  });
+
+  it("moves a deed from awaiting to reviewed only once a parent confirms it", () => {
+    const { store, profile } = withChild("Amina");
+    const registered = registerDeed(store, profile.id, "nations", "luqman");
+    expect(pendingDeeds(activeProfile(registered)!)).toEqual([
+      { chapter: "nations", slug: "luqman", record: expect.objectContaining({ status: "awaiting_parent" }) },
+    ]);
+
+    const confirmed = confirmDeed(registered, profile.id, "nations", "luqman", 5000);
+    expect(stepStatus(activeProfile(confirmed)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("reviewed");
+    expect(pendingDeeds(activeProfile(confirmed)!)).toEqual([]);
+
+    // Confirming an ayah nobody registered, or a deed already reviewed, does nothing.
+    expect(confirmDeed(store, profile.id, "nations", "luqman")).toBe(store);
+    expect(confirmDeed(confirmed, profile.id, "nations", "luqman")).toBe(confirmed);
+  });
+
+  it("lets a declined deed be tried again, rather than stay stuck on \"no\"", () => {
+    const { store, profile } = withChild("Amina");
+    const registered = registerDeed(store, profile.id, "nations", "luqman");
+    const declined = declineDeed(registered, profile.id, "nations", "luqman");
+    expect(stepStatus(activeProfile(declined)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("available");
+
+    const retried = registerDeed(declined, profile.id, "nations", "luqman", 9000);
+    expect(stepStatus(activeProfile(retried)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("awaiting_parent");
+  });
+
+  it("marks a story done, and reading it again does not un-finish it", () => {
+    const { store, profile } = withChild("Amina");
+    const done = markStoryDone(store, profile.id, "nations", "luqman", 4000);
+    expect(stepStatus(activeProfile(done)!, { kind: "story", chapter: "nations", slug: "luqman" })).toBe("done");
+
+    const again = markStoryDone(done, profile.id, "nations", "luqman", 9999);
+    expect(again).toBe(done);
   });
 });

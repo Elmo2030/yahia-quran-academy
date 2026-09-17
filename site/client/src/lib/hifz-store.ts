@@ -69,6 +69,9 @@ export type ChildProfile = {
   /** the frame, card, companion and stickers this child picked */
   looks: Looks;
   ayahs: Record<string, AyahRecord>;
+  /** everything that is not an ayah — a story read, or a deed from its "try
+   *  today" — keyed by stepKey(). See the section below. */
+  steps: Record<string, StepRecord>;
 };
 
 export type HifzStore = {
@@ -155,6 +158,63 @@ function parseAyahs(value: unknown): Record<string, AyahRecord> {
   return out;
 }
 
+// ---------------------------------------------------------------------------
+// Steps beyond an ayah: a story finished, or a deed grown from its story's
+// "try today". Additive, so a v1 store saved before this shipped has no
+// `steps` field at all and still parses — parseSteps reads that as "{}".
+//
+// An ayah's own history keeps living in `ayahs` above, with its own listen /
+// record / declare / review shape; nothing here changes it. `kind: "ayah"`
+// exists on StepRef so code that names "the next thing to do" can describe
+// any of the three the same way, but this map only ever stores "story" and
+// "deed" entries.
+// ---------------------------------------------------------------------------
+
+export type StepRef =
+  | { kind: "ayah"; surah: number; ayah: number }
+  | { kind: "story"; chapter: string; slug: string }
+  | { kind: "deed"; chapter: string; slug: string };
+
+type StoryOrDeedRef = Extract<StepRef, { kind: "story" | "deed" }>;
+
+/**
+ * available: offered, nothing done yet — the default for anything not in the
+ *   map, so most steps need no entry at all.
+ * in_progress / done: the child started it, then finished it.
+ * awaiting_parent: a deed the child said they did, waiting on a parent's word.
+ * reviewed: a parent put their name to it — the deed's equivalent of an
+ *   ayah's `declaredBy: "parent"`.
+ */
+export type StepStatus = "available" | "in_progress" | "done" | "awaiting_parent" | "reviewed";
+
+export type StepRecord = {
+  status: StepStatus;
+  startedAt?: number;
+  doneAt?: number;
+  awaitingAt?: number;
+  reviewedAt?: number;
+};
+
+export const stepKey = (ref: StoryOrDeedRef) => `${ref.kind}:${ref.chapter}:${ref.slug}`;
+
+const STEP_STATUSES: StepStatus[] = ["available", "in_progress", "done", "awaiting_parent", "reviewed"];
+const STEP_KEY = /^(story|deed):[^:]{1,80}:[^:]{1,80}$/;
+
+function parseSteps(value: unknown): Record<string, StepRecord> {
+  if (!isObject(value)) return {};
+  const out: Record<string, StepRecord> = {};
+  for (const [key, entry] of Object.entries(value)) {
+    if (!STEP_KEY.test(key) || !isObject(entry) || !STEP_STATUSES.includes(entry.status as StepStatus)) continue;
+    const record: StepRecord = { status: entry.status as StepStatus };
+    if (isTime(entry.startedAt)) record.startedAt = entry.startedAt;
+    if (isTime(entry.doneAt)) record.doneAt = entry.doneAt;
+    if (isTime(entry.awaitingAt)) record.awaitingAt = entry.awaitingAt;
+    if (isTime(entry.reviewedAt)) record.reviewedAt = entry.reviewedAt;
+    out[key] = record;
+  }
+  return out;
+}
+
 function parseProfile(value: unknown): ChildProfile | null {
   if (!isObject(value)) return null;
   if (typeof value.id !== "string" || !value.id) return null;
@@ -171,6 +231,7 @@ function parseProfile(value: unknown): ChildProfile | null {
     settings: parseSettings(value.settings),
     looks: parseLooks(value.looks),
     ayahs: parseAyahs(value.ayahs),
+    steps: parseSteps(value.steps),
   };
 }
 
@@ -272,6 +333,7 @@ export function createProfile(store: HifzStore, input: { name: string; character
     settings: { ...DEFAULT_SETTINGS },
     looks: { ...DEFAULT_LOOKS },
     ayahs: {},
+    steps: {},
   };
   return { ok: true, profile, store: touch(store, { profiles: [...store.profiles, profile], activeProfileId: profile.id }) };
 }
@@ -282,7 +344,7 @@ export function enterAsGuest(store: HifzStore): HifzStore {
   if (guest) return touch(store, { activeProfileId: guest.id });
   const profile: ChildProfile = {
     id: newId(), name: "", character: "guest", createdAt: Date.now(),
-    settings: { ...DEFAULT_SETTINGS }, looks: { ...DEFAULT_LOOKS }, ayahs: {},
+    settings: { ...DEFAULT_SETTINGS }, looks: { ...DEFAULT_LOOKS }, ayahs: {}, steps: {},
   };
   return touch(store, { profiles: [...store.profiles, profile], activeProfileId: profile.id });
 }
@@ -454,6 +516,63 @@ export function surahProgress(profile: ChildProfile, surah: number, total: numbe
     if (record.declaredAt) progress.declared++;
   }
   return progress;
+}
+
+function withStep(
+  store: HifzStore,
+  profileId: string,
+  ref: StoryOrDeedRef,
+  change: (record: StepRecord | undefined) => StepRecord | undefined,
+): HifzStore {
+  if (!store.profiles.some(p => p.id === profileId)) return store;
+  const key = stepKey(ref);
+  const profile = store.profiles.find(p => p.id === profileId)!;
+  const next = change(profile.steps[key]);
+  if (next === profile.steps[key]) return store;
+  const steps = { ...profile.steps };
+  if (next) steps[key] = next;
+  else delete steps[key];
+  return touch(store, { profiles: store.profiles.map(p => (p.id === profileId ? { ...p, steps } : p)) });
+}
+
+/**
+ * A child saying "I did it" after a story's "try today". Recorded once and
+ * left for a parent to confirm — pressing the button again on a deed already
+ * registered changes nothing, so there is no way to send the same deed twice.
+ */
+export const registerDeed = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
+  withStep(store, profileId, { kind: "deed", chapter, slug }, current =>
+    current ?? { status: "awaiting_parent", doneAt: now, awaitingAt: now });
+
+/** A parent putting their name to a deed the child said they did. */
+export const confirmDeed = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
+  withStep(store, profileId, { kind: "deed", chapter, slug }, current =>
+    current?.status === "awaiting_parent" ? { ...current, status: "reviewed", reviewedAt: now } : current);
+
+/**
+ * "Not yet" — the parent has not seen it happen. The deed is dropped rather
+ * than parked in some rejected state, so the story's button offers it again
+ * instead of the family being stuck looking at a "no".
+ */
+export const declineDeed = (store: HifzStore, profileId: string, chapter: string, slug: string) =>
+  withStep(store, profileId, { kind: "deed", chapter, slug }, () => undefined);
+
+/** A story finished. Reading it again does not un-finish it. */
+export const markStoryDone = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
+  withStep(store, profileId, { kind: "story", chapter, slug }, current => (current?.status === "done" ? current : { status: "done", doneAt: now }));
+
+export const stepStatus = (profile: ChildProfile, ref: StoryOrDeedRef): StepStatus => profile.steps[stepKey(ref)]?.status ?? "available";
+
+/** Every deed a parent has not yet put their name to, oldest first. */
+export function pendingDeeds(profile: ChildProfile): Array<{ chapter: string; slug: string; record: StepRecord }> {
+  const out: Array<{ chapter: string; slug: string; record: StepRecord }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status !== "awaiting_parent") continue;
+    const [kind, chapter, slug] = key.split(":");
+    if (kind !== "deed") continue;
+    out.push({ chapter, slug, record });
+  }
+  return out.sort((a, b) => (a.record.awaitingAt ?? 0) - (b.record.awaitingAt ?? 0));
 }
 
 // ---------------------------------------------------------------------------
