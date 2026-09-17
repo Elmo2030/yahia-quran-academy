@@ -11,13 +11,15 @@
 // that is visible before the question is not a reward.
 // =============================================================================
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HelpCircle, Trophy } from "lucide-react";
 
 import { BadgeAward } from "@/components/BadgeAward";
 import { useLocale } from "@/contexts/LocaleContext";
 import { type Story } from "@/content/stories";
 import { useStoryText } from "@/content/stories-english";
+import { useHifzStore } from "@/hooks/useHifzStore";
+import { activeProfile, markStoryDone } from "@/lib/hifz-store";
 
 const copy = {
   ar: { challenge: "تحدي الفهم", reward: "مكافأتك", correct: "إجابة صحيحة! 🎉", wrong: "ليست هذه — ارجع للقصة وجرّب مرة أخرى 💪" },
@@ -32,11 +34,22 @@ export function StoryChallengeSection({ story, number }: { story: Story; number:
   const reward = rewardOf(story);
   const [tried, setTried] = useState<number[]>([]);
   const [won, setWon] = useState(false);
+  const { store, commit } = useHifzStore();
 
   const pick = (index: number) => {
     if (index === challenge.correctAnswer) setWon(true);
     else setTried(current => (current.includes(index) ? current : [...current, index]));
   };
+
+  // Getting the challenge right is the site's own signal that a child
+  // actually read the story, not merely opened it — the same moment a medal
+  // already appears for. markStoryDone is idempotent, so re-answering after
+  // a reload marks nothing twice.
+  useEffect(() => {
+    if (!won) return;
+    const child = activeProfile(store);
+    if (child) commit(markStoryDone(store, child.id, story.chapter, story.slug));
+  }, [won]);
 
   return (
     <>

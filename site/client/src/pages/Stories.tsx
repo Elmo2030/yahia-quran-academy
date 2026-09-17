@@ -34,6 +34,7 @@ const copy = {
     libraryCount: "قصة محفوظة", back: "العودة إلى القصص", sections: "أقسام القصة", storyCount: "قصة", exploreAll: "اكتشف كل القصص", keptStories: "القصص التي اخترت الاحتفاظ بها", emptyTitle: "لا توجد قصص محفوظة بعد", remove: "إزالة من مكتبتي", onlyArabic: null as string | null,
     deedDone: "عملتها", deedAwaiting: "بانتظار تأكيد وليّ الأمر 🕊️", deedConfirmed: "أكّدها وليّ أمرك ✅",
     deedNoChild: "سجّل هذا في رحلة حفظك — ابدأها أولًا.", deedStart: "ابدأ رحلة الحفظ",
+    storyDone: "قرأتها",
   },
   en: {
     home: "Back to home", eyebrow: "Stories", title: "Stories from the Quran",
@@ -53,6 +54,7 @@ const copy = {
     libraryCount: "saved", back: "Back to stories", sections: "In this story", storyCount: "stories", exploreAll: "Explore all stories", keptStories: "The stories you chose to keep", emptyTitle: "Nothing saved yet", remove: "Remove from my library", onlyArabic: "These stories are written in Arabic.",
     deedDone: "I did it", deedAwaiting: "Waiting for a parent to confirm 🕊️", deedConfirmed: "Confirmed by your parent ✅",
     deedNoChild: "Record this in your memorization journey — start it first.", deedStart: "Start the memorization journey",
+    storyDone: "Read",
   },
 } as const;
 
@@ -105,6 +107,9 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const { textOf, arcOf, minutesOf } = useStoryText();
+  const { store } = useHifzStore();
+  const child = activeProfile(store);
+  const done = child !== null && stepStatus(child, { kind: "story", chapter: story.chapter, slug: story.slug }) === "done";
   const text = textOf(story);
   const arc = arcOf(story);
   const minutes = minutesOf(story);
@@ -113,6 +118,7 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
     <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
       {/* The card's own title is two lines below, inside this link. */}
       <StoryArt story={story} alt="" />
+      {done && <span className="story-list-card__done"><CheckCircle2 size={13} aria-hidden="true" /> {t.storyDone}</span>}
       <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{text.title}</h3>
