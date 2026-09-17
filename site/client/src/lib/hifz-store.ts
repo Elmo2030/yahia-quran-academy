@@ -17,6 +17,9 @@
 
 import type { ParentLock } from "@/lib/parent-lock";
 import { DEFAULT_LOOKS, parseLooks, type Looks } from "@/lib/hifz-looks";
+// Type-only: erased at build time, so this does not pull the stories module's
+// text into anything that imports hifz-store.ts. See registerDeed below.
+import type { StoryReward } from "@/content/stories";
 
 export const HIFZ_KEY = "yahya.hifz.v1";
 export const HIFZ_VERSION = 1;
@@ -187,18 +190,50 @@ type StoryOrDeedRef = Extract<StepRef, { kind: "story" | "deed" }>;
  */
 export type StepStatus = "available" | "in_progress" | "done" | "awaiting_parent" | "reviewed";
 
+/**
+ * What the story asked for, captured at the moment a deed is registered —
+ * not looked up again from the content module later. A parent confirming a
+ * deed is putting their name to what the child was actually asked to do that
+ * day; if the story's "try today" is edited afterwards, the confirmation
+ * must still show the wording the child acted on, not the new one. It also
+ * means anything that only needs to *display* a pending or confirmed deed —
+ * the parent corner, "my treasures" — never has to import the stories module
+ * at all.
+ */
+export type StepStoryInfo = { title: string; action: string; reward: StoryReward };
+
 export type StepRecord = {
   status: StepStatus;
   startedAt?: number;
   doneAt?: number;
   awaitingAt?: number;
   reviewedAt?: number;
+  /** only ever set on a "deed" entry */
+  story?: StepStoryInfo;
 };
 
 export const stepKey = (ref: StoryOrDeedRef) => `${ref.kind}:${ref.chapter}:${ref.slug}`;
 
 const STEP_STATUSES: StepStatus[] = ["available", "in_progress", "done", "awaiting_parent", "reviewed"];
 const STEP_KEY = /^(story|deed):[^:]{1,80}:[^:]{1,80}$/;
+// Generous bounds for authored sentences, not user input — just enough to
+// keep a corrupted or hand-edited entry from ballooning localStorage.
+const MAX_STORY_FIELD = 600;
+
+function isShortString(value: unknown): value is string {
+  return typeof value === "string" && value.length > 0 && value.length <= MAX_STORY_FIELD;
+}
+
+function parseStepStory(value: unknown): StepStoryInfo | undefined {
+  if (!isObject(value) || !isShortString(value.title) || !isShortString(value.action)) return undefined;
+  const reward = value.reward;
+  if (!isObject(reward) || !isShortString(reward.icon) || !isShortString(reward.badge) || !isShortString(reward.keepsake) || !isShortString(reward.note)) return undefined;
+  return {
+    title: value.title,
+    action: value.action,
+    reward: { icon: reward.icon, badge: reward.badge, keepsake: reward.keepsake, note: reward.note },
+  };
+}
 
 function parseSteps(value: unknown): Record<string, StepRecord> {
   if (!isObject(value)) return {};
@@ -210,6 +245,8 @@ function parseSteps(value: unknown): Record<string, StepRecord> {
     if (isTime(entry.doneAt)) record.doneAt = entry.doneAt;
     if (isTime(entry.awaitingAt)) record.awaitingAt = entry.awaitingAt;
     if (isTime(entry.reviewedAt)) record.reviewedAt = entry.reviewedAt;
+    const story = parseStepStory(entry.story);
+    if (story) record.story = story;
     out[key] = record;
   }
   return out;
@@ -539,10 +576,15 @@ function withStep(
  * A child saying "I did it" after a story's "try today". Recorded once and
  * left for a parent to confirm — pressing the button again on a deed already
  * registered changes nothing, so there is no way to send the same deed twice.
+ *
+ * `story` is the story's own title, its "try today" wording and its reward,
+ * copied into the record as it read at this moment — see StepStoryInfo.
  */
-export const registerDeed = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
+export const registerDeed = (
+  store: HifzStore, profileId: string, chapter: string, slug: string, story: StepStoryInfo, now = Date.now(),
+) =>
   withStep(store, profileId, { kind: "deed", chapter, slug }, current =>
-    current ?? { status: "awaiting_parent", doneAt: now, awaitingAt: now });
+    current ?? { status: "awaiting_parent", doneAt: now, awaitingAt: now, story });
 
 /** A parent putting their name to a deed the child said they did. */
 export const confirmDeed = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
@@ -573,6 +615,19 @@ export function pendingDeeds(profile: ChildProfile): Array<{ chapter: string; sl
     out.push({ chapter, slug, record });
   }
   return out.sort((a, b) => (a.record.awaitingAt ?? 0) - (b.record.awaitingAt ?? 0));
+}
+
+/** Every deed a parent has already put their name to, newest first — the
+ *  treasures a child actually earned, for "my treasures" to list. */
+export function confirmedDeeds(profile: ChildProfile): Array<{ chapter: string; slug: string; record: StepRecord }> {
+  const out: Array<{ chapter: string; slug: string; record: StepRecord }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status !== "reviewed") continue;
+    const [kind, chapter, slug] = key.split(":");
+    if (kind !== "deed") continue;
+    out.push({ chapter, slug, record });
+  }
+  return out.sort((a, b) => (b.record.reviewedAt ?? 0) - (a.record.reviewedAt ?? 0));
 }
 
 // ---------------------------------------------------------------------------

@@ -23,8 +23,14 @@ import {
   mergeLibrarySlugs,
 } from "@/lib/progress";
 import {
-  createProfile, declareMemorized, emptyStore, registerDeed, saveStore,
+  createProfile, declareMemorized, emptyStore, registerDeed, saveStore, type StepStoryInfo,
 } from "@/lib/hifz-store";
+
+const SAMPLE_DEED_STORY: StepStoryInfo = {
+  title: "قصة لقمان الحكيم",
+  action: "اخفض صوتك اليوم في موضع كنتَ سترفعه فيه.",
+  reward: { icon: "🌳", badge: "حكيم صغير", keepsake: "حصيرة الحكمة", note: "تذكّرك أن أغلى ما يورّثه الأب لابنه كلمة صادقة." },
+};
 
 describe("local progress storage", () => {
   beforeEach(() => {
@@ -80,7 +86,7 @@ describe("nextStep", () => {
   it("sends an active child to a deed awaiting confirmation, once there is nothing due to review", () => {
     const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
     if (!created.ok) throw new Error(created.reason);
-    const withDeed = registerDeed(created.store, created.profile.id, "nations", "luqman");
+    const withDeed = registerDeed(created.store, created.profile.id, "nations", "luqman", SAMPLE_DEED_STORY);
     saveStore(withDeed);
 
     expect(nextStep(null)).toEqual({
@@ -97,7 +103,7 @@ describe("nextStep", () => {
     const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
     if (!created.ok) throw new Error(created.reason);
     const declared = declareMemorized(created.store, created.profile.id, 114, 1, "child", Date.now() - 2 * DAY);
-    const withDeed = registerDeed(declared, created.profile.id, "nations", "luqman");
+    const withDeed = registerDeed(declared, created.profile.id, "nations", "luqman", SAMPLE_DEED_STORY);
     saveStore(withDeed);
 
     expect(nextStep(null)).toEqual({

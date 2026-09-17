@@ -5,7 +5,7 @@ import { useStoryText } from "@/content/stories-english";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
 import { useHifzStore } from "@/hooks/useHifzStore";
-import { activeProfile, registerDeed, stepStatus, type ChildProfile, type HifzStore } from "@/lib/hifz-store";
+import { activeProfile, registerDeed, stepStatus, type ChildProfile, type HifzStore, type StepStoryInfo } from "@/lib/hifz-store";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
 import { SiteChrome } from "@/components/SiteChrome";
@@ -140,8 +140,9 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
  * nothing to register it against, so the section invites starting the
  * journey instead of a button that would silently do nothing.
  */
-function DeedControl({ t, chapter, slug, child, store, commit }: {
+function DeedControl({ t, chapter, slug, child, store, commit, story }: {
   t: (typeof copy)[keyof typeof copy]; chapter: string; slug: string; child: ChildProfile | null; store: HifzStore; commit: (s: HifzStore) => boolean;
+  story: StepStoryInfo;
 }) {
   if (!child) {
     return (
@@ -158,7 +159,7 @@ function DeedControl({ t, chapter, slug, child, store, commit }: {
     return <p className="story-deed story-deed--awaiting">{t.deedAwaiting}</p>;
   }
   return (
-    <button type="button" className="button button--soft story-deed-button" onClick={() => commit(registerDeed(store, child.id, chapter, slug))}>
+    <button type="button" className="button button--soft story-deed-button" onClick={() => commit(registerDeed(store, child.id, chapter, slug, story))}>
       <HandHeart size={17} aria-hidden="true" /> {t.deedDone}
     </button>
   );
@@ -171,7 +172,7 @@ export default function Stories() {
   const t = copy[locale];
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   const { has, toggle } = useLibrary();
-  const { textOf, arcOf, minutesOf } = useStoryText();
+  const { textOf, arcOf, minutesOf, rewardOf } = useStoryText();
   const { store: hifzStore, commit: commitHifz } = useHifzStore();
   const child = activeProfile(hifzStore);
 
@@ -388,7 +389,10 @@ export default function Stories() {
                 <section className="story-try-today" id="story-try-today">
                   <span className="story-section-label"><Sun size={13} aria-hidden="true" /> {t.tryToday}</span>
                   <p>{arc.tryToday}</p>
-                  <DeedControl t={t} chapter={story.chapter} slug={story.slug} child={child} store={hifzStore} commit={commitHifz} />
+                  <DeedControl
+                    t={t} chapter={story.chapter} slug={story.slug} child={child} store={hifzStore} commit={commitHifz}
+                    story={{ title: text.title, action: arc.tryToday, reward: rewardOf(story) }}
+                  />
                 </section>
               )}
 

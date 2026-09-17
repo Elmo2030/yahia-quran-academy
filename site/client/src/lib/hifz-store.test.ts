@@ -11,6 +11,7 @@ import {
   backupIsStale,
   confirmDeclarations,
   confirmDeed,
+  confirmedDeeds,
   createProfile,
   daysSinceBackup,
   declareMemorized,
@@ -39,7 +40,17 @@ import {
   updateSettings,
   withdrawDeclaration,
   type HifzStore,
+  type StepStoryInfo,
 } from "./hifz-store";
+
+// What Stories.tsx actually passes at the moment "عملتها" is pressed — a
+// snapshot, not a lookup, so a test registering a deed does not need the
+// content module either.
+const SAMPLE_DEED_STORY: StepStoryInfo = {
+  title: "قصة لقمان الحكيم",
+  action: "اخفض صوتك اليوم في موضع كنتَ سترفعه فيه.",
+  reward: { icon: "🌳", badge: "حكيم صغير", keepsake: "حصيرة الحكمة", note: "تذكّرك أن أغلى ما يورّثه الأب لابنه كلمة صادقة." },
+};
 
 function withChild(name = "يوسف", character: "yahya" | "fatima" = "yahya") {
   const result = createProfile(emptyStore(), { name, character });
@@ -376,17 +387,35 @@ describe("steps beyond an ayah", () => {
 
   it("registers a deed once and ignores a second try at the same story", () => {
     const { store, profile } = withChild("Amina");
-    const once = registerDeed(store, profile.id, "nations", "luqman", 1000);
+    const once = registerDeed(store, profile.id, "nations", "luqman", SAMPLE_DEED_STORY, 1000);
     expect(stepStatus(activeProfile(once)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("awaiting_parent");
 
-    const again = registerDeed(once, profile.id, "nations", "luqman", 2000);
+    const again = registerDeed(once, profile.id, "nations", "luqman", SAMPLE_DEED_STORY, 2000);
     // Same store, not merely an equal one: the second call changed nothing.
     expect(again).toBe(once);
   });
 
+  it("drops a malformed story snapshot but keeps the step's own status", () => {
+    const { store, profile } = withChild("Amina");
+    const registered = registerDeed(store, profile.id, "nations", "luqman", SAMPLE_DEED_STORY);
+    const onDisk = JSON.parse(JSON.stringify(registered));
+    // A hand-edited or truncated entry: the reward lost its "note".
+    delete onDisk.profiles[0].steps["deed:nations:luqman"].story.reward.note;
+    const parsed = parseStore(onDisk);
+    const record = activeProfile(parsed)!.steps["deed:nations:luqman"];
+    expect(record.status).toBe("awaiting_parent");
+    expect(record.story).toBeUndefined();
+  });
+
+  it("keeps the story's wording and reward on the record, for a parent who confirms it later", () => {
+    const { store, profile } = withChild("Amina");
+    const registered = registerDeed(store, profile.id, "nations", "luqman", SAMPLE_DEED_STORY);
+    expect(activeProfile(registered)!.steps["deed:nations:luqman"].story).toEqual(SAMPLE_DEED_STORY);
+  });
+
   it("moves a deed from awaiting to reviewed only once a parent confirms it", () => {
     const { store, profile } = withChild("Amina");
-    const registered = registerDeed(store, profile.id, "nations", "luqman");
+    const registered = registerDeed(store, profile.id, "nations", "luqman", SAMPLE_DEED_STORY);
     expect(pendingDeeds(activeProfile(registered)!)).toEqual([
       { chapter: "nations", slug: "luqman", record: expect.objectContaining({ status: "awaiting_parent" }) },
     ]);
@@ -394,6 +423,9 @@ describe("steps beyond an ayah", () => {
     const confirmed = confirmDeed(registered, profile.id, "nations", "luqman", 5000);
     expect(stepStatus(activeProfile(confirmed)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("reviewed");
     expect(pendingDeeds(activeProfile(confirmed)!)).toEqual([]);
+    expect(confirmedDeeds(activeProfile(confirmed)!)).toEqual([
+      { chapter: "nations", slug: "luqman", record: expect.objectContaining({ status: "reviewed" }) },
+    ]);
 
     // Confirming an ayah nobody registered, or a deed already reviewed, does nothing.
     expect(confirmDeed(store, profile.id, "nations", "luqman")).toBe(store);
@@ -402,11 +434,11 @@ describe("steps beyond an ayah", () => {
 
   it("lets a declined deed be tried again, rather than stay stuck on \"no\"", () => {
     const { store, profile } = withChild("Amina");
-    const registered = registerDeed(store, profile.id, "nations", "luqman");
+    const registered = registerDeed(store, profile.id, "nations", "luqman", SAMPLE_DEED_STORY);
     const declined = declineDeed(registered, profile.id, "nations", "luqman");
     expect(stepStatus(activeProfile(declined)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("available");
 
-    const retried = registerDeed(declined, profile.id, "nations", "luqman", 9000);
+    const retried = registerDeed(declined, profile.id, "nations", "luqman", SAMPLE_DEED_STORY, 9000);
     expect(stepStatus(activeProfile(retried)!, { kind: "deed", chapter: "nations", slug: "luqman" })).toBe("awaiting_parent");
   });
 

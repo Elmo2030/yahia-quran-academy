@@ -22,8 +22,6 @@ import { SiteChrome } from "@/components/SiteChrome";
 import { HifzBottomBar } from "@/components/HifzBottomBar";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { BadgeAward } from "@/components/BadgeAward";
-import { stories } from "@/content/stories";
-import { useStoryText } from "@/content/stories-english";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { characterArt } from "@/lib/hifz-characters";
@@ -32,7 +30,7 @@ import { rankFor, starsFor, totalStars } from "@/lib/hifz-stars";
 import {
   ayahKey, backupFileName, backupIsStale, confirmDeclarations, confirmDeed, daysSinceBackup, declineDeed,
   exportBackup, markBackedUp, namedProfiles, pendingDeeds, setParentLock, surahProgress,
-  type ChildProfile, type HifzStore,
+  type ChildProfile, type HifzStore, type StepStoryInfo,
 } from "@/lib/hifz-store";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { forgetUnlock, isUnlocked, makeLock, pinMatches, pinProblem, rememberUnlock } from "@/lib/parent-lock";
@@ -84,6 +82,10 @@ const copy = {
     deedSaid: (name: string) => `${name} قال إنه عملها`,
     deedDone: "تم", deedNotYet: "لسه",
     deedReward: "كنز الفعل",
+    // A deed registered before this snapshot existed carries no wording of
+    // its own — this is the only case where the parent corner still needs
+    // a link back to the story instead of quoting it here.
+    deedFromStory: "فعل من إحدى القصص.", deedOpenStory: "افتح القصة لتقرأها",
     recordingsTitle: "تسجيلات الطفل",
     noRecordings: "لا توجد تسجيلات بعد.",
     recordingOf: (surah: string, ayah?: number) => (ayah ? `سورة ${surah} — الآية ${ayah}` : `سورة ${surah}`),
@@ -141,6 +143,7 @@ const copy = {
     deedSaid: (name: string) => `${name} said they did it`,
     deedDone: "Done", deedNotYet: "Not yet",
     deedReward: "The deed's treasure",
+    deedFromStory: "A deed from one of the stories.", deedOpenStory: "Open the story to read it",
     recordingsTitle: "The child’s recordings",
     noRecordings: "No recordings yet.",
     recordingOf: (surah: string, ayah?: number) => (ayah ? `Surah ${surah} — ayah ${ayah}` : `Surah ${surah}`),
@@ -496,10 +499,15 @@ function ChildReport({ t, profile, store, commit }: {
  * A deed a child registered from a story's "try today", waiting on a parent
  * who actually saw it happen — not a checkbox, a sentence: what the story
  * asked for, in its own words, and who said they did it.
+ *
+ * The wording and reward come from the record itself (StepStoryInfo, set at
+ * registerDeed time), never from the stories module — see hifz-store.ts.
+ * A deed registered before that snapshot existed has no `story` on it; it
+ * still gets a card, just one that points back at the story instead of
+ * quoting it.
  */
 function PendingDeeds({ t, profile, store, commit }: { t: Copy; profile: ChildProfile; store: HifzStore; commit: (s: HifzStore) => boolean }) {
-  const { textOf, arcOf, rewardOf } = useStoryText();
-  const [justAwarded, setJustAwarded] = useState<string[]>([]);
+  const [justAwarded, setJustAwarded] = useState<Array<{ chapter: string; slug: string; story?: StepStoryInfo }>>([]);
   const deeds = pendingDeeds(profile);
   if (deeds.length === 0 && justAwarded.length === 0) return null;
 
@@ -507,20 +515,29 @@ function PendingDeeds({ t, profile, store, commit }: { t: Copy; profile: ChildPr
     <section>
       <h3>{t.deedsTitle}</h3>
       <ul className="hifz-report__deeds">
-        {deeds.map(({ chapter, slug }) => {
-          const story = stories.find(s => s.chapter === chapter && s.slug === slug);
-          if (!story) return null;
+        {deeds.map(({ chapter, slug, record }) => {
           const key = `${chapter}:${slug}`;
-          const arc = arcOf(story);
           return (
             <li key={key} className="hifz-deed">
-              <b>{textOf(story).title}</b>
-              {arc && <blockquote>{arc.tryToday}</blockquote>}
+              {record.story ? (
+                <>
+                  <b>{record.story.title}</b>
+                  <blockquote>{record.story.action}</blockquote>
+                </>
+              ) : (
+                <p>
+                  {t.deedFromStory}{" "}
+                  <Link href={`/stories/${chapter}/${slug}`} className="text-link">{t.deedOpenStory}</Link>
+                </p>
+              )}
               <small>{t.deedSaid(profile.name)}</small>
               <div className="hifz-actions">
                 <button
                   type="button" className="button button--primary"
-                  onClick={() => { commit(confirmDeed(store, profile.id, chapter, slug)); setJustAwarded(prev => [...prev, key]); }}
+                  onClick={() => {
+                    commit(confirmDeed(store, profile.id, chapter, slug));
+                    setJustAwarded(prev => [...prev, { chapter, slug, story: record.story }]);
+                  }}
                 >
                   <HandHeart size={16} aria-hidden="true" /> {t.deedDone}
                 </button>
@@ -533,15 +550,13 @@ function PendingDeeds({ t, profile, store, commit }: { t: Copy; profile: ChildPr
         })}
         {/* Confirming moves the deed out of pendingDeeds() at once; the medal
             is held here rather than in the store, so it stays on the page for
-            this visit instead of vanishing the instant it is earned. */}
-        {justAwarded.map(key => {
-          const [chapter, slug] = key.split(":");
-          const story = stories.find(s => s.chapter === chapter && s.slug === slug);
+            this visit instead of vanishing the instant it is earned. No
+            snapshot, no reward to show — the row just does not appear. */}
+        {justAwarded.map(({ chapter, slug, story }) => {
           if (!story) return null;
-          const reward = rewardOf(story);
           return (
-            <li key={`awarded-${key}`} className="hifz-deed hifz-deed--awarded">
-              <BadgeAward icon={reward.icon} badge={reward.badge} keepsake={reward.keepsake} note={reward.note} label={t.deedReward} />
+            <li key={`awarded-${chapter}:${slug}`} className="hifz-deed hifz-deed--awarded">
+              <BadgeAward icon={story.reward.icon} badge={story.reward.badge} keepsake={story.reward.keepsake} note={story.reward.note} label={t.deedReward} />
             </li>
           );
         })}
