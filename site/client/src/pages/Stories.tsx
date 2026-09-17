@@ -10,7 +10,7 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { StoryPicture } from "@/components/StoryPicture";
 import { StoryChallengeSection } from "@/components/StoryChallengeSection";
-import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
+import { artAlt, CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 
 const copy = {
   ar: {
@@ -74,11 +74,11 @@ function Chrome({ children }: { children: React.ReactNode }) {
 const langAttrs = (locale: "ar" | "en") =>
   locale === "en" ? { lang: "en", dir: "ltr" as const } : { lang: "ar", dir: "rtl" as const };
 
-function StoryArt({ story, className }: { story: Story; className?: string }) {
+function StoryArt({ story, className, alt }: { story: Story; className?: string; alt: string }) {
   if (story.image) {
     return (
       <figure className={`story-image ${className ?? ""}`}>
-        <StoryPicture src={story.image} sizes={CARD_SIZES} width={1200} height={670} />
+        <StoryPicture src={story.image} alt={alt} sizes={CARD_SIZES} width={1200} height={670} />
       </figure>
     );
   }
@@ -102,7 +102,8 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
-      <StoryArt story={story} />
+      {/* The card's own title is two lines below, inside this link. */}
+      <StoryArt story={story} alt="" />
       <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{text.title}</h3>
@@ -220,7 +221,7 @@ export default function Stories() {
                   </button>
                 </div>
               </div>
-              <StoryArt story={story} />
+              <StoryArt story={story} alt={artAlt(text.title, locale)} />
             </div>
           </div>
         </section>
@@ -400,7 +401,8 @@ export default function Stories() {
             </div>
             {chapter.cover && (
               <figure className="animals-collection-cover">
-                <StoryPicture src={chapter.cover} sizes={COVER_SIZES} width={1600} height={893} eager />
+                {/* The chapter's name is the <h1> beside this cover. */}
+                <StoryPicture src={chapter.cover} alt="" sizes={COVER_SIZES} width={1600} height={893} eager />
               </figure>
             )}
           </div>
@@ -432,7 +434,8 @@ export default function Stories() {
             <Link href="/stories/library" className="stories-hero__library-link"><Library size={16} aria-hidden="true" /> {t.myLibrary}</Link>
           </div>
           <figure className="animals-collection-cover">
-            <StoryPicture src="/stories/animals/cover.jpg" sizes={COVER_SIZES} width={1600} height={893} />
+            {/* Decoration for the index: it illustrates no one story. */}
+            <StoryPicture src="/stories/animals/cover.jpg" alt="" sizes={COVER_SIZES} width={1600} height={893} />
           </figure>
         </div>
       </section>

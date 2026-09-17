@@ -22,7 +22,7 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { BadgeAward } from "@/components/BadgeAward";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { StoryPicture } from "@/components/StoryPicture";
-import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
+import { artAlt, CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 import {
   seerahStories,
   seerahStations,
@@ -119,13 +119,14 @@ function Placeholder({ story, className }: { story: SeerahStory; className?: str
 /** Artwork with the drawn placeholder as a fallback — used both when a story
  *  declares no image and when the declared file has not been added yet, so a
  *  missing drop-in never shows a broken image. */
-function SeerahArt({ story, className }: { story: SeerahStory; className?: string }) {
+function SeerahArt({ story, className, alt }: { story: SeerahStory; className?: string; alt: string }) {
   const [failed, setFailed] = useState(false);
   if (!story.image || failed) return <Placeholder story={story} className={className} />;
   return (
     <figure className={`story-image ${className ?? ""}`}>
       <StoryPicture
         src={story.image}
+        alt={alt}
         sizes={CARD_SIZES}
         width={1200}
         height={670}
@@ -144,7 +145,8 @@ function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/seerah/${story.slug}`} className="story-list-card">
-      <SeerahArt story={story} />
+      {/* The card's own title is two lines below, inside this link. */}
+      <SeerahArt story={story} alt="" />
       <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{text.title}</h3>
@@ -255,7 +257,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               ))}
             </div>
           </div>
-          <SeerahArt story={story} />
+          <SeerahArt story={story} alt={artAlt(text.title, locale)} />
         </div>
       </section>
 
@@ -372,6 +374,7 @@ export default function Seerah() {
           <figure className="animals-collection-cover">
             <StoryPicture
               src="/stories/seerah/cover.jpg"
+              alt=""
               sizes={COVER_SIZES}
               width={1600}
               height={893}
@@ -459,7 +462,8 @@ function SeerahStationMap() {
               </div>
               {station.cover && (
                 <figure className="seerah-station-cover">
-                  <StoryPicture src={station.cover} sizes={COVER_SIZES} width={1600} height={893} />
+                  {/* The station's name is the <h2> above this cover. */}
+                  <StoryPicture src={station.cover} alt="" sizes={COVER_SIZES} width={1600} height={893} />
                 </figure>
               )}
               <ol className="story-list-grid">

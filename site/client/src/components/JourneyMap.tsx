@@ -123,10 +123,14 @@ function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
         <img
           className={`map-treasure ${opened ? "is-open" : ""}`}
           src={`/hifz-art/rewards/${region.treasure}-256.webp`}
-          alt=""
+          /* Open or locked is the one thing on this header no text says. It was
+             in `title` alone, which a screen reader is free to ignore. */
+          alt={opened ? t.treasureOpen(name) : t.treasureLocked(name)}
           title={opened ? t.treasureOpen(name) : t.treasureLocked(name)}
           loading="lazy"
         />
+        {/* The companion and the walker are the child's own chosen character,
+            named where they chose it and unchanged from region to region. */}
         {pet && <img className="map-pet" src={pet.src} srcSet={pet.srcSet} sizes="38px" alt="" />}
         {walker && <img className="map-walker" src={walker.src} srcSet={walker.srcSet} sizes="52px" alt="" />}
         <div className="map-region__text">

@@ -19,7 +19,7 @@ import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { StoryPicture } from "@/components/StoryPicture";
-import { CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
+import { artAlt, CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 import { useLocale } from "@/contexts/LocaleContext";
 import {
   aqeedahCards, aqeedahChapters, aqeedahChapterOf, aqeedahTextFor,
@@ -162,7 +162,7 @@ function CardView({ card }: { card: AqeedahCard }) {
           <p>{text.value}</p>
           {card.image && (
             <figure className="aqeedah-hero-art">
-              <StoryPicture src={card.image} sizes={COVER_SIZES} width={1600} height={900} eager />
+              <StoryPicture src={card.image} alt={artAlt(text.title, locale)} sizes={COVER_SIZES} width={1600} height={900} eager />
             </figure>
           )}
         </div>
@@ -362,7 +362,8 @@ function AqeedahJourney() {
                     <li key={item.slug}>
                       <Link href={`/aqeedah/${item.slug}`} className="aqeedah-card">
                         {item.image
-                          ? <StoryPicture src={item.image} sizes={CARD_SIZES} width={1600} height={900} className="aqeedah-card__art" />
+                          /* The card's own title is inside this same link. */
+                          ? <StoryPicture src={item.image} alt="" sizes={CARD_SIZES} width={1600} height={900} className="aqeedah-card__art" />
                           : <span className="aqeedah-card__icon" aria-hidden="true">{item.icon}</span>}
                         <div className="aqeedah-card__body">
                           <b>{text.title}</b>
