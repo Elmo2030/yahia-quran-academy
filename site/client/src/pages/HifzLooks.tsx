@@ -13,11 +13,12 @@ import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 import { SiteChrome } from "@/components/SiteChrome";
 import { HifzBottomBar } from "@/components/HifzBottomBar";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
+import { BadgeAward } from "@/components/BadgeAward";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { characterArt, characterById } from "@/lib/hifz-characters";
 import { CARDS, FRAMES, PETS, STICKERS, lookArt, lookName, type LookKind, type LookOption } from "@/lib/hifz-looks";
-import { activeProfile, toggleSticker, updateLooks, type ChildProfile } from "@/lib/hifz-store";
+import { activeProfile, confirmedDeeds, toggleSticker, updateLooks, type ChildProfile } from "@/lib/hifz-store";
 
 const copy = {
   ar: {
@@ -35,6 +36,12 @@ const copy = {
     none: "بدون",
     chosen: "مختار",
     shelfEmpty: "الرفّ فاضي — اختر ملصقًا من تحت.",
+    deedsTitle: "الأفعال المؤكَّدة",
+    deedsEmpty: "لسه مفيش أفعال مؤكَّدة.",
+    deedsExplore: "اكتشف قصص القرآن",
+    deedReward: "كنز الفعل",
+    deedFromStory: "فعل من إحدى القصص.", deedOpenStory: "افتح القصة لتقرأها",
+    confirmedOn: (date: string) => `أُكِّد في ${date}`,
   },
   en: {
     back: "Memorization journey",
@@ -51,6 +58,12 @@ const copy = {
     none: "None",
     chosen: "Chosen",
     shelfEmpty: "The shelf is empty — pick a sticker below.",
+    deedsTitle: "Confirmed deeds",
+    deedsEmpty: "No deeds confirmed yet.",
+    deedsExplore: "Explore the Quran stories",
+    deedReward: "The deed's treasure",
+    deedFromStory: "A deed from one of the stories.", deedOpenStory: "Open the story to read it",
+    confirmedOn: (date: string) => `Confirmed on ${date}`,
   },
 };
 
@@ -104,6 +117,7 @@ function Looks({ t, profile, store, commit }: {
   return (
     <>
       <CardPreview t={t} profile={profile} />
+      <ConfirmedDeeds t={t} profile={profile} />
 
       <Row t={t} kind="frame" title={t.frames} options={FRAMES} chosen={looks.frame} onPick={id => set({ frame: id })} />
       <Row t={t} kind="card" title={t.cards} options={CARDS} chosen={looks.card} onPick={id => set({ card: id })} />
@@ -133,6 +147,44 @@ function Looks({ t, profile, store, commit }: {
         </ul>
       </section>
     </>
+  );
+}
+
+/**
+ * A deed a parent has actually confirmed does not stop existing the moment
+ * the medal that marked its confirmation scrolls off the parent's screen —
+ * this is where it lives afterwards. Reads only the deed's own record (see
+ * StepStoryInfo in hifz-store.ts), so this page never imports the stories
+ * module either.
+ */
+function ConfirmedDeeds({ t, profile }: { t: Copy; profile: ChildProfile }) {
+  const { locale } = useLocale();
+  const deeds = confirmedDeeds(profile);
+  const dateOf = (at: number) => new Date(at).toLocaleDateString(locale === "ar" ? "ar-EG" : "en-GB");
+
+  return (
+    <section className="hifz-card hifz-looks">
+      <h2>{t.deedsTitle}</h2>
+      {deeds.length === 0 ? (
+        <p className="hifz-muted">{t.deedsEmpty} <Link href="/stories" className="text-link">{t.deedsExplore}</Link></p>
+      ) : (
+        <ul className="hifz-deeds-earned" role="list">
+          {deeds.map(({ chapter, slug, record }) => (
+            <li key={`${chapter}:${slug}`} className="hifz-deed hifz-deed--awarded">
+              {record.story ? (
+                <>
+                  <BadgeAward icon={record.story.reward.icon} badge={record.story.reward.badge} keepsake={record.story.reward.keepsake} note={record.story.reward.note} label={t.deedReward} />
+                  <small>{record.story.title}</small>
+                </>
+              ) : (
+                <p>{t.deedFromStory} <Link href={`/stories/${chapter}/${slug}`} className="text-link">{t.deedOpenStory}</Link></p>
+              )}
+              {record.reviewedAt && <small className="hifz-muted">{t.confirmedOn(dateOf(record.reviewedAt))}</small>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 

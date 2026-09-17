@@ -1243,7 +1243,8 @@
 .hifz-deed b { color: var(--ink); font-size: .92rem; }
 .hifz-deed blockquote { margin: 0; color: var(--teal-ink); font-family: "Noto Naskh Arabic", serif; font-size: 1rem; line-height: 1.8; }
 .hifz-deed small { color: var(--ink-soft); font-size: .8rem; }
-.hifz-deed--awarded { background: var(--surface); border-color: var(--line); justify-items: center; padding: 1rem; }
+.hifz-deed--awarded { background: var(--surface); border-color: var(--line); justify-items: center; padding: 1rem; text-align: center; }
+.hifz-deeds-earned { display: grid; gap: .8rem; margin: .6rem 0 0; padding: 0; list-style: none; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
 .hifz-parent-foot { gap: .8rem; }
 
 /* --- Making the card your own ------------------------------------------- */
