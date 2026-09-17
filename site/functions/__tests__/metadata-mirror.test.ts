@@ -10,15 +10,19 @@
  * two different titles. Googlebot renders the app and reads one; everything
  * else reads the other.
  *
- * The middleware only ever speaks Arabic — a crawler gets the Arabic page — so
- * the Arabic title, the description and the noindex flag are what is compared.
+ * It used to be true that the middleware only ever spoke Arabic, and this file
+ * compared the Arabic title, description and noindex flag alone. It speaks both
+ * now: ?lang=en gets its own title, description, og:locale, html lang/dir and
+ * its own canonical, because the page had been declaring an English alternate
+ * at an address that answered in Arabic and canonicalised itself away to the
+ * Arabic URL. So both languages are compared, through the real function.
  */
 import { execFileSync } from "node:child_process";
 import { rmSync } from "node:fs";
 import { join } from "node:path";
 import { beforeAll, afterAll, describe, expect, it } from "vitest";
 
-import { metaForPath } from "@/lib/page-meta";
+import { localizedMeta, metaForPath } from "@/lib/page-meta";
 import { chapterIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex, factIndex } from "@/lib/page-index.generated";
 
 const bundle = join(process.cwd(), "functions", "__tests__", ".mirror.bundle.mjs");
@@ -35,11 +39,11 @@ beforeAll(async () => {
 
 afterAll(() => rmSync(bundle, { force: true }));
 
-const shell = "<!doctype html><head><!--meta:start--><!--meta:end--></head>";
+const shell = '<!doctype html><html lang="ar" dir="rtl"><head><!--meta:start--><!--meta:end--></head><body></body></html>';
 
-async function fromTheFunction(path: string) {
+async function fromTheFunction(path: string, locale: "ar" | "en" = "ar") {
   const response = await onRequest({
-    request: new Request(`https://yahyaquran.com${path}`),
+    request: new Request(`https://yahyaquran.com${path}${locale === "en" ? "?lang=en" : ""}`),
     next: async () => new Response(shell, { headers: { "content-type": "text/html" } }),
     env: { ASSETS: { fetch: async () => new Response("", { status: 404 }) } },
   });
@@ -52,6 +56,9 @@ async function fromTheFunction(path: string) {
     description: unescape(grab(/name="description" content="([^"]*)"/)),
     noindex: /name="robots" content="noindex/.test(html),
     image: unescape(grab(/property="og:image" content="([^"]*)"/)),
+    canonical: unescape(grab(/rel="canonical" href="([^"]*)"/)),
+    lang: grab(/<html[^>]*\blang="([^"]*)"/),
+    dir: grab(/<html[^>]*\bdir="([^"]*)"/),
   };
 }
 
@@ -96,4 +103,36 @@ describe("the app and the crawler are told the same thing", () => {
       expect(theirs.image, `${path} share image`).toBe(`https://yahyaquran.com${ours.image}`);
     });
   }
+});
+
+/**
+ * The same comparison in English, plus the three things that made the English
+ * alternate self-defeating: it was served with the Arabic <html lang>, and its
+ * canonical pointed at the Arabic URL, so a search engine folded the pair
+ * together and only ever showed the Arabic snippet.
+ */
+describe("and told the same thing in English", () => {
+  for (const path of ROUTES) {
+    it(`agrees about ${path}?lang=en`, async () => {
+      const theirs = await fromTheFunction(path, "en");
+      const ours = localizedMeta(metaForPath(path), "en");
+      expect(theirs.title, `${path} English title`).toBe(ours.title);
+      expect(theirs.description, `${path} English description`).toBe(ours.description);
+      expect(theirs.noindex, `${path} robots`).toBe(!!ours.noindex);
+    });
+  }
+
+  it("serves the English page as an English document", async () => {
+    const english = await fromTheFunction("/stories/prophets/adam", "en");
+    expect(english.lang).toBe("en");
+    expect(english.dir).toBe("ltr");
+  });
+
+  it("lets the English page be its own page in search", async () => {
+    const arabic = await fromTheFunction("/stories/prophets/adam");
+    const english = await fromTheFunction("/stories/prophets/adam", "en");
+    expect(arabic.canonical).toBe("https://yahyaquran.com/stories/prophets/adam");
+    expect(english.canonical, "the English page canonicalising to the Arabic one is what folded the two together")
+      .toBe("https://yahyaquran.com/stories/prophets/adam?lang=en");
+  });
 });

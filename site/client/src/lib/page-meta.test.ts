@@ -118,16 +118,18 @@ describe("the memorization journey", () => {
 });
 
 /**
- * The two copies of the metadata, compared.
+ * English coverage, route by route.
  *
- * The header of each file said a generator and these tests kept them in step.
- * The generator only ever wrote the content data both of them read, and no test
- * here had ever looked at the worker. That gap is why the worker could go a
- * whole release answering ?lang=en with the Arabic title while the app in the
- * browser answered it in English — two different pages at one address,
- * depending on whether the reader was a person or a crawler.
+ * The comparison of the two copies lives in functions/__tests__/
+ * metadata-mirror.test.ts, which bundles the real middleware and drives
+ * onRequest over every kind of route in both languages — a stronger check than
+ * calling metaForPath here, so this file does not repeat it.
+ *
+ * What that file cannot see is a route that simply has no English at all: both
+ * copies then agree, in Arabic, and the mirror passes while an English reader
+ * gets an Arabic title. That gap is what this checks.
  */
-describe("the app copy and the worker copy", () => {
+describe("every route that can speak English does", () => {
   const paths = [
     "/", "/read", "/read/1", "/read/114", "/listen", "/listen/36",
     "/stories", "/stories/prophets", "/stories/prophets/adam", "/stories/library",
@@ -139,27 +141,23 @@ describe("the app copy and the worker copy", () => {
     "/about", "/no-such-page",
   ];
 
-  /** The one page with no English variant in either copy. Both are Arabic for
-   *  an English reader, which is a content gap, not a drift between the two. */
+  /** The one page written in Arabic only, in both copies. A content gap, not a
+   *  drift between the two. */
   const ARABIC_ONLY = new Set(["/about"]);
 
-  it.each(["ar", "en"] as const)("say the same thing in %s", async locale => {
-    const worker = await import("../../../functions/_middleware");
-    const differences: string[] = [];
-    for (const path of paths) {
-      const app = localizedMeta(metaForPath(path), locale);
-      const fn = worker.localized(worker.metaForPath(path), locale);
-      if (app.title !== fn.title) differences.push(`${path} title\n  app:    ${app.title}\n  worker: ${fn.title}`);
-      if (app.description !== fn.description) differences.push(`${path} description\n  app:    ${app.description}\n  worker: ${fn.description}`);
-    }
-    expect(differences, `a reader and a crawler must be shown the same page:\n${differences.join("\n")}`).toEqual([]);
+  it("gives English its own words wherever there are any", () => {
+    const stillArabic = paths.filter(path => {
+      if (ARABIC_ONLY.has(path)) return false;
+      const meta = metaForPath(path);
+      return localizedMeta(meta, "en").title === meta.title;
+    });
+    expect(stillArabic, "a route with no English title previews in Arabic for an English reader").toEqual([]);
   });
 
-  it("gives English its own words on every route that has them", async () => {
-    const worker = await import("../../../functions/_middleware");
-    const stillArabic = paths.filter(path => !ARABIC_ONLY.has(path) && !worker.metaForPath(path).en);
-    expect(stillArabic, "a route with no English title previews in Arabic for an English reader").toEqual([]);
-    // And the exception is real, not a name left behind in the set.
-    for (const path of ARABIC_ONLY) expect(worker.metaForPath(path).en).toBeUndefined();
+  it("keeps the exception honest", () => {
+    for (const path of ARABIC_ONLY) {
+      const meta = metaForPath(path);
+      expect(localizedMeta(meta, "en").title, `${path} has English now — take it out of the exception list`).toBe(meta.title);
+    }
   });
 });
