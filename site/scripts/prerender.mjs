@@ -37,8 +37,33 @@ const readLiteral = (file, name) => {
   return eval(m[1]);
 };
 
+/** An exported object literal, read the same way as the arrays above. */
+const readMap = (file, name) => {
+  const src = readFileSync(join(root, "client/src", file), "utf8");
+  const m = src.match(new RegExp(`export const ${name}[^=]*= (\\{[\\s\\S]*?\\n\\});`));
+  if (!m) throw new Error(`could not read ${name} out of ${file}`);
+  return eval(`(${m[1]})`);
+};
+
+/** Puts each story's English text back on the story, keyed "chapter/slug". A
+ *  key in the map that matches no story means the two files have drifted. */
+const attachEnglish = (list, map) => {
+  const seen = new Set();
+  for (const story of list) {
+    const key = `${story.chapter}/${story.slug}`;
+    if (map[key]) { story.en = map[key]; seen.add(key); }
+  }
+  const orphans = Object.keys(map).filter(key => !seen.has(key));
+  if (orphans.length) throw new Error(`stories-en.ts has text for stories that do not exist: ${orphans.join(", ")}`);
+};
+
 const chapters = readLiteral("content/stories.ts", "chapters");
 const stories = readLiteral("content/stories.ts", "stories");
+// The English text moved to its own module so a reader downloads one language
+// rather than two — see content/stories-english.ts. The prerendered page still
+// carries both, so it is joined back on here and everything below reads
+// `story.en` as it always did.
+attachEnglish(stories, readMap("content/stories-en.ts", "storiesEn"));
 const seerahStations = readLiteral("content/seerah.ts", "seerahStations");
 const seerahStories = readLiteral("content/seerah.ts", "seerahStories");
 const facts = readLiteral("content/quran-facts.ts", "quranFacts");

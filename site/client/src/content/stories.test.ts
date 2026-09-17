@@ -8,7 +8,12 @@
  */
 import { describe, expect, it } from "vitest";
 
-import { chapters, stories, storyMinutes, storyTextFor } from "@/content/stories";
+import { chapters, stories, storyKey, storyMinutes, storyTextFor } from "@/content/stories";
+import { storiesEn } from "@/content/stories-en";
+
+/** The English text of one story. It lives in its own module now so a reader
+ *  fetches one language rather than two; these tests read both on purpose. */
+const en = (story: (typeof stories)[number]) => storiesEn[storyKey(story)];
 
 /** Stories still awaiting an English translation. Shrink this list; do not grow it.
  *  It is empty: every story reads in both languages. A new story without an
@@ -41,21 +46,21 @@ describe("story content", () => {
   });
 
   it("tracks exactly which stories are still untranslated", () => {
-    const missing = stories.filter(s => !s.en).map(key).sort();
+    const missing = stories.filter(s => !en(s)).map(key).sort();
     expect(missing).toEqual([...UNTRANSLATED].sort());
   });
 
   it("leaves no Arabic in the English prose", () => {
     const arabic = /[؀-ۿ]/;
     for (const story of stories) {
-      if (!story.en) continue;
-      const en = storyTextFor(story, "en");
+      const english = en(story);
+      if (!english) continue;
       for (const [field, value] of [
-        ["title", en.title],
-        ["hook", en.hook],
-        ["events", en.events],
-        ["lesson", en.lesson],
-        ["next", en.next],
+        ["title", english.title],
+        ["hook", english.hook],
+        ["events", english.events],
+        ["lesson", english.lesson],
+        ["next", english.next],
       ] as const) {
         expect(arabic.test(value), `${key(story)} — ${field}`).toBe(false);
       }
@@ -64,8 +69,8 @@ describe("story content", () => {
 
   it("falls back to Arabic for anything untranslated", () => {
     for (const story of stories) {
-      if (story.en) continue;
-      expect(storyTextFor(story, "en").title, key(story)).toBe(story.title);
+      if (en(story)) continue;
+      expect(storyTextFor(story, en(story)).title, key(story)).toBe(story.title);
     }
   });
 });
@@ -122,7 +127,7 @@ describe("every story says where it comes from", () => {
 describe("every story ends in a question", () => {
   it("has three options and a real answer, in both languages", () => {
     for (const story of stories) {
-      for (const challenge of [story.challenge, story.en?.challenge]) {
+      for (const challenge of [story.challenge, en(story)?.challenge]) {
         if (!challenge) continue;
         expect(challenge.options.length, story.slug).toBe(3);
         expect(new Set(challenge.options).size, `${story.slug} repeats an option`).toBe(3);
@@ -137,14 +142,14 @@ describe("every story ends in a question", () => {
    *  one would mark a right answer wrong for English readers. */
   it("marks the same answer in Arabic and in English", () => {
     for (const story of stories) {
-      if (!story.en?.challenge) continue;
-      expect(story.en.challenge.correctAnswer, story.slug).toBe(story.challenge.correctAnswer);
+      if (!en(story)?.challenge) continue;
+      expect(en(story)!.challenge.correctAnswer, story.slug).toBe(story.challenge.correctAnswer);
     }
   });
 
   it("gives a medal with a name and a keepsake", () => {
     for (const story of stories) {
-      for (const reward of [story.reward, story.en?.reward]) {
+      for (const reward of [story.reward, en(story)?.reward]) {
         if (!reward) continue;
         expect(reward.badge.length, story.slug).toBeGreaterThan(2);
         expect(reward.keepsake.length, story.slug).toBeGreaterThan(2);
@@ -187,14 +192,14 @@ describe("the story arc", () => {
    *  English readers, which is worse than not having rewritten it at all. */
   it("lands in both languages at once", () => {
     for (const story of stories) {
-      if (!story.arc || !story.en) continue;
-      expect(Boolean(story.en.arc), `${story.slug} has an Arabic arc but no English one`).toBe(true);
+      if (!story.arc || !en(story)) continue;
+      expect(Boolean(en(story)!.arc), `${story.slug} has an Arabic arc but no English one`).toBe(true);
     }
   });
 
   it("carries the whole shape, not part of it", () => {
     for (const story of stories) {
-      for (const [lang, arc] of [["ar", story.arc], ["en", story.en?.arc]] as const) {
+      for (const [lang, arc] of [["ar", story.arc], ["en", en(story)?.arc]] as const) {
         if (!arc) continue;
         const where = `${story.slug} (${lang})`;
         // The card's one sentence. Longer than this and it is a paragraph.
@@ -221,7 +226,7 @@ describe("the story arc", () => {
   it("makes a rewritten story a longer read than a summary", () => {
     for (const story of stories) {
       if (!story.arc) continue;
-      expect(storyMinutes(story, "ar"), story.slug).toBeGreaterThanOrEqual(3);
+      expect(storyMinutes(story), story.slug).toBeGreaterThanOrEqual(3);
     }
   });
 });
@@ -232,19 +237,49 @@ describe("the story arc", () => {
  * Writing the forty-two to the content standard roughly doubled this module:
  * the Stories chunk went from about 72 KB gzipped to about 143 KB. That chunk
  * is lazily loaded, so nobody pays for it until they open a story — but then
- * they pay for all forty-two, in both languages, to read one.
+ * they were paying for all forty-two in *both* languages to read one, and the
+ * English was over half of it.
  *
- * This budget holds that line. If it is ever hit, the fix is not a bigger
- * number: it is to split this module by chapter and load only the chapter
- * being read, which is where the waste actually is.
+ * The English lives in content/stories-en.ts now and is fetched only by a
+ * reader actually reading in English, so the two budgets below are separate:
+ * an Arabic reader pays the first, an English reader pays both. What is worth
+ * guarding is not only the totals but the split itself — if the English text
+ * ever finds its way back into stories.ts, both numbers still pass while every
+ * reader quietly goes back to paying for two languages. So that is asserted
+ * directly.
+ *
+ * If a budget is ever hit, the fix is not a bigger number: it is to split each
+ * of these by chapter and load only the chapter being read, which is where the
+ * remaining waste is.
  */
 describe("the story content stays affordable", () => {
-  it("fits the chapter chunk's budget", async () => {
+  const weigh = async (file: string) => {
     const { gzipSync } = await import("node:zlib");
     const { readFileSync } = await import("node:fs");
     const { join } = await import("node:path");
-    const bytes = readFileSync(join(process.cwd(), "client/src/content/stories.ts"));
-    const gzipped = gzipSync(bytes).length;
-    expect(gzipped, `stories.ts is ${(gzipped / 1024).toFixed(1)} KB gzipped`).toBeLessThan(150 * 1024);
+    return gzipSync(readFileSync(join(process.cwd(), "client/src/content", file))).length;
+  };
+
+  it("keeps what every reader pays within the Arabic budget", async () => {
+    const gzipped = await weigh("stories.ts");
+    expect(gzipped, `stories.ts is ${(gzipped / 1024).toFixed(1)} KB gzipped`).toBeLessThan(80 * 1024);
+  });
+
+  it("keeps what an English reader pays on top within its own budget", async () => {
+    const gzipped = await weigh("stories-en.ts");
+    expect(gzipped, `stories-en.ts is ${(gzipped / 1024).toFixed(1)} KB gzipped`).toBeLessThan(80 * 1024);
+  });
+
+  it("keeps the English out of the module every reader loads", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const source = readFileSync(join(process.cwd(), "client/src/content/stories.ts"), "utf8");
+    // The `en` field is gone from the Story type, so there is nowhere to put
+    // the translation back without this failing.
+    expect(source, "an `en` field on Story means the English is shipping to Arabic readers again")
+      .not.toMatch(/^\s*en\??:/m);
+    // And the Arabic module must not be importing the English one, which would
+    // make the dynamic import static and fold the chunk straight back in.
+    expect(source).not.toMatch(/from "\.\/stories-en"/);
   });
 });

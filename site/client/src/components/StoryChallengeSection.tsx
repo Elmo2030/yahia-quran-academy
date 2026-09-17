@@ -16,7 +16,8 @@ import { HelpCircle, Trophy } from "lucide-react";
 
 import { BadgeAward } from "@/components/BadgeAward";
 import { useLocale } from "@/contexts/LocaleContext";
-import { storyChallengeFor, storyRewardFor, type Story } from "@/content/stories";
+import { type Story } from "@/content/stories";
+import { useStoryText } from "@/content/stories-english";
 
 const copy = {
   ar: { challenge: "تحدي الفهم", reward: "مكافأتك", correct: "إجابة صحيحة! 🎉", wrong: "ليست هذه — ارجع للقصة وجرّب مرة أخرى 💪" },
@@ -26,8 +27,9 @@ const copy = {
 export function StoryChallengeSection({ story, number }: { story: Story; number: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
-  const challenge = storyChallengeFor(story, locale);
-  const reward = storyRewardFor(story, locale);
+  const { challengeOf, rewardOf } = useStoryText();
+  const challenge = challengeOf(story);
+  const reward = rewardOf(story);
   const [tried, setTried] = useState<number[]>([]);
   const [won, setWon] = useState(false);
 

@@ -17,6 +17,26 @@ const pick = (name) => {
 const chapters = pick("chapters");
 const stories = pick("stories");
 
+// The English text of the stories moved out of stories.ts so a reader fetches
+// one language instead of two — see client/src/content/stories-english.ts.
+// Both copies of the metadata still need the English titles, so it is joined
+// back on here and the rest of this script reads `story.en` as before.
+const storiesEnSource = readFileSync(join(root, "client/src/content/stories-en.ts"), "utf8");
+const storiesEn = (() => {
+  const m = storiesEnSource.match(/export const storiesEn[^=]*= (\{[\s\S]*?\n\});/);
+  if (!m) throw new Error("could not read storiesEn out of stories-en.ts");
+  return eval(`(${m[1]})`);
+})();
+{
+  const seen = new Set();
+  for (const story of stories) {
+    const key = `${story.chapter}/${story.slug}`;
+    if (storiesEn[key]) { story.en = storiesEn[key]; seen.add(key); }
+  }
+  const orphans = Object.keys(storiesEn).filter(key => !seen.has(key));
+  if (orphans.length) throw new Error(`stories-en.ts has text for stories that do not exist: ${orphans.join(", ")}`);
+}
+
 const seerahSource = readFileSync(join(root, "client/src/content/seerah.ts"), "utf8");
 // Same eval-the-literal trick as stories.ts. This replaced a hand-written
 // regex that assumed `title` sat on the line after `slug` and that there was

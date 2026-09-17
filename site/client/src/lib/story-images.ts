@@ -41,6 +41,11 @@ export const COVER_SIZES = "(max-width: 1100px) 94vw, 1040px";
  *
  * A written-per-scene description would be better than this and would replace
  * it; until one exists, this is the honest floor rather than a stand-in for it.
+ *
+ * The label is a bare noun and a dash rather than a sentence, because a title
+ * often names its own kind: "رسم لقصة: قصة سيدنا آدم" said "story" twice, and
+ * so would any phrasing built around one story's shape once a creed card or a
+ * Seerah station went through it.
  */
 export const artAlt = (title: string, locale: "ar" | "en"): string =>
-  locale === "en" ? `An illustration for the story: ${title}` : `رسم لقصة: ${title}`;
+  locale === "en" ? `Illustration — ${title}` : `رسم — ${title}`;

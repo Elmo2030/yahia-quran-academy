@@ -1,6 +1,7 @@
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Clock3, Library, Lightbulb, PawPrint, Printer, Sparkles, Sun, Trash2, Users } from "lucide-react";
-import { chapters, stories, storyArcFor, storyMinutes, storyTextFor, type Story } from "@/content/stories";
+import { chapters, stories, type Story } from "@/content/stories";
+import { useStoryText } from "@/content/stories-english";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -83,12 +84,13 @@ function StoryArt({ story, className, alt }: { story: Story; className?: string;
     );
   }
   const { locale } = useLocale();
+  const { textOf } = useStoryText();
   return (
     <figure className={`story-image story-image-placeholder story-image-placeholder--leaf ${className ?? ""}`} aria-hidden="true">
       <span className="story-image-placeholder__sun" />
       <span className="story-image-placeholder__hill" />
       <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
-      <small>{storyTextFor(story, locale).title}</small>
+      <small>{textOf(story).title}</small>
     </figure>
   );
 }
@@ -96,9 +98,10 @@ function StoryArt({ story, className, alt }: { story: Story; className?: string;
 function StoryCard({ story, index }: { story: Story; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
-  const text = storyTextFor(story, locale);
-  const arc = storyArcFor(story, locale);
-  const minutes = storyMinutes(story, locale);
+  const { textOf, arcOf, minutesOf } = useStoryText();
+  const text = textOf(story);
+  const arc = arcOf(story);
+  const minutes = minutesOf(story);
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   return (
     <Link href={`/stories/${story.chapter}/${story.slug}`} className="story-list-card">
@@ -126,6 +129,7 @@ export default function Stories() {
   const t = copy[locale];
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   const { has, toggle } = useLibrary();
+  const { textOf, arcOf, minutesOf } = useStoryText();
 
   // ---- my library -------------------------------------------------------
   if (isChapter && chapterParams?.chapter === "library") {
@@ -185,12 +189,12 @@ export default function Stories() {
       );
     }
     const story = chapterStories[index];
-    const text = storyTextFor(story, locale);
+    const text = textOf(story);
     const previous = index > 0 ? chapterStories[index - 1] : null;
     const following = index < chapterStories.length - 1 ? chapterStories[index + 1] : null;
     const inLibrary = has(story.slug);
-    const arc = storyArcFor(story, locale);
-    const minutes = storyMinutes(story, locale);
+    const arc = arcOf(story);
+    const minutes = minutesOf(story);
     // The sections are numbered for the child, and which of them exist varies
     // by story, so the number is counted out rather than written down.
     let step = 0;
@@ -359,15 +363,15 @@ export default function Stories() {
                 <p>{text.next}</p>
                 {following && (
                   <Link href={`/stories/${story.chapter}/${following.slug}`} className="button button--primary no-print">
-                    {storyTextFor(following, locale).title} <Arrow size={17} aria-hidden="true" />
+                    {textOf(following).title} <Arrow size={17} aria-hidden="true" />
                   </Link>
                 )}
               </aside>
 
               <nav className="story-pager no-print" aria-label={t.allStories}>
-                {previous ? <Link href={`/stories/${story.chapter}/${previous.slug}`} className="text-link">{t.prev}: {storyTextFor(previous, locale).title}</Link> : <span />}
+                {previous ? <Link href={`/stories/${story.chapter}/${previous.slug}`} className="text-link">{t.prev}: {textOf(previous).title}</Link> : <span />}
                 <Link href={`/stories/${story.chapter}`} className="text-link">{t.backToChapter}</Link>
-                {following ? <Link href={`/stories/${story.chapter}/${following.slug}`} className="text-link">{t.nextStory}: {storyTextFor(following, locale).title}</Link> : <span />}
+                {following ? <Link href={`/stories/${story.chapter}/${following.slug}`} className="text-link">{t.nextStory}: {textOf(following).title}</Link> : <span />}
               </nav>
             </div>
           </div>
