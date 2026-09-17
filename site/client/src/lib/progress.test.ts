@@ -88,6 +88,23 @@ describe("nextStep", () => {
       href: "/stories/nations/luqman",
     });
   });
+
+  it("picks the due review over a pending deed when a child has both waiting", () => {
+    // The two tests above each leave only one condition true, so swapping the
+    // priority in nextStep() would pass them both regardless of the order —
+    // this is the one that actually pins it, with both present at once.
+    const DAY = 86_400_000;
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    const declared = declareMemorized(created.store, created.profile.id, 114, 1, "child", Date.now() - 2 * DAY);
+    const withDeed = registerDeed(declared, created.profile.id, "nations", "luqman");
+    saveStore(withDeed);
+
+    expect(nextStep(null)).toEqual({
+      ref: { kind: "ayah", surah: 114, ayah: 1 },
+      href: "/hifz/114",
+    });
+  });
 });
 
 describe("mergeLibrarySlugs", () => {
