@@ -200,6 +200,9 @@ ${quranFacts.map(f => `- [${f.title.en}](${ORIGIN}/quran-facts/${f.slug}): ${f.b
 // module so both it and the app describe pages from the same source.
 const surahSource = readFileSync(join(root, "client/src/lib/quran-content.ts"), "utf8");
 const surahNames = eval(surahSource.match(/export const surahNames = (\[[\s\S]*?\]);/)[1]);
+// The worker used to know only the Arabic names, so an English link preview of
+// a surah page previewed in Arabic. Both lists go over now.
+const englishSurahNames = eval(surahSource.match(/export const englishSurahNames = (\[[\s\S]*?\]);/)[1]);
 
 // The app needs titles and descriptions on every route, but page-meta.ts used
 // to import the whole of content/stories.ts and content/seerah.ts to get them
@@ -281,19 +284,25 @@ writeFileSync(join(root, "functions/page-data.js"),
 `export const chapters = ${JSON.stringify(chapters.map(c => ({ ...c, descriptionAr: clip(c.descriptionAr), descriptionEn: c.descriptionEn ? clip(c.descriptionEn) : c.descriptionEn })), null, 1)};\n` +
 `export const stories = ${JSON.stringify(stories.map(s => ({
   chapter: s.chapter, slug: s.slug, title: s.title, hook: clip(s.hook), image: s.image ?? null,
+  titleEn: s.en?.title ?? null, hookEn: s.en?.hook ? clip(s.en.hook) : null,
 })), null, 1)};\n` +
 `export const surahNames = ${JSON.stringify(surahNames)};\n` +
+`export const englishSurahNames = ${JSON.stringify(englishSurahNames)};\n` +
 `export const seerahStations = ${JSON.stringify(seerahStations)};\n` +
 `export const aqeedahChapters = ${JSON.stringify(aqeedahChapters, null, 1)};\n` +
 `export const aqeedahCards = ${JSON.stringify(aqeedahCards.map(c => ({
   slug: c.slug, chapter: c.chapter, title: c.title, value: clip(c.value), image: c.image ?? null,
+  titleEn: c.en?.title ?? null, valueEn: c.en?.value ? clip(c.en.value) : null,
 })), null, 1)};\n` +
 `export const seerahStories = ${JSON.stringify(seerahStories.map(s => ({
   stationId: s.stationId, slug: s.slug, title: s.title, image: s.image ?? null,
   narrative: clip(s.content.tier_1_age_6_8.narrative),
+  titleEn: s.en?.title ?? null,
+  narrativeEn: s.en?.content?.tier_1_age_6_8?.narrative ? clip(s.en.content.tier_1_age_6_8.narrative) : null,
 })), null, 1)};\n` +
 `export const quranFacts = ${JSON.stringify(quranFacts.map(f => ({
   number: f.number, slug: f.slug, title: f.title.ar, body: clip(f.body.ar),
+  titleEn: f.title.en, bodyEn: clip(f.body.en),
 })), null, 1)};\n`);
 
 console.log(`  sitemap.xml: ${urls.length} URLs`);

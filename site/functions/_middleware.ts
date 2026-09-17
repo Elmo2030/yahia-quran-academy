@@ -13,6 +13,15 @@
  *     on every build.
  *   • tests in client/src/lib/page-meta.test.ts that assert both copies agree.
  *
+ * Both languages are served off one URL, English at ?lang=en. This used to
+ * answer that address with the Arabic title, the Arabic description and a
+ * canonical pointing at the Arabic URL — while the page itself declared an
+ * English alternate at exactly that address. A search engine following the
+ * hreflang got a page that canonicalised away to the Arabic one, so it folded
+ * the two together and only ever showed the Arabic snippet; an English link
+ * shared on WhatsApp previewed in Arabic. ?lang=en now gets its own title,
+ * description, og:locale, html lang/dir and its own canonical.
+ *
  * Sign-in, registration, the profile and the personal story shelf are noindex:
  * they are either private or different for every visitor. The privacy policy
  * and terms are not — a parent should be able to find how a children's site
@@ -20,11 +29,14 @@
  * link previews show English text.
  */
 
-import { chapters, stories, surahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts } from "./page-data.js";
+import { chapters, stories, surahNames, englishSurahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
+const SITE_EN = "Yahya Quran Academy";
 const SITE_DESCRIPTION =
   "قراءة القرآن بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن للأطفال في أربعة أبواب.";
+const SITE_DESCRIPTION_EN =
+  "The Quran in the Uthmani text with verified teaching recitations, and illustrated stories from the Quran for children, in four chapters.";
 const DEFAULT_IMAGE = "/og-yahya-hero.jpg";
 const ORIGIN = "https://yahyaquran.com";
 
@@ -42,6 +54,8 @@ const authMeta = {
     "سجّل دخولك للاحتفاظ بتقدّمك في قراءة القرآن وقصصه عبر الأجهزة.",
   image: DEFAULT_IMAGE,
   noindex: true,
+  en: { title: "Sign in — Yahya Quran Academy",
+        description: "Sign in to keep your Quran reading and stories progress in sync across devices." },
 };
 
 const registerMeta = {
@@ -51,6 +65,8 @@ const registerMeta = {
     "أنشئ حسابًا جديدًا على Yahya Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
   image: DEFAULT_IMAGE,
   noindex: true,
+  en: { title: "Create account — Yahya Quran Academy",
+        description: "Create a Yahya Quran Academy account so your reading and memorization progress syncs everywhere." },
 };
 
 const profileMeta = {
@@ -59,6 +75,8 @@ const profileMeta = {
   description: "إدارة حسابك وتقدّمك في Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
   noindex: true,
+  en: { title: "My account — Yahya Quran Academy",
+        description: "Manage your account and progress on Yahya Quran Academy." },
 };
 
 // The journey page is worth finding; the screens under it belong to one child.
@@ -68,6 +86,8 @@ const hifzMeta = {
   description:
     "خريطة لحفظ جزء عمّ: الطفل يسمع الآية ويكرّرها ويسجّل صوته، وتعود عليه للمراجعة بعد يوم وثلاثة وسبعة. وليّ الأمر هو من يقدّر التلاوة، ولا يُحفظ شيء إلا على جهازك.",
   image: DEFAULT_IMAGE,
+  en: { title: "A Juz Amma memorization journey for children — Yahya Quran Academy",
+        description: "A map for memorizing Juz Amma: the child listens, repeats and records, and each ayah returns for review after a day, three days, a week. The parent is the one who judges the recitation, and nothing leaves the device." },
 };
 
 const hifzInnerMeta = {
@@ -75,6 +95,8 @@ const hifzInnerMeta = {
   title: "رحلة الحفظ — Yahya Quran Academy",
   description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
   noindex: true,
+  en: { title: "Memorization journey — Yahya Quran Academy",
+        description: "A Juz Amma memorization journey for children with Yahya and Fatima; all data stays on your device." },
 };
 
 // A parent looking for how a children's site handles their child's data should
@@ -85,6 +107,8 @@ const privacyMeta = {
   title: "سياسة الخصوصية — Yahya Quran Academy",
   description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
+  en: { title: "Privacy policy — Yahya Quran Academy",
+        description: "Privacy policy for Yahya Quran Academy." },
 };
 
 const termsMeta = {
@@ -92,12 +116,18 @@ const termsMeta = {
   title: "شروط الاستخدام — Yahya Quran Academy",
   description: "شروط استخدام Yahya Quran Academy.",
   image: DEFAULT_IMAGE,
+  en: { title: "Terms of use — Yahya Quran Academy",
+        description: "Terms of use for Yahya Quran Academy." },
 };
 
 /**
- * Mirrors client/src/lib/page-meta.ts. The two are kept in sync as noted above.
+ * Mirrors client/src/lib/page-meta.ts. The header above claimed the two were
+ * kept in sync by a generator and by tests; the generator only ever wrote the
+ * content data both of them read, and no test compared the two copies. It is
+ * exported so one can — see client/src/lib/page-meta.test.ts. Cloudflare Pages
+ * reads `onRequest` and ignores anything else this module exports.
  */
-function metaForPath(pathname: string) {
+export function metaForPath(pathname: string) {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
   const parts = path.split("/").filter(Boolean);
   const head = parts[0];
@@ -112,12 +142,16 @@ function metaForPath(pathname: string) {
   if (head === "forgot-password") {
     return { path: "/forgot-password", image: DEFAULT_IMAGE, noindex: true,
       title: "استعادة كلمة المرور — Yahya Quran Academy",
-      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahya Quran Academy." };
+      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahya Quran Academy.",
+      en: { title: "Reset password — Yahya Quran Academy",
+            description: "Enter your email to reset your Yahya Quran Academy password." } };
   }
   if (head === "reset-password") {
     return { path: "/reset-password", image: DEFAULT_IMAGE, noindex: true,
       title: "تعيين كلمة مرور جديدة — Yahya Quran Academy",
-      description: "عيّن كلمة مرور جديدة لحسابك على Yahya Quran Academy." };
+      description: "عيّن كلمة مرور جديدة لحسابك على Yahya Quran Academy.",
+      en: { title: "Set a new password — Yahya Quran Academy",
+            description: "Set a new password for your Yahya Quran Academy account." } };
   }
   if (head === "privacy") return privacyMeta;
   if (head === "terms") return termsMeta;
@@ -128,13 +162,16 @@ function metaForPath(pathname: string) {
     if (!parts[1]) {
       return { ...base, image: "/facts/share.jpg", path: "/quran-facts",
         title: "في رحاب القرآن — اكتشف أسرار القرآن",
-        description: "مئة معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها." };
+        description: "مئة معلومة عن القرآن الكريم للأطفال، كل واحدة خلف بطاقة تُقلب لتقرأها.",
+        en: { title: "In the Realm of the Quran — Discover the Quran",
+              description: "A hundred things worth knowing about the Quran for children, each behind a card you turn over." } };
     }
     const fact = quranFacts.find(entry => entry.slug === parts[1]);
     return fact
       ? { ...base, image: "/facts/share.jpg", path,
           title: `${fact.title} · في رحاب القرآن`,
-          description: fact.body }
+          description: fact.body,
+          en: fact.titleEn ? { title: `${fact.titleEn} · In the Realm of the Quran`, description: fact.bodyEn } : undefined }
       : notFound(path);
   }
 
@@ -151,11 +188,14 @@ function metaForPath(pathname: string) {
     if (!parts[1]) {
       return { ...base, path,
         title: `العقيدة — ${aqeedahCards.length} بطاقة · ${SITE}`,
-        description: `${aqeedahCards.length} بطاقة في ${aqeedahChapters.length} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.` };
+        description: `${aqeedahCards.length} بطاقة في ${aqeedahChapters.length} أبواب: من نعرفه، وبم نؤمن، وكيف يظهر الإيمان في أفعالنا.`,
+        en: { title: `Creed for children — ${aqeedahCards.length} cards · ${SITE_EN}`,
+              description: `${aqeedahCards.length} cards in ${aqeedahChapters.length} chapters: who we know, what we believe, and how belief shows in what we do.` } };
     }
     const card = aqeedahCards.find((c: any) => c.slug === parts[1]);
     return card
-      ? { ...base, path, image: card.image ?? DEFAULT_IMAGE, title: `${card.title} · العقيدة`, description: card.value }
+      ? { ...base, path, image: card.image ?? DEFAULT_IMAGE, title: `${card.title} · العقيدة`, description: card.value,
+          en: card.titleEn ? { title: `${card.titleEn} · Creed`, description: card.valueEn ?? card.value } : undefined }
       : notFound(path);
   }
 
@@ -163,13 +203,16 @@ function metaForPath(pathname: string) {
     if (!parts[1]) {
       return { ...base, path,
         title: `السيرة النبوية — ${seerahStations.length} محطات · ${SITE}`,
-        description: seerahStations.map((s: any) => s.titleAr).join(" · ") };
+        description: seerahStations.map((s: any) => s.titleAr).join(" · "),
+        en: { title: `The Prophet's Seerah — ${seerahStations.length} stations · ${SITE_EN}`,
+              description: seerahStations.map((s: any) => s.titleEn ?? s.titleAr).join(" · ") } };
     }
     const story = seerahStories.find((entry: any) => entry.slug === parts[1]);
     if (story) {
       return { ...base, path, image: story.image ?? DEFAULT_IMAGE,
         title: `${story.title} · السيرة النبوية`,
-        description: story.narrative };
+        description: story.narrative,
+        en: story.titleEn ? { title: `${story.titleEn} · The Prophet's Seerah`, description: story.narrativeEn ?? story.narrative } : undefined };
     }
   }
 
@@ -179,12 +222,16 @@ function metaForPath(pathname: string) {
       path,
       title: `القارئ — ١١٤ سورة · ${SITE}`,
       description: "اختر أي سورة واقرأها بالنص العثماني، واستمع إليها بتلاوة معلّمة موثقة.",
+      en: { title: `The reader — all 114 surahs · ${SITE_EN}`,
+            description: "Choose any surah, read it in the Uthmani text, and listen to a verified teaching recitation." },
     };
     const surah = Number(parts[1]);
     const name = Number.isInteger(surah) && surah >= 1 && surah <= 114 ? surahNames[surah - 1] : null;
     return name
       ? { ...base, path, title: `سورة ${name} — قراءة واستماع · ${SITE}`,
-          description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.` }
+          description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.`,
+          en: { title: `Surah ${englishSurahNames[surah - 1] ?? name} — read and listen · ${SITE_EN}`,
+                description: `Read Surah ${englishSurahNames[surah - 1] ?? name} in the Uthmani text and listen to a verified teaching recitation, with the ayah and word lit up as it is recited.` } }
       : notFound(path);
   }
 
@@ -194,12 +241,16 @@ function metaForPath(pathname: string) {
       path,
       title: `الاستماع — المصحف المرتل كاملًا · ${SITE}`,
       description: "استمع إلى المصحف المرتل كاملًا بصوت الشيخ محمد صديق المنشاوي، سورة سورة، من المتصفح مباشرة.",
+      en: { title: `Listening — the complete murattal mushaf · ${SITE_EN}`,
+            description: "Listen to the complete murattal mushaf recited by Muhammad Siddiq al-Minshawi, surah by surah, straight from the browser." },
     };
     const surah = Number(parts[1]);
     const name = Number.isInteger(surah) && surah >= 1 && surah <= 114 ? surahNames[surah - 1] : null;
     return name
       ? { ...base, path, title: `استمع إلى سورة ${name} — المنشاوي المرتل · ${SITE}`,
-          description: `استمع إلى سورة ${name} كاملة بصوت الشيخ محمد صديق المنشاوي، بتلاوة مرتلة هادئة تناسب البيت والسيارة.` }
+          description: `استمع إلى سورة ${name} كاملة بصوت الشيخ محمد صديق المنشاوي، بتلاوة مرتلة هادئة تناسب البيت والسيارة.`,
+          en: { title: `Listen to Surah ${englishSurahNames[surah - 1] ?? name} — al-Minshawi murattal · ${SITE_EN}`,
+                description: `Listen to the whole of Surah ${englishSurahNames[surah - 1] ?? name} recited by Muhammad Siddiq al-Minshawi, a calm murattal reading for the home or the car.` } }
       : notFound(path);
   }
 
@@ -208,13 +259,15 @@ function metaForPath(pathname: string) {
       // A personal shelf kept on the reader's own device: a crawler sees an
       // empty page, and every visitor's is different.
       return { ...base, path, noindex: true, title: `مكتبتي · ${SITE}`,
-        description: "القصص التي اخترت الاحتفاظ بها لقراءتها مرة أخرى." };
+        description: "القصص التي اخترت الاحتفاظ بها لقراءتها مرة أخرى.",
+        en: { title: `My library · ${SITE_EN}`, description: "The stories you kept to read again." } };
     }
     if (parts[1] && parts[2]) {
       const story = stories.find((s: any) => s.chapter === parts[1] && s.slug === parts[2]);
       if (story) {
         return { path, image: story.image ?? DEFAULT_IMAGE,
-          title: `${story.title} · قصص من القرآن`, description: story.hook };
+          title: `${story.title} · قصص من القرآن`, description: story.hook,
+          en: story.titleEn ? { title: `${story.titleEn} · Stories from the Quran`, description: story.hookEn ?? story.hook } : undefined };
       }
     }
     if (parts[1]) {
@@ -222,17 +275,29 @@ function metaForPath(pathname: string) {
       if (chapter) {
         const count = stories.filter((s: any) => s.chapter === chapter.slug).length;
         return { path, image: chapter.cover ?? DEFAULT_IMAGE,
-          title: `${chapter.titleAr} — ${count} قصة · ${SITE}`, description: chapter.descriptionAr };
+          title: `${chapter.titleAr} — ${count} قصة · ${SITE}`, description: chapter.descriptionAr,
+          en: chapter.titleEn ? { title: `${chapter.titleEn} — ${count} stories · ${SITE_EN}`, description: chapter.descriptionEn ?? chapter.descriptionAr } : undefined };
       }
     }
     // A chapter or story slug that matched nothing is not the stories index.
     if (parts[1]) return notFound(path);
     return { ...base, path, title: `قصص من القرآن للأطفال · ${SITE}`,
-      description: `${stories.length} قصة في ${chapters.length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.` };
+      description: `${stories.length} قصة في ${chapters.length} أبواب: الأنبياء، وشخصيات وأمم، وحيوانات ذكرها القرآن، ونساء في القرآن.`,
+      en: { title: `Stories from the Quran for children · ${SITE_EN}`,
+            description: `${stories.length} stories in ${chapters.length} chapters: the prophets, people and nations, animals the Quran names, and women in the Quran.` } };
   }
 
-  if (path === "/") return { ...base, path: "/", title: SITE, description: SITE_DESCRIPTION };
+  if (path === "/") return { ...base, path: "/", title: SITE, description: SITE_DESCRIPTION,
+    en: { title: SITE_EN, description: SITE_DESCRIPTION_EN } };
   return notFound(path);
+}
+
+/** The metadata in the locale asked for, falling back to Arabic wherever no
+ *  English variant was written — which is what the pages themselves do. Mirrors
+ *  localizedMeta() in client/src/lib/page-meta.ts. */
+export function localized(meta: any, locale: "ar" | "en") {
+  const variant = locale === "en" ? meta.en : undefined;
+  return variant ? { ...meta, title: variant.title, description: variant.description } : meta;
 }
 
 // Marked noindex so crawlers drop it, and flagged so the response can carry a
@@ -243,6 +308,7 @@ function notFound(path: string) {
     image: DEFAULT_IMAGE,
     title: `الصفحة غير موجودة · ${SITE}`,
     description: SITE_DESCRIPTION,
+    en: { title: "Page not found — Yahya Quran Academy", description: SITE_DESCRIPTION_EN },
     noindex: true,
     missing: true,
   };
@@ -304,8 +370,15 @@ export const onRequest: PagesFunction = async (context) => {
   const type = response.headers.get("content-type") ?? "";
   if (!type.includes("text/html")) return response;
 
-  const meta = metaForPath(pathname);
-  const canonical = `${ORIGIN}${meta.path}`;
+  // An explicit ?lang=en in the address is the reader's own choice, unlike the
+  // Accept-Language a link-preview bot sends, which is why this is read from
+  // the URL and nothing else.
+  const locale = url.searchParams.get("lang") === "en" ? "en" : "ar";
+  const meta = localized(metaForPath(pathname), locale);
+  const arabicUrl = `${ORIGIN}${meta.path}`;
+  // The English page is its own page as far as search is concerned. Pointing
+  // its canonical at the Arabic URL is what made the hreflang self-defeating.
+  const canonical = locale === "en" ? `${arabicUrl}?lang=en` : arabicUrl;
   const image = meta.image.startsWith("http") ? meta.image : `${ORIGIN}${meta.image}`;
   const isHome = meta.path === "/";
 
@@ -318,9 +391,9 @@ export const onRequest: PagesFunction = async (context) => {
   // wrong URL is worse than saying nothing. It is per-page now.
   const alternates = meta.noindex
     ? ""
-    : `<link data-default rel="alternate" hreflang="ar" href="${canonical}" />
-    <link data-default rel="alternate" hreflang="en" href="${canonical}?lang=en" />
-    <link data-default rel="alternate" hreflang="x-default" href="${canonical}" />`;
+    : `<link data-default rel="alternate" hreflang="ar" href="${arabicUrl}" />
+    <link data-default rel="alternate" hreflang="en" href="${arabicUrl}?lang=en" />
+    <link data-default rel="alternate" hreflang="x-default" href="${arabicUrl}" />`;
 
   // Structured data. Search engines and the answer engines that read pages
   // for AI summaries both parse this; without it they have to infer what the
@@ -441,8 +514,8 @@ export const onRequest: PagesFunction = async (context) => {
     ${robots ? `<meta data-default name="robots" content="${robots}" />` : ""}
     ${alternates}
     <meta data-default property="og:type" content="${isHome ? "website" : "article"}" />
-    <meta data-default property="og:site_name" content="${SITE}" />
-    <meta data-default property="og:locale" content="ar_AR" />
+    <meta data-default property="og:site_name" content="${locale === "en" ? SITE_EN : SITE}" />
+    <meta data-default property="og:locale" content="${locale === "en" ? "en_US" : "ar_AR"}" />
     <meta data-default property="og:title" content="${title}" />
     <meta data-default property="og:description" content="${description}" />
     <meta data-default property="og:image" content="${image}" />
@@ -451,7 +524,7 @@ export const onRequest: PagesFunction = async (context) => {
     <meta data-default name="twitter:title" content="${title}" />
     <meta data-default name="twitter:description" content="${description}" />
     <meta data-default name="twitter:image" content="${image}" />
-    <meta data-default property="og:locale:alternate" content="en_US" />
+    <meta data-default property="og:locale:alternate" content="${locale === "en" ? "ar_AR" : "en_US"}" />
     <script data-default type="application/ld+json">${jsonLd}</script>
     <!--meta:end-->`;
 
@@ -474,7 +547,16 @@ export const onRequest: PagesFunction = async (context) => {
   const end = html.indexOf("<!--meta:end-->");
   if (start === -1 || end === -1) return new Response(html, response);
 
-  const patched = html.slice(0, start) + block + html.slice(end + "<!--meta:end-->".length);
+  let patched = html.slice(0, start) + block + html.slice(end + "<!--meta:end-->".length);
+
+  // The shell is authored Arabic. LocaleProvider corrects the root element once
+  // React runs, which is too late for a crawler, a link-preview bot, or the
+  // first paint an English reader sees — English prose was being laid out
+  // right-to-left until the bundle arrived.
+  if (locale === "en") {
+    patched = patched.replace(/<html\b[^>]*>/i, tag =>
+      tag.replace(/\blang="[^"]*"/i, 'lang="en"').replace(/\bdir="[^"]*"/i, 'dir="ltr"'));
+  }
 
   const headers = new Headers(response.headers);
   headers.delete("content-length");

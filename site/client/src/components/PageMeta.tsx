@@ -20,7 +20,12 @@ export function PageMeta() {
   // The Meta objects carry English variants; nothing was reading them, so every
   // tab title, bookmark and search result stayed Arabic for an English reader.
   const meta = localizedMeta(metaForPath(pathname), locale);
-  const url = `${ORIGIN}${meta.path === "/" ? "/" : meta.path}`;
+  const path = `${ORIGIN}${meta.path === "/" ? "/" : meta.path}`;
+  // English is served off the same path with ?lang=en, and the page declares
+  // that address as its English alternate. Giving it the bare path as its
+  // canonical told search engines the English page was really the Arabic one,
+  // so the pair was folded together and only the Arabic snippet ever showed.
+  const url = locale === "en" ? `${path}?lang=en` : path;
   const image = meta.image.startsWith("http") ? meta.image : `${ORIGIN}${meta.image}`;
 
   // The shell ships placeholder tags marked data-default so a crawler without
@@ -41,6 +46,11 @@ export function PageMeta() {
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={url} />
+      {/* Stated per page and in both directions, so neither language is left
+          claiming to be the other. */}
+      {!meta.noindex && <link rel="alternate" hrefLang="ar" href={path} />}
+      {!meta.noindex && <link rel="alternate" hrefLang="en" href={`${path}?lang=en`} />}
+      {!meta.noindex && <link rel="alternate" hrefLang="x-default" href={path} />}
       {/* Auth, account and not-found routes ask to stay out of the index.
           Without this the flag was declared and never acted on. */}
       {meta.noindex && <meta name="robots" content="noindex,nofollow" />}
@@ -48,6 +58,7 @@ export function PageMeta() {
       <meta property="og:type" content={meta.path === "/" ? "website" : "article"} />
       <meta property="og:site_name" content={locale === "en" ? SITE_NAME_EN : SITE_NAME} />
       <meta property="og:locale" content={locale === "en" ? "en_US" : "ar_AR"} />
+      <meta property="og:locale:alternate" content={locale === "en" ? "ar_AR" : "en_US"} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:image" content={image} />
