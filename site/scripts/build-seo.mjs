@@ -121,6 +121,7 @@ const AI_AGENTS = [
 writeFileSync(join(root, "client/public/robots.txt"),
 `User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 ${AI_AGENTS.map(a => `User-agent: ${a}\nAllow: /\n`).join("\n")}
 Sitemap: ${ORIGIN}/sitemap.xml
