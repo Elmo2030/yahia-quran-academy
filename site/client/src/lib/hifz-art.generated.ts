@@ -49,6 +49,22 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 0.558
  },
+ "/hifz-art/characters/fatima/avatar": {
+  "widths": [
+   128,
+   256,
+   512
+  ],
+  "ratio": 1
+ },
+ "/hifz-art/characters/fatima/stand": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.75
+ },
  "/hifz-art/characters/guest/avatar": {
   "widths": [
    128,
