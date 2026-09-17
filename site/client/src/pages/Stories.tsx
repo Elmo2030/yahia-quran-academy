@@ -1,9 +1,11 @@
 import { Link, useRoute } from "wouter";
-import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, Clock3, Library, Lightbulb, PawPrint, Printer, Sparkles, Sun, Trash2, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, CheckCircle2, Clock3, Compass, HandHeart, Library, Lightbulb, PawPrint, Printer, Sparkles, Sun, Trash2, Users } from "lucide-react";
 import { chapters, stories, type Story } from "@/content/stories";
 import { useStoryText } from "@/content/stories-english";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
+import { useHifzStore } from "@/hooks/useHifzStore";
+import { activeProfile, registerDeed, stepStatus, type ChildProfile, type HifzStore } from "@/lib/hifz-store";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
 import { SiteChrome } from "@/components/SiteChrome";
@@ -30,6 +32,8 @@ const copy = {
     minutes: "دقائق قراءة", oneMinute: "دقيقة قراءة",
     print: "اطبع القصة", emptyLibrary: "مكتبتك فارغة. افتح أي قصة واحفظها لتظهر هنا.",
     libraryCount: "قصة محفوظة", back: "العودة إلى القصص", sections: "أقسام القصة", storyCount: "قصة", exploreAll: "اكتشف كل القصص", keptStories: "القصص التي اخترت الاحتفاظ بها", emptyTitle: "لا توجد قصص محفوظة بعد", remove: "إزالة من مكتبتي", onlyArabic: null as string | null,
+    deedDone: "عملتها", deedAwaiting: "بانتظار تأكيد وليّ الأمر 🕊️", deedConfirmed: "أكّدها وليّ أمرك ✅",
+    deedNoChild: "سجّل هذا في رحلة حفظك — ابدأها أولًا.", deedStart: "ابدأ رحلة الحفظ",
   },
   en: {
     home: "Back to home", eyebrow: "Stories", title: "Stories from the Quran",
@@ -47,6 +51,8 @@ const copy = {
     minutes: "min read", oneMinute: "min read",
     print: "Print the story", emptyLibrary: "Your library is empty. Open any story and save it to see it here.",
     libraryCount: "saved", back: "Back to stories", sections: "In this story", storyCount: "stories", exploreAll: "Explore all stories", keptStories: "The stories you chose to keep", emptyTitle: "Nothing saved yet", remove: "Remove from my library", onlyArabic: "These stories are written in Arabic.",
+    deedDone: "I did it", deedAwaiting: "Waiting for a parent to confirm 🕊️", deedConfirmed: "Confirmed by your parent ✅",
+    deedNoChild: "Record this in your memorization journey — start it first.", deedStart: "Start the memorization journey",
   },
 } as const;
 
@@ -122,6 +128,36 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
   );
 }
 
+/**
+ * The one button "try today" leads to: a child saying they did it, then
+ * waiting on a parent's word. With no active child on this device there is
+ * nothing to register it against, so the section invites starting the
+ * journey instead of a button that would silently do nothing.
+ */
+function DeedControl({ t, chapter, slug, child, store, commit }: {
+  t: (typeof copy)[keyof typeof copy]; chapter: string; slug: string; child: ChildProfile | null; store: HifzStore; commit: (s: HifzStore) => boolean;
+}) {
+  if (!child) {
+    return (
+      <p className="story-deed story-deed--no-child">
+        {t.deedNoChild} <Link href="/hifz" className="text-link"><Compass size={15} aria-hidden="true" /> {t.deedStart}</Link>
+      </p>
+    );
+  }
+  const status = stepStatus(child, { kind: "deed", chapter, slug });
+  if (status === "reviewed") {
+    return <p className="story-deed story-deed--confirmed"><CheckCircle2 size={16} aria-hidden="true" /> {t.deedConfirmed}</p>;
+  }
+  if (status === "awaiting_parent") {
+    return <p className="story-deed story-deed--awaiting">{t.deedAwaiting}</p>;
+  }
+  return (
+    <button type="button" className="button button--soft story-deed-button" onClick={() => commit(registerDeed(store, child.id, chapter, slug))}>
+      <HandHeart size={17} aria-hidden="true" /> {t.deedDone}
+    </button>
+  );
+}
+
 export default function Stories() {
   const [isStory, storyParams] = useRoute("/stories/:chapter/:slug");
   const [isChapter, chapterParams] = useRoute("/stories/:chapter");
@@ -130,6 +166,8 @@ export default function Stories() {
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   const { has, toggle } = useLibrary();
   const { textOf, arcOf, minutesOf } = useStoryText();
+  const { store: hifzStore, commit: commitHifz } = useHifzStore();
+  const child = activeProfile(hifzStore);
 
   // ---- my library -------------------------------------------------------
   if (isChapter && chapterParams?.chapter === "library") {
@@ -344,6 +382,7 @@ export default function Stories() {
                 <section className="story-try-today" id="story-try-today">
                   <span className="story-section-label"><Sun size={13} aria-hidden="true" /> {t.tryToday}</span>
                   <p>{arc.tryToday}</p>
+                  <DeedControl t={t} chapter={story.chapter} slug={story.slug} child={child} store={hifzStore} commit={commitHifz} />
                 </section>
               )}
 
