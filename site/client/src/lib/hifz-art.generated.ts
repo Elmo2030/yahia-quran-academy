@@ -57,6 +57,36 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
   ],
   "ratio": 1
  },
+ "/hifz-art/characters/fatima/cheer": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.668
+ },
+ "/hifz-art/characters/fatima/gift": {
+  "widths": [
+   320
+  ],
+  "ratio": 0.341
+ },
+ "/hifz-art/characters/fatima/point": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.532
+ },
+ "/hifz-art/characters/fatima/rest": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.76
+ },
  "/hifz-art/characters/fatima/stand": {
   "widths": [
    320,
@@ -64,6 +94,27 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
    960
   ],
   "ratio": 0.75
+ },
+ "/hifz-art/characters/fatima/think": {
+  "widths": [
+   320,
+   640
+  ],
+  "ratio": 0.387
+ },
+ "/hifz-art/characters/fatima/walk": {
+  "widths": [
+   320
+  ],
+  "ratio": 0.491
+ },
+ "/hifz-art/characters/fatima/wave": {
+  "widths": [
+   320,
+   640,
+   960
+  ],
+  "ratio": 0.469
  },
  "/hifz-art/characters/guest/avatar": {
   "widths": [
