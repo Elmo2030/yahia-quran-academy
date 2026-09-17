@@ -34,6 +34,7 @@ const copy = {
     libraryCount: "قصة محفوظة", back: "العودة إلى القصص", sections: "أقسام القصة", storyCount: "قصة", exploreAll: "اكتشف كل القصص", keptStories: "القصص التي اخترت الاحتفاظ بها", emptyTitle: "لا توجد قصص محفوظة بعد", remove: "إزالة من مكتبتي", onlyArabic: null as string | null,
     deedDone: "عملتها", deedAwaiting: "بانتظار تأكيد وليّ الأمر 🕊️", deedConfirmed: "أكّدها وليّ أمرك ✅",
     deedNoChild: "سجّل هذا في رحلة حفظك — ابدأها أولًا.", deedStart: "ابدأ رحلة الحفظ",
+    deedGuestNote: "الأفعال تُحفظ مع ملف طفل باسمه — أضف طفلًا لتسجيلها.", deedAddChild: "أضف طفلًا",
     storyDone: "قرأتها",
   },
   en: {
@@ -54,6 +55,7 @@ const copy = {
     libraryCount: "saved", back: "Back to stories", sections: "In this story", storyCount: "stories", exploreAll: "Explore all stories", keptStories: "The stories you chose to keep", emptyTitle: "Nothing saved yet", remove: "Remove from my library", onlyArabic: "These stories are written in Arabic.",
     deedDone: "I did it", deedAwaiting: "Waiting for a parent to confirm 🕊️", deedConfirmed: "Confirmed by your parent ✅",
     deedNoChild: "Record this in your memorization journey — start it first.", deedStart: "Start the memorization journey",
+    deedGuestNote: "Deeds are saved under a named child's profile — add a child to register one.", deedAddChild: "Add a child",
     storyDone: "Read",
   },
 } as const;
@@ -139,6 +141,13 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
  * waiting on a parent's word. With no active child on this device there is
  * nothing to register it against, so the section invites starting the
  * journey instead of a button that would silently do nothing.
+ *
+ * The guest profile gets the same invitation rather than the button, even
+ * though it is technically active: it is one shared, nameless slot (see
+ * enterAsGuest in hifz-store.ts), so a deed registered under it cannot say
+ * which child actually did it, and a parent confirming "the guest said they
+ * did it" is confirming nothing in particular. A closed state should explain
+ * itself rather than quietly accept something that goes nowhere useful.
  */
 function DeedControl({ t, chapter, slug, child, store, commit, story }: {
   t: (typeof copy)[keyof typeof copy]; chapter: string; slug: string; child: ChildProfile | null; store: HifzStore; commit: (s: HifzStore) => boolean;
@@ -148,6 +157,13 @@ function DeedControl({ t, chapter, slug, child, store, commit, story }: {
     return (
       <p className="story-deed story-deed--no-child">
         {t.deedNoChild} <Link href="/hifz" className="text-link"><Compass size={15} aria-hidden="true" /> {t.deedStart}</Link>
+      </p>
+    );
+  }
+  if (child.character === "guest") {
+    return (
+      <p className="story-deed story-deed--no-child">
+        {t.deedGuestNote} <Link href="/hifz" className="text-link"><Compass size={15} aria-hidden="true" /> {t.deedAddChild}</Link>
       </p>
     );
   }
