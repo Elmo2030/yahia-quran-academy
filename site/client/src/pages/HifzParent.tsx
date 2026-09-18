@@ -14,8 +14,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link } from "wouter";
 import {
-  ArrowLeft, ArrowRight, BadgeCheck, Download, HandHeart, HardDrive, KeyRound, Loader2, Lock, LockOpen, Play, Save,
-  ShieldQuestion, Star, Trash2, X,
+  ArrowLeft, ArrowRight, BadgeCheck, Download, HandHeart, HardDrive, KeyRound, Loader2, Lock, LockOpen,
+  Play, RotateCcw, Save, ShieldQuestion, Sparkles, Star, Trash2, X,
 } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
@@ -25,12 +25,13 @@ import { BadgeAward } from "@/components/BadgeAward";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { characterArt } from "@/lib/hifz-characters";
-import { dayNumber, streakDays, todayPlan } from "@/lib/hifz-review";
+import { dayNumber, recentlyForgotten, streakDays, todayPlan, type ForgottenAyah } from "@/lib/hifz-review";
 import { rankFor, starsFor, totalStars } from "@/lib/hifz-stars";
 import {
-  ayahKey, backupFileName, backupIsStale, confirmDeclarations, confirmDeed, daysSinceBackup, declineDeed,
-  exportBackup, markBackedUp, namedProfiles, pendingDeeds, setParentLock, surahProgress,
-  type ChildProfile, type HifzStore, type StepStoryInfo,
+  approveRecital, askForPractice, ayahKey, backupFileName, backupIsStale, confirmDeclarations, confirmDeed,
+  daysSinceBackup, declineDeed, exportBackup, markBackedUp, namedProfiles, pendingDeeds, pendingRecitals,
+  practiceRecitals, setParentLock, surahProgress,
+  type ChildProfile, type HifzStore, type StepRecord, type StepStoryInfo,
 } from "@/lib/hifz-store";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { forgetUnlock, isUnlocked, makeLock, pinMatches, pinProblem, rememberUnlock } from "@/lib/parent-lock";
@@ -76,9 +77,8 @@ const copy = {
       const ayahs = all === 1 ? "آية واحدة معلنة" : all === 2 ? "آيتان معلنتان" : `${all} آيات معلنة`;
       return parent === 0 ? `${ayahs} — بلا شهادتك بعد` : parent === all ? `${ayahs} بشهادتك` : `${ayahs} — ${parent} بشهادتك`;
     },
-    confirm: "أشهد على ما أعلنه",
     confirmed: "كل ما أُعلن بشهادتك",
-    deedsTitle: "أفعال بانتظار شهادتك",
+    needsReviewTitle: "تحتاج مراجعتك",
     deedSaid: (name: string) => `${name} قال إنه عملها`,
     deedDone: "تم", deedNotYet: "لسه",
     deedReward: "كنز الفعل",
@@ -86,6 +86,15 @@ const copy = {
     // its own — this is the only case where the parent corner still needs
     // a link back to the story instead of quoting it here.
     deedFromStory: "فعل من إحدى القصص.", deedOpenStory: "افتح القصة لتقرأها",
+    recitalOf: (surah: string, from: number, to: number) => (from === to ? `سورة ${surah} — الآية ${from}` : `سورة ${surah} — الآيات ${from} إلى ${to}`),
+    recitalSaid: (name: string) => `${name} سمّع هذا المقطع`,
+    recitalReady: "جاهز", recitalPractice: "يحتاج تدريبًا",
+    noRecording: "بلا تسجيل — استمع للطفل مباشرة على هذا الجهاز.",
+    notePlaceholder: "رسالة تشجيع، اختيارية (مثلًا: ما شاء الله!)",
+    declarationOf: (surah: string, count: number) => `سورة ${surah} — ${arabicCount(count, "آية واحدة معلنة", "آيتان معلنتان", "آيات معلنة", "آية معلنة")}`,
+    confirm: "أشهد على ما أعلنه",
+    practiceTag: "بانتظار محاولة جديدة من الطفل",
+    forgottenOf: (surah: string, ayah: number) => `سورة ${surah} — الآية ${ayah}: قال إنه نسيها مؤخرًا`,
     recordingsTitle: "تسجيلات الطفل",
     noRecordings: "لا توجد تسجيلات بعد.",
     recordingOf: (surah: string, ayah?: number) => (ayah ? `سورة ${surah} — الآية ${ayah}` : `سورة ${surah}`),
@@ -137,13 +146,21 @@ const copy = {
     neverSeen: "Has not started yet",
     surahsTitle: "Surahs being worked on",
     declaredBy: (child: number, parent: number) => `${child + parent} ayahs declared — ${parent} confirmed by you`,
-    confirm: "Confirm what they declared",
     confirmed: "Everything declared is confirmed by you",
-    deedsTitle: "Deeds waiting for your word",
+    needsReviewTitle: "Needs your review",
     deedSaid: (name: string) => `${name} said they did it`,
     deedDone: "Done", deedNotYet: "Not yet",
     deedReward: "The deed's treasure",
     deedFromStory: "A deed from one of the stories.", deedOpenStory: "Open the story to read it",
+    recitalOf: (surah: string, from: number, to: number) => (from === to ? `Surah ${surah} — ayah ${from}` : `Surah ${surah} — ayahs ${from} to ${to}`),
+    recitalSaid: (name: string) => `${name} recited this segment`,
+    recitalReady: "Ready", recitalPractice: "Needs practice",
+    noRecording: "No recording — listen to the child directly on this device.",
+    notePlaceholder: "An encouraging note, optional (e.g. Masha'Allah!)",
+    declarationOf: (surah: string, count: number) => `Surah ${surah} — ${count === 1 ? "one ayah" : `${count} ayahs`} declared`,
+    confirm: "Confirm what they declared",
+    practiceTag: "Waiting for the child to try again",
+    forgottenOf: (surah: string, ayah: number) => `Surah ${surah} — ayah ${ayah}: said they forgot it recently`,
     recordingsTitle: "The child’s recordings",
     noRecordings: "No recordings yet.",
     recordingOf: (surah: string, ayah?: number) => (ayah ? `Surah ${surah} — ayah ${ayah}` : `Surah ${surah}`),
@@ -478,77 +495,143 @@ function ChildReport({ t, profile, store, commit }: {
                   {[1, 2, 3].map(n => <Star key={n} size={12} className={n <= row.stars ? "is-on" : ""} fill={n <= row.stars ? "currentColor" : "none"} />)}
                 </span>
                 <small>{t.declaredBy(row.byChild, row.byParent)}</small>
-                {row.byChild > 0 ? (
-                  <button type="button" className="button button--soft" onClick={() => commit(confirmDeclarations(store, profile.id, row.surah, 1, row.total))}>
-                    <BadgeCheck size={16} aria-hidden="true" /> {t.confirm}
-                  </button>
-                ) : row.byParent > 0 ? <em>{t.confirmed}</em> : null}
+                {/* Confirming lives in "needs your review" below now, next to
+                    every other thing waiting on a parent's word — this stays
+                    a read-only progress line. */}
+                {row.byChild === 0 && row.byParent > 0 && <em>{t.confirmed}</em>}
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      <PendingDeeds t={t} profile={profile} store={store} commit={commit} />
+      <NeedsYourReview t={t} profile={profile} store={store} commit={commit} rows={rows} />
       <Recordings t={t} profileId={profile.id} nameOf={nameOf} />
     </article>
   );
 }
 
+type WaitingItem =
+  | { kind: "recital"; surah: number; from: number; to: number; record: StepRecord; at: number }
+  | { kind: "deed"; chapter: string; slug: string; record: StepRecord; at: number }
+  | { kind: "declaration"; surah: number; total: number; count: number; at: number };
+
 /**
- * A deed a child registered from a story's "try today", waiting on a parent
- * who actually saw it happen — not a checkbox, a sentence: what the story
- * asked for, in its own words, and who said they did it.
+ * Everything asking for a parent's word, in one place: a recital, a deed
+ * from a story's "try today", and ayahs a child declared themselves that no
+ * parent has put their name to yet — the child's declarations used to live
+ * in the surah list above with their own confirm button, and deeds in a
+ * section of their own; a parent working through "what needs me right now"
+ * had to check two places for a third of the answer, and now has one.
  *
- * The wording and reward come from the record itself (StepStoryInfo, set at
- * registerDeed time), never from the stories module — see hifz-store.ts.
- * A deed registered before that snapshot existed has no `story` on it; it
- * still gets a card, just one that points back at the story instead of
- * quoting it.
+ * "Bانتظارك" is every one of those three, oldest first — a surah's bundle of
+ * declarations has no single waiting-since moment the way a deed or a
+ * recital does, so it sorts after anything that does rather than displacing
+ * it. Below that, a recital sitting at "needs practice" — nothing to judge,
+ * only to know is still on the child's plate — and an ayah recently said
+ * forgotten, shown for the same reason: awareness, not a verdict.
  */
-function PendingDeeds({ t, profile, store, commit }: { t: Copy; profile: ChildProfile; store: HifzStore; commit: (s: HifzStore) => boolean }) {
+function NeedsYourReview({ t, profile, store, commit, rows }: {
+  t: Copy; profile: ChildProfile; store: HifzStore; commit: (s: HifzStore) => boolean;
+  rows: Array<{ surah: number; total: number; byChild: number }>;
+}) {
+  const { locale } = useLocale();
+  const nameOf = (surah: number) => (locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah));
   const [justAwarded, setJustAwarded] = useState<Array<{ chapter: string; slug: string; story?: StepStoryInfo }>>([]);
-  const deeds = pendingDeeds(profile);
-  if (deeds.length === 0 && justAwarded.length === 0) return null;
+  const [playingUrl, setPlayingUrl] = useState<string | null>(null);
+  const urlRef = useRef<string | null>(null);
+
+  const practicing = practiceRecitals(profile);
+  const forgotten = recentlyForgotten(profile);
+  const waiting: WaitingItem[] = [
+    ...pendingRecitals(profile).map(r => ({ kind: "recital" as const, ...r, at: r.record.awaitingAt ?? 0 })),
+    ...pendingDeeds(profile).map(d => ({ kind: "deed" as const, ...d, at: d.record.awaitingAt ?? 0 })),
+    ...rows.filter(row => row.byChild > 0).map(row => ({ kind: "declaration" as const, surah: row.surah, total: row.total, count: row.byChild, at: 0 })),
+  ].sort((a, b) => a.at - b.at);
+
+  if (waiting.length === 0 && practicing.length === 0 && forgotten.length === 0 && justAwarded.length === 0) return null;
+
+  const play = async (id: string) => {
+    const full = await getRecording(id);
+    if (!full) return;
+    if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+    urlRef.current = URL.createObjectURL(full.blob);
+    setPlayingUrl(urlRef.current);
+  };
 
   return (
     <section>
-      <h3>{t.deedsTitle}</h3>
+      <h3>{t.needsReviewTitle}</h3>
       <ul className="hifz-report__deeds">
-        {deeds.map(({ chapter, slug, record }) => {
-          const key = `${chapter}:${slug}`;
+        {waiting.map(item => {
+          if (item.kind === "recital") {
+            return (
+              <RecitalCard
+                key={`recital:${item.surah}:${item.from}-${item.to}`}
+                t={t} profile={profile} store={store} commit={commit}
+                surah={item.surah} from={item.from} to={item.to} record={item.record}
+                nameOf={nameOf} onPlay={play}
+              />
+            );
+          }
+          if (item.kind === "deed") {
+            return (
+              <li key={`deed:${item.chapter}:${item.slug}`} className="hifz-deed">
+                {item.record.story ? (
+                  <>
+                    <b>{item.record.story.title}</b>
+                    <blockquote>{item.record.story.action}</blockquote>
+                  </>
+                ) : (
+                  <p>
+                    {t.deedFromStory}{" "}
+                    <Link href={`/stories/${item.chapter}/${item.slug}`} className="text-link">{t.deedOpenStory}</Link>
+                  </p>
+                )}
+                <small>{t.deedSaid(profile.name)}</small>
+                <div className="hifz-actions">
+                  <button
+                    type="button" className="button button--primary"
+                    onClick={() => {
+                      commit(confirmDeed(store, profile.id, item.chapter, item.slug));
+                      setJustAwarded(prev => [...prev, { chapter: item.chapter, slug: item.slug, story: item.record.story }]);
+                    }}
+                  >
+                    <HandHeart size={16} aria-hidden="true" /> {t.deedDone}
+                  </button>
+                  <button type="button" className="button button--soft" onClick={() => commit(declineDeed(store, profile.id, item.chapter, item.slug))}>
+                    <X size={16} aria-hidden="true" /> {t.deedNotYet}
+                  </button>
+                </div>
+              </li>
+            );
+          }
           return (
-            <li key={key} className="hifz-deed">
-              {record.story ? (
-                <>
-                  <b>{record.story.title}</b>
-                  <blockquote>{record.story.action}</blockquote>
-                </>
-              ) : (
-                <p>
-                  {t.deedFromStory}{" "}
-                  <Link href={`/stories/${chapter}/${slug}`} className="text-link">{t.deedOpenStory}</Link>
-                </p>
-              )}
-              <small>{t.deedSaid(profile.name)}</small>
+            <li key={`declaration:${item.surah}`} className="hifz-deed">
+              <b>{t.declarationOf(nameOf(item.surah), item.count)}</b>
               <div className="hifz-actions">
-                <button
-                  type="button" className="button button--primary"
-                  onClick={() => {
-                    commit(confirmDeed(store, profile.id, chapter, slug));
-                    setJustAwarded(prev => [...prev, { chapter, slug, story: record.story }]);
-                  }}
-                >
-                  <HandHeart size={16} aria-hidden="true" /> {t.deedDone}
-                </button>
-                <button type="button" className="button button--soft" onClick={() => commit(declineDeed(store, profile.id, chapter, slug))}>
-                  <X size={16} aria-hidden="true" /> {t.deedNotYet}
+                <button type="button" className="button button--primary" onClick={() => commit(confirmDeclarations(store, profile.id, item.surah, 1, item.total))}>
+                  <BadgeCheck size={16} aria-hidden="true" /> {t.confirm}
                 </button>
               </div>
             </li>
           );
         })}
-        {/* Confirming moves the deed out of pendingDeeds() at once; the medal
+
+        {practicing.map(({ surah, from, to }) => (
+          <li key={`practice:${surah}:${from}-${to}`} className="hifz-deed hifz-deed--muted">
+            <b>{t.recitalOf(nameOf(surah), from, to)}</b>
+            <small>{t.practiceTag}</small>
+          </li>
+        ))}
+
+        {forgotten.map(f => (
+          <li key={`forgotten:${f.surah}:${f.ayah}`} className="hifz-deed hifz-deed--muted">
+            <small>{t.forgottenOf(nameOf(f.surah), f.ayah)}</small>
+          </li>
+        ))}
+
+        {/* Confirming moves a deed out of pendingDeeds() at once; the medal
             is held here rather than in the store, so it stays on the page for
             this visit instead of vanishing the instant it is earned. No
             snapshot, no reward to show — the row just does not appear. */}
@@ -561,7 +644,49 @@ function PendingDeeds({ t, profile, store, commit }: { t: Copy; profile: ChildPr
           );
         })}
       </ul>
+      {playingUrl && <audio src={playingUrl} controls autoPlay className="hifz-report__player" />}
     </section>
+  );
+}
+
+/**
+ * A recital, judged: ▶ to hear it (when there is a recording — see
+ * submitRecital's no-microphone path in hifz-store.ts for when there is
+ * not), an optional encouragement note, and the two words that matter —
+ * "ready" promotes the segment's own declarations the same way confirming a
+ * whole surah does, "needs practice" restarts their review spacing without
+ * touching what the child themselves declared.
+ */
+function RecitalCard({ t, profile, store, commit, surah, from, to, record, nameOf, onPlay }: {
+  t: Copy; profile: ChildProfile; store: HifzStore; commit: (s: HifzStore) => boolean;
+  surah: number; from: number; to: number; record: StepRecord; nameOf: (surah: number) => string; onPlay: (id: string) => void;
+}) {
+  const [note, setNote] = useState("");
+
+  return (
+    <li className="hifz-deed">
+      <b>{t.recitalOf(nameOf(surah), from, to)}</b>
+      <small>{t.recitalSaid(profile.name)}</small>
+      {record.recordingId ? (
+        <button type="button" className="button button--soft" onClick={() => onPlay(record.recordingId!)}>
+          <Play size={15} aria-hidden="true" /> {t.play}
+        </button>
+      ) : (
+        <p className="hifz-muted">{t.noRecording}</p>
+      )}
+      <textarea
+        className="hifz-note" rows={2} placeholder={t.notePlaceholder}
+        value={note} onChange={e => setNote(e.target.value)}
+      />
+      <div className="hifz-actions">
+        <button type="button" className="button button--primary" onClick={() => commit(approveRecital(store, profile.id, surah, from, to, note || undefined))}>
+          <Sparkles size={16} aria-hidden="true" /> {t.recitalReady}
+        </button>
+        <button type="button" className="button button--soft" onClick={() => commit(askForPractice(store, profile.id, surah, from, to, note || undefined))}>
+          <RotateCcw size={16} aria-hidden="true" /> {t.recitalPractice}
+        </button>
+      </div>
+    </li>
   );
 }
 

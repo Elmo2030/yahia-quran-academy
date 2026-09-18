@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  REVIEW_STEPS_DAYS, activeDays, dayNumber, dueDayFor, nextDueDay, reviewQueue, streakDays, todayPlan, wasActiveToday,
+  REVIEW_STEPS_DAYS, activeDays, dayNumber, dueDayFor, nextDueDay, recentlyForgotten, reviewQueue, streakDays, todayPlan, wasActiveToday,
 } from "./hifz-review";
 import { DEFAULT_LOOKS } from "./hifz-looks";
 import { DEFAULT_SETTINGS, type AyahRecord, type ChildProfile } from "./hifz-store";
@@ -100,6 +100,24 @@ describe("showing up", () => {
     const stale = child({ "114:1": { listenedAt: daysAgo(3) } });
     expect(streakDays(stale, NOON)).toBe(0);
     expect(streakDays(child({}), NOON)).toBe(0);
+  });
+});
+
+describe("recentlyForgotten", () => {
+  it("names an ayah said forgotten recently, newest first", () => {
+    const profile = child({
+      "114:1": { declaredAt: daysAgo(20), forgotAt: daysAgo(1) },
+      "113:1": { declaredAt: daysAgo(20), forgotAt: daysAgo(2) },
+    });
+    expect(recentlyForgotten(profile, NOON).map(f => `${f.surah}:${f.ayah}`)).toEqual(["114:1", "113:1"]);
+  });
+
+  it("drops a forgetting once it is old news, or once a later review answers it", () => {
+    const stale = child({ "114:1": { declaredAt: daysAgo(20), forgotAt: daysAgo(10) } });
+    expect(recentlyForgotten(stale, NOON)).toEqual([]);
+
+    const answered = child({ "114:1": { declaredAt: daysAgo(20), forgotAt: daysAgo(2), reviews: [daysAgo(1)] } });
+    expect(recentlyForgotten(answered, NOON)).toEqual([]);
   });
 });
 

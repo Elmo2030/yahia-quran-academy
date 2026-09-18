@@ -105,12 +105,18 @@ type Copy = (typeof copy)["ar"];
  *  short enough that a 6 to 11 year old can hold it in memory at once. */
 const MAX_SEGMENT_LENGTH = 5;
 
-/** Every ayah already part of some recital of this surah, submitted or not —
- *  a fresh default segment starts past them rather than re-offering ayahs
- *  that already have a history. */
+/**
+ * Every ayah already part of a recital of this surah that is either still
+ * awaiting a parent's word or already approved — a fresh default segment
+ * starts past them. A segment sitting at "needs practice" is deliberately
+ * left out: those ayahs stay "declared and not covered", so the very same
+ * default-segment computation naturally offers that segment again next time
+ * the child opens this screen, without a separate retry link to build.
+ */
 function coveredAyahs(profile: ChildProfile, surah: number): Set<number> {
   const covered = new Set<number>();
-  for (const key of Object.keys(profile.steps)) {
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status === "needs_practice") continue;
     const match = /^recital:(\d+):(\d+)-(\d+)$/.exec(key);
     if (match && Number(match[1]) === surah) {
       for (let ayah = Number(match[2]); ayah <= Number(match[3]); ayah++) covered.add(ayah);

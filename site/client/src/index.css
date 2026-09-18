@@ -1245,6 +1245,15 @@
 .hifz-deed small { color: var(--ink-soft); font-size: .8rem; }
 .hifz-deed--awarded { background: var(--surface); border-color: var(--line); justify-items: center; padding: 1rem; text-align: center; }
 .hifz-deeds-earned { display: grid; gap: .8rem; margin: .6rem 0 0; padding: 0; list-style: none; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+/* A recital or a deed still open is asking for a parent's word; a needs-practice
+   recital or a recent "I forgot it" is only being reported, so the card sits
+   quieter — no border in the same gold as the ones waiting for an answer. */
+.hifz-deed--muted { background: var(--surface-2); border-color: var(--line); }
+.hifz-note {
+  min-height: 44px; padding: .55rem .8rem; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--surface-2); color: var(--ink); font: inherit; font-size: .92rem; resize: vertical;
+}
+.hifz-note:focus-visible { outline: 3px solid var(--gold); outline-offset: 1px; border-color: transparent; }
 .hifz-parent-foot { gap: .8rem; }
 
 /* --- Making the card your own ------------------------------------------- */

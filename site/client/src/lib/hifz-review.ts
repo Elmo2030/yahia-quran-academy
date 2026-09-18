@@ -136,3 +136,37 @@ export function todayPlan(profile: ChildProfile, now = Date.now()): TodayPlan {
   const due = dueCount(profile, now);
   return { due, reviewedToday, learnedToday, streak: streakDays(profile, now), done: due === 0 && (reviewedToday > 0 || learnedToday > 0) };
 }
+
+// ---------------------------------------------------------------------------
+// What a parent should be told about, without anything to judge
+// ---------------------------------------------------------------------------
+
+export type ForgottenAyah = { surah: number; ayah: number; forgotAt: number };
+
+/** Days a "forgot it" stays worth mentioning — long enough to still be
+ *  relevant, short enough to actually mean "recently". */
+export const RECENTLY_FORGOTTEN_DAYS = 3;
+
+/**
+ * Every ayah the child most recently said "I forgot it" about, not yet
+ * superseded by a later review — for the parent corner's queue, shown for
+ * awareness rather than for a judgment: restartReviews has already done
+ * everything there is to do about it, so there is nothing here to approve or
+ * ask for again.
+ */
+export function recentlyForgotten(profile: ChildProfile, now = Date.now(), withinDays = RECENTLY_FORGOTTEN_DAYS): ForgottenAyah[] {
+  const today = dayNumber(now);
+  const out: ForgottenAyah[] = [];
+  for (const surah of JOURNEY_SURAHS) {
+    const total = ayahCountOf(surah);
+    for (let ayah = 1; ayah <= total; ayah++) {
+      const record = profile.ayahs[ayahKey(surah, ayah)];
+      if (!record?.forgotAt) continue;
+      const lastReview = record.reviews.length ? Math.max(...record.reviews) : null;
+      if (lastReview !== null && lastReview > record.forgotAt) continue;
+      if (today - dayNumber(record.forgotAt) > withinDays) continue;
+      out.push({ surah, ayah, forgotAt: record.forgotAt });
+    }
+  }
+  return out.sort((a, b) => b.forgotAt - a.forgotAt);
+}
