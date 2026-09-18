@@ -678,10 +678,16 @@ function validSegment(surah: number, from: number, to: number) {
  * no double-submit to guard against, and a recording made after "needs
  * practice" returns the segment to "awaiting_parent" the same way a first
  * one does.
+ *
+ * `recordingId` is left out entirely on a device with no working microphone:
+ * the child still recited, to a parent sitting beside them, and that is not
+ * a reason to block the same "ready for a parent" moment — only a reason the
+ * parent's card has nothing to play back.
  */
-export function submitRecital(store: HifzStore, profileId: string, surah: number, from: number, to: number, recordingId: string, now = Date.now()): HifzStore {
+export function submitRecital(store: HifzStore, profileId: string, surah: number, from: number, to: number, recordingId?: string, now = Date.now()): HifzStore {
   if (!validSegment(surah, from, to)) return store;
-  return withStep(store, profileId, { kind: "recital", surah, from, to }, () => ({ status: "awaiting_parent", doneAt: now, awaitingAt: now, recordingId }));
+  return withStep(store, profileId, { kind: "recital", surah, from, to }, () =>
+    ({ status: "awaiting_parent", doneAt: now, awaitingAt: now, ...(recordingId ? { recordingId } : {}) }));
 }
 
 /**

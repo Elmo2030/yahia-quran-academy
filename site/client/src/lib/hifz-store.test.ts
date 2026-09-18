@@ -489,6 +489,13 @@ describe("recitals", () => {
     expect(activeProfile(resubmitted)!.steps["recital:114:1-3"].recordingId).toBe("rec-2");
   });
 
+  it("submits a recital with no recording at all, for a device with no working microphone", () => {
+    const { store, profile } = withChild("Yusra");
+    const submitted = submitRecital(store, profile.id, 114, 1, 3, undefined, 1000);
+    expect(stepStatus(activeProfile(submitted)!, { kind: "recital", surah: 114, from: 1, to: 3 })).toBe("awaiting_parent");
+    expect(activeProfile(submitted)!.steps["recital:114:1-3"].recordingId).toBeUndefined();
+  });
+
   it("keeps the child's own declaration standing after 'needs practice', but restarts its review spacing", () => {
     const { store, profile } = withChild("Yusra");
     let s = declareMemorized(store, profile.id, 114, 1, "child", 1000);

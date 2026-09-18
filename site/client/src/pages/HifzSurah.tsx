@@ -19,6 +19,7 @@ import { HifzBottomBar } from "@/components/HifzBottomBar";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
+import { useRecorder } from "@/hooks/useRecorder";
 import { playAyahLoop } from "@/lib/ayah-loop";
 import { characterArt, type Pose } from "@/lib/hifz-characters";
 import {
@@ -28,9 +29,6 @@ import {
 import { ayahCountOf, isJourneySurah, nextJourneySurah } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName, loadSurah, type Ayah } from "@/lib/quran-content";
 import { loadSurahSource, loadTiming, type SurahAudioSource, type TimedAyah } from "@/lib/recitations";
-import {
-  getRecording, listAyahRecordings, pickRecordingMimeType, saveRecording, type RecordingSummary,
-} from "@/lib/recordings";
 
 const copy = {
   ar: {
@@ -82,6 +80,7 @@ const copy = {
     nextSurah: (name: string) => `السورة التالية: ${name}`,
     backToJourney: "العودة إلى الرحلة",
     progressLabel: "آيات السورة",
+    reciteSegment: "سمّع المقطع لوليّ الأمر",
   },
   en: {
     back: "Memorization journey",
@@ -132,6 +131,7 @@ const copy = {
     nextSurah: (name: string) => `Next surah: ${name}`,
     backToJourney: "Back to the journey",
     progressLabel: "Ayahs of the surah",
+    reciteSegment: "Recite the segment for a parent",
   },
 };
 
@@ -466,6 +466,15 @@ function Memorize({ t, surah, profile, update }: {
           </div>
         </div>
 
+        {/* The moment a parent actually judges memorization, not the child's
+            own "I know it" — offered once there is at least one declared
+            ayah for it to recite. */}
+        {progress.declared > 0 && (
+          <p className="hifz-parent-link">
+            <Link href={`/hifz/${surah}/recite`} className="text-link"><Mic size={15} aria-hidden="true" /> {t.reciteSegment}</Link>
+          </p>
+        )}
+
         {finished && (
           <article className="hifz-card hifz-done" role="status">
             {characterArt(character, "cheer") && <img src={characterArt(character, "cheer")!.src} alt="" className="hifz-done__art" />}
@@ -492,118 +501,23 @@ function Memorize({ t, surah, profile, update }: {
 
 // ---------------------------------------------------------------------------
 
-const MAX_TAKE_SECONDS = 90;
-
 function AyahRecorder({ t, surah, ayah, profileId, beforeStart, onSaved }: {
   t: Copy; surah: number; ayah: number; profileId: string; beforeStart: () => void; onSaved: () => void;
 }) {
-  const [state, setState] = useState<"idle" | "asking" | "recording">("idle");
-  const [seconds, setSeconds] = useState(0);
-  const [error, setError] = useState<string | null>(null);
-  const [latest, setLatest] = useState<RecordingSummary | null>(null);
-  const [clipUrl, setClipUrl] = useState<string | null>(null);
-  const [savedNote, setSavedNote] = useState(false);
-  const recorder = useRef<MediaRecorder | null>(null);
-  const stream = useRef<MediaStream | null>(null);
-  const tick = useRef<number | null>(null);
-  const urlRef = useRef<string | null>(null);
-
-  const release = () => {
-    stream.current?.getTracks().forEach(track => track.stop());
-    stream.current = null;
-    if (tick.current) window.clearInterval(tick.current);
-    tick.current = null;
-  };
-
-  const showLatest = useCallback(async () => {
-    try {
-      const [take] = await listAyahRecordings(surah, ayah, profileId);
-      setLatest(take ?? null);
-      if (!take) return;
-      const full = await getRecording(take.id);
-      if (!full) return;
-      if (urlRef.current) URL.revokeObjectURL(urlRef.current);
-      urlRef.current = URL.createObjectURL(full.blob);
-      setClipUrl(urlRef.current);
-    } catch {
-      setLatest(null);
-    }
-  }, [surah, ayah, profileId]);
-
-  useEffect(() => { void showLatest(); }, [showLatest]);
-  useEffect(() => () => {
-    recorder.current?.state === "recording" && recorder.current.stop();
-    release();
-    if (urlRef.current) URL.revokeObjectURL(urlRef.current);
-  }, []);
-
-  const stopRecording = useCallback(() => {
-    if (recorder.current?.state === "recording") recorder.current.stop();
-  }, []);
-
-  const start = async () => {
-    setError(null);
-    setSavedNote(false);
-    beforeStart();
-    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") { setError(t.micUnsupported); return; }
-    setState("asking");
-    try {
-      stream.current = await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch (err) {
-      const name = (err as DOMException)?.name;
-      setError(name === "NotAllowedError" || name === "SecurityError" ? t.micDenied : name === "NotFoundError" ? t.micMissing : t.micUnsupported);
-      setState("idle");
-      return;
-    }
-    const mimeType = pickRecordingMimeType();
-    let rec: MediaRecorder;
-    try {
-      rec = new MediaRecorder(stream.current, mimeType ? { mimeType } : undefined);
-    } catch {
-      release();
-      setError(t.micUnsupported);
-      setState("idle");
-      return;
-    }
-    const chunks: BlobPart[] = [];
-    const startedAt = Date.now();
-    rec.ondataavailable = event => { if (event.data.size > 0) chunks.push(event.data); };
-    rec.onstop = () => {
-      release();
-      setState("idle");
-      const type = mimeType ?? "audio/webm";
-      const blob = new Blob(chunks, { type });
-      if (blob.size === 0) return;
-      void saveRecording({ surah, ayah, profileId, blob, mimeType: type, seconds: Math.max(1, Math.round((Date.now() - startedAt) / 1000)) })
-        .then(() => { onSaved(); setSavedNote(true); return showLatest(); })
-        .catch(() => {
-          // Not stored, but still playable while the page is open.
-          if (urlRef.current) URL.revokeObjectURL(urlRef.current);
-          urlRef.current = URL.createObjectURL(blob);
-          setClipUrl(urlRef.current);
-          onSaved();
-        });
-    };
-    recorder.current = rec;
-    rec.start();
-    setSeconds(0);
-    setState("recording");
-    tick.current = window.setInterval(() => {
-      setSeconds(s => {
-        if (s + 1 >= MAX_TAKE_SECONDS) stopRecording();
-        return s + 1;
-      });
-    }, 1000);
-  };
+  const { state, seconds, error, latest, clipUrl, savedNote, start, stop } = useRecorder(
+    { surah, ayah, profileId },
+    { micDenied: t.micDenied, micMissing: t.micMissing, micUnsupported: t.micUnsupported },
+    onSaved,
+  );
 
   return (
     <div className="hifz-recorder">
       {state === "recording" ? (
-        <button type="button" className="button hifz-record is-recording" onClick={stopRecording}>
+        <button type="button" className="button hifz-record is-recording" onClick={stop}>
           <CircleStop size={18} aria-hidden="true" /> {t.stopRecord} <small>{t.recording(seconds)}</small>
         </button>
       ) : (
-        <button type="button" className="button hifz-record" onClick={() => void start()} disabled={state === "asking"}>
+        <button type="button" className="button hifz-record" onClick={() => { beforeStart(); void start(); }} disabled={state === "asking"}>
           {state === "asking" ? <Loader2 className="animate-spin" size={18} aria-hidden="true" /> : <Mic size={18} aria-hidden="true" />} {t.record}
         </button>
       )}

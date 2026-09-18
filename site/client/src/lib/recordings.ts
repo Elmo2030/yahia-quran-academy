@@ -24,6 +24,15 @@ export type Recording = {
   /** Set by the memorization journey, which records one ayah at a time for
    *  one child. The reader's whole-surah recordings leave both out. */
   ayah?: number;
+  /** Set instead of `ayah` for a recital: a segment recited in one take, not
+   *  one ayah. Deliberately not its own IndexedDB index — adding one would
+   *  need DB_VERSION raised, and the upgrade guard below only creates an
+   *  index for a database that does not exist yet, so every device that
+   *  already has this store would keep querying against a missing index and
+   *  fail silently where a fresh install would not. The existing `surah`
+   *  index is enough: recital lookups filter `from`/`to` in memory. */
+  from?: number;
+  to?: number;
   profileId?: string;
 };
 
@@ -93,11 +102,15 @@ function nextStamp(): number {
 }
 
 export async function saveRecording(
-  input: { surah: number; blob: Blob; mimeType: string; seconds: number; ayah?: number; profileId?: string },
+  input: {
+    surah: number; blob: Blob; mimeType: string; seconds: number;
+    ayah?: number; from?: number; to?: number; profileId?: string;
+  },
 ): Promise<RecordingSummary> {
   const record: Recording = {
     surah: input.surah,
     ...(input.ayah ? { ayah: input.ayah } : {}),
+    ...(input.from ? { from: input.from, to: input.to } : {}),
     ...(input.profileId ? { profileId: input.profileId } : {}),
     bytes: await toBytes(input.blob),
     mimeType: input.mimeType,
@@ -106,11 +119,15 @@ export async function saveRecording(
     recordedAt: nextStamp(),
   };
   await run("readwrite", store => store.put(record));
-  // Journey takes are capped per ayah; the reader's whole-surah recordings are
-  // deliberate keepsakes and are left alone.
+  // Journey takes are capped per ayah, and a recital's per segment; the
+  // reader's whole-surah recordings are deliberate keepsakes and are left
+  // alone.
   if (record.ayah && record.profileId) {
     const mine = await listAyahRecordings(record.surah, record.ayah, record.profileId);
     for (const old of mine.slice(TAKES_PER_AYAH)) await deleteRecording(old.id);
+  } else if (record.from !== undefined && record.to !== undefined && record.profileId) {
+    const mine = await listSegmentRecordings(record.surah, record.from, record.to, record.profileId);
+    for (const old of mine.slice(TAKES_PER_SEGMENT)) await deleteRecording(old.id);
   }
   const { bytes: _bytes, ...summary } = record;
   return summary;
@@ -147,6 +164,21 @@ export async function deleteProfileRecordings(profileId: string): Promise<number
 
 export async function listAyahRecordings(surah: number, ayah: number, profileId: string): Promise<RecordingSummary[]> {
   return (await listRecordings(surah)).filter(r => r.ayah === ayah && r.profileId === profileId);
+}
+
+/**
+ * How many takes of one recital segment are kept for one child.
+ *
+ * A recital is judged, not just listened to for fun, so there is less reason
+ * to keep a pile of old attempts around than for an ayah's practice takes —
+ * the newest one is what a parent is judging, and the one before it is enough
+ * to compare against without letting an unbounded segment recording (see
+ * saveRecording) grow the device's storage with every retry.
+ */
+export const TAKES_PER_SEGMENT = 2;
+
+export async function listSegmentRecordings(surah: number, from: number, to: number, profileId: string): Promise<RecordingSummary[]> {
+  return (await listRecordings(surah)).filter(r => r.from === from && r.to === to && r.profileId === profileId);
 }
 
 export function pickRecordingMimeType(): string | undefined {

@@ -28,6 +28,7 @@ const Privacy = lazyWithRetry(() => import("./pages/Privacy"));
 const Terms = lazyWithRetry(() => import("./pages/Terms"));
 const Hifz = lazyWithRetry(() => import("./pages/Hifz"));
 const HifzSurah = lazyWithRetry(() => import("./pages/HifzSurah"));
+const HifzRecite = lazyWithRetry(() => import("./pages/HifzRecite"));
 const HifzReview = lazyWithRetry(() => import("./pages/HifzReview"));
 const HifzParent = lazyWithRetry(() => import("./pages/HifzParent"));
 const HifzCertificate = lazyWithRetry(() => import("./pages/HifzCertificate"));
@@ -72,6 +73,7 @@ function Router() {
       <Route path={"/hifz/parent"} component={HifzParent} />
       <Route path={"/hifz/certificate"} component={HifzCertificate} />
       <Route path={"/hifz/looks"} component={HifzLooks} />
+      <Route path={"/hifz/:surah/recite"} component={HifzRecite} />
       <Route path={"/hifz/:surah"} component={HifzSurah} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

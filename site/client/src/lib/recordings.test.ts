@@ -8,6 +8,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import {
   TAKES_PER_AYAH,
+  TAKES_PER_SEGMENT,
   deleteProfileRecordings,
   deleteRecording,
   getRecording,
@@ -15,6 +16,7 @@ import {
   recordingsUse,
   listAyahRecordings,
   listRecordings,
+  listSegmentRecordings,
   recordingsAvailable,
   saveRecording,
 } from "@/lib/recordings";
@@ -106,6 +108,23 @@ describe("the memorization journey's takes", () => {
   it("leaves the reader's whole-surah recordings uncapped", async () => {
     for (let i = 0; i < TAKES_PER_AYAH + 2; i++) await saveRecording(clip(2, i + 1));
     expect(await listRecordings(2)).toHaveLength(TAKES_PER_AYAH + 2);
+  });
+
+  // A recital carries no `ayah`, so the cap above never triggers for it —
+  // without this branch a segment re-recorded before every parent's word
+  // fills the device's storage one take at a time.
+  it("keeps only the newest few takes of one recital segment, per child", async () => {
+    for (let i = 0; i < TAKES_PER_SEGMENT + 3; i++) {
+      await saveRecording({ ...clip(114, i + 1), from: 1, to: 3, profileId: "child-a" });
+    }
+    await saveRecording({ ...clip(114, 99), from: 1, to: 3, profileId: "child-b" });
+    const mine = await listSegmentRecordings(114, 1, 3, "child-a");
+    expect(mine).toHaveLength(TAKES_PER_SEGMENT);
+    expect(mine.map(take => take.seconds).sort((a, b) => a - b)).toEqual([4, 5]);
+    // A different segment, or a different child's take of this one, is untouched.
+    await saveRecording({ ...clip(114, 1), from: 4, to: 6, profileId: "child-a" });
+    expect(await listSegmentRecordings(114, 4, 6, "child-a")).toHaveLength(1);
+    expect(await listSegmentRecordings(114, 1, 3, "child-b")).toHaveLength(1);
   });
 
   it("removes everything one child recorded when their profile goes", async () => {
