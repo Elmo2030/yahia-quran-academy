@@ -46,7 +46,7 @@ const copy = {
     shorten: "قصّر المقطع",
     ready: "جاهز للتسميع؟",
     readyBody: "سمّع من حفظك، من غير أن ترى الآيات.",
-    start: "ابدأ",
+    start: "ابدأ التسميع",
     stopRecord: "خلصت",
     recording: (s: number) => `جارٍ التسجيل… ${s} ث`,
     wellDone: "أحسنت! 🌟",
@@ -63,7 +63,7 @@ const copy = {
     submitted: "تسميعك محفوظ — خلّي ماما أو بابا يسمعوه على الجهاز ده.",
     backToJourney: "ارجع لرحلتي",
     alreadyWaiting: "هذا المقطع بانتظار وليّ الأمر بالفعل.",
-    needsPractice: "طلب منك وليّ الأمر تسميع هذا المقطع مرة أخرى.",
+    needsPractice: "المقطع ده محتاج تدريب شوية",
   },
   en: {
     back: "Memorization journey",
@@ -78,7 +78,7 @@ const copy = {
     shorten: "Shorten the segment",
     ready: "Ready to recite?",
     readyBody: "Recite from memory, without seeing the ayahs.",
-    start: "Start",
+    start: "Start reciting",
     stopRecord: "Done",
     recording: (s: number) => `Recording… ${s}s`,
     wellDone: "Well done! 🌟",
@@ -95,7 +95,7 @@ const copy = {
     submitted: "Your recitation is saved — have a parent listen to it on this device.",
     backToJourney: "Back to my journey",
     alreadyWaiting: "This segment is already waiting for a parent.",
-    needsPractice: "A parent asked you to recite this segment again.",
+    needsPractice: "This segment needs a little more practice.",
   },
 };
 
@@ -235,6 +235,7 @@ function Recite({ t, surah, total, initial, profile, update }: {
 
         {recorder.state !== "recording" && !recorder.latest && (
           <>
+            <h2 className="hifz-recite__prompt">{t.ready}</h2>
             <p className="hifz-muted">{t.readyBody}</p>
             <div className="hifz-actions">
               <button type="button" className="button button--primary" onClick={() => void recorder.start()} disabled={recorder.state === "asking"}>
@@ -276,7 +277,7 @@ function Recite({ t, surah, total, initial, profile, update }: {
             {recorder.clipUrl && (
               <div className="hifz-take">
                 <span>{t.listenSelf}</span>
-                <audio controls src={recorder.clipUrl} preload="metadata" />
+                <audio controls src={recorder.clipUrl} preload="metadata" aria-label={t.listenSelf} />
               </div>
             )}
             <div className="hifz-actions">
