@@ -92,7 +92,7 @@ describe("nextStep", () => {
 
     expect(nextStep(null)).toEqual({
       ref: { kind: "deed", chapter: "nations", slug: "luqman" },
-      href: "/stories/nations/luqman",
+      href: "/hifz/parent",
     });
   });
 
@@ -139,7 +139,7 @@ describe("nextStep", () => {
     // The recital was submitted first, so it is the one still waiting longest.
     expect(nextStep(null)).toEqual({
       ref: { kind: "recital", surah: 114, from: 1, to: 3 },
-      href: "/hifz/114/recite",
+      href: "/hifz/parent",
     });
   });
 
@@ -155,6 +155,25 @@ describe("nextStep", () => {
     saveStore(s);
 
     expect(nextStep(null)).toEqual({ ref: { kind: "ayah", surah: 1, ayah: 1 }, href: "/hifz/1" });
+  });
+
+  it("a600077: keeps due review, practice, and awaiting parent work in that order", () => {
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    let s = submitRecital(created.store, created.profile.id, 114, 1, 2, "awaiting", 1000);
+    s = submitRecital(s, created.profile.id, 114, 3, 4, "practice", 2000);
+    s = askForPractice(s, created.profile.id, 114, 3, 4, undefined, 3000);
+    saveStore(s);
+
+    expect(nextStep({ surah: 18, ayah: 9, updatedAt: 1 })).toEqual({
+      ref: { kind: "recital", surah: 114, from: 3, to: 4 }, href: "/hifz/114/recite", needsPractice: true,
+    });
+
+    s = submitRecital(s, created.profile.id, 114, 3, 4, "retry", 4000);
+    saveStore(s);
+    expect(nextStep({ surah: 18, ayah: 9, updatedAt: 1 })).toEqual({
+      ref: { kind: "recital", surah: 114, from: 1, to: 2 }, href: "/hifz/parent",
+    });
   });
 });
 

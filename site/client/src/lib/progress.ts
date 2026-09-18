@@ -93,7 +93,7 @@ export type NextStep = { ref: StepRef; href: string; needsPractice?: boolean };
  *   2. a recital a parent sent back for practice — this is the child's own
  *      unfinished business, ahead of anything merely waiting on someone else;
  *   3. a recital or a deed still awaiting a parent's word, earliest first,
- *      sent back to where it can be checked on rather than nowhere;
+ *      sent to the parent corner where that decision can be made;
  *   4. the plain reading progress, unchanged.
  *
  * The journey's local store (see hifz-store.ts) is only read here to decide
@@ -122,9 +122,9 @@ export function nextStep(local: LocalProgress | null): NextStep | null {
     const recitalAt = recital?.record.awaitingAt ?? Infinity;
     const deedAt = deed?.record.awaitingAt ?? Infinity;
     if (recital && recitalAt <= deedAt) {
-      return { ref: { kind: "recital", surah: recital.surah, from: recital.from, to: recital.to }, href: `/hifz/${recital.surah}/recite` };
+      return { ref: { kind: "recital", surah: recital.surah, from: recital.from, to: recital.to }, href: "/hifz/parent" };
     }
-    if (deed) return { ref: { kind: "deed", chapter: deed.chapter, slug: deed.slug }, href: `/stories/${deed.chapter}/${deed.slug}` };
+    if (deed) return { ref: { kind: "deed", chapter: deed.chapter, slug: deed.slug }, href: "/hifz/parent" };
   }
   if (local) return { ref: { kind: "ayah", surah: local.surah, ayah: local.ayah }, href: `/read/${local.surah}` };
   return null;

@@ -600,4 +600,15 @@ describe("recitals", () => {
     // Marking a note already seen, or a recital with no note at all, changes nothing.
     expect(markNoteSeen(bothSeen, profile.id, 114, 1, 2)).toBe(bothSeen);
   });
+
+  it("shows a parent result without an optional note once, then records that the child saw it", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = submitRecital(store, profile.id, 114, 1, 2, "a", 1000);
+    s = approveRecital(s, profile.id, 114, 1, 2, undefined, 2000);
+
+    expect(unseenNote(activeProfile(s)!)).toEqual({ surah: 114, from: 1, to: 2, note: undefined, status: "reviewed" });
+    s = markNoteSeen(s, profile.id, 114, 1, 2, 3000);
+    expect(unseenNote(activeProfile(s)!)).toBeNull();
+    expect(activeProfile(s)!.steps["recital:114:1-2"].noteSeenAt).toBe(3000);
+  });
 });

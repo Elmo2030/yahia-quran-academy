@@ -14,13 +14,13 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { characterArt, surahIcon } from "@/lib/hifz-characters";
 import { lookArt } from "@/lib/hifz-looks";
 import { starsFor, type Stars } from "@/lib/hifz-stars";
-import type { ChildProfile } from "@/lib/hifz-store";
+import { reviewedRecitals, type ChildProfile } from "@/lib/hifz-store";
 import { REGIONS, type Region } from "@/lib/journey-map";
 import { ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
@@ -36,6 +36,7 @@ const copy = {
     scrollOn: "السور التالية",
     treasureLocked: (name: string) => `كنز ${name}: اجمع نجمة على كل سورة في المنطقة`,
     treasureOpen: (name: string) => `كنز ${name} — فُتح`,
+    reviewed: "تمت مراجعة التسميع",
   },
   en: {
     map: "The journey map",
@@ -47,6 +48,7 @@ const copy = {
     scrollOn: "Later surahs",
     treasureLocked: (name: string) => `${name} treasure: earn a star on every surah in the region`,
     treasureOpen: (name: string) => `${name} treasure — opened`,
+    reviewed: "Recital reviewed",
   },
 };
 
@@ -64,6 +66,7 @@ export function JourneyMap({ profile, currentSurah }: { profile: ChildProfile; c
   const { locale } = useLocale();
   const t = copy[locale];
   const here = useRef<HTMLLIElement>(null);
+  const reviewed = new Set(reviewedRecitals(profile).map(recital => recital.surah));
 
   // Open the map on the surah the child left off at, not at the first one.
   useEffect(() => {
@@ -73,16 +76,17 @@ export function JourneyMap({ profile, currentSurah }: { profile: ChildProfile; c
   return (
     <section className="map" aria-label={t.map}>
       {REGIONS.map(region => (
-        <RegionBand key={region.id} region={region} profile={profile} currentSurah={currentSurah} t={t} hereRef={here} locale={locale} />
+        <RegionBand key={region.id} region={region} profile={profile} currentSurah={currentSurah} reviewed={reviewed} t={t} hereRef={here} locale={locale} />
       ))}
     </section>
   );
 }
 
-function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
+function RegionBand({ region, profile, currentSurah, reviewed, t, hereRef, locale }: {
   region: Region;
   profile: ChildProfile;
   currentSurah: number;
+  reviewed: Set<number>;
   t: Copy;
   hereRef: React.RefObject<HTMLLIElement | null>;
   locale: "ar" | "en";
@@ -160,6 +164,7 @@ function RegionBand({ region, profile, currentSurah, t, hereRef, locale }: {
                 </span>
                 <span className="map-card__name">{surahName}</span>
                 <StarRow stars={stars[surah] as Stars} />
+                {reviewed.has(surah) && <span className="map-here map-reviewed"><Check size={12} aria-hidden="true" /> {t.reviewed}</span>}
                 {isHere && <span className="map-here">{t.here}</span>}
               </Link>
             </li>

@@ -722,10 +722,10 @@ export function askForPractice(store: HifzStore, profileId: string, surah: numbe
   return next;
 }
 
-/** The child has opened the parent's encouragement note. */
+/** The child has opened a parent's recital result. */
 export function markNoteSeen(store: HifzStore, profileId: string, surah: number, from: number, to: number, now = Date.now()): HifzStore {
   return withStep(store, profileId, { kind: "recital", surah, from, to }, current =>
-    (current?.note && !current.noteSeenAt ? { ...current, noteSeenAt: now } : current));
+    (current && (current.status === "reviewed" || current.status === "needs_practice") && !current.noteSeenAt ? { ...current, noteSeenAt: now } : current));
 }
 
 function parseRecitalKey(key: string): { surah: number; from: number; to: number } | null {
@@ -837,17 +837,15 @@ export function recitalEntrySegment(
 }
 
 /**
- * The most recent parent's word the child has not opened yet, whichever way
- * it went — "ready" or "needs practice" both carry a note the same way, and
- * the child seeing it is what markNoteSeen is for. Most recent first: an
- * older unseen note is still true, but a child who has not opened the
- * journey in a while should meet the latest thing said to them, not the
- * oldest one still sitting unread.
+ * The most recent parent result the child has not opened yet. An optional
+ * note adds the parent's own words, while the result itself always has a
+ * kind message. Seeing either is recorded with noteSeenAt so it is shown
+ * once, not on every journey visit.
  */
-export function unseenNote(profile: ChildProfile): { surah: number; from: number; to: number; note: string; status: StepStatus } | null {
-  let best: { surah: number; from: number; to: number; note: string; status: StepStatus; at: number } | null = null;
+export function unseenNote(profile: ChildProfile): { surah: number; from: number; to: number; note?: string; status: "reviewed" | "needs_practice" } | null {
+  let best: { surah: number; from: number; to: number; note?: string; status: "reviewed" | "needs_practice"; at: number } | null = null;
   for (const [key, record] of Object.entries(profile.steps)) {
-    if (!record.note || record.noteSeenAt) continue;
+    if (record.noteSeenAt || (record.status !== "reviewed" && record.status !== "needs_practice")) continue;
     const segment = parseRecitalKey(key);
     if (!segment) continue;
     const at = record.reviewedAt ?? 0;

@@ -32,7 +32,7 @@ import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { deleteProfileRecordings } from "@/lib/recordings";
 import {
   MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup, markBackedUp,
-  checkPersistence, importBackup, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, updateProfile, updateSettings,
+  checkPersistence, importBackup, markNoteSeen, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, unseenNote, updateProfile, updateSettings,
   type CharacterId, type ChildProfile, type FontStep, type HifzStore, type ImportResult, type Persistence,
   type ReciterChoice,
 } from "@/lib/hifz-store";
@@ -121,6 +121,10 @@ const copy = {
     shelfTitle: "رفّ الملصقات",
     parentCorner: "ركن وليّ الأمر",
     certificate: "شهادة الرحلة",
+    reviewedResult: "ما شاء الله! وليّ الأمر قال إن المقطع جاهز.",
+    practiceResult: "المقطع ده محتاج تدريب شوية.",
+    resultOkay: "حسنًا",
+    practiseAgain: "أعِد التسميع",
     home: "الرئيسية",
   },
   en: {
@@ -204,6 +208,10 @@ const copy = {
     shelfTitle: "Sticker shelf",
     parentCorner: "The parent’s corner",
     certificate: "Journey certificate",
+    reviewedResult: "Masha'Allah! A parent says this segment is ready.",
+    practiceResult: "This segment needs a little more practice.",
+    resultOkay: "Got it",
+    practiseAgain: "Recite again",
     home: "Home",
   },
 } as const;
@@ -491,6 +499,7 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
             />
           )}
 
+          <EncouragementCard t={t} profile={profile} store={store} commit={commit} />
           <TodayCard t={t} profile={profile} />
           <RankCard t={t} profile={profile} />
           <SurahList t={t} profile={profile} />
@@ -507,6 +516,30 @@ function JourneyHome({ t, store, profile, commit }: { t: Copy; store: HifzStore;
         </div>
       </section>
     </>
+  );
+}
+
+function EncouragementCard({ t, profile, store, commit }: { t: Copy; profile: ChildProfile; store: HifzStore; commit: (s: HifzStore) => boolean }) {
+  const result = unseenNote(profile);
+  const art = characterArt(profile.character, "cheer");
+  if (!result) return null;
+
+  const seen = () => commit(markNoteSeen(store, profile.id, result.surah, result.from, result.to));
+  return (
+    <article className="hifz-card hifz-done" role="status">
+      {art && <img className="hifz-done__art" src={art.src} srcSet={art.srcSet} sizes="110px" alt="" />}
+      <div>
+        <h2>{result.status === "reviewed" ? t.reviewedResult : t.practiceResult}</h2>
+        {result.note && <p>{result.note}</p>}
+        <div className="hifz-actions">
+          {result.status === "needs_practice" ? (
+            <Link href={`/hifz/${result.surah}/recite`} className="button button--primary" onClick={seen}>{t.practiseAgain}</Link>
+          ) : (
+            <button type="button" className="button button--primary" onClick={seen}>{t.resultOkay}</button>
+          )}
+        </div>
+      </div>
+    </article>
   );
 }
 
