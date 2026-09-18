@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronLeft, ChevronRight, CirclePlay, Compass, Headphones, Heart, KeyRound, LogIn, Mic, Moon, Save, Smartphone, Sparkles, UserRound } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -18,6 +18,7 @@ import { useAuth } from "@/hooks/useAuth";
 // excerpts. The generated index carries the title and the opening line only.
 import { factIndex, seerahStationIndex, seerahStoryIndex } from "@/lib/page-index.generated";
 import { indexOfTheDay } from "@/lib/fact-of-the-day";
+import { readFactDiscoveries } from "@/lib/quran-facts-progress";
 import { lazyWithRetry } from "@/lib/lazyWithRetry";
 
 // Only a child who has already started the journey sees this, so it must not
@@ -35,8 +36,8 @@ const copy = {
   ar: {
     homeLabel: "Yahya Quran Academy الرئيسية", about: "عن الأكاديمية", stories: "قصص القرآن", exploreStories: "استكشف القصص", journey: "طريق التلقّي", apps: "التطبيقات", reader: "افتح القارئ",
     seerahNav: "السيرة النبوية", facts: "في رحاب القرآن", listenNav: "الاستماع",
-    factsEyebrow: "في رحاب القرآن", factsTitle: "اكتشاف اليوم", factsAll: "افتح المئة معلومة", factsOpen: "اقرأ المعلومة",
-    factsIntro: "مئة معلومة عن القرآن، واحدة كل يوم — والباقي تحتها متى شئت.", seerahEyebrow: "السيرة النبوية", seerahTitle: "من طفولة النبي ﷺ", seerahStoryLabel: "قصة", station: "المحطة", seerahIntro: "رحلة في حياة النبي ﷺ، محطة بعد محطة — من مولده وطفولته إلى شبابه وأمانته بين قومه.", seerahAll: "افتح قسم السيرة", seerahBrowse: "تصفّح السيرة",
+    factsEyebrow: "في رحاب القرآن", factsTitle: "رحلتك في رحاب القرآن", factsAll: "افتح المئة معلومة", factsOpen: "ابدأ الاكتشاف", factsContinue: "تابع رحلتك", factsStage: (n: number) => `بطاقتك التالية في المرحلة ${n}`,
+    factsIntro: "مئة معلومة عن القرآن، افتح بطاقتك التالية كلما أحببت.", seerahEyebrow: "السيرة النبوية", seerahTitle: "من طفولة النبي ﷺ", seerahStoryLabel: "قصة", station: "المحطة", seerahIntro: "رحلة في حياة النبي ﷺ، محطة بعد محطة — من مولده وطفولته إلى شبابه وأمانته بين قومه.", seerahAll: "افتح قسم السيرة", seerahBrowse: "تصفّح السيرة",
     signIn: "تسجيل الدخول", register: "أنشئ حسابًا", account: "حسابي", accountEyebrow: "حساب الأسرة", accountTitle: "أنشئ حساب وليّ الأمر", accountBody: "الحساب اختياري بالكامل. عند إنشائه يُحفظ موضع القراءة والقصص المحفوظة على أجهزتك، ولا يُعرض أي حكم آلي على الطفل.", haveAccount: "لديك حساب بالفعل؟",
     eyebrow: "مكان هادئ للقرآن والتلقّي", titleLineOne: "رحلة قرآنية", titleLineTwo: "تنمو مع الطفل",
     intro: "تساعد Yahya Quran Academy الطفل على الاستماع والتكرار والتسجيل والمراجعة الذاتية، برفقة وليّ الأمر وخطوات عملية واضحة.",
@@ -53,8 +54,8 @@ const copy = {
   en: {
     homeLabel: "Yahya Quran Academy home", about: "About", stories: "Quran stories", exploreStories: "Explore stories", journey: "Learning path", apps: "Apps", reader: "Open reader",
     seerahNav: "Seerah", facts: "In the Realm of the Quran", listenNav: "Listening",
-    factsEyebrow: "In the Realm of the Quran", factsTitle: "Today\u2019s discovery", factsAll: "Open all hundred", factsOpen: "Read it",
-    factsIntro: "A hundred things worth knowing about the Quran, one a day \u2014 and the rest whenever you like.", seerahEyebrow: "The Prophet’s Seerah", seerahTitle: "From the childhood of the Prophet ﷺ", seerahStoryLabel: "Story", station: "Station", seerahIntro: "A journey through the Prophet’s life, one station at a time — from his birth and childhood to his youth and the trust he earned among his people.", seerahAll: "Open the Seerah section", seerahBrowse: "Browse the Seerah",
+    factsEyebrow: "In the Realm of the Quran", factsTitle: "Your Quran discovery journey", factsAll: "Open all hundred", factsOpen: "Start discovering", factsContinue: "Continue your journey", factsStage: (n: number) => `Your next card is in stage ${n}`,
+    factsIntro: "A hundred things worth knowing about the Quran. Open your next card whenever you like.", seerahEyebrow: "The Prophet’s Seerah", seerahTitle: "From the childhood of the Prophet ﷺ", seerahStoryLabel: "Story", station: "Station", seerahIntro: "A journey through the Prophet’s life, one station at a time — from his birth and childhood to his youth and the trust he earned among his people.", seerahAll: "Open the Seerah section", seerahBrowse: "Browse the Seerah",
     signIn: "Sign in", register: "Create an account", account: "My account", accountEyebrow: "Family account", accountTitle: "Create a parent account", accountBody: "An account is entirely optional. Creating one saves your reading position and saved stories across your devices, and never shows an automated verdict on the child.", haveAccount: "Already have an account?",
     eyebrow: "A calm space for Quran learning", titleLineOne: "A Quran journey", titleLineTwo: "that grows with your child",
     intro: "Yahya Quran Academy supports listening, repetition, recording, and self-review—alongside parents and through clear, practical steps.",
@@ -87,6 +88,14 @@ export default function Home() {
   // Picked off the generated index, never the content module: this page is the
   // one that loads eagerly for every visitor.
   const todayFact = factIndex[indexOfTheDay(factIndex.length)];
+  const [nextFact, setNextFact] = useState(todayFact);
+  const [hasFactProgress, setHasFactProgress] = useState(false);
+
+  useEffect(() => {
+    const discovered = readFactDiscoveries(factIndex.map(fact => fact.slug));
+    setHasFactProgress(discovered.length > 0);
+    setNextFact(factIndex.find(fact => !discovered.includes(fact.slug)) ?? factIndex[0]);
+  }, []);
 
   return (
     <main className="site-shell" dir={direction}>
@@ -139,8 +148,8 @@ export default function Home() {
 
       <section className="section section--seerah" id="seerah" aria-labelledby="seerah-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold"><Moon size={14} aria-hidden="true" /> {t.seerahEyebrow}</span><h2 id="seerah-title">{t.seerahTitle}</h2><p>{t.seerahIntro}</p></div><ul className="story-list-grid">{seerahStationIndex.map(station => { const story = seerahStoryIndex.find(entry => entry.stationId === station.stationId); if (!story) return null; const title = locale === "en" ? story.titleEn ?? story.title : story.title; const opening = locale === "en" ? story.descriptionEn ?? story.description : story.description; return <li key={story.slug}><Link href={`/seerah/${story.slug}`} className="story-list-card"><div className="story-list-card__body"><span>{t.station} {station.stationId} — {locale === "en" ? station.titleEn ?? station.titleAr : station.titleAr}</span><h3>{title}</h3><p>{opening}</p></div></Link></li>; })}</ul><Link href="/seerah" className="text-link text-link--center">{t.seerahAll} <Arrow size={18} /></Link></div></section>
 
-      {/* The section had a hundred pieces of content and no way in from the
-          front page. One of them, chosen by the date, is the way in. */}
+      {/* The entry follows local discovery progress and gives the child one
+          clear next card without redesigning the home page. */}
       <section className="section section--facts" aria-labelledby="facts-title">
         <div className="container">
           <div className="section-heading">
@@ -150,11 +159,11 @@ export default function Home() {
           </div>
           <div className="facts-today">
             <div>
-              <span className="facts-today__label">{locale === "ar" ? `المعلومة ${todayFact.number}` : `Fact ${todayFact.number}`}</span>
-              <h3>{locale === "en" ? todayFact.titleEn : todayFact.title}</h3>
-              <p>{locale === "en" ? todayFact.bodyEn : todayFact.body}</p>
+              <span className="facts-today__label">{t.factsStage(Math.ceil(nextFact.number / 20))}</span>
+              <h3>{locale === "en" ? nextFact.titleEn : nextFact.title}</h3>
+              <p>{locale === "en" ? nextFact.bodyEn : nextFact.body}</p>
             </div>
-            <Link href={`/quran-facts/${todayFact.slug}`} className="button button--primary">{t.factsOpen} <Arrow size={17} aria-hidden="true" /></Link>
+            <Link href={`/quran-facts/${nextFact.slug}`} className="button button--primary">{hasFactProgress ? t.factsContinue : t.factsOpen} <Arrow size={17} aria-hidden="true" /></Link>
           </div>
           <Link href="/quran-facts" className="text-link text-link--center">{t.factsAll} <Arrow size={18} /></Link>
         </div>

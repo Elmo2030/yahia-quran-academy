@@ -718,40 +718,37 @@
 .facts-stage:hover { border-color: var(--line-gold); background: var(--surface-3); }
 .facts-stage__name { display: inline-flex; align-items: center; gap: .3rem; font-size: .85rem; font-weight: 800; }
 .facts-stage__count { color: var(--teal-soft); font-size: .75rem; font-weight: 700; }
-.facts-stage.is-current { color: #fffdf5; background: var(--fact-from,#001F3F); border-color: var(--fact-from,#001F3F); }
+.facts-stage.is-current { color: #fffdf5; background: var(--brand-solid); border-color: var(--brand-solid); }
 .facts-stage.is-current .facts-stage__count { color: rgb(255 255 255 / 82%); }
-.facts-stage.is-done:not(.is-current) { color: var(--fact-from,var(--ink)); border-color: color-mix(in srgb, var(--fact-from,var(--panel-dark)) 45%, var(--page)); }
-/* --fact-from is the stage's own colour, set from JS, and every one of them is
-   deep enough to read on cream and to disappear on a dark page. The border
-   still carries the colour; the words follow the palette. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .facts-stage.is-done:not(.is-current) { color: var(--ink); }
-}
-:root[data-theme="dark"] .facts-stage.is-done:not(.is-current) { color: var(--ink); }
+.facts-stage.is-done:not(.is-current) { color: var(--brand-deep-ink); border-color: var(--line-green-strong); background: var(--surface-green); }
+.facts-stage.is-locked { color: var(--ink-soft); background: var(--surface-2); opacity: .72; }
 
 .facts-progress { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1.1rem; margin-bottom: 1.6rem; }
 .facts-progress__count { color: var(--ink); margin: 0; font-size: .88rem; font-weight: 800; }
 .facts-progress__bar { flex: 1 1 12rem; height: 9px; min-width: 9rem; border-radius: 99px; background: var(--line); overflow: hidden; }
-.facts-progress__bar span { display: block; block-size: 100%; border-radius: 99px; background: linear-gradient(90deg, color-mix(in srgb, var(--fact-from,#7d631c) 70%, var(--page)), var(--fact-from,var(--brand-solid))); transition: inline-size .4s ease; }
+.facts-progress__bar span { display: block; block-size: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--gold), var(--brand-solid)); transition: inline-size .4s ease; }
 .facts-progress__overall { color: var(--teal-soft); margin: 0; font-size: .78rem; font-weight: 700; }
 .facts-done { margin: 0 0 1.4rem; padding: .9rem 1.1rem; border-radius: 16px; color: var(--ink); background: var(--surface-gold); border: 1px solid var(--line-gold); font-size: .92rem; font-weight: 700; }
 
 .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.1rem; margin: 0; padding: 0; list-style: none; align-items: start; }
 
-.fact-card { display: flex; width: 100%; flex-direction: column; gap: .55rem; padding: 1.15rem 1.25rem; border-radius: 22px; text-align: start; }
-.fact-card--closed { min-height: 11rem; align-items: center; justify-content: center; gap: .5rem; color: #fffdf5; background: linear-gradient(150deg, var(--fact-from,#1b3a5c), var(--fact-to,#001F3F)); border: 1px solid rgb(0 0 0 / 18%); box-shadow: 0 14px 30px rgb(var(--shadow-rgb) / 16%); transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease; }
-.fact-card--closed:hover { transform: translateY(-4px); box-shadow: 0 20px 38px rgb(var(--shadow-rgb) / 22%); }
-.fact-card--closed:active { transform: translateY(-1px); }
-.fact-card--closed svg { color: var(--on-dark-gold); }
+.fact-card { display: flex; width: 100%; min-block-size: 11rem; flex-direction: column; gap: .55rem; padding: 1.15rem 1.25rem; border: 1px solid var(--line); border-radius: 22px; color: var(--ink); background: var(--page); text-align: start; text-decoration: none; box-shadow: 0 10px 24px rgb(var(--shadow-rgb) / 7%); }
+.fact-card--unlocked { border-color: var(--line-gold); background: linear-gradient(150deg, var(--surface-gold), var(--page)); }
+.fact-card--current { border: 2px solid var(--gold); background: linear-gradient(150deg, var(--surface-gold-strong), var(--page)); box-shadow: 0 15px 30px rgb(var(--shadow-rgb) / 14%); }
+.fact-card--completed { border-color: var(--line-green-strong); background: var(--surface-green); }
+.fact-card--locked { justify-content: center; color: var(--ink-soft); background: var(--surface-2); border-style: dashed; box-shadow: none; }
+.fact-card--locked svg { color: var(--gold-ink); }
+.fact-card--unlocked:hover, .fact-card--current:hover, .fact-card--completed:hover { transform: translateY(-3px); box-shadow: 0 17px 32px rgb(var(--shadow-rgb) / 14%); }
+.fact-card--unlocked:focus-visible, .fact-card--current:focus-visible, .fact-card--completed:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .fact-card__number { font-family: "Noto Naskh Arabic", serif; font-size: 1.9rem; font-weight: 800; line-height: 1; }
-.fact-card__prompt { color: rgb(255 255 255 / 85%); font-size: .75rem; font-weight: 700; }
-
-.fact-card--open { min-height: 11rem; background: var(--page); border: 1px solid var(--line); border-top: 4px solid var(--fact-from,#1b3a5c); box-shadow: 0 12px 26px rgb(var(--shadow-rgb) / 8%); animation: fact-reveal .32s ease; }
-@keyframes fact-reveal { from { opacity: 0; transform: scale(.97) } to { opacity: 1; transform: none } }
-@media (prefers-reduced-motion: reduce) { .fact-card--open { animation: none } .fact-card--closed { transition: none } }
-.fact-card__badge { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; color: var(--fact-from,#7d631c); font-size: .75rem; font-weight: 800; }
-.fact-card--open h3 { color: var(--ink); margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.18rem; font-weight: 800; line-height: 1.5; }
-.fact-card--open p { color: var(--teal-ink); margin: 0; font-size: .88rem; line-height: 1.95; }
+.fact-card__state { align-self: flex-start; margin-block-start: auto; padding: .28rem .6rem; border-radius: 99px; color: var(--gold-ink-deep); background: var(--surface-gold); font-size: .74rem; font-weight: 800; }
+.fact-card--current .fact-card__state { color: var(--brand-deep-ink); background: #fff8d8; }
+.fact-card--completed .fact-card__state { color: var(--brand-deep-ink); background: #e7f0d7; }
+.fact-card--locked .fact-card__state { color: var(--ink-soft); background: transparent; border: 1px solid var(--line); }
+.fact-card small { color: var(--ink-soft); font-size: .75rem; line-height: 1.55; }
+.fact-card__badge { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; color: var(--gold-ink); font-size: .75rem; font-weight: 800; }
+.fact-card h3 { color: var(--ink); margin: 0; font-family: "Noto Naskh Arabic", serif; font-size: 1.18rem; font-weight: 800; line-height: 1.5; }
+.fact-card p { color: var(--teal-ink); margin: 0; font-size: .88rem; line-height: 1.85; }
 /* Where a card's claim comes from — quiet under the card, never competing
    with the fact itself, but always there. */
 .fact-card__source { display: grid; gap: .15rem; margin-block-start: .75rem; padding-block-start: .7rem; border-block-start: 1px dashed var(--line); }
@@ -1625,6 +1622,7 @@
 .fact-page__inner { max-width: 44rem; display: grid; gap: 1rem; }
 .fact-page__inner h1 { color: var(--ink); font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; line-height: 1.3; margin: 0; }
 .fact-page__body { color: var(--ink); font-size: 1.05rem; line-height: 2; margin: 0; }
+.fact-page__discovered { margin: 0; padding: .65rem .85rem; border: 1px solid var(--line-green); border-radius: 14px; color: var(--brand-deep-ink); background: var(--surface-green); font-size: .86rem; font-weight: 800; }
 .fact-page__surah { display: flex; flex-wrap: wrap; gap: .7rem; margin-block-start: .4rem; }
 .fact-page__source { margin-block-start: .6rem; }
 

@@ -12,6 +12,7 @@
 // leads back into the Quran rather than stopping at a card.
 // =============================================================================
 
+import { useEffect, useState } from "react";
 import { Link, useRoute } from "wouter";
 import { ChevronLeft, ChevronRight, CirclePlay, Headphones, Sparkles } from "lucide-react";
 
@@ -21,6 +22,7 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { quranFacts } from "@/content/quran-facts";
 import { factBySlug, surahOfFact } from "@/lib/quran-facts-index";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
+import { discoverFact, readFactDiscoveries } from "@/lib/quran-facts-progress";
 
 const copy = {
   ar: {
@@ -34,6 +36,7 @@ const copy = {
     number: (n: number) => `المعلومة ${n} من ${quranFacts.length}`,
     prev: "السابقة",
     next: "التالية",
+    discovered: "تمت إضافة هذه المعلومة إلى رحلتك.",
   },
   en: {
     eyebrow: "In the Realm of the Quran",
@@ -46,6 +49,7 @@ const copy = {
     number: (n: number) => `Fact ${n} of ${quranFacts.length}`,
     prev: "Previous",
     next: "Next",
+    discovered: "This fact is now part of your journey.",
   },
 } as const;
 
@@ -55,6 +59,14 @@ export default function QuranFact() {
   const t = copy[locale];
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const fact = params?.slug ? factBySlug(params.slug) : undefined;
+  const [wasDiscovered, setWasDiscovered] = useState(false);
+
+  useEffect(() => {
+    if (!fact) return;
+    setWasDiscovered(readFactDiscoveries(quranFacts.map(item => item.slug)).includes(fact.slug));
+    discoverFact(fact.slug, quranFacts.map(item => item.slug));
+    setWasDiscovered(true);
+  }, [fact]);
 
   const Chrome = ({ children }: { children: React.ReactNode }) => (
     <main className="site-shell" dir={direction}>
@@ -92,6 +104,7 @@ export default function QuranFact() {
           <span className="eyebrow eyebrow--gold"><Sparkles size={14} aria-hidden="true" /> {t.eyebrow} · {t.number(fact.number)}</span>
           <h1>{fact.title[locale]}</h1>
           <p className="fact-page__body">{fact.body[locale]}</p>
+          {wasDiscovered && <p className="fact-page__discovered">{t.discovered}</p>}
 
           {fact.ayahs.map(ayah => (
             <figure key={ayah.ref} className="fact-card__ayah">

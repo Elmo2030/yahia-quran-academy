@@ -17,7 +17,7 @@
 // the deck records what the child did, it does not grade them.
 // =============================================================================
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import {
   AlignCenter, Anchor, Apple, Archive, ArrowDownToLine, AudioLines, Baby,
@@ -41,6 +41,7 @@ import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useLocale } from "@/contexts/LocaleContext";
 import { quranFacts, type QuranFact } from "@/content/quran-facts";
 import { factOfTheDay } from "@/lib/quran-facts-index";
+import { factCardState, firstIncompleteStage, readFactDiscoveries, resetFactDiscoveries, type FactCardState } from "@/lib/quran-facts-progress";
 import { BadgeAward } from "@/components/BadgeAward";
 
 const ICONS: Record<string, typeof BookOpen> = {
@@ -57,22 +58,8 @@ const ICONS: Record<string, typeof BookOpen> = {
   Timer, Trees, Type, UserRoundCheck, Users, Waves, Wind,
 };
 
-const STORE_KEY = "yahya.facts.discovered.v1";
-
 /** One mark per stage, for the medal a child gets after twenty. */
 const STAGE_MEDALS = ["📖", "🌙", "⭐", "🕌", "🌿"];
-
-// Ten gradients, cycled by card number, so the deck reads as a palette rather
-// than a wall of navy. Every one of them clears 5.6:1 against white text at
-// its lightest stop, which is what the face-down card puts on top of it.
-const PALETTE = [
-  ["#1b3a5c", "#001F3F"], ["#4a2b6b", "#2b1547"], ["#0f5c52", "#063b34"],
-  ["#7a2f2f", "#4d1a1a"], ["#5c4a12", "#3a2e07"], ["#1f5f7a", "#0c3c50"],
-  ["#6b2f52", "#431a33"], ["#3d5c1b", "#24380f"], ["#7a4a12", "#4d2d06"],
-  ["#33406b", "#1c2544"],
-] as const;
-
-const hueOf = (n: number) => PALETTE[(n - 1) % PALETTE.length];
 
 const PER_STAGE = 20;
 const STAGE_COUNT = Math.ceil(quranFacts.length / PER_STAGE);
@@ -102,14 +89,7 @@ const buildQuestion = (pool: QuranFact[], avoid?: string): Question | null => {
   return { fact, options: shuffle([fact, ...others]) };
 };
 
-const readDiscovered = (): string[] => {
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    return raw ? (JSON.parse(raw) as string[]) : [];
-  } catch {
-    return [];
-  }
-};
+const FACT_SLUGS = quranFacts.map(fact => fact.slug);
 
 const copy = {
   ar: {
@@ -122,6 +102,8 @@ const copy = {
     allDone: "اكتشفت كل البطاقات! ما رأيك أن تحكيها لأحد في البيت؟",
     reset: "أغلق كل البطاقات",
     hidden: "بطاقة لم تُقلب بعد",
+    locked: "تُفتح قريبًا", unlocked: "اكتشفها", current: "ابدأ من هنا", completed: "اكتشفتها",
+    currentHint: "هذه بطاقتك التالية", lockedHint: "أكمل المرحلة الحالية أولًا", completedHint: "يمكنك قراءتها مرة أخرى",
     heroAlt: "مصحف مفتوح على مرج أخضر، يخرج منه نور ذهبي يحمل فانوسًا وغصن زيتون وريشة كتابة، ونملة صغيرة تدور حوله.",
     close: "أغلق البطاقة",
     source: "من أين نعرف هذا؟",
@@ -155,6 +137,8 @@ const copy = {
     allDone: "Every card is turned over. Who at home would like to hear one of these?",
     reset: "Close every card",
     hidden: "A card not yet turned over",
+    locked: "Opening soon", unlocked: "Discover it", current: "Start here", completed: "Discovered",
+    currentHint: "This is your next card", lockedHint: "Finish the current stage first", completedHint: "Read it again",
     heroAlt: "An open mushaf on green grass, golden light rising from it carrying a lantern, an olive branch and a writing quill, with a small ant circling it.",
     close: "Close the card",
     source: "How do we know this?",
@@ -180,52 +164,39 @@ const copy = {
   },
 } as const;
 
-function FactCard({ fact, open, onOpen, onClose }: {
-  fact: QuranFact; open: boolean; onOpen: () => void; onClose: () => void;
+function FactCard({ fact, state }: {
+  fact: QuranFact; state: FactCardState;
 }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const Icon = ICONS[fact.icon] ?? Sparkles;
   const dir = locale === "ar" ? "rtl" : "ltr";
-  const [from, to] = hueOf(fact.number);
-  const hue = { "--fact-from": from, "--fact-to": to } as React.CSSProperties;
+  const stateCopy = t[state];
+  const hint = state === "current" ? t.currentHint : state === "locked" ? t.lockedHint : state === "completed" ? t.completedHint : undefined;
 
-  if (!open) {
+  if (state === "locked") {
     return (
-      <button type="button" className="fact-card fact-card--closed" style={hue} onClick={onOpen} aria-label={`${t.turn} — ${fact.number}`}>
+      <article className="fact-card fact-card--locked" lang={locale} dir={dir} aria-label={`${stateCopy} — ${fact.number}`}>
         <span className="fact-card__number">{fact.number}</span>
-        <Icon size={26} aria-hidden="true" />
-        <span className="fact-card__prompt">{t.turn}</span>
-      </button>
+        <Lock size={24} aria-hidden="true" />
+        <h3>{fact.title[locale]}</h3>
+        <span className="fact-card__state">{stateCopy}</span>
+        <small>{hint}</small>
+      </article>
     );
   }
 
   return (
-    <article className="fact-card fact-card--open" style={hue} lang={locale} dir={dir}>
+    <Link href={`/quran-facts/${fact.slug}`} className={`fact-card fact-card--${state}`} lang={locale} dir={dir} aria-label={`${stateCopy} — ${fact.title[locale]}`}>
       <div className="fact-card__head">
         <span className="fact-card__badge"><Icon size={14} aria-hidden="true" /> {fact.number}</span>
-        <button type="button" className="fact-card__close" onClick={onClose} aria-label={`${t.close} — ${fact.number}`}>
-          <X size={15} aria-hidden="true" />
-        </button>
+        {state === "completed" && <Check size={17} aria-hidden="true" />}
       </div>
       <h3>{fact.title[locale]}</h3>
-      <p>{fact.body[locale]}</p>
-      {fact.ayahs.map(ayah => (
-        <figure key={ayah.ref} className="fact-card__ayah">
-          <blockquote lang="ar" dir="rtl">{ayah.text}</blockquote>
-          <figcaption lang="ar" dir="rtl">{ayah.ref}</figcaption>
-        </figure>
-      ))}
-      {/* Every card says where it comes from. A child skims past it; the parent
-          reading over their shoulder is the one who needs it. */}
-      <footer className="fact-card__source">
-        <span className="fact-card__source-label">
-          {fact.source.reliability} {fact.source.reliability === "🟡" ? t.needsReview : t.source}
-        </span>
-        <b>{fact.source.reference[locale]}</b>
-        <small>{fact.source.note[locale]}</small>
-      </footer>
-    </article>
+      <p>{state === "completed" ? t.completedHint : fact.body[locale]}</p>
+      <span className="fact-card__state">{stateCopy}</span>
+      {hint && <small>{hint}</small>}
+    </Link>
   );
 }
 
@@ -330,34 +301,17 @@ export default function QuranFacts() {
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
-    const stored = readDiscovered();
+    const stored = readFactDiscoveries(FACT_SLUGS);
     setDiscovered(stored);
     // Land on the first stage that still has something to turn over.
-    const unfinished = STAGES.findIndex(cards => cards.some(f => !stored.includes(f.slug)));
-    setStage(unfinished === -1 ? 0 : unfinished);
+    setStage(firstIncompleteStage(quranFacts, stored, PER_STAGE));
   }, []);
 
-  const open = useCallback((slug: string) => {
-    setDiscovered(current => {
-      if (current.includes(slug)) return current;
-      const next = [...current, slug];
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(next)); } catch { /* private mode */ }
-      return next;
-    });
-  }, []);
-
-  const close = useCallback((slug: string) => {
-    setDiscovered(current => {
-      const next = current.filter(s => s !== slug);
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(next)); } catch { /* private mode */ }
-      return next;
-    });
-  }, []);
-
-  const reset = useCallback(() => {
-    try { localStorage.removeItem(STORE_KEY); } catch { /* private mode */ }
+  const reset = () => {
+    resetFactDiscoveries();
     setDiscovered([]);
-  }, []);
+    setStage(0);
+  };
 
   const total = quranFacts.length;
   const found = discovered.length;
@@ -377,7 +331,7 @@ export default function QuranFacts() {
   const cards = STAGES[stage];
   const stageFound = cards.filter(fact => discovered.includes(fact.slug)).length;
   const stageDone = stageFound === cards.length;
-  const [stageHue] = hueOf(stage * 2 + 1);
+  const activeStage = firstIncompleteStage(quranFacts, discovered, PER_STAGE);
 
   return (
     <main className="site-shell" dir={direction}>
@@ -425,18 +379,19 @@ export default function QuranFacts() {
             <nav className="facts-stages" aria-label={t.stagePick}>
               {STAGES.map((group, index) => {
                 const done = group.filter(fact => discovered.includes(fact.slug)).length;
-                const [hue] = hueOf(index * 2 + 1);
+                const locked = index > activeStage;
                 return (
                   <button
                     key={index}
                     type="button"
-                    className={`facts-stage${index === stage ? " is-current" : ""}${done === group.length ? " is-done" : ""}`}
-                    style={{ "--fact-from": hue } as React.CSSProperties}
+                    className={`facts-stage${index === stage ? " is-current" : ""}${done === group.length ? " is-done" : ""}${locked ? " is-locked" : ""}`}
                     onClick={() => setStage(index)}
                     aria-current={index === stage ? "true" : undefined}
+                    aria-label={locked ? `${t.stages[index]} — ${t.locked}` : undefined}
                   >
                     <span className="facts-stage__name">
                       {done === group.length && <Check size={14} aria-hidden="true" />}
+                      {locked && <Lock size={14} aria-hidden="true" />}
                       {t.stages[index]}
                     </span>
                     <span className="facts-stage__count">{t.stageCount(done, group.length)}</span>
@@ -445,7 +400,7 @@ export default function QuranFacts() {
               })}
             </nav>
 
-            <div className="facts-progress" style={{ "--fact-from": stageHue } as React.CSSProperties}>
+            <div className="facts-progress">
               <p className="facts-progress__count">
                 {t.stageRange(cards[0].number, cards[cards.length - 1].number)}
                 {" · "}
@@ -514,9 +469,7 @@ export default function QuranFacts() {
                 <li key={fact.slug}>
                   <FactCard
                     fact={fact}
-                    open={discovered.includes(fact.slug)}
-                    onOpen={() => open(fact.slug)}
-                    onClose={() => close(fact.slug)}
+                    state={factCardState(quranFacts, discovered, quranFacts.indexOf(fact), PER_STAGE)}
                   />
                 </li>
               ))}
