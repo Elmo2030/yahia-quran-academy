@@ -756,6 +756,19 @@ export function practiceRecitals(profile: ChildProfile): Array<{ surah: number; 
   return out.sort((a, b) => (a.record.reviewedAt ?? 0) - (b.record.reviewedAt ?? 0));
 }
 
+/** Recitals a parent has recently reviewed, newest first. The parent corner
+ * keeps these visible after the live queue so the family can see the latest
+ * decision without treating a completed recital as work that is still due. */
+export function reviewedRecitals(profile: ChildProfile): Array<{ surah: number; from: number; to: number; record: StepRecord }> {
+  const out: Array<{ surah: number; from: number; to: number; record: StepRecord }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status !== "reviewed") continue;
+    const segment = parseRecitalKey(key);
+    if (segment) out.push({ ...segment, record });
+  }
+  return out.sort((a, b) => (b.record.reviewedAt ?? 0) - (a.record.reviewedAt ?? 0));
+}
+
 /** At most this many ayahs offered in one recital — long enough to mean
  *  something, short enough that a 6 to 11 year old can hold it in memory at
  *  once. Only bounds a *fresh* segment; a segment already sent back for

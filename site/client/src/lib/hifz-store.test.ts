@@ -34,6 +34,7 @@ import {
   pendingRecitals,
   practiceRecitals,
   recitalEntrySegment,
+  reviewedRecitals,
   registerDeed,
   removeProfile,
   restartReviews,
@@ -565,6 +566,20 @@ describe("recitals", () => {
     p = submitRecital(p, profile.id, 114, 3, 4, "b", 2000);
     p = askForPractice(p, profile.id, 114, 3, 4, undefined, 2000);
     expect(practiceRecitals(activeProfile(p)!).map(r => `${r.from}-${r.to}`)).toEqual(["3-4", "1-2"]);
+  });
+
+  it("keeps awaiting recitals first, then practice, then recently reviewed recitals", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = submitRecital(store, profile.id, 114, 1, 2, "older", 1000);
+    s = submitRecital(s, profile.id, 114, 3, 4, "newer", 3000);
+    s = submitRecital(s, profile.id, 114, 5, 5, "reviewed", 2000);
+    s = askForPractice(s, profile.id, 114, 3, 4, undefined, 4000);
+    s = approveRecital(s, profile.id, 114, 5, 5, undefined, 5000);
+
+    const child = activeProfile(s)!;
+    expect(pendingRecitals(child).map(r => `${r.from}-${r.to}`)).toEqual(["1-2"]);
+    expect(practiceRecitals(child).map(r => `${r.from}-${r.to}`)).toEqual(["3-4"]);
+    expect(reviewedRecitals(child).map(r => `${r.from}-${r.to}`)).toEqual(["5-5"]);
   });
 
   it("surfaces the most recent unseen note, whichever way the recital went, until the child opens it", () => {
