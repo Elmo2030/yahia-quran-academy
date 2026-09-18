@@ -176,19 +176,26 @@ function parseAyahs(value: unknown): Record<string, AyahRecord> {
 export type StepRef =
   | { kind: "ayah"; surah: number; ayah: number }
   | { kind: "story"; chapter: string; slug: string }
-  | { kind: "deed"; chapter: string; slug: string };
+  | { kind: "deed"; chapter: string; slug: string }
+  | { kind: "recital"; surah: number; from: number; to: number };
 
 type StoryOrDeedRef = Extract<StepRef, { kind: "story" | "deed" }>;
+type RecitalRef = Extract<StepRef, { kind: "recital" }>;
+type KeyableRef = StoryOrDeedRef | RecitalRef;
 
 /**
  * available: offered, nothing done yet — the default for anything not in the
  *   map, so most steps need no entry at all.
  * in_progress / done: the child started it, then finished it.
- * awaiting_parent: a deed the child said they did, waiting on a parent's word.
- * reviewed: a parent put their name to it — the deed's equivalent of an
- *   ayah's `declaredBy: "parent"`.
+ * awaiting_parent: a deed or recital the child said was done, waiting on a
+ *   parent's word.
+ * needs_practice: a parent heard a recital and asked for it again — a
+ *   recital-only status; a deed only ever goes back to "available" (see
+ *   declineDeed) because there is nothing to practise about a deed.
+ * reviewed: a parent put their name to it — the equivalent of an ayah's
+ *   `declaredBy: "parent"`.
  */
-export type StepStatus = "available" | "in_progress" | "done" | "awaiting_parent" | "reviewed";
+export type StepStatus = "available" | "in_progress" | "done" | "awaiting_parent" | "reviewed" | "needs_practice";
 
 /**
  * What the story asked for, captured at the moment a deed is registered —
@@ -210,15 +217,30 @@ export type StepRecord = {
   reviewedAt?: number;
   /** only ever set on a "deed" entry */
   story?: StepStoryInfo;
+  /** the recording a "recital" entry was submitted with — only ever set there */
+  recordingId?: string;
+  /** a parent's encouragement on a "recital" entry, and whether the child has
+   *  opened it yet */
+  note?: string;
+  noteSeenAt?: number;
 };
 
-export const stepKey = (ref: StoryOrDeedRef) => `${ref.kind}:${ref.chapter}:${ref.slug}`;
+export function stepKey(ref: KeyableRef): string {
+  if (ref.kind === "recital") return `recital:${ref.surah}:${ref.from}-${ref.to}`;
+  return `${ref.kind}:${ref.chapter}:${ref.slug}`;
+}
 
-const STEP_STATUSES: StepStatus[] = ["available", "in_progress", "done", "awaiting_parent", "reviewed"];
-const STEP_KEY = /^(story|deed):[^:]{1,80}:[^:]{1,80}$/;
+// Every kind this map can hold, its key shape, and the statuses valid for it.
+// A kind or a status left out of these two is not a bug that shows up while
+// the page is open — the record round-trips through React state untouched —
+// it shows up the next time the store is parsed from disk, when parseSteps
+// silently drops the entry. See hifz-store.test.ts's round-trip test.
+const STEP_STATUSES: StepStatus[] = ["available", "in_progress", "done", "awaiting_parent", "reviewed", "needs_practice"];
+const STEP_KEY = /^(?:(?:story|deed):[^:]{1,80}:[^:]{1,80}|recital:\d{1,3}:\d{1,3}-\d{1,3})$/;
 // Generous bounds for authored sentences, not user input — just enough to
 // keep a corrupted or hand-edited entry from ballooning localStorage.
 const MAX_STORY_FIELD = 600;
+const MAX_RECORDING_ID = 128;
 
 function isShortString(value: unknown): value is string {
   return typeof value === "string" && value.length > 0 && value.length <= MAX_STORY_FIELD;
@@ -247,6 +269,9 @@ function parseSteps(value: unknown): Record<string, StepRecord> {
     if (isTime(entry.reviewedAt)) record.reviewedAt = entry.reviewedAt;
     const story = parseStepStory(entry.story);
     if (story) record.story = story;
+    if (typeof entry.recordingId === "string" && entry.recordingId.length > 0 && entry.recordingId.length <= MAX_RECORDING_ID) record.recordingId = entry.recordingId;
+    if (isShortString(entry.note)) record.note = entry.note;
+    if (isTime(entry.noteSeenAt)) record.noteSeenAt = entry.noteSeenAt;
     out[key] = record;
   }
   return out;
@@ -520,16 +545,19 @@ export function setParentLock(store: HifzStore, lock: ParentLock | null): HifzSt
 }
 
 /**
- * A parent putting their name to what a child declared in one surah. It only
- * moves declarations the child made themselves; it never declares an ayah the
- * child has not.
+ * A parent putting their name to what a child declared in a range of ayahs
+ * of one surah — `1` to `total` for a whole surah (HifzParent's per-surah
+ * "confirm" button), or a narrower range for one recital's segment
+ * (approveRecital below, which reuses this rather than repeating it). It
+ * only moves declarations the child made themselves; it never declares an
+ * ayah the child has not.
  */
-export function confirmDeclarations(store: HifzStore, profileId: string, surah: number, total: number): HifzStore {
+export function confirmDeclarations(store: HifzStore, profileId: string, surah: number, from: number, to: number): HifzStore {
   const profile = store.profiles.find(p => p.id === profileId);
   if (!profile) return store;
   const ayahs = { ...profile.ayahs };
   let changed = false;
-  for (let ayah = 1; ayah <= total; ayah++) {
+  for (let ayah = from; ayah <= to; ayah++) {
     const key = ayahKey(surah, ayah);
     const record = ayahs[key];
     if (record?.declaredAt && record.declaredBy === "child") {
@@ -558,7 +586,7 @@ export function surahProgress(profile: ChildProfile, surah: number, total: numbe
 function withStep(
   store: HifzStore,
   profileId: string,
-  ref: StoryOrDeedRef,
+  ref: KeyableRef,
   change: (record: StepRecord | undefined) => StepRecord | undefined,
 ): HifzStore {
   if (!store.profiles.some(p => p.id === profileId)) return store;
@@ -603,7 +631,7 @@ export const declineDeed = (store: HifzStore, profileId: string, chapter: string
 export const markStoryDone = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
   withStep(store, profileId, { kind: "story", chapter, slug }, current => (current?.status === "done" ? current : { status: "done", doneAt: now }));
 
-export const stepStatus = (profile: ChildProfile, ref: StoryOrDeedRef): StepStatus => profile.steps[stepKey(ref)]?.status ?? "available";
+export const stepStatus = (profile: ChildProfile, ref: KeyableRef): StepStatus => profile.steps[stepKey(ref)]?.status ?? "available";
 
 /** Every deed a parent has not yet put their name to, oldest first. */
 export function pendingDeeds(profile: ChildProfile): Array<{ chapter: string; slug: string; record: StepRecord }> {
@@ -628,6 +656,98 @@ export function confirmedDeeds(profile: ChildProfile): Array<{ chapter: string; 
     out.push({ chapter, slug, record });
   }
   return out.sort((a, b) => (b.record.reviewedAt ?? 0) - (a.record.reviewedAt ?? 0));
+}
+
+// ---------------------------------------------------------------------------
+// A recital: a child reciting a segment of ayahs from memory, recorded, and
+// judged by a parent — the moment that actually proves memorization, as
+// opposed to the child's own "I know it" declaration above.
+// ---------------------------------------------------------------------------
+
+/** Not on the journey is caught elsewhere; a from/to that is not even a
+ *  range is a programming error worth refusing rather than keying a store
+ *  entry on. */
+function validSegment(surah: number, from: number, to: number) {
+  return Number.isInteger(surah) && Number.isInteger(from) && Number.isInteger(to) && from >= 1 && to >= from;
+}
+
+/**
+ * A child finished reciting a segment from memory and wants a parent's word
+ * on it. Every submission overwrites whatever was there — unlike a deed, a
+ * fresh recording is itself a new, deliberate action each time, so there is
+ * no double-submit to guard against, and a recording made after "needs
+ * practice" returns the segment to "awaiting_parent" the same way a first
+ * one does.
+ */
+export function submitRecital(store: HifzStore, profileId: string, surah: number, from: number, to: number, recordingId: string, now = Date.now()): HifzStore {
+  if (!validSegment(surah, from, to)) return store;
+  return withStep(store, profileId, { kind: "recital", surah, from, to }, () => ({ status: "awaiting_parent", doneAt: now, awaitingAt: now, recordingId }));
+}
+
+/**
+ * A parent's "ready": the recital is marked reviewed, and any ayah in the
+ * segment the child declared themselves is promoted to a parent's
+ * declaration too — confirmDeclarations' own logic, narrowed to the segment
+ * rather than reimplemented.
+ */
+export function approveRecital(store: HifzStore, profileId: string, surah: number, from: number, to: number, note?: string, now = Date.now()): HifzStore {
+  if (!validSegment(surah, from, to)) return store;
+  const before = store.profiles.find(p => p.id === profileId)?.steps[stepKey({ kind: "recital", surah, from, to })];
+  if (before?.status !== "awaiting_parent") return store;
+  const approved = withStep(store, profileId, { kind: "recital", surah, from, to }, current =>
+    ({ ...current!, status: "reviewed", reviewedAt: now, ...(note ? { note } : {}) }));
+  return confirmDeclarations(approved, profileId, surah, from, to);
+}
+
+/**
+ * A parent's "needs practice": the child's own declarations in the segment
+ * stand — they are still the child's word, exactly as restartReviews leaves
+ * a "forgot it" declaration standing — but the review schedule for every
+ * ayah in the segment restarts from today, by calling restartReviews itself
+ * rather than re-deriving its spacing rule here.
+ */
+export function askForPractice(store: HifzStore, profileId: string, surah: number, from: number, to: number, note?: string, now = Date.now()): HifzStore {
+  if (!validSegment(surah, from, to)) return store;
+  const before = store.profiles.find(p => p.id === profileId)?.steps[stepKey({ kind: "recital", surah, from, to })];
+  if (before?.status !== "awaiting_parent") return store;
+  let next = withStep(store, profileId, { kind: "recital", surah, from, to }, current =>
+    ({ ...current!, status: "needs_practice", reviewedAt: now, ...(note ? { note } : {}) }));
+  for (let ayah = from; ayah <= to; ayah++) next = restartReviews(next, profileId, surah, ayah, now);
+  return next;
+}
+
+/** The child has opened the parent's encouragement note. */
+export function markNoteSeen(store: HifzStore, profileId: string, surah: number, from: number, to: number, now = Date.now()): HifzStore {
+  return withStep(store, profileId, { kind: "recital", surah, from, to }, current =>
+    (current?.note && !current.noteSeenAt ? { ...current, noteSeenAt: now } : current));
+}
+
+function parseRecitalKey(key: string): { surah: number; from: number; to: number } | null {
+  const match = /^recital:(\d{1,3}):(\d{1,3})-(\d{1,3})$/.exec(key);
+  return match ? { surah: Number(match[1]), from: Number(match[2]), to: Number(match[3]) } : null;
+}
+
+/** Every recital a parent has not yet judged, oldest first. */
+export function pendingRecitals(profile: ChildProfile): Array<{ surah: number; from: number; to: number; record: StepRecord }> {
+  const out: Array<{ surah: number; from: number; to: number; record: StepRecord }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status !== "awaiting_parent") continue;
+    const segment = parseRecitalKey(key);
+    if (segment) out.push({ ...segment, record });
+  }
+  return out.sort((a, b) => (a.record.awaitingAt ?? 0) - (b.record.awaitingAt ?? 0));
+}
+
+/** Every recital sitting at "needs practice", waiting for the child to try
+ *  again — oldest first, since that one has waited longest. */
+export function practiceRecitals(profile: ChildProfile): Array<{ surah: number; from: number; to: number; record: StepRecord }> {
+  const out: Array<{ surah: number; from: number; to: number; record: StepRecord }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status !== "needs_practice") continue;
+    const segment = parseRecitalKey(key);
+    if (segment) out.push({ ...segment, record });
+  }
+  return out.sort((a, b) => (a.record.reviewedAt ?? 0) - (b.record.reviewedAt ?? 0));
 }
 
 // ---------------------------------------------------------------------------

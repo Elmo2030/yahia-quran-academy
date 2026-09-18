@@ -7,6 +7,8 @@ import {
   MAX_NAME_LENGTH,
   MAX_PROFILES,
   activeProfile,
+  approveRecital,
+  askForPractice,
   cleanName,
   backupIsStale,
   confirmDeclarations,
@@ -23,11 +25,14 @@ import {
   loadStore,
   markBackedUp,
   markListened,
+  markNoteSeen,
   markReviewed,
   markRecorded,
   markStoryDone,
   parseStore,
   pendingDeeds,
+  pendingRecitals,
+  practiceRecitals,
   registerDeed,
   removeProfile,
   restartReviews,
@@ -35,6 +40,7 @@ import {
   selectProfile,
   setParentLock,
   stepStatus,
+  submitRecital,
   surahProgress,
   updateProfile,
   updateSettings,
@@ -336,13 +342,13 @@ describe("the parent's side", () => {
     let s = declareMemorized(store, profile.id, 112, 1, "child", 10);
     s = declareMemorized(s, profile.id, 112, 2, "parent", 20);
     s = markListened(s, profile.id, 112, 3, 30); // listened, never declared
-    const after = confirmDeclarations(s, profile.id, 112, 4);
+    const after = confirmDeclarations(s, profile.id, 112, 1, 4);
     const ayahs = activeProfile(after)!.ayahs;
     expect(ayahs["112:1"]).toMatchObject({ declaredBy: "parent", declaredAt: 10 });
     expect(ayahs["112:2"]).toMatchObject({ declaredBy: "parent", declaredAt: 20 });
     expect(ayahs["112:3"].declaredAt).toBeUndefined();
     // Nothing left to confirm leaves the store alone.
-    expect(confirmDeclarations(after, profile.id, 112, 4)).toBe(after);
+    expect(confirmDeclarations(after, profile.id, 112, 1, 4)).toBe(after);
   });
 });
 
@@ -449,5 +455,83 @@ describe("steps beyond an ayah", () => {
 
     const again = markStoryDone(done, profile.id, "nations", "luqman", 9999);
     expect(again).toBe(done);
+  });
+});
+
+describe("recitals", () => {
+  // This is the test that catches the two traps STEP_KEY and STEP_STATUSES
+  // set: a status or a key shape this regex or this list does not know about
+  // parses fine in memory and only disappears the next time the page loads.
+  it("round-trips every recital status, its note and its recording id through save and load", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = submitRecital(store, profile.id, 114, 1, 3, "rec-1", 1000);
+    s = submitRecital(s, profile.id, 114, 4, 5, "rec-2", 2000);
+    s = askForPractice(s, profile.id, 114, 4, 5, "حاول تاني بهدوء", 2500);
+    s = submitRecital(s, profile.id, 114, 6, 6, "rec-3", 3000);
+    s = approveRecital(s, profile.id, 114, 6, 6, "ما شاء الله!", 3500);
+    s = markNoteSeen(s, profile.id, 114, 6, 6, 4000);
+
+    const reloaded = parseStore(JSON.parse(JSON.stringify(s)));
+    expect(reloaded.profiles[0].steps).toEqual(s.profiles[0].steps);
+    expect(reloaded.profiles[0].steps["recital:114:1-3"]).toMatchObject({ status: "awaiting_parent", recordingId: "rec-1" });
+    expect(reloaded.profiles[0].steps["recital:114:4-5"]).toMatchObject({ status: "needs_practice", note: "حاول تاني بهدوء" });
+    expect(reloaded.profiles[0].steps["recital:114:6-6"]).toMatchObject({ status: "reviewed", note: "ما شاء الله!", noteSeenAt: 4000 });
+  });
+
+  it("lets a child submit again after needing practice, and the segment returns to awaiting_parent", () => {
+    const { store, profile } = withChild("Yusra");
+    const first = submitRecital(store, profile.id, 114, 1, 3, "rec-1", 1000);
+    const practiced = askForPractice(first, profile.id, 114, 1, 3, undefined, 2000);
+    expect(stepStatus(activeProfile(practiced)!, { kind: "recital", surah: 114, from: 1, to: 3 })).toBe("needs_practice");
+
+    const resubmitted = submitRecital(practiced, profile.id, 114, 1, 3, "rec-2", 3000);
+    expect(stepStatus(activeProfile(resubmitted)!, { kind: "recital", surah: 114, from: 1, to: 3 })).toBe("awaiting_parent");
+    expect(activeProfile(resubmitted)!.steps["recital:114:1-3"].recordingId).toBe("rec-2");
+  });
+
+  it("keeps the child's own declaration standing after 'needs practice', but restarts its review spacing", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = declareMemorized(store, profile.id, 114, 1, "child", 1000);
+    s = declareMemorized(s, profile.id, 114, 2, "child", 1000);
+    s = submitRecital(s, profile.id, 114, 1, 2, "rec-1", 2000);
+    const practiced = askForPractice(s, profile.id, 114, 1, 2, undefined, 5000);
+
+    const ayahs = activeProfile(practiced)!.ayahs;
+    expect(ayahs["114:1"]).toMatchObject({ declaredAt: 1000, declaredBy: "child", forgotAt: 5000 });
+    expect(ayahs["114:2"]).toMatchObject({ declaredAt: 1000, declaredBy: "child", forgotAt: 5000 });
+    expect(stepStatus(activeProfile(practiced)!, { kind: "recital", surah: 114, from: 1, to: 2 })).toBe("needs_practice");
+  });
+
+  it("does nothing when asked to judge a recital nobody submitted", () => {
+    const { store, profile } = withChild("Yusra");
+    expect(approveRecital(store, profile.id, 114, 1, 3)).toBe(store);
+    expect(askForPractice(store, profile.id, 114, 1, 3)).toBe(store);
+  });
+
+  it("promotes the child's declarations inside the segment only, on approval", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = declareMemorized(store, profile.id, 114, 1, "child", 1000);
+    s = declareMemorized(s, profile.id, 114, 2, "child", 1000);
+    s = declareMemorized(s, profile.id, 114, 3, "child", 1000); // outside the recital
+    s = submitRecital(s, profile.id, 114, 1, 2, "rec-1", 2000);
+
+    const approved = approveRecital(s, profile.id, 114, 1, 2, undefined, 3000);
+    const ayahs = activeProfile(approved)!.ayahs;
+    expect(ayahs["114:1"].declaredBy).toBe("parent");
+    expect(ayahs["114:2"].declaredBy).toBe("parent");
+    expect(ayahs["114:3"].declaredBy).toBe("child"); // untouched — outside the segment
+    expect(stepStatus(activeProfile(approved)!, { kind: "recital", surah: 114, from: 1, to: 2 })).toBe("reviewed");
+  });
+
+  it("orders pending and practice recitals oldest first", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = submitRecital(store, profile.id, 114, 1, 2, "a", 3000);
+    s = submitRecital(s, profile.id, 114, 3, 4, "b", 1000);
+    expect(pendingRecitals(activeProfile(s)!).map(r => `${r.from}-${r.to}`)).toEqual(["3-4", "1-2"]);
+
+    let p = askForPractice(submitRecital(store, profile.id, 114, 1, 2, "a", 1000), profile.id, 114, 1, 2, undefined, 5000);
+    p = submitRecital(p, profile.id, 114, 3, 4, "b", 2000);
+    p = askForPractice(p, profile.id, 114, 3, 4, undefined, 2000);
+    expect(practiceRecitals(activeProfile(p)!).map(r => `${r.from}-${r.to}`)).toEqual(["3-4", "1-2"]);
   });
 });

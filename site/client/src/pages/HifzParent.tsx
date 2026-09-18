@@ -479,7 +479,7 @@ function ChildReport({ t, profile, store, commit }: {
                 </span>
                 <small>{t.declaredBy(row.byChild, row.byParent)}</small>
                 {row.byChild > 0 ? (
-                  <button type="button" className="button button--soft" onClick={() => commit(confirmDeclarations(store, profile.id, row.surah, row.total))}>
+                  <button type="button" className="button button--soft" onClick={() => commit(confirmDeclarations(store, profile.id, row.surah, 1, row.total))}>
                     <BadgeCheck size={16} aria-hidden="true" /> {t.confirm}
                   </button>
                 ) : row.byParent > 0 ? <em>{t.confirmed}</em> : null}
