@@ -27,7 +27,7 @@ import { useHifzStore } from "@/hooks/useHifzStore";
 import { useRecorder } from "@/hooks/useRecorder";
 import { characterArt, type Pose } from "@/lib/hifz-characters";
 import {
-  activeProfile, ayahKey, stepStatus, submitRecital, type ChildProfile, type HifzStore,
+  activeProfile, recitalEntrySegment, stepStatus, submitRecital, type ChildProfile, type HifzStore,
 } from "@/lib/hifz-store";
 import { ayahCountOf, isJourneySurah } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName, loadSurah, type Ayah } from "@/lib/quran-content";
@@ -101,47 +101,6 @@ const copy = {
 
 type Copy = (typeof copy)["ar"];
 
-/** At most this many ayahs in one recital — long enough to mean something,
- *  short enough that a 6 to 11 year old can hold it in memory at once. */
-const MAX_SEGMENT_LENGTH = 5;
-
-/**
- * Every ayah already part of a recital of this surah that is either still
- * awaiting a parent's word or already approved — a fresh default segment
- * starts past them. A segment sitting at "needs practice" is deliberately
- * left out: those ayahs stay "declared and not covered", so the very same
- * default-segment computation naturally offers that segment again next time
- * the child opens this screen, without a separate retry link to build.
- */
-function coveredAyahs(profile: ChildProfile, surah: number): Set<number> {
-  const covered = new Set<number>();
-  for (const [key, record] of Object.entries(profile.steps)) {
-    if (record.status === "needs_practice") continue;
-    const match = /^recital:(\d+):(\d+)-(\d+)$/.exec(key);
-    if (match && Number(match[1]) === surah) {
-      for (let ayah = Number(match[2]); ayah <= Number(match[3]); ayah++) covered.add(ayah);
-    }
-  }
-  return covered;
-}
-
-/** The longest run of declared, not-yet-covered ayahs starting at the first
- *  such ayah, capped at MAX_SEGMENT_LENGTH. Null when there is nothing to
- *  offer — the entry point into this screen checks the same thing, so a
- *  child only reaches here with something to recite. */
-function defaultSegment(profile: ChildProfile, surah: number, total: number): { from: number; to: number } | null {
-  const covered = coveredAyahs(profile, surah);
-  const declared = (ayah: number) => Boolean(profile.ayahs[ayahKey(surah, ayah)]?.declaredAt);
-  let from = -1;
-  for (let ayah = 1; ayah <= total; ayah++) {
-    if (declared(ayah) && !covered.has(ayah)) { from = ayah; break; }
-  }
-  if (from === -1) return null;
-  let to = from;
-  while (to < total && to - from + 1 < MAX_SEGMENT_LENGTH && declared(to + 1) && !covered.has(to + 1)) to++;
-  return { from, to };
-}
-
 export default function HifzRecite() {
   const { direction, locale } = useLocale();
   const t = copy[locale];
@@ -154,7 +113,7 @@ export default function HifzRecite() {
   // a recital covers its own ayahs, which would otherwise make this null the
   // instant it is pressed and swap the "submitted" screen for "nothing left
   // to recite" before the child ever saw it.
-  const segment = useMemo(() => (profile ? defaultSegment(profile, surah, total) : null), [profile?.id, surah]);
+  const segment = useMemo(() => (profile ? recitalEntrySegment(profile, surah, total) : null), [profile?.id, surah]);
 
   let body;
   if (!Number.isInteger(surah) || !isJourneySurah(surah)) {
@@ -194,7 +153,8 @@ function Notice({ title, text, href, cta }: { title: string; text: string; href:
 // ---------------------------------------------------------------------------
 
 function Recite({ t, surah, total, initial, profile, update }: {
-  t: Copy; surah: number; total: number; initial: { from: number; to: number };
+  t: Copy; surah: number; total: number;
+  initial: { from: number; to: number; status: "needs_practice" | "awaiting_parent" | null };
   profile: ChildProfile; update: (change: (latest: HifzStore) => HifzStore) => boolean;
 }) {
   const { locale } = useLocale();
@@ -203,6 +163,11 @@ function Recite({ t, surah, total, initial, profile, update }: {
 
   const [to, setTo] = useState(initial.to);
   const from = initial.from;
+  // A segment that already has a recital record of its own — sent back for
+  // practice, or already sitting with a parent — keeps the exact range it
+  // was submitted with; shortening it would key a second, unrelated record
+  // instead of resubmitting the one the parent is waiting on.
+  const canShorten = initial.status === null;
   const [revealed, setRevealed] = useState(false);
   const [texts, setTexts] = useState<Ayah[] | null>(null);
   const [justSubmitted, setJustSubmitted] = useState(false);
@@ -270,19 +235,19 @@ function Recite({ t, surah, total, initial, profile, update }: {
 
         {recorder.state !== "recording" && !recorder.latest && (
           <>
-            {to > from && (
-              <div className="hifz-actions">
-                <button type="button" className="button button--soft" onClick={() => setTo(t_ => Math.max(from, t_ - 1))}>
-                  <Minus size={16} aria-hidden="true" /> {t.shorten}
-                </button>
-              </div>
-            )}
             <p className="hifz-muted">{t.readyBody}</p>
             <div className="hifz-actions">
               <button type="button" className="button button--primary" onClick={() => void recorder.start()} disabled={recorder.state === "asking"}>
                 {recorder.state === "asking" ? <Loader2 className="animate-spin" size={18} aria-hidden="true" /> : <Mic size={18} aria-hidden="true" />} {t.start}
               </button>
             </div>
+            {canShorten && to > from && (
+              <div className="hifz-actions">
+                <button type="button" className="button button--soft" onClick={() => setTo(t_ => Math.max(from, t_ - 1))}>
+                  <Minus size={16} aria-hidden="true" /> {t.shorten}
+                </button>
+              </div>
+            )}
             {recorder.error && (
               <div className="hifz-confirm" role="alert">
                 <p>{recorder.error}</p>

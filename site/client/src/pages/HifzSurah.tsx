@@ -23,7 +23,7 @@ import { useRecorder } from "@/hooks/useRecorder";
 import { playAyahLoop } from "@/lib/ayah-loop";
 import { characterArt, type Pose } from "@/lib/hifz-characters";
 import {
-  RECITATION_FOR, activeProfile, ayahKey, declareMemorized, markListened, markRecorded, surahProgress, updateSettings,
+  RECITATION_FOR, activeProfile, ayahKey, declareMemorized, markListened, markRecorded, recitalEntrySegment, surahProgress, updateSettings,
   withdrawDeclaration, type ChildProfile, type DeclaredBy, type HifzStore, type ReciterChoice,
 } from "@/lib/hifz-store";
 import { ayahCountOf, isJourneySurah, nextJourneySurah } from "@/lib/juz-amma";
@@ -192,6 +192,7 @@ function Memorize({ t, surah, profile, update }: {
 }) {
   const { locale } = useLocale();
   const total = ayahCountOf(surah);
+  const recitalSegment = recitalEntrySegment(profile, surah, total);
   const name = locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah);
   const settings = profile.settings;
   const recitationId = RECITATION_FOR[settings.reciter];
@@ -469,7 +470,7 @@ function Memorize({ t, surah, profile, update }: {
         {/* The moment a parent actually judges memorization, not the child's
             own "I know it" — offered once there is at least one declared
             ayah for it to recite. */}
-        {progress.declared > 0 && (
+        {recitalSegment && (
           <p className="hifz-parent-link">
             <Link href={`/hifz/${surah}/recite`} className="text-link"><Mic size={15} aria-hidden="true" /> {t.reciteSegment}</Link>
           </p>

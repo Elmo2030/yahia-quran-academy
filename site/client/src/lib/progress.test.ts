@@ -23,7 +23,8 @@ import {
   mergeLibrarySlugs,
 } from "@/lib/progress";
 import {
-  createProfile, declareMemorized, emptyStore, registerDeed, saveStore, type StepStoryInfo,
+  askForPractice, createProfile, declareMemorized, emptyStore, registerDeed, saveStore, submitRecital,
+  type StepStoryInfo,
 } from "@/lib/hifz-store";
 
 const SAMPLE_DEED_STORY: StepStoryInfo = {
@@ -110,6 +111,50 @@ describe("nextStep", () => {
       ref: { kind: "ayah", surah: 114, ayah: 1 },
       href: "/hifz/114",
     });
+  });
+
+  it("sends a child to a recital sent back for practice, ahead of anything merely waiting on a parent", () => {
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    let s = submitRecital(created.store, created.profile.id, 114, 1, 3, "rec-1", 1000);
+    s = askForPractice(s, created.profile.id, 114, 1, 3, undefined, 2000);
+    // A deed submitted after the practice ask still does not outrank it.
+    s = registerDeed(s, created.profile.id, "nations", "luqman", SAMPLE_DEED_STORY, 3000);
+    saveStore(s);
+
+    expect(nextStep(null)).toEqual({
+      ref: { kind: "recital", surah: 114, from: 1, to: 3 },
+      href: "/hifz/114/recite",
+      needsPractice: true,
+    });
+  });
+
+  it("picks whichever of a pending recital or a pending deed has waited longest", () => {
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    let s = registerDeed(created.store, created.profile.id, "nations", "luqman", SAMPLE_DEED_STORY, 5000);
+    s = submitRecital(s, created.profile.id, 114, 1, 3, "rec-1", 1000);
+    saveStore(s);
+
+    // The recital was submitted first, so it is the one still waiting longest.
+    expect(nextStep(null)).toEqual({
+      ref: { kind: "recital", surah: 114, from: 1, to: 3 },
+      href: "/hifz/114/recite",
+    });
+  });
+
+  it("picks a due review over a recital needing practice, on the same child", () => {
+    // Surah 1 for the due ayah, 114 for the recital: on different journey
+    // surahs, so nothing about one incidentally satisfies the other.
+    const DAY = 86_400_000;
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    let s = declareMemorized(created.store, created.profile.id, 1, 1, "child", Date.now() - 2 * DAY);
+    s = submitRecital(s, created.profile.id, 114, 1, 3, "rec-1", 1000);
+    s = askForPractice(s, created.profile.id, 114, 1, 3, undefined, 2000);
+    saveStore(s);
+
+    expect(nextStep(null)).toEqual({ ref: { kind: "ayah", surah: 1, ayah: 1 }, href: "/hifz/1" });
   });
 });
 

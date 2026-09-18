@@ -12,7 +12,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { getSupabase } from "@/lib/supabase";
 import { useAuth } from "@/hooks/useAuth";
-import { activeProfile, loadStore, pendingDeeds, type StepRef } from "@/lib/hifz-store";
+import { activeProfile, loadStore, pendingDeeds, pendingRecitals, practiceRecitals, type StepRef } from "@/lib/hifz-store";
 import { reviewQueue } from "@/lib/hifz-review";
 
 const LOCAL_KEY = "yahya.progress.v1";
@@ -82,15 +82,19 @@ export function mergeLibrarySlugs(local: string[], remote: string[]): string[] {
   return out;
 }
 
-export type NextStep = { ref: StepRef; href: string };
+export type NextStep = { ref: StepRef; href: string; needsPractice?: boolean };
 
 /**
  * The one thing to do next, across every kind of step the site tracks — not
- * only the last ayah read in the public reader. An ayah due for review in the
- * memorization journey outranks it, since a child with a review waiting has
- * somewhere more pressing to be than the last page they read; then a deed
- * they are waiting to have confirmed, which sends them back to that story
- * rather than nowhere; then the plain reading progress, unchanged.
+ * only the last ayah read in the public reader. In order:
+ *
+ *   1. an ayah due for review — a child with a review waiting has somewhere
+ *      more pressing to be than the last page they read;
+ *   2. a recital a parent sent back for practice — this is the child's own
+ *      unfinished business, ahead of anything merely waiting on someone else;
+ *   3. a recital or a deed still awaiting a parent's word, earliest first,
+ *      sent back to where it can be checked on rather than nowhere;
+ *   4. the plain reading progress, unchanged.
  *
  * The journey's local store (see hifz-store.ts) is only read here to decide
  * what to show — nothing is written to it, and nothing about it leaves the
@@ -103,7 +107,23 @@ export function nextStep(local: LocalProgress | null): NextStep | null {
   if (child) {
     const due = reviewQueue(child)[0];
     if (due) return { ref: { kind: "ayah", surah: due.surah, ayah: due.ayah }, href: `/hifz/${due.surah}` };
+
+    const practice = practiceRecitals(child)[0];
+    if (practice) {
+      return {
+        ref: { kind: "recital", surah: practice.surah, from: practice.from, to: practice.to },
+        href: `/hifz/${practice.surah}/recite`,
+        needsPractice: true,
+      };
+    }
+
+    const recital = pendingRecitals(child)[0];
     const deed = pendingDeeds(child)[0];
+    const recitalAt = recital?.record.awaitingAt ?? Infinity;
+    const deedAt = deed?.record.awaitingAt ?? Infinity;
+    if (recital && recitalAt <= deedAt) {
+      return { ref: { kind: "recital", surah: recital.surah, from: recital.from, to: recital.to }, href: `/hifz/${recital.surah}/recite` };
+    }
     if (deed) return { ref: { kind: "deed", chapter: deed.chapter, slug: deed.slug }, href: `/stories/${deed.chapter}/${deed.slug}` };
   }
   if (local) return { ref: { kind: "ayah", surah: local.surah, ayah: local.ayah }, href: `/read/${local.surah}` };

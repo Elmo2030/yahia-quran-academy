@@ -756,6 +756,93 @@ export function practiceRecitals(profile: ChildProfile): Array<{ surah: number; 
   return out.sort((a, b) => (a.record.reviewedAt ?? 0) - (b.record.reviewedAt ?? 0));
 }
 
+/** At most this many ayahs offered in one recital — long enough to mean
+ *  something, short enough that a 6 to 11 year old can hold it in memory at
+ *  once. Only bounds a *fresh* segment; a segment already sent back for
+ *  practice or already awaiting a parent keeps whatever length it was
+ *  submitted with. */
+export const MAX_RECITAL_SEGMENT = 5;
+
+function recitalRangesFor(profile: ChildProfile, surah: number): Array<{ from: number; to: number; status: StepStatus; at: number }> {
+  const out: Array<{ from: number; to: number; status: StepStatus; at: number }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    const segment = parseRecitalKey(key);
+    if (segment && segment.surah === surah) {
+      out.push({ from: segment.from, to: segment.to, status: record.status, at: record.awaitingAt ?? record.reviewedAt ?? 0 });
+    }
+  }
+  return out;
+}
+
+/**
+ * The one recital segment this screen should offer right now, and why —
+ * shared by HifzSurah's entry link (should it show at all?) and HifzRecite's
+ * default segment (which one, and what does the child see about it?), so the
+ * two cannot silently disagree about what is left to recite.
+ *
+ * In order:
+ *   1. a segment sent back for practice — the child's own unfinished
+ *      business, offered again exactly as submitted;
+ *   2. the longest run of declared ayahs not already reviewed by a parent.
+ *      A recording that is awaiting a parent, or was sent back for practice,
+ *      is still open work and must remain available to the child;
+ *   3. failing either, a segment still awaiting a parent's word — recording
+ *      again is allowed, the badge just says so.
+ * Null only once every declared ayah is either reviewed or has nothing
+ * declared to begin with.
+ */
+export function recitalEntrySegment(
+  profile: ChildProfile, surah: number, total: number,
+): { from: number; to: number; status: "needs_practice" | "awaiting_parent" | null } | null {
+  const ranges = recitalRangesFor(profile, surah);
+
+  const practice = ranges.filter(r => r.status === "needs_practice").sort((a, b) => a.at - b.at)[0];
+  if (practice) return { from: practice.from, to: practice.to, status: "needs_practice" };
+
+  // Only a parent's reviewed recital proves this ground is covered. Waiting
+  // recordings and practice requests must both lead back into recitation.
+  const covered = new Set<number>();
+  for (const range of ranges) {
+    if (range.status !== "reviewed") continue;
+    for (let ayah = range.from; ayah <= range.to; ayah++) covered.add(ayah);
+  }
+  const declared = (ayah: number) => Boolean(profile.ayahs[ayahKey(surah, ayah)]?.declaredAt);
+  let from = -1;
+  for (let ayah = 1; ayah <= total; ayah++) {
+    if (declared(ayah) && !covered.has(ayah)) { from = ayah; break; }
+  }
+  if (from !== -1) {
+    let to = from;
+    while (to < total && to - from + 1 < MAX_RECITAL_SEGMENT && declared(to + 1) && !covered.has(to + 1)) to++;
+    return { from, to, status: null };
+  }
+
+  const waiting = ranges.filter(r => r.status === "awaiting_parent").sort((a, b) => a.at - b.at)[0];
+  if (waiting) return { from: waiting.from, to: waiting.to, status: "awaiting_parent" };
+
+  return null;
+}
+
+/**
+ * The most recent parent's word the child has not opened yet, whichever way
+ * it went — "ready" or "needs practice" both carry a note the same way, and
+ * the child seeing it is what markNoteSeen is for. Most recent first: an
+ * older unseen note is still true, but a child who has not opened the
+ * journey in a while should meet the latest thing said to them, not the
+ * oldest one still sitting unread.
+ */
+export function unseenNote(profile: ChildProfile): { surah: number; from: number; to: number; note: string; status: StepStatus } | null {
+  let best: { surah: number; from: number; to: number; note: string; status: StepStatus; at: number } | null = null;
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (!record.note || record.noteSeenAt) continue;
+    const segment = parseRecitalKey(key);
+    if (!segment) continue;
+    const at = record.reviewedAt ?? 0;
+    if (!best || at > best.at) best = { ...segment, note: record.note, status: record.status, at };
+  }
+  return best ? { surah: best.surah, from: best.from, to: best.to, note: best.note, status: best.status } : null;
+}
+
 // ---------------------------------------------------------------------------
 // Backup
 // ---------------------------------------------------------------------------

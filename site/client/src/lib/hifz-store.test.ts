@@ -33,6 +33,7 @@ import {
   pendingDeeds,
   pendingRecitals,
   practiceRecitals,
+  recitalEntrySegment,
   registerDeed,
   removeProfile,
   restartReviews,
@@ -42,6 +43,7 @@ import {
   stepStatus,
   submitRecital,
   surahProgress,
+  unseenNote,
   updateProfile,
   updateSettings,
   withdrawDeclaration,
@@ -489,6 +491,29 @@ describe("recitals", () => {
     expect(activeProfile(resubmitted)!.steps["recital:114:1-3"].recordingId).toBe("rec-2");
   });
 
+  it("chooses practice first, leaves awaiting recitals open for a new recording, and covers only reviewed ayahs", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = store;
+    for (let ayah = 1; ayah <= 5; ayah++) s = declareMemorized(s, profile.id, 114, ayah, "child", 1000);
+
+    // A reviewed recital covers 1–2, while 3–4 is still waiting on a parent.
+    s = submitRecital(s, profile.id, 114, 1, 2, "reviewed", 2000);
+    s = approveRecital(s, profile.id, 114, 1, 2, undefined, 3000);
+    s = submitRecital(s, profile.id, 114, 3, 4, "waiting", 4000);
+
+    // Awaiting is not covered: the child can make a new recording for it.
+    expect(recitalEntrySegment(activeProfile(s)!, 114, 5)).toEqual({ from: 3, to: 5, status: null });
+
+    s = askForPractice(s, profile.id, 114, 3, 4, undefined, 5000);
+    // Practice is always the first return path, even though ayah 5 is fresh.
+    expect(recitalEntrySegment(activeProfile(s)!, 114, 5)).toEqual({ from: 3, to: 4, status: "needs_practice" });
+
+    s = submitRecital(s, profile.id, 114, 3, 4, "retry", 6000);
+    s = approveRecital(s, profile.id, 114, 3, 4, undefined, 7000);
+    // Once reviewed, 3–4 is covered and the first unreviewed ayah is offered.
+    expect(recitalEntrySegment(activeProfile(s)!, 114, 5)).toEqual({ from: 5, to: 5, status: null });
+  });
+
   it("submits a recital with no recording at all, for a device with no working microphone", () => {
     const { store, profile } = withChild("Yusra");
     const submitted = submitRecital(store, profile.id, 114, 1, 3, undefined, 1000);
@@ -540,5 +565,24 @@ describe("recitals", () => {
     p = submitRecital(p, profile.id, 114, 3, 4, "b", 2000);
     p = askForPractice(p, profile.id, 114, 3, 4, undefined, 2000);
     expect(practiceRecitals(activeProfile(p)!).map(r => `${r.from}-${r.to}`)).toEqual(["3-4", "1-2"]);
+  });
+
+  it("surfaces the most recent unseen note, whichever way the recital went, until the child opens it", () => {
+    const { store, profile } = withChild("Yusra");
+    let s = submitRecital(store, profile.id, 114, 1, 2, "a", 1000);
+    s = askForPractice(s, profile.id, 114, 1, 2, "حاول تاني", 2000);
+    s = submitRecital(s, profile.id, 114, 3, 4, "b", 3000);
+    s = approveRecital(s, profile.id, 114, 3, 4, "ما شاء الله!", 4000);
+
+    // The later note (the approval) outranks the earlier one (the practice ask).
+    expect(unseenNote(activeProfile(s)!)).toEqual({ surah: 114, from: 3, to: 4, note: "ما شاء الله!", status: "reviewed" });
+
+    const seen = markNoteSeen(s, profile.id, 114, 3, 4, 5000);
+    expect(unseenNote(activeProfile(seen)!)).toEqual({ surah: 114, from: 1, to: 2, note: "حاول تاني", status: "needs_practice" });
+
+    const bothSeen = markNoteSeen(seen, profile.id, 114, 1, 2, 6000);
+    expect(unseenNote(activeProfile(bothSeen)!)).toBeNull();
+    // Marking a note already seen, or a recital with no note at all, changes nothing.
+    expect(markNoteSeen(bothSeen, profile.id, 114, 1, 2)).toBe(bothSeen);
   });
 });

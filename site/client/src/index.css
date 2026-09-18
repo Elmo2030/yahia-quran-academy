@@ -1348,6 +1348,17 @@
   .hifz-memorize__title h1 { font-size: 1.25rem; }
 }
 
+/* Keep the first action reachable on a 375 × 667 phone without letting the
+   fixed journey bar cover the end of the recital screen. */
+@media (max-width: 420px) and (max-height: 700px) {
+  .hifz-memorize { padding-block: .75rem 5.5rem; }
+  .hifz-memorize__inner { gap: .75rem; }
+  .hifz-stage { gap: .35rem; }
+  .hifz-stage__art { max-inline-size: 78px; max-block-size: 104px; }
+  .hifz-ayah { min-block-size: 108px; padding: .7rem .8rem; border-radius: 18px; }
+  .hifz-hidden-ayah { font-size: .9rem; letter-spacing: .2em; }
+}
+
 /* --- The backup reminder and the storage meter -------------------------- */
 .hifz-backup.is-stale { border-color: var(--line-gold); background: linear-gradient(135deg, var(--surface-gold), var(--surface)); }
 .hifz-backup__when { color: var(--ink) !important; font-weight: 800; }
