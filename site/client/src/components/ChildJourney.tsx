@@ -7,14 +7,13 @@ import { activeProfile, inProgressStories, surahProgress } from "@/lib/hifz-stor
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { nextStep, readLocalProgress } from "@/lib/progress";
-import { factIndex } from "@/lib/page-index.generated";
+import { factIndex, storyIndex } from "@/lib/page-index.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
-import { stories } from "@/content/stories";
 
 const copy = {
   ar: {
     label: "رحلتي", firstTitle: "ابدأ رحلتك", firstBody: "اختر ما تحب أن تبدأ به، وستبقى خطواتك محفوظة على هذا الجهاز.",
-    title: "خطوتك الجاية", open: "افتح رحلتي", continue: "تابع الآن", continueStory: "تابع قصتك", explore: "اكتشف في رحلتك",
+    title: "خطوتك الجاية", open: "افتح رحلتي", continue: "تابع الآن", continueStory: (title: string) => `تابع: ${title}`, explore: "اكتشف في رحلتك",
     hifz: "رحلة الحفظ", hifzBody: (name: string) => `تابع مع سورة ${name}`,
     facts: "في رحاب القرآن", factsBody: "اكتشف معلومة جديدة عن القرآن",
     stories: "قصص القرآن", storiesBody: "اقرأ قصة وخذ منها فكرة جميلة",
@@ -26,7 +25,7 @@ const copy = {
   },
   en: {
     label: "My journey", firstTitle: "Start your journey", firstBody: "Choose what you would like to begin with. Your steps stay on this device.",
-    title: "Your next step", open: "Open my journey", continue: "Continue now", continueStory: "Continue your story", explore: "Explore your journey",
+    title: "Your next step", open: "Open my journey", continue: "Continue now", continueStory: (title: string) => `Continue: ${title}`, explore: "Explore your journey",
     hifz: "Memorization journey", hifzBody: (name: string) => `Continue with Surah ${name}`,
     facts: "In the Realm of the Quran", factsBody: "Discover a new fact about the Quran",
     stories: "Quran stories", storiesBody: "Read a story and take a lovely idea from it",
@@ -54,8 +53,14 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
   const resumedStory = profile?.character === "guest"
     ? undefined
     : profile && inProgressStories(profile).find(candidate =>
-      stories.some(story => story.chapter === candidate.chapter && story.slug === candidate.slug),
+      storyIndex.some(story => story.chapter === candidate.chapter && story.slug === candidate.slug),
     );
+  const resumedStoryMetadata = resumedStory
+    ? storyIndex.find(story => story.chapter === resumedStory.chapter && story.slug === resumedStory.slug)
+    : undefined;
+  const resumedStoryTitle = resumedStoryMetadata
+    ? locale === "en" ? resumedStoryMetadata.titleEn ?? resumedStoryMetadata.title : resumedStoryMetadata.title
+    : undefined;
 
   let primary: Activity;
   if (step?.ref.kind === "ayah") {
@@ -76,7 +81,7 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
     { href: `/quran-facts/${nextFact.slug}`, title: t.facts, body: t.factsBody, Icon: Sparkles, kind: "facts" },
     {
       href: resumedStory ? `/stories/${resumedStory.chapter}/${resumedStory.slug}` : "/stories",
-      title: resumedStory ? t.continueStory : t.stories,
+      title: resumedStoryTitle ? t.continueStory(resumedStoryTitle) : t.stories,
       body: resumedStory ? t.stories : t.storiesBody,
       Icon: BookOpen,
       kind: "stories",

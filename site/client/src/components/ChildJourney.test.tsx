@@ -42,8 +42,10 @@ describe("unified child journey", () => {
 
     expect(aJourney.activities.find(activity => activity.kind === "stories")).toMatchObject({
       href: "/stories/nations/ashab-al-kahf",
-      title: "Continue your story",
+      title: "Continue: The People of the Cave",
     });
+    const arJourney = childJourneyActivities("ar", a.profile.id, startedBoth.profiles.find(profile => profile.id === a.profile.id)!);
+    expect(arJourney.activities.find(activity => activity.kind === "stories")?.title).toBe("تابع: قصة أصحاب الكهف");
     expect(bJourney.activities.find(activity => activity.kind === "stories")?.href).toBe("/stories");
   });
 
