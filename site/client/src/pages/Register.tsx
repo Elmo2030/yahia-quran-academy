@@ -20,6 +20,7 @@ import { Label } from "@/components/ui/label";
 import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SocialLoginButtons } from "@/components/SocialLoginButtons";
+import { safeInternalPath } from "@/lib/safe-route";
 
 const MIN_PASSWORD = 8;
 
@@ -363,7 +364,7 @@ function readNextParam(): string | null {
     const params = new URLSearchParams(window.location.search);
     const raw = params.get("next");
     if (!raw) return null;
-    if (raw.startsWith("/") && !raw.startsWith("//")) return raw;
+    return safeInternalPath(raw);
   } catch {
     /* ignore — fall through */
   }

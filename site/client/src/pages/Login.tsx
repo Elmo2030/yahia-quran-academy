@@ -18,6 +18,7 @@ import { Label } from "@/components/ui/label";
 import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SocialLoginButtons } from "@/components/SocialLoginButtons";
+import { safeInternalPath } from "@/lib/safe-route";
 
 export default function Login() {
   const { locale } = useLocale();
@@ -193,9 +194,7 @@ function readNextParam(): string | null {
     const params = new URLSearchParams(window.location.search);
     const raw = params.get("next");
     if (!raw) return null;
-    // Only accept same-site relative paths so an attacker can't redirect
-    // post-login to an external domain.
-    if (raw.startsWith("/") && !raw.startsWith("//")) return raw;
+    return safeInternalPath(raw);
   } catch {
     /* ignore — fall through */
   }

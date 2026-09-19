@@ -76,8 +76,9 @@ section.
 
 Sign-in is Supabase, and entirely optional: the site reads without it. The
 client is loaded on demand rather than imported, so a signed-out visitor never
-downloads it — see `mightHaveSession()` in `client/src/lib/supabase.ts`. Secrets
-come from `process.env`; nothing is hardcoded.
+downloads it — see `mightHaveSession()` in `client/src/lib/supabase.ts`. The
+browser receives only the public Supabase URL and anon key through `VITE_*`
+configuration; service-role keys and other secrets never belong in this app.
 
 ## Where else to look
 

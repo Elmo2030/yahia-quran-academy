@@ -36,15 +36,7 @@
     <meta name="apple-mobile-web-app-title" content="رحلة الحفظ" />
     <meta name="theme-color" content="#001F3F" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0f1621" media="(prefers-color-scheme: dark)" />
-    <script>
-      // Before first paint: a reader who chose a theme on this site must not
-      // see the other one flash first. The stylesheet handles everyone else
-      // through prefers-color-scheme, so no attribute is set for "system".
-      try {
-        var t = localStorage.getItem("yahya-site-theme");
-        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
-      } catch (e) {}
-    </script>
+    <script src="/theme-init.js"></script>
     <!-- Fonts are ours, not Google's: no DNS lookup and no TLS handshake to two
          more origins before Arabic can paint. scripts/fetch-fonts.mjs writes
          public/fonts. naskh-1 carries the Arabic range and jakarta-9 the Latin

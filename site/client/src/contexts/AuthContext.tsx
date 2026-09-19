@@ -23,6 +23,7 @@ import {
 } from "react";
 
 import { getSupabase, isSupabaseConfigured, mightHaveSession } from "@/lib/supabase";
+import { safeInternalPath } from "@/lib/safe-route";
 
 type Locale = "ar" | "en";
 
@@ -202,10 +203,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (error) {
       // The profile is created by the on_auth_user_created trigger, so an
       // error here usually means the row hasn't been written yet (race) or
-      // RLS blocked it. We log to the console in dev for debugging and
-      // surface the loading=false flag to the UI without throwing.
-      // eslint-disable-next-line no-console
-      console.warn("[auth] profile fetch failed:", error.message);
+      // RLS blocked it. Keep details in development only; a production console
+      // is still visible to every visitor and is not an error-reporting sink.
+      if (import.meta.env.DEV) {
+        // eslint-disable-next-line no-console
+        console.warn("[auth] profile fetch failed:", error.message);
+      }
       return null;
     }
     if (!data) return null;
@@ -327,9 +330,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Both callers already check this before calling; the guarantee belongs
     // here, where it holds for whoever calls next. A leading "//" is a URL to
     // another host wearing a path's clothes, so it is refused too.
-    const safe = redirectTo && redirectTo.startsWith("/") && !redirectTo.startsWith("//")
-      ? redirectTo
-      : "/profile";
+    const safe = safeInternalPath(redirectTo) ?? "/profile";
     const target = `${window.location.origin}${safe}`;
     const { error } = await client.auth.signInWithOAuth({
       provider,

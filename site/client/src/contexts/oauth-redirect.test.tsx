@@ -45,6 +45,7 @@ describe("the OAuth landing address", () => {
   it.each([
     ["https://evil.example/steal", "an address on another host"],
     ["//evil.example/steal", "a protocol-relative address"],
+    ["/\\evil.example/steal", "a backslash-normalized external address"],
     ["javascript:alert(1)", "a javascript: URL"],
     ["http://localhost:3000.evil.example", "a host that only looks like ours"],
   ])("refuses %s — %s", async (hostile) => {
