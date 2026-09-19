@@ -34,6 +34,7 @@ import { seerahPilotEpisodeForStationTwo } from "@/content/seerah-pilot-station-
 import { seerahPilotEpisodeForStationThree } from "@/content/seerah-pilot-station-3";
 import { seerahPilotEpisodeForStationFour } from "@/content/seerah-pilot-station-4";
 import { seerahPilotEpisodeForStationFive } from "@/content/seerah-pilot-station-5";
+import { seerahPilotEpisodeForStationSix } from "@/content/seerah-pilot-station-6";
 
 /** One mark per station, in the section's own language: places and things,
  *  never people. They carry the shape of the life at a glance. */
@@ -501,6 +502,7 @@ export default function SeerahDetail() {
       ?? seerahPilotEpisodeForStationThree(story.storyId)
       ?? seerahPilotEpisodeForStationFour(story.storyId)
       ?? seerahPilotEpisodeForStationFive(story.storyId)
+      ?? seerahPilotEpisodeForStationSix(story.storyId)
     : null;
   return <Chrome>{pilotEpisode ? <SeerahPilotStoryView story={story} episode={pilotEpisode} key={story.slug} /> : <SeerahStoryView story={story} key={story.slug} />}</Chrome>;
 }

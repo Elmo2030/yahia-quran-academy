@@ -85,4 +85,13 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText(/فرض الله الصلاة في ليلة المعراج/)).toBeTruthy();
     expect(screen.getByText("صحيح البخاري ومسلم")).toBeTruthy();
   });
+
+  it("renders the Station 6 migration narrative with its hadith source", () => {
+    window.history.pushState({}, "", "/seerah/asma-that-al-nitaqayn");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "أسماء ذات النطاقين" })).toBeTruthy();
+    expect(screen.getByText(/جهزت أسماء بنت أبي بكر/)).toBeTruthy();
+    expect(screen.getByText("صحيح البخاري")).toBeTruthy();
+  });
 });
