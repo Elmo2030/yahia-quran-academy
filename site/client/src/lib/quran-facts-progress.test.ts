@@ -4,6 +4,7 @@ import {
   FACTS_DISCOVERED_KEY, discoverFact, factCardState, factsDiscoveryKey, firstIncompleteStage,
   readFactDiscoveries,
 } from "./quran-facts-progress";
+import { currentDiscovery } from "./quran-facts-journey";
 
 const facts = ["one", "two", "three", "four"].map(slug => ({ slug }));
 const slugs = facts.map(fact => fact.slug);
@@ -39,5 +40,11 @@ describe("Quran facts journey progress", () => {
     expect(readFactDiscoveries(slugs, "child-b")).toEqual([]);
     expect(localStorage.getItem(factsDiscoveryKey("child-a"))).toBeTruthy();
     expect(localStorage.getItem(factsDiscoveryKey("child-b"))).toBeNull();
+  });
+
+  it("chooses the first valid undiscovered fact and skips completed facts", () => {
+    expect(currentDiscovery(facts, [])?.slug).toBe("one");
+    expect(currentDiscovery(facts, ["one", "two"])?.slug).toBe("three");
+    expect(currentDiscovery(facts, slugs)).toBeNull();
   });
 });

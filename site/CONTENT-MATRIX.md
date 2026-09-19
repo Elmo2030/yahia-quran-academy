@@ -43,7 +43,7 @@
 - 100 facts, grouped into 5 stages of 20.
 - Hub `/quran-facts`; detail `/quran-facts/:slug`.
 - States: locked, unlocked, current, completed.
-- Opening a detail records persistent discovery; named child discovery is isolated by profile key.
+- Revealing a valid detail records persistent discovery; named child discovery is isolated by profile key.
 - Quiz exists but is not the completion requirement.
 - Facts include source/reference data. Conflicting historical scientific/editorial claims require **EDITORIAL_DECISION_REQUIRED**, not automatic copy changes.
 

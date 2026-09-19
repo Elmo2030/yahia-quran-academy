@@ -17,12 +17,13 @@ import { useAuth } from "@/hooks/useAuth";
 // into the entry chunk every visitor downloads, 93 KB gzipped for seven
 // excerpts. The generated index carries the title and the opening line only.
 import { factIndex, seerahStationIndex, seerahStoryIndex } from "@/lib/page-index.generated";
-import { indexOfTheDay } from "@/lib/fact-of-the-day";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
+import { currentDiscovery, FACTS_PER_STAGE } from "@/lib/quran-facts-journey";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { activeProfile } from "@/lib/hifz-store";
 import { lazyWithRetry } from "@/lib/lazyWithRetry";
 import { JourneyEntry } from "@/components/ChildJourney";
+import { QuranCurrentDiscovery } from "@/components/QuranCurrentDiscovery";
 
 // Only a child who has already started the journey sees this, so it must not
 // cost the first-time visitor anything.
@@ -92,14 +93,13 @@ export default function Home() {
   const { session } = useAuth();
   // Picked off the generated index, never the content module: this page is the
   // one that loads eagerly for every visitor.
-  const todayFact = factIndex[indexOfTheDay(factIndex.length)];
-  const [nextFact, setNextFact] = useState(todayFact);
-  const [hasFactProgress, setHasFactProgress] = useState(false);
+  const [nextFact, setNextFact] = useState(() => currentDiscovery(factIndex, []) ?? factIndex[0]);
+  const [factsComplete, setFactsComplete] = useState(false);
 
   useEffect(() => {
     const discovered = readFactDiscoveries(factIndex.map(fact => fact.slug), activeChildId);
-    setHasFactProgress(discovered.length > 0);
-    setNextFact(factIndex.find(fact => !discovered.includes(fact.slug)) ?? factIndex[0]);
+    setFactsComplete(discovered.length === factIndex.length);
+    setNextFact(currentDiscovery(factIndex, discovered) ?? factIndex[0]);
   }, [activeChildId]);
 
   return (
@@ -164,14 +164,7 @@ export default function Home() {
             <h2 id="facts-title">{t.factsTitle}</h2>
             <p>{t.factsIntro}</p>
           </div>
-          <div className="facts-today">
-            <div>
-              <span className="facts-today__label">{t.factsStage(Math.ceil(nextFact.number / 20))}</span>
-              <h3>{locale === "en" ? nextFact.titleEn : nextFact.title}</h3>
-              <p>{locale === "en" ? nextFact.bodyEn : nextFact.body}</p>
-            </div>
-            <Link href={`/quran-facts/${nextFact.slug}`} className="button button--primary">{hasFactProgress ? t.factsContinue : t.factsOpen} <Arrow size={17} aria-hidden="true" /></Link>
-          </div>
+          {factsComplete ? <div className="facts-journey-complete"><span aria-hidden="true">✦</span><h3>{locale === "ar" ? "أكملت رحلة الاكتشاف" : "You completed the discovery journey"}</h3><Link href="/quran-facts" className="button button--primary">{locale === "ar" ? "اكتشافاتي" : "My discoveries"}</Link></div> : <QuranCurrentDiscovery fact={{ slug: nextFact.slug, icon: nextFact.icon, title: locale === "en" ? nextFact.titleEn : nextFact.title }} stage={Math.floor((nextFact.number - 1) / FACTS_PER_STAGE)} compact />}
           <Link href="/quran-facts" className="text-link text-link--center">{t.factsAll} <Arrow size={18} /></Link>
         </div>
       </section>

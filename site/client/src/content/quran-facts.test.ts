@@ -53,10 +53,10 @@ describe("quran facts", () => {
 
   it("names an icon the page can render", () => {
     const page = readFileSync(
-      resolve(process.cwd(), "client/src/pages/QuranFacts.tsx"),
+      resolve(process.cwd(), "client/src/components/QuranFactIcon.tsx"),
       "utf8",
     );
-    const map = page.slice(page.indexOf("const ICONS"), page.indexOf("};", page.indexOf("const ICONS")));
+    const map = page.slice(page.indexOf("const icons"), page.indexOf("};", page.indexOf("const icons")));
     const known = new Set(map.match(/[A-Z][A-Za-z0-9]+/g) ?? []);
     for (const fact of quranFacts) expect(known.has(fact.icon), fact.slug).toBe(true);
   });

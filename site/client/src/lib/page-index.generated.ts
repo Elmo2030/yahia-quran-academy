@@ -7,7 +7,7 @@ type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
-type Fact = { number: number; slug: string; title: string; body: string; titleEn: string; bodyEn: string };
+type Fact = { number: number; slug: string; icon: string; title: string; body: string; titleEn: string; bodyEn: string };
 export const chapterIndex: Chapter[] = [
  {
   "slug": "animals",
@@ -1722,6 +1722,7 @@ export const factIndex: Fact[] = [
  {
   "number": 1,
   "slug": "bismillah",
+  "icon": "BookOpen",
   "title": "سورة بلا بسملة، وسورة ببسملتين",
   "body": "سورة «التوبة» هي السورة الوحيدة التي لا تبدأ بـ «بسم الله الرحمن الرحيم». أما سورة «النمل» ففيها بسملتان: واحدة في أولها، والثانية داخل قصة النبي سليمان.",
   "titleEn": "One Surah without it, one with two",
@@ -1730,6 +1731,7 @@ export const factIndex: Fact[] = [
  {
   "number": 2,
   "slug": "egypt",
+  "icon": "MapPin",
   "title": "مصر في القرآن",
   "body": "اسم «مصر» ذُكر صراحةً في القرآن الكريم خمس مرات. منها ترحيب الله بنبيه يعقوب وعائلته حين دخلوها.",
   "titleEn": "Egypt in the Quran",
@@ -1738,6 +1740,7 @@ export const factIndex: Fact[] = [
  {
   "number": 3,
   "slug": "sajdah",
+  "icon": "Star",
   "title": "خمسة عشر موضعاً للسجود",
   "body": "في المصحف الذي بين أيدينا خمسة عشر موضعاً معلَّماً، إذا قرأناها سجدنا لله تعالى، وتُسمى سجدات التلاوة. وسورة «الحج» مميزة لأن فيها سجدتين!",
   "titleEn": "Fifteen places to prostrate",
@@ -1746,6 +1749,7 @@ export const factIndex: Fact[] = [
  {
   "number": 4,
   "slug": "times",
+  "icon": "Clock",
   "title": "سور سُمّيت بأسماء الأوقات",
   "body": "سمّى الله بعض السور بأسماء الأوقات ليذكّرنا بأهمية الوقت: الفجر، والضحى، والليل، والعصر التي تبدأ بقسم عظيم.",
   "titleEn": "Surahs named after times of day",
@@ -1754,6 +1758,7 @@ export const factIndex: Fact[] = [
  {
   "number": 5,
   "slug": "cosmos",
+  "icon": "Moon",
   "title": "الشمس والقمر والنجم",
   "body": "القرآن مليء بأسماء الظواهر الكونية العظيمة، فهناك سور كاملة تحمل أسماء: الشمس، والقمر، والنجم.",
   "titleEn": "The sun, the moon and the star",
@@ -1762,6 +1767,7 @@ export const factIndex: Fact[] = [
  {
   "number": 6,
   "slug": "birds",
+  "icon": "Bird",
   "title": "طيور ذكية بمهام عظيمة",
   "body": "ذكر القرآن طيوراً قامت بأعمال مهمة: الغراب الذي علّم الإنسان الأول، والهدهد الذي اكتشف مملكة سبأ.",
   "titleEn": "Clever birds with real work to do",
@@ -1770,6 +1776,7 @@ export const factIndex: Fact[] = [
  {
   "number": 7,
   "slug": "minerals",
+  "icon": "Gem",
   "title": "معادن وأحجار كريمة",
   "body": "ذكر القرآن الكريم معادن وأحجاراً ما زلنا نستخدمها حتى اليوم: الذهب، والفضة، والحديد، واللؤلؤ، والمرجان.",
   "titleEn": "Metals and precious stones",
@@ -1778,6 +1785,7 @@ export const factIndex: Fact[] = [
  {
   "number": 8,
   "slug": "paradise-clothes",
+  "icon": "Shirt",
   "title": "ملابس أهل الجنة",
   "body": "أخبرنا القرآن أن ملابس أهل الجنة من أفخر أنواع القماش: الحرير، والسندس، والإستبرق.",
   "titleEn": "What the people of Paradise wear",
@@ -1786,6 +1794,7 @@ export const factIndex: Fact[] = [
  {
   "number": 9,
   "slug": "colours",
+  "icon": "Palette",
   "title": "ألوان في القرآن",
   "body": "ذكر القرآن الكريم كثيراً من الألوان: الأبيض، والأسود، والأحمر، والأخضر، والأزرق، والأصفر — كما في قصة البقرة العجيبة.",
   "titleEn": "Colours in the Quran",
@@ -1794,6 +1803,7 @@ export const factIndex: Fact[] = [
  {
   "number": 10,
   "slug": "first-and-last",
+  "icon": "Sparkles",
   "title": "أول ما نزل، ومن آخر ما نزل",
   "body": "أول ما نزل من القرآن أمرَ بالعلم والقراءة. ومن آخر ما نزل آيةٌ تذكّرنا بالعودة إلى الله — وللعلماء أقوال في أيّها آخرها.",
   "titleEn": "The first revealed, and among the last",
@@ -1802,6 +1812,7 @@ export const factIndex: Fact[] = [
  {
   "number": 11,
   "slug": "longest-shortest",
+  "icon": "Ruler",
   "title": "أطول سورة وأقصر سورة",
   "body": "أطول سورة في القرآن هي «البقرة»، وأقصر سورة هي «الكوثر» ولا تتكوّن إلا من ثلاث آيات.",
   "titleEn": "The longest surah and the shortest",
@@ -1810,6 +1821,7 @@ export const factIndex: Fact[] = [
  {
   "number": 12,
   "slug": "middle-word",
+  "icon": "AlignCenter",
   "title": "كلمة واحدة اسمها اللطف",
   "body": "فتية الكهف لما أرسلوا واحداً منهم يشتري طعاماً، أوصوه بكلمة واحدة: ﴿وَلْيَتَلَطَّفْ﴾ — أي ليكن لطيفاً في كلامه ومشيه وتعامله، حتى لا يؤذيه أحد ولا يؤذي أحداً.",
   "titleEn": "One word, and it means gentleness",
@@ -1818,6 +1830,7 @@ export const factIndex: Fact[] = [
  {
   "number": 13,
   "slug": "al-mujadilah",
+  "icon": "BookOpen",
   "title": "سورة اسم الله في كل آية",
   "body": "سورة «المجادلة» هي السورة الوحيدة في القرآن التي ذُكر فيها اسم «الله» في كل آية من آياتها.",
   "titleEn": "The surah that names Allah in every verse",
@@ -1826,6 +1839,7 @@ export const factIndex: Fact[] = [
  {
   "number": 14,
   "slug": "the-challenge",
+  "icon": "Shield",
   "title": "التحدي الذي لم يُجَب",
   "body": "تحدّى الله الإنس والجن أن يأتوا بكتاب مثل القرآن، أو حتى بسورة واحدة مثله، فلم يستطيعوا.",
   "titleEn": "A challenge no one could meet",
@@ -1834,6 +1848,7 @@ export const factIndex: Fact[] = [
  {
   "number": 15,
   "slug": "cave-years",
+  "icon": "Hourglass",
   "title": "ثلاثمائة سنة… وتسع",
   "body": "ذكر القرآن مدة نوم أصحاب الكهف بدقة عجيبة: ثلاثمائة سنة شمسية، وهي تساوي بالضبط 309 سنوات قمرية.",
   "titleEn": "Three hundred years, and nine",
@@ -1842,6 +1857,7 @@ export const factIndex: Fact[] = [
  {
   "number": 16,
   "slug": "al-ikhlas",
+  "icon": "Heart",
   "title": "ثلث القرآن في أربع آيات",
   "body": "قراءة سورة «الإخلاص» على قِصرها تعدل في أجرها ثلث القرآن الكريم، لأنها تتحدث عن صفات الله الواحد.",
   "titleEn": "A third of the Quran in four verses",
@@ -1850,6 +1866,7 @@ export const factIndex: Fact[] = [
  {
   "number": 17,
   "slug": "al-mulk",
+  "icon": "ShieldCheck",
   "title": "سورة تشفع لصاحبها",
   "body": "سورة «الملك» ثلاثون آية فقط، وتشفع لصاحبها يوم القيامة وتحميه.",
   "titleEn": "The surah that speaks for its reader",
@@ -1858,6 +1875,7 @@ export const factIndex: Fact[] = [
  {
   "number": 18,
   "slug": "yusuf-complete",
+  "icon": "ScrollText",
   "title": "القصة الوحيدة الكاملة",
   "body": "قصة النبي يوسف عليه السلام هي القصة الوحيدة في القرآن التي ذُكرت كاملة من البداية إلى النهاية في سورة واحدة.",
   "titleEn": "The one story told all at once",
@@ -1866,6 +1884,7 @@ export const factIndex: Fact[] = [
  {
   "number": 19,
   "slug": "animals",
+  "icon": "PawPrint",
   "title": "حيوانات في القرآن",
   "body": "ذكر القرآن حيوانات كثيرة، منها الذئب والكلب والخيل. والذئب ذُكر في قصة يوسف على لسان إخوته.",
   "titleEn": "Animals in the Quran",
@@ -1874,6 +1893,7 @@ export const factIndex: Fact[] = [
  {
   "number": 20,
   "slug": "yaqteen",
+  "icon": "Sprout",
   "title": "النبتة التي أظلّت يونس",
   "body": "ذكر القرآن نبات «اليقطين»، وهو النبات اللطيف الذي أنبته الله ليحمي النبي يونس بعد خروجه من بطن الحوت.",
   "titleEn": "The plant that shaded Yunus",
@@ -1882,6 +1902,7 @@ export const factIndex: Fact[] = [
  {
   "number": 21,
   "slug": "muqattaat",
+  "icon": "Type",
   "title": "الحروف التي في أول السور",
   "body": "تسع وعشرون سورة تبدأ بحروف تُسمّى «الحروف المقطّعة» مثل (الم) و(حم). وهي تحدٍّ من الله: القرآن مبنيّ من الحروف نفسها التي يتكلّم بها الناس، ومع ذلك لا يستطيعون أن يأتوا بمثله.",
   "titleEn": "The letters that open a surah",
@@ -1890,6 +1911,7 @@ export const factIndex: Fact[] = [
  {
   "number": 22,
   "slug": "alhamdulillah",
+  "icon": "Heart",
   "title": "خمس سور تبدأ بالحمد",
   "body": "خمس سور في القرآن تبدأ بـ «الحمد لله»: الفاتحة، والأنعام، والكهف، وسبأ، وفاطر — لتعلّمنا أن نشكر الله دائماً.",
   "titleEn": "Five surahs that open with praise",
@@ -1898,6 +1920,7 @@ export const factIndex: Fact[] = [
  {
   "number": 23,
   "slug": "qul",
+  "icon": "MessageCircle",
   "title": "خمس سور تبدأ بـ «قل»",
   "body": "خمس سور تبدأ بكلمة «قل»: الجن، والكافرون، والإخلاص، والفلق، والناس.",
   "titleEn": "Five surahs that begin with “Say”",
@@ -1906,6 +1929,7 @@ export const factIndex: Fact[] = [
  {
   "number": 24,
   "slug": "prophet-surahs",
+  "icon": "Users",
   "title": "ست سور بأسماء أنبياء",
   "body": "ست سور في القرآن سُمّيت بأسماء أنبياء: يونس، وهود، ويوسف، وإبراهيم، ومحمد، ونوح.",
   "titleEn": "Six surahs named after prophets",
@@ -1914,6 +1938,7 @@ export const factIndex: Fact[] = [
  {
   "number": 25,
   "slug": "vegetables",
+  "icon": "Carrot",
   "title": "خضروات على مائدة القرآن",
   "body": "ذكر القرآن خضروات نأكلها حتى اليوم: البصل، والفوم (الثوم)، والعدس، والقِثّاء (الخيار) — في قصة بني إسرائيل.",
   "titleEn": "Vegetables the Quran names",
@@ -1922,6 +1947,7 @@ export const factIndex: Fact[] = [
  {
   "number": 26,
   "slug": "abu-lahab",
+  "icon": "Flame",
   "title": "الوحيد الذي ذُكر بكنيته",
   "body": "لم يذكر القرآن أحداً من أعداء النبي ﷺ بكنيته إلا «أبا لهب»، وتوعّده الله بالنار في سورة المسد وهو ما زال حياً.",
   "titleEn": "The only one named by his nickname",
@@ -1930,6 +1956,7 @@ export const factIndex: Fact[] = [
  {
   "number": 27,
   "slug": "angels",
+  "icon": "Feather",
   "title": "ملائكة ذُكرت بأسمائها",
   "body": "ذكر القرآن أسماء بعض الملائكة صراحةً: جبريل، وميكائيل، ومالك.",
   "titleEn": "Angels named outright",
@@ -1938,6 +1965,7 @@ export const factIndex: Fact[] = [
  {
   "number": 28,
   "slug": "dunya-akhirah",
+  "icon": "Scale",
   "title": "توازن عجيب في الأرقام",
   "body": "في القرآن توازن رقمي لافت: كلمة «الدنيا» تكرّرت 115 مرة، وكلمة «الآخرة» تكرّرت 115 مرة بالضبط.",
   "titleEn": "A balance you can count",
@@ -1946,6 +1974,7 @@ export const factIndex: Fact[] = [
  {
   "number": 29,
   "slug": "preserved",
+  "icon": "Lock",
   "title": "كتاب تعهّد الله بحفظه",
   "body": "القرآن هو الكتاب الوحيد الذي تعهّد الله بحفظه من أي تغيير إلى يوم القيامة.",
   "titleEn": "A book Allah promised to keep",
@@ -1954,6 +1983,7 @@ export const factIndex: Fact[] = [
  {
   "number": 30,
   "slug": "drinks",
+  "icon": "Droplet",
   "title": "أطيب المشروبات",
   "body": "ذكر القرآن أطيب المشروبات وأنفعها: الماء، واللبن، والعسل الذي فيه شفاء للناس.",
   "titleEn": "The best things to drink",
@@ -1962,6 +1992,7 @@ export const factIndex: Fact[] = [
  {
   "number": 31,
   "slug": "holy-cities",
+  "icon": "Landmark",
   "title": "مدن ذكرها القرآن بأسمائها",
   "body": "ذكر القرآن مكة باسم «بكة»، والمدينة المنورة باسمها القديم «يثرب».",
   "titleEn": "Cities the Quran names",
@@ -1970,6 +2001,7 @@ export const factIndex: Fact[] = [
  {
   "number": 32,
   "slug": "earlier-books",
+  "icon": "Library",
   "title": "كتب نزلت قبل القرآن",
   "body": "ذكر القرآن الكتب السماوية التي سبقته: التوراة، والإنجيل، والزبور، وصحف إبراهيم وموسى.",
   "titleEn": "The books that came before",
@@ -1978,6 +2010,7 @@ export const factIndex: Fact[] = [
  {
   "number": 33,
   "slug": "insects",
+  "icon": "Bug",
   "title": "دروس كبيرة من حشرات صغيرة",
   "body": "ضرب القرآن أمثالاً بأصغر المخلوقات ليعلّمنا أكبر الدروس، كالذبابة والبعوضة.",
   "titleEn": "Big lessons from small insects",
@@ -1986,6 +2019,7 @@ export const factIndex: Fact[] = [
  {
   "number": 34,
   "slug": "ayat-al-kursi",
+  "icon": "Crown",
   "title": "أعظم آية في القرآن",
   "body": "أعظم آية في القرآن هي «آية الكرسي» في سورة البقرة، ومن قرأها كانت له حفظاً.",
   "titleEn": "The greatest verse in the Quran",
@@ -1994,6 +2028,7 @@ export const factIndex: Fact[] = [
  {
   "number": 35,
   "slug": "isti-adha",
+  "icon": "ShieldCheck",
   "title": "ماذا نقول قبل القراءة؟",
   "body": "أمرنا الله أن نستعيذ به من الشيطان الرجيم قبل أن نبدأ قراءة القرآن.",
   "titleEn": "What to say before you read",
@@ -2002,6 +2037,7 @@ export const factIndex: Fact[] = [
  {
   "number": 36,
   "slug": "ancient-nations",
+  "icon": "Mountain",
   "title": "أمم قديمة جداً",
   "body": "ذكر القرآن أسماء أمم وقبائل قديمة: عاد، وثمود، ويأجوج ومأجوج.",
   "titleEn": "Nations from long ago",
@@ -2010,6 +2046,7 @@ export const factIndex: Fact[] = [
  {
   "number": 37,
   "slug": "tyrants",
+  "icon": "Flame",
   "title": "طغاة حذّرنا منهم القرآن",
   "body": "حذّرنا القرآن من طغاة تكبّروا في الأرض فعاقبهم الله: فرعون، وهامان، وقارون.",
   "titleEn": "The tyrants the Quran warns about",
@@ -2018,6 +2055,7 @@ export const factIndex: Fact[] = [
  {
   "number": 38,
   "slug": "paradise-springs",
+  "icon": "Droplets",
   "title": "أسماء من أنهار الجنة",
   "body": "في القرآن أسماء جميلة لعيون الجنة وأنهارها، صارت أسماءً للبنات: تسنيم، وسلسبيل، وكوثر.",
   "titleEn": "Names from the rivers of Paradise",
@@ -2026,6 +2064,7 @@ export const factIndex: Fact[] = [
  {
   "number": 39,
   "slug": "parents",
+  "icon": "Heart",
   "title": "أهم وصية بعد التوحيد",
   "body": "جمع القرآن أهم الأخلاق والوصايا، وجعل بعد عبادة الله مباشرةً الإحسان إلى الوالدين.",
   "titleEn": "The command that comes right after faith",
@@ -2034,6 +2073,7 @@ export const factIndex: Fact[] = [
  {
   "number": 40,
   "slug": "one-kasrah",
+  "icon": "Type",
   "title": "كسرة واحدة في سورة كاملة",
   "body": "سورة «الإخلاص» ليس في كلماتها كسرة إلا في موضع واحد فقط (غير البسملة): تحت اللام في كلمة «يَلِدْ».",
   "titleEn": "A single kasrah in a whole surah",
@@ -2042,6 +2082,7 @@ export const factIndex: Fact[] = [
  {
   "number": 41,
   "slug": "thirty-parts",
+  "icon": "LayoutGrid",
   "title": "ثلاثون جزءاً وستون حزباً",
   "body": "القرآن مقسّم إلى ثلاثين جزءاً ليسهل ختمه في شهر، وكل جزء مقسّم إلى حزبين، فيصير المجموع ستين حزباً.",
   "titleEn": "Thirty parts, sixty halves",
@@ -2050,6 +2091,7 @@ export const factIndex: Fact[] = [
  {
   "number": 42,
   "slug": "verse-count",
+  "icon": "Hash",
   "title": "ستة آلاف ومئتان وستٌّ وثلاثون",
   "body": "عدد آيات القرآن الكريم في العدّ المعتمد في مصاحفنا اليوم هو 6236 آية.",
   "titleEn": "Six thousand two hundred and thirty-six",
@@ -2058,6 +2100,7 @@ export const factIndex: Fact[] = [
  {
   "number": 43,
   "slug": "makki-madani",
+  "icon": "Compass",
   "title": "مكية ومدنية",
   "body": "سور القرآن تنقسم إلى مكية ومدنية: المشهور أن 86 سورة نزلت قبل الهجرة، و28 سورة نزلت بعدها — وبعض السور اختلف العلماء في أيّهما هي.",
   "titleEn": "Makki and Madani",
@@ -2066,6 +2109,7 @@ export const factIndex: Fact[] = [
  {
   "number": 44,
   "slug": "uff",
+  "icon": "Heart",
   "title": "أقصر كلمة، وأثقلها ميزاناً",
   "body": "أقصر كلمة في القرآن تحمل معنى مستقلاً هي ﴿أُفٍّ﴾، واختارها الله ليعلّمنا ألا نُظهر للوالدين حتى أخفّ ضيق.",
   "titleEn": "The shortest word, and the heaviest",
@@ -2074,6 +2118,7 @@ export const factIndex: Fact[] = [
  {
   "number": 45,
   "slug": "at-teen",
+  "icon": "Apple",
   "title": "سورة باسم فاكهة",
   "body": "سورة «التين» سُمّيت باسم فاكهة، ويبدأ الله سبحانه السورة بالقسم بها وبالزيتون.",
   "titleEn": "A surah named after a fruit",
@@ -2082,6 +2127,7 @@ export const factIndex: Fact[] = [
  {
   "number": 46,
   "slug": "science",
+  "icon": "Baby",
   "title": "خلقٌ من بعد خلق",
   "body": "وصف القرآن خلق الإنسان في بطن أمه مرحلةً بعد مرحلة: نطفة، ثم علقة، ثم مضغة، ثم عظام يُكسى عليها اللحم — بترتيب يذكره القرآن نفسه.",
   "titleEn": "A making after a making",
@@ -2090,6 +2136,7 @@ export const factIndex: Fact[] = [
  {
   "number": 47,
   "slug": "oaths",
+  "icon": "Sunrise",
   "title": "خمس عشرة سورة تبدأ بقسم",
   "body": "خمس عشرة سورة في القرآن تبدأ بقسم، يقسم الله فيها بمخلوقاته العظيمة ليلفت انتباهنا إليها.",
   "titleEn": "Fifteen surahs that open with an oath",
@@ -2098,6 +2145,7 @@ export const factIndex: Fact[] = [
  {
   "number": 48,
   "slug": "verse-endings",
+  "icon": "Sparkle",
   "title": "خواتيم الآيات تناسب معناها",
   "body": "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة.",
   "titleEn": "Endings that match what came before",
@@ -2106,6 +2154,7 @@ export const factIndex: Fact[] = [
  {
   "number": 49,
   "slug": "quran-names",
+  "icon": "Tag",
   "title": "أسماء أخرى للقرآن",
   "body": "للقرآن الكريم أسماء أخرى جميلة: الكتاب، والفرقان، والنور، والشفاء.",
   "titleEn": "The Quran's other names",
@@ -2114,6 +2163,7 @@ export const factIndex: Fact[] = [
  {
   "number": 50,
   "slug": "first-collection",
+  "icon": "Archive",
   "title": "أول مرة جُمع في مصحف",
   "body": "جُمع القرآن وكُتب في مصحف واحد لأول مرة في عهد الخليفة أبي بكر الصديق رضي الله عنه، باقتراح من عمر بن الخطاب لحفظه للأجيال.",
   "titleEn": "The first time it was gathered into one book",
@@ -2122,6 +2172,7 @@ export const factIndex: Fact[] = [
  {
   "number": 51,
   "slug": "ya-ayyuha-alladhina-amanu",
+  "icon": "Megaphone",
   "title": "ثلاث سور تبدأ بنداء المؤمنين",
   "body": "ثلاث سور فقط تبدأ بنداء ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا﴾: المائدة، والحجرات، والممتحنة.",
   "titleEn": "Three surahs that open by calling the believers",
@@ -2130,6 +2181,7 @@ export const factIndex: Fact[] = [
  {
   "number": 52,
   "slug": "ya-ayyuha-an-nabiyy",
+  "icon": "UserRoundCheck",
   "title": "ثلاث سور تنادي النبي ﷺ",
   "body": "ثلاث سور تبدأ بنداء خاص للنبي محمد ﷺ ﴿يَا أَيُّهَا النَّبِيُّ﴾: الأحزاب، والطلاق، والتحريم.",
   "titleEn": "Three surahs that call the Prophet ﷺ",
@@ -2138,6 +2190,7 @@ export const factIndex: Fact[] = [
  {
   "number": 53,
   "slug": "idols-of-nuh",
+  "icon": "Ban",
   "title": "أصنام قوم نوح",
   "body": "ذكر القرآن أسماء الأصنام التي عبدها قوم نوح — وَدّ، وسُواع، ويَغُوث، ويَعُوق، ونَسْر — ليعلّمنا أن نبتعد عن هذا كله.",
   "titleEn": "The idols of Nuh's people",
@@ -2146,6 +2199,7 @@ export const factIndex: Fact[] = [
  {
   "number": 54,
   "slug": "dots-and-marks",
+  "icon": "Type",
   "title": "حروف بلا نقاط",
   "body": "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي علامات الحركات، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء — حتى نقرأ القرآن…",
   "titleEn": "Letters with no dots",
@@ -2154,6 +2208,7 @@ export const factIndex: Fact[] = [
  {
   "number": 55,
   "slug": "uthman-mushaf",
+  "icon": "BookCopy",
   "title": "مصاحف عثمان",
   "body": "نسخ الخليفة عثمان بن عفان رضي الله عنه المصاحف وأرسلها إلى المدن الإسلامية، حتى يقرأ المسلمون في كل مكان قراءة واحدة.",
   "titleEn": "The copies Uthman sent out",
@@ -2162,6 +2217,7 @@ export const factIndex: Fact[] = [
  {
   "number": 56,
   "slug": "scribes-of-revelation",
+  "icon": "PenLine",
   "title": "كُتّاب الوحي",
   "body": "كان للنبي ﷺ صحابة يكتبون القرآن فور نزوله، يُسمَّون «كُتّاب الوحي»، ومن أشهرهم الصحابي الشاب زيد بن ثابت.",
   "titleEn": "The scribes of the revelation",
@@ -2170,6 +2226,7 @@ export const factIndex: Fact[] = [
  {
   "number": 57,
   "slug": "kalla-rule",
+  "icon": "Search",
   "title": "علامة تدلّك على السورة المكية",
   "body": "كل سورة فيها كلمة «كَلَّا» فهي مكية نزلت قبل الهجرة — قاعدة سهلة تعرف بها موضع السورة.",
   "titleEn": "A clue that tells you a surah is Makki",
@@ -2178,6 +2235,7 @@ export const factIndex: Fact[] = [
  {
   "number": 58,
   "slug": "riding-animals",
+  "icon": "Footprints",
   "title": "حيوانات للركوب وللزينة",
   "body": "ذكر القرآن الخيل والبغال والحمير، وجعلها الله لنا للركوب وللزينة معاً.",
   "titleEn": "Animals to ride, and to enjoy",
@@ -2186,6 +2244,7 @@ export const factIndex: Fact[] = [
  {
   "number": 59,
   "slug": "locusts-and-frogs",
+  "icon": "Bug",
   "title": "الجراد والضفادع",
   "body": "من آيات الله على فرعون وقومه كائنات صغيرة: الطوفان والجراد والقُمَّل والضفادع.",
   "titleEn": "Locusts and frogs",
@@ -2194,6 +2253,7 @@ export const factIndex: Fact[] = [
  {
   "number": 60,
   "slug": "surah-an-nur-manners",
+  "icon": "Home",
   "title": "سورة النور وآداب البيوت",
   "body": "سورة «النور» تعلّمنا أجمل آداب البيوت، ومنها الاستئذان قبل الدخول على الآخرين.",
   "titleEn": "Surah An-Nur and the manners of a home",
@@ -2202,6 +2262,7 @@ export const factIndex: Fact[] = [
  {
   "number": 61,
   "slug": "sea-that-split",
+  "icon": "Waves",
   "title": "البحر الذي انفلق",
   "body": "من عجائب ما ذكره القرآن عن البحر أن الله فلقه لموسى عليه السلام، فصار كل جزء منه كالجبل العظيم.",
   "titleEn": "The sea that split open",
@@ -2210,6 +2271,7 @@ export const factIndex: Fact[] = [
  {
   "number": 62,
   "slug": "asking-permission",
+  "icon": "DoorOpen",
   "title": "لا تدخل حتى يُؤذن لك",
   "body": "علّمنا القرآن أدباً جميلاً: إن لم تجد أحداً في البيت فلا تدخله حتى يُؤذن لك.",
   "titleEn": "Wait until you are welcomed in",
@@ -2218,6 +2280,7 @@ export const factIndex: Fact[] = [
  {
   "number": 63,
   "slug": "guard-your-tongue",
+  "icon": "MessageCircle",
   "title": "احفظ لسانك",
   "body": "حذّرنا القرآن من سوء الظن والتجسّس والغيبة، وأمرنا أن نحفظ ألسنتنا إلا عن الخير.",
   "titleEn": "Guard your tongue",
@@ -2226,6 +2289,7 @@ export const factIndex: Fact[] = [
  {
   "number": 64,
   "slug": "never-despair",
+  "icon": "Anchor",
   "title": "لا تيأس أبداً",
   "body": "مهما اشتدّت الصعوبات، يعلّمنا القرآن ألا نيأس من رحمة الله وفرجه.",
   "titleEn": "Never lose hope",
@@ -2234,6 +2298,7 @@ export const factIndex: Fact[] = [
  {
   "number": 65,
   "slug": "healing-for-hearts",
+  "icon": "HeartPulse",
   "title": "شفاء للقلوب",
   "body": "القرآن شفاء حقيقي للقلب من الحزن والهمّ، ورحمة للمؤمنين.",
   "titleEn": "A healing for hearts",
@@ -2242,6 +2307,7 @@ export const factIndex: Fact[] = [
  {
   "number": 66,
   "slug": "a-clear-light",
+  "icon": "Lightbulb",
   "title": "نور مبين",
   "body": "وصف الله القرآن بأنه نور مبين، يهدينا إلى الطريق الصحيح في الظلام.",
   "titleEn": "A light that shows the way",
@@ -2250,6 +2316,7 @@ export const factIndex: Fact[] = [
  {
   "number": 67,
   "slug": "give-on-harvest-day",
+  "icon": "Gift",
   "title": "وآتوا حقه يوم حصاده",
   "body": "أمرنا القرآن أن نعطي الفقراء والمحتاجين حقهم، فتنتشر المحبة بين الناس.",
   "titleEn": "Give its due on harvest day",
@@ -2258,6 +2325,7 @@ export const factIndex: Fact[] = [
  {
   "number": 68,
   "slug": "rabbi-zidni-ilma",
+  "icon": "GraduationCap",
   "title": "ربِّ زدني علماً",
   "body": "حثّنا القرآن على طلب العلم النافع طوال العمر، وعلّمنا دعاءً نطلب به المزيد.",
   "titleEn": "My Lord, increase me in knowledge",
@@ -2266,6 +2334,7 @@ export const factIndex: Fact[] = [
  {
   "number": 69,
   "slug": "owners-of-the-garden",
+  "icon": "Trees",
   "title": "أصحاب الجنة",
   "body": "قصّ علينا القرآن خبر أصحاب بستان بخلوا على المساكين، فذهبت ثمارهم — ليعلّمنا أن البخل يضيّع النعمة وأن الصدقة تبارك فيها.",
   "titleEn": "The owners of the garden",
@@ -2274,6 +2343,7 @@ export const factIndex: Fact[] = [
  {
   "number": 70,
   "slug": "surah-al-asr",
+  "icon": "Timer",
   "title": "ثلاث آيات تجمع الفلاح",
   "body": "سورة «العصر» ثلاث آيات فقط، لكنها تجمع أسرار الفلاح: الإيمان، والعمل الصالح، والتواصي بالحق وبالصبر.",
   "titleEn": "Three verses that hold the whole secret",
@@ -2282,6 +2352,7 @@ export const factIndex: Fact[] = [
  {
   "number": 71,
   "slug": "straight-path",
+  "icon": "Milestone",
   "title": "اهدنا الصراط المستقيم",
   "body": "علّمنا القرآن أن نسأل الله الهداية في كل صلاة، فندعو بها سبع عشرة مرة كل يوم.",
   "titleEn": "Guide us to the straight path",
@@ -2290,6 +2361,7 @@ export const factIndex: Fact[] = [
  {
   "number": 72,
   "slug": "justice-even-with-those-we-dislike",
+  "icon": "Scale",
   "title": "اعدل حتى مع من تكره",
   "body": "أمرنا القرآن بالعدل مع كل الناس، حتى مع من نختلف معهم أو لا نحبهم.",
   "titleEn": "Be fair even with someone you dislike",
@@ -2298,6 +2370,7 @@ export const factIndex: Fact[] = [
  {
   "number": 73,
   "slug": "quran-as-reminder",
+  "icon": "BellRing",
   "title": "القرآن ذي الذكر",
   "body": "وصف الله القرآن بأنه «ذكرى»، يذكّر كل من أراد أن يتعلّم الخير ويعمل به.",
   "titleEn": "The Quran full of reminding",
@@ -2306,6 +2379,7 @@ export const factIndex: Fact[] = [
  {
   "number": 74,
   "slug": "paradise-as-wide-as",
+  "icon": "CloudSun",
   "title": "جنة عرضها السماوات والأرض",
   "body": "أخبرنا القرآن أن الجنة التي أُعدّت للمتقين عرضها كالسماوات والأرض، ودعانا أن نسارع إليها.",
   "titleEn": "A garden as wide as the sky and the earth",
@@ -2314,6 +2388,7 @@ export const factIndex: Fact[] = [
  {
   "number": 75,
   "slug": "dhul-qarnayn",
+  "icon": "Crown",
   "title": "ذو القرنين، الملك العادل",
   "body": "قصّ علينا القرآن خبر ذي القرنين، ملك طاف الأرض ينشر الخير ويعين الضعفاء.",
   "titleEn": "Dhul-Qarnayn, the just king",
@@ -2322,6 +2397,7 @@ export const factIndex: Fact[] = [
  {
   "number": 76,
   "slug": "cooperate-in-good",
+  "icon": "Handshake",
   "title": "تعاونوا على البر",
   "body": "أمرنا القرآن أن نتعاون على البر والتقوى، وحذّرنا من التعاون على الإثم والعدوان.",
   "titleEn": "Help one another do good",
@@ -2330,6 +2406,7 @@ export const factIndex: Fact[] = [
  {
   "number": 77,
   "slug": "luqman-advice",
+  "icon": "MessageSquareQuote",
   "title": "وصايا لقمان لابنه",
   "body": "حفظ لنا القرآن نصائح لقمان الحكيم لابنه، وأولها ألا يشرك بالله شيئاً.",
   "titleEn": "Luqman's advice to his son",
@@ -2338,6 +2415,7 @@ export const factIndex: Fact[] = [
  {
   "number": 78,
   "slug": "change-begins-inside",
+  "icon": "RefreshCw",
   "title": "التغيير يبدأ من داخلنا",
   "body": "أخبرنا القرآن أن الله لا يغيّر حال قوم حتى يغيّروا ما في أنفسهم إلى الأفضل.",
   "titleEn": "Change starts inside us",
@@ -2346,6 +2424,7 @@ export const factIndex: Fact[] = [
  {
   "number": 79,
   "slug": "reflect-on-creation",
+  "icon": "Telescope",
   "title": "تفكّر في خلق السماوات",
   "body": "دعانا القرآن أن نتفكّر في خلق السماوات والأرض واختلاف الليل والنهار، لنعرف عظمة الخالق.",
   "titleEn": "Think about how the sky was made",
@@ -2354,6 +2433,7 @@ export const factIndex: Fact[] = [
  {
   "number": 80,
   "slug": "ease-after-hardship",
+  "icon": "Sun",
   "title": "مع العسر يسر",
   "body": "وعدنا الله في القرآن أن كل عسر يأتي بعده يسر، وكرّر الوعد مرتين ليطمئن قلبك.",
   "titleEn": "With hardship comes ease",
@@ -2362,6 +2442,7 @@ export const factIndex: Fact[] = [
  {
   "number": 81,
   "slug": "ten-recitations",
+  "icon": "AudioLines",
   "title": "عشر قراءات متواترة",
   "body": "نزل القرآن بأوجه لغوية ميسّرة تُسمّى القراءات المتواترة، وهي عشر قراءات، ليسهل على قبائل العرب كلها أن تقرأه.",
   "titleEn": "Ten recitations, all trusted",
@@ -2370,6 +2451,7 @@ export const factIndex: Fact[] = [
  {
   "number": 82,
   "slug": "muhkam-mutashabih",
+  "icon": "Layers",
   "title": "مُحكَم ومُتَشابِه",
   "body": "آيات القرآن منها المُحكَم الواضح للجميع كالحلال والحرام، ومنها المُتَشابِه الذي استأثر الله بعلم تأويله الكامل.",
   "titleEn": "Clear verses, and deeper ones",
@@ -2378,6 +2460,7 @@ export const factIndex: Fact[] = [
  {
   "number": 83,
   "slug": "names-from-the-quran",
+  "icon": "Baby",
   "title": "أسماء من كلمات القرآن",
   "body": "كثير من أسمائنا مأخوذ من كلمات القرآن: دانية، وسجى، وصفوان، ومروة، وهدى.",
   "titleEn": "Names taken from the Quran",
@@ -2386,6 +2469,7 @@ export const factIndex: Fact[] = [
  {
   "number": 84,
   "slug": "translated-meanings",
+  "icon": "Languages",
   "title": "تُرجمت معانيه لا ألفاظه",
   "body": "تُرجمت معاني القرآن إلى عشرات اللغات، لكن النص العربي وحده هو كلام الله المعجز، والترجمة تشرح المعنى لغير العرب.",
   "titleEn": "Its meanings are translated, not its words",
@@ -2394,6 +2478,7 @@ export const factIndex: Fact[] = [
  {
   "number": 85,
   "slug": "sajdah-verses",
+  "icon": "ArrowDownToLine",
   "title": "آيات السجدة",
   "body": "في القرآن آيات إذا قرأتها سجدت، وأشهرها خاتمة سورة العلق.",
   "titleEn": "The verses of prostration",
@@ -2402,6 +2487,7 @@ export const factIndex: Fact[] = [
  {
   "number": 86,
   "slug": "no-contradiction",
+  "icon": "ShieldCheck",
   "title": "لا اختلاف فيه",
   "body": "من دلائل أن القرآن من عند الله أنه لا يناقض بعضه بعضاً، ولو كان من عند غير الله لوجدوا فيه اختلافاً كثيراً.",
   "titleEn": "Nothing in it disagrees with itself",
@@ -2410,6 +2496,7 @@ export const factIndex: Fact[] = [
  {
   "number": 87,
   "slug": "four-caliphs-scribes",
+  "icon": "Users",
   "title": "الخلفاء الأربعة كانوا كُتّاباً للوحي",
   "body": "أبو بكر وعمر وعثمان وعلي رضي الله عنهم كانوا جميعاً من كُتّاب الوحي، يكتبون القرآن بين يدي النبي ﷺ فور نزوله.",
   "titleEn": "All four caliphs wrote the revelation",
@@ -2418,6 +2505,7 @@ export const factIndex: Fact[] = [
  {
   "number": 88,
   "slug": "ten-commandments",
+  "icon": "ListChecks",
   "title": "وصايا جامعة للأخلاق",
   "body": "جمع القرآن وصايا عظيمة للأخلاق في سورتي الأنعام والإسراء، تعلّمنا كيف نكون نافعين لمن حولنا.",
   "titleEn": "A gathered list of manners",
@@ -2426,6 +2514,7 @@ export const factIndex: Fact[] = [
  {
   "number": 89,
   "slug": "inheritance-shares",
+  "icon": "PieChart",
   "title": "حساب دقيق في سورة النساء",
   "body": "فصّل القرآن أحكام المواريث بحساب دقيق في سورة النساء، فلا يضيع حق أحد من أهل البيت.",
   "titleEn": "Exact arithmetic in Surah An-Nisa",
@@ -2434,6 +2523,7 @@ export const factIndex: Fact[] = [
  {
   "number": 90,
   "slug": "revealed-gradually",
+  "icon": "CalendarClock",
   "title": "نزل على مُكث",
   "body": "لم ينزل القرآن مرة واحدة، بل نزل على مهل خلال ثلاث وعشرين سنة، تخفيفاً على الناس وهم يبنون مجتمعهم ويصلحون عاداتهم.",
   "titleEn": "It came down little by little",
@@ -2442,6 +2532,7 @@ export const factIndex: Fact[] = [
  {
   "number": 91,
   "slug": "madani-society",
+  "icon": "Building2",
   "title": "سور بُنيت بها المدينة",
   "body": "نزلت السور المدنية لتبني المجتمع، فجاءت ببيان العبادات وأحكام الأسرة والمواريث ونظام الحقوق بين الناس.",
   "titleEn": "Surahs that built a community",
@@ -2450,6 +2541,7 @@ export const factIndex: Fact[] = [
  {
   "number": 92,
   "slug": "muqattaat-makki",
+  "icon": "Puzzle",
   "title": "علامة أخرى للسورة المكية",
   "body": "كل سورة تبدأ بالحروف المقطّعة فهي مكية، إلا البقرة وآل عمران فهما مدنيتان، وسورة الرعد اختلف فيها العلماء — قاعدة تعرف بها متى نزلت السورة غالباً.",
   "titleEn": "Another clue for a Makki surah",
@@ -2458,6 +2550,7 @@ export const factIndex: Fact[] = [
  {
   "number": 93,
   "slug": "hypocrites-exposed",
+  "icon": "EyeOff",
   "title": "كشف قول المنافقين",
   "body": "اهتمت السور المدنية بكشف من يقول بلسانه ما ليس في قلبه، لتعلّمنا أن الصدق مع الله أول الطريق.",
   "titleEn": "Words that did not match hearts",
@@ -2466,6 +2559,7 @@ export const factIndex: Fact[] = [
  {
   "number": 94,
   "slug": "anulzimukumuha",
+  "icon": "Ruler",
   "title": "كلمة من عشرة حروف",
   "body": "كلمة ﴿أَنُلْزِمُكُمُوهَا﴾ في سورة هود من أطول كلمات القرآن، وتتكوّن من عشرة حروف.",
   "titleEn": "A word of ten letters",
@@ -2474,6 +2568,7 @@ export const factIndex: Fact[] = [
  {
   "number": 95,
   "slug": "ar-rahman-refrain",
+  "icon": "Repeat2",
   "title": "سؤال يتكرّر إحدى وثلاثين مرة",
   "body": "في سورة الرحمن يتكرّر السؤال ﴿فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ﴾ إحدى وثلاثين مرة، بعد كل نعمة يذكرها الله، حتى نتوقّف ونشكر.",
   "titleEn": "A question asked thirty-one times",
@@ -2482,6 +2577,7 @@ export const factIndex: Fact[] = [
  {
   "number": 96,
   "slug": "two-prostrations-hajj",
+  "icon": "Repeat",
   "title": "سورة فيها سجدتان",
   "body": "سورة الحج تتفرّد بأن فيها سجدتين، واحدة في أولها وأخرى في آخرها، عند جمهور الشافعية والحنابلة.",
   "titleEn": "One surah with two prostrations",
@@ -2490,6 +2586,7 @@ export const factIndex: Fact[] = [
  {
   "number": 97,
   "slug": "morning-that-breathes",
+  "icon": "Wind",
   "title": "والصبح إذا تنفّس",
   "body": "من جمال القرآن أنه يعطي المعاني صورة حيّة تتحرّك، فيصف الصبح وكأنه يتنفّس.",
   "titleEn": "The morning when it breathes",
@@ -2498,6 +2595,7 @@ export const factIndex: Fact[] = [
  {
   "number": 98,
   "slug": "first-revelation",
+  "icon": "Feather",
   "title": "أول ما نزل: اقرأ",
   "body": "أول ما نزل من القرآن على النبي ﷺ في غار حراء خمس آيات من سورة العلق، أولها ﴿اقْرَأْ﴾.",
   "titleEn": "The first word: Read",
@@ -2506,6 +2604,7 @@ export const factIndex: Fact[] = [
  {
   "number": 99,
   "slug": "longest-word",
+  "icon": "Maximize2",
   "title": "أطول كلمة في القرآن",
   "body": "أطول كلمة في القرآن ﴿فَأَسْقَيْنَاكُمُوهُ﴾ في سورة الحجر، وتتكوّن من أحد عشر حرفاً.",
   "titleEn": "The longest word in the Quran",
@@ -2514,6 +2613,7 @@ export const factIndex: Fact[] = [
  {
   "number": 100,
   "slug": "preserved-forever",
+  "icon": "ShieldPlus",
   "title": "وإنا له لحافظون",
   "body": "تكفّل الله بحفظ القرآن من أي تحريف، فبقي كما نزل، ويبقى معجزة باقية على مرّ العصور.",
   "titleEn": "And We will surely guard it",

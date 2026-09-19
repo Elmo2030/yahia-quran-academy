@@ -1665,7 +1665,97 @@
 .fact-page__surah { display: flex; flex-wrap: wrap; gap: .7rem; margin-block-start: .4rem; }
 .fact-page__source { margin-block-start: .6rem; }
 
+/* Quran Discoveries is a calm path through the existing facts, not another
+   score board. The gold surface is reserved for the one next discovery. */
+.facts-journey-hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 2.1rem; background: radial-gradient(circle at 78% 10%, var(--surface-gold) 0 7%, transparent 27%), linear-gradient(145deg, var(--surface-green), var(--page)); }
+.facts-journey-hero .container { max-width: 68rem; }
+.facts-journey-hero h1 { margin: .35rem 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.25; }
+.facts-journey-hero p { max-width: 38rem; margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.8; }
+.facts-journey { padding-top: 1.6rem; }
+.facts-journey > .container { max-width: 68rem; }
+.current-discovery { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; margin-bottom: 1.4rem; padding: 1.25rem; border: 2px solid var(--gold); border-radius: 26px; background: linear-gradient(135deg, var(--surface-gold-strong), var(--page)); box-shadow: 0 16px 32px rgb(var(--shadow-rgb) / 12%); }
+.current-discovery__icon { display: grid; place-items: center; inline-size: 62px; block-size: 62px; border-radius: 20px; color: var(--brand-deep-ink); background: #fff8d8; }
+.current-discovery__copy { min-width: 0; display: grid; gap: .12rem; }
+.current-discovery__label { display: inline-flex; align-items: center; gap: .35rem; color: var(--gold-ink-deep); font-size: .76rem; font-weight: 800; }
+.current-discovery h2 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.35; }
+.current-discovery p, .current-discovery small { margin: 0; color: var(--ink-soft); font-size: .85rem; line-height: 1.65; }
+.current-discovery--compact { margin-bottom: 0; border-radius: 22px; }
+.current-discovery--compact .current-discovery__icon { inline-size: 48px; block-size: 48px; border-radius: 16px; }
+.current-discovery--compact h2 { font-size: 1.22rem; }
+.facts-stage-preview { padding: 1.2rem; border: 1px solid var(--line); border-radius: 24px; background: var(--page); box-shadow: 0 10px 24px rgb(var(--shadow-rgb) / 6%); }
+.facts-stage-preview__head, .field-journal__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.facts-stage-preview h2, .field-journal h2 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.4rem; }
+.facts-stage-preview__head p { margin: .18rem 0 0; color: var(--ink-soft); font-size: .84rem; }
+.facts-stage-preview .facts-stages { margin: 1.1rem 0; }
+.facts-stage:disabled { cursor: default; }
+.facts-stage.is-locked:disabled { opacity: .72; }
+.facts-path-wrap { margin-top: 1.2rem; }
+.facts-path-wrap h3, .field-journal h3 { margin: 0 0 .7rem; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.08rem; }
+.facts-path { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.facts-path li { position: relative; }
+.facts-path li:not(:last-child)::after { content: ""; position: absolute; inset-inline-start: 30px; inset-block-start: 48px; block-size: 18px; border-inline-start: 2px solid var(--line-gold); }
+.discovery-node { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .7rem; min-block-size: 64px; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: 18px; color: var(--ink); background: var(--surface); box-shadow: 0 5px 14px rgb(var(--shadow-rgb) / 5%); text-align: start; text-decoration: none; }
+.discovery-node__icon { display: grid; place-items: center; inline-size: 38px; block-size: 38px; border-radius: 13px; color: var(--brand); background: var(--surface-green); }
+.discovery-node > span:nth-child(2) { min-width: 0; display: grid; gap: .12rem; }
+.discovery-node b { overflow: hidden; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1rem; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+.discovery-node small { color: var(--ink-soft); font-size: .73rem; line-height: 1.4; }
+.discovery-node__state { color: var(--gold-ink-deep); font-size: .72rem; font-weight: 800; white-space: nowrap; }
+.discovery-node--available:hover, .discovery-node--completed:hover, .discovery-node--current:hover { border-color: var(--line-gold); transform: translateY(-1px); }
+.discovery-node--current { border: 2px solid var(--gold); background: var(--surface-gold); box-shadow: 0 10px 22px rgb(var(--shadow-rgb) / 11%); }
+.discovery-node--current .discovery-node__icon { color: var(--brand-deep-ink); background: #fff8d8; }
+.discovery-node--completed { border-color: var(--line-green-strong); background: var(--surface-green); }
+.discovery-node--locked { color: var(--ink-soft); background: var(--surface-2); border-style: dashed; box-shadow: none; }
+.discovery-node--locked .discovery-node__icon { color: var(--gold-ink); background: transparent; }
+.facts-secondary-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin: 1.3rem 0 .55rem; }
+.facts-stage-completion { display: grid; justify-items: center; gap: 1rem; margin: 1.2rem 0; padding: 1.1rem; border: 1px solid var(--line-gold); border-radius: 22px; background: var(--surface-gold); }
+.facts-journey-complete, .fact-stage-complete { display: grid; justify-items: center; gap: .7rem; padding: 1.5rem; border: 1px solid var(--line-gold); border-radius: 24px; color: var(--ink); background: var(--surface-gold); text-align: center; }
+.facts-journey-complete > span, .fact-stage-complete > span { color: var(--gold-ink-deep); font-size: 2rem; }
+.facts-journey-complete h2, .facts-journey-complete h3, .fact-stage-complete h2 { margin: 0; font-family: "Noto Naskh Arabic", serif; }
+.field-journal { display: grid; gap: 1.25rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 24px; background: var(--page); }
+.field-journal__summary, .field-journal__empty { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1rem; padding: 1rem; border-radius: 18px; background: var(--surface-gold); border: 1px solid var(--line-gold); }
+.field-journal__summary span, .field-journal__summary b { color: var(--ink); font-size: .86rem; }
+.field-journal__summary .button { margin-inline-start: auto; }
+.field-journal__recent, .field-journal__stages { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+.field-journal__recent a { display: flex; align-items: center; gap: .6rem; min-block-size: 48px; padding: .6rem .75rem; border: 1px solid var(--line); border-radius: 15px; color: var(--ink); background: var(--surface); text-decoration: none; }
+.field-journal__recent a svg:last-child { margin-inline-start: auto; color: var(--brand); }
+.field-journal__stages li { display: flex; align-items: center; gap: .65rem; padding: .7rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.field-journal__stages li > span:first-child { display: grid; place-items: center; inline-size: 30px; block-size: 30px; border-radius: 50%; color: var(--brand); background: var(--surface-green); font-size: .8rem; font-weight: 800; }
+.field-journal__stages li > div { display: grid; gap: .1rem; }
+.field-journal__stages small { color: var(--ink-soft); font-size: .73rem; }
+.field-journal__stages li > span:last-child { margin-inline-start: auto; }
+.field-journal__stages .is-current { border-color: var(--gold); background: var(--surface-gold); }
+.field-journal__stages .is-complete { border-color: var(--line-green-strong); }
+.field-journal__reset { justify-self: start; color: var(--ink-soft); }
+.fact-discovery-moment { display: grid; justify-items: center; gap: .8rem; padding: clamp(1.5rem, 6vw, 3rem); border: 2px solid var(--gold); border-radius: 28px; background: linear-gradient(135deg, var(--surface-gold), var(--page)); text-align: center; }
+.fact-discovery-moment__icon, .fact-page__title-icon { display: grid; place-items: center; inline-size: 64px; block-size: 64px; border-radius: 20px; color: var(--brand-deep-ink); background: #fff8d8; }
+.fact-discovery-moment > span:not(.fact-discovery-moment__icon) { color: var(--gold-ink-deep); font-size: .78rem; font-weight: 800; }
+.fact-discovery-moment h1 { max-width: 34rem; }
+.fact-discovery-moment p { max-width: 30rem; margin: 0; color: var(--ink-soft); line-height: 1.8; }
+.fact-page__knowledge { display: flex; align-items: center; gap: .85rem; }
+.fact-page__knowledge > div:last-child { min-width: 0; }
+.fact-page__status { margin: 0 0 .15rem; color: var(--brand); font-size: .82rem; font-weight: 800; }
+.fact-page__replay { justify-self: start; }
+.fact-page__connection { display: grid; gap: .7rem; padding: 1rem; border: 1px solid var(--line-green); border-radius: 18px; background: var(--surface-green); }
+.fact-page__connection h2 { margin: 0; color: var(--ink); font-family: "Noto Naskh Arabic", serif; font-size: 1.15rem; }
+.fact-page__deep-dive { padding: .9rem 1rem; border: 1px dashed var(--line); border-radius: 16px; background: var(--surface); }
+.fact-page__deep-dive summary { color: var(--ink); cursor: pointer; font-weight: 800; }
+.fact-page__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: .5rem; }
+.fact-stage-complete { margin-top: .4rem; }
+
+@media (min-width: 760px) {
+  .facts-path { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+  .facts-path li:nth-child(odd)::after { inset-inline-start: auto; inset-inline-end: -1rem; inset-block-start: 31px; inline-size: 2rem; block-size: auto; border-block-start: 2px solid var(--line-gold); border-inline-start: 0; }
+  .facts-path li:not(:last-child)::after { content: ""; }
+}
+
 @media (max-width: 560px) {
   .facts-today .button { inline-size: 100%; }
   .fact-page__surah .button { inline-size: 100%; }
+  .current-discovery { grid-template-columns: auto 1fr; padding: 1rem; }
+  .current-discovery .button { grid-column: 1 / -1; justify-content: center; inline-size: 100%; }
+  .facts-stage-preview, .field-journal { padding: 1rem; }
+  .facts-stage-preview__head, .field-journal__head { align-items: center; }
+  .facts-path li::after { inset-inline-start: 28px; }
+  .field-journal__summary .button { inline-size: 100%; margin-inline-start: 0; justify-content: center; }
+  .fact-page__connection .button { inline-size: 100%; }
 }

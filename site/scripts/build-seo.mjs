@@ -253,7 +253,7 @@ type Station = { stationId: number; titleAr: string; titleEn: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
-type Fact = { number: number; slug: string; title: string; body: string; titleEn: string; bodyEn: string };
+type Fact = { number: number; slug: string; icon: string; title: string; body: string; titleEn: string; bodyEn: string };
 export const chapterIndex: Chapter[] = ${JSON.stringify(chapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, descriptionAr: c.descriptionAr,
   titleEn: c.titleEn ?? null, descriptionEn: c.descriptionEn ?? null,
@@ -290,7 +290,7 @@ export const aqeedahCardIndex: AqeedahCard[] = ${JSON.stringify(aqeedahCards.map
 })), null, 1)};
 
 export const factIndex: Fact[] = ${JSON.stringify(quranFacts.map(f => ({
-  number: f.number, slug: f.slug,
+  number: f.number, slug: f.slug, icon: f.icon,
   title: f.title.ar, body: clip(f.body.ar),
   titleEn: f.title.en, bodyEn: clip(f.body.en),
 })), null, 1)};

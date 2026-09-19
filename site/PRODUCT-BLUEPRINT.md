@@ -41,7 +41,7 @@ The parent lock is intentionally a child lock, not authentication or device secu
 - Learning is described as discovery, journey, review, practice, and completion.
 - No Hifz grades, percentages, rankings, speech recognition, or automated audio accuracy are implemented.
 - A parent is the only recital-quality judge.
-- Quran Facts completion is discovery on opening/reading its detail page; quiz success is not required for fact completion.
+- Quran Facts completion is recorded after a child reveals a valid fact detail; quiz success, Quran reading/listening, and source review are optional and never required for fact completion.
 
 ## Rewards — IMPLEMENTED / PARTIAL
 

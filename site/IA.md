@@ -59,7 +59,7 @@ Hifz recital: ready → recording → recorded → awaiting_parent → reviewed
                                       └────────────────────→ needs_practice → ready
 ```
 
-Quran Facts are completed by recorded discovery. Hifz recital approval is a parent action; covered ayahs require a reviewed recital, not merely awaiting-parent or needs-practice status.
+Quran Facts are completed when a valid detail is revealed and that discovery is recorded. Hifz recital approval is a parent action; covered ayahs require a reviewed recital, not merely awaiting-parent or needs-practice status.
 
 ## Back and deep-link behaviour
 

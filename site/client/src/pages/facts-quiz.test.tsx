@@ -27,11 +27,11 @@ const openQuiz = () => {
   localStorage.setItem("yahya.facts.discovered.v1", JSON.stringify(DISCOVERED));
   window.history.pushState({}, "", "/quran-facts");
   const view = render(<ThemeProvider><LocaleProvider><QuranFacts /></LocaleProvider></ThemeProvider>);
-  fireEvent.click(screen.getByRole("button", { name: "اختبر معلوماتك" }));
+  fireEvent.click(screen.getByRole("button", { name: "تحدي الاكتشاف" }));
   return view;
 };
 
-const quiz = () => screen.getByRole("region", { name: "اختبر معلوماتك" });
+const quiz = () => screen.getByRole("region", { name: "تحدي الاكتشاف" });
 const options = () =>
   within(quiz()).getAllByRole("button").filter(
     (b): b is HTMLButtonElement => b.className.includes("facts-quiz__option"),

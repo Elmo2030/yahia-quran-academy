@@ -9,6 +9,7 @@ import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { nextStep, readLocalProgress } from "@/lib/progress";
 import { factIndex, storyIndex } from "@/lib/page-index.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
+import { currentDiscovery } from "@/lib/quran-facts-journey";
 
 const copy = {
   ar: {
@@ -49,7 +50,7 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
     ? JOURNEY_SURAHS.find(surah => surahProgress(profile, surah, ayahCountOf(surah)).declared < ayahCountOf(surah)) ?? JOURNEY_SURAHS[0]
     : JOURNEY_SURAHS[0];
   const discovered = readFactDiscoveries(factIndex.map(fact => fact.slug), profileId);
-  const nextFact = factIndex.find(fact => !discovered.includes(fact.slug)) ?? factIndex[0];
+  const nextFact = currentDiscovery(factIndex, discovered) ?? factIndex[0];
   const resumedStory = profile?.character === "guest"
     ? undefined
     : profile && inProgressStories(profile).find(candidate =>
