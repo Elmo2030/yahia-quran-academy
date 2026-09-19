@@ -54,6 +54,8 @@ Rounded surfaces, light borders, soft shadows, olive actions, and restrained gol
 
 ## Responsive behaviour — IMPLEMENTED
 
+My Journey uses `AdventureJourney` and `JourneyWorldMap`: a data-driven, three-column serpentine map at 760px and above, and a vertical alternating trail below 760px. Existing environmental artwork, character poses and reward art are reused. Symbolic landscape/icon compositions are interim world illustrations, not newly commissioned artwork. State is conveyed by text and icons as well as color; future worlds have no link. Scoped CSS supports visible focus and reduced motion. The current mission remains reachable through a keyboard-accessible in-page shortcut.
+
 The CSS is mobile-first with local media queries and fluid sizing (`clamp`, grid, flex wrapping). There is no central breakpoint registry; therefore exact global breakpoint values are **NOT_FORMALLY_DEFINED**. Hifz pages reserve space for the mobile bottom bar, and the bottom bar is intentionally not site-wide.
 
 ## Locale and direction — IMPLEMENTED

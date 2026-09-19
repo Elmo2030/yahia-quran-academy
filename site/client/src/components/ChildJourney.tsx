@@ -125,33 +125,3 @@ export function JourneyEntry() {
     </section>
   );
 }
-
-export function ChildJourneyBoard() {
-  const { locale } = useLocale();
-  const { store } = useHifzStore();
-  const profile = activeProfile(store);
-  const { primary, activities, hasProgress } = childJourneyActivities(locale, profile?.id ?? null, profile);
-  const t = copy[locale];
-  const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
-  const PrimaryIcon = primary.Icon;
-  return (
-    <>
-      <section className="child-journey-hero">
-        <div className="container">
-          <span className="eyebrow eyebrow--gold"><Compass size={15} aria-hidden="true" /> {t.label}</span>
-          <h1>{hasProgress ? t.title : t.firstTitle}</h1>
-          <p>{hasProgress ? primary.body : t.firstBody}</p>
-          <Link href={primary.href} className="child-next-card" data-testid="journey-next-step">
-            <span className="child-next-card__icon"><PrimaryIcon size={23} aria-hidden="true" /></span>
-            <span><small>{t.title}</small><b>{primary.title}</b><em>{t.continue} <Arrow size={16} aria-hidden="true" /></em></span>
-          </Link>
-        </div>
-      </section>
-      <section className="section child-journey-activities" aria-labelledby="journey-activities-title">
-        <div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold">{t.label}</span><h2 id="journey-activities-title">{t.explore}</h2></div>
-          <ul className="child-journey-grid">{activities.map(activity => { const Icon = activity.Icon; return <li key={activity.kind}><Link href={activity.href} className="child-journey-card"><span><Icon size={20} aria-hidden="true" /></span><div><b>{activity.title}</b><p>{activity.body}</p></div><Arrow size={17} aria-hidden="true" /></Link></li>; })}</ul>
-        </div>
-      </section>
-    </>
-  );
-}

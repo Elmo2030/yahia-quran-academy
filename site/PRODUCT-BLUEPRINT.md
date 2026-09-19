@@ -34,7 +34,9 @@ The product-wide target age is 6–11. Quran stories currently have a 6–8-orie
 
 Valid detail entry records `in_progress` for the active named child; the existing challenge's correct answer records `done`. Completion means finishing the activity, not mastery. The existing child `steps` map stores `seerah:<slug>` and `aqeedah:<slug>`, with stable `startedAt` and `doneAt`. Guests retain session-only interactions. Reopening completed content restores its existing reward and never downgrades progress.
 
-My Journey's activity cards resume the newest valid incomplete item by original start time, using generated localized metadata. No candidate means the existing library destination. Hifz primary-action priority is unchanged. Detail pages offer a return to My Journey without removing library access.
+My Journey's world destinations resume the newest valid incomplete item by original start time, using generated localized metadata. No candidate means the existing library destination. Hifz primary-action priority is unchanged. Detail pages offer a return to My Journey without removing library access.
+
+`/journey` presents an illustrated world map, current mission, derived progress and earned-reward previews. `journey-worlds.ts` is presentation configuration, not another persisted progress model. Live worlds remain freely available; future worlds are explicitly non-interactive. The treasure destination is symbolic and never asserts religious mastery. On mobile the map becomes a vertical trail, with an in-page shortcut to the real current mission. Counts distinguish Hifz declarations, completed stories and revealed discoveries. Existing Hifz stars and confirmed deeds are reused; no XP or new reward economy is introduced.
 
 Existing backup export/import includes these steps, covered by round-trip tests. No storage key or version changed. Older app binaries do not recognize these additive step keys and may drop them on save; export a backup using the updated release before rollback. Storage failures offer retry; resetting local storage still removes local progress.
 
