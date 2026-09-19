@@ -249,7 +249,7 @@ writeFileSync(join(root, "client/src/lib/page-index.generated.ts"),
 // TypeScript then reports as an error on \`a ?? b\`.
 type Chapter = { slug: string; titleAr: string; descriptionAr: string; titleEn: string | null; descriptionEn: string | null; cover: string | null };
 type Story = { chapter: string; slug: string; title: string; hook: string; titleEn: string | null; hookEn: string | null; image: string | null };
-type Station = { stationId: number; titleAr: string; titleEn: string | null };
+type Station = { stationId: number; titleAr: string; descriptionAr: string; titleEn: string | null; descriptionEn: string | null; cover: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
@@ -267,12 +267,19 @@ export const storyIndex: Story[] = ${JSON.stringify(stories.map(s => ({
 })), null, 1)};
 
 export const seerahStationIndex: Station[] = ${JSON.stringify(seerahStations.map(s => ({
-  stationId: s.stationId, titleAr: s.titleAr, titleEn: s.titleEn ?? null,
+  stationId: s.stationId,
+  titleAr: s.titleAr,
+  descriptionAr: s.descriptionAr,
+  titleEn: s.titleEn ?? null,
+  descriptionEn: s.descriptionEn ?? null,
+  cover: s.cover ?? null,
 })), null, 1)};
 
 export const seerahStoryIndex: SeerahStory[] = ${JSON.stringify(seerahStories.map(s => ({
   stationId: s.stationId,
-  slug: s.slug, title: s.title, description: clip(s.content.tier_1_age_6_8.narrative),
+  slug: s.slug,
+  title: s.title,
+  description: clip(s.content.tier_1_age_6_8.narrative),
   titleEn: s.en?.title ?? null,
   descriptionEn: s.en ? clip(s.en.content.tier_1_age_6_8.narrative) : null,
   image: s.image ?? null,

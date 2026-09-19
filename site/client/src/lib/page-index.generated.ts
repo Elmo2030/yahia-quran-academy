@@ -3,7 +3,7 @@
 // TypeScript then reports as an error on `a ?? b`.
 type Chapter = { slug: string; titleAr: string; descriptionAr: string; titleEn: string | null; descriptionEn: string | null; cover: string | null };
 type Story = { chapter: string; slug: string; title: string; hook: string; titleEn: string | null; hookEn: string | null; image: string | null };
-type Station = { stationId: number; titleAr: string; titleEn: string | null };
+type Station = { stationId: number; titleAr: string; descriptionAr: string; titleEn: string | null; descriptionEn: string | null; cover: string | null };
 type SeerahStory = { stationId: number; slug: string; title: string; description: string; titleEn: string | null; descriptionEn: string | null; image: string | null };
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
@@ -428,47 +428,74 @@ export const seerahStationIndex: Station[] = [
  {
   "stationId": 1,
   "titleAr": "البدايات — بذور النور",
-  "titleEn": "Beginnings — Seeds of Light"
+  "descriptionAr": "خمس قصص من طفولة النبي ﷺ: مولده، ورضاعته في البادية، وحنان جده وعمه، وأول عمل في حياته.",
+  "titleEn": "Beginnings — Seeds of Light",
+  "descriptionEn": "Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.",
+  "cover": null
  },
  {
   "stationId": 2,
   "titleAr": "الصادق الأمين",
-  "titleEn": "The Truthful, The Trustworthy"
+  "descriptionAr": "خمس قصص من شبابه ﷺ قبل البعثة: أمانته في التجارة، وبيته مع خديجة، وحكمته في الحجر الأسود، ووقوفه مع المظلوم، وخلوته في غار حراء.",
+  "titleEn": "The Truthful, The Trustworthy",
+  "descriptionEn": "Five stories from his youth before the revelation: his honesty in trade, his home with Khadijah, his wisdom over the Black Stone, his stand with the wronged, and his retreats to the cave of Hira.",
+  "cover": null
  },
  {
   "stationId": 3,
   "titleAr": "الوحي",
-  "titleEn": "The Revelation"
+  "descriptionAr": "خمس قصص من بدء الوحي: أول لقاء في غار حراء، وما قاله ورقة بن نوفل، وفترة انقطاع الوحي وسورة الضحى، وأمر القيام في سورة المدثر، وأوجه نزول الوحي.",
+  "titleEn": "The Revelation",
+  "descriptionEn": "Five stories from the beginning of the revelation: the first meeting in Cave Hira, what Waraqah ibn Nawfal said, the pause and Surah Ad-Duha, the call to rise in Surah Al-Muddaththir, and the forms the revelation took.",
+  "cover": null
  },
  {
   "stationId": 4,
   "titleAr": "الدعوة: سرًّا ثم جهرًا",
-  "titleEn": "The Call: In Secret, Then Aloud"
+  "descriptionAr": "عشر قصص من سنوات الدعوة في مكة: دار الأرقم، ونداء الصفا، وصبر بلال وآل ياسر، والهجرة إلى الحبشة، وحصار الشِّعب وعام الحزن، وإسلام حمزة وعمر، وردّه على عرض المال والملك، وانشقاق القمر، وقصة الطفيل، ورحلة الطائف.",
+  "titleEn": "The Call: In Secret, Then Aloud",
+  "descriptionEn": "Ten stories from the years of the call in Mecca: Dar al-Arqam, the call from Safa, the patience of Bilal and the family of Yasir, the migration to Abyssinia, the siege and the Year of Sorrow, the Islam of Hamza and Umar, his answer to the offer of wealth and kingship, the splitting of the moon, the story of at-Tufayl, and the journey to Taif.",
+  "cover": "/stories/seerah/station-4.jpg"
  },
  {
   "stationId": 5,
   "titleAr": "الإسراء والمعراج",
-  "titleEn": "The Night Journey and the Ascension"
+  "descriptionAr": "خمس عشرة قصة من رحلة ليلة واحدة: من المسجد الحرام إلى المسجد الأقصى، ثم عروجٌ في السماوات السبع ولقاءُ الأنبياء فيها، فسدرة المنتهى، ففرض الصلاة، ثم العودة وصباح اليقين.",
+  "titleEn": "The Night Journey and the Ascension",
+  "descriptionEn": "Fifteen stories from a single night: from the Sacred Mosque to al-Aqsa, then an ascent through the seven heavens and the prophets met in each, to Sidrat al-Muntaha, the gift of the prayer, and the return — and the morning that followed.",
+  "cover": "/stories/seerah/station-5.jpg"
  },
  {
   "stationId": 6,
   "titleAr": "الهجرة إلى المدينة",
-  "titleEn": "The Migration to Madinah"
+  "descriptionAr": "خمس عشرة قصة من رحلة الهجرة: مؤامرة دار الندوة، وعليّ في الفراش، ودموع أبي بكر، ونِطاق أسماء، وغنم عامر، ثم غار ثور والسكينة، والدليل الخبير، وخيمة أم معبد، وفرس سُراقة، وراية بُرَيدة، ومسجد قباء، وبيت أبي أيوب، ويوم صارت يثرب المدينة المنوّرة.",
+  "titleEn": "The Migration to Madinah",
+  "descriptionEn": "Fifteen stories from the migration: the plot at Dar an-Nadwa, Ali in the bed, Abu Bakr’s tears, Asma’s belt and Amir’s flock, then Cave Thawr and the tranquillity, the expert guide, Umm Ma’bad’s tent, Suraqah’s horse, Buraydah’s banner, the mosque of Quba, the house of Abu Ayyub, and the day Yathrib became the city of light.",
+  "cover": null
  },
  {
   "stationId": 7,
   "titleAr": "الدفاع عن الوطن",
-  "titleEn": "Defending the Homeland"
+  "descriptionAr": "خمس عشرة قصة من سنوات الدفاع عن المدينة: الإذن بعد ثلاث عشرة سنة من الصبر، وبدر والشورى والملائكة، وأسرى صاروا معلّمين، ودرس أُحد، وخندق سلمان، وريح الأحزاب، وصلح الحديبية، والرسائل إلى الملوك، وخيبر، ثم فتح مكة يوم المرحمة والعفو العام.",
+  "titleEn": "Defending the Homeland",
+  "descriptionEn": "Fifteen stories from the years of defending Madinah: the permission after thirteen years of patience, Badr with its counsel and its angels, captives who became teachers, the lesson of Uhud, Salman's trench, the wind that scattered the Confederates, the treaty of Hudaybiyyah, the letters to kings, Khaybar, and finally the conquest of Mecca — the day of mercy and the general pardon.",
+  "cover": null
  },
  {
   "stationId": 8,
   "titleAr": "عام الوفود ودولة السلام",
-  "titleEn": "The Year of Delegations, and a State at Peace"
+  "descriptionAr": "خمس عشرة قصة من سنوات الاستقرار: درس حُنين في الغرور بالعدد، وجيش العُسرة ومن بكى لأنه لم يجد ما ينفق، وتبوك التي انتهت بعهود لا بقتال، ثم عام الوفود وحوار نجران ووصية معاذ، ودستور المجتمع: أهل الصُّفَّة، والرفق بالحيوان، وأمانة السوق، والمسجد مدرسةً للجميع.",
+  "titleEn": "The Year of Delegations, and a State at Peace",
+  "descriptionEn": "Fifteen stories from the settled years: the lesson of Hunayn about pride in numbers, the Army of Hardship and those who wept at having nothing to give, Tabuk that ended in treaties rather than battle, then the Year of Delegations, the talks with Najran and the counsel to Mu'adh — and the charter of the community: the people of the Bench, kindness to animals, honesty in the market, and the mosque as a school for everyone.",
+  "cover": null
  },
  {
   "stationId": 9,
   "titleAr": "حجّة الوداع وختام الرسالة",
-  "titleEn": "The Farewell Pilgrimage, and the End of the Message"
+  "descriptionAr": "خمس عشرة قصة من آخر سنة: مسيرة إلى مكة في ثوبين أبيضين، ووقوف بعرفات، وخطبة قالت إن لا فضل لعربيّ على أعجميّ إلا بالتقوى، ثم وداع الشهداء، وقائد في الثامنة عشرة، ومرضٌ حُفظ فيه العدل، وآخر صلاة وآخر نظرة وآخر وصية — وما بقي بعده.",
+  "titleEn": "The Farewell Pilgrimage, and the End of the Message",
+  "descriptionEn": "Fifteen stories from the last year: a march to Mecca in two white cloths, the standing at Arafat, and a sermon saying no Arab is above a non-Arab except by piety — then farewell to the martyrs, a commander of eighteen, an illness in which fairness was still kept, the last prayer, the last glance, the last testament, and what remained after him.",
+  "cover": null
  }
 ];
 

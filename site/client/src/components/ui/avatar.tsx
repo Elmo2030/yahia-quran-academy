@@ -1,7 +1,10 @@
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
-import { cn } from "@/lib/utils";
+// Avatar is part of the initial Home route. It only appends component-scoped
+// classes, so Tailwind conflict resolution is unnecessary here and would pull
+// tailwind-merge into the initial bundle.
+const avatarClass = (...classes: Array<string | undefined>) => classes.filter(Boolean).join(" ");
 
 function Avatar({
   className,
@@ -10,7 +13,7 @@ function Avatar({
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
-      className={cn(
+      className={avatarClass(
         "relative flex size-8 shrink-0 overflow-hidden rounded-full",
         className
       )}
@@ -26,7 +29,7 @@ function AvatarImage({
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
-      className={cn("aspect-square size-full", className)}
+      className={avatarClass("aspect-square size-full", className)}
       {...props}
     />
   );
@@ -39,7 +42,7 @@ function AvatarFallback({
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
-      className={cn(
+      className={avatarClass(
         "bg-muted flex size-full items-center justify-center rounded-full",
         className
       )}
