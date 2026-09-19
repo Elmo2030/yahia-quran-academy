@@ -1,9 +1,11 @@
-import { cn } from "@/lib/utils";
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { Component, ReactNode } from "react";
+import { useLocale, type SiteLocale } from "@/contexts/LocaleContext";
 
 interface Props {
   children: ReactNode;
+  locale: SiteLocale;
+  direction: "rtl" | "ltr";
 }
 
 interface State {
@@ -11,7 +13,20 @@ interface State {
   error: Error | null;
 }
 
-class ErrorBoundary extends Component<Props, State> {
+const copy = {
+  ar: {
+    title: "حصلت مشكلة مؤقتة",
+    body: "جرّب تحديث الصفحة، وستعود رحلتك كما كانت.",
+    retry: "تحديث الصفحة",
+  },
+  en: {
+    title: "Something went wrong for a moment",
+    body: "Try refreshing the page and your journey will be here again.",
+    retry: "Refresh page",
+  },
+} as const;
+
+class LocalizedErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -23,35 +38,28 @@ class ErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
+      const t = copy[this.props.locale];
       return (
-        <div className="flex items-center justify-center min-h-screen p-8 bg-background">
-          <div className="flex flex-col items-center w-full max-w-2xl p-8">
+        <main className="flex min-h-screen items-center justify-center bg-background p-8" dir={this.props.direction}>
+          <div className="flex w-full max-w-md flex-col items-center rounded-2xl bg-card p-8 text-center shadow-sm" role="alert">
             <AlertTriangle
               size={48}
-              className="text-destructive mb-6 flex-shrink-0"
+              className="mb-6 flex-shrink-0 text-destructive"
+              aria-hidden="true"
             />
 
-            <h2 className="text-xl mb-4">An unexpected error occurred.</h2>
-
-            <div className="p-4 w-full rounded bg-muted overflow-auto mb-6">
-              <pre className="text-sm text-muted-foreground whitespace-break-spaces">
-                {this.state.error?.stack}
-              </pre>
-            </div>
+            <h1 className="mb-3 text-xl">{t.title}</h1>
+            <p className="mb-6 text-sm leading-6 text-muted-foreground">{t.body}</p>
 
             <button
               onClick={() => window.location.reload()}
-              className={cn(
-                "flex items-center gap-2 px-4 py-2 rounded-lg",
-                "bg-primary text-primary-foreground",
-                "hover:opacity-90 cursor-pointer"
-              )}
+              className="flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:opacity-90"
             >
-              <RotateCcw size={16} />
-              Reload Page
+              <RotateCcw size={16} aria-hidden="true" />
+              {t.retry}
             </button>
           </div>
-        </div>
+        </main>
       );
     }
 
@@ -59,4 +67,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-export default ErrorBoundary;
+export default function ErrorBoundary({ children }: { children: ReactNode }) {
+  const { locale, direction } = useLocale();
+  return <LocalizedErrorBoundary locale={locale} direction={direction}>{children}</LocalizedErrorBoundary>;
+}

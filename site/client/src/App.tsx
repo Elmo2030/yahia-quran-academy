@@ -87,16 +87,16 @@ function Router() {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider>
+    <ThemeProvider>
       <LocaleProvider>
         <AuthProvider>
-          <PageMeta />
-          <Router />
+          <ErrorBoundary>
+            <PageMeta />
+            <Router />
+          </ErrorBoundary>
         </AuthProvider>
       </LocaleProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    </ThemeProvider>
   );
 }
 
