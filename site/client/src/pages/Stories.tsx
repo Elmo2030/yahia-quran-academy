@@ -18,8 +18,8 @@ import { artAlt, CARD_SIZES, COVER_SIZES } from "@/lib/story-images";
 
 const copy = {
   ar: {
-    home: "العودة للرئيسية", eyebrow: "قصص", title: "قصص من القرآن",
-    intro: "أبواب من القصص للأطفال، كل قصة تنتهي بسؤال يقود إلى التي بعدها.",
+    home: "العودة للرئيسية", eyebrow: "قصص", title: "قصص القرآن 🌿",
+    intro: "في القرآن قصص حقيقية مليئة بالإيمان والشجاعة والصبر والحكمة.",
     chooseChapter: "اختر بابًا", soon: "قريبًا", storiesCount: "قصة",
     read: "اقرأ القصة", storyOf: "القصة", hook: "قبل أن نبدأ", events: "ما حدث",
     ayah: "من القرآن", lesson: "ماذا نتعلم؟", next: "وفي القصة القادمة", challenge: "تحدي الفهم",
@@ -509,7 +509,13 @@ export default function Stories() {
           <div>
             <span className="eyebrow eyebrow--gold"><Sparkles size={15} aria-hidden="true" /> {t.eyebrow}</span>
             <h1>{t.title}</h1>
-            <p>{t.intro}</p>
+            {locale === "ar" ? (
+              <div className="stories-hero__intro">
+                <p>في القرآن قصص حقيقية مليئة بالإيمان والشجاعة والصبر والحكمة.</p>
+                <p>سنعيش مع الأنبياء والصالحين أحداثًا أخبرنا الله بها، ونكتشف كيف واجهوا المواقف الصعبة، وماذا يمكن أن نتعلم منهم اليوم.</p>
+                <p><strong>كل قصة تحمل درسًا… وكل درس يمكن أن يغيّر شيئًا جميلًا في حياتنا.</strong></p>
+              </div>
+            ) : <p>{t.intro}</p>}
             <Link href="/stories/library" className="stories-hero__library-link"><Library size={16} aria-hidden="true" /> {t.myLibrary}</Link>
           </div>
           <figure className="animals-collection-cover">
