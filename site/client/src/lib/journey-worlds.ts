@@ -1,6 +1,7 @@
 import { aqeedahCardIndex, factIndex, seerahStoryIndex, storyIndex } from "@/lib/page-index.generated";
 import { surahProgress, type ChildProfile } from "@/lib/hifz-store";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
+import { companionIndex } from "./companion-index.generated";
 
 export type WorldState = "available" | "active" | "completed" | "locked" | "comingSoon";
 export type WorldSymbol = "book" | "town" | "mountain" | "spark" | "compass" | "tent" | "tree";
@@ -23,7 +24,7 @@ export const journeyWorlds: readonly JourneyWorld[] = [
   { id: "aqeedah", title: { ar: "العقيدة", en: "Creed" }, symbol: "mountain", landscape: "hills", href: "/aqeedah" },
   { id: "facts", title: { ar: "في رحاب القرآن", en: "Quran discoveries" }, symbol: "spark", landscape: "sky", href: "/quran-facts" },
   { id: "quran", title: { ar: "قراءة القرآن", en: "Quran reading" }, symbol: "book", landscape: "oasis", href: "/read/1" },
-  { id: "companions", title: { ar: "الصحابة", en: "The companions" }, symbol: "tent", landscape: "valley", comingSoon: true, onMap: true },
+  { id: "companions", title: { ar: "الصحابة", en: "The companions" }, symbol: "tent", landscape: "valley", href: "/companions", onMap: true },
   { id: "manners", title: { ar: "آداب الإسلام", en: "Islamic manners" }, symbol: "tree", landscape: "hills", comingSoon: true, onMap: true },
   { id: "values", title: { ar: "القيم والأخلاق", en: "Values & character" }, symbol: "tree", landscape: "hills", comingSoon: true },
   { id: "prophets", title: { ar: "الأنبياء", en: "The prophets" }, symbol: "book", landscape: "oasis", comingSoon: true },
@@ -41,6 +42,7 @@ export function journeyWorldProgress(profile: ChildProfile | null, discovered: r
     stories: { count: storyIndex.filter(s => done(`story:${s.chapter}:${s.slug}`)).length, total: storyIndex.length },
     seerah: { count: seerahStoryIndex.filter(s => done(`seerah:${s.slug}`)).length, total: seerahStoryIndex.length },
     aqeedah: { count: aqeedahCardIndex.filter(s => done(`aqeedah:${s.slug}`)).length, total: aqeedahCardIndex.length },
+    companions: { count: companionIndex.filter(s => done(`companions:${s.slug}`)).length, total: companionIndex.length },
     facts: { count: factIndex.filter(f => discovered.includes(f.slug)).length, total: factIndex.length },
     hifz: { count: profile ? JOURNEY_SURAHS.filter(s => surahProgress(profile, s, ayahCountOf(s)).declared === ayahCountOf(s)).length : 0, total: JOURNEY_SURAHS.length },
   };

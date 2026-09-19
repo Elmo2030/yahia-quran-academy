@@ -4,6 +4,10 @@
 
 YAHYA Quran Academy is a bilingual Arabic/English Quran learning web application for children aged 6–11. It combines Quran reading/listening, Quran stories, Seerah, Aqeedah, Quran Facts, and a local-first Hifz journey. Optional accounts use Supabase; core reading works without signing in.
 
+## Companions V1 — IMPLEMENTED (Arabic)
+
+Thirty supplied stories live at `/companions` and `/companions/:slug`. Named-child entry starts `companions:<slug>` in the existing `yahya.hifz.v1` steps; a correct answer to the first supplied comprehension question completes it. Other questions support family discussion. Completion is not mastery. My Journey resumes the latest valid incomplete Companion, otherwise the next unfinished story in editorial order. Hifz priority and all persistence versions are unchanged. The existing badge component presents the supplied primary value; no new currency or reward store exists. English narrative and independent scholarly approval remain pending; see `content/companions-source/README.md`.
+
 ## Users and age model
 
 | User | Current capability |

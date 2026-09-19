@@ -2696,6 +2696,192 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://yahyaquran.com/companions</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/abu-bakr</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/abu-bakr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/abu-bakr" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/umar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/umar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/umar" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/uthman</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/uthman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/uthman" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/ali</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/ali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/ali" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/khadijah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/khadijah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/khadijah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/aishah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/aishah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/aishah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/hamzah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/hamzah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/hamzah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/bilal</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/bilal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/bilal" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/khalid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/khalid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/khalid" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/abu-hurayrah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/abu-hurayrah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/abu-hurayrah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/salman</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/salman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/salman" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/saad</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/saad" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/saad" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/abd-al-rahman</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/abd-al-rahman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/abd-al-rahman" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/talhah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/talhah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/talhah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/al-zubayr</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/al-zubayr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/al-zubayr" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/abu-ubaydah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/abu-ubaydah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/abu-ubaydah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/ibn-masud</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/ibn-masud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/ibn-masud" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/ibn-abbas</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/ibn-abbas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/ibn-abbas" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/muadh</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/muadh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/muadh" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/zayd-ibn-thabit</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/zayd-ibn-thabit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/zayd-ibn-thabit" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/zayd-ibn-harithah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/zayd-ibn-harithah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/zayd-ibn-harithah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/usamah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/usamah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/usamah" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/anas</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/anas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/anas" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/ammar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/ammar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/ammar" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/musab</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/musab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/musab" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/asma</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/asma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/asma" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/jafar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/jafar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/jafar" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/al-hasan</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/al-hasan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/al-hasan" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/al-husayn</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/al-husayn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/al-husayn" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/companions/ubayy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/companions/ubayy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/companions/ubayy" />
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yahyaquran.com/aqeedah/knowing-my-lord</loc>
     <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/knowing-my-lord" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/knowing-my-lord?lang=en" />

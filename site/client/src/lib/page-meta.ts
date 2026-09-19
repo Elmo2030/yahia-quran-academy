@@ -11,6 +11,7 @@ import {
   factIndex,
 } from "./page-index.generated";
 import { englishSurahNames, surahNames } from "./quran-content";
+import { companionIndex } from "./companion-index.generated";
 
 // =============================================================================
 // page-meta.ts — canonical per-route metadata for the static SPA.
@@ -34,6 +35,7 @@ export type Meta = {
   description: string;
   image: string;
   noindex?: boolean;
+  arabicOnly?: boolean;
   // Optional pre-localized variants — used by <PageMeta/> when it renders to
   // swap the title for non-default locales; the worker stays single-locale
   // because link-preview bots send a single Accept-Language.
@@ -293,6 +295,11 @@ export const metaForPath = (pathname: string): Meta => {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
   const parts = path.split("/").filter(Boolean);
   const head = parts[0];
+  if (head === "companions") {
+    const story = companionIndex.find(c => c.slug === parts[1]);
+    if (parts.length > 2 || (parts[1] && !story)) return FALLBACK_NOT_FOUND;
+    return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title}` : "الصحابة — قصص نتعلم منها", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
+  }
 
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;

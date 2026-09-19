@@ -2,8 +2,9 @@
 
 > A children's Quran site in Arabic and English: the full Uthmani text with
 > verified teaching recitations, illustrated stories from the Quran, and the
-> Seerah of the Prophet Muhammad told for ages 6-11. Every page is available
-> in both languages at the same URL; append ?lang=en for English.
+> Seerah of the Prophet Muhammad told for ages 6-11. Most pages are available
+> in both languages at the same URL; append ?lang=en for English. The supplied
+> Companions stories are Arabic-only pending reviewed translation.
 
 Non-commercial and educational.
 
@@ -121,6 +122,39 @@ Non-commercial and educational.
 - [العفو](https://yahyaquran.com/aqeedah/forgiveness): أعفو عندما أقدر، وأطلب الإصلاح لا الانتقام.
 - [الرفق بالحيوان](https://yahyaquran.com/aqeedah/kindness-to-animals): أرفق بالحيوان لأنه خلق من خلق الله.
 - [خريطتي الإيمانية](https://yahyaquran.com/aqeedah/my-map-of-faith): عرفتُ ربّي، فأحببتُه، فأطعتُه، فظهر ذلك في أفعالي.
+
+## Companions — Arabic stories
+- [أبو بكر الصديق رضي الله عنه — الصديق الذي لم يترك صاحبه](https://yahyaquran.com/companions/abu-bakr)
+- [عمر بن الخطاب رضي الله عنه — عندما تحولت المخاوف إلى مهمة](https://yahyaquran.com/companions/umar)
+- [عثمان بن عفان رضي الله عنه — عندما احتاج المسلمون إلى مصحف يجمعهم](https://yahyaquran.com/companions/uthman)
+- [علي بن أبي طالب رضي الله عنه — الراية في خيبر](https://yahyaquran.com/companions/ali)
+- [خديجة بنت خويلد رضي الله عنها — أول من طمأنه عندما عاد من الغار](https://yahyaquran.com/companions/khadijah)
+- [عائشة بنت أبي بكر رضي الله عنها — عندما أنزل الله براءتها قرآنًا](https://yahyaquran.com/companions/aishah)
+- [حمزة بن عبد المطلب رضي الله عنه — الأسد الذي استشهد في أُحد](https://yahyaquran.com/companions/hamzah)
+- [بلال بن رباح رضي الله عنه — صوت خطوات سُمع في الجنة](https://yahyaquran.com/companions/bilal)
+- [خالد بن الوليد رضي الله عنه — عندما وصلت الراية إلى خالد](https://yahyaquran.com/companions/khalid)
+- [أبو هريرة رضي الله عنه — لماذا حفظ كل هذه الأحاديث؟](https://yahyaquran.com/companions/abu-hurayrah)
+- [سلمان الفارسي رضي الله عنه — عندما قال النبي ﷺ: «صدق سلمان»](https://yahyaquran.com/companions/salman)
+- [سعد بن أبي وقاص رضي الله عنه — «ارمِ سعد»](https://yahyaquran.com/companions/saad)
+- [عبد الرحمن بن عوف رضي الله عنه — «دلوني على السوق»](https://yahyaquran.com/companions/abd-al-rahman)
+- [طلحة بن عبيد الله رضي الله عنه — يوم وقف يحمي رسول الله ﷺ](https://yahyaquran.com/companions/talhah)
+- [الزبير بن العوام رضي الله عنه — حواريُّ رسول الله ﷺ](https://yahyaquran.com/companions/al-zubayr)
+- [أبو عبيدة عامر بن الجراح رضي الله عنه — أمين هذه الأمة](https://yahyaquran.com/companions/abu-ubaydah)
+- [عبد الله بن مسعود رضي الله عنه — عندما طلب النبي ﷺ أن يسمع القرآن منه](https://yahyaquran.com/companions/ibn-masud)
+- [عبد الله بن عباس رضي الله عنهما — دعوة غيّرت حياة طفل](https://yahyaquran.com/companions/ibn-abbas)
+- [معاذ بن جبل رضي الله عنه — المهمة التي بدأت بالتوحيد](https://yahyaquran.com/companions/muadh)
+- [زيد بن ثابت رضي الله عنه — المهمة التي كانت أثقل من جبل](https://yahyaquran.com/companions/zayd-ibn-thabit)
+- [زيد بن حارثة رضي الله عنه — الصحابي الذي ذكره القرآن باسمه](https://yahyaquran.com/companions/zayd-ibn-harithah)
+- [أسامة بن زيد رضي الله عنهما — هل تستطيع أن تعرف ما في قلب إنسان؟](https://yahyaquran.com/companions/usamah)
+- [أنس بن مالك رضي الله عنه — عشر سنوات... بلا كلمة تضجر](https://yahyaquran.com/companions/anas)
+- [عمار بن ياسر رضي الله عنهما — كان يحمل أكثر من الآخرين](https://yahyaquran.com/companions/ammar)
+- [مصعب بن عمير رضي الله عنه — لم يجدوا ما يكفي لتغطية جسده](https://yahyaquran.com/companions/musab)
+- [أسماء بنت أبي بكر رضي الله عنها — عندما صنعت حزامين من حزام واحد](https://yahyaquran.com/companions/asma)
+- [جعفر بن أبي طالب رضي الله عنه — القائد الثاني في مؤتة](https://yahyaquran.com/companions/jafar)
+- [الحسن بن علي رضي الله عنهما — طفل على كتف النبي ﷺ... ثم رجل يصلح بين جيشين](https://yahyaquran.com/companions/al-hasan)
+- [الحسين بن علي رضي الله عنهما — نحبه أولًا كما أحبه رسول الله ﷺ](https://yahyaquran.com/companions/al-husayn)
+- [أُبيّ بن كعب رضي الله عنه — عندما أخبره النبي ﷺ أن الله ذكر اسمه](https://yahyaquran.com/companions/ubayy)
+Sources and adult editorial notes accompany each story; technical publication is not scholarly approval.
 
 ## Seerah of the Prophet
 - [Beginnings — Seeds of Light](https://yahyaquran.com/seerah#station-1): 5 stories. Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.

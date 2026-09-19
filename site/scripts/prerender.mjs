@@ -25,6 +25,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { companions } from "./build-companions.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -107,6 +108,11 @@ const list = items => (items.length ? `<ul>${items.map(i => `<li>${i}</li>`).joi
 
 const pages = new Map();
 const add = (path, body) => pages.set(path, body);
+
+add("/companions", section("ar", `<h1>الصحابة</h1>${list(companions.map(c => link(`/companions/${c.slug}`, `${c.name} — ${c.title}`)))}`));
+for (const c of companions) {
+  add(`/companions/${c.slug}`, section("ar", `<h1>${esc(c.title)}</h1>${p(c.name)}${c.sections.map(s => `${s.title ? `<h2>${esc(s.title)}</h2>` : ""}${s.paragraphs.map(p).join("")}`).join("")}<h2>جرّبها اليوم</h2>${c.tryToday.map(p).join("")}<h2>يحيى يسأل</h2>${p(c.challenge.question)}<h2>اكتشف أكثر</h2>${c.exploreMore.map(p).join("")}<h2>المصادر</h2>${list(c.sources.map(s => esc(s.reference)))}${link("/companions", "كل الصحابة")}`));
+}
 
 add("/", section("ar", `
   <h1>أكاديمية يحيى لتعليم القرآن للأطفال</h1>

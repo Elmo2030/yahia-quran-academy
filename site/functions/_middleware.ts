@@ -29,7 +29,7 @@
  * link previews show English text.
  */
 
-import { chapters, stories, surahNames, englishSurahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts } from "./page-data.js";
+import { chapters, stories, surahNames, englishSurahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts, companionIndex } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_EN = "Yahya Quran Academy";
@@ -131,6 +131,11 @@ export function metaForPath(pathname: string) {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
   const parts = path.split("/").filter(Boolean);
   const head = parts[0];
+  if (head === "companions") {
+    const story = companionIndex.find((c: any) => c.slug === parts[1]);
+    if (parts.length > 2 || (parts[1] && !story)) return notFound(path);
+    return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title}` : "الصحابة — قصص نتعلم منها", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
+  }
 
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
@@ -383,7 +388,7 @@ export const onRequest: PagesFunction = async (context) => {
   // An explicit ?lang=en in the address is the reader's own choice, unlike the
   // Accept-Language a link-preview bot sends, which is why this is read from
   // the URL and nothing else.
-  const locale = url.searchParams.get("lang") === "en" ? "en" : "ar";
+  const locale = url.searchParams.get("lang") === "en" && !pathname.startsWith("/companions") ? "en" : "ar";
   const meta = localized(metaForPath(pathname), locale);
   const arabicUrl = `${ORIGIN}${meta.path}`;
   // The English page is its own page as far as search is concerned. Pointing
@@ -402,7 +407,7 @@ export const onRequest: PagesFunction = async (context) => {
   const alternates = meta.noindex
     ? ""
     : `<link data-default rel="alternate" hreflang="ar" href="${arabicUrl}" />
-    <link data-default rel="alternate" hreflang="en" href="${arabicUrl}?lang=en" />
+    ${meta.arabicOnly ? "" : `<link data-default rel="alternate" hreflang="en" href="${arabicUrl}?lang=en" />`}
     <link data-default rel="alternate" hreflang="x-default" href="${arabicUrl}" />`;
 
   // Structured data. Search engines and the answer engines that read pages
@@ -534,7 +539,7 @@ export const onRequest: PagesFunction = async (context) => {
     <meta data-default name="twitter:title" content="${title}" />
     <meta data-default name="twitter:description" content="${description}" />
     <meta data-default name="twitter:image" content="${image}" />
-    <meta data-default property="og:locale:alternate" content="${locale === "en" ? "ar_AR" : "en_US"}" />
+    ${meta.arabicOnly ? "" : `<meta data-default property="og:locale:alternate" content="${locale === "en" ? "ar_AR" : "en_US"}" />`}
     <script data-default type="application/ld+json">${jsonLd}</script>
     <!--meta:end-->`;
 

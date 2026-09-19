@@ -9,6 +9,7 @@ Home (/)
 ├── Listening (/listen, /listen/:surah)
 ├── Quran Stories (/stories, /stories/:chapter, /stories/:chapter/:slug)
 ├── Seerah (/seerah, /seerah/:slug)
+├── Companions (/companions, /companions/:slug; Arabic content)
 ├── Aqeedah (/aqeedah, /aqeedah/:slug)
 ├── Quran Facts (/quran-facts, /quran-facts/:slug)
 ├── Hifz (/hifz)
@@ -35,6 +36,8 @@ Home → My Journey → current activity → completion/progress → next step
 ```
 
 The home/journey UI reads existing data. `nextStep()` uses Hifz priority: due review → needs-practice recital → awaiting-parent recital/deed → last reader position. The Stories activity reads the active named child's existing Story steps and points to the latest valid incomplete Story; it resumes the normal Story route from its top, without a separate cross-library progression store.
+
+Companions is reached through the existing My Journey world. Its destination resumes the current child's newest incomplete Companion or recommends the next unfinished one; the hub remains available on each detail page. No separate Journey or top-level reward destination was introduced.
 
 ## Parent journey
 

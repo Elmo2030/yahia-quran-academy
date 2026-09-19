@@ -20,6 +20,9 @@ const ROUTES = [
   { path: "/stories/prophets/yusuf", status: 200 },
   { path: "/stories/animals", status: 200 },
   { path: "/seerah", status: 200 },
+  { path: "/companions", status: 200 },
+  { path: "/companions/abu-bakr", status: 200 },
+  { path: "/companions/not-found", status: 404 },
   { path: "/seerah/cave-of-hira", status: 200 },
   { path: "/read/1", status: 200 },
   { path: "/read/114", status: 200 },
@@ -55,6 +58,13 @@ const shell = "<!doctype html><head><!--meta:start--><!--meta:end--></head>";
 const homeShell = `${shell}<body><div id="root"><!--prerendered:start--><div id="prerendered"><h1>الرئيسية</h1></div><!--prerendered:end--></div></body>`;
 
 describe("the Cloudflare function", () => {
+  it("keeps Arabic-only companions canonical without an unreviewed English edition", async () => {
+    const response = await onRequest({ request: new Request("https://yahyaquran.com/companions/abu-bakr?lang=en"), next: async () => new Response(shell, { headers: { "content-type": "text/html" } }), env: { ASSETS: { fetch: async () => new Response("", { status: 404 }) } } });
+    const html = await response.text();
+    expect(html).toContain('rel="canonical" href="https://yahyaquran.com/companions/abu-bakr"');
+    expect(html).not.toContain('hreflang="en"');
+    expect(html).toContain("الصديق الذي لم يترك صاحبه");
+  });
   for (const route of ROUTES) {
     it(`answers ${route.path} with ${route.status}`, async () => {
       const response = await onRequest({

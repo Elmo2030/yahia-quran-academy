@@ -177,12 +177,12 @@ export type StepRef =
   | { kind: "ayah"; surah: number; ayah: number }
   | { kind: "story"; chapter: string; slug: string }
   | { kind: "deed"; chapter: string; slug: string }
-  | { kind: "seerah" | "aqeedah"; slug: string }
+  | { kind: "seerah" | "aqeedah" | "companions"; slug: string }
   | { kind: "recital"; surah: number; from: number; to: number };
 
 type StoryOrDeedRef = Extract<StepRef, { kind: "story" | "deed" }>;
 type RecitalRef = Extract<StepRef, { kind: "recital" }>;
-export type LearningStepRef = Extract<StepRef, { kind: "seerah" | "aqeedah" }>;
+export type LearningStepRef = Extract<StepRef, { kind: "seerah" | "aqeedah" | "companions" }>;
 type KeyableRef = StoryOrDeedRef | RecitalRef | LearningStepRef;
 
 /**
@@ -239,7 +239,7 @@ export function stepKey(ref: KeyableRef): string {
 // it shows up the next time the store is parsed from disk, when parseSteps
 // silently drops the entry. See hifz-store.test.ts's round-trip test.
 const STEP_STATUSES: StepStatus[] = ["available", "in_progress", "done", "awaiting_parent", "reviewed", "needs_practice"];
-const STEP_KEY = /^(?:(?:story|deed):[^:]{1,80}:[^:]{1,80}|(?:seerah|aqeedah):[a-z0-9-]{1,80}|recital:\d{1,3}:\d{1,3}-\d{1,3})$/;
+const STEP_KEY = /^(?:(?:story|deed):[^:]{1,80}:[^:]{1,80}|(?:seerah|aqeedah|companions):[a-z0-9-]{1,80}|recital:\d{1,3}:\d{1,3}-\d{1,3})$/;
 // Generous bounds for authored sentences, not user input — just enough to
 // keep a corrupted or hand-edited entry from ballooning localStorage.
 const MAX_STORY_FIELD = 600;
@@ -265,7 +265,7 @@ function parseSteps(value: unknown): Record<string, StepRecord> {
   const out: Record<string, StepRecord> = {};
   for (const [key, entry] of Object.entries(value)) {
     if (!STEP_KEY.test(key) || !isObject(entry) || !STEP_STATUSES.includes(entry.status as StepStatus)) continue;
-    if (/^(seerah|aqeedah):/.test(key) && entry.status !== "in_progress" && entry.status !== "done") continue;
+    if (/^(seerah|aqeedah|companions):/.test(key) && entry.status !== "in_progress" && entry.status !== "done") continue;
     const record: StepRecord = { status: entry.status as StepStatus };
     if (isTime(entry.startedAt)) record.startedAt = entry.startedAt;
     if (isTime(entry.doneAt)) record.doneAt = entry.doneAt;

@@ -10,6 +10,7 @@ import { nextStep, readLocalProgress } from "@/lib/progress";
 import { factIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
 import { currentDiscovery } from "@/lib/quran-facts-journey";
+import { nextCompanion } from "@/lib/companions-progress";
 
 const copy = {
   ar: {
@@ -73,6 +74,8 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
   };
   const seerahContinuation = continuation("seerah", seerahStoryIndex);
   const aqeedahContinuation = continuation("aqeedah", aqeedahCardIndex);
+  const companion = nextCompanion(profile?.id === profileId ? profile : null);
+  const companionStarted = companion && profile?.steps[`companions:${companion.slug}`]?.status === "in_progress";
 
   let primary: Activity;
   if (step?.ref.kind === "ayah") {
@@ -100,6 +103,7 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
     },
     { href: "/seerah", title: t.seerah, body: seerahContinuation ? t.seerah : t.seerahBody, Icon: Star, kind: "seerah", ...seerahContinuation },
     { href: "/aqeedah", title: t.aqeedah, body: aqeedahContinuation ? t.aqeedah : t.aqeedahBody, Icon: Lightbulb, kind: "aqeedah", ...aqeedahContinuation },
+    { href: companion ? `/companions/${companion.slug}` : "/companions", title: companion ? `${companionStarted ? (locale === "ar" ? "تابع" : "Continue") : (locale === "ar" ? "اكتشف" : "Discover")}: ${companion.name} — ${companion.title}` : (locale === "ar" ? "الصحابة" : "Companions"), body: locale === "ar" ? "الصحابة — قيم نراها في المواقف" : "Companions — Arabic stories", Icon: BookOpen, kind: "companions" },
   ];
   return { primary, activities, hasProgress: Boolean(step || profile || discovered.length || local) };
 }
