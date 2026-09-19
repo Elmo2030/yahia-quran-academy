@@ -75,6 +75,7 @@ function spread<T>(items: T[], count: number): T[] {
 const ROUTES = [
   "/", "/about", "/journey", "/privacy", "/terms",
   "/stories", "/seerah", "/quran-facts", "/read", "/aqeedah",
+  "/seerah/little-shepherd",
   "/login", "/register", "/profile", "/hifz", "/hifz/114", "/hifz/114/recite", "/hifz/parent", "/hifz/looks", "/listen", "/listen/1", "/listen/114", "/listen/999", "/stories/library",
   "/forgot-password", "/reset-password", "/nope", "/stories/nope",
   ...chapterIndex.map(chapter => `/stories/${chapter.slug}`),

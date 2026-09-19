@@ -169,19 +169,21 @@ function parseAyahs(value: unknown): Record<string, AyahRecord> {
 // An ayah's own history keeps living in `ayahs` above, with its own listen /
 // record / declare / review shape; nothing here changes it. `kind: "ayah"`
 // exists on StepRef so code that names "the next thing to do" can describe
-// any of the three the same way, but this map only ever stores "story" and
-// "deed" entries.
+// the next action without moving ayah history. Non-ayah learning steps share
+// this map so child isolation and backups remain on the existing boundary.
 // ---------------------------------------------------------------------------
 
 export type StepRef =
   | { kind: "ayah"; surah: number; ayah: number }
   | { kind: "story"; chapter: string; slug: string }
   | { kind: "deed"; chapter: string; slug: string }
+  | { kind: "seerah" | "aqeedah"; slug: string }
   | { kind: "recital"; surah: number; from: number; to: number };
 
 type StoryOrDeedRef = Extract<StepRef, { kind: "story" | "deed" }>;
 type RecitalRef = Extract<StepRef, { kind: "recital" }>;
-type KeyableRef = StoryOrDeedRef | RecitalRef;
+export type LearningStepRef = Extract<StepRef, { kind: "seerah" | "aqeedah" }>;
+type KeyableRef = StoryOrDeedRef | RecitalRef | LearningStepRef;
 
 /**
  * available: offered, nothing done yet — the default for anything not in the
@@ -227,7 +229,8 @@ export type StepRecord = {
 
 export function stepKey(ref: KeyableRef): string {
   if (ref.kind === "recital") return `recital:${ref.surah}:${ref.from}-${ref.to}`;
-  return `${ref.kind}:${ref.chapter}:${ref.slug}`;
+  if ("chapter" in ref) return `${ref.kind}:${ref.chapter}:${ref.slug}`;
+  return `${ref.kind}:${ref.slug}`;
 }
 
 // Every kind this map can hold, its key shape, and the statuses valid for it.
@@ -236,7 +239,7 @@ export function stepKey(ref: KeyableRef): string {
 // it shows up the next time the store is parsed from disk, when parseSteps
 // silently drops the entry. See hifz-store.test.ts's round-trip test.
 const STEP_STATUSES: StepStatus[] = ["available", "in_progress", "done", "awaiting_parent", "reviewed", "needs_practice"];
-const STEP_KEY = /^(?:(?:story|deed):[^:]{1,80}:[^:]{1,80}|recital:\d{1,3}:\d{1,3}-\d{1,3})$/;
+const STEP_KEY = /^(?:(?:story|deed):[^:]{1,80}:[^:]{1,80}|(?:seerah|aqeedah):[a-z0-9-]{1,80}|recital:\d{1,3}:\d{1,3}-\d{1,3})$/;
 // Generous bounds for authored sentences, not user input — just enough to
 // keep a corrupted or hand-edited entry from ballooning localStorage.
 const MAX_STORY_FIELD = 600;
@@ -262,6 +265,7 @@ function parseSteps(value: unknown): Record<string, StepRecord> {
   const out: Record<string, StepRecord> = {};
   for (const [key, entry] of Object.entries(value)) {
     if (!STEP_KEY.test(key) || !isObject(entry) || !STEP_STATUSES.includes(entry.status as StepStatus)) continue;
+    if (/^(seerah|aqeedah):/.test(key) && entry.status !== "in_progress" && entry.status !== "done") continue;
     const record: StepRecord = { status: entry.status as StepStatus };
     if (isTime(entry.startedAt)) record.startedAt = entry.startedAt;
     if (isTime(entry.doneAt)) record.doneAt = entry.doneAt;
@@ -646,6 +650,24 @@ export const markStoryDone = (store: HifzStore, profileId: string, chapter: stri
   withStep(store, profileId, { kind: "story", chapter, slug }, current => (current?.status === "done" ? current : { status: "done", doneAt: now }));
 
 export const stepStatus = (profile: ChildProfile, ref: KeyableRef): StepStatus => profile.steps[stepKey(ref)]?.status ?? "available";
+
+/** These challenges record completion, not mastery or parent approval. */
+export function recordLearningStep(store: HifzStore, profileId: string, ref: LearningStepRef, status: "in_progress" | "done", now = Date.now()): HifzStore {
+  const profile = store.profiles.find(p => p.id === profileId);
+  if (!profile || profile.character === "guest" || !/^[a-z0-9-]{1,80}$/.test(ref.slug)) return store;
+  return withStep(store, profileId, ref, current => {
+    if (current?.status === "done" || current?.status === status) return current;
+    return { status, startedAt: current?.startedAt ?? now, ...(status === "done" ? { doneAt: now } : {}) };
+  });
+}
+
+export function inProgressLearningSteps(profile: ChildProfile, kind: LearningStepRef["kind"]): Array<{ slug: string; record: StepRecord }> {
+  if (profile.character === "guest") return [];
+  return Object.entries(profile.steps)
+    .filter(([key, record]) => key.startsWith(`${kind}:`) && record.status === "in_progress" && isTime(record.startedAt))
+    .map(([key, record]) => ({ slug: key.slice(kind.length + 1), record }))
+    .sort((a, b) => (b.record.startedAt ?? 0) - (a.record.startedAt ?? 0));
+}
 
 /** Every unfinished story with a trustworthy start time, newest first. */
 export function inProgressStories(profile: ChildProfile): Array<{ chapter: string; slug: string; record: StepRecord }> {

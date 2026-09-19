@@ -32,7 +32,17 @@
 | Station/story flow | `/seerah`, `/seerah/:slug` | COMPLETE |
 | Artwork quality/commission approval | references exist; editorial/asset approval is outside code | UNVERIFIED |
 
+### Trust repair wave 1 — `st-1-05` / `little-shepherd`
+
+- The Arabic pilot remains the source-aware narrative; the Arabic catalogue text and both English age tiers now stay within the shepherding account in Sahih al-Bukhari 2262. Both challenge questions cite that account without attributing a motive, age, landscape, or encounter with wolves.
+- Card metadata and server SEO descriptions are generated from `seerah.ts`; no narrative import was added to Home. Home currently selects the first story in each station, so this fifth story is not a featured Home card. Its shared metadata is updated without changing that selection.
+- Historical basis: [Sahih al-Bukhari 2262](https://sunnah.com/bukhari:2262), narrated by Abu Huraira (source class B). Responsibility is an educational reflection, not a reported motive for shepherding. Existing IDs, routes, artwork and rewards are unchanged.
+- Engineering checks cover source identifiers, known unsupported legacy phrases, generated metadata and reward interaction. They are not scholarly approval. Final bilingual editorial/scholarly sign-off is **UNVERIFIED / REQUIRED BEFORE PUBLICATION**; no reviewer is recorded or implied. The existing pilot `verified` flag identifies the cited historical basis, not approval of this new revision.
+- This is one unit only. Other Seerah records, English stories, station summaries and scientific claims are not reviewed by this change.
+
 ## Aqeedah — COMPLETE
+
+Seerah and Aqeedah now persist named-child activity start/completion in the existing local `steps` store. A correct existing challenge answer completes the activity; opening it alone does not. My Journey resumes valid incomplete content; completed content restores its existing keepsake. These states do not certify understanding or scholarly approval.
 
 - 7 chapters and 32 cards (`aqeedahChapters`, `aqeedahCards`).
 - Route structure: `/aqeedah` and `/aqeedah/:slug`.

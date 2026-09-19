@@ -9,6 +9,7 @@
 // =============================================================================
 
 import { useMemo, useState } from "react";
+import { useLearningStep } from "@/hooks/useLearningStep";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, HelpCircle, Heart, Moon, Sparkles } from "lucide-react";
 
@@ -41,6 +42,8 @@ const cardCount = (count: number, locale: "ar" | "en") => {
 
 const copy = {
   ar: {
+    retrySave: "أعد محاولة الحفظ", journey: "العودة إلى رحلتي",
+    saveError: "تعذّر حفظ تقدمك على هذا الجهاز. تحقق من مساحة التخزين وحاول مجددًا.",
     eyebrow: "العقيدة",
     title: "أتعرّف على ربّي",
     journeyLabel: "رحلة العقيدة", journeyHint: "اختر باباً لتقرأ بطاقاته", showAll: "اعرض كل الأبواب", showOne: "باب واحد في كل مرة",
@@ -53,6 +56,8 @@ const copy = {
     seerah: "السيرة النبوية", missing: "لم نجد هذه البطاقة.",
   },
   en: {
+    retrySave: "Retry saving", journey: "Back to my journey",
+    saveError: "Your progress could not be saved on this device. Check storage space and try again.",
     eyebrow: "Creed",
     title: "Knowing My Lord",
     journeyLabel: "The creed journey", journeyHint: "Pick a chapter to read its cards", showAll: "Show every chapter", showOne: "One chapter at a time",
@@ -141,12 +146,7 @@ function CardView({ card }: { card: AqeedahCard }) {
   const Back = locale === "ar" ? ArrowRight : ArrowLeft;
   const Forward = locale === "ar" ? ArrowLeft : ArrowRight;
 
-  const [tried, setTried] = useState<number[]>([]);
-  const [won, setWon] = useState(false);
-  const answer = (index: number) => {
-    if (index === text.challenge.correctAnswer) setWon(true);
-    else setTried(current => (current.includes(index) ? current : [...current, index]));
-  };
+  const { tried, won, answer, saveFailed, retrySave } = useLearningStep("aqeedah", card.slug, text.challenge.correctAnswer);
 
   const index = aqeedahCards.findIndex(c => c.slug === card.slug);
   const previous = index > 0 ? aqeedahCards[index - 1] : null;
@@ -206,6 +206,7 @@ function CardView({ card }: { card: AqeedahCard }) {
             </div>
           </section>
 
+          {saveFailed && <div role="alert"><p>{t.saveError}</p><button type="button" className="button button--soft" onClick={retrySave}>{t.retrySave}</button></div>}
           <Challenge card={card} tried={tried} solved={won} onPick={answer} number={4} />
 
           {won && (
@@ -224,6 +225,7 @@ function CardView({ card }: { card: AqeedahCard }) {
               <span className="story-section-label">{t.source} {card.reliability}</span>
               <h2>{text.source.reference}</h2>
               <p>{text.source.note}</p>
+              <Link href="/journey" className="button button--soft">{t.journey}</Link>
             </div>
           </section>
 

@@ -3,11 +3,11 @@ import { BookOpen, ChevronLeft, ChevronRight, Compass, Heart, Lightbulb, Sparkle
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
-import { activeProfile, inProgressStories, surahProgress } from "@/lib/hifz-store";
+import { activeProfile, inProgressStories, inProgressLearningSteps, surahProgress } from "@/lib/hifz-store";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { nextStep, readLocalProgress } from "@/lib/progress";
-import { factIndex, storyIndex } from "@/lib/page-index.generated";
+import { factIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
 import { currentDiscovery } from "@/lib/quran-facts-journey";
 
@@ -63,6 +63,17 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
     ? locale === "en" ? resumedStoryMetadata.titleEn ?? resumedStoryMetadata.title : resumedStoryMetadata.title
     : undefined;
 
+  const continuation = (kind: "seerah" | "aqeedah", entries: Array<{ slug: string; title: string; titleEn: string | null }>) => {
+    if (!profile || profile.id !== profileId) return undefined;
+    for (const candidate of inProgressLearningSteps(profile, kind)) {
+      const entry = entries.find(item => item.slug === candidate.slug);
+      if (entry) return { href: `/${kind}/${entry.slug}`, title: t.continueStory(locale === "en" ? entry.titleEn ?? entry.title : entry.title) };
+    }
+    return undefined;
+  };
+  const seerahContinuation = continuation("seerah", seerahStoryIndex);
+  const aqeedahContinuation = continuation("aqeedah", aqeedahCardIndex);
+
   let primary: Activity;
   if (step?.ref.kind === "ayah") {
     const isHifz = step.href.startsWith("/hifz/");
@@ -87,8 +98,8 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
       Icon: BookOpen,
       kind: "stories",
     },
-    { href: "/seerah", title: t.seerah, body: t.seerahBody, Icon: Star, kind: "seerah" },
-    { href: "/aqeedah", title: t.aqeedah, body: t.aqeedahBody, Icon: Lightbulb, kind: "aqeedah" },
+    { href: "/seerah", title: t.seerah, body: seerahContinuation ? t.seerah : t.seerahBody, Icon: Star, kind: "seerah", ...seerahContinuation },
+    { href: "/aqeedah", title: t.aqeedah, body: aqeedahContinuation ? t.aqeedah : t.aqeedahBody, Icon: Lightbulb, kind: "aqeedah", ...aqeedahContinuation },
   ];
   return { primary, activities, hasProgress: Boolean(step || profile || discovered.length || local) };
 }

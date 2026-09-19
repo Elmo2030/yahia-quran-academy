@@ -12,6 +12,7 @@
 // =============================================================================
 
 import { useMemo, useState } from "react";
+import { useLearningStep } from "@/hooks/useLearningStep";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, Compass, HelpCircle, ShieldCheck, Sparkles, Trophy } from "lucide-react";
 
@@ -56,6 +57,8 @@ const STATION_MARKS: Record<number, string> = {
 
 const copy = {
   ar: {
+    retrySave: "أعد محاولة الحفظ", journey: "العودة إلى رحلتي",
+    saveError: "تعذّر حفظ تقدمك على هذا الجهاز. تحقق من مساحة التخزين وحاول مجددًا.",
     home: "الرئيسية", quranStories: "قصص القرآن", eyebrow: "السيرة النبوية",
     backToStation: "كل قصص السيرة", storyCount: "قصص", read: "اقرأ القصة",
     station: "المحطة", stationsTitle: "السيرة النبوية ﷺ",
@@ -72,6 +75,8 @@ const copy = {
     showAll: "اعرض كل المحطات", showOne: "محطة واحدة في كل مرة", youAreHere: "أنت هنا",
   },
   en: {
+    retrySave: "Retry saving", journey: "Back to my journey",
+    saveError: "Your progress could not be saved on this device. Check storage space and try again.",
     home: "Home", quranStories: "Quran stories", eyebrow: "The Prophet’s Seerah",
     backToStation: "All Seerah stories", storyCount: "stories", read: "Read the story",
     station: "Station", stationsTitle: "The Prophet’s Seerah ﷺ",
@@ -227,12 +232,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
   const [tier, setTier] = useState<AgeTier>("tier_1_age_6_8");
   const text = seerahTextFor(story, locale);
   // The answer lives here, not in the challenge, so the medal can wait on it.
-  const [tried, setTried] = useState<number[]>([]);
-  const [won, setWon] = useState(false);
-  const answer = (index: number) => {
-    if (index === text.interactive.challenge.correctAnswer) setWon(true);
-    else setTried(current => (current.includes(index) ? current : [...current, index]));
-  };
+  const { tried, won, answer, saveFailed, retrySave } = useLearningStep("seerah", story.slug, text.interactive.challenge.correctAnswer);
   const station = seerahStationOf(story);
   const isTier1 = tier === "tier_1_age_6_8";
   const narrative = isTier1
@@ -315,6 +315,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
               </div>
             </section>
 
+            {saveFailed && <div role="alert"><p>{t.saveError}</p><button type="button" className="button button--soft" onClick={retrySave}>{t.retrySave}</button></div>}
             <ChallengeSection story={story} number={4} tried={tried} solved={won} onPick={answer} />
 
             {won && (
@@ -340,6 +341,7 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
                 <h2>{t.source} {text.source.reliability}</h2>
                 <p>{text.source.reference}</p>
                 <p><small>{text.source.note}</small></p>
+                <Link href="/journey" className="button button--soft">{t.journey}</Link>
               </div>
             </section>
           </div>
@@ -362,12 +364,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
   // The pilot replaces the old prose with a reviewed narrative, but keeps the
   // existing story question and reward contract. A keepsake is earned through
   // the child-facing reflection instead of being announced as a text reward.
-  const [tried, setTried] = useState<number[]>([]);
-  const [won, setWon] = useState(false);
-  const answer = (index: number) => {
-    if (index === text.interactive.challenge.correctAnswer) setWon(true);
-    else setTried(current => (current.includes(index) ? current : [...current, index]));
-  };
+  const { tried, won, answer, saveFailed, retrySave } = useLearningStep("seerah", story.slug, text.interactive.challenge.correctAnswer);
   const connectionCount = Number(Boolean(episode.quran)) + Number(Boolean(episode.sunnah));
   const lessonNumber = 2 + connectionCount;
   const challengeNumber = lessonNumber + 1;
@@ -452,6 +449,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
               </div>
             </section>
 
+            {saveFailed && <div role="alert"><p>{t.saveError}</p><button type="button" className="button button--soft" onClick={retrySave}>{t.retrySave}</button></div>}
             <ChallengeSection story={story} number={challengeNumber} tried={tried} solved={won} onPick={answer} />
 
             {won && (
@@ -478,6 +476,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
                 <ul>
                   {episode.sources.map(source => <li key={source}>{source}</li>)}
                 </ul>
+                <Link href="/journey" className="button button--soft">{t.journey}</Link>
               </div>
             </section>
           </div>

@@ -499,27 +499,27 @@ export const seerahStories: SeerahStory[] = [
     slug: "little-shepherd",
     image: "/stories/seerah/little-shepherd.jpg",
     en: {
-      title: "The Little Shepherd",
+      title: "The Shepherd",
       content: {
         tier_1_age_6_8: {
           narrative:
-            "Did the Prophet (pbuh) play all day when he was little? No! He wanted to help his uncle because his uncle didn't have much money. So, he worked as a 'shepherd'. He took the fluffy sheep to the green mountains to eat and protected them from wolves. This is how he learned to be brave and responsible early on.",
-          shortLesson: "Helping our parents with small chores makes us responsible and dependable people.",
+            "In Mecca, Muhammad (pbuh) tended sheep for its people for payment. How do we know? He later told his companions about this work. When they asked whether he too had been a shepherd, he said that he had tended sheep for the people of Mecca. This account is recorded in Sahih al-Bukhari 2262.",
+          shortLesson: "We grow in responsibility by patiently caring for what is entrusted to us.",
         },
         tier_2_age_9_11: {
           narrative:
-            "As a young boy, the Prophet (pbuh) didn't want to be a burden on his uncle Abu Talib, who was going through financial hardship. He decided to work and help out! He worked as a shepherd, tending the sheep of the people of Mecca for a small wage. This job wasn't just work; it was a 'school'. In the quiet mountains, he learned patience, mercy for weak animals, deep thinking about Allah's creation, and the courage to protect his flock.",
+            "In Mecca, Muhammad (pbuh) tended sheep for its people for payment. Later, he told his companions that every prophet had tended sheep. They asked whether he had done so too. He answered that he had tended sheep for the people of Mecca for qirats. This brief account gives us a glimpse of work he did before prophethood. Caring for animals involves attention and responsibility. You may not care for sheep, but you can practise responsibility by looking after something you have borrowed, caring for a plant, or finishing a task you have begun.",
           details:
-            "The Prophet (pbuh) later said: 'Allah did not send any prophet except that he shepherded sheep.' All prophets were shepherds to learn how to lead people with mercy.",
+            "Sahih al-Bukhari 2262 records this account from Abu Huraira. It does not specify the Prophet's age when he tended sheep or his personal reasons for taking the work. The reflection on responsibility is a learning activity, not an additional historical report.",
         },
       },
       interactive: {
-        discover: "Shepherding teaches a person to pay attention to details. A good shepherd knows every single sheep and cares for the sick ones.",
+        discover: "What is the difference between starting a task and remaining responsible for it until it is finished?",
         value: { name: "Responsibility & Patience", icon: "🐑" },
         thinkQuestion: "What is one small chore you can do at home today to help your family?",
         challenge: {
           type: "multiple_choice",
-          question: "What job did the Prophet (pbuh) do when he was young to help his uncle?",
+          question: "According to Sahih al-Bukhari 2262, what work did the Prophet (pbuh) do for the people of Mecca?",
           options: ["Blacksmith", "Shepherd", "Fisherman", "Farmer"],
           correctAnswer: 1,
         },
@@ -530,31 +530,31 @@ export const seerahStories: SeerahStory[] = [
       },
       source: {
         reliability: "🟢",
-        reference: "Sahih Al-Bukhari (Hadith on Shepherding)",
-        note: "His work as a shepherd in Mecca is confirmed by authentic Hadith.",
+        reference: "Sahih al-Bukhari 2262, Book of Hiring, narrated by Abu Huraira",
+        note: "The hadith establishes shepherding for the people of Mecca for payment. It does not specify his age or personal motivations. The lesson on responsibility is an educational reflection.",
       },
     },
-    title: "الراعي الصغير",
+    title: "راعي الغنم",
     content: {
       tier_1_age_6_8: {
         narrative:
-          "هل كان النبي ﷺ يلعب طوال اليوم وهو صغير؟ لا! لقد أراد أن يساعد عمه لأنه كان فقيراً. فعمل في «رعي الأغنام». كان يأخذ الخراف الصغيرة إلى الجبال الخضراء لتأكل، ويحميها من الذئاب. هكذا تعلم أن يكون مسؤولاً وشجاعاً منذ صغره.",
-        shortLesson: "مساعدة الوالدين في بعض المهام تجعلنا أشخاصاً يعتمد عليهم ومسؤولين.",
+          "في مكة، كان محمد ﷺ يرعى الغنم لأهلها على قراريط. كيف نعرف ذلك؟ أخبر النبي ﷺ أصحابه عن هذا العمل، فسألوه عن رعيه الغنم، فأجابهم بأنه رعاها لأهل مكة. ورد هذا الخبر في صحيح البخاري 2262.",
+        shortLesson: "المسؤولية تنمو عندما نعتني بما اؤتُمنا عليه بصبر.",
       },
       tier_2_age_9_11: {
         narrative:
-          "لم يقبل النبي ﷺ وهو فتى صغير أن يكون عبئاً على عمه أبي طالب الذي كان يمر بظروف مادية صعبة. فقرر أن يعمل ويساعده! اشتغل النبي ﷺ برعي الأغنام لأهل مكة مقابل أجر قليل. هذه المهنة لم تكن مجرد عمل، بل كانت «مدرسة»؛ ففي الجبال الهادئة تعلم الصبر، والرحمة بالحيوانات الضعيفة، والتأمل في خلق الله، والشجاعة في حماية القطيع.",
+          "في مكة، كان محمد ﷺ يرعى الغنم لأهلها على قراريط. وبعد سنوات أخبر أصحابه أن الله ما بعث نبيًا إلا رعى الغنم، فسألوه عن ذلك فأخبرهم بأنه رعاها لأهل مكة. يفتح هذا الخبر نافذة على عمل قام به قبل البعثة. والرعاية تحتاج إلى متابعة ومسؤولية. وقد لا يرعى الطفل غنمًا، لكنه يستطيع أن يتدرب على المسؤولية بحفظ شيء استعاره، أو العناية بنبتة، أو إتمام عمل بدأه.",
         details:
-          "قال النبي ﷺ عندما كبر: «ما بعث الله نبياً إلا رعى الغنم». كل الأنبياء عملوا رعاة ليتعلموا قيادة الناس برحمة وصبر.",
+          "روى أبو هريرة رضي الله عنه هذا الخبر في صحيح البخاري 2262. لا يحدد الحديث عمر النبي ﷺ عند الرعي أو دوافعه الشخصية. والتأمل في المسؤولية نشاط تعليمي، وليس خبرًا تاريخيًا إضافيًا.",
       },
     },
     interactive: {
-      discover: "الرعي يعلم الإنسان الانتباه للتفاصيل، فالراعي يعرف كل خروف في قطيعه ويهتم بالمريض منها.",
+      discover: "ما الفرق بين أن تبدأ مهمة وبين أن تبقى مسؤولًا عنها حتى تنتهي؟",
       value: { name: "المسؤولية والصبر", icon: "🐑" },
       thinkQuestion: "ما هي المهمة الصغيرة التي يمكنك القيام بها اليوم في المنزل لمساعدة عائلتك؟",
       challenge: {
         type: "multiple_choice",
-        question: "ما هو العمل الذي قام به النبي ﷺ في صغره لمساعدة عمه؟",
+        question: "بحسب صحيح البخاري 2262، ما العمل الذي قام به النبي ﷺ لأهل مكة؟",
         options: ["الحدادة", "رعي الأغنام", "صيد السمك", "الزراعة"],
         correctAnswer: 1,
       },
@@ -565,8 +565,8 @@ export const seerahStories: SeerahStory[] = [
     },
     source: {
       reliability: "🟢",
-      reference: "صحيح البخاري (حديث رعي الغنم)",
-      note: "عمله بالرعي في مكة ثابت بنص الحديث الصحيح.",
+      reference: "صحيح البخاري 2262، كتاب الإجارة، حديث أبي هريرة رضي الله عنه",
+      note: "يثبت الحديث رعيه لغنم أهل مكة على قراريط، ولا يحدد عمره أو دوافعه الشخصية. ودرس المسؤولية تأمل تربوي.",
     },
   },
 

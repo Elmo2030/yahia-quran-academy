@@ -54,6 +54,17 @@ const aqeedahCards = pickFrom(aqeedahSource, "aqeedahCards", "aqeedah.ts");
 if (aqeedahCards.length === 0) throw new Error("no aqeedah cards parsed — check aqeedah.ts shape");
 const seerahStories = pickFrom(seerahSource, "seerahStories", "seerah.ts");
 
+// This unit has a source-aligned revision; do not republish its superseded
+// claims through generated cards or crawler metadata. This is not scholarly QA.
+const shepherd = seerahStories.find(s => s.storyId === "st-1-05");
+for (const text of [shepherd, shepherd?.en]) {
+  if (!text?.source?.reference?.includes("2262") ||
+      !text?.interactive?.challenge?.question?.includes("2262") ||
+      /wolves|green mountains|help his uncle|financial hardship|الذئاب|الجبال الخضراء|لمساعدة عمه|كان فقيراً/i.test(JSON.stringify(text))) {
+    throw new Error("st-1-05: source-aligned shepherd revision is missing or contains superseded claims");
+  }
+}
+
 // The hundred facts each have a page of their own now, so the sitemap, the
 // llms listing and both copies of the metadata all need to know them.
 const factsSource = readFileSync(join(root, "client/src/content/quran-facts.ts"), "utf8");

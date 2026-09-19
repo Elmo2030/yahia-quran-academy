@@ -539,10 +539,10 @@ export const seerahStoryIndex: SeerahStory[] = [
  {
   "stationId": 1,
   "slug": "little-shepherd",
-  "title": "الراعي الصغير",
-  "description": "هل كان النبي ﷺ يلعب طوال اليوم وهو صغير؟ لا! لقد أراد أن يساعد عمه لأنه كان فقيراً. فعمل في «رعي الأغنام». كان يأخذ الخراف الصغيرة إلى الجبال الخضراء لتأكل، ويحميها من الذئاب.…",
-  "titleEn": "The Little Shepherd",
-  "descriptionEn": "Did the Prophet (pbuh) play all day when he was little? No! He wanted to help his uncle because his uncle didn't have much money. So, he worked as a 'shepherd'. He took the…",
+  "title": "راعي الغنم",
+  "description": "في مكة، كان محمد ﷺ يرعى الغنم لأهلها على قراريط. كيف نعرف ذلك؟ أخبر النبي ﷺ أصحابه عن هذا العمل، فسألوه عن رعيه الغنم، فأجابهم بأنه رعاها لأهل مكة. ورد هذا الخبر في صحيح البخاري…",
+  "titleEn": "The Shepherd",
+  "descriptionEn": "In Mecca, Muhammad (pbuh) tended sheep for its people for payment. How do we know? He later told his companions about this work. When they asked whether he too had been a…",
   "image": "/stories/seerah/little-shepherd.jpg"
  },
  {

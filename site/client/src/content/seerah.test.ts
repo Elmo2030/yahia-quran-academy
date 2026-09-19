@@ -9,8 +9,36 @@
 import { describe, expect, it } from "vitest";
 
 import { seerahStations, seerahStories, seerahStationOf, seerahTextFor } from "@/content/seerah";
+import { seerahPilotEpisodeFor } from "@/content/seerah-pilot-station-1";
+import { seerahStoryIndex } from "@/lib/page-index.generated";
 
 describe("seerah content", () => {
+  it("keeps the shepherd narrative, question and source within the cited account in both languages", () => {
+    const story = seerahStories.find(s => s.storyId === "st-1-05")!;
+    const pilot = seerahPilotEpisodeFor(story.storyId)!;
+    expect(story.slug).toBe("little-shepherd");
+    expect(story.title).toBe(pilot.title);
+    expect(story.content.tier_1_age_6_8.shortLesson).toBe(pilot.learning.coreLesson);
+    expect(pilot.sunnah?.reference).toContain("2262");
+    for (const locale of ["ar", "en"] as const) {
+      const text = seerahTextFor(story, locale);
+      expect(text.source.reference).toContain("2262");
+      expect(text.interactive.challenge.question).toContain("2262");
+      expect(text.interactive.challenge.correctAnswer).toBe(1);
+      expect(JSON.stringify(text)).not.toMatch(/wolves|green mountains|help his uncle|financial hardship|الذئاب|الجبال الخضراء|لمساعدة عمه|كان فقيراً/i);
+    }
+  });
+
+  it("keeps the shepherd card and Home metadata derived from the source-aligned record", () => {
+    const story = seerahStories.find(s => s.storyId === "st-1-05")!;
+    const indexed = seerahStoryIndex.find(s => s.slug === story.slug)!;
+    expect(indexed.title).toBe(story.title);
+    expect(indexed.titleEn).toBe(story.en!.title);
+    expect(story.content.tier_1_age_6_8.narrative).toContain(indexed.description.replace(/…$/, ""));
+    expect(story.en!.content.tier_1_age_6_8.narrative).toContain(indexed.descriptionEn!.replace(/…$/, ""));
+    expect(indexed.description).toContain("على قراريط");
+    expect(indexed.descriptionEn).toContain("for payment");
+  });
   it("gives every story a station that exists", () => {
     for (const story of seerahStories) {
       expect(

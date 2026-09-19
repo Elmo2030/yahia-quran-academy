@@ -40,12 +40,19 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByRole("img", { name: "مكافأتك: الراعي المسؤول" })).toBeTruthy();
   });
 
-  it("keeps the existing English record until the pilot receives a reviewed translation", () => {
+  it("shows the source-aligned English record and awards the keepsake only after the answer", () => {
     window.history.pushState({}, "", "/seerah/little-shepherd?lang=en");
     renderDetail();
 
-    expect(screen.getByRole("heading", { name: "The Little Shepherd" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "The Shepherd" })).toBeTruthy();
     expect(screen.queryByRole("heading", { name: "راعي الغنم" })).toBeNull();
+    expect(screen.getByText(/This account is recorded in Sahih al-Bukhari 2262/)).toBeTruthy();
+    expect(screen.queryByText(/green mountains|help his uncle|wolves/)).toBeNull();
+    expect(screen.queryByText("The Shepherd's Staff")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Blacksmith" }));
+    expect(screen.queryByText("The Shepherd's Staff")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Shepherd" }));
+    expect(screen.getByText("The Shepherd's Staff")).toBeTruthy();
   });
 
   it("renders the Station 2 narrative with its learning and source layers", () => {
