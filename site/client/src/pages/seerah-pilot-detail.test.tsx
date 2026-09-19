@@ -37,4 +37,14 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByRole("heading", { name: "The Little Shepherd" })).toBeTruthy();
     expect(screen.queryByRole("heading", { name: "راعي الغنم" })).toBeNull();
   });
+
+  it("renders the Station 2 narrative with its learning and source layers", () => {
+    window.history.pushState({}, "", "/seerah/cave-of-hira");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "الخلوة في غار حراء" })).toBeTruthy();
+    expect(screen.getByText(/حُببت إلى محمد ﷺ الخلوة/)).toBeTruthy();
+    expect(screen.getByText("حديث عائشة رضي الله عنها في بدء الوحي")).toBeTruthy();
+    expect(screen.getByText(/الهدوء والعبادة يساعداننا/)).toBeTruthy();
+  });
 });
