@@ -25,6 +25,7 @@ describe("Station 1 Seerah content pilot", () => {
 
     expect(screen.getByRole("heading", { name: "راعي الغنم" })).toBeTruthy();
     expect(screen.getByText("صحيح البخاري 2262")).toBeTruthy();
+    expect(screen.getByText(/كان محمد ﷺ يرعى الغنم لأهلها على قراريط/)).toBeTruthy();
     expect(screen.getByText(/المسؤولية تنمو عندما نعتني/)).toBeTruthy();
     expect(screen.queryByRole("button", { name: "٦–٨ سنوات" })).toBeNull();
   });

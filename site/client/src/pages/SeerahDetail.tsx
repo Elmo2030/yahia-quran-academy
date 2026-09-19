@@ -57,7 +57,7 @@ const copy = {
     ageGroup: "اختيار الفئة العمرية", chooseStory: "اختر قصة",
     correct: "أحسنت! إجابة صحيحة 🎉", wrong: "ليست هذه — اقرأ القصة مرة أخرى وجرّب اختياراً آخر 💪",
     missing: "هذه القصة غير موجودة.",
-    context: "السياق", scenes: "مشاهد القصة", turningPoint: "اللحظة المهمة", outcome: "ما انتهت إليه القصة",
+    context: "السياق", scenes: "مشاهد القصة", turningPoint: "اللحظة المهمة", outcome: "ما حدث",
     quranConnection: "صلة بالقرآن", sunnahConnection: "صلة بالسنة", coreLesson: "درس الحلقة",
     reflection: "فكّر قليلًا", tryIt: "جرّب اليوم",
     mapLabel: "خريطة حياة النبي ﷺ", mapHint: "اختر محطة لتقرأ قصصها",
@@ -73,7 +73,7 @@ const copy = {
     ageGroup: "Choose an age group", chooseStory: "Choose a story",
     correct: "Well done — that’s right 🎉", wrong: "Not that one — read the story again and try another answer 💪",
     missing: "This story does not exist.",
-    context: "Context", scenes: "Story scenes", turningPoint: "The important moment", outcome: "What happened next",
+    context: "Context", scenes: "Story scenes", turningPoint: "The important moment", outcome: "What happened",
     quranConnection: "Quran connection", sunnahConnection: "Sunnah connection", coreLesson: "Episode lesson",
     reflection: "Think for a moment", tryIt: "Try it today",
     mapLabel: "A map of the Prophet\u2019s life \uFEFF\u0635\u0644\u0649 \u0627\u0644\u0644\u0647 \u0639\u0644\u064a\u0647 \u0648\u0633\u0644\u0645", mapHint: "Pick a station to read its stories",
@@ -373,8 +373,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
         <div className="container story-article__layout">
           <nav className="story-article__rail no-print" aria-label={t.sections}>
             <span className="story-section-label">{t.sections}</span>
-            <a href="#pilot-context">{t.context}</a>
-            <a href="#pilot-scenes">{t.scenes}</a>
+            <a href="#pilot-story">{t.story}</a>
             {episode.quran && <a href="#pilot-quran">{t.quranConnection}</a>}
             {episode.sunnah && <a href="#pilot-sunnah">{t.sunnahConnection}</a>}
             <a href="#pilot-lesson">{t.coreLesson}</a>
@@ -382,38 +381,20 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
           </nav>
 
           <div className="story-article__content">
-            <section className="story-reading-section story-reading-section--hook" id="pilot-context">
+            <section className="story-reading-section story-reading-section--hook" id="pilot-story">
               <span className="story-section-number">1</span>
               <div>
-                <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.context}</span>
-                <h2>{t.context}</h2>
-                <p className="story-reading-section__lead">{episode.context}</p>
-              </div>
-            </section>
-
-            <section className="story-reading-section" id="pilot-scenes">
-              <span className="story-section-number">2</span>
-              <div>
-                <span className="story-section-label"><Sparkles size={13} aria-hidden="true" /> {t.scenes}</span>
-                <h2>{t.scenes}</h2>
-                {episode.scenes.map((scene, index) => <p key={index}>{scene}</p>)}
-              </div>
-            </section>
-
-            <section className="story-reading-section" id="pilot-outcome">
-              <span className="story-section-number">3</span>
-              <div>
-                <span className="story-section-label"><Sparkles size={13} aria-hidden="true" /> {t.turningPoint}</span>
-                <h2>{t.turningPoint}</h2>
-                <p>{episode.turningPoint}</p>
-                <h2>{t.outcome}</h2>
-                <p>{episode.outcome}</p>
+                <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.story}</span>
+                <h2>{t.story}</h2>
+                {episode.childStory.map((paragraph, index) => (
+                  <p key={index} className={index === 0 ? "story-reading-section__lead" : undefined}>{paragraph}</p>
+                ))}
               </div>
             </section>
 
             {episode.quran && (
               <section className="story-reading-section" id="pilot-quran">
-                <span className="story-section-number">4</span>
+                <span className="story-section-number">2</span>
                 <div>
                   <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.quranConnection}</span>
                   <h2>{episode.quran.reference}</h2>
@@ -425,7 +406,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
 
             {episode.sunnah && (
               <section className="story-reading-section" id="pilot-sunnah">
-                <span className="story-section-number">4</span>
+                <span className="story-section-number">2</span>
                 <div>
                   <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.sunnahConnection}</span>
                   <h2>{episode.sunnah.reference}</h2>
@@ -436,19 +417,21 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
             )}
 
             <section className="story-reading-section" id="pilot-lesson">
-              <span className="story-section-number">5</span>
+              <span className="story-section-number">3</span>
               <div>
                 <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.coreLesson}</span>
-                <h2>{episode.coreLesson}</h2>
-                <p>💭 {episode.reflection}</p>
+                <h2>{t.outcome}</h2>
+                <p>{episode.learning.whatHappened}</p>
+                <h2>{episode.learning.coreLesson}</h2>
+                <p>💭 {episode.learning.reflection}</p>
                 <h2>{t.tryIt}</h2>
-                <p>{episode.tryIt}</p>
-                <p><small>{episode.reward}</small></p>
+                <p>{episode.learning.tryIt}</p>
+                <p><small>{episode.learning.reward}</small></p>
               </div>
             </section>
 
             <section className="story-reading-section" id="pilot-source">
-              <span className="story-section-number">6</span>
+              <span className="story-section-number">4</span>
               <div>
                 <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.source}</span>
                 <h2>{t.source}</h2>
