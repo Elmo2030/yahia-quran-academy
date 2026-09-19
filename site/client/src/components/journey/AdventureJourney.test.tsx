@@ -70,6 +70,6 @@ it("falls back to existing landscape art if a future custom illustration is unav
   const view = render(<WorldLandscape world={{ ...journeyWorlds[0], illustration: "/missing-world.webp" }} />);
   const image = view.container.querySelector("img")!;
   fireEvent.error(image);
-  expect(image).toHaveAttribute("src", "/hifz-art/map/1-oasis-720.webp");
+  expect(image).toHaveAttribute("src", "/journey/map/adventure-worlds-blank.png");
   expect(view.container.querySelector("svg")).not.toBeNull();
 });

@@ -10,7 +10,7 @@
 .adventure-hero h1 { margin: 0; font-size: clamp(2.7rem, 5vw, 4rem); line-height: 1.25; color: var(--brand-deep-ink); }
 .adventure-hero > p { margin: 0 0 6px; font-weight: 700; }
 .adventure-hero__mission { display: flex; align-items: center; gap: 8px; min-height: 48px; color: var(--brand-deep-ink); text-decoration: underline; text-underline-offset: 5px; }
-.adventure-map { position: relative; isolation: isolate; min-height: var(--map-height); border-radius: 48px; background: #f4e8ca url('/hifz-art/map/1-oasis-1080.webp') center 43% / cover; box-shadow: inset 0 0 60px 30px #fff6db, 0 18px 45px #70522e12; }
+.adventure-map { position: relative; isolation: isolate; min-height: var(--map-height); border-radius: 48px; background: radial-gradient(ellipse at 15% 20%, #d4ddba77, transparent 45%), radial-gradient(ellipse at 85% 65%, #d6c09255, transparent 40%), #f4e8ca; box-shadow: inset 0 0 60px 30px #fff6db, 0 18px 45px #70522e12; }
 .adventure-map::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, #fff9e9aa, #fff8e344 40%, #fff8e388); z-index: -1; }
 .adventure-trail { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 [dir="rtl"] .adventure-trail { transform: scaleX(-1); }
@@ -79,6 +79,50 @@
 .adventure-farewell { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; text-align: center; padding: 30px 0 0; color: var(--brand-deep-ink); font-weight: 700; }
 .adventure-farewell span { width: 100%; color: var(--ink-soft); font-weight: 400; font-size: .9rem; }
 @keyframes adventure-glow { 50% { outline-color: #d4af3730; } }
+.journey-map-art, .journey-map-title, .journey-reading-landmark { display: none; }
+.adventure-landscape { overflow: hidden; }
+.adventure-landscape img.journey-art-crop { width: 800%; height: auto; max-width: none; inset: auto; border-radius: 0; }
+.journey-art-crop--oasis { left: -263% !important; top: -260% !important; }
+.journey-art-crop--valley { left: -488% !important; top: -100% !important; }
+.journey-art-crop--hills { left: -113% !important; top: -225% !important; }
+.journey-art-crop--sky { left: -419% !important; top: -260% !important; }
+@media (min-width: 1100px) {
+  .adventure-journey { max-width: 1680px; }
+  .adventure-hero { flex-direction: row; justify-content: space-between; gap: 16px; padding: 12px 8px; }
+  .adventure-hero__identity img { width: 42px; height: 52px; }
+  .adventure-hero h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .adventure-hero > p { display: none; }
+  .adventure-map--illustrated { min-height: 0; aspect-ratio: 1672 / 869; border-radius: 28px; background: #f4e8ca; box-shadow: 0 16px 40px #70522e20; container-type: inline-size; }
+  .adventure-map--illustrated::before, .adventure-map--illustrated .adventure-trail, .adventure-map--illustrated .adventure-map__cloud { display: none; }
+  .journey-map-art { display: block; position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+  /* Clip the reference's painted navigation; keep the real app shell. */
+  .journey-map-art > img { position: absolute; width: 100%; height: 108.285%; max-width: none; top: -8.285%; left: 0; }
+  .journey-map-title { display: flex; flex-direction: column; align-items: center; justify-content: center; position: absolute; left: 41%; top: 1%; width: 18%; height: 12%; color: #493219; text-align: center; }
+  .journey-map-title b { font-family: "Noto Naskh Arabic", serif; font-size: 3.2cqw; line-height: 1.2; }
+  .journey-map-title span { font-size: .95cqw; font-weight: 700; }
+  /* The printed pin is a Quran landmark, never a child's progress marker. */
+  .journey-reading-landmark { display: grid; place-items: center; position: absolute; left: 86.6%; top: 33.8%; width: 5.2%; height: 9%; border-radius: 50%; background: #fff5d9; border: 2px solid #dbc078; box-shadow: 0 0 15px #f8df92; color: #556b2f; }
+  .journey-reading-landmark svg { width: 50%; height: 50%; }
+  .adventure-map--illustrated .adventure-stop, [dir="rtl"] .adventure-map--illustrated .adventure-stop { inset-inline-start: auto; left: var(--art-x); top: var(--art-y); transform: translate(-50%, -50%); width: 10.1%; margin: 0; }
+  .adventure-map--illustrated .adventure-stop > a, .adventure-map--illustrated .adventure-stop > div { border-radius: 15px; min-height: 48px; }
+  .adventure-map--illustrated .adventure-landscape, .adventure-map--illustrated .adventure-treasure > img { display: none; }
+  .adventure-map--illustrated .adventure-sign { width: 100%; min-width: 0; min-height: 4.8cqw; padding: .2cqw; margin: 0; border: 0; background: transparent; box-shadow: none; justify-content: center; border-radius: 14px; }
+  .adventure-map--illustrated .adventure-sign b { font-size: 1.25cqw; line-height: 1.4; }
+  .adventure-map--illustrated .adventure-stop__state, .adventure-map--illustrated .adventure-sign small { font-size: .85cqw; line-height: 1.4; }
+  .adventure-map--illustrated .adventure-stop__state svg { width: 1cqw; height: 1cqw; flex: none; }
+  .adventure-map--illustrated .adventure-position { top: -3.1cqw; font-size: 1cqw; padding: .3cqw .6cqw; }
+  .adventure-map--illustrated .is-current .adventure-sign { outline: 3px solid #556b2f; outline-offset: 5px; background: #fff7dce6; }
+  .adventure-map--illustrated .is-completed .adventure-sign { background: #f8edccdd; outline: 2px solid #92732e; }
+  .adventure-map--illustrated .adventure-treasure { width: 12%; }
+  .adventure-map--illustrated .adventure-treasure b { font-size: 1.5cqw; }
+  .adventure-map--illustrated .adventure-treasure span, .adventure-map--illustrated .adventure-treasure small { font-size: .9cqw; }
+  [dir="ltr"] .journey-map-title b { font-family: inherit; font-size: 2cqw; white-space: nowrap; }
+  [dir="ltr"] .journey-map-title span { font-size: .8cqw; }
+  [dir="ltr"] .adventure-map--illustrated .adventure-sign b { font-size: 1cqw; line-height: 1.2; }
+  [dir="ltr"] .adventure-map--illustrated .adventure-sign small, [dir="ltr"] .adventure-map--illustrated .adventure-stop__state { font-size: .75cqw; line-height: 1.25; }
+  [dir="ltr"] .adventure-map--illustrated .adventure-treasure b { font-family: inherit; font-size: 1.1cqw; }
+  [dir="ltr"] .adventure-map--illustrated .adventure-treasure span, [dir="ltr"] .adventure-map--illustrated .adventure-treasure small { font-size: .75cqw; }
+}
 @media (min-width: 760px) and (max-width: 1050px) { .adventure-dashboard { grid-template-columns: 1fr 1fr; } .adventure-next { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 18px; } .adventure-stop { width: 185px; } }
 @media (max-width: 759px) {
   .adventure-journey { padding: 0 16px 28px; }
