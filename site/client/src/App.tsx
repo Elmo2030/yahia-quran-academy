@@ -33,6 +33,7 @@ const HifzReview = lazyWithRetry(() => import("./pages/HifzReview"));
 const HifzParent = lazyWithRetry(() => import("./pages/HifzParent"));
 const HifzCertificate = lazyWithRetry(() => import("./pages/HifzCertificate"));
 const HifzLooks = lazyWithRetry(() => import("./pages/HifzLooks"));
+const Journey = lazyWithRetry(() => import("./pages/Journey"));
 const Listen = lazyWithRetry(() => import("./pages/Listen"));
 const ListenSurah = lazyWithRetry(() => import("./pages/ListenSurah"));
 
@@ -73,6 +74,7 @@ function Router() {
       <Route path={"/hifz/parent"} component={HifzParent} />
       <Route path={"/hifz/certificate"} component={HifzCertificate} />
       <Route path={"/hifz/looks"} component={HifzLooks} />
+      <Route path={"/journey"} component={Journey} />
       <Route path={"/hifz/:surah/recite"} component={HifzRecite} />
       <Route path={"/hifz/:surah"} component={HifzSurah} />
       <Route path={"/404"} component={NotFound} />

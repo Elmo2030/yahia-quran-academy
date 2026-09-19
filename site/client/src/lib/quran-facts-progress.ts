@@ -7,13 +7,23 @@ export type FactCardState = "locked" | "unlocked" | "current" | "completed";
 
 type FactLike = { slug: string };
 
+/**
+ * The original facts journey predates child profiles, so its guest progress
+ * remains at the original key. A named child gets a small, separate local
+ * record. This deliberately does not migrate the shared record into every
+ * child: progress must never appear to belong to a child who did not make it.
+ */
+export function factsDiscoveryKey(profileId?: string | null) {
+  return profileId ? `${FACTS_DISCOVERED_KEY}:${profileId}` : FACTS_DISCOVERED_KEY;
+}
+
 const storage = (): Storage | null => {
   try { return window.localStorage; } catch { return null; }
 };
 
-export function readFactDiscoveries(validSlugs: readonly string[]): string[] {
+export function readFactDiscoveries(validSlugs: readonly string[], profileId?: string | null): string[] {
   try {
-    const raw = storage()?.getItem(FACTS_DISCOVERED_KEY);
+    const raw = storage()?.getItem(factsDiscoveryKey(profileId));
     const values = raw ? JSON.parse(raw) : [];
     if (!Array.isArray(values)) return [];
     const valid = new Set(validSlugs);
@@ -23,20 +33,20 @@ export function readFactDiscoveries(validSlugs: readonly string[]): string[] {
   }
 }
 
-export function saveFactDiscoveries(slugs: readonly string[]) {
-  try { storage()?.setItem(FACTS_DISCOVERED_KEY, JSON.stringify(Array.from(new Set(slugs)))); } catch { /* private mode */ }
+export function saveFactDiscoveries(slugs: readonly string[], profileId?: string | null) {
+  try { storage()?.setItem(factsDiscoveryKey(profileId), JSON.stringify(Array.from(new Set(slugs)))); } catch { /* private mode */ }
 }
 
-export function discoverFact(slug: string, validSlugs: readonly string[]): string[] {
-  const current = readFactDiscoveries(validSlugs);
+export function discoverFact(slug: string, validSlugs: readonly string[], profileId?: string | null): string[] {
+  const current = readFactDiscoveries(validSlugs, profileId);
   if (current.includes(slug)) return current;
   const next = [...current, slug];
-  saveFactDiscoveries(next);
+  saveFactDiscoveries(next, profileId);
   return next;
 }
 
-export function resetFactDiscoveries() {
-  try { storage()?.removeItem(FACTS_DISCOVERED_KEY); } catch { /* private mode */ }
+export function resetFactDiscoveries(profileId?: string | null) {
+  try { storage()?.removeItem(factsDiscoveryKey(profileId)); } catch { /* private mode */ }
 }
 
 export function firstIncompleteStage(facts: readonly FactLike[], discovered: readonly string[], perStage: number): number {

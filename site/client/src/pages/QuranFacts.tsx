@@ -43,6 +43,8 @@ import { quranFacts, type QuranFact } from "@/content/quran-facts";
 import { factOfTheDay } from "@/lib/quran-facts-index";
 import { factCardState, firstIncompleteStage, readFactDiscoveries, resetFactDiscoveries, type FactCardState } from "@/lib/quran-facts-progress";
 import { BadgeAward } from "@/components/BadgeAward";
+import { useHifzStore } from "@/hooks/useHifzStore";
+import { activeProfile } from "@/lib/hifz-store";
 
 const ICONS: Record<string, typeof BookOpen> = {
   AlignCenter, Anchor, Apple, Archive, ArrowDownToLine, AudioLines, Baby,
@@ -294,6 +296,8 @@ function Quiz({ pool: opened, onClose }: { pool: QuranFact[]; onClose: () => voi
 
 export default function QuranFacts() {
   const { direction, locale } = useLocale();
+  const { store } = useHifzStore();
+  const profileId = activeProfile(store)?.id ?? null;
   const t = copy[locale];
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const [discovered, setDiscovered] = useState<string[]>([]);
@@ -301,14 +305,14 @@ export default function QuranFacts() {
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
-    const stored = readFactDiscoveries(FACT_SLUGS);
+    const stored = readFactDiscoveries(FACT_SLUGS, profileId);
     setDiscovered(stored);
     // Land on the first stage that still has something to turn over.
     setStage(firstIncompleteStage(quranFacts, stored, PER_STAGE));
-  }, []);
+  }, [profileId]);
 
   const reset = () => {
-    resetFactDiscoveries();
+    resetFactDiscoveries(profileId);
     setDiscovered([]);
     setStage(0);
   };

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 
 import {
-  FACTS_DISCOVERED_KEY, discoverFact, factCardState, firstIncompleteStage,
+  FACTS_DISCOVERED_KEY, discoverFact, factCardState, factsDiscoveryKey, firstIncompleteStage,
   readFactDiscoveries,
 } from "./quran-facts-progress";
 
@@ -31,5 +31,13 @@ describe("Quran facts journey progress", () => {
     expect(firstIncompleteStage(facts, ["one"], 2)).toBe(0);
     expect(firstIncompleteStage(facts, ["one", "two"], 2)).toBe(1);
     expect(factCardState(facts, ["one", "two"], 2, 2)).toBe("current");
+  });
+
+  it("keeps a named child's discoveries separate from another child's journey", () => {
+    discoverFact("one", slugs, "child-a");
+    expect(readFactDiscoveries(slugs, "child-a")).toEqual(["one"]);
+    expect(readFactDiscoveries(slugs, "child-b")).toEqual([]);
+    expect(localStorage.getItem(factsDiscoveryKey("child-a"))).toBeTruthy();
+    expect(localStorage.getItem(factsDiscoveryKey("child-b"))).toBeNull();
   });
 });

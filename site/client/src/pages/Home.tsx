@@ -19,7 +19,10 @@ import { useAuth } from "@/hooks/useAuth";
 import { factIndex, seerahStationIndex, seerahStoryIndex } from "@/lib/page-index.generated";
 import { indexOfTheDay } from "@/lib/fact-of-the-day";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
+import { useHifzStore } from "@/hooks/useHifzStore";
+import { activeProfile } from "@/lib/hifz-store";
 import { lazyWithRetry } from "@/lib/lazyWithRetry";
+import { JourneyEntry } from "@/components/ChildJourney";
 
 // Only a child who has already started the journey sees this, so it must not
 // cost the first-time visitor anything.
@@ -84,6 +87,8 @@ export default function Home() {
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const { progress } = useReadingProgress();
   const step = nextStep(progress);
+  const { store: hifzStore } = useHifzStore();
+  const activeChildId = activeProfile(hifzStore)?.id ?? null;
   const { session } = useAuth();
   // Picked off the generated index, never the content module: this page is the
   // one that loads eagerly for every visitor.
@@ -92,10 +97,10 @@ export default function Home() {
   const [hasFactProgress, setHasFactProgress] = useState(false);
 
   useEffect(() => {
-    const discovered = readFactDiscoveries(factIndex.map(fact => fact.slug));
+    const discovered = readFactDiscoveries(factIndex.map(fact => fact.slug), activeChildId);
     setHasFactProgress(discovered.length > 0);
     setNextFact(factIndex.find(fact => !discovered.includes(fact.slug)) ?? factIndex[0]);
-  }, []);
+  }, [activeChildId]);
 
   return (
     <main className="site-shell" dir={direction}>
@@ -109,6 +114,8 @@ export default function Home() {
           <div className="hero-visual" aria-label={t.visualLabel}><div className="hero-moon" /><div className="yahya-character-frame"><img src={yahyaHero} srcSet={yahyaHeroSrcSet} sizes={yahyaHeroSizes} width={768} height={960} fetchPriority="high" alt={t.imageAlt} /><div className="yahya-character-frame__shade" aria-hidden="true" /></div><div className="journey-card journey-card--large"><span className="journey-card__label"><Compass size={14} /> {t.map}</span><b>{t.startWhere}</b><div className="journey-card__path" aria-hidden="true"><span className="path-dot path-dot--listen" /><i /><span className="path-dot path-dot--repeat" /><i /><span className="path-dot path-dot--review" /></div><div className="journey-card__caption"><Heart size={15} fill="currentColor" /> {t.noUnlock}</div></div><div className="mini-note mini-note--audio"><Headphones size={18} /><span>{t.audio}<br /><b>{t.nowAvailable}</b></span></div><div className="mini-note mini-note--parent"><Avatar className="mini-note__avatar"><AvatarImage src={yahyaAvatarUrl} alt="" loading="lazy" /><AvatarFallback>ي</AvatarFallback></Avatar><span>{t.withYahya}<br /><b>{t.stepByStep}</b></span></div></div>
         </div>
       </section>
+
+      <JourneyEntry />
 
       {/* Lazy so the store, the review schedule and the journey data stay out
           of the entry chunk every first-time visitor downloads. */}

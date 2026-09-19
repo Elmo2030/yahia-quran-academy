@@ -23,6 +23,8 @@ import { quranFacts } from "@/content/quran-facts";
 import { factBySlug, surahOfFact } from "@/lib/quran-facts-index";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { discoverFact, readFactDiscoveries } from "@/lib/quran-facts-progress";
+import { useHifzStore } from "@/hooks/useHifzStore";
+import { activeProfile } from "@/lib/hifz-store";
 
 const copy = {
   ar: {
@@ -60,13 +62,15 @@ export default function QuranFact() {
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const fact = params?.slug ? factBySlug(params.slug) : undefined;
   const [wasDiscovered, setWasDiscovered] = useState(false);
+  const { store } = useHifzStore();
+  const profileId = activeProfile(store)?.id ?? null;
 
   useEffect(() => {
     if (!fact) return;
-    setWasDiscovered(readFactDiscoveries(quranFacts.map(item => item.slug)).includes(fact.slug));
-    discoverFact(fact.slug, quranFacts.map(item => item.slug));
+    setWasDiscovered(readFactDiscoveries(quranFacts.map(item => item.slug), profileId).includes(fact.slug));
+    discoverFact(fact.slug, quranFacts.map(item => item.slug), profileId);
     setWasDiscovered(true);
-  }, [fact]);
+  }, [fact, profileId]);
 
   const Chrome = ({ children }: { children: React.ReactNode }) => (
     <main className="site-shell" dir={direction}>
