@@ -57,4 +57,13 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText("سورة العلق 96:1–5")).toBeTruthy();
     expect(screen.getByText(/العلم يبدأ باسم الله/)).toBeTruthy();
   });
+
+  it("renders the Station 4 narrative with its visible trusted source", () => {
+    window.history.pushState({}, "", "/seerah/journey-to-taif");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "رحلة الطائف" })).toBeTruthy();
+    expect(screen.getByText(/اختار الرحمة والرجاء بدل الانتقام/)).toBeTruthy();
+    expect(screen.getByText("صحيح البخاري وصحيح مسلم")).toBeTruthy();
+  });
 });
