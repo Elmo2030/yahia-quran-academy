@@ -58,6 +58,12 @@ export function MobileMenu() {
   const t = copy[locale];
   const trigger = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
+  const closeButton = useRef<HTMLButtonElement>(null);
+
+  const focusableChildren = () =>
+    Array.from(panel.current?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    ) ?? []).filter(element => !element.hidden);
 
   const close = useCallback(() => {
     setOpen(false);
@@ -77,7 +83,7 @@ export function MobileMenu() {
   // Escape closes it, and the page behind it does not scroll while it is over.
   useEffect(() => {
     if (!open) return;
-    panel.current?.focus();
+    closeButton.current?.focus();
     const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") close(); };
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -87,6 +93,24 @@ export function MobileMenu() {
       document.removeEventListener("keydown", onKey);
     };
   }, [open, close]);
+
+  const trapFocus = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab") return;
+    const focusable = focusableChildren();
+    if (focusable.length === 0) {
+      event.preventDefault();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
 
   return (
     <>
@@ -113,10 +137,11 @@ export function MobileMenu() {
           aria-label={t.title}
           ref={panel}
           tabIndex={-1}
+          onKeyDown={trapFocus}
         >
           <div className="mobile-menu__head">
             <span className="brand-mark"><span className="brand-mark__seal">ي</span><span><b>Yahya</b> Quran Academy</span></span>
-            <button type="button" className="mobile-menu__close" aria-label={t.close} onClick={close}>
+            <button ref={closeButton} type="button" className="mobile-menu__close" aria-label={t.close} onClick={close}>
               <X size={18} aria-hidden="true" />
             </button>
           </div>

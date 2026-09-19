@@ -393,6 +393,12 @@ if (!shell.includes(anchor)) throw new Error("the built shell has no #root to fi
 // read as a plain page of the site rather than as something broken.
 const style = `<style>#prerendered{max-width:46rem;margin:0 auto;padding:2rem 1.25rem;font-family:"Noto Naskh Arabic",serif;color:#001F3F;background:#fffdf5}#prerendered h1{font-size:1.7rem;line-height:1.5}#prerendered h2{font-size:1.2rem;margin-top:1.6rem}#prerendered p,#prerendered li{line-height:2;font-size:.98rem}#prerendered blockquote{margin:.6rem 0;padding:.6rem .9rem;background:#eef3dd;border-radius:12px}#prerendered cite{display:block;margin-top:.3rem;font-size:.75rem;color:#7d631c;font-style:normal}#prerendered a{color:#556B2F}</style>`;
 
+// The home hero is the only image deliberately fetched at high priority by
+// the app. Its markup arrives after the SPA bundle, so expose the same
+// responsive source ladder in the document head for the home page only.
+// Other routes must not pay for an image they never show.
+const homeHeroPreload = '<link rel="preload" as="image" href="/hero/yahya-768.webp" imagesrcset="/hero/yahya-384.webp 384w, /hero/yahya-576.webp 576w, /hero/yahya-768.webp 768w, /hero/yahya-1152.webp 1152w" imagesizes="(max-width: 820px) 70vw, 312px" fetchpriority="high">';
+
 // Routes with no prerendered page — sign-in, the personal shelf, anything that
 // does not exist — reach the SPA fallback in functions/_middleware.ts. That
 // fallback used to fetch index.html, which since this script runs is the home
@@ -407,7 +413,8 @@ for (const [path, body] of pages) {
   // answers an unknown path with index.html at status 200, which since this
   // script runs carries the home page's words. Without the markers, /login and
   // every address that does not exist would read as the home page.
-  const html = shell.replace(anchor,
+  const pageShell = path === "/" ? shell.replace("</head>", `${homeHeroPreload}</head>`) : shell;
+  const html = pageShell.replace(anchor,
     `<div id="root"><!--prerendered:start--><div id="prerendered">${body}</div><!--prerendered:end--></div>${style}`);
   // "<path>.html", not "<path>/index.html": Cloudflare Pages serves a directory
   // by redirecting the bare path to one with a trailing slash, which would put
