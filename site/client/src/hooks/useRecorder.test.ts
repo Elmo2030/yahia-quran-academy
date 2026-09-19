@@ -33,7 +33,10 @@ class FakeMediaRecorder {
   }
 }
 
-const fakeStream = { getTracks: () => [] } as unknown as MediaStream;
+function makeFakeStream() {
+  const stop = vi.fn();
+  return { stream: { getTracks: () => [{ stop }] } as unknown as MediaStream, stop };
+}
 
 function stubMic(behavior: "grant" | "denied" | "missing" | "unsupported") {
   if (behavior === "unsupported") {
@@ -43,10 +46,12 @@ function stubMic(behavior: "grant" | "denied" | "missing" | "unsupported") {
     return;
   }
   global.MediaRecorder = FakeMediaRecorder as unknown as typeof MediaRecorder;
+  const { stream, stop } = makeFakeStream();
   const getUserMedia = behavior === "grant"
-    ? vi.fn().mockResolvedValue(fakeStream)
+    ? vi.fn().mockResolvedValue(stream)
     : vi.fn().mockRejectedValue(Object.assign(new Error("no"), { name: behavior === "denied" ? "NotAllowedError" : "NotFoundError" }));
   Object.defineProperty(navigator, "mediaDevices", { value: { getUserMedia }, configurable: true });
+  return { stop };
 }
 
 describe("useRecorder", () => {
@@ -76,6 +81,19 @@ describe("useRecorder", () => {
     expect(result.current.savedNote).toBe(true);
     const saved = await listAyahRecordings(1, 2, "child-a");
     expect(saved).toHaveLength(1);
+  });
+
+  it("stops an active microphone when the recording screen unmounts", async () => {
+    const { stop } = stubMic("grant");
+    const { result, unmount } = renderHook(() => useRecorder({ surah: 1, ayah: 2, profileId: "child-a" }, messages));
+
+    await act(async () => {
+      await result.current.start();
+    });
+    expect(result.current.state).toBe("recording");
+
+    unmount();
+    expect(stop).toHaveBeenCalledOnce();
   });
 
   it("records a recital segment and saves it keyed by surah, from and to — not by ayah", async () => {

@@ -57,27 +57,45 @@ export function useRecorder(target: RecorderTarget, messages: RecorderMessages, 
   const tick = useRef<number | null>(null);
   const urlRef = useRef<string | null>(null);
   const targetRef = useRef(target);
+  const liveRef = useRef(true);
+  const latestRequestRef = useRef(0);
   targetRef.current = target;
 
   const release = () => {
     stream.current?.getTracks().forEach(track => track.stop());
     stream.current = null;
-    if (tick.current) window.clearInterval(tick.current);
+    if (tick.current !== null) window.clearInterval(tick.current);
     tick.current = null;
   };
 
   const showLatest = useCallback(async () => {
+    const request = ++latestRequestRef.current;
+    const targetAtStart = targetRef.current;
+    const keyAtStart = targetKey(targetAtStart);
+    const current = () =>
+      liveRef.current && request === latestRequestRef.current && targetKey(targetRef.current) === keyAtStart;
+
+    // Clear the previous child's/moment's preview before the new IndexedDB
+    // lookup resolves. IndexedDB is asynchronous, so retaining it here could
+    // briefly show a recording belonging to the old target after a switch.
+    setLatest(null);
+    setClipUrl(null);
+    if (urlRef.current) {
+      URL.revokeObjectURL(urlRef.current);
+      urlRef.current = null;
+    }
     try {
-      const [take] = await latestFor(targetRef.current);
+      const [take] = await latestFor(targetAtStart);
+      if (!current()) return;
       setLatest(take ?? null);
       if (!take) return;
       const full = await getRecording(take.id);
-      if (!full) return;
+      if (!current() || !full) return;
       if (urlRef.current) URL.revokeObjectURL(urlRef.current);
       urlRef.current = URL.createObjectURL(full.blob);
       setClipUrl(urlRef.current);
     } catch {
-      setLatest(null);
+      if (current()) setLatest(null);
     }
     // Re-runs on the target's identity (what it points at), not a new object
     // literal a caller happens to pass on every render.
@@ -85,10 +103,15 @@ export function useRecorder(target: RecorderTarget, messages: RecorderMessages, 
   }, [targetKey(target)]);
 
   useEffect(() => { void showLatest(); }, [showLatest]);
-  useEffect(() => () => {
-    recorder.current?.state === "recording" && recorder.current.stop();
-    release();
-    if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+  useEffect(() => {
+    liveRef.current = true;
+    return () => {
+      liveRef.current = false;
+      latestRequestRef.current++;
+      if (recorder.current?.state === "recording") recorder.current.stop();
+      release();
+      if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+    };
   }, []);
 
   const stopRecording = useCallback(() => {
@@ -103,9 +126,14 @@ export function useRecorder(target: RecorderTarget, messages: RecorderMessages, 
     try {
       stream.current = await navigator.mediaDevices.getUserMedia({ audio: true });
     } catch (err) {
+      if (!liveRef.current) return;
       const name = (err as DOMException)?.name;
       setError(name === "NotAllowedError" || name === "SecurityError" ? messages.micDenied : name === "NotFoundError" ? messages.micMissing : messages.micUnsupported);
       setState("idle");
+      return;
+    }
+    if (!liveRef.current) {
+      release();
       return;
     }
     const mimeType = pickRecordingMimeType();
@@ -123,6 +151,7 @@ export function useRecorder(target: RecorderTarget, messages: RecorderMessages, 
     rec.ondataavailable = event => { if (event.data.size > 0) chunks.push(event.data); };
     rec.onstop = () => {
       release();
+      if (!liveRef.current) return;
       setState("idle");
       const type = mimeType ?? "audio/webm";
       const blob = new Blob(chunks, { type });

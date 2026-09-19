@@ -13,7 +13,7 @@
 // up this device next.
 // =============================================================================
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useRoute } from "wouter";
 import {
   ArrowLeft, ArrowRight, Check, CircleStop, Eye, Loader2, Mic, Minus, RotateCcw, Sparkles,
@@ -172,7 +172,14 @@ function Recite({ t, surah, total, initial, profile, update }: {
   const [texts, setTexts] = useState<Ayah[] | null>(null);
   const [justSubmitted, setJustSubmitted] = useState(false);
 
-  useMemo(() => { loadSurah(surah).then(setTexts, () => setTexts(null)); }, [surah]);
+  useEffect(() => {
+    let live = true;
+    void loadSurah(surah).then(
+      ayahs => { if (live) setTexts(ayahs); },
+      () => { if (live) setTexts(null); },
+    );
+    return () => { live = false; };
+  }, [surah]);
 
   const recorder = useRecorder(
     { surah, from, to, profileId: profile.id },
