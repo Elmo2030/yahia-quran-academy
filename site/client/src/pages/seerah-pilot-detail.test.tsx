@@ -112,4 +112,14 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText(/فأدخل يده فيه فوجد بللًا مخفيًا تحت الظاهر/)).toBeTruthy();
     expect(screen.getByText("صحيح مسلم، حديث صبرة الطعام: من غش فليس مني.")).toBeTruthy();
   });
+
+  it("renders the Station 9 farewell narrative with its Quran and hadith sources", () => {
+    window.history.pushState({}, "", "/seerah/city-earthquake-abu-bakr-speech");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "زلزال المدينة وثبات الصدّيق" })).toBeTruthy();
+    expect(screen.getByText(/من كان يعبد محمدًا فإن محمدًا قد مات/)).toBeTruthy();
+    expect(screen.getByText("القرآن الكريم: سورة آل عمران 3:144.")).toBeTruthy();
+    expect(screen.getByText("صحيح البخاري، خطبة أبي بكر رضي الله عنه يوم وفاة النبي ﷺ.")).toBeTruthy();
+  });
 });
