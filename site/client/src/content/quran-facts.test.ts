@@ -91,7 +91,7 @@ describe("every fact says where it comes from", () => {
     }
   });
 
-  it("marks each one either settled or awaiting review, and nothing else", () => {
+  it("uses a recognized source marker without asserting scholarly approval", () => {
     for (const fact of quranFacts) {
       expect(["🟢", "🟡"], `${fact.slug}`).toContain(fact.source.reliability);
     }
@@ -102,21 +102,17 @@ describe("every fact says where it comes from", () => {
    * otherwise the mark is decoration. "تحتاج" / "awaits" is that sentence.
    */
   it("says what is unsettled on any card awaiting review", () => {
-    // None are pending today — the seven that were have been settled or
-    // reworded. The rule is what matters: a 🟡 mark without a sentence naming
-    // the disagreement is decoration, and the next card added must not have
-    // one.
+    // This validates presentation, not the validity of the underlying claim.
     for (const fact of quranFacts.filter(fact => fact.source.reliability === "🟡")) {
       expect(fact.source.note.ar, `${fact.slug}`).toMatch(/مراجعت|قرارك|تصحيح|اختلف|خلاف/);
     }
   });
 
   /**
-   * A card that says "we counted this ourselves" is making a stronger promise
-   * than one citing a book, and it is the promise easiest to break quietly
-   * later. These are the counts, run against the Uthmani text this site ships.
+   * Source-label coverage is not a corpus recount or a semantic verification.
+   * Counts and interpretation need the separate editorial review queue.
    */
-  it("stands behind the counts it claims to have run", () => {
+  it("retains references for claims described as corpus counts", () => {
     const counted = quranFacts.filter(fact => /عدٌّ في النص العثماني|عدٌّ في المصحف/.test(fact.source.reference.ar));
     expect(counted.length).toBeGreaterThanOrEqual(10);
   });

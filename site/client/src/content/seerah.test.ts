@@ -34,7 +34,7 @@ describe("seerah content", () => {
     const indexed = seerahStoryIndex.find(s => s.slug === story.slug)!;
     expect(indexed.title).toBe(story.title);
     expect(indexed.titleEn).toBe(story.en!.title);
-    expect(story.content.tier_1_age_6_8.narrative).toContain(indexed.description.replace(/…$/, ""));
+    expect(seerahPilotEpisodeFor(story.storyId)!.childStory[0]).toContain(indexed.description.replace(/…$/, ""));
     expect(story.en!.content.tier_1_age_6_8.narrative).toContain(indexed.descriptionEn!.replace(/…$/, ""));
     expect(indexed.description).toContain("على قراريط");
     expect(indexed.descriptionEn).toContain("for payment");

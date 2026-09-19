@@ -24,6 +24,6 @@ describe("Seerah hub loading", () => {
     render(<ThemeProvider><LocaleProvider><Seerah /></LocaleProvider></ThemeProvider>);
 
     expect(screen.getByRole("heading", { name: "السيرة النبوية ﷺ" })).toBeTruthy();
-    expect(screen.getByRole("link", { name: /يوم أشرقت مكة/i })).toBeTruthy();
+    expect(screen.getByRole("link", { name: /عام الفيل ومولد النبي/i })).toBeTruthy();
   });
 });

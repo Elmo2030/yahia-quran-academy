@@ -11,7 +11,7 @@
 // word per line.
 // =============================================================================
 
-import { useMemo, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 import { useLearningStep } from "@/hooks/useLearningStep";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, Compass, HelpCircle, ShieldCheck, Sparkles, Trophy } from "lucide-react";
@@ -30,15 +30,27 @@ import {
   type AgeTier,
   type SeerahStory,
 } from "@/content/seerah";
-import { seerahPilotEpisodeFor, type SeerahPilotEpisode } from "@/content/seerah-pilot-station-1";
-import { seerahPilotEpisodeForStationTwo } from "@/content/seerah-pilot-station-2";
-import { seerahPilotEpisodeForStationThree } from "@/content/seerah-pilot-station-3";
-import { seerahPilotEpisodeForStationFour } from "@/content/seerah-pilot-station-4";
-import { seerahPilotEpisodeForStationFive } from "@/content/seerah-pilot-station-5";
-import { seerahPilotEpisodeForStationSix } from "@/content/seerah-pilot-station-6";
-import { seerahPilotEpisodeForStationSeven } from "@/content/seerah-pilot-station-7";
-import { seerahPilotEpisodeForStationEight } from "@/content/seerah-pilot-station-8";
-import { seerahPilotEpisodeForStationNine } from "@/content/seerah-pilot-station-9";
+import type { SeerahPilotEpisode } from "@/content/seerah-pilot-station-1";
+
+// English and a single Arabic station must not download all nine narratives.
+const pilotViews = [
+  () => import("@/content/seerah-pilot-station-1").then(m => m.seerahStationOnePilot),
+  () => import("@/content/seerah-pilot-station-2").then(m => m.seerahStationTwoPilot),
+  () => import("@/content/seerah-pilot-station-3").then(m => m.seerahStationThreePilot),
+  () => import("@/content/seerah-pilot-station-4").then(m => m.seerahStationFourPilot),
+  () => import("@/content/seerah-pilot-station-5").then(m => m.seerahStationFivePilot),
+  () => import("@/content/seerah-pilot-station-6").then(m => m.seerahStationSixPilot),
+  () => import("@/content/seerah-pilot-station-7").then(m => m.seerahStationSevenPilot),
+  () => import("@/content/seerah-pilot-station-8").then(m => m.seerahStationEightPilot),
+  () => import("@/content/seerah-pilot-station-9").then(m => m.seerahStationNinePilot),
+].map(load => lazy(async () => {
+  const episodes = await load();
+  return { default: ({ story }: { story: SeerahStory }) => {
+    const episode = episodes.find(item => item.storyId === story.storyId);
+    if (!episode) throw new Error("Seerah episode unavailable");
+    return <SeerahPilotStoryView story={story} episode={episode} />;
+  } };
+}));
 
 /** One mark per station, in the section's own language: places and things,
  *  never people. They carry the shape of the life at a glance. */
@@ -57,6 +69,7 @@ const STATION_MARKS: Record<number, string> = {
 
 const copy = {
   ar: {
+    loading: "نفتح القصة…",
     retrySave: "أعد محاولة الحفظ", journey: "العودة إلى رحلتي",
     saveError: "تعذّر حفظ تقدمك على هذا الجهاز. تحقق من مساحة التخزين وحاول مجددًا.",
     home: "الرئيسية", quranStories: "قصص القرآن", eyebrow: "السيرة النبوية",
@@ -75,6 +88,7 @@ const copy = {
     showAll: "اعرض كل المحطات", showOne: "محطة واحدة في كل مرة", youAreHere: "أنت هنا",
   },
   en: {
+    loading: "Opening the story…",
     retrySave: "Retry saving", journey: "Back to my journey",
     saveError: "Your progress could not be saved on this device. Check storage space and try again.",
     home: "Home", quranStories: "Quran stories", eyebrow: "The Prophet’s Seerah",
@@ -498,18 +512,10 @@ export default function SeerahDetail() {
   if (!isStory || !story) {
     return <Chrome><section className="section"><div className="container"><p>{t.missing}</p><Link href="/seerah" className="text-link">{t.backToStation}</Link></div></section></Chrome>;
   }
-  const pilotEpisode = locale === "ar"
-    ? seerahPilotEpisodeFor(story.storyId)
-      ?? seerahPilotEpisodeForStationTwo(story.storyId)
-      ?? seerahPilotEpisodeForStationThree(story.storyId)
-      ?? seerahPilotEpisodeForStationFour(story.storyId)
-      ?? seerahPilotEpisodeForStationFive(story.storyId)
-      ?? seerahPilotEpisodeForStationSix(story.storyId)
-      ?? seerahPilotEpisodeForStationSeven(story.storyId)
-      ?? seerahPilotEpisodeForStationEight(story.storyId)
-      ?? seerahPilotEpisodeForStationNine(story.storyId)
-    : null;
-  return <Chrome>{pilotEpisode ? <SeerahPilotStoryView story={story} episode={pilotEpisode} key={story.slug} /> : <SeerahStoryView story={story} key={story.slug} />}</Chrome>;
+  const PilotView = pilotViews[story.stationId - 1];
+  return <Chrome>{locale === "ar" && PilotView
+    ? <Suspense fallback={<p role="status" className="container">{t.loading}</p>}><PilotView story={story} key={story.slug} /></Suspense>
+    : <SeerahStoryView story={story} key={story.slug} />}</Chrome>;
 }
 
 /**

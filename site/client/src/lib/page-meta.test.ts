@@ -12,6 +12,7 @@ import { describe, expect, it } from "vitest";
 import { localizedMeta, metaForPath } from "@/lib/page-meta";
 import { chapters, stories } from "@/content/stories";
 import { seerahStories } from "@/content/seerah";
+import { seerahStoryIndex } from "@/lib/page-index.generated";
 import { getSurahName } from "@/lib/quran-content";
 
 const notFound = "الصفحة غير موجودة";
@@ -39,7 +40,7 @@ describe("metaForPath", () => {
     }
     for (const story of seerahStories) {
       const meta = metaForPath(`/seerah/${story.slug}`);
-      expect(meta.title, story.slug).toContain(story.title);
+      expect(meta.title, story.slug).toContain(seerahStoryIndex.find(item => item.slug === story.slug)!.title);
     }
   });
 

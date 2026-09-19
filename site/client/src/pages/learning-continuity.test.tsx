@@ -44,7 +44,7 @@ describe.each([
   { kind: "seerah", slug: "little-shepherd", locale: "en", Component: SeerahDetail, answer: "Shepherd", wrong: "Blacksmith" },
   { kind: "aqeedah", slug: aqeedahCards[0].slug, locale: "ar", Component: Aqeedah, answer: aqeedahCards[0].challenge.options[aqeedahCards[0].challenge.correctAnswer], wrong: aqeedahCards[0].challenge.options[(aqeedahCards[0].challenge.correctAnswer + 1) % aqeedahCards[0].challenge.options.length] },
 ])("$kind / $locale detail", ({ kind, slug, locale, Component, answer, wrong }) => {
-  it("starts on entry, completes only on the correct answer, survives reload and isolates a profile switch", () => {
+  it("starts on entry, completes only on the correct answer, survives reload and isolates a profile switch", async () => {
     const a = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
     if (!a.ok) throw Error(a.reason);
     const b = createProfile(a.store, { name: "Yusuf", character: "yahya" });
@@ -53,6 +53,7 @@ describe.each([
     window.history.pushState({}, "", `/${kind}/${slug}?lang=${locale}`);
     const mount = () => render(<ThemeProvider><LocaleProvider><Component /></LocaleProvider></ThemeProvider>);
     let view = mount();
+    await screen.findByRole("button", { name: answer });
     const record = (id: string) => loadStore().profiles.find(p => p.id === id)!.steps[`${kind}:${slug}`];
     expect(record(a.profile.id).status).toBe("in_progress");
     const startedAt = record(a.profile.id).startedAt;

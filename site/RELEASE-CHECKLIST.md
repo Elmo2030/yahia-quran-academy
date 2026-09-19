@@ -51,6 +51,10 @@ Use this checklist before a production release. Items marked external require th
 
 ## 6. Engineering gates
 
+- [ ] Complete human content sign-off against [the generated review queue](docs/content-review.generated.md); generated source markers do not constitute approval.
+- [ ] Record actual family observations using [the validation protocol](docs/family-validation.md). Do not infer learning gains or parent comprehension from unit tests.
+- [ ] Measure production route waterfalls and interaction profiles on representative devices; smaller build chunks alone do not certify Core Web Vitals.
+
 ```bash
 npx tsc --noEmit
 npx vitest run

@@ -35,10 +35,17 @@
 ### Trust repair wave 1 — `st-1-05` / `little-shepherd`
 
 - The Arabic pilot remains the source-aware narrative; the Arabic catalogue text and both English age tiers now stay within the shepherding account in Sahih al-Bukhari 2262. Both challenge questions cite that account without attributing a motive, age, landscape, or encounter with wolves.
-- Card metadata and server SEO descriptions are generated from `seerah.ts`; no narrative import was added to Home. Home currently selects the first story in each station, so this fifth story is not a featured Home card. Its shared metadata is updated without changing that selection.
+- Card metadata and server SEO descriptions use the displayed Arabic pilot title/opening and the existing English record. No narrative import was added to Home. Home currently selects the first story in each station, so this fifth story is not a featured Home card. That selection is unchanged.
 - Historical basis: [Sahih al-Bukhari 2262](https://sunnah.com/bukhari:2262), narrated by Abu Huraira (source class B). Responsibility is an educational reflection, not a reported motive for shepherding. Existing IDs, routes, artwork and rewards are unchanged.
 - Engineering checks cover source identifiers, known unsupported legacy phrases, generated metadata and reward interaction. They are not scholarly approval. Final bilingual editorial/scholarly sign-off is **UNVERIFIED / REQUIRED BEFORE PUBLICATION**; no reviewer is recorded or implied. The existing pilot `verified` flag identifies the cited historical basis, not approval of this new revision.
 - This is one unit only. Other Seerah records, English stories, station summaries and scientific claims are not reviewed by this change.
+
+### Follow-up: metadata consistency and validation readiness
+
+- All 100 Arabic story titles/openings in the generated index, crawler metadata and `llms.txt` now match the displayed pilot narratives. This synchronization is not historical verification; station descriptions and legacy English/challenge content still need review.
+- Arabic detail loads only the selected station's pilot module; English detail does not request those Arabic pilot modules. The existing bilingual legacy story module is still shared by detail views.
+- [Generated review queue](docs/content-review.generated.md) inventories all Seerah episodes and Quran Discoveries, including source markers and review notes. Human sign-off must be recorded separately against the exact revision; the generated queue must not be edited as an approval register.
+- [Family validation protocol](docs/family-validation.md) is prepared but not run. Parent comprehension, child usability and delayed recall remain unverified. No new review engine or parent dashboard is implied.
 
 ## Aqeedah — COMPLETE
 
