@@ -103,4 +103,13 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText(/اختار الوفاء بالعهد/)).toBeTruthy();
     expect(screen.getByText("صحيح البخاري، خبر الحديبية.")).toBeTruthy();
   });
+
+  it("renders the Station 8 ethics narrative with its sound hadith source", () => {
+    window.history.pushState({}, "", "/seerah/honest-merchant-market-ethics");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "من غش فليس منا" })).toBeTruthy();
+    expect(screen.getByText(/فأدخل يده فيه فوجد بللًا مخفيًا تحت الظاهر/)).toBeTruthy();
+    expect(screen.getByText("صحيح مسلم، حديث صبرة الطعام: من غش فليس مني.")).toBeTruthy();
+  });
 });
