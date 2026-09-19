@@ -22,6 +22,7 @@ import {
   enterAsGuest,
   exportBackup,
   importBackup,
+  inProgressStories,
   loadStore,
   markBackedUp,
   markListened,
@@ -41,6 +42,7 @@ import {
   saveStore,
   selectProfile,
   setParentLock,
+  startStory,
   stepStatus,
   submitRecital,
   surahProgress,
@@ -458,6 +460,36 @@ describe("steps beyond an ayah", () => {
 
     const again = markStoryDone(done, profile.id, "nations", "luqman", 9999);
     expect(again).toBe(done);
+  });
+
+  it("keeps a named child's first story start across reloads and re-entry", () => {
+    const { store, profile } = withChild("Amina");
+    const started = startStory(store, profile.id, "nations", "luqman", 4000);
+    expect(stepStatus(activeProfile(started)!, { kind: "story", chapter: "nations", slug: "luqman" })).toBe("in_progress");
+    expect(activeProfile(started)!.steps["story:nations:luqman"].startedAt).toBe(4000);
+
+    const reloaded = parseStore(JSON.parse(JSON.stringify(started)));
+    const reentered = startStory(reloaded, profile.id, "nations", "luqman", 9000);
+    expect(reentered).toBe(reloaded);
+    expect(activeProfile(reentered)!.steps["story:nations:luqman"].startedAt).toBe(4000);
+  });
+
+  it("does not create Story resume progress for the shared guest profile", () => {
+    const guest = enterAsGuest(emptyStore());
+    const guestId = activeProfile(guest)!.id;
+    expect(startStory(guest, guestId, "nations", "luqman", 4000)).toBe(guest);
+  });
+
+  it("never reopens a completed story and sorts incomplete stories by their original start", () => {
+    const { store, profile } = withChild("Amina");
+    const first = startStory(store, profile.id, "nations", "luqman", 1000);
+    const second = startStory(first, profile.id, "nations", "qabil", 2000);
+    const completed = markStoryDone(second, profile.id, "nations", "luqman", 3000);
+
+    expect(startStory(completed, profile.id, "nations", "luqman", 4000)).toBe(completed);
+    expect(inProgressStories(activeProfile(completed)!)).toEqual([
+      expect.objectContaining({ chapter: "nations", slug: "qabil", record: expect.objectContaining({ startedAt: 2000 }) }),
+    ]);
   });
 });
 

@@ -162,7 +162,7 @@ function parseAyahs(value: unknown): Record<string, AyahRecord> {
 }
 
 // ---------------------------------------------------------------------------
-// Steps beyond an ayah: a story finished, or a deed grown from its story's
+// Steps beyond an ayah: a story started/finished, or a deed grown from its story's
 // "try today". Additive, so a v1 store saved before this shipped has no
 // `steps` field at all and still parses — parseSteps reads that as "{}".
 //
@@ -627,11 +627,37 @@ export const confirmDeed = (store: HifzStore, profileId: string, chapter: string
 export const declineDeed = (store: HifzStore, profileId: string, chapter: string, slug: string) =>
   withStep(store, profileId, { kind: "deed", chapter, slug }, () => undefined);
 
+/**
+ * A named child deliberately opened a story to read it. The first start is
+ * retained so reloads and return visits cannot quietly move its place among
+ * other unfinished stories. A completed story is never reopened as work.
+ */
+export const startStory = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) => {
+  const profile = store.profiles.find(p => p.id === profileId);
+  if (!profile || profile.character === "guest") return store;
+  return withStep(store, profileId, { kind: "story", chapter, slug }, current => {
+    if (current?.status === "done" || current?.status === "in_progress") return current;
+    return { status: "in_progress", startedAt: now };
+  });
+};
+
 /** A story finished. Reading it again does not un-finish it. */
 export const markStoryDone = (store: HifzStore, profileId: string, chapter: string, slug: string, now = Date.now()) =>
   withStep(store, profileId, { kind: "story", chapter, slug }, current => (current?.status === "done" ? current : { status: "done", doneAt: now }));
 
 export const stepStatus = (profile: ChildProfile, ref: KeyableRef): StepStatus => profile.steps[stepKey(ref)]?.status ?? "available";
+
+/** Every unfinished story with a trustworthy start time, newest first. */
+export function inProgressStories(profile: ChildProfile): Array<{ chapter: string; slug: string; record: StepRecord }> {
+  const out: Array<{ chapter: string; slug: string; record: StepRecord }> = [];
+  for (const [key, record] of Object.entries(profile.steps)) {
+    if (record.status !== "in_progress" || !record.startedAt) continue;
+    const [kind, chapter, slug] = key.split(":");
+    if (kind !== "story" || !chapter || !slug) continue;
+    out.push({ chapter, slug, record });
+  }
+  return out.sort((a, b) => (b.record.startedAt ?? 0) - (a.record.startedAt ?? 0));
+}
 
 /** Every deed a parent has not yet put their name to, oldest first. */
 export function pendingDeeds(profile: ChildProfile): Array<{ chapter: string; slug: string; record: StepRecord }> {

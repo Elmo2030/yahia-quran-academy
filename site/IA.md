@@ -34,7 +34,7 @@ Home (/)
 Home → My Journey → current activity → completion/progress → next step
 ```
 
-The home/journey UI reads existing data. `nextStep()` uses Hifz priority: due review → needs-practice recital → awaiting-parent recital/deed → last reader position. It does not invent a cross-library completion store.
+The home/journey UI reads existing data. `nextStep()` uses Hifz priority: due review → needs-practice recital → awaiting-parent recital/deed → last reader position. The Stories activity reads the active named child's existing Story steps and points to the latest valid incomplete Story; it resumes the normal Story route from its top, without a separate cross-library progression store.
 
 ## Parent journey
 

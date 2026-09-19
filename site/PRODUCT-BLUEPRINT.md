@@ -28,7 +28,7 @@ The product-wide target age is 6–11. Quran stories currently have a 6–8-orie
 
 `Home → My journey → activity → completion/progress → next step`
 
-`ChildJourney` and `nextStep()` present the current activity without creating a replacement global progression engine. Hifz next-step priority is: due review, needs-practice recital, awaiting-parent work, then last reading. Story resumption is **PARTIAL**: completed story steps are recorded, but a merely opened story is not persisted as resumable work.
+`ChildJourney` and `nextStep()` present the current activity without creating a replacement global progression engine. Hifz next-step priority is: due review, needs-practice recital, awaiting-parent work, then last reading. A named child entering Story Detail records that Story as `in_progress` in the existing local child steps; My Journey offers the latest valid incomplete Story and returns to its normal route top. Scene, checkpoint, and scroll-position resume are not implemented.
 
 ## Parent journey — IMPLEMENTED
 

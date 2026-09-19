@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, BookOpen, BookmarkCheck, BookmarkPlus, CheckCircle2, Clock3, Compass, HandHeart, Library, Lightbulb, PawPrint, Printer, Sparkles, Sun, Trash2, Users } from "lucide-react";
 import { chapters, stories, type Story } from "@/content/stories";
@@ -5,7 +6,7 @@ import { useStoryText } from "@/content/stories-english";
 import { getSurahName } from "@/lib/quran-content";
 import { useLibrary } from "@/lib/library";
 import { useHifzStore } from "@/hooks/useHifzStore";
-import { activeProfile, registerDeed, stepStatus, type ChildProfile, type HifzStore, type StepStoryInfo } from "@/lib/hifz-store";
+import { activeProfile, registerDeed, startStory, stepStatus, type ChildProfile, type HifzStore, type StepStoryInfo } from "@/lib/hifz-store";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
 import { SiteChrome } from "@/components/SiteChrome";
@@ -191,6 +192,15 @@ export default function Stories() {
   const { textOf, arcOf, minutesOf, rewardOf } = useStoryText();
   const { store: hifzStore, commit: commitHifz } = useHifzStore();
   const child = activeProfile(hifzStore);
+  const openedStory = isStory && storyParams
+    ? stories.find(story => story.chapter === storyParams.chapter && story.slug === storyParams.slug) ?? null
+    : null;
+
+  useEffect(() => {
+    if (!openedStory || !child || child.character === "guest") return;
+    if (stepStatus(child, { kind: "story", chapter: openedStory.chapter, slug: openedStory.slug }) !== "available") return;
+    commitHifz(startStory(hifzStore, child.id, openedStory.chapter, openedStory.slug));
+  }, [child, commitHifz, hifzStore, openedStory]);
 
   // ---- my library -------------------------------------------------------
   if (isChapter && chapterParams?.chapter === "library") {
