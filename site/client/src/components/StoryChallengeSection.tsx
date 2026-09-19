@@ -19,7 +19,7 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { type Story } from "@/content/stories";
 import { useStoryText } from "@/content/stories-english";
 import { useHifzStore } from "@/hooks/useHifzStore";
-import { activeProfile, markStoryDone } from "@/lib/hifz-store";
+import { activeProfile, markStoryDone, stepStatus } from "@/lib/hifz-store";
 
 const copy = {
   ar: { challenge: "تحدي الفهم", reward: "مكافأتك", correct: "إجابة صحيحة! 🎉", wrong: "ليست هذه — ارجع للقصة وجرّب مرة أخرى 💪" },
@@ -35,8 +35,15 @@ export function StoryChallengeSection({ story, number }: { story: Story; number:
   const [tried, setTried] = useState<number[]>([]);
   const [won, setWon] = useState(false);
   const { store, commit } = useHifzStore();
+  const child = activeProfile(store);
+  // Completion is already persisted in the child's local journey. Restoring
+  // it here lets a returning child see the reward they earned, rather than
+  // making the completed story look unfinished until they answer again.
+  const completed = child !== null && stepStatus(child, { kind: "story", chapter: story.chapter, slug: story.slug }) === "done";
+  const isWon = won || completed;
 
   const pick = (index: number) => {
+    if (isWon) return;
     if (index === challenge.correctAnswer) setWon(true);
     else setTried(current => (current.includes(index) ? current : [...current, index]));
   };
@@ -47,7 +54,6 @@ export function StoryChallengeSection({ story, number }: { story: Story; number:
   // a reload marks nothing twice.
   useEffect(() => {
     if (!won) return;
-    const child = activeProfile(store);
     if (child) commit(markStoryDone(store, child.id, story.chapter, story.slug));
   }, [won]);
 
@@ -61,7 +67,7 @@ export function StoryChallengeSection({ story, number }: { story: Story; number:
           <p>{challenge.question}</p>
           <ul className="seerah-options">
             {challenge.options.map((option, index) => {
-              const state = won && index === challenge.correctAnswer
+              const state = isWon && index === challenge.correctAnswer
                 ? " is-correct"
                 : tried.includes(index)
                   ? " is-wrong"
@@ -71,7 +77,7 @@ export function StoryChallengeSection({ story, number }: { story: Story; number:
                   <button
                     type="button"
                     className={`button button--soft seerah-option${state}`}
-                    disabled={won || tried.includes(index)}
+                    disabled={isWon || tried.includes(index)}
                     onClick={() => pick(index)}
                   >
                     {option}
@@ -80,11 +86,11 @@ export function StoryChallengeSection({ story, number }: { story: Story; number:
               );
             })}
           </ul>
-          {(won || tried.length > 0) && <p>{won ? t.correct : t.wrong}</p>}
+          {(isWon || tried.length > 0) && <p>{isWon ? t.correct : t.wrong}</p>}
         </div>
       </section>
 
-      {won && (
+      {isWon && (
         <section className="story-reading-section" id="story-reward">
           <span className="story-section-number">{number + 1}</span>
           <div>

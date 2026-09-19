@@ -178,7 +178,17 @@ export function metaForPath(pathname: string) {
   if (head === "about") {
     return { ...base, path: "/about",
       title: "من نحن — موقع يحيى لتعليم الأطفال",
-      description: "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله." };
+      description: "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله.",
+      en: { title: "About Yahya Quran Academy",
+            description: "A children's Quran learning project, created as an ongoing charity in memory of Dr. Mohamed Yahya Abbas Aboud and Eng. Magda Moussa Mohamed." } };
+  }
+
+  if (head === "journey") {
+    return { ...base, path: "/journey", noindex: true,
+      title: "رحلتي — Yahya Quran Academy",
+      description: "خطوة الطفل التالية بين رحلة الحفظ، وقصص القرآن، وفي رحاب القرآن.",
+      en: { title: "My journey — Yahya Quran Academy",
+            description: "A child's next step across memorization, Quran stories, and Quran discoveries." } };
   }
 
   // The seerah section sits outside /stories — it is the Prophet's life, not a

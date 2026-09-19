@@ -154,6 +154,26 @@ const aboutMeta: Meta = {
   description:
     "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله.",
   image: DEFAULT_IMAGE,
+  i18n: {
+    en: {
+      title: "About Yahya Quran Academy",
+      description: "A children's Quran learning project, created as an ongoing charity in memory of Dr. Mohamed Yahya Abbas Aboud and Eng. Magda Moussa Mohamed.",
+    },
+  },
+};
+
+const journeyMeta: Meta = {
+  path: "/journey",
+  title: "رحلتي — Yahya Quran Academy",
+  description: "خطوة الطفل التالية بين رحلة الحفظ، وقصص القرآن، وفي رحاب القرآن.",
+  image: DEFAULT_IMAGE,
+  noindex: true,
+  i18n: {
+    en: {
+      title: "My journey — Yahya Quran Academy",
+      description: "A child's next step across memorization, Quran stories, and Quran discoveries.",
+    },
+  },
 };
 
 const privacyMeta: Meta = {
@@ -277,6 +297,7 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "login") return authMeta;
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
+  if (head === "journey") return journeyMeta;
   if (head === "hifz") return parts[1] ? hifzInnerMeta : hifzMeta;
   if (head === "quran-facts") {
     if (!parts[1]) return quranFactsMeta;

@@ -73,7 +73,7 @@ function spread<T>(items: T[], count: number): T[] {
 
 // Every kind of route the site has, plus a sample of each generated family.
 const ROUTES = [
-  "/", "/about", "/privacy", "/terms",
+  "/", "/about", "/journey", "/privacy", "/terms",
   "/stories", "/seerah", "/quran-facts", "/read", "/aqeedah",
   "/login", "/register", "/profile", "/hifz", "/hifz/114", "/hifz/114/recite", "/hifz/parent", "/hifz/looks", "/listen", "/listen/1", "/listen/114", "/listen/999", "/stories/library",
   "/forgot-password", "/reset-password", "/nope", "/stories/nope",

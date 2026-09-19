@@ -136,14 +136,12 @@ describe("every route that can speak English does", () => {
     "/seerah", "/seerah/birth-of-light",
     "/aqeedah", "/aqeedah/knowing-my-lord",
     "/quran-facts", "/quran-facts/cave-years",
-    "/hifz", "/hifz/review", "/login", "/register", "/profile",
+    "/hifz", "/hifz/review", "/journey", "/login", "/register", "/profile",
     "/privacy", "/terms", "/forgot-password", "/reset-password",
     "/about", "/no-such-page",
   ];
 
-  /** The one page written in Arabic only, in both copies. A content gap, not a
-   *  drift between the two. */
-  const ARABIC_ONLY = new Set(["/about"]);
+  const ARABIC_ONLY = new Set<string>();
 
   it("gives English its own words wherever there are any", () => {
     const stillArabic = paths.filter(path => {
