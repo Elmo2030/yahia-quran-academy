@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 vi.mock("@/hooks/useAuth", () => ({
   default: () => ({ session: null, profile: null }),
@@ -28,6 +28,16 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText(/كان محمد ﷺ يرعى الغنم لأهلها على قراريط/)).toBeTruthy();
     expect(screen.getByText(/المسؤولية تنمو عندما نعتني/)).toBeTruthy();
     expect(screen.queryByRole("button", { name: "٦–٨ سنوات" })).toBeNull();
+  });
+
+  it("reveals the existing keepsake only after the pilot story question is answered", () => {
+    renderDetail();
+
+    expect(screen.queryByText("عصا الراعي")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "رعي الأغنام" }));
+
+    expect(screen.getByText("عصا الراعي")).toBeTruthy();
+    expect(screen.getByRole("img", { name: "مكافأتك: الراعي المسؤول" })).toBeTruthy();
   });
 
   it("keeps the existing English record until the pilot receives a reviewed translation", () => {

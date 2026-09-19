@@ -353,6 +353,19 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
   const { locale } = useLocale();
   const t = copy[locale];
   const station = seerahStationOf(story);
+  const text = seerahTextFor(story, locale);
+  // The pilot replaces the old prose with a reviewed narrative, but keeps the
+  // existing story question and reward contract. A keepsake is earned through
+  // the child-facing reflection instead of being announced as a text reward.
+  const [tried, setTried] = useState<number[]>([]);
+  const [won, setWon] = useState(false);
+  const answer = (index: number) => {
+    if (index === text.interactive.challenge.correctAnswer) setWon(true);
+    else setTried(current => (current.includes(index) ? current : [...current, index]));
+  };
+  const connectionCount = Number(Boolean(episode.quran)) + Number(Boolean(episode.sunnah));
+  const lessonNumber = 2 + connectionCount;
+  const challengeNumber = lessonNumber + 1;
 
   return (
     <>
@@ -380,6 +393,8 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
             {episode.quran && <a href="#pilot-quran">{t.quranConnection}</a>}
             {episode.sunnah && <a href="#pilot-sunnah">{t.sunnahConnection}</a>}
             <a href="#pilot-lesson">{t.coreLesson}</a>
+            <a href="#pilot-challenge">{t.challenge}</a>
+            {won && <a href="#pilot-reward">{t.reward}</a>}
             <a href="#pilot-source">{t.source}</a>
           </nav>
 
@@ -409,7 +424,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
 
             {episode.sunnah && (
               <section className="story-reading-section" id="pilot-sunnah">
-                <span className="story-section-number">2</span>
+                <span className="story-section-number">{episode.quran ? 3 : 2}</span>
                 <div>
                   <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.sunnahConnection}</span>
                   <h2>{episode.sunnah.reference}</h2>
@@ -420,7 +435,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
             )}
 
             <section className="story-reading-section" id="pilot-lesson">
-              <span className="story-section-number">3</span>
+              <span className="story-section-number">{lessonNumber}</span>
               <div>
                 <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.coreLesson}</span>
                 <h2>{t.outcome}</h2>
@@ -429,12 +444,29 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
                 <p>💭 {episode.learning.reflection}</p>
                 <h2>{t.tryIt}</h2>
                 <p>{episode.learning.tryIt}</p>
-                <p><small>{episode.learning.reward}</small></p>
               </div>
             </section>
 
+            <ChallengeSection story={story} number={challengeNumber} tried={tried} solved={won} onPick={answer} />
+
+            {won && (
+              <section className="story-reading-section" id="pilot-reward">
+                <span className="story-section-number">{challengeNumber + 1}</span>
+                <div>
+                  <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.reward}</span>
+                  <BadgeAward
+                    icon={text.interactive.value.icon}
+                    badge={text.gamification.badge}
+                    keepsake={text.gamification.artifact.name}
+                    note={text.gamification.artifact.description}
+                    label={t.reward}
+                  />
+                </div>
+              </section>
+            )}
+
             <section className="story-reading-section" id="pilot-source">
-              <span className="story-section-number">4</span>
+              <span className="story-section-number">{challengeNumber + (won ? 2 : 1)}</span>
               <div>
                 <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.source}</span>
                 <h2>{t.source}</h2>
