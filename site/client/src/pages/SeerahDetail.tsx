@@ -29,6 +29,7 @@ import {
   type AgeTier,
   type SeerahStory,
 } from "@/content/seerah";
+import { seerahPilotEpisodeFor, type SeerahPilotEpisode } from "@/content/seerah-pilot-station-1";
 
 /** One mark per station, in the section's own language: places and things,
  *  never people. They carry the shape of the life at a glance. */
@@ -56,6 +57,9 @@ const copy = {
     ageGroup: "اختيار الفئة العمرية", chooseStory: "اختر قصة",
     correct: "أحسنت! إجابة صحيحة 🎉", wrong: "ليست هذه — اقرأ القصة مرة أخرى وجرّب اختياراً آخر 💪",
     missing: "هذه القصة غير موجودة.",
+    context: "السياق", scenes: "مشاهد القصة", turningPoint: "اللحظة المهمة", outcome: "ما انتهت إليه القصة",
+    quranConnection: "صلة بالقرآن", sunnahConnection: "صلة بالسنة", coreLesson: "درس الحلقة",
+    reflection: "فكّر قليلًا", tryIt: "جرّب اليوم",
     mapLabel: "خريطة حياة النبي ﷺ", mapHint: "اختر محطة لتقرأ قصصها",
     showAll: "اعرض كل المحطات", showOne: "محطة واحدة في كل مرة", youAreHere: "أنت هنا",
   },
@@ -69,6 +73,9 @@ const copy = {
     ageGroup: "Choose an age group", chooseStory: "Choose a story",
     correct: "Well done — that’s right 🎉", wrong: "Not that one — read the story again and try another answer 💪",
     missing: "This story does not exist.",
+    context: "Context", scenes: "Story scenes", turningPoint: "The important moment", outcome: "What happened next",
+    quranConnection: "Quran connection", sunnahConnection: "Sunnah connection", coreLesson: "Episode lesson",
+    reflection: "Think for a moment", tryIt: "Try it today",
     mapLabel: "A map of the Prophet\u2019s life \uFEFF\u0635\u0644\u0649 \u0627\u0644\u0644\u0647 \u0639\u0644\u064a\u0647 \u0648\u0633\u0644\u0645", mapHint: "Pick a station to read its stories",
     showAll: "Show every station", showOne: "One station at a time", youAreHere: "You are here",
   },
@@ -334,6 +341,129 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
   );
 }
 
+/**
+ * The Station 1 pilot is deliberately rendered only for Arabic. The reviewed
+ * master narrative is Arabic-only; English continues to use the established
+ * localized record until it receives the same editorial review.
+ */
+function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode: SeerahPilotEpisode }) {
+  const { locale } = useLocale();
+  const t = copy[locale];
+  const station = seerahStationOf(story);
+
+  return (
+    <>
+      <section className="story-detail-hero" {...langAttrs(locale)}>
+        <div className="container story-detail-hero__grid">
+          <div>
+            <div>
+              <Link href="/seerah" className="story-back-link">
+                <ArrowRight size={15} aria-hidden="true" /> {t.backToStation}
+              </Link>
+            </div>
+            <span className="story-detail-hero__count">{locale === "en" ? station.titleEn : station.titleAr}</span>
+            <h1>{episode.title}</h1>
+            <p className="story-detail-hero__hook">{episode.hook}</p>
+          </div>
+          <SeerahArt story={story} alt={artAlt(episode.title, locale)} />
+        </div>
+      </section>
+
+      <article className="story-article story-article--printable" {...langAttrs(locale)}>
+        <div className="container story-article__layout">
+          <nav className="story-article__rail no-print" aria-label={t.sections}>
+            <span className="story-section-label">{t.sections}</span>
+            <a href="#pilot-context">{t.context}</a>
+            <a href="#pilot-scenes">{t.scenes}</a>
+            {episode.quran && <a href="#pilot-quran">{t.quranConnection}</a>}
+            {episode.sunnah && <a href="#pilot-sunnah">{t.sunnahConnection}</a>}
+            <a href="#pilot-lesson">{t.coreLesson}</a>
+            <a href="#pilot-source">{t.source}</a>
+          </nav>
+
+          <div className="story-article__content">
+            <section className="story-reading-section story-reading-section--hook" id="pilot-context">
+              <span className="story-section-number">1</span>
+              <div>
+                <span className="story-section-label"><Compass size={13} aria-hidden="true" /> {t.context}</span>
+                <h2>{t.context}</h2>
+                <p className="story-reading-section__lead">{episode.context}</p>
+              </div>
+            </section>
+
+            <section className="story-reading-section" id="pilot-scenes">
+              <span className="story-section-number">2</span>
+              <div>
+                <span className="story-section-label"><Sparkles size={13} aria-hidden="true" /> {t.scenes}</span>
+                <h2>{t.scenes}</h2>
+                {episode.scenes.map((scene, index) => <p key={index}>{scene}</p>)}
+              </div>
+            </section>
+
+            <section className="story-reading-section" id="pilot-outcome">
+              <span className="story-section-number">3</span>
+              <div>
+                <span className="story-section-label"><Sparkles size={13} aria-hidden="true" /> {t.turningPoint}</span>
+                <h2>{t.turningPoint}</h2>
+                <p>{episode.turningPoint}</p>
+                <h2>{t.outcome}</h2>
+                <p>{episode.outcome}</p>
+              </div>
+            </section>
+
+            {episode.quran && (
+              <section className="story-reading-section" id="pilot-quran">
+                <span className="story-section-number">4</span>
+                <div>
+                  <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.quranConnection}</span>
+                  <h2>{episode.quran.reference}</h2>
+                  <p>{episode.quran.text}</p>
+                  <p><small>{episode.quran.explanation}</small></p>
+                </div>
+              </section>
+            )}
+
+            {episode.sunnah && (
+              <section className="story-reading-section" id="pilot-sunnah">
+                <span className="story-section-number">4</span>
+                <div>
+                  <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.sunnahConnection}</span>
+                  <h2>{episode.sunnah.reference}</h2>
+                  <p>{episode.sunnah.text}</p>
+                  <p><small>{episode.sunnah.explanation}</small></p>
+                </div>
+              </section>
+            )}
+
+            <section className="story-reading-section" id="pilot-lesson">
+              <span className="story-section-number">5</span>
+              <div>
+                <span className="story-section-label"><Trophy size={13} aria-hidden="true" /> {t.coreLesson}</span>
+                <h2>{episode.coreLesson}</h2>
+                <p>💭 {episode.reflection}</p>
+                <h2>{t.tryIt}</h2>
+                <p>{episode.tryIt}</p>
+                <p><small>{episode.reward}</small></p>
+              </div>
+            </section>
+
+            <section className="story-reading-section" id="pilot-source">
+              <span className="story-section-number">6</span>
+              <div>
+                <span className="story-section-label"><ShieldCheck size={13} aria-hidden="true" /> {t.source}</span>
+                <h2>{t.source}</h2>
+                <ul>
+                  {episode.sources.map(source => <li key={source}>{source}</li>)}
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </article>
+    </>
+  );
+}
+
 export default function SeerahDetail() {
   const [isStory, params] = useRoute("/seerah/:slug");
   const { locale } = useLocale();
@@ -346,7 +476,8 @@ export default function SeerahDetail() {
   if (!isStory || !story) {
     return <Chrome><section className="section"><div className="container"><p>{t.missing}</p><Link href="/seerah" className="text-link">{t.backToStation}</Link></div></section></Chrome>;
   }
-  return <Chrome><SeerahStoryView story={story} key={story.slug} /></Chrome>;
+  const pilotEpisode = locale === "ar" ? seerahPilotEpisodeFor(story.storyId) : null;
+  return <Chrome>{pilotEpisode ? <SeerahPilotStoryView story={story} episode={pilotEpisode} key={story.slug} /> : <SeerahStoryView story={story} key={story.slug} />}</Chrome>;
 }
 
 /**
