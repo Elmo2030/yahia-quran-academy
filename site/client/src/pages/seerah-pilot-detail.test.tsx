@@ -47,4 +47,14 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText("حديث عائشة رضي الله عنها في بدء الوحي")).toBeTruthy();
     expect(screen.getByText(/الهدوء والعبادة يساعداننا/)).toBeTruthy();
   });
+
+  it("renders the Station 3 revelation narrative from Quran and Sunnah references", () => {
+    window.history.pushState({}, "", "/seerah/revelation-iqra");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "أول الوحي: اقرأ" })).toBeTruthy();
+    expect(screen.getByText(/جاءه جبريل عليه السلام/)).toBeTruthy();
+    expect(screen.getByText("سورة العلق 96:1–5")).toBeTruthy();
+    expect(screen.getByText(/العلم يبدأ باسم الله/)).toBeTruthy();
+  });
 });
