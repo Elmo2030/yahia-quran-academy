@@ -30,3 +30,90 @@
 .companion-collection{margin-top:2rem}.companion-collection a{display:inline-flex;align-items:center;min-height:48px}
 @media(max-width:950px){.companions-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.companions-grid{grid-template-columns:1fr}.companions-hero{padding:1rem}.companion-reading{font-size:1.08rem}.companion-action,.companion-challenge{padding:1rem}.companion-card{padding:1.2rem}}
+
+
+.companions-intro{
+  max-width:900px;
+  margin:0 auto 3rem;
+  padding:clamp(1.25rem,3vw,2.25rem);
+  border:1px solid #dfd2b6;
+  border-radius:28px;
+  background:#fffdf7;
+  box-shadow:0 10px 28px #49361d0a;
+  color:#443628;
+}
+.companions-intro__heading{text-align:center;margin-bottom:1.5rem}
+.companions-intro__heading .eyebrow{display:inline-flex;color:#4a6028;background:#eee7cf;margin-bottom:.45rem}
+.companions-intro__heading h2{font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.55;margin:.25rem 0}
+.companions-intro__story{max-width:72ch;margin:auto;font-size:1.08rem;line-height:2}
+.companions-intro__story p{margin:.85rem 0}
+.companions-intro__lead{font-size:1.2rem;font-weight:700;color:#4a6028}
+.companions-intro__story strong{color:#35481f}
+.companions-intro__human{
+  margin:1.5rem 0;
+  padding:1.1rem 1.25rem;
+  border-inline-start:4px solid #c9a458;
+  background:#fbf5e8;
+  border-radius:16px;
+}
+.companions-intro__questions{
+  margin:1.75rem 0;
+  padding:1.25rem;
+  border:1px solid #d9c79e;
+  border-radius:20px;
+  background:#f7f0de;
+}
+.companions-intro__questions-title{font-weight:800;color:#4a6028;margin-top:0}
+.companions-intro__questions ul{
+  list-style:none;
+  padding:0;
+  margin:.75rem 0 0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.75rem;
+}
+.companions-intro__questions li{
+  padding:.85rem 1rem;
+  border-radius:14px;
+  background:#fffaf0;
+  border:1px solid #e5d6b5;
+  font-weight:700;
+}
+.companions-intro__journey{
+  margin:1.75rem 0;
+  padding:1.25rem;
+  text-align:center;
+  border-radius:20px;
+  background:linear-gradient(160deg,#f6edd7,#fffaf0);
+}
+.companions-intro__heroism{
+  list-style:none;
+  padding:0;
+  margin:1.25rem 0 1.75rem;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.75rem;
+}
+.companions-intro__heroism li{
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  padding:.8rem 1rem;
+  border-radius:16px;
+  background:#faf4e6;
+  border:1px solid #e5d6b5;
+}
+.companions-intro__heroism li:last-child{grid-column:1/-1}
+.companions-intro__closing{
+  margin:2rem 0 0 !important;
+  padding-top:1.25rem;
+  border-top:1px solid #dfd2b6;
+  text-align:center;
+  font-size:1.12rem;
+}
+@media(max-width:560px){
+  .companions-intro{padding:1.15rem;border-radius:22px}
+  .companions-intro__story{font-size:1.03rem;line-height:1.95}
+  .companions-intro__questions ul,.companions-intro__heroism{grid-template-columns:1fr}
+  .companions-intro__heroism li:last-child{grid-column:auto}
+}
