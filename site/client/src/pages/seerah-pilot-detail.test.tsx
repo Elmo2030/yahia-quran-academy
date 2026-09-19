@@ -76,4 +76,13 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText(/اختار الرحمة والرجاء بدل الانتقام/)).toBeTruthy();
     expect(screen.getByText("صحيح البخاري وصحيح مسلم")).toBeTruthy();
   });
+
+  it("renders the Station 5 Night Journey narrative from Quran and sound hadith", () => {
+    window.history.pushState({}, "", "/seerah/the-great-gift-prayer");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "الهدية الكبرى: الصلاة" })).toBeTruthy();
+    expect(screen.getByText(/فرض الله الصلاة في ليلة المعراج/)).toBeTruthy();
+    expect(screen.getByText("صحيح البخاري ومسلم")).toBeTruthy();
+  });
 });
