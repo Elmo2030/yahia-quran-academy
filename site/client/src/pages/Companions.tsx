@@ -33,6 +33,57 @@ function Hub() {
       {next ? <Link className="button button--primary" href={`/companions/${next.slug}`}>{steps[`companions:${next.slug}`]?.status === "in_progress" ? "تابع" : "اكتشف"}: {next.name} <ArrowLeft size={18} /></Link> : <p role="status">أكملت هذه المجموعة. أي قصة تحب أن تقرأها مجددًا؟</p>}
       {done.length > 0 && <p>{done.length} من {companionIndex.length} قصص أكملتها</p>}
     </header>
+
+    <section className="companions-intro" aria-labelledby="companions-intro-title">
+      <div className="companions-intro__heading">
+        <span className="eyebrow">صحابة رسول الله ﷺ</span>
+        <h2 id="companions-intro-title">نجومٌ من حول النبي ﷺ</h2>
+      </div>
+
+      <div className="companions-intro__story">
+        <p className="companions-intro__lead">هل نظرت يومًا إلى السماء في ليلة صافية؟</p>
+        <p>سترى نجومًا كثيرة، ولكل نجمة مكانها ونورها.</p>
+        <p>وهكذا، عندما نقرأ قصص أصحاب رسول الله ﷺ، نجد رجالًا ونساءً عاشوا حول النبي ﷺ، وتعلموا منه، ثم ترك كل واحد منهم قصة مختلفة نتعلم منها.</p>
+
+        <p>ستقابل هنا <strong>أبا بكر</strong> في رحلة الهجرة، وتتعلم معنى الوفاء والثقة بالله.</p>
+        <p>وسترى <strong>عمر</strong> وهو يفكر في مستقبل القرآن، و<strong>عثمان</strong> وهو يعمل على جمع المسلمين على المصحف، و<strong>عليًا</strong> وهو يحمل الراية بشجاعة.</p>
+        <p>ستتعرف إلى <strong>خديجة</strong> وهي تساند النبي ﷺ في بداية الوحي، و<strong>بلال</strong> وهو يثبت على إيمانه، و<strong>مصعب</strong> وهو يترك الكثير من أجل ما آمن به، و<strong>زيد بن ثابت</strong> وهو يحمل واحدة من أعظم مسؤوليات حفظ القرآن.</p>
+
+        <div className="companions-intro__human">
+          <p><strong>ولم يكن الصحابة أبطالًا خياليين لا يخطئون.</strong></p>
+          <p>كانوا بشرًا حقيقيين.</p>
+          <p>واجهوا الخوف والصعوبات والخسارة والاختيارات الصعبة، وتعلموا من رسول الله ﷺ كيف يعبدون الله، وكيف يعاملون الناس، وكيف يحولون إيمانهم إلى أفعال.</p>
+        </div>
+
+        <div className="companions-intro__questions">
+          <p className="companions-intro__questions-title">وفي كل قصة سنسأل:</p>
+          <ul>
+            <li>من كان هذا الصحابي؟</li>
+            <li>ما الموقف الذي مر به؟</li>
+            <li>ماذا اختار أن يفعل؟</li>
+            <li>وماذا يمكنني أنا أن أتعلم منه اليوم؟</li>
+          </ul>
+        </div>
+
+        <div className="companions-intro__journey">
+          <p><strong>استعد لرحلة إلى زمن رسول الله ﷺ...</strong></p>
+          <p>رحلة فيها غار، وهجرة، ومسجد يُبنى، وقرآن يُجمع، ومدن جديدة، ومواقف صغيرة صنعت آثارًا كبيرة.</p>
+        </div>
+
+        <p>وفي نهاية كل قصة، ربما تكتشف أن البطولة لا تعني أن تكون الأقوى دائمًا.</p>
+
+        <ul className="companions-intro__heroism" aria-label="صور من البطولة">
+          <li>فقد تكون البطولة في كلمة صادقة.</li>
+          <li>أو صديق لا يترك صاحبه.</li>
+          <li>أو علم تتعلمه ثم تعلمه لغيرك.</li>
+          <li>أو أمانة تحفظها عندما لا يراك أحد.</li>
+          <li>أو اختيار للخير في اللحظة التي يكون فيها الاختيار صعبًا.</li>
+        </ul>
+
+        <p className="companions-intro__closing"><strong>هيا نفتح أول قصة، ونتعرف إلى الجيل الذي عاش مع رسول الله ﷺ وحمل إلينا الكثير مما تعلمه منه.</strong></p>
+      </div>
+    </section>
+
     <ol className="companions-grid" aria-label="قصص الصحابة">
       {companionIndex.map(story => {
         const status = steps[`companions:${story.slug}`]?.status;
