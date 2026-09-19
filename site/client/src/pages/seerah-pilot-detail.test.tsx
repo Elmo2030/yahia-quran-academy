@@ -94,4 +94,13 @@ describe("Station 1 Seerah content pilot", () => {
     expect(screen.getByText(/جهزت أسماء بنت أبي بكر/)).toBeTruthy();
     expect(screen.getByText("صحيح البخاري")).toBeTruthy();
   });
+
+  it("renders the Station 7 peace narrative from its Quran and hadith sources", () => {
+    window.history.pushState({}, "", "/seerah/hudaybiyyah-peace-treaty");
+    renderDetail();
+
+    expect(screen.getByRole("heading", { name: "صلح الحديبية" })).toBeTruthy();
+    expect(screen.getByText(/اختار الوفاء بالعهد/)).toBeTruthy();
+    expect(screen.getByText("صحيح البخاري، خبر الحديبية.")).toBeTruthy();
+  });
 });
