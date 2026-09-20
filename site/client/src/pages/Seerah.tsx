@@ -19,7 +19,7 @@ const copy = {
   ar: {
     home: "الرئيسية", quranStories: "قصص القرآن", eyebrow: "السيرة النبوية",
     read: "اقرأ القصة", station: "المحطة", stationsTitle: "السيرة النبوية ﷺ",
-    stationsIntro: "رحلة في حياة النبي ﷺ، محطة بعد محطة — من مولده وطفولته إلى شبابه وأمانته بين قومه.",
+    stationsIntro: "رحلة نعيش فيها مع سيرة النبي محمد ﷺ، محطة بعد محطة؛ من مولده وطفولته، إلى شبابه وصدقه وأمانته، ثم نزول الوحي وبداية الرسالة.",
     mapLabel: "خريطة حياة النبي ﷺ", mapHint: "اختر محطة لتقرأ قصصها",
     showAll: "اعرض كل المحطات", showOne: "محطة واحدة في كل مرة", loading: "نفتح القصة…",
   },
@@ -164,7 +164,12 @@ function SeerahHub() {
           <div>
             <span className="eyebrow eyebrow--gold"><Moon size={15} aria-hidden="true" /> {t.eyebrow}</span>
             <h1>{t.stationsTitle}</h1>
-            <p>{t.stationsIntro}</p>
+            {locale === "ar" ? (
+              <div className="seerah-hero__intro">
+                <p>رحلة نعيش فيها مع سيرة النبي محمد ﷺ، محطة بعد محطة؛ من مولده وطفولته، إلى شبابه وصدقه وأمانته، ثم نزول الوحي وبداية الرسالة.</p>
+                <p><strong>نتعرف على أحداث حقيقية، ومواقف عظيمة، ودروس تساعدنا أن نقتدي بالنبي ﷺ في حياتنا كل يوم.</strong></p>
+              </div>
+            ) : <p>{t.stationsIntro}</p>}
             <Link href="/stories" className="stories-hero__library-link"><BookOpen size={16} aria-hidden="true" /> {t.quranStories}</Link>
           </div>
           <figure className="animals-collection-cover"><StoryPicture src="/stories/seerah/cover.jpg" alt="" sizes={COVER_SIZES} width={1600} height={893} eager onError={event => { (event.currentTarget.closest("figure") as HTMLElement | null)?.style.setProperty("display", "none"); }} /></figure>
