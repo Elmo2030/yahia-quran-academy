@@ -19,6 +19,27 @@ function Prose({ paragraphs }: { paragraphs: string[] }) {
   return <>{paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</>;
 }
 
+const COMPANION_ART_SLUGS = new Set([
+  "abu-bakr", "umar", "uthman", "ali", "khadijah",
+  "aishah", "hamzah", "bilal", "khalid", "abu-hurayrah",
+]);
+
+function CompanionArt({ slug, symbol, variant = "card" }: { slug: string; symbol: string; variant?: "card" | "hero" }) {
+  const [failed, setFailed] = useState(false);
+  if (!COMPANION_ART_SLUGS.has(slug) || failed) return <CompanionSymbol symbol={symbol} />;
+  return (
+    <figure className={`companion-art companion-art--${variant}`}>
+      <img
+        src={`/stories/companions/${slug}.webp`}
+        alt=""
+        loading={variant === "card" ? "lazy" : "eager"}
+        decoding="async"
+        onError={() => setFailed(true)}
+      />
+    </figure>
+  );
+}
+
 function Hub() {
   const { store } = useHifzStore();
   const profile = activeProfile(store);
@@ -88,7 +109,7 @@ function Hub() {
       {companionIndex.map(story => {
         const status = steps[`companions:${story.slug}`]?.status;
         return <li key={story.slug}><Link href={`/companions/${story.slug}`} className="companion-card">
-          <CompanionSymbol symbol={story.icon} />
+          <CompanionArt slug={story.slug} symbol={story.icon} />
           <span className="companion-card__number">{story.order}</span>
           <h2>{story.name}</h2><p className="companion-card__title">{story.title}</p>
           <p className="companion-traits">{story.traits.join(" • ")}</p>
@@ -111,7 +132,7 @@ export function CompanionDetail({ story }: { story: CompanionStory }) {
   return <article>
     <header className="companions-hero">
       <Link href="/companions" className="text-link">العودة إلى الصحابة</Link>
-      <CompanionSymbol symbol={story.icon} />
+      <CompanionArt slug={story.slug} symbol={story.icon} variant="hero" />
       <p className="eyebrow">{story.name}</p><h1>{story.title}</h1>
       <p className="companion-traits">{story.traits.join(" • ")}</p>
       <span className="companion-status">{won ? "أكملت القصة" : "اقرأ القصة، ثم جرّب سؤال الفهم"}</span>
