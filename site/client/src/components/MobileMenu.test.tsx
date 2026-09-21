@@ -22,6 +22,7 @@ describe("MobileMenu", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "القائمة" }));
     const dialog = screen.getByRole("dialog", { name: "التنقل" });
+    expect(within(dialog).getByRole("link", { name: "الصحابة" })).toHaveAttribute("href", "/companions");
     const close = within(dialog).getByRole("button", { name: "أغلق القائمة" });
     const account = within(dialog).getByRole("link", { name: "أنشئ حسابًا" });
 

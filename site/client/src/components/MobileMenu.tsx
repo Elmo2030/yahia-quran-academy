@@ -26,13 +26,13 @@ const copy = {
   ar: {
     open: "القائمة", close: "أغلق القائمة", title: "التنقل",
     home: "الرئيسية", journey: "رحلتي", reader: "افتح القارئ", hifz: "رحلة الحفظ", listen: "الاستماع", stories: "قصص القرآن",
-    seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
+    companions: "الصحابة", seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
     account: "حسابي", register: "أنشئ حسابًا",
   },
   en: {
     open: "Menu", close: "Close the menu", title: "Navigation",
     home: "Home", journey: "My journey", reader: "Open the reader", hifz: "Memorization journey", listen: "Listening", stories: "Quran stories",
-    seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
+    companions: "Companions", seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
     account: "My account", register: "Create an account",
   },
 } as const;
@@ -44,6 +44,7 @@ const LINKS = [
   { href: "/hifz", key: "hifz" },
   { href: "/stories", key: "stories" },
   { href: "/seerah", key: "seerah" },
+  { href: "/companions", key: "companions" },
   { href: "/quran-facts", key: "facts" },
   { href: "/aqeedah", key: "aqeedah" },
   { href: "/listen", key: "listen" },
