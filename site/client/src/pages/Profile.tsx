@@ -36,14 +36,14 @@ const progressCopy = {
     ayah: "آية",
     streak: "أيام متتالية",
     saved: "قصص محفوظة",
-    empty: "لم تسجّل قراءة بعد — افتح القارئ وابدأ.",
+    empty: "لم تسجّل قراءة بعد — ابدأ رحلة الحفظ.",
   },
   en: {
     last: "Last read",
     ayah: "ayah",
     streak: "Days in a row",
     saved: "Saved stories",
-    empty: "No reading recorded yet — open the reader and begin.",
+    empty: "No reading recorded yet — start the memorization journey.",
   },
 } as const;
 
@@ -293,7 +293,7 @@ function ProfileBody() {
               <div className="rounded-md bg-[var(--brand-cream)]/70 p-3">
                 <dt className="text-xs text-[var(--brand-navy)]/60">{pc.last}</dt>
                 <dd className="mt-1 text-sm font-semibold text-[var(--brand-navy)]">
-                  <Link href={`/read/${summary.lastSurah}`} className="hover:underline">{getSurahName(summary.lastSurah)}{summary.lastAyah ? ` · ${pc.ayah} ${summary.lastAyah}` : ""}</Link>
+                  <Link href={`/hifz/${summary.lastSurah}`} className="hover:underline">{getSurahName(summary.lastSurah)}{summary.lastAyah ? ` · ${pc.ayah} ${summary.lastAyah}` : ""}</Link>
                 </dd>
               </div>
               <div className="rounded-md bg-[var(--brand-cream)]/70 p-3">

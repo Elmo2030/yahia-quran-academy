@@ -8,21 +8,19 @@
 
 Non-commercial and educational.
 
-## Quran reader
-- [The reader](https://yahyaquran.com/read): all 114 surahs in the Uthmani text, each with
-  a verified teaching recitation. Individual surahs are at https://yahyaquran.com/read/1
-  through https://yahyaquran.com/read/114.
+## Listening
 - [Listening](https://yahyaquran.com/listen): the complete murattal mushaf recited by
   Muhammad Siddiq al-Minshawi, about 28 hours of audio, one page per surah at
   https://yahyaquran.com/listen/1 through https://yahyaquran.com/listen/114. Playback only — no account,
   no tracking.
 
 ## Memorization journey
-- [The journey](https://yahyaquran.com/hifz): a map for memorizing Juz Amma. The child
-  listens to an ayah, repeats it, records their own voice and declares it
-  memorized; it then returns for review after one, three, seven, fourteen and
-  thirty days. No automated mastery score — the parent judges the recitation —
-  and every record stays in the browser on the child's own device.
+- [The journey](https://yahyaquran.com/hifz): a map for memorizing al-Fatiha and Juz Amma,
+  with the Uthmani text of each surah in it. The child listens to an ayah,
+  repeats it, records their own voice and declares it memorized; it then
+  returns for review after one, three, seven, fourteen and thirty days. No
+  automated mastery score — the parent judges the recitation — and every
+  record stays in the browser on the child's own device.
 
 ## Stories from the Quran
 - [Animals in the Quran — حيوانات في القرآن](https://yahyaquran.com/stories/animals): 8 stories. Eight stories about animals the Quran names, and what they teach.
@@ -394,9 +392,9 @@ Sources and adult editorial notes accompany each story; technical publication is
 
 ## About and provenance
 - [About the academy](https://yahyaquran.com/about): who built the site and why, in Arabic and English.
-- The Quran text is the Uthmani script; the reader plays verified teaching
-  recitations, and highlighting is shown only where the timing data covers the
-  ayah — nothing is inferred to fill a gap.
+- The Quran text is the Uthmani script; the memorization journey plays
+  verified teaching recitations, and highlighting is shown only where the
+  timing data covers the ayah — nothing is inferred to fill a gap.
 - Each Seerah story carries its own source reference on the page.
 - Every page's full text is in the HTML that is served, so this site can be read
   without executing JavaScript.

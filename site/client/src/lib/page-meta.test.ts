@@ -13,19 +13,10 @@ import { localizedMeta, metaForPath } from "@/lib/page-meta";
 import { chapters, stories } from "@/content/stories";
 import { seerahStories } from "@/content/seerah";
 import { seerahStoryIndex } from "@/lib/page-index.generated";
-import { getSurahName } from "@/lib/quran-content";
 
 const notFound = "الصفحة غير موجودة";
 
 describe("metaForPath", () => {
-  it("names every surah the reader can open", () => {
-    for (const surah of [1, 18, 55, 108, 114]) {
-      const meta = metaForPath(`/read/${surah}`);
-      expect(meta.title).toContain(getSurahName(surah));
-      expect(meta.title).not.toContain(notFound);
-    }
-  });
-
   it("names every chapter", () => {
     for (const chapter of chapters) {
       const meta = metaForPath(`/stories/${chapter.slug}`);
@@ -45,7 +36,7 @@ describe("metaForPath", () => {
   });
 
   it("falls back to not-found for paths that match nothing", () => {
-    for (const path of ["/nope", "/stories/nope", "/stories/nope/nope", "/seerah/nope", "/read/0", "/read/115"]) {
+    for (const path of ["/nope", "/stories/nope", "/stories/nope/nope", "/seerah/nope", "/read", "/read/1"]) {
       const meta = metaForPath(path);
       expect(meta.title, path).toContain(notFound);
       expect(meta.noindex, path).toBe(true);
@@ -62,7 +53,7 @@ describe("metaForPath", () => {
     const arabic = /[؀-ۿ]/;
     const routes = [
       "/", "/stories", "/stories/prophets", "/stories/prophets/adam",
-      "/seerah", "/seerah/birth-of-light", "/read", "/read/1", "/read/114",
+      "/seerah", "/seerah/birth-of-light",
       "/login", "/register", "/nope",
     ];
     for (const path of routes) {
@@ -73,21 +64,22 @@ describe("metaForPath", () => {
   });
 
   it("stays Arabic by default", () => {
-    expect(metaForPath("/read/1").title).toContain("سورة");
-    expect(localizedMeta(metaForPath("/read/1"), "ar").title).toContain("سورة");
+    expect(metaForPath("/listen/1").title).toContain("سورة");
+    expect(localizedMeta(metaForPath("/listen/1"), "ar").title).toContain("سورة");
   });
 
   it("indexes the public pages", () => {
-    for (const path of ["/", "/stories", "/seerah", "/read/1"]) {
+    for (const path of ["/", "/stories", "/seerah"]) {
       expect(metaForPath(path).noindex, path).toBeFalsy();
     }
   });
 });
 
-// A number that names no surah is a wrong address. The function already said
-// so; the reader used to disagree with it by opening Al-Fatiha.
+// A number that names no surah is a wrong address — /listen/:surah takes the
+// same validation /read/:surah once did, so the regression this guards
+// against (a bad number silently opening Al-Fatiha) applies here too.
 describe("addresses that name no surah", () => {
-  it.each(["/read/0", "/read/115", "/read/200", "/read/abc", "/read/-1"])(
+  it.each(["/listen/0", "/listen/115", "/listen/200", "/listen/abc", "/listen/-1"])(
     "keeps %s out of the index",
     (path) => {
       expect(metaForPath(path).noindex).toBe(true);
@@ -96,7 +88,7 @@ describe("addresses that name no surah", () => {
 
   it("still names every real surah", () => {
     for (const surah of [1, 18, 114]) {
-      expect(metaForPath(`/read/${surah}`).noindex).toBeFalsy();
+      expect(metaForPath(`/listen/${surah}`).noindex).toBeFalsy();
     }
   });
 });
@@ -132,7 +124,7 @@ describe("the memorization journey", () => {
  */
 describe("every route that can speak English does", () => {
   const paths = [
-    "/", "/read", "/read/1", "/read/114", "/listen", "/listen/36",
+    "/", "/listen", "/listen/36",
     "/stories", "/stories/prophets", "/stories/prophets/adam", "/stories/library",
     "/seerah", "/seerah/birth-of-light",
     "/aqeedah", "/aqeedah/knowing-my-lord",

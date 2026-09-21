@@ -19,7 +19,9 @@ it("offers real live destinations and non-interactive future worlds without gran
   expect(screen.getByRole("heading", { name: "رحلتي" })).toBeTruthy();
   expect(screen.getByTestId("journey-next-step")).toHaveAttribute("href", "/hifz");
   const map = screen.getByRole("region", { name: "خريطة عوالم رحلتي" });
-  expect(within(map).getAllByRole("link")).toHaveLength(7);
+  // hifz, stories, seerah, aqeedah, facts, companions — "quran reading" was
+  // retired with the standalone reader; memorizing now only happens in hifz.
+  expect(within(map).getAllByRole("link")).toHaveLength(6);
   expect(within(map).getByLabelText("آداب الإسلام — قريبًا")).toHaveAttribute("aria-disabled", "true");
   // A visitor who has not opened any companion story yet lands on the
   // section's own hub, not straight into whichever one is "next" — see

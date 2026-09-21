@@ -118,7 +118,7 @@ add("/", section("ar", `
   <h1>أكاديمية يحيى لتعليم القرآن للأطفال</h1>
   <p>رحلة قرآنية تنمو مع الطفل: القرآن كاملًا بالنص العثماني مع تلاوات معلّمة موثقة، وقصص من القرآن، والسيرة النبوية، ومعلومات عن القرآن — للأعمار من ٦ إلى ١١.</p>
   ${list([
-    link("/read/1", "القارئ — 114 سورة بالنص العثماني مع التلاوة"),
+    link("/hifz", "رحلة الحفظ — الفاتحة وجزء عمّ بالنص العثماني مع التلاوة"),
     link("/stories", "قصص من القرآن — أربعة أبواب"),
     link("/seerah", "السيرة النبوية"),
     link("/quran-facts", "في رحاب القرآن — مئة معلومة"),
@@ -323,26 +323,6 @@ const policySide = (c, lang) => section(lang, `
 add("/privacy", policySide(privacy.ar, "ar") + policySide(privacy.en, "en"));
 add("/terms", policySide(terms.ar, "ar") + policySide(terms.en, "en"));
 
-// Reader ---------------------------------------------------------------------
-add("/read", section("ar", `
-  <h1>قارئ الأكاديمية</h1>
-  <p>القرآن الكريم كاملًا بالنص العثماني، 114 سورة، مع تلاوة معلّمة لكل سورة.</p>
-  ${list(surahNames.map((name, i) => link(`/read/${i + 1}`, `${String(i + 1).padStart(3, "0")} — ${name}`)))}
-`));
-
-for (let surah = 1; surah <= surahNames.length; surah += 1) {
-  const count = ayahCounts?.[surah - 1];
-  add(`/read/${surah}`, section("ar", `
-    <h1>سورة ${esc(surahNames[surah - 1])}</h1>
-    <p>السورة رقم ${surah} من القرآن الكريم${count ? `، وعدد آياتها ${count}` : ""} — بالنص العثماني، مع الاستماع لتلاوة معلّمة.</p>
-    ${surah > 1 ? p(`السابقة: سورة ${surahNames[surah - 2]}`) : ""}
-    ${surah < surahNames.length ? p(`التالية: سورة ${surahNames[surah]}`) : ""}
-  `) + section("en", `
-    <h2>Surah ${esc(englishSurahNames[surah - 1])}</h2>
-    <p>Surah number ${surah} of the Quran${count ? `, ${count} verses` : ""} — the Uthmani text with a verified teaching recitation.</p>
-  `));
-}
-
 // Listening ------------------------------------------------------------------
 add("/listen", section("ar", `
   <h1>الاستماع — المصحف المرتل كاملًا</h1>
@@ -376,7 +356,7 @@ add("/hifz", section("ar", `
   <p>وليّ الأمر هو من يقدّر التلاوة؛ لا يعرض الموقع درجة إتقان آلية ولا يفتح مرحلة من تلقاء نفسه. ولا يغادر شيء من هذا جهازك: لا حساب، ولا خادم، ولا تتبّع.</p>
   ${list([
     link("/listen", "الاستماع — المصحف المرتل كاملًا"),
-    link("/read/78", "اقرأ جزء عمّ من سورة النبأ"),
+    link("/hifz/78", "اقرأ جزء عمّ من سورة النبأ"),
     link("/about", "عن الأكاديمية"),
   ])}
 `) + section("en", `

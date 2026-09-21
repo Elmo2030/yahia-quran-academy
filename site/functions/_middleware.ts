@@ -231,24 +231,9 @@ export function metaForPath(pathname: string) {
     }
   }
 
-  if (head === "read") {
-    if (!parts[1]) return {
-      ...base,
-      path,
-      title: `القارئ — ١١٤ سورة · ${SITE}`,
-      description: "اختر أي سورة واقرأها بالنص العثماني، واستمع إليها بتلاوة معلّمة موثقة.",
-      en: { title: `The reader — all 114 surahs · ${SITE_EN}`,
-            description: "Choose any surah, read it in the Uthmani text, and listen to a verified teaching recitation." },
-    };
-    const surah = Number(parts[1]);
-    const name = Number.isInteger(surah) && surah >= 1 && surah <= 114 ? surahNames[surah - 1] : null;
-    return name
-      ? { ...base, path, title: `سورة ${name} — قراءة واستماع · ${SITE}`,
-          description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.`,
-          en: { title: `Surah ${englishSurahNames[surah - 1] ?? name} — read and listen · ${SITE_EN}`,
-                description: `Read Surah ${englishSurahNames[surah - 1] ?? name} in the Uthmani text and listen to a verified teaching recitation, with the ayah and word lit up as it is recited.` } }
-      : notFound(path);
-  }
+  // "read" (the standalone reader) is retired — see the 301 redirect in
+  // onRequest below, which sends /read and /read/:surah to the hifz journey
+  // before this function is ever asked for their meta.
 
   if (head === "listen") {
     if (!parts[1]) return {
@@ -364,6 +349,18 @@ export const onRequest: PagesFunction = async (context) => {
     return Response.redirect(`${ORIGIN}/seerah${pathname.slice("/stories/seerah".length)}`, 301);
   }
 
+  // The standalone reader is retired — memorizing now only happens inside the
+  // hifz journey. /read/:surah was indexed and linked from outside the site
+  // for years, so a visitor arriving at the old address is sent to the
+  // equivalent hifz page (which itself explains a surah outside Juz Amma)
+  // rather than left at a 404.
+  if (pathname === "/read" || pathname === "/read/") {
+    return Response.redirect(`${ORIGIN}/hifz`, 301);
+  }
+  if (pathname.startsWith("/read/") && !/\.[a-z0-9]+$/i.test(pathname)) {
+    return Response.redirect(`${ORIGIN}/hifz${pathname.slice("/read".length)}`, 301);
+  }
+
   if (url.hostname === "yahia-quran-academy.pages.dev" || url.hostname === "www.yahyaquran.com") {
     return Response.redirect(new URL(url.pathname + url.search, ORIGIN).toString(), 301);
   }
@@ -452,33 +449,6 @@ export const onRequest: PagesFunction = async (context) => {
         { "@type": "ListItem", position: 1, name: SITE, item: `${ORIGIN}/` },
         ...crumbs,
       ],
-    });
-  }
-
-  // A surah page is a page about a chapter of a specific book. Saying so lets
-  // an engine answer "where can I read Surah Al-Kahf" with this page instead of
-  // guessing from the title.
-  const surah = /^\/read\/(\d{1,3})$/.exec(meta.path);
-  if (surah) {
-    graph.push({
-      "@type": "WebPage",
-      "@id": `${canonical}#page`,
-      name: meta.title.split(/[·—]/)[0].trim(),
-      inLanguage: ["ar", "en"],
-      isAccessibleForFree: true,
-      isPartOf: { "@id": `${ORIGIN}/#website` },
-      about: {
-        "@type": "Book",
-        name: "القرآن الكريم",
-        alternateName: "The Holy Quran",
-        inLanguage: "ar",
-        hasPart: {
-          "@type": "Chapter",
-          name: meta.title.split(/[·—]/)[0].trim(),
-          position: Number(surah[1]),
-        },
-      },
-      audience: { "@type": "Audience", audienceType: "children" },
     });
   }
 

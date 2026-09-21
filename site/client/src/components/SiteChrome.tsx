@@ -13,7 +13,7 @@
 // =============================================================================
 
 import { Link } from "wouter";
-import { ArrowLeft, ArrowRight, LogIn, UserRound } from "lucide-react";
+import { LogIn, UserRound } from "lucide-react";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -25,49 +25,41 @@ const copy = {
   ar: {
     home: "الرئيسية", journey: "رحلتي", hifz: "رحلة الحفظ", listen: "الاستماع", stories: "قصص القرآن", seerah: "السيرة النبوية",
     companions: "الصحابة", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
-    reader: "افتح القارئ", account: "حسابي", register: "أنشئ حسابًا",
+    account: "حسابي", register: "أنشئ حسابًا",
     nav: "التنقل الرئيسي",
   },
   en: {
     home: "Home", journey: "My journey", hifz: "Memorization journey", listen: "Listening", stories: "Quran stories", seerah: "The Prophet’s Seerah",
     companions: "Companions", facts: "In the Realm of the Quran", aqeedah: "Creed", about: "About",
-    reader: "Open the reader", account: "My account", register: "Create an account",
+    account: "My account", register: "Create an account",
     nav: "Primary navigation",
   },
 } as const;
 
-/**
- * `variant="reader"` is the slimmer bar the reader uses: it drops the nav and
- * offers the way back home, so nothing competes with the surah on screen.
- */
-export function SiteChrome({ variant = "full" }: { variant?: "full" | "reader" }) {
+export function SiteChrome() {
   const { locale } = useLocale();
   const { session } = useAuth();
   const t = copy[locale];
-  const Back = locale === "ar" ? ArrowRight : ArrowLeft;
-  const Forward = locale === "ar" ? ArrowLeft : ArrowRight;
 
   return (
-    <header className={variant === "reader" ? "reader-header" : "site-header"}>
-      <div className={`container ${variant === "reader" ? "reader-header__inner" : "site-header__inner"}`}>
+    <header className="site-header">
+      <div className="container site-header__inner">
         <Link href="/" className="brand-mark" aria-label={t.home}>
           <span className="brand-mark__seal">ي</span>
           <span><b>Yahya</b> Quran Academy</span>
         </Link>
 
-        {variant === "full" && (
-          <nav aria-label={t.nav} className="site-nav">
-            <Link href="/journey">{t.journey}</Link>
-            <Link href="/hifz">{t.hifz}</Link>
-            <Link href="/stories">{t.stories}</Link>
-            <Link href="/seerah">{t.seerah}</Link>
-            <Link href="/companions">{t.companions}</Link>
-            <Link href="/quran-facts">{t.facts}</Link>
-            <Link href="/aqeedah">{t.aqeedah}</Link>
-            <Link href="/listen">{t.listen}</Link>
-            <Link href="/about">{t.about}</Link>
-          </nav>
-        )}
+        <nav aria-label={t.nav} className="site-nav">
+          <Link href="/journey">{t.journey}</Link>
+          <Link href="/hifz">{t.hifz}</Link>
+          <Link href="/stories">{t.stories}</Link>
+          <Link href="/seerah">{t.seerah}</Link>
+          <Link href="/companions">{t.companions}</Link>
+          <Link href="/quran-facts">{t.facts}</Link>
+          <Link href="/aqeedah">{t.aqeedah}</Link>
+          <Link href="/listen">{t.listen}</Link>
+          <Link href="/about">{t.about}</Link>
+        </nav>
 
         <div className="header-actions">
           <MobileMenu />
@@ -80,13 +72,6 @@ export function SiteChrome({ variant = "full" }: { variant?: "full" | "reader" }
           ) : (
             <Link href="/register" className="header-auth-link">
               <LogIn size={15} aria-hidden="true" /> {t.register}
-            </Link>
-          )}
-          {variant === "reader" ? (
-            <Link href="/" className="text-link"><Back size={18} aria-hidden="true" /> {t.home}</Link>
-          ) : (
-            <Link href="/read/1" className="header-reader-link">
-              {t.reader} <Forward size={16} aria-hidden="true" />
             </Link>
           )}
         </div>

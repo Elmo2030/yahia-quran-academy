@@ -34,8 +34,8 @@ describe("SocialLoginButtons", () => {
   });
 
   it("honours a passed-in next destination", async () => {
-    render(<SocialLoginButtons next="/read" />);
+    render(<SocialLoginButtons next="/hifz" />);
     fireEvent.click(screen.getByTestId("social-google"));
-    await waitFor(() => expect(signInWithProvider).toHaveBeenCalledWith("google", "/read"));
+    await waitFor(() => expect(signInWithProvider).toHaveBeenCalledWith("google", "/hifz"));
   });
 });

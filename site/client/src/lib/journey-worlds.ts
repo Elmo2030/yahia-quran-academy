@@ -23,7 +23,6 @@ export const journeyWorlds: readonly JourneyWorld[] = [
   { id: "seerah", title: { ar: "السيرة النبوية", en: "The Prophet’s Seerah" }, symbol: "town", landscape: "valley", href: "/seerah" },
   { id: "aqeedah", title: { ar: "العقيدة", en: "Creed" }, symbol: "mountain", landscape: "hills", href: "/aqeedah" },
   { id: "facts", title: { ar: "في رحاب القرآن", en: "Quran discoveries" }, symbol: "spark", landscape: "sky", href: "/quran-facts" },
-  { id: "quran", title: { ar: "قراءة القرآن", en: "Quran reading" }, symbol: "book", landscape: "oasis", href: "/read/1" },
   { id: "companions", title: { ar: "الصحابة", en: "The companions" }, symbol: "tent", landscape: "valley", href: "/companions", onMap: true },
   { id: "manners", title: { ar: "آداب الإسلام", en: "Islamic manners" }, symbol: "tree", landscape: "hills", comingSoon: true, onMap: true },
   { id: "values", title: { ar: "القيم والأخلاق", en: "Values & character" }, symbol: "tree", landscape: "hills", comingSoon: true },
@@ -57,8 +56,7 @@ export function worldState(world: JourneyWorld, currentId: string, progress?: Wo
 
 export const worldForHref = (href: string) => journeyWorlds.find(w => w.href && (href === w.href ||
   (w.id === "hifz" && href.startsWith("/hifz/")) ||
-  (w.id === "quran" && href.startsWith("/read/")) ||
-  (w.id !== "quran" && href.startsWith(`${w.href}/`))))?.id ?? "hifz";
+  href.startsWith(`${w.href}/`)))?.id ?? "hifz";
 
 // Logical x coordinates follow reading direction; CSS mirrors the whole trail.
 export function mapPosition(index: number) {

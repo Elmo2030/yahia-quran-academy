@@ -24,7 +24,7 @@ const copy = {
     read: "اقرأ القصة", storyOf: "القصة", hook: "قبل أن نبدأ", events: "ما حدث",
     ayah: "من القرآن", lesson: "ماذا نتعلم؟", next: "وفي القصة القادمة", challenge: "تحدي الفهم",
     source: "من أين هذه القصة؟", needsReview: "بانتظار مراجعة أهل العلم",
-    openInReader: "افتح السورة في القارئ", surahLabel: "سورة",
+    openInReader: "افتح السورة في رحلة الحفظ", surahLabel: "سورة",
     prev: "السابقة", nextStory: "التالية", allStories: "كل الأبواب",
     notFound: "لم نجد هذه القصة.", backToChapter: "كل قصص الباب",
     save: "أضفها إلى مكتبتي", saved: "في مكتبتي", myLibrary: "مكتبتي",
@@ -45,7 +45,7 @@ const copy = {
     read: "Read the story", storyOf: "Story", hook: "Before we begin", events: "What happened",
     ayah: "From the Quran", lesson: "What we learn", next: "In the next story", challenge: "Comprehension challenge",
     source: "Where this story comes from", needsReview: "Awaiting a scholar\u2019s review",
-    openInReader: "Open the surah in the reader", surahLabel: "Surah",
+    openInReader: "Open the surah in the memorization journey", surahLabel: "Surah",
     prev: "Previous", nextStory: "Next", allStories: "All chapters",
     notFound: "That story could not be found.", backToChapter: "All stories in this chapter",
     save: "Add to my library", saved: "In my library", myLibrary: "My library",
@@ -370,7 +370,7 @@ export default function Stories() {
                       <p className="story-quran-connection__note">
                         {t.surahLabel} {getSurahName(story.ayah.surah)} · {story.ayah.number}
                         {" — "}
-                        <Link href={`/read/${story.ayah.surah}`} className="no-print">{t.openInReader}</Link>
+                        <Link href={`/hifz/${story.ayah.surah}`} className="no-print">{t.openInReader}</Link>
                       </p>
                     </>}
                     {text.quranProse && <p>{text.quranProse}</p>}

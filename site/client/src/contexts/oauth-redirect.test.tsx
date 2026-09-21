@@ -38,8 +38,8 @@ describe("the OAuth landing address", () => {
 
   it("keeps a path on this site", async () => {
     const { result } = renderHook(() => useAuth(), { wrapper });
-    await act(async () => { await result.current.signInWithProvider("google", "/read/18"); });
-    expect(landedOn()).toBe("http://localhost:3000/read/18");
+    await act(async () => { await result.current.signInWithProvider("google", "/hifz/18"); });
+    expect(landedOn()).toBe("http://localhost:3000/hifz/18");
   });
 
   it.each([

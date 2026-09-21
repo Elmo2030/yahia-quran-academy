@@ -9,7 +9,7 @@
 // =============================================================================
 
 import { Link } from "wouter";
-import { BookOpen, Compass, Sparkles } from "lucide-react";
+import { Compass, Heart, Sparkles } from "lucide-react";
 
 import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -21,7 +21,7 @@ const copy = {
     eyebrow: "الصفحة غير موجودة",
     title: "لا يوجد شيء هنا",
     body: "ربما تغيّر العنوان، أو كُتب خطأً. تعالَ نبدأ من مكان نعرفه.",
-    reader: "افتح القارئ",
+    reader: "رحلة الحفظ",
     stories: "قصص القرآن",
     facts: "في رحاب القرآن",
   },
@@ -29,7 +29,7 @@ const copy = {
     eyebrow: "Page not found",
     title: "There is nothing here",
     body: "The address may have changed, or been typed a little wrong. Let’s start somewhere we know.",
-    reader: "Open the reader",
+    reader: "Memorization journey",
     stories: "Quran stories",
     facts: "In the Realm of the Quran",
   },
@@ -54,8 +54,8 @@ export default function NotFound() {
 
       <section className="section">
         <div className="container not-found-ways">
-          <Link href="/read/1" className="button button--primary">
-            <BookOpen size={17} aria-hidden="true" /> {t.reader}
+          <Link href="/hifz" className="button button--primary">
+            <Heart size={17} aria-hidden="true" /> {t.reader}
           </Link>
           <Link href="/stories" className="button button--soft">
             <Compass size={17} aria-hidden="true" /> {t.stories}

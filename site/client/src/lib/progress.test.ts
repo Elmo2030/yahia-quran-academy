@@ -64,10 +64,13 @@ describe("nextStep", () => {
     expect(nextStep(null)).toBeNull();
   });
 
-  it("falls back to the reader's own progress with no hifz child on this device", () => {
+  it("sends the plain reading progress into the memorization journey, with no hifz child on this device", () => {
+    // Surah 18 is not a Juz Amma surah, but the standalone reader is retired —
+    // the hifz page itself explains that gracefully rather than this needing
+    // its own destination for a surah outside the journey.
     expect(nextStep({ surah: 18, ayah: 9, updatedAt: 1 })).toEqual({
       ref: { kind: "ayah", surah: 18, ayah: 9 },
-      href: "/read/18",
+      href: "/hifz/18",
     });
   });
 

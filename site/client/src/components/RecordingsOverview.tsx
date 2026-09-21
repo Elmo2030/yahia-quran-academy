@@ -58,7 +58,7 @@ export function RecordingsOverview() {
         <ul className="recordings-overview__list">
           {clips.slice(0, 8).map(clip => (
             <li key={clip.id}>
-              <Link href={`/read/${clip.surah}`} className="recordings-overview__surah">
+              <Link href={`/hifz/${clip.surah}`} className="recordings-overview__surah">
                 {locale === "en" ? getEnglishSurahName(clip.surah) : getSurahName(clip.surah)}
               </Link>
               <span className="recordings-overview__when">

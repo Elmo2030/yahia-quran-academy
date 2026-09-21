@@ -74,7 +74,7 @@ function spread<T>(items: T[], count: number): T[] {
 // Every kind of route the site has, plus a sample of each generated family.
 const ROUTES = [
   "/", "/about", "/journey", "/privacy", "/terms",
-  "/stories", "/seerah", "/quran-facts", "/read", "/aqeedah",
+  "/stories", "/seerah", "/quran-facts", "/aqeedah",
   "/seerah/little-shepherd",
   "/login", "/register", "/profile", "/hifz", "/hifz/114", "/hifz/114/recite", "/hifz/parent", "/hifz/looks", "/listen", "/listen/1", "/listen/114", "/listen/999", "/stories/library",
   "/forgot-password", "/reset-password", "/nope", "/stories/nope",
@@ -85,10 +85,10 @@ const ROUTES = [
   "/aqeedah/nope",
   ...spread(factIndex, 8).map(fact => `/quran-facts/${fact.slug}`),
   "/quran-facts/nope",
-  "/read/1", "/read/18", "/read/114",
   // Addresses that name no surah: this is where the two copies drifted once,
   // the function answering 200 to a page whose title said it did not exist.
-  "/read/0", "/read/115", "/read/200", "/read/abc",
+  // /listen/:surah carries the same validation /read/:surah once did.
+  "/listen/0", "/listen/115", "/listen/200", "/listen/abc",
 ];
 
 describe("the app and the crawler are told the same thing", () => {

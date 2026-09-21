@@ -16,7 +16,6 @@ const Stories = lazyWithRetry(() => import("@/pages/Stories"));
 const Seerah = lazyWithRetry(() => import("@/pages/Seerah"));
 const Aqeedah = lazyWithRetry(() => import("@/pages/Aqeedah"));
 const Companions = lazyWithRetry(() => import("@/pages/Companions"));
-const Reader = lazyWithRetry(() => import("./pages/Reader"));
 const Login = lazyWithRetry(() => import("./pages/Login"));
 const Register = lazyWithRetry(() => import("./pages/Register"));
 const ForgotPassword = lazyWithRetry(() => import("./pages/ForgotPassword"));
@@ -49,8 +48,6 @@ function Router() {
     <Suspense fallback={<RouteFallback />}>
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path={"/read"} component={Reader} />
-      <Route path={"/read/:surah"} component={Reader} />
       <Route path={"/listen"} component={Listen} />
       <Route path={"/listen/:surah"} component={ListenSurah} />
       <Route path={"/stories"} component={Stories} />

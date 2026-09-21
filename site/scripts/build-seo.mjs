@@ -131,11 +131,13 @@ const urls = [
   { loc: "/terms", priority: "0.3" },
   { loc: "/quran-facts", priority: "0.8" },
   ...quranFacts.map(f => ({ loc: `/quran-facts/${f.slug}`, priority: "0.6" })),
-  { loc: "/read", priority: "0.9" },
   { loc: "/listen", priority: "0.9" },
   { loc: "/stories", priority: "0.9" },
   { loc: "/hifz", priority: "0.9" },
-  ...Array.from({ length: 114 }, (_, i) => ({ loc: `/read/${i + 1}`, priority: "0.7" })),
+  // The standalone reader is retired. Its per-surah page now lives at
+  // /hifz/:surah, but that screen is one child's own record and stays
+  // noindex (see hifzInnerMeta) — the journey's own /hifz entry above is the
+  // one page worth a search engine finding.
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/listen/${i + 1}`, priority: "0.6" })),
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
   ...stories.map(s => ({ loc: `/stories/${s.chapter}/${s.slug}`, priority: "0.7" })),
@@ -223,21 +225,19 @@ writeFileSync(join(root, "client/public/llms.txt"),
 
 Non-commercial and educational.
 
-## Quran reader
-- [The reader](${ORIGIN}/read): all 114 surahs in the Uthmani text, each with
-  a verified teaching recitation. Individual surahs are at ${ORIGIN}/read/1
-  through ${ORIGIN}/read/114.
+## Listening
 - [Listening](${ORIGIN}/listen): the complete murattal mushaf recited by
   Muhammad Siddiq al-Minshawi, about 28 hours of audio, one page per surah at
   ${ORIGIN}/listen/1 through ${ORIGIN}/listen/114. Playback only — no account,
   no tracking.
 
 ## Memorization journey
-- [The journey](${ORIGIN}/hifz): a map for memorizing Juz Amma. The child
-  listens to an ayah, repeats it, records their own voice and declares it
-  memorized; it then returns for review after one, three, seven, fourteen and
-  thirty days. No automated mastery score — the parent judges the recitation —
-  and every record stays in the browser on the child's own device.
+- [The journey](${ORIGIN}/hifz): a map for memorizing al-Fatiha and Juz Amma,
+  with the Uthmani text of each surah in it. The child listens to an ayah,
+  repeats it, records their own voice and declares it memorized; it then
+  returns for review after one, three, seven, fourteen and thirty days. No
+  automated mastery score — the parent judges the recitation — and every
+  record stays in the browser on the child's own device.
 
 ## Stories from the Quran
 ${chapterLines.join("\n")}
@@ -267,9 +267,9 @@ ${quranFacts.map(f => `- [${f.title.en}](${ORIGIN}/quran-facts/${f.slug}): ${f.b
 
 ## About and provenance
 - [About the academy](${ORIGIN}/about): who built the site and why, in Arabic and English.
-- The Quran text is the Uthmani script; the reader plays verified teaching
-  recitations, and highlighting is shown only where the timing data covers the
-  ayah — nothing is inferred to fill a gap.
+- The Quran text is the Uthmani script; the memorization journey plays
+  verified teaching recitations, and highlighting is shown only where the
+  timing data covers the ayah — nothing is inferred to fill a gap.
 - Each Seerah story carries its own source reference on the page.
 - Every page's full text is in the HTML that is served, so this site can be read
   without executing JavaScript.

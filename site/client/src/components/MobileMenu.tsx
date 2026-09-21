@@ -17,7 +17,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "wouter";
-import { BookOpen, LogIn, Menu, Sparkles, UserRound, X } from "lucide-react";
+import { LogIn, Menu, Sparkles, UserRound, X } from "lucide-react";
 
 import { useLocale } from "@/contexts/LocaleContext";
 import { useAuth } from "@/hooks/useAuth";
@@ -25,13 +25,13 @@ import { useAuth } from "@/hooks/useAuth";
 const copy = {
   ar: {
     open: "القائمة", close: "أغلق القائمة", title: "التنقل",
-    home: "الرئيسية", journey: "رحلتي", reader: "افتح القارئ", hifz: "رحلة الحفظ", listen: "الاستماع", stories: "قصص القرآن",
+    home: "الرئيسية", journey: "رحلتي", hifz: "رحلة الحفظ", listen: "الاستماع", stories: "قصص القرآن",
     companions: "الصحابة", seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
     account: "حسابي", register: "أنشئ حسابًا",
   },
   en: {
     open: "Menu", close: "Close the menu", title: "Navigation",
-    home: "Home", journey: "My journey", reader: "Open the reader", hifz: "Memorization journey", listen: "Listening", stories: "Quran stories",
+    home: "Home", journey: "My journey", hifz: "Memorization journey", listen: "Listening", stories: "Quran stories",
     companions: "Companions", seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
     account: "My account", register: "Create an account",
   },
@@ -40,7 +40,6 @@ const copy = {
 const LINKS = [
   { href: "/", key: "home" },
   { href: "/journey", key: "journey" },
-  { href: "/read/1", key: "reader" },
   { href: "/hifz", key: "hifz" },
   { href: "/stories", key: "stories" },
   { href: "/seerah", key: "seerah" },
@@ -149,7 +148,7 @@ export function MobileMenu() {
 
           <nav aria-label={t.title}>
             {LINKS.map(({ href, key }) => {
-              const active = href === "/" ? location === "/" : location.startsWith(href.replace("/1", ""));
+              const active = href === "/" ? location === "/" : location.startsWith(href);
               return (
                 <Link
                   key={href}
@@ -158,7 +157,7 @@ export function MobileMenu() {
                   aria-current={active ? "page" : undefined}
                   onClick={close}
                 >
-                  {key === "reader" ? <BookOpen size={17} aria-hidden="true" /> : key === "facts" ? <Sparkles size={17} aria-hidden="true" /> : null}
+                  {key === "facts" ? <Sparkles size={17} aria-hidden="true" /> : null}
                   {t[key]}
                 </Link>
               );

@@ -34,7 +34,6 @@ const copy = {
     home: "الرئيسية",
     stories: "قصص القرآن",
     seerah: "السيرة النبوية",
-    reader: "افتح القارئ",
     eyebrow: "من نحن",
     title: "موقع يحيى لتعليم الأطفال",
     intro:
@@ -75,13 +74,12 @@ const copy = {
     plaquePrefix: "رحم الله",
     plaqueSuffix: "وجعل هذا العمل صدقة جارية لهما.",
     exploreStories: "استكشف القصص",
-    openReader: "افتح القارئ",
+    openReader: "ابدأ رحلة الحفظ",
   },
   en: {
     home: "Home",
     stories: "Quran stories",
     seerah: "The Prophet’s Seerah",
-    reader: "Open the reader",
     eyebrow: "About us",
     title: "Yahya Kids Islamic Learning Website",
     intro:
@@ -128,7 +126,7 @@ const copy = {
     plaquePrefix: "May Allah have mercy on",
     plaqueSuffix: "and make this work a Sadaqah Jariyah on their behalf.",
     exploreStories: "Explore the stories",
-    openReader: "Open the reader",
+    openReader: "Start the memorization journey",
   },
 } as const;
 
@@ -223,7 +221,7 @@ export default function About() {
 
             <div className="about-actions">
               <Link href="/stories" className="button button--primary"><BookOpen size={17} aria-hidden="true" /> {t.exploreStories}</Link>
-              <Link href="/read/1" className="button button--soft">{t.openReader} <Arrow size={17} aria-hidden="true" /></Link>
+              <Link href="/hifz" className="button button--soft">{t.openReader} <Arrow size={17} aria-hidden="true" /></Link>
             </div>
           </div>
         </section>

@@ -6,10 +6,14 @@ import { journeyCopy } from "./copy";
 
 const symbols: Record<JourneyWorld["symbol"], LucideIcon> = { book: BookOpen, town: Castle, mountain: Mountain, spark: Sparkles, compass: Compass, tent: Tent, tree: Trees };
 // Coordinates belong to the supplied artwork, not to reading direction.
+// One drawn landmark on the background (originally "quran reading", at
+// roughly 88.9%/55.8%) is now unused now that the standalone reader — and
+// its world on this map — is gone; the artwork itself still shows it since
+// re-drawing the map is a separate, deferred art decision, not a code change.
 const artworkStops: Record<string, { x: number; y: number }> = {
   seerah: { x: 24.5, y: 20.2 }, stories: { x: 50, y: 27 },
   hifz: { x: 74.7, y: 28.7 }, aqeedah: { x: 22.2, y: 51.7 },
-  facts: { x: 46.4, y: 55.8 }, quran: { x: 88.9, y: 55.8 },
+  facts: { x: 46.4, y: 55.8 },
   companions: { x: 76.5, y: 82.4 }, manners: { x: 52.4, y: 82.4 },
 };
 const mapArtwork = "/journey/map/adventure-worlds-blank.png";

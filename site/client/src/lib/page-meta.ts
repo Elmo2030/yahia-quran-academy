@@ -376,28 +376,9 @@ export const metaForPath = (pathname: string): Meta => {
     return FALLBACK_NOT_FOUND;
   }
 
-  if (head === "read") {
-    if (!parts[1]) {
-      return {
-        path,
-        title: `القارئ — ١١٤ سورة · ${SITE_NAME}`,
-        description: "اختر أي سورة واقرأها بالنص العثماني، واستمع إليها بتلاوة معلّمة موثقة.",
-        image: DEFAULT_IMAGE,
-        i18n: { en: { title: `The reader — all 114 surahs · ${SITE_NAME_EN}`, description: "Choose any surah, read it in the Uthmani text, and listen to a verified teaching recitation." } },
-      };
-    }
-    const n = Number(parts[1]);
-    const name = surahsByNumber.get(n);
-    return name
-      ? {
-          path,
-          title: `سورة ${name} — قراءة واستماع · ${SITE_NAME}`,
-          description: `اقرأ سورة ${name} بالنص العثماني واستمع إليها بتلاوة معلّمة موثقة، مع تمييز الآية والكلمة أثناء التلاوة.`,
-          image: DEFAULT_IMAGE,
-          i18n: { en: { title: `Surah ${englishSurahNames[n - 1] ?? name} — read and listen · ${SITE_NAME_EN}`, description: `Read Surah ${englishSurahNames[n - 1] ?? name} in the Uthmani text and listen to a verified teaching recitation, with the ayah and word lit up as it is recited.` } },
-        }
-      : FALLBACK_NOT_FOUND;
-  }
+  // "read" (the standalone reader, /read and /read/:surah) is retired — see
+  // the 301 redirect in functions/_middleware.ts, which sends both to the
+  // memorization journey before either ever reaches this function.
 
   if (head === "listen") {
     if (!parts[1]) {

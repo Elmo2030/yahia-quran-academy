@@ -24,14 +24,10 @@ const ROUTES = [
   { path: "/companions/abu-bakr", status: 200 },
   { path: "/companions/not-found", status: 404 },
   { path: "/seerah/cave-of-hira", status: 200 },
-  { path: "/read/1", status: 200 },
-  { path: "/read/114", status: 200 },
   { path: "/login", status: 200 },
   { path: "/privacy", status: 200 },
   { path: "/forgot-password", status: 200 },
   { path: "/reset-password", status: 200 },
-  { path: "/read/200", status: 404 },
-  { path: "/read/abc", status: 404 },
   { path: "/nope", status: 404 },
   { path: "/stories/nope", status: 404 },
 ];
@@ -123,11 +119,18 @@ describe("the Cloudflare function", () => {
     }
   });
 
-  it("tells an engine that a surah page is a chapter of the Quran", async () => {
-    const { graph } = await fetchPage("/read/18");
-    const page = graph.find((node: any) => node["@type"] === "WebPage");
-    expect(page?.about?.["@type"]).toBe("Book");
-    expect(page.about.hasPart.position).toBe(18);
+  // The standalone reader is retired; /read/:surah was indexed and linked
+  // from outside the site, so the old address is sent to its equivalent hifz
+  // page instead of left to 404.
+  it("sends the old reader addresses to the memorization journey", async () => {
+    for (const [from, to] of [
+      ["/read", "/hifz"],
+      ["/read/18", "/hifz/18"],
+    ]) {
+      const response = await raw(from);
+      expect(response.status, from).toBe(301);
+      expect(response.headers.get("location"), from).toBe(`https://yahyaquran.com${to}`);
+    }
   });
 
   it("describes the facts page as a collection about the Quran", async () => {

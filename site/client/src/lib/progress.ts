@@ -94,7 +94,10 @@ export type NextStep = { ref: StepRef; href: string; needsPractice?: boolean };
  *      unfinished business, ahead of anything merely waiting on someone else;
  *   3. a recital or a deed still awaiting a parent's word, earliest first,
  *      sent to the parent corner where that decision can be made;
- *   4. the plain reading progress, unchanged.
+ *   4. the plain reading progress, sent into the memorization journey now
+ *      that the standalone reader is gone — the hifz surah page already
+ *      handles a surah outside Juz Amma with its own notice, so this never
+ *      dead-ends even for progress recorded before the reader was removed.
  *
  * The journey's local store (see hifz-store.ts) is only read here to decide
  * what to show — nothing is written to it, and nothing about it leaves the
@@ -126,7 +129,7 @@ export function nextStep(local: LocalProgress | null): NextStep | null {
     }
     if (deed) return { ref: { kind: "deed", chapter: deed.chapter, slug: deed.slug }, href: "/hifz/parent" };
   }
-  if (local) return { ref: { kind: "ayah", surah: local.surah, ayah: local.ayah }, href: `/read/${local.surah}` };
+  if (local) return { ref: { kind: "ayah", surah: local.surah, ayah: local.ayah }, href: `/hifz/${local.surah}` };
   return null;
 }
 
