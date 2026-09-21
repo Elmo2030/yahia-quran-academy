@@ -40,6 +40,21 @@ function CompanionArt({ slug, symbol, variant = "card" }: { slug: string; symbol
   );
 }
 
+// A trial for one story before recording the rest: only render the player
+// where an audio file actually exists, so nothing here has to know which
+// stories are narrated yet.
+const COMPANION_AUDIO_SLUGS = new Set(["abu-bakr"]);
+
+function CompanionNarration({ slug }: { slug: string }) {
+  if (!COMPANION_AUDIO_SLUGS.has(slug)) return null;
+  return (
+    <div className="companion-audio">
+      <h2>استمع إلى القصة</h2>
+      <audio controls preload="none" src={`/stories/companions/audio/${slug}.mp3`} />
+    </div>
+  );
+}
+
 function Hub() {
   const { store } = useHifzStore();
   const profile = activeProfile(store);
@@ -138,6 +153,7 @@ export function CompanionDetail({ story }: { story: CompanionStory }) {
       <span className="companion-status">{won ? "أكملت القصة" : "اقرأ القصة، ثم جرّب سؤال الفهم"}</span>
     </header>
     <div className="companion-reading">
+      <CompanionNarration slug={story.slug} />
       {story.sections.map((section, i) => <section key={i} className={section.title === story.keyMoment ? "companion-key-moment" : undefined}>
         {section.title && <h2>{section.title}</h2>}<Prose paragraphs={section.paragraphs} />
       </section>)}

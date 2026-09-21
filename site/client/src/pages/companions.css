@@ -19,6 +19,9 @@
 .companion-reading h2{font-size:1.45rem;margin-block:1.5rem .75rem;line-height:1.7}
 .companion-reading p{white-space:pre-line;margin-block:.7rem}
 .companion-key-moment{border-inline-start:4px solid #c9a458;padding-inline:1.25rem}
+.companion-audio{margin-block:0 1.5rem;padding:1.25rem;border-radius:20px;background:#faf4e6;border:1px solid #e5d6b5;text-align:center}
+.companion-audio h2{margin-block:0 .75rem;font-size:1.15rem}
+.companion-audio audio{width:100%;max-width:420px}
 .companion-action,.companion-challenge,.companion-collection{padding:1.5rem;border-radius:24px;background:#faf4e6;border:1px solid #e5d6b5;color:#443628}
 .companion-details{margin-block:1.5rem;border-block:1px solid #dfd2b6;padding-block:.5rem}
 .companion-details summary{cursor:pointer;padding:.8rem .25rem;min-height:48px;font-weight:700}
