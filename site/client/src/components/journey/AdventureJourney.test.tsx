@@ -21,7 +21,10 @@ it("offers real live destinations and non-interactive future worlds without gran
   const map = screen.getByRole("region", { name: "خريطة عوالم رحلتي" });
   expect(within(map).getAllByRole("link")).toHaveLength(7);
   expect(within(map).getByLabelText("آداب الإسلام — قريبًا")).toHaveAttribute("aria-disabled", "true");
-  expect(within(map).getByRole("link", { name: /الصحابة/ })).toHaveAttribute("href", "/companions/abu-bakr");
+  // A visitor who has not opened any companion story yet lands on the
+  // section's own hub, not straight into whichever one is "next" — see
+  // ChildJourney.test.tsx for the continuation case once one is opened.
+  expect(within(map).getByRole("link", { name: /الصحابة/ })).toHaveAttribute("href", "/companions");
   expect(screen.getByText(/ستظهر هنا مكافآتك/)).toBeTruthy();
 });
 

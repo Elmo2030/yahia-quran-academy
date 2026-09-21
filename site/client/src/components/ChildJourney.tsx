@@ -21,6 +21,7 @@ const copy = {
     stories: "قصص القرآن", storiesBody: "اقرأ قصة وخذ منها فكرة جميلة",
     seerah: "السيرة النبوية", seerahBody: "اختر محطة من حياة النبي ﷺ",
     aqeedah: "العقيدة", aqeedahBody: "بطاقات قصيرة للتفكر والتعلّم",
+    companions: "الصحابة", companionsBody: "قيم نراها في مواقف حقيقية",
     review: (name: string) => `راجع سورة ${name}`,
     practice: (name: string) => `سمّع المقطع من سورة ${name}`,
     waiting: "تسميعك ينتظر وليّ الأمر", reading: (name: string) => `واصل قراءة سورة ${name}`,
@@ -33,6 +34,7 @@ const copy = {
     stories: "Quran stories", storiesBody: "Read a story and take a lovely idea from it",
     seerah: "The Prophet’s Seerah", seerahBody: "Choose a station from the Prophet’s life ﷺ",
     aqeedah: "Creed", aqeedahBody: "Short cards for thinking and learning",
+    companions: "Companions", companionsBody: "Values seen in real situations",
     review: (name: string) => `Review Surah ${name}`,
     practice: (name: string) => `Recite your segment from ${name}`,
     waiting: "Your recitation is waiting for a parent", reading: (name: string) => `Continue reading ${name}`,
@@ -103,7 +105,13 @@ export function childJourneyActivities(locale: "ar" | "en", profileId: string | 
     },
     { href: "/seerah", title: t.seerah, body: seerahContinuation ? t.seerah : t.seerahBody, Icon: Star, kind: "seerah", ...seerahContinuation },
     { href: "/aqeedah", title: t.aqeedah, body: aqeedahContinuation ? t.aqeedah : t.aqeedahBody, Icon: Lightbulb, kind: "aqeedah", ...aqeedahContinuation },
-    { href: companion ? `/companions/${companion.slug}` : "/companions", title: companion ? `${companionStarted ? (locale === "ar" ? "تابع" : "Continue") : (locale === "ar" ? "اكتشف" : "Discover")}: ${companion.name} — ${companion.title}` : (locale === "ar" ? "الصحابة" : "Companions"), body: locale === "ar" ? "الصحابة — قيم نراها في المواقف" : "Companions — Arabic stories", Icon: BookOpen, kind: "companions" },
+    // Only a companion the child actually opened deep-links past the hub —
+    // the same rule "stories" follows above. A fresh profile's "next" one
+    // (companionsProgress falls back to the first undone story) is real, but
+    // landing on it directly skips the section's own introduction.
+    companionStarted && companion
+      ? { href: `/companions/${companion.slug}`, title: t.continueStory(`${companion.name} — ${companion.title}`), body: t.companionsBody, Icon: BookOpen, kind: "companions" }
+      : { href: "/companions", title: t.companions, body: t.companionsBody, Icon: BookOpen, kind: "companions" },
   ];
   return { primary, activities, hasProgress: Boolean(step || profile || discovered.length || local) };
 }

@@ -4,7 +4,7 @@ vi.mock("@/lib/supabase", () => ({ getSupabase: vi.fn(() => null) }));
 vi.mock("@/hooks/useAuth", () => ({ useAuth: () => ({ session: null, profile: null }) }));
 
 import { childJourneyActivities } from "./ChildJourney";
-import { createProfile, emptyStore, markStoryDone, startStory, submitRecital } from "@/lib/hifz-store";
+import { createProfile, emptyStore, markStoryDone, recordLearningStep, startStory, submitRecital } from "@/lib/hifz-store";
 import { discoverFact } from "@/lib/quran-facts-progress";
 
 beforeEach(() => localStorage.clear());
@@ -65,5 +65,23 @@ describe("unified child journey", () => {
 
     const journey = childJourneyActivities("en", created.profile.id, withMissing);
     expect(journey.activities.find(activity => activity.kind === "stories")?.href).toBe("/stories");
+  });
+
+  it("sends a fresh child to the companions hub, not straight into the first story", () => {
+    // nextCompanion() falls back to the first undone companion for a profile
+    // that has not opened any of them yet — that used to be treated the same
+    // as "resumed", deep-linking past the section's own introduction.
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    const journey = childJourneyActivities("ar", created.profile.id, created.profile);
+    expect(journey.activities.find(activity => activity.kind === "companions")).toMatchObject({ href: "/companions", title: "الصحابة" });
+  });
+
+  it("continues a companion the child actually opened", () => {
+    const created = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    const started = recordLearningStep(created.store, created.profile.id, { kind: "companions", slug: "abu-bakr" }, "in_progress", 1000);
+    const journey = childJourneyActivities("ar", created.profile.id, started.profiles[0]);
+    expect(journey.activities.find(activity => activity.kind === "companions")?.href).toBe("/companions/abu-bakr");
   });
 });
