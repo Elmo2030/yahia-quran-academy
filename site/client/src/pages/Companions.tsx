@@ -43,7 +43,7 @@ function CompanionArt({ slug, symbol, variant = "card" }: { slug: string; symbol
 // A trial for one story before recording the rest: only render the player
 // where an audio file actually exists, so nothing here has to know which
 // stories are narrated yet.
-const COMPANION_AUDIO_SLUGS = new Set(["abu-bakr"]);
+const COMPANION_AUDIO_SLUGS = new Set(["abu-bakr", "umar"]);
 
 function CompanionNarration({ slug }: { slug: string }) {
   if (!COMPANION_AUDIO_SLUGS.has(slug)) return null;
