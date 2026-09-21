@@ -19,14 +19,9 @@ function Prose({ paragraphs }: { paragraphs: string[] }) {
   return <>{paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</>;
 }
 
-const COMPANION_ART_SLUGS = new Set([
-  "abu-bakr", "umar", "uthman", "ali", "khadijah",
-  "aishah", "hamzah", "bilal", "khalid", "abu-hurayrah",
-]);
-
 function CompanionArt({ slug, symbol, variant = "card" }: { slug: string; symbol: string; variant?: "card" | "hero" }) {
   const [failed, setFailed] = useState(false);
-  if (!COMPANION_ART_SLUGS.has(slug) || failed) return <CompanionSymbol symbol={symbol} />;
+  if (failed) return <CompanionSymbol symbol={symbol} />;
   return (
     <figure className={`companion-art companion-art--${variant}`}>
       <img
