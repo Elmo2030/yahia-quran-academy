@@ -14,6 +14,13 @@ Non-commercial and educational.
   https://yahyaquran.com/listen/1 through https://yahyaquran.com/listen/114. Playback only — no account,
   no tracking.
 
+## Mushafi
+- [Mushafi](https://yahyaquran.com/mushafi): a page-image reader for the printed mushaf —
+  colored Tajweed rules, Hafs 'an Aasim narration, Uthmani script. Each of the
+  604 pages (https://yahyaquran.com/mushafi/1 through https://yahyaquran.com/mushafi/604) is the scanned
+  page itself, not re-typeset text. Page jump, a surah index, zoom, and a
+  locally-saved last position; no account.
+
 ## Memorization journey
 - [The journey](https://yahyaquran.com/hifz): a map for memorizing al-Fatiha and Juz Amma,
   with the Uthmani text of each surah in it. The child listens to an ayah,

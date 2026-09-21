@@ -25,13 +25,13 @@ import { useAuth } from "@/hooks/useAuth";
 const copy = {
   ar: {
     open: "القائمة", close: "أغلق القائمة", title: "التنقل",
-    home: "الرئيسية", journey: "رحلتي", hifz: "رحلة الحفظ", listen: "الاستماع", stories: "قصص القرآن",
+    home: "الرئيسية", journey: "رحلتي", hifz: "رحلة الحفظ", mushafi: "مصحفي", listen: "الاستماع", stories: "قصص القرآن",
     companions: "الصحابة", seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
     account: "حسابي", register: "أنشئ حسابًا",
   },
   en: {
     open: "Menu", close: "Close the menu", title: "Navigation",
-    home: "Home", journey: "My journey", hifz: "Memorization journey", listen: "Listening", stories: "Quran stories",
+    home: "Home", journey: "My journey", hifz: "Memorization journey", mushafi: "Mushafi", listen: "Listening", stories: "Quran stories",
     companions: "Companions", seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
     account: "My account", register: "Create an account",
   },
@@ -41,6 +41,7 @@ const LINKS = [
   { href: "/", key: "home" },
   { href: "/journey", key: "journey" },
   { href: "/hifz", key: "hifz" },
+  { href: "/mushafi", key: "mushafi" },
   { href: "/stories", key: "stories" },
   { href: "/seerah", key: "seerah" },
   { href: "/companions", key: "companions" },

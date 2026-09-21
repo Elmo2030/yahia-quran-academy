@@ -1,0 +1,131 @@
+/* مصحفي — intro screen shares the site's calm content-page look; the reader
+   itself is a fullscreen, chrome-free surface where the mushaf page is the
+   only thing that matters. */
+
+.mushafi-intro { max-width: 640px; padding-block: 2.5rem 4rem; display: flex; flex-direction: column; gap: .9rem; }
+.mushafi-intro h1 { font-size: 2rem; margin: 0; }
+.mushafi-intro__lead { font-size: 1.05rem; color: var(--ink-soft); }
+.mushafi-intro__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: .75rem; }
+.mushafi-intro__note { font-size: .85rem; color: var(--ink-faint); border-top: 1px solid var(--line, #e5ddc5); padding-top: 1rem; margin-top: .5rem; }
+
+.mushafi-reader {
+  position: fixed; inset: 0; z-index: 60;
+  background: #fbf8ee;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.mushafi-reader--invalid {
+  position: static; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; text-align: center; padding: 2rem;
+}
+
+.mushafi-reader__topbar, .mushafi-reader__bottombar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .6rem .9rem;
+  background: rgb(251 248 238 / 92%);
+  backdrop-filter: blur(6px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 2;
+}
+.mushafi-reader__topbar.is-hidden, .mushafi-reader__bottombar.is-hidden { opacity: 0; pointer-events: none; }
+.mushafi-reader__topbar.is-hidden { transform: translateY(-100%); }
+.mushafi-reader__bottombar.is-hidden { transform: translateY(100%); }
+
+.mushafi-reader__title { font-weight: 800; color: var(--ink); }
+
+.mushafi-icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; border-radius: 12px;
+  color: var(--ink); background: transparent;
+}
+.mushafi-icon-btn:hover { background: var(--surface-3, #f6f1e0); }
+.mushafi-icon-btn:disabled { opacity: .35; }
+
+.mushafi-reader__stage {
+  flex: 1; min-height: 0;
+  display: flex; align-items: flex-start; justify-content: center;
+  overflow: auto;
+  touch-action: pan-y;
+  padding: .5rem;
+}
+.mushafi-reader__page-wrap {
+  margin-inline: auto;
+  animation: mushafi-page-in .22s ease;
+}
+@keyframes mushafi-page-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+.mushafi-reader__image {
+  display: block;
+  transform-origin: top center;
+  transition: transform .15s ease;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 8%);
+}
+.mushafi-reader__image--width { width: min(92vw, 640px); height: auto; }
+.mushafi-reader__image--page { max-height: calc(100vh - 6.5rem); width: auto; }
+
+.mushafi-reader__page-indicator {
+  font-weight: 800; color: var(--ink); background: var(--surface-3, #f6f1e0);
+  border-radius: 999px; padding: .4rem 1rem; min-height: 40px;
+}
+
+.mushafi-error { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem; text-align: center; color: var(--ink-soft); }
+
+/* Bottom sheet */
+.mushafi-sheet { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-end; }
+.mushafi-sheet__backdrop { position: absolute; inset: 0; background: rgb(0 0 0 / 35%); border: none; }
+.mushafi-sheet__panel {
+  position: relative; z-index: 1; width: 100%; max-height: 80vh; overflow-y: auto;
+  background: var(--surface, #fff); border-radius: 20px 20px 0 0;
+  padding: .25rem 1.1rem 1.5rem;
+  animation: mushafi-sheet-in .2s ease;
+}
+@keyframes mushafi-sheet-in { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+.mushafi-sheet__handle-row { display: flex; justify-content: flex-end; padding-block: .4rem; }
+
+.mushafi-sheet__menu { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .3rem; }
+.mushafi-sheet__menu > li > button {
+  width: 100%; display: flex; align-items: center; gap: .65rem;
+  min-height: 48px; padding-inline: .5rem; border-radius: 12px; font-weight: 700; color: var(--ink);
+}
+.mushafi-sheet__menu > li > button:hover { background: var(--surface-3, #f6f1e0); }
+
+.mushafi-sheet__zoom-row, .mushafi-sheet__fit-row { display: flex; align-items: center; gap: .6rem; padding-block: .3rem; }
+.mushafi-sheet__zoom-row button, .mushafi-sheet__fit-row button {
+  min-width: 40px; min-height: 40px; border-radius: 10px; background: var(--surface-3, #f6f1e0); font-weight: 800;
+}
+.mushafi-sheet__fit-row button.is-active, .mushafi-sheet__zoom-row button.is-active { background: var(--brand-solid); color: #fff; }
+.mushafi-sheet__zoom-row span { min-width: 3.2rem; text-align: center; font-weight: 700; }
+
+.mushafi-sheet__jump { display: flex; flex-direction: column; gap: .6rem; padding-block: .5rem 1rem; }
+.mushafi-sheet__jump input {
+  min-height: 46px; border-radius: 12px; border: 1px solid var(--line, #e5ddc5); padding-inline: .9rem; font-size: 1rem;
+}
+.mushafi-sheet__error { color: var(--danger-ink); font-size: .85rem; }
+
+.mushafi-sheet__index { display: flex; flex-direction: column; gap: .6rem; padding-block: .3rem 1rem; }
+.mushafi-sheet__index input {
+  min-height: 44px; border-radius: 12px; border: 1px solid var(--line, #e5ddc5); padding-inline: .9rem;
+}
+.mushafi-sheet__index ul { list-style: none; margin: 0; padding: 0; max-height: 50vh; overflow-y: auto; display: flex; flex-direction: column; gap: .2rem; }
+.mushafi-sheet__index li { display: flex; align-items: center; gap: .6rem; padding: .5rem; border-radius: 10px; }
+.mushafi-sheet__index li:hover { background: var(--surface-3, #f6f1e0); }
+.mushafi-sheet__index-name { font-weight: 700; flex: 1; }
+.mushafi-sheet__index-number { color: var(--ink-faint); font-size: .85rem; }
+.mushafi-sheet__index-page { color: var(--ink-faint); font-size: .8rem; }
+
+.mushafi-sheet__bookmarks ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .3rem; }
+.mushafi-sheet__bookmarks li { display: flex; align-items: center; gap: .5rem; }
+.mushafi-sheet__bookmarks li > button:first-child { flex: 1; text-align: start; min-height: 44px; border-radius: 10px; font-weight: 700; }
+.mushafi-sheet__bookmarks li > button:first-child:hover { background: var(--surface-3, #f6f1e0); }
+
+.mushafi-sheet__about { padding-block: .4rem 1rem; color: var(--ink-soft); display: flex; flex-direction: column; gap: .75rem; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+@media (min-width: 720px) {
+  .mushafi-sheet { align-items: center; justify-content: center; }
+  .mushafi-sheet__panel { max-width: 420px; border-radius: 20px; max-height: 70vh; }
+}

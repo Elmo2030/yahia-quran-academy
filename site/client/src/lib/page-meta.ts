@@ -12,6 +12,7 @@ import {
 } from "./page-index.generated";
 import { englishSurahNames, surahNames } from "./quran-content";
 import { companionIndex } from "./companion-index.generated";
+import { isValidReaderPage } from "./quran-page-map";
 
 // =============================================================================
 // page-meta.ts — canonical per-route metadata for the static SPA.
@@ -136,6 +137,37 @@ export const hifzInnerMeta: Meta = {
     en: {
       title: "Memorization journey — Yahya Quran Academy",
       description: "A Juz Amma memorization journey for children with Yahya and Fatima; all data stays on your device.",
+    },
+  },
+};
+
+// A page-image mushaf, distinct from the retired /read text reader. The hub
+// is worth finding; the 604 page routes are identical in structure (one
+// image, no unique crawlable text) and would just spend crawl budget, so they
+// stay noindex the way a single hifz child's screen does, for a different
+// reason — duplication, not privacy.
+export const mushafiMeta: Meta = {
+  path: "/mushafi",
+  title: "مصحفي — المصحف الشريف برواية حفص | Yahya Quran Academy",
+  description: "تصفّح صفحات المصحف الشريف الملوّنة بأحكام التجويد، برواية حفص عن عاصم، بالرسم العثماني، صفحة كما هي دون أي تعديل في النص.",
+  image: DEFAULT_IMAGE,
+  i18n: {
+    en: {
+      title: "Mushafi — the Holy Mushaf in Hafs narration | Yahya Quran Academy",
+      description: "Browse the mushaf's Tajweed-colored pages, in the narration of Hafs from Aasim, in the Uthmani script — every page exactly as printed.",
+    },
+  },
+};
+
+export const mushafiPageMeta: Meta = {
+  ...mushafiMeta,
+  title: "مصحفي — Yahya Quran Academy",
+  description: "صفحة من المصحف الشريف برواية حفص عن عاصم.",
+  noindex: true,
+  i18n: {
+    en: {
+      title: "Mushafi — Yahya Quran Academy",
+      description: "A page of the mushaf, in the narration of Hafs from Aasim.",
     },
   },
 };
@@ -306,6 +338,11 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "profile") return profileMeta;
   if (head === "journey") return journeyMeta;
   if (head === "hifz") return parts[1] ? hifzInnerMeta : hifzMeta;
+  if (head === "mushafi") {
+    if (!parts[1]) return mushafiMeta;
+    if (parts.length > 2 || !isValidReaderPage(Number(parts[1]))) return FALLBACK_NOT_FOUND;
+    return mushafiPageMeta;
+  }
   if (head === "quran-facts") {
     if (!parts[1]) return quranFactsMeta;
     // Each of the hundred has a page of its own now; the card's own title and

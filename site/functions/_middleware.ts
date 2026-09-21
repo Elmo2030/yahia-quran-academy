@@ -79,6 +79,29 @@ const profileMeta = {
         description: "Manage your account and progress on Yahya Quran Academy." },
 };
 
+// مصحفي (Mushafi): a page-image mushaf, unrelated to the retired /read text
+// reader. The hub is worth finding; the 604 page routes are identical in
+// structure (one image, no unique text) so they stay noindex like a hifz
+// child's own screen, but for duplication rather than privacy.
+const MUSHAFI_PAGE_COUNT = 604;
+const mushafiMeta = {
+  path: "/mushafi",
+  title: "مصحفي — المصحف الشريف برواية حفص | Yahya Quran Academy",
+  description: "تصفّح صفحات المصحف الشريف الملوّنة بأحكام التجويد، برواية حفص عن عاصم، بالرسم العثماني، صفحة كما هي دون أي تعديل في النص.",
+  image: DEFAULT_IMAGE,
+  en: { title: "Mushafi — the Holy Mushaf in Hafs narration | Yahya Quran Academy",
+        description: "Browse the mushaf's Tajweed-colored pages, in the narration of Hafs from Aasim, in the Uthmani script — every page exactly as printed." },
+};
+
+const mushafiPageMeta = {
+  ...mushafiMeta,
+  title: "مصحفي — Yahya Quran Academy",
+  description: "صفحة من المصحف الشريف برواية حفص عن عاصم.",
+  noindex: true,
+  en: { title: "Mushafi — Yahya Quran Academy",
+        description: "A page of the mushaf, in the narration of Hafs from Aasim." },
+};
+
 // The journey page is worth finding; the screens under it belong to one child.
 const hifzMeta = {
   path: "/hifz",
@@ -141,6 +164,12 @@ export function metaForPath(pathname: string) {
   if (head === "register") return registerMeta;
   if (head === "profile") return profileMeta;
   if (head === "hifz") return parts[1] ? hifzInnerMeta : hifzMeta;
+  if (head === "mushafi") {
+    if (!parts[1]) return mushafiMeta;
+    const page = Number(parts[1]);
+    if (parts.length > 2 || !Number.isInteger(page) || page < 1 || page > MUSHAFI_PAGE_COUNT) return notFound(path);
+    return mushafiPageMeta;
+  }
   // Both render fine client-side, but the function did not know them, so the
   // server answered 404 — including for the link in the password-reset email,
   // which points straight at /reset-password.

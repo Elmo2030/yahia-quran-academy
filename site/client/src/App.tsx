@@ -36,6 +36,7 @@ const HifzLooks = lazyWithRetry(() => import("./pages/HifzLooks"));
 const Journey = lazyWithRetry(() => import("./pages/Journey"));
 const Listen = lazyWithRetry(() => import("./pages/Listen"));
 const ListenSurah = lazyWithRetry(() => import("./pages/ListenSurah"));
+const Mushafi = lazyWithRetry(() => import("./pages/Mushafi"));
 
 /** Shown only while a route chunk is in flight. Deliberately quiet: a spinner
  *  that flashes for 80ms is worse than a blank moment. */
@@ -75,6 +76,8 @@ function Router() {
       <Route path={"/hifz/certificate"} component={HifzCertificate} />
       <Route path={"/hifz/looks"} component={HifzLooks} />
       <Route path={"/journey"} component={Journey} />
+      <Route path={"/mushafi"} component={Mushafi} />
+      <Route path={"/mushafi/:page"} component={Mushafi} />
       <Route path={"/hifz/:surah/recite"} component={HifzRecite} />
       <Route path={"/hifz/:surah"} component={HifzSurah} />
       <Route path={"/404"} component={NotFound} />

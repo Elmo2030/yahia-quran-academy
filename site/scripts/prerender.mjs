@@ -366,6 +366,23 @@ add("/hifz", section("ar", `
   <p>The parent is the one who judges the recitation: no automated mastery score, no stage that unlocks by itself. None of it leaves the device — no account, no server, no tracking.</p>
 `));
 
+// مصحفي — the page-image mushaf. Only the hub: the 604 page routes are one
+// image each with no unique text, and stay noindex (see mushafiPageMeta).
+add("/mushafi", section("ar", `
+  <h1>مصحفي — المصحف الشريف</h1>
+  <p>بين يديك المصحف الشريف برواية حفص عن عاصم، بالرسم العثماني، مع تلوين أحكام التجويد لتسهيل القراءة والتعلّم.</p>
+  <p>يمكنك تصفح صفحات المصحف بهدوء، والانتقال مباشرة إلى الصفحة التي تريدها، والعودة إلى آخر موضع وصلت إليه.</p>
+  <p>يعرض الموقع صفحات المصحف كما هي دون تغيير في النص القرآني.</p>
+  ${list([
+    link("/hifz", "رحلة حفظ جزء عمّ للأطفال"),
+    link("/listen", "الاستماع — المصحف المرتل كاملًا"),
+  ])}
+`) + section("en", `
+  <h2>Mushafi — the Holy Mushaf</h2>
+  <p>The mushaf in the narration of Hafs from Aasim, in the Uthmani script, with Tajweed rules colored to make reading and learning easier.</p>
+  <p>Browse the mushaf calmly, jump straight to any page, and return to wherever you last left off. Pages are shown exactly as printed, with no change to the Quranic text.</p>
+`));
+
 // ---------------------------------------------------------------- write it out
 
 // The home page is written back over index.html, so a second run without a

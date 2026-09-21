@@ -77,6 +77,7 @@ const ROUTES = [
   "/stories", "/seerah", "/quran-facts", "/aqeedah",
   "/seerah/little-shepherd",
   "/login", "/register", "/profile", "/hifz", "/hifz/114", "/hifz/114/recite", "/hifz/parent", "/hifz/looks", "/listen", "/listen/1", "/listen/114", "/listen/999", "/stories/library",
+  "/mushafi", "/mushafi/1", "/mushafi/604",
   "/forgot-password", "/reset-password", "/nope", "/stories/nope",
   ...chapterIndex.map(chapter => `/stories/${chapter.slug}`),
   ...spread(storyIndex, 6).map(story => `/stories/${story.chapter}/${story.slug}`),
@@ -89,6 +90,7 @@ const ROUTES = [
   // the function answering 200 to a page whose title said it did not exist.
   // /listen/:surah carries the same validation /read/:surah once did.
   "/listen/0", "/listen/115", "/listen/200", "/listen/abc",
+  "/mushafi/0", "/mushafi/605", "/mushafi/abc",
 ];
 
 describe("the app and the crawler are told the same thing", () => {

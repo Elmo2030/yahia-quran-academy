@@ -138,6 +138,10 @@ const urls = [
   // /hifz/:surah, but that screen is one child's own record and stays
   // noindex (see hifzInnerMeta) — the journey's own /hifz entry above is the
   // one page worth a search engine finding.
+  { loc: "/mushafi", priority: "0.8" },
+  // مصحفي's 604 page routes are identical in structure (one image, no
+  // unique text) and stay noindex (see mushafiPageMeta) — same reasoning as
+  // the hifz per-surah screens just above, minus the privacy angle.
   ...Array.from({ length: 114 }, (_, i) => ({ loc: `/listen/${i + 1}`, priority: "0.6" })),
   ...chapters.filter(c => c.available).map(c => ({ loc: `/stories/${c.slug}`, priority: "0.8" })),
   ...stories.map(s => ({ loc: `/stories/${s.chapter}/${s.slug}`, priority: "0.7" })),
@@ -230,6 +234,13 @@ Non-commercial and educational.
   Muhammad Siddiq al-Minshawi, about 28 hours of audio, one page per surah at
   ${ORIGIN}/listen/1 through ${ORIGIN}/listen/114. Playback only — no account,
   no tracking.
+
+## Mushafi
+- [Mushafi](${ORIGIN}/mushafi): a page-image reader for the printed mushaf —
+  colored Tajweed rules, Hafs 'an Aasim narration, Uthmani script. Each of the
+  604 pages (${ORIGIN}/mushafi/1 through ${ORIGIN}/mushafi/604) is the scanned
+  page itself, not re-typeset text. Page jump, a surah index, zoom, and a
+  locally-saved last position; no account.
 
 ## Memorization journey
 - [The journey](${ORIGIN}/hifz): a map for memorizing al-Fatiha and Juz Amma,
