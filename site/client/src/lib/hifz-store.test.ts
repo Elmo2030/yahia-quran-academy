@@ -524,7 +524,7 @@ describe("recitals", () => {
     expect(activeProfile(resubmitted)!.steps["recital:114:1-3"].recordingId).toBe("rec-2");
   });
 
-  it("chooses practice first, leaves awaiting recitals open for a new recording, and covers only reviewed ayahs", () => {
+  it("chooses practice first, never overlaps a waiting recital, then offers the waiting one again", () => {
     const { store, profile } = withChild("Yusra");
     let s = store;
     for (let ayah = 1; ayah <= 5; ayah++) s = declareMemorized(s, profile.id, 114, ayah, "child", 1000);
@@ -534,8 +534,13 @@ describe("recitals", () => {
     s = approveRecital(s, profile.id, 114, 1, 2, undefined, 3000);
     s = submitRecital(s, profile.id, 114, 3, 4, "waiting", 4000);
 
-    // Awaiting is not covered: the child can make a new recording for it.
-    expect(recitalEntrySegment(activeProfile(s)!, 114, 5)).toEqual({ from: 3, to: 5, status: null });
+    // Fresh ground first, and it stops short of what the parent already has —
+    // 3–5 here would sit beside 3–4 as a second, overlapping recording.
+    expect(recitalEntrySegment(activeProfile(s)!, 114, 5)).toEqual({ from: 5, to: 5, status: null });
+
+    // With nothing fresh left, the waiting segment comes back as submitted.
+    const allSent = submitRecital(s, profile.id, 114, 5, 5, "five", 4500);
+    expect(recitalEntrySegment(activeProfile(allSent)!, 114, 5)).toEqual({ from: 3, to: 4, status: "awaiting_parent" });
 
     s = askForPractice(s, profile.id, 114, 3, 4, undefined, 5000);
     // Practice is always the first return path, even though ayah 5 is fresh.

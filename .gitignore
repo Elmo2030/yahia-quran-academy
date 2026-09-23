@@ -82,3 +82,6 @@ site/functions/page-data.js
 # note for the upload path. Only the mapping code and app UI are committed.
 /مصحف القراءه/
 /mushaf-pages-for-r2/
+
+# Child hifz backups exported from /hifz/parent — personal data, never commit
+yahya-hifz-backup-*.json

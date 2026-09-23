@@ -844,11 +844,10 @@ function recitalRangesFor(profile: ChildProfile, surah: number): Array<{ from: n
  * In order:
  *   1. a segment sent back for practice — the child's own unfinished
  *      business, offered again exactly as submitted;
- *   2. the longest run of declared ayahs not already reviewed by a parent.
- *      A recording that is awaiting a parent, or was sent back for practice,
- *      is still open work and must remain available to the child;
- *   3. failing either, a segment still awaiting a parent's word — recording
- *      again is allowed, the badge just says so.
+ *   2. the longest run of declared ayahs no parent has heard yet — neither
+ *      reviewed nor awaiting;
+ *   3. failing either, a segment still awaiting a parent's word, exactly as
+ *      submitted — recording again replaces that take, the badge says so.
  * Null only once every declared ayah is either reviewed or has nothing
  * declared to begin with.
  */
@@ -860,11 +859,12 @@ export function recitalEntrySegment(
   const practice = ranges.filter(r => r.status === "needs_practice").sort((a, b) => a.at - b.at)[0];
   if (practice) return { from: practice.from, to: practice.to, status: "needs_practice" };
 
-  // Only a parent's reviewed recital proves this ground is covered. Waiting
-  // recordings and practice requests must both lead back into recitation.
+  // A fresh segment never overlaps one a parent already has: reviewed ground
+  // is done, and waiting ground is offered again below, under its own key —
+  // otherwise the parent would get 3–4 and 3–5 as two separate recordings.
   const covered = new Set<number>();
   for (const range of ranges) {
-    if (range.status !== "reviewed") continue;
+    if (range.status !== "reviewed" && range.status !== "awaiting_parent") continue;
     for (let ayah = range.from; ayah <= range.to; ayah++) covered.add(ayah);
   }
   const declared = (ayah: number) => Boolean(profile.ayahs[ayahKey(surah, ayah)]?.declaredAt);
