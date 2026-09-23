@@ -1993,10 +1993,10 @@ export const factIndex: Fact[] = [
   "number": 28,
   "slug": "dunya-akhirah",
   "icon": "Scale",
-  "title": "توازن عجيب في الأرقام",
-  "body": "في القرآن توازن رقمي لافت: كلمة «الدنيا» تكرّرت 115 مرة، وكلمة «الآخرة» تكرّرت 115 مرة بالضبط.",
-  "titleEn": "A balance you can count",
-  "bodyEn": "There is a striking balance in the Quran's numbers: the word “dunya” — this world — appears 115 times, and “akhirah” — the hereafter — appears exactly 115 times too."
+  "title": "لفظان بنفس العدد",
+  "body": "كلمة «الدنيا» وكلمة «الآخرة» وردتا في القرآن بنفس العدد: 115 مرة لكل منهما — وهو أمر لاحظه بعض من تتبّع ألفاظ القرآن.",
+  "titleEn": "Two words, the same count",
+  "bodyEn": "The word “dunya” — this world — and the word “akhirah” — the hereafter — appear in the Quran the same number of times: 115 each, something some who have tracked the Quran's…"
  },
  {
   "number": 29,
@@ -2174,7 +2174,7 @@ export const factIndex: Fact[] = [
   "slug": "verse-endings",
   "icon": "Sparkle",
   "title": "خواتيم الآيات تناسب معناها",
-  "body": "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة.",
+  "body": "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة والنصر.",
   "titleEn": "Endings that match what came before",
   "bodyEn": "Many verses close with two of Allah's names chosen to fit what the verse is about: the Forgiving, the Merciful where it speaks of repentance; the Almighty, the Wise where it…"
  },
@@ -2228,18 +2228,18 @@ export const factIndex: Fact[] = [
   "slug": "dots-and-marks",
   "icon": "Type",
   "title": "حروف بلا نقاط",
-  "body": "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي علامات الحركات، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء — حتى نقرأ القرآن…",
+  "body": "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي أول علامات للحركة، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء، ثم طوّر الخليل…",
   "titleEn": "Letters with no dots",
-  "bodyEn": "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali added the vowel marks; then Nasr ibn Asim and Yahya ibn Ya'mar dotted the letters so a…"
+  "bodyEn": "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali added the first marks for vowelling; then Nasr ibn Asim and Yahya ibn Ya'mar dotted the…"
  },
  {
   "number": 55,
   "slug": "uthman-mushaf",
   "icon": "BookCopy",
   "title": "مصاحف عثمان",
-  "body": "نسخ الخليفة عثمان بن عفان رضي الله عنه المصاحف وأرسلها إلى المدن الإسلامية، حتى يقرأ المسلمون في كل مكان قراءة واحدة.",
+  "body": "نسخ الخليفة عثمان بن عفان رضي الله عنه المصاحف وأرسلها إلى المدن الإسلامية، حتى يجتمع المسلمون في كل مكان على مصحف واحد.",
   "titleEn": "The copies Uthman sent out",
-  "bodyEn": "Caliph Uthman ibn Affan had copies made and sent to the Muslim cities, so that Muslims everywhere would read one and the same text."
+  "bodyEn": "Caliph Uthman ibn Affan had copies made and sent to the Muslim cities, so that Muslims everywhere would gather around one and the same written text."
  },
  {
   "number": 56,
@@ -2471,9 +2471,9 @@ export const factIndex: Fact[] = [
   "slug": "ten-recitations",
   "icon": "AudioLines",
   "title": "عشر قراءات متواترة",
-  "body": "نزل القرآن بأوجه لغوية ميسّرة تُسمّى القراءات المتواترة، وهي عشر قراءات، ليسهل على قبائل العرب كلها أن تقرأه.",
+  "body": "نزل القرآن على سبعة أحرف تيسيرًا على قبائل العرب كلها أن تقرأه، ونقل العلماء لنا عشر قراءات متواترة نقرأ بها القرآن حتى اليوم.",
   "titleEn": "Ten recitations, all trusted",
-  "bodyEn": "The Quran came in several easy ways of reading — the ten trusted recitations — so that every Arab tribe could recite it comfortably."
+  "bodyEn": "The Quran came down in seven modes so every Arab tribe could recite it comfortably, and scholars have handed down ten trusted recitations we still read it by today."
  },
  {
   "number": 82,
@@ -2524,10 +2524,10 @@ export const factIndex: Fact[] = [
   "number": 87,
   "slug": "four-caliphs-scribes",
   "icon": "Users",
-  "title": "الخلفاء الأربعة كانوا كُتّاباً للوحي",
-  "body": "أبو بكر وعمر وعثمان وعلي رضي الله عنهم كانوا جميعاً من كُتّاب الوحي، يكتبون القرآن بين يدي النبي ﷺ فور نزوله.",
-  "titleEn": "All four caliphs wrote the revelation",
-  "bodyEn": "Abu Bakr, Umar, Uthman and Ali were all scribes of the revelation, writing the Quran down before the Prophet ﷺ as it came."
+  "title": "من كُتّاب الوحي",
+  "body": "ذكر أهل السيرة الخلفاء الأربعة أبا بكر وعمر وعثمان وعليًا رضي الله عنهم بين كُتّاب الوحي، ومن أشهر من كتب القرآن بين يدي النبي ﷺ فور نزوله زيد بن ثابت.",
+  "titleEn": "Among those who wrote down the revelation",
+  "bodyEn": "Historians of the Seerah list the four caliphs — Abu Bakr, Umar, Uthman and Ali — among the scribes of revelation, and among the best known who wrote the Quran down before the…"
  },
  {
   "number": 88,
@@ -2606,9 +2606,9 @@ export const factIndex: Fact[] = [
   "slug": "two-prostrations-hajj",
   "icon": "Repeat",
   "title": "سورة فيها سجدتان",
-  "body": "سورة الحج تتفرّد بأن فيها سجدتين، واحدة في أولها وأخرى في آخرها، عند جمهور الشافعية والحنابلة.",
+  "body": "سورة الحج تتفرّد بأن فيها سجدتين، واحدة في أولها وأخرى في آخرها، عند الشافعية والحنابلة.",
   "titleEn": "One surah with two prostrations",
-  "bodyEn": "Surah Al-Hajj stands alone in having two prostrations — one near its start and one near its end — in the view of most Shafi'i and Hanbali scholars."
+  "bodyEn": "Surah Al-Hajj stands alone in having two prostrations — one near its start and one near its end — according to the Shafi'i and Hanbali schools."
  },
  {
   "number": 97,
@@ -2632,10 +2632,10 @@ export const factIndex: Fact[] = [
   "number": 99,
   "slug": "longest-word",
   "icon": "Maximize2",
-  "title": "أطول كلمة في القرآن",
-  "body": "أطول كلمة في القرآن ﴿فَأَسْقَيْنَاكُمُوهُ﴾ في سورة الحجر، وتتكوّن من أحد عشر حرفاً.",
-  "titleEn": "The longest word in the Quran",
-  "bodyEn": "The longest word in the Quran is ﴿fa-asqaynakumuhu﴾ in Surah Al-Hijr — eleven letters in a single word."
+  "title": "من أطول كلمات القرآن",
+  "body": "من أطول كلمات القرآن ﴿فَأَسْقَيْنَاكُمُوهُ﴾ في سورة الحجر، وتتكوّن من عشرة أحرف في رسم المصحف.",
+  "titleEn": "One of the Quran's longest words",
+  "bodyEn": "One of the longest words in the Quran is ﴿fa-asqaynakumuhu﴾ in Surah Al-Hijr — ten letters in the mushaf's script."
  },
  {
   "number": 100,

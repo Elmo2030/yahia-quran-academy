@@ -531,16 +531,16 @@ export const quranFacts: QuranFact[] = [
     number: 28,
     slug: "dunya-akhirah",
     icon: "Scale",
-    title: { ar: "توازن عجيب في الأرقام", en: "A balance you can count" },
+    title: { ar: "لفظان بنفس العدد", en: "Two words, the same count" },
     body: {
-      ar: "في القرآن توازن رقمي لافت: كلمة «الدنيا» تكرّرت 115 مرة، وكلمة «الآخرة» تكرّرت 115 مرة بالضبط.",
-      en: "There is a striking balance in the Quran's numbers: the word “dunya” — this world — appears 115 times, and “akhirah” — the hereafter — appears exactly 115 times too.",
+      ar: "كلمة «الدنيا» وكلمة «الآخرة» وردتا في القرآن بنفس العدد: 115 مرة لكل منهما — وهو أمر لاحظه بعض من تتبّع ألفاظ القرآن.",
+      en: "The word “dunya” — this world — and the word “akhirah” — the hereafter — appear in the Quran the same number of times: 115 each, something some who have tracked the Quran's wording have noticed.",
     },
     ayahs: [],
     source: {
-      reliability: "🟢",
+      reliability: "🟡",
       reference: { ar: "عدٌّ في النص العثماني — 115 و115", en: "Counted in the Uthmani text — 115 and 115" },
-      note: { ar: "عددنا الكلمتين بأنفسنا في النص الذي يعرضه الموقع: «الدنيا» 115 مرة، و«الآخرة» بصورها كلها (الآخرة، والآخرة، بالآخرة، للآخرة) 115 مرة. وهو توازن لافت في اللفظ، لا يُبنى عليه حكم.", en: "We counted both words in the text this site serves: ad-dunya 115 times, and al-akhirah in all its forms 115 times. It is a striking balance in wording, and nothing is built on it." },
+      note: { ar: "عددنا الكلمتين بأنفسنا في النص الذي يعرضه الموقع: «الدنيا» 115 مرة، و«الآخرة» بصورها كلها (الآخرة، والآخرة، بالآخرة، للآخرة) 115 مرة. العدّ للفظ لا للمعنى — موضع منها (ص: 7) يقصد به «الأخيرة» لا يوم القيامة. والبناء على مثل هذا التوازن العددي موضع خلاف بين العلماء، فلا يُبنى عليه حكم هنا.", en: "We counted both words ourselves in the text this site serves: ad-dunya 115 times, and al-akhirah in all its forms 115 times. The count is of the wording, not the meaning — one occurrence (Sad: 7) means “the latter” rather than the hereafter. Scholars disagree over drawing conclusions from such numeric patterns, and nothing is built on it here." },
     },
   },
   {
@@ -804,7 +804,7 @@ export const quranFacts: QuranFact[] = [
     source: {
       reliability: "🟢",
       reference: { ar: "كتب علوم القرآن — المكي والمدني", en: "Sciences of the Quran — the Makki and Madani division" },
-      note: { ar: "86 و28 هو التقسيم المشهور عند أهل العلم، والبطاقة تقوله بوصفه المشهور لا القاطع، لأن سوراً كالرعد والرحمن مختلف فيها.", en: "86 and 28 is the familiar division among scholars, and the card presents it as the familiar one rather than the settled one, since surahs such as Ar-Ra'd and Ar-Rahman are disputed." },
+      note: { ar: "86 و28 هو تقسيم مصحف المدينة اللي يعرضه هذا الموقع، والبطاقة تقوله بوصفه المشهور لا القاطع، لأن سورًا مثل الرعد مختلف فيها.", en: "86 and 28 is the division used by the Madinah mushaf this site serves, and the card presents it as the familiar count rather than the settled one, since surahs such as Ar-Ra'd are disputed." },
     },
   },
   {
@@ -885,16 +885,16 @@ export const quranFacts: QuranFact[] = [
     icon: "Sparkle",
     title: { ar: "خواتيم الآيات تناسب معناها", en: "Endings that match what came before" },
     body: {
-      ar: "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة.",
-      en: "Many verses close with two of Allah's names chosen to fit what the verse is about: the Forgiving, the Merciful where it speaks of repentance; the Almighty, the Wise where it speaks of power.",
+      ar: "كثير من الآيات تُختم باسمين من أسماء الله الحسنى يناسبان موضوعها: «الغفور الرحيم» مع التوبة، و«العزيز الحكيم» مع القوة والنصر.",
+      en: "Many verses close with two of Allah's names chosen to fit what the verse is about: the Forgiving, the Merciful where it speaks of repentance; the Almighty, the Wise where it speaks of might and victory.",
     },
     ayahs: [
-      { text: "وَاللَّهُ عَزِيزٌ حَكِيمٌ", ref: "البقرة: 220" },
+      { text: "وَمَا النَّصْرُ إِلَّا مِنْ عِنْدِ اللَّهِ ۚ إِنَّ اللَّهَ عَزِيزٌ حَكِيمٌ", ref: "الأنفال: 10" },
     ],
     source: {
       reliability: "🟢",
-      reference: { ar: "القرآن الكريم، سورة البقرة: 220", en: "The Quran, Surah Al-Baqarah: 220" },
-      note: { ar: "ملاحظة أسلوبية تُرى في المصحف نفسه، والآية المذكورة مثال عليها.", en: "A feature of style anyone can see in the mushaf; the cited verse is one example of it." },
+      reference: { ar: "القرآن الكريم، سورة الأنفال: 10", en: "The Quran, Surah Al-Anfal: 10" },
+      note: { ar: "ملاحظة أسلوبية تُرى في المصحف نفسه، والآية المذكورة عن نصر بدر مثال عليها.", en: "A feature of style anyone can see in the mushaf; the cited verse, about the victory at Badr, is one example of it." },
     },
   },
   {
@@ -991,14 +991,14 @@ export const quranFacts: QuranFact[] = [
     icon: "Type",
     title: { ar: "حروف بلا نقاط", en: "Letters with no dots" },
     body: {
-      ar: "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي علامات الحركات، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء — حتى نقرأ القرآن قراءة صحيحة.",
-      en: "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali added the vowel marks; then Nasr ibn Asim and Yahya ibn Ya'mar dotted the letters so a ba could be told from a ta — so that everyone could read it correctly.",
+      ar: "لم تكن الحروف في المصاحف الأولى منقوطة ولا مشكولة. فوضع أبو الأسود الدؤلي أول علامات للحركة، ثم جاء نصر بن عاصم ويحيى بن يعمر فنقطا الحروف لتتميّز الباء من التاء، ثم طوّر الخليل بن أحمد الفراهيدي شكل الفتحة والضمة والكسرة الذي نعرفه اليوم — حتى نقرأ القرآن قراءة صحيحة.",
+      en: "The earliest copies had no dots on the letters and no vowel marks. Abu al-Aswad ad-Du'ali added the first marks for vowelling; then Nasr ibn Asim and Yahya ibn Ya'mar dotted the letters so a ba could be told from a ta; then Al-Khalil ibn Ahmad al-Farahidi developed the fatha, damma and kasra shapes we use today — so that everyone could read it correctly.",
     },
     ayahs: [],
     source: {
       reliability: "🟢",
       reference: { ar: "كتب تاريخ المصحف — الشكل والإعجام", en: "Histories of the mushaf — vowelling and the dotting of letters" },
-      note: { ar: "التفريق بين الأمرين هو المشهور عند أهل هذا الفن: الشكل لأبي الأسود، والإعجام لنصر بن عاصم ويحيى بن يعمر. وكانت البطاقة تنسبهما إليه وحده فصُحّحت.", en: "Separating the two is the established account in this field: the vowel marks from Abu al-Aswad, the dotting of letters from Nasr ibn Asim and Yahya ibn Ya'mar. The card credited him with both and has been corrected." },
+      note: { ar: "التفريق مشهور عند أهل هذا الفن: أبو الأسود وضع نقط الإعراب الأولى (نقاط ملوّنة لا الشكل الحالي)، ونصر بن عاصم ويحيى بن يعمر أضافا نقط الإعجام، وجاء الخليل بن أحمد بعدهم بشكل الحركات الذي نستعمله اليوم.", en: "This account is established in the field: Abu al-Aswad's marks were coloured dots, not today's shapes; Nasr ibn Asim and Yahya ibn Ya'mar added the letter-dots; and Al-Khalil ibn Ahmad came after them with the vowel shapes we use today." },
     },
   },
   {
@@ -1007,14 +1007,14 @@ export const quranFacts: QuranFact[] = [
     icon: "BookCopy",
     title: { ar: "مصاحف عثمان", en: "The copies Uthman sent out" },
     body: {
-      ar: "نسخ الخليفة عثمان بن عفان رضي الله عنه المصاحف وأرسلها إلى المدن الإسلامية، حتى يقرأ المسلمون في كل مكان قراءة واحدة.",
-      en: "Caliph Uthman ibn Affan had copies made and sent to the Muslim cities, so that Muslims everywhere would read one and the same text.",
+      ar: "نسخ الخليفة عثمان بن عفان رضي الله عنه المصاحف وأرسلها إلى المدن الإسلامية، حتى يجتمع المسلمون في كل مكان على مصحف واحد.",
+      en: "Caliph Uthman ibn Affan had copies made and sent to the Muslim cities, so that Muslims everywhere would gather around one and the same written text.",
     },
     ayahs: [],
     source: {
       reliability: "🟢",
       reference: { ar: "صحيح البخاري (4987)", en: "Sahih al-Bukhari (4987)" },
-      note: { ar: "نسخ المصاحف في عهد عثمان وإرسالها إلى الأمصار ثابت في البخاري.", en: "The copying of the mushafs in Uthman's time and their dispatch to the regions is in al-Bukhari." },
+      note: { ar: "نسخ المصاحف في عهد عثمان وإرسالها إلى الأمصار ثابت في البخاري. الذي توحّد هو رسم المصحف، والقراءات العشر المتواترة لا تزال تُقرأ كلها داخل هذا الرسم.", en: "The copying of the mushafs in Uthman's time and their dispatch to the regions is in al-Bukhari. What was unified was the written text; the ten trusted recitations are all still read within it." },
     },
   },
   {
@@ -1471,16 +1471,16 @@ export const quranFacts: QuranFact[] = [
     icon: "AudioLines",
     title: { ar: "عشر قراءات متواترة", en: "Ten recitations, all trusted" },
     body: {
-      ar: "نزل القرآن بأوجه لغوية ميسّرة تُسمّى القراءات المتواترة، وهي عشر قراءات، ليسهل على قبائل العرب كلها أن تقرأه.",
-      en: "The Quran came in several easy ways of reading — the ten trusted recitations — so that every Arab tribe could recite it comfortably.",
+      ar: "نزل القرآن على سبعة أحرف تيسيرًا على قبائل العرب كلها أن تقرأه، ونقل العلماء لنا عشر قراءات متواترة نقرأ بها القرآن حتى اليوم.",
+      en: "The Quran came down in seven modes so every Arab tribe could recite it comfortably, and scholars have handed down ten trusted recitations we still read it by today.",
     },
     ayahs: [
       { text: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ", ref: "القمر: 17" },
     ],
     source: {
       reliability: "🟢",
-      reference: { ar: "النشر في القراءات العشر لابن الجزري", en: "An-Nashr fi al-Qira'at al-Ashr by Ibn al-Jazari" },
-      note: { ar: "تواتر القراءات العشر هو قول الجمهور، وابن الجزري حرّر ذلك في النشر.", en: "That the ten readings are mutawatir is the position of the majority, set out by Ibn al-Jazari in an-Nashr." },
+      reference: { ar: "صحيح البخاري (حديث الأحرف السبعة)، والنشر في القراءات العشر لابن الجزري", en: "Sahih al-Bukhari (the hadith of the seven ahruf), and An-Nashr fi al-Qira'at al-Ashr by Ibn al-Jazari" },
+      note: { ar: "الأحرف السبعة هي ما نزل به القرآن تيسيرًا، والقراءات العشر روايات عشرة أئمة نقلوها لنا بعد ذلك؛ تواترها هو قول الجمهور، وابن الجزري حرّر ذلك في النشر.", en: "The seven ahruf are what the Quran came down in for ease; the ten recitations are ten imams' later transmissions of it. That they are mutawatir is the position of the majority, set out by Ibn al-Jazari in an-Nashr." },
     },
   },
   {
@@ -1577,16 +1577,16 @@ export const quranFacts: QuranFact[] = [
     number: 87,
     slug: "four-caliphs-scribes",
     icon: "Users",
-    title: { ar: "الخلفاء الأربعة كانوا كُتّاباً للوحي", en: "All four caliphs wrote the revelation" },
+    title: { ar: "من كُتّاب الوحي", en: "Among those who wrote down the revelation" },
     body: {
-      ar: "أبو بكر وعمر وعثمان وعلي رضي الله عنهم كانوا جميعاً من كُتّاب الوحي، يكتبون القرآن بين يدي النبي ﷺ فور نزوله.",
-      en: "Abu Bakr, Umar, Uthman and Ali were all scribes of the revelation, writing the Quran down before the Prophet ﷺ as it came.",
+      ar: "ذكر أهل السيرة الخلفاء الأربعة أبا بكر وعمر وعثمان وعليًا رضي الله عنهم بين كُتّاب الوحي، ومن أشهر من كتب القرآن بين يدي النبي ﷺ فور نزوله زيد بن ثابت.",
+      en: "Historians of the Seerah list the four caliphs — Abu Bakr, Umar, Uthman and Ali — among the scribes of revelation, and among the best known who wrote the Quran down before the Prophet ﷺ as it came was Zayd ibn Thabit.",
     },
     ayahs: [],
     source: {
-      reliability: "🟢",
+      reliability: "🟡",
       reference: { ar: "الطبقات الكبرى لابن سعد، والإتقان للسيوطي — أسماء كُتّاب الوحي", en: "Ibn Sa'd's Tabaqat and as-Suyuti's al-Itqan — the lists of the scribes of revelation" },
-      note: { ar: "الخلفاء الأربعة مذكورون في قوائم كُتّاب الوحي عند أهل السير.", en: "The four caliphs appear in the lists of the scribes of revelation kept by the historians of the Seerah." },
+      note: { ar: "الخلفاء الأربعة مذكورون في قوائم كُتّاب الوحي عند أهل السير، لكن ثبوت ذلك لأبي بكر وعمر تحديدًا محل خلاف بين أهل هذا الفن، بخلاف زيد بن ثابت وأُبيّ بن كعب وعثمان وعلي.", en: "The four caliphs appear in the lists of the scribes of revelation kept by the historians of the Seerah, but specialists disagree on how firmly this is established for Abu Bakr and Umar specifically, unlike Zayd ibn Thabit, Ubayy ibn Ka'b, Uthman and Ali." },
     },
   },
   {
@@ -1739,8 +1739,8 @@ export const quranFacts: QuranFact[] = [
     icon: "Repeat",
     title: { ar: "سورة فيها سجدتان", en: "One surah with two prostrations" },
     body: {
-      ar: "سورة الحج تتفرّد بأن فيها سجدتين، واحدة في أولها وأخرى في آخرها، عند جمهور الشافعية والحنابلة.",
-      en: "Surah Al-Hajj stands alone in having two prostrations — one near its start and one near its end — in the view of most Shafi'i and Hanbali scholars.",
+      ar: "سورة الحج تتفرّد بأن فيها سجدتين، واحدة في أولها وأخرى في آخرها، عند الشافعية والحنابلة.",
+      en: "Surah Al-Hajj stands alone in having two prostrations — one near its start and one near its end — according to the Shafi'i and Hanbali schools.",
     },
     ayahs: [],
     source: {
@@ -1789,18 +1789,18 @@ export const quranFacts: QuranFact[] = [
     number: 99,
     slug: "longest-word",
     icon: "Maximize2",
-    title: { ar: "أطول كلمة في القرآن", en: "The longest word in the Quran" },
+    title: { ar: "من أطول كلمات القرآن", en: "One of the Quran's longest words" },
     body: {
-      ar: "أطول كلمة في القرآن ﴿فَأَسْقَيْنَاكُمُوهُ﴾ في سورة الحجر، وتتكوّن من أحد عشر حرفاً.",
-      en: "The longest word in the Quran is ﴿fa-asqaynakumuhu﴾ in Surah Al-Hijr — eleven letters in a single word.",
+      ar: "من أطول كلمات القرآن ﴿فَأَسْقَيْنَاكُمُوهُ﴾ في سورة الحجر، وتتكوّن من عشرة أحرف في رسم المصحف.",
+      en: "One of the longest words in the Quran is ﴿fa-asqaynakumuhu﴾ in Surah Al-Hijr — ten letters in the mushaf's script.",
     },
     ayahs: [
       { text: "فَأَنزَلْنَا مِنَ السَّمَاءِ مَاءً فَأَسْقَيْنَاكُمُوهُ", ref: "الحجر: 22" },
     ],
     source: {
       reliability: "🟢",
-      reference: { ar: "عدٌّ في النص العثماني — سورة الحجر: 22", en: "Counted in the Uthmani text — Surah Al-Hijr: 22" },
-      note: { ar: "أحد عشر حرفًا بالرسم الإملائي؛ وفي الرسم العثماني تُكتب بألف محذوفة فتصير عشرة، والعدّ هنا على الإملائي.", en: "Eleven letters in ordinary spelling; the Uthmani script drops one alif, making ten. The count here is the ordinary spelling." },
+      reference: { ar: "عدٌّ في النص العثماني الذي يعرضه هذا الموقع — سورة الحجر: 22", en: "Counted in the Uthmani text this site displays — Surah Al-Hijr: 22" },
+      note: { ar: "عشرة أحرف في الرسم العثماني؛ وبالإملاء العادي (بإثبات الألف) تصير أحد عشر. كلمة ﴿أَنُلْزِمُكُمُوهَا﴾ (هود: 28) بنفس عدد الأحرف، فهذه من أطول الكلمات لا الأطول وحدها.", en: "Ten letters in the Uthmani script; in ordinary spelling (with the alif written out) it becomes eleven. ﴿anulzimukumuha﴾ (Hud: 28) has the same letter count, so this is one of the longest words, not the single longest." },
     },
   },
   {
