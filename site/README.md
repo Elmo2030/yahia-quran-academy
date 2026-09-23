@@ -21,7 +21,7 @@ supabase/             schema for the optional account features
 data the app imports — the surah text split per surah, the recitation catalogue
 split per surah, and the SEO files (`sitemap.xml`, `robots.txt`, `llms.txt`)
 plus `client/src/lib/page-index.generated.ts`. After Vite, `prerender.mjs`
-writes the text of all 517 pages into their own HTML files.
+writes the text of all 434 pages into their own HTML files.
 
 Three scripts are **not** part of the build and are run by hand, because the
 Cloudflare builder has no image tooling and the output is committed:

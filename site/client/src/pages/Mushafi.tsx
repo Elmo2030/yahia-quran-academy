@@ -44,6 +44,7 @@ const copy = {
     unchangedNote: "يعرض الموقع صفحات المصحف كما هي دون تغيير في النص القرآني.",
     back: "رجوع",
     pageOf: (page: number, total: number) => `${page} / ${total}`,
+    pageAlt: (page: number) => `صفحة ${page} من المصحف`,
     prev: "الصفحة السابقة",
     next: "الصفحة التالية",
     more: "المزيد",
@@ -88,6 +89,7 @@ const copy = {
     unchangedNote: "This site shows mushaf pages exactly as printed, with no change to the Quranic text.",
     back: "Back",
     pageOf: (page: number, total: number) => `${page} / ${total}`,
+    pageAlt: (page: number) => `Mushaf page ${page}`,
     prev: "Previous page",
     next: "Next page",
     more: "More",
@@ -350,7 +352,7 @@ function MushafiReader({ page }: { page: number }) {
               className={`mushafi-reader__image mushafi-reader__image--${fitMode}`}
               style={{ transform: `scale(${zoom})` }}
               src={retryNonce ? `${imageUrl}?retry=${retryNonce}` : imageUrl}
-              alt=""
+              alt={t.pageAlt(page)}
               draggable={false}
               onLoad={() => setImageStatus("loaded")}
               onError={() => setImageStatus("error")}

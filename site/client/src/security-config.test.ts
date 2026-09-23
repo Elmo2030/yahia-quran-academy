@@ -20,6 +20,15 @@ describe("production security configuration", () => {
     expect(headers).toContain("Referrer-Policy: strict-origin-when-cross-origin");
   });
 
+  it("lets Cloudflare Web Analytics send its beacon, not just load its script", () => {
+    // The script comes from static.cloudflareinsights.com but posts to
+    // cloudflareinsights.com/cdn-cgi/rum — allowing only the first silently
+    // loads the script and drops every measurement.
+    const connect = /connect-src ([^;]+)/.exec(headers)?.[1].split(/\s+/) ?? [];
+    expect(headers).toContain("https://static.cloudflareinsights.com");
+    expect(connect).toContain("https://cloudflareinsights.com");
+  });
+
   it("uses a same-origin theme initializer instead of an inline script", () => {
     expect(shell).toContain('<script src="/theme-init.js"></script>');
     expect(shell).not.toMatch(/<script>\s*\/\/ Before first paint/);

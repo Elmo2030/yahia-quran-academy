@@ -1,5 +1,5 @@
 import { beforeEach, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { HIFZ_KEY, createProfile, emptyStore, loadStore, saveStore, selectProfile, recordLearningStep } from "@/lib/hifz-store";
@@ -62,8 +62,10 @@ it("starts only for a named child, completes on a correct answer, reloads and is
   let view = mount();
   await screen.findByRole("button", { name: "أبو بكر الصديق" });
   const record = (id: string) => loadStore().profiles.find(p => p.id === id)!.steps["companions:abu-bakr"];
+  // Opening the story records the step from an effect, which can land after
+  // the first button is on screen when the whole suite runs in parallel.
+  await waitFor(() => expect(record(a.profile.id)?.status).toBe("in_progress"));
   const startedAt = record(a.profile.id).startedAt;
-  expect(record(a.profile.id).status).toBe("in_progress");
   fireEvent.click(screen.getByRole("button", { name: "عمر بن الخطاب" }));
   expect(record(a.profile.id).status).toBe("in_progress");
   expect(screen.queryByRole("img", { name: /قيمة اكتشفتها/ })).toBeNull();
@@ -75,7 +77,7 @@ it("starts only for a named child, completes on a correct answer, reloads and is
   expect(await screen.findByRole("button", { name: "أبو بكر الصديق" })).toBeDisabled();
   act(() => { saveStore(selectProfile(loadStore(), b.profile.id)); window.dispatchEvent(new StorageEvent("storage", { key: HIFZ_KEY })); });
   expect(screen.getByRole("button", { name: "أبو بكر الصديق" })).toBeEnabled();
-  expect(record(b.profile.id).status).toBe("in_progress");
+  await waitFor(() => expect(record(b.profile.id)?.status).toBe("in_progress"));
   expect(record(a.profile.id).status).toBe("done");
   expect(screen.getByText(/صحيح البخاري، حديث 3654/)).toBeTruthy();
 });

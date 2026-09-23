@@ -4,7 +4,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(self), payment=(), usb=(), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; media-src 'self' blob: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; connect-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev https://rhcfcyvxgbltdzeezryw.supabase.co https://static.cloudflareinsights.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; media-src 'self' blob: https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev; connect-src 'self' https://pub-de9711cb714d4c6f94aaf5c819dda959.r2.dev https://rhcfcyvxgbltdzeezryw.supabase.co https://static.cloudflareinsights.com https://cloudflareinsights.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
   Link: </llms.txt>; rel="alternate"; type="text/markdown"
   Link: </sitemap.xml>; rel="sitemap"
 
