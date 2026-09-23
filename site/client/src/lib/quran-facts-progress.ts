@@ -91,7 +91,10 @@ function recordFactDiscoveryDate(slug: string, profileId?: string | null, now = 
 }
 
 export function resetFactDiscoveries(profileId?: string | null) {
-  try { storage()?.removeItem(factsDiscoveryKey(profileId)); } catch { /* private mode */ }
+  try {
+    storage()?.removeItem(factsDiscoveryKey(profileId));
+    if (profileId) storage()?.removeItem(factsDiscoveryDatesKey(profileId));
+  } catch { /* private mode */ }
 }
 
 export function firstIncompleteStage(facts: readonly FactLike[], discovered: readonly string[], perStage: number): number {

@@ -37,11 +37,16 @@ import {
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { forgetUnlock, isUnlocked, makeLock, pinMatches, pinProblem, rememberUnlock } from "@/lib/parent-lock";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
-import { readFactDiscoveryDates } from "@/lib/quran-facts-progress";
+import { readFactDiscoveries, readFactDiscoveryDates } from "@/lib/quran-facts-progress";
+import { factIndex } from "@/lib/page-index-lite.generated";
 import {
   deleteProfileRecordings, deleteRecording, getRecording, listAllRecordings, recordingsUse, storageEstimate,
   type RecordingSummary, type StorageUse,
 } from "@/lib/recordings";
+
+// The lite index, not the full "في رحاب القرآن" content module — this page
+// only ever needs the slugs to validate a discovery date against.
+const FACT_SLUGS = factIndex.map(f => f.slug);
 
 export const copy = {
   ar: {
@@ -105,7 +110,7 @@ export const copy = {
     recentRecital: (recital: string) => `سلّم تسميع ${recital}`,
     encourageTitle: "شجّعه على",
     encouragePractice: (recital: string) => `تسميع ${recital} يحتاج تدريبًا — شجّعه يحاول مرة أخرى`,
-    encourageReview: (n: number) => `${arabicCount(n, "آية واحدة مستحقة", "آيتان مستحقتان", "آيات مستحقة", "آية مستحقة")} المراجعة اليوم`,
+    encourageReview: (n: number) => arabicCount(n, "آية واحدة تحتاج مراجعة اليوم", "آيتان تحتاجان مراجعة اليوم", "آيات تحتاج مراجعة اليوم", "آية تحتاج مراجعة اليوم"),
     encourageContinue: (title: string) => `لم يكمل «${title}» بعد — شجّعه يرجع لها`,
     needsReviewTitle: "تحتاج مراجعتك",
     deedSaid: (name: string) => `${name} قال إنه عملها`,
@@ -520,7 +525,13 @@ export function ChildReport({ t, profile, store, commit }: {
   // stories and the Seerah without memorizing anything used to show "has not
   // started yet" here, which was simply false.
   const activity = useMemo(() => {
-    const facts = Object.entries(readFactDiscoveryDates(profile.id)).map(([slug, at]) => ({ slug, at }));
+    // Intersected with the current discovered list: a date left behind by a
+    // reset that predates this key, or any other drift between the two
+    // tables, must not surface as a discovery that never actually happened.
+    const discovered = new Set(readFactDiscoveries(FACT_SLUGS, profile.id));
+    const facts = Object.entries(readFactDiscoveryDates(profile.id))
+      .filter(([slug]) => discovered.has(slug))
+      .map(([slug, at]) => ({ slug, at }));
     return childActivity(profile, { now: Date.now(), facts });
   }, [profile]);
 
@@ -591,7 +602,13 @@ export function ChildReport({ t, profile, store, commit }: {
       {encourageLine && (
         <section className="hifz-report__encourage">
           <h3>{t.encourageTitle}</h3>
-          <Link href={encourageLine.href}>{encourageLine.text}</Link>
+          {/* useLearningStep/Stories.tsx record progress for the ACTIVE
+              profile on the device, not for whoever's card this is — a link
+              here on a child who is not currently active would silently
+              write to the wrong child's record the moment it is opened. */}
+          {profile.id === store.activeProfileId
+            ? <Link href={encourageLine.href}>{encourageLine.text}</Link>
+            : <span>{encourageLine.text}</span>}
         </section>
       )}
 
@@ -601,7 +618,10 @@ export function ChildReport({ t, profile, store, commit }: {
           <ul>
             {recentLines.map((line, i) => (
               <li key={i}>
-                <Link href={line.href}>{line.text}</Link>
+                {/* Text only, deliberately never a link — see the note on
+                    "شجّعه على" above; this list often shows a child who is
+                    not the active profile. */}
+                <span>{line.text}</span>
                 <small>{line.day}</small>
               </li>
             ))}
@@ -722,7 +742,12 @@ function NeedsYourReview({ t, profiles, store, commit }: {
                 ) : (
                   <p>
                     {t.deedFromStory}{" "}
-                    <Link href={`/stories/${item.chapter}/${item.slug}`} className="text-link">{t.deedOpenStory}</Link>
+                    {/* Same rule as the per-child card: opening the story
+                        would record progress for whichever profile is
+                        active on this device, not necessarily item.profile. */}
+                    {item.profile.id === store.activeProfileId
+                      ? <Link href={`/stories/${item.chapter}/${item.slug}`} className="text-link">{t.deedOpenStory}</Link>
+                      : <span className="text-link">{t.deedOpenStory}</span>}
                   </p>
                 )}
                 <small>{t.deedSaid(item.profile.name)}</small>

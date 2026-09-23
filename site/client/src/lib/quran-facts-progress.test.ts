@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
   FACTS_DISCOVERED_KEY, discoverFact, factCardState, factsDiscoveryKey, firstIncompleteStage,
-  readFactDiscoveries, readFactDiscoveryDates,
+  readFactDiscoveries, readFactDiscoveryDates, resetFactDiscoveries,
 } from "./quran-facts-progress";
 import { currentDiscovery } from "./quran-facts-journey";
 
@@ -73,5 +73,13 @@ describe("Quran facts journey progress", () => {
     discoverFact("one", slugs, "child-a");
     discoverFact("two", slugs, "child-a");
     expect(JSON.parse(localStorage.getItem(factsDiscoveryKey("child-a")) ?? "[]")).toEqual(["one", "two"]);
+  });
+
+  it("resets both the list and its dates together", () => {
+    discoverFact("one", slugs, "child-a");
+    expect(readFactDiscoveryDates("child-a")).toEqual({ one: expect.any(Number) });
+    resetFactDiscoveries("child-a");
+    expect(readFactDiscoveries(slugs, "child-a")).toEqual([]);
+    expect(readFactDiscoveryDates("child-a")).toEqual({});
   });
 });

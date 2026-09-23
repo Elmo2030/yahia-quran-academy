@@ -202,7 +202,10 @@ export function childActivity(profile: ChildProfile, input: { now: number; facts
     touch(record.startedAt);
     touch(record.doneAt);
     touch(record.awaitingAt);
-    touch(record.reviewedAt);
+    // reviewedAt is a PARENT's timestamp (confirmDeed/approveRecital/
+    // askForPractice) — it must never count toward the child's own activity,
+    // or a parent confirming something days later reads as the child having
+    // shown up that day.
 
     const parts = key.split(":");
     const kind = parts[0];

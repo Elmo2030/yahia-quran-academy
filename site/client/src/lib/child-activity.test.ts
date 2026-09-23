@@ -147,6 +147,18 @@ describe("childActivity", () => {
     expect(activity.recent.find(r => r.kind === "deed")).toMatchObject({ title: SAMPLE_DEED_STORY.title });
   });
 
+  it("does not count a parent's confirmation as the child's own activity", () => {
+    // The child submitted a recital 5 days ago; the parent only got to it
+    // today. lastActiveDay and activeDays must reflect the child's action,
+    // not the parent's — reviewedAt is a parent timestamp on this record.
+    let { store, id } = newChild();
+    store = submitRecital(store, id, 114, 1, 3, undefined, NOW - 5 * DAY);
+    store = askForPractice(store, id, 114, 1, 3, undefined, NOW);
+    const activity = childActivity(profileOf(store, id), { now: NOW });
+    expect(activity.lastActiveDay).toBe(dayNumber(NOW - 5 * DAY));
+    expect(activity.week.activeDays).toBe(1);
+  });
+
   it("counts a dated fact discovery in the week and gives it a recent item", () => {
     const { store, id } = newChild();
     const facts: FactDiscovery[] = [{ slug: "bismillah", at: NOW }];
