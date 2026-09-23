@@ -321,7 +321,12 @@ export default function HifzParent() {
 }
 
 function downloadBackup(store: HifzStore) {
-  const blob = new Blob([exportBackup(store)], { type: "application/json" });
+  const facts = Object.fromEntries(
+    namedProfiles(store)
+      .map(profile => [profile.id, { discovered: readFactDiscoveries(FACT_SLUGS, profile.id), at: readFactDiscoveryDates(profile.id) }] as const)
+      .filter(([, entry]) => entry.discovered.length > 0 || Object.keys(entry.at).length > 0),
+  );
+  const blob = new Blob([exportBackup(store, facts)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;

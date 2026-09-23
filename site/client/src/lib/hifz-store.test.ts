@@ -258,6 +258,36 @@ describe("backup", () => {
     expect(importBackup(exportBackup(emptyStore()))).toEqual({ ok: false, reason: "empty" });
     expect(importBackup(" ".repeat(MAX_BACKUP_BYTES + 1))).toEqual({ ok: false, reason: "too-large" });
   });
+
+  it("carries a child's «في رحاب القرآن» discoveries through export and import", () => {
+    const { store, profile } = withChild("Huda");
+    const facts = { [profile.id]: { discovered: ["bismillah", "seven-repeated"], at: { bismillah: 111, "seven-repeated": 222 } } };
+    const result = importBackup(exportBackup(store, facts));
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.facts).toEqual(facts);
+  });
+
+  it("reads an older backup with no facts field at all", () => {
+    const { store } = withChild("Zaid");
+    const result = importBackup(exportBackup(store));
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.facts).toEqual({});
+  });
+
+  it("drops facts that don't belong to a profile in this same backup, and values of the wrong shape", () => {
+    const { store, profile } = withChild("Sara");
+    const raw = JSON.parse(exportBackup(store));
+    raw.facts = {
+      [profile.id]: { discovered: ["bismillah", 42, null], at: { bismillah: 111, bad: -5, alsoBad: "not a number" } },
+      "no-such-profile": { discovered: ["x"], at: {} },
+    };
+    const result = importBackup(JSON.stringify(raw));
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.facts).toEqual({ [profile.id]: { discovered: ["bismillah"], at: { bismillah: 111 } } });
+  });
 });
 
 describe("what a child did with an ayah", () => {

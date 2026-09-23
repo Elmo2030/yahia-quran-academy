@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
   FACTS_DISCOVERED_KEY, discoverFact, factCardState, factsDiscoveryKey, firstIncompleteStage,
-  readFactDiscoveries, readFactDiscoveryDates, resetFactDiscoveries,
+  readFactDiscoveries, readFactDiscoveryDates, resetFactDiscoveries, restoreFactDiscoveries,
 } from "./quran-facts-progress";
 import { currentDiscovery } from "./quran-facts-journey";
 
@@ -81,5 +81,22 @@ describe("Quran facts journey progress", () => {
     resetFactDiscoveries("child-a");
     expect(readFactDiscoveries(slugs, "child-a")).toEqual([]);
     expect(readFactDiscoveryDates("child-a")).toEqual({});
+  });
+
+  it("restores a backup's discoveries onto an empty child", () => {
+    restoreFactDiscoveries("child-a", ["one", "two"], { one: 100, two: 200 });
+    expect(readFactDiscoveries(slugs, "child-a")).toEqual(["one", "two"]);
+    expect(readFactDiscoveryDates("child-a")).toEqual({ one: 100, two: 200 });
+  });
+
+  it("merges a restored backup with what the device already has, keeping the earlier date", () => {
+    discoverFact("one", slugs, "child-a"); // dated now, on this device
+    const deviceDate = readFactDiscoveryDates("child-a").one;
+
+    restoreFactDiscoveries("child-a", ["one", "three"], { one: 1, three: 300 });
+
+    expect(readFactDiscoveries(slugs, "child-a")).toEqual(["one", "three"]);
+    // The device's own date for "one" wins over the backup's.
+    expect(readFactDiscoveryDates("child-a")).toEqual({ one: deviceDate, three: 300 });
   });
 });

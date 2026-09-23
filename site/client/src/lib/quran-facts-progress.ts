@@ -90,6 +90,25 @@ function recordFactDiscoveryDate(slug: string, profileId?: string | null, now = 
   } catch { /* private mode */ }
 }
 
+/**
+ * Restores a child's discoveries from a backup, merging rather than
+ * overwriting: a device that already has some of these facts (e.g. the same
+ * backup imported twice, or a newer local state) must not lose them to an
+ * older file, and a slug's first-known date always wins over a later one.
+ */
+export function restoreFactDiscoveries(profileId: string, discovered: readonly string[], at: Record<string, number>) {
+  if (!profileId) return;
+  try {
+    const raw = storage()?.getItem(factsDiscoveryKey(profileId));
+    const existing: unknown = raw ? JSON.parse(raw) : [];
+    const existingList = Array.isArray(existing) ? existing.filter((value): value is string => typeof value === "string") : [];
+    storage()?.setItem(factsDiscoveryKey(profileId), JSON.stringify(Array.from(new Set([...existingList, ...discovered]))));
+
+    const existingDates = readFactDiscoveryDates(profileId);
+    storage()?.setItem(factsDiscoveryDatesKey(profileId), JSON.stringify({ ...at, ...existingDates }));
+  } catch { /* private mode */ }
+}
+
 export function resetFactDiscoveries(profileId?: string | null) {
   try {
     storage()?.removeItem(factsDiscoveryKey(profileId));

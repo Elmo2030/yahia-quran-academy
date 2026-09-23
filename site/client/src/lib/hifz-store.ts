@@ -906,20 +906,55 @@ export function unseenNote(profile: ChildProfile): { surah: number; from: number
 // Backup
 // ---------------------------------------------------------------------------
 
-export function exportBackup(store: HifzStore, now = Date.now()): string {
+/**
+ * "في رحاب القرآن" discoveries live outside the store (see
+ * quran-facts-progress.ts), so a backup of the store alone would silently
+ * drop them. This shape carries them alongside it — reading localStorage for
+ * it is the caller's job, so this file stays pure.
+ */
+export type BackupFacts = Record<string, { discovered: string[]; at: Record<string, number> }>;
+
+export function exportBackup(store: HifzStore, facts?: BackupFacts, now = Date.now()): string {
   // The parent's number belongs to the device it was set on, not to the file a
   // family mails to themselves; and restoring a backup must not be a way for a
   // child to lift the lock on this one.
   const { parentLock: _lock, lastBackupAt: _backedUp, ...children } = store;
-  return JSON.stringify({ app: BACKUP_APP, version: HIFZ_VERSION, exportedAt: new Date(now).toISOString(), store: children }, null, 2);
+  return JSON.stringify({
+    app: BACKUP_APP, version: HIFZ_VERSION, exportedAt: new Date(now).toISOString(), store: children,
+    ...(facts && Object.keys(facts).length > 0 ? { facts } : {}),
+  }, null, 2);
 }
 
 export type ImportResult =
-  | { ok: true; store: HifzStore; profiles: number }
+  | { ok: true; store: HifzStore; profiles: number; facts: BackupFacts }
   | { ok: false; reason: "unreadable" | "not-a-backup" | "newer-version" | "empty" | "too-large" };
 
 /** A real backup of eight children who memorized all of Juz Amma is well under 200 KB. */
 export const MAX_BACKUP_BYTES = 2_000_000;
+
+/**
+ * A backup file is untrusted input: a slug that isn't a string, a date that
+ * isn't a positive number, or a profile id that isn't in this same backup's
+ * store all get dropped rather than trusted.
+ */
+function parseBackupFacts(value: unknown, validIds: ReadonlySet<string>): BackupFacts {
+  if (!isObject(value)) return {};
+  const out: BackupFacts = {};
+  for (const [profileId, entry] of Object.entries(value)) {
+    if (!validIds.has(profileId) || !isObject(entry)) continue;
+    const discovered = Array.isArray(entry.discovered)
+      ? Array.from(new Set(entry.discovered.filter((slug): slug is string => typeof slug === "string")))
+      : [];
+    const at: Record<string, number> = {};
+    if (isObject(entry.at)) {
+      for (const [slug, when] of Object.entries(entry.at)) {
+        if (typeof when === "number" && Number.isFinite(when) && when > 0) at[slug] = when;
+      }
+    }
+    if (discovered.length > 0 || Object.keys(at).length > 0) out[profileId] = { discovered, at };
+  }
+  return out;
+}
 
 export function importBackup(text: string, current?: HifzStore): ImportResult {
   if (text.length > MAX_BACKUP_BYTES) return { ok: false, reason: "too-large" };
@@ -936,10 +971,12 @@ export function importBackup(text: string, current?: HifzStore): ImportResult {
   // A restored backup opens on the child picker, not inside someone's journey,
   // and leaves this device's parent lock exactly as it was.
   const lock = current?.parentLock;
+  const validIds = new Set(store.profiles.map(p => p.id));
   return {
     ok: true,
     store: { ...store, ...(lock ? { parentLock: lock } : {}), activeProfileId: null, updatedAt: Date.now() },
     profiles: namedProfiles(store).length,
+    facts: parseBackupFacts(payload.facts, validIds),
   };
 }
 

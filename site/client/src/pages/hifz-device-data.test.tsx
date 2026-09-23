@@ -12,8 +12,8 @@ vi.mock("@/lib/recordings", () => ({
 
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { copy, DeviceData } from "./Hifz";
-import { createProfile, emptyStore } from "@/lib/hifz-store";
-import { discoverFact } from "@/lib/quran-facts-progress";
+import { createProfile, emptyStore, exportBackup } from "@/lib/hifz-store";
+import { discoverFact, readFactDiscoveries, readFactDiscoveryDates } from "@/lib/quran-facts-progress";
 
 describe("DeviceData — removing a child", () => {
   beforeEach(() => localStorage.clear());
@@ -38,5 +38,32 @@ describe("DeviceData — removing a child", () => {
 
     expect(localStorage.getItem(`yahya.facts.discovered.v1:${profile.id}`)).toBeNull();
     expect(localStorage.getItem(`yahya.facts.discovered-at.v1:${profile.id}`)).toBeNull();
+  });
+});
+
+describe("DeviceData — restoring a backup", () => {
+  beforeEach(() => localStorage.clear());
+
+  it("writes a backup's facts to storage once the restore is confirmed", async () => {
+    const created = createProfile(emptyStore(), { name: "Lina", character: "fatima" });
+    if (!created.ok) throw new Error(created.reason);
+    const profile = created.store.profiles[0];
+    const backupText = exportBackup(created.store, { [profile.id]: { discovered: ["bismillah"], at: { bismillah: 555 } } });
+    const file = new File([backupText], "backup.json", { type: "application/json" });
+    // jsdom's File has no working text() — the app only needs the content.
+    Object.defineProperty(file, "text", { value: async () => backupText });
+
+    render(
+      <LocaleProvider>
+        <DeviceData t={copy.ar} store={emptyStore()} commit={() => true} />
+      </LocaleProvider>,
+    );
+
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    await fireEvent.change(input, { target: { files: [file] } });
+    fireEvent.click(await screen.findByText("استبدل واسترجع"));
+
+    expect(readFactDiscoveries(["bismillah"], profile.id)).toEqual(["bismillah"]);
+    expect(readFactDiscoveryDates(profile.id)).toEqual({ bismillah: 555 });
   });
 });

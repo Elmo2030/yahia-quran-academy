@@ -30,13 +30,16 @@ import { nextRank, rankFor, totalStars } from "@/lib/hifz-stars";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { deleteProfileRecordings } from "@/lib/recordings";
-import { resetFactDiscoveries } from "@/lib/quran-facts-progress";
+import { readFactDiscoveries, readFactDiscoveryDates, resetFactDiscoveries, restoreFactDiscoveries } from "@/lib/quran-facts-progress";
+import { factIndex } from "@/lib/page-index-lite.generated";
 import {
   MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup, markBackedUp,
   checkPersistence, importBackup, markNoteSeen, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, unseenNote, updateProfile, updateSettings,
   type CharacterId, type ChildProfile, type FontStep, type HifzStore, type ImportResult, type Persistence,
   type ReciterChoice,
 } from "@/lib/hifz-store";
+
+const FACT_SLUGS = factIndex.map(f => f.slug);
 
 export const copy = {
   ar: {
@@ -723,7 +726,12 @@ export function DeviceData({ t, store, commit, profile }: {
 
   const download = () => {
     commit(markBackedUp(store));
-    const blob = new Blob([exportBackup(store)], { type: "application/json" });
+    const facts = Object.fromEntries(
+      namedProfiles(store)
+        .map(profile => [profile.id, { discovered: readFactDiscoveries(FACT_SLUGS, profile.id), at: readFactDiscoveryDates(profile.id) }] as const)
+        .filter(([, entry]) => entry.discovered.length > 0 || Object.keys(entry.at).length > 0),
+    );
+    const blob = new Blob([exportBackup(store, facts)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -773,7 +781,16 @@ export function DeviceData({ t, store, commit, profile }: {
         <div className="hifz-confirm" role="alert">
           <p>{t.importReady(pending.profiles)}</p>
           <div className="hifz-actions">
-            <button type="button" className="button button--primary" onClick={() => { commit(pending.store); setPending(null); setMessage({ kind: "ok", text: t.imported }); }}>
+            <button
+              type="button" className="button button--primary"
+              onClick={() => {
+                if (commit(pending.store)) {
+                  for (const [profileId, entry] of Object.entries(pending.facts)) restoreFactDiscoveries(profileId, entry.discovered, entry.at);
+                }
+                setPending(null);
+                setMessage({ kind: "ok", text: t.imported });
+              }}
+            >
               {t.importConfirm}
             </button>
             <button type="button" className="button button--soft" onClick={() => setPending(null)}>{t.cancel}</button>
