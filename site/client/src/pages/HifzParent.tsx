@@ -110,7 +110,6 @@ export const copy = {
     recentRecital: (recital: string) => `سلّم تسميع ${recital}`,
     encourageTitle: "شجّعه على",
     encouragePractice: (recital: string) => `تسميع ${recital} يحتاج تدريبًا — شجّعه يحاول مرة أخرى`,
-    encourageReview: (n: number) => arabicCount(n, "آية واحدة تحتاج مراجعة اليوم", "آيتان تحتاجان مراجعة اليوم", "آيات تحتاج مراجعة اليوم", "آية تحتاج مراجعة اليوم"),
     encourageContinue: (title: string) => `لم يكمل «${title}» بعد — شجّعه يرجع لها`,
     needsReviewTitle: "تحتاج مراجعتك",
     deedSaid: (name: string) => `${name} قال إنه عملها`,
@@ -208,7 +207,6 @@ export const copy = {
     recentRecital: (recital: string) => `Submitted a recitation of ${recital}`,
     encourageTitle: "Encourage next",
     encouragePractice: (recital: string) => `${recital} needs practice — encourage another try`,
-    encourageReview: (n: number) => `${n === 1 ? "One ayah is" : `${n} ayahs are`} due for review today`,
     encourageContinue: (title: string) => `Hasn't finished "${title}" yet — encourage them to go back`,
     needsReviewTitle: "Needs your review",
     deedSaid: (name: string) => `${name} said they did it`,
@@ -290,6 +288,9 @@ export default function HifzParent() {
               <EnterPin t={t} store={store} commit={commit} onUnlocked={() => { rememberUnlock(); setUnlocked(true); }} />
             ) : (
               <>
+                {/* The parent's most urgent action, so it comes before the
+                    per-child cards rather than below them — see مهمة تنفيذ ٥. */}
+                <NeedsYourReview t={t} profiles={namedProfiles(store)} store={store} commit={commit} />
                 {namedProfiles(store).length === 0 && (
                   <article className="hifz-card">
                     <p>{t.noChildren}</p>
@@ -299,7 +300,6 @@ export default function HifzParent() {
                 {namedProfiles(store).map(profile => (
                   <ChildReport key={profile.id} t={t} profile={profile} store={store} commit={commit} />
                 ))}
-                <NeedsYourReview t={t} profiles={namedProfiles(store)} store={store} commit={commit} />
                 <BackupCard t={t} store={store} commit={commit} />
                 <StorageCard t={t} store={store} />
                 <article className="hifz-card hifz-parent-foot">
@@ -559,7 +559,6 @@ export function ChildReport({ t, profile, store, commit }: {
     const hint = activity.encourage;
     if (!hint) return null;
     if (hint.kind === "practice_recital") return { href: hint.href, text: t.encouragePractice(t.recitalOf(nameOf(hint.surah), hint.from, hint.to)) };
-    if (hint.kind === "review_due") return { href: hint.href, text: t.encourageReview(hint.count) };
     return { href: hint.href, text: t.encourageContinue(locale === "en" && hint.titleEn ? hint.titleEn : hint.title) };
   })();
 

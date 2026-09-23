@@ -15,7 +15,7 @@
 // place tested with fixed content, not re-checked at every call site.
 // =============================================================================
 
-import { dayNumber, todayPlan } from "@/lib/hifz-review";
+import { dayNumber } from "@/lib/hifz-review";
 import {
   inProgressLearningSteps, inProgressStories, practiceRecitals,
   type ChildProfile,
@@ -39,7 +39,6 @@ export type RecentItem =
 
 export type EncourageHint =
   | { kind: "practice_recital"; href: string; surah: number; from: number; to: number }
-  | { kind: "review_due"; href: string; count: number }
   | { kind: "continue"; href: string; title: string; titleEn: string | null }
   | null;
 
@@ -112,8 +111,9 @@ function buildEncourage(profile: ChildProfile, now: number): EncourageHint {
     return { kind: "practice_recital", href: `/hifz/${surah}/recite`, surah, from, to };
   }
 
-  const due = todayPlan(profile, now).due;
-  if (due > 0) return { kind: "review_due", href: "/hifz", count: due };
+  // A review-due count would only repeat what the card's own week counts
+  // already say (ayahReviews / the "آية مستحقة" line above), so it is not
+  // an encourage case — see TODO.md and مهمة تنفيذ ٥.
 
   // Whatever the child most recently started and has not finished, across
   // every domain — a story, a seerah station, a creed card, a companion.

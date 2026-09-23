@@ -122,20 +122,30 @@ describe("childActivity", () => {
     expect(activity.week.storiesDone).toBe(2);
   });
 
-  it("orders encourage by practice first, then review, then the most recently started thing", () => {
+  it("orders encourage by practice first, then the most recently started thing", () => {
     let { store, id } = newChild();
     store = startStory(store, id, "nations", "ashab-al-kahf", NOW);
     let activity = childActivity(profileOf(store, id), { now: NOW });
     expect(activity.encourage).toMatchObject({ kind: "continue", title: "قصة أصحاب الكهف" });
 
+    // A review due today would just repeat the week's own "آية مستحقة" count,
+    // so it must not produce an encourage case of its own — the unfinished
+    // story is still what gets encouraged.
     store = declareMemorized(store, id, 114, 1, "child", NOW - 2 * DAY);
     activity = childActivity(profileOf(store, id), { now: NOW });
-    expect(activity.encourage).toMatchObject({ kind: "review_due" });
+    expect(activity.encourage).toMatchObject({ kind: "continue", title: "قصة أصحاب الكهف" });
 
     store = submitRecital(store, id, 114, 1, 3, undefined, NOW);
     store = askForPractice(store, id, 114, 1, 3, undefined, NOW);
     activity = childActivity(profileOf(store, id), { now: NOW });
     expect(activity.encourage).toMatchObject({ kind: "practice_recital", surah: 114, from: 1, to: 3 });
+  });
+
+  it("gives no encourage case when the only thing due is a review", () => {
+    let { store, id } = newChild();
+    store = declareMemorized(store, id, 114, 1, "child", NOW - 2 * DAY);
+    const activity = childActivity(profileOf(store, id), { now: NOW });
+    expect(activity.encourage).toBeNull();
   });
 
   it("counts a deed the child registered and a deed the parent confirmed separately", () => {

@@ -13,10 +13,9 @@ vi.mock("@/lib/recordings", () => ({
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { ChildReport, copy } from "./HifzParent";
 import {
-  createProfile, declareMemorized, emptyStore, markStoryDone, startStory,
+  askForPractice, createProfile, emptyStore, markStoryDone, startStory, submitRecital,
 } from "@/lib/hifz-store";
 
-const DAY = 86_400_000;
 const NOW = Date.now();
 
 function twoChildren() {
@@ -32,8 +31,11 @@ function twoChildren() {
   store = startStory(store, a.profile.id, "nations", "ashab-al-kahf", NOW);
   store = markStoryDone(store, a.profile.id, "nations", "ashab-al-kahf", NOW);
 
-  // Yousef has an ayah due for review and nothing else.
-  store = declareMemorized(store, b.profile.id, 114, 1, "child", NOW - 2 * DAY);
+  // Yousef submitted a recital that needs more practice, and nothing else —
+  // a review due on its own is deliberately not an encourage case (it would
+  // just repeat the week's own "آية مستحقة" count).
+  store = submitRecital(store, b.profile.id, 114, 1, 3, undefined, NOW);
+  store = askForPractice(store, b.profile.id, 114, 1, 3, undefined, NOW);
 
   return { store, aminaId: a.profile.id, yousefId: b.profile.id };
 }
@@ -65,9 +67,10 @@ describe("ChildReport", () => {
     // Nothing due, nothing in progress: no encouragement line for her.
     expect(within(aminaCard).queryByText("شجّعه على")).toBeNull();
 
-    // Yousef's card shows the due review as his encouragement, and none of Amina's story.
+    // Yousef's card shows his recital needing practice as his encouragement,
+    // and none of Amina's story.
     expect(within(yousefCard).getByText("شجّعه على")).toBeTruthy();
-    expect(within(yousefCard).getByText("آية واحدة تحتاج مراجعة اليوم")).toBeTruthy();
+    expect(within(yousefCard).getByText(/يحتاج تدريبًا/)).toBeTruthy();
     expect(within(yousefCard).queryByText(/أصحاب الكهف/)).toBeNull();
   });
 
@@ -99,12 +102,13 @@ describe("ChildReport", () => {
     // Recent is never a link even for the active profile...
     expect(yousefCard.querySelector(".hifz-report__recent a")).toBeNull();
     // ...but encouragement is, because Yousef is the active profile.
-    expect(yousefCard.querySelector(".hifz-report__encourage a")).not.toBeNull();
-    expect(within(yousefCard).getByRole("link", { name: "آية واحدة تحتاج مراجعة اليوم" })).toHaveAttribute("href", "/hifz");
+    const yousefLink = yousefCard.querySelector(".hifz-report__encourage a");
+    expect(yousefLink).not.toBeNull();
+    expect(yousefLink).toHaveAttribute("href", "/hifz/114/recite");
 
-    // Flip which profile is active: Yousef still has the exact same review
+    // Flip which profile is active: Yousef still has the exact same practice
     // due, so this proves the condition actually gates on activeProfileId
-    // rather than always matching whichever card happens to have a review.
+    // rather than always matching whichever card happens to have one.
     const flipped = { ...store, activeProfileId: aminaId };
     const aminaFlipped = flipped.profiles.find(p => p.id === aminaId)!;
     const yousefFlipped = flipped.profiles.find(p => p.id === yousefId)!;
@@ -119,9 +123,9 @@ describe("ChildReport", () => {
     aminaCard = screen.getByTestId("amina");
     yousefCard = screen.getByTestId("yousef");
 
-    // Yousef is no longer active: his review-due encouragement still shows
-    // as text, but it must not be a link.
-    expect(within(yousefCard).getByText("آية واحدة تحتاج مراجعة اليوم")).toBeTruthy();
+    // Yousef is no longer active: his encouragement still shows as text,
+    // but it must not be a link.
+    expect(within(yousefCard).getByText(/يحتاج تدريبًا/)).toBeTruthy();
     expect(yousefCard.querySelector(".hifz-report__encourage a")).toBeNull();
     expect(aminaCard.querySelector(".hifz-report__recent a")).toBeNull();
   });
