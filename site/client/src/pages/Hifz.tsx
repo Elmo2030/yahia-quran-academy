@@ -30,6 +30,7 @@ import { nextRank, rankFor, totalStars } from "@/lib/hifz-stars";
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { deleteProfileRecordings } from "@/lib/recordings";
+import { resetFactDiscoveries } from "@/lib/quran-facts-progress";
 import {
   MAX_BACKUP_BYTES, MAX_NAME_LENGTH, MAX_PROFILES, activeProfile, backupFileName, createProfile, enterAsGuest, exportBackup, markBackedUp,
   checkPersistence, importBackup, markNoteSeen, namedProfiles, removeProfile, requestPersistence, selectProfile, surahProgress, unseenNote, updateProfile, updateSettings,
@@ -37,7 +38,7 @@ import {
   type ReciterChoice,
 } from "@/lib/hifz-store";
 
-const copy = {
+export const copy = {
   ar: {
     eyebrow: "رحلة الحفظ",
     pickTitle: "من سيحفظ اليوم؟",
@@ -216,7 +217,7 @@ const copy = {
   },
 } as const;
 
-type Copy = (typeof copy)["ar"] | (typeof copy)["en"];
+export type Copy = (typeof copy)["ar"] | (typeof copy)["en"];
 
 export default function Hifz() {
   const { direction, locale } = useLocale();
@@ -702,7 +703,7 @@ function SettingsPanel({ t, profile, onChange }: {
 
 // ---------------------------------------------------------------------------
 
-function DeviceData({ t, store, commit, profile }: {
+export function DeviceData({ t, store, commit, profile }: {
   t: Copy; store: HifzStore; commit: (s: HifzStore) => boolean; profile?: ChildProfile;
 }) {
   const id = useId();
@@ -795,9 +796,11 @@ function DeviceData({ t, store, commit, profile }: {
                   type="button"
                   className="button hifz-button-danger"
                   onClick={() => {
-                    // The child's recordings go with their profile: leaving the
-                    // audio behind is neither tidy nor what "delete" means.
+                    // The child's recordings and "في رحاب القرآن" discoveries
+                    // go with their profile: leaving them behind is neither
+                    // tidy nor what "delete" means.
                     void deleteProfileRecordings(profile.id).catch(() => {});
+                    resetFactDiscoveries(profile.id);
                     commit(removeProfile(store, profile.id));
                   }}
                 >{t.removeConfirm}</button>
