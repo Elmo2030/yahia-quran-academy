@@ -14,7 +14,7 @@ import { useAuth } from "@/hooks/useAuth";
 // the content module put all seventy stories — both languages, both age tiers —
 // into the entry chunk every visitor downloads, 93 KB gzipped for seven
 // excerpts. The generated index carries the title and the opening line only.
-import { factIndex, seerahStationIndex, seerahStoryIndex } from "@/lib/page-index.generated";
+import { factIndex, seerahStationIndex, seerahStationLeads, seerahStoryIndex } from "@/lib/page-index-lite.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
 import { currentDiscovery, FACTS_PER_STAGE } from "@/lib/quran-facts-journey";
 import { useHifzStore } from "@/hooks/useHifzStore";
@@ -108,7 +108,7 @@ export default function Home() {
 
       <section className="trust-strip" id="about"><div className="container trust-strip__inner"><div><BookOpen size={21} /><span><b>{t.textProof}</b> {t.unchanged}</span></div><div><Headphones size={21} /><span><b>{t.surahs}</b> {t.listening}</span></div><div><Heart size={21} /><span><b>{t.selfReview}</b> {t.noAutoJudgement}</span></div></div></section>
 
-      <section className="section section--seerah" id="seerah" aria-labelledby="seerah-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold"><Moon size={14} aria-hidden="true" /> {t.seerahEyebrow}</span><h2 id="seerah-title">{t.seerahTitle}</h2><p>{t.seerahIntro}</p></div><ul className="story-list-grid">{seerahStationIndex.map(station => { const story = seerahStoryIndex.find(entry => entry.stationId === station.stationId); if (!story) return null; const title = locale === "en" ? story.titleEn ?? story.title : story.title; const opening = locale === "en" ? story.descriptionEn ?? story.description : story.description; return <li key={story.slug}><Link href={`/seerah/${story.slug}`} className="story-list-card"><div className="story-list-card__body"><span>{t.station} {station.stationId} — {locale === "en" ? station.titleEn ?? station.titleAr : station.titleAr}</span><h3>{title}</h3><p>{opening}</p></div></Link></li>; })}</ul><Link href="/seerah" className="text-link text-link--center">{t.seerahAll} <Arrow size={18} /></Link></div></section>
+      <section className="section section--seerah" id="seerah" aria-labelledby="seerah-title"><div className="container"><div className="section-heading"><span className="eyebrow eyebrow--gold"><Moon size={14} aria-hidden="true" /> {t.seerahEyebrow}</span><h2 id="seerah-title">{t.seerahTitle}</h2><p>{t.seerahIntro}</p></div><ul className="story-list-grid">{seerahStationIndex.map(station => { const story = seerahStoryIndex.find(entry => entry.stationId === station.stationId); if (!story) return null; const title = locale === "en" ? story.titleEn ?? story.title : story.title; const lead = seerahStationLeads.find(entry => entry.slug === story.slug); const opening = lead ? (locale === "en" ? lead.descriptionEn ?? lead.description : lead.description) : ""; return <li key={story.slug}><Link href={`/seerah/${story.slug}`} className="story-list-card"><div className="story-list-card__body"><span>{t.station} {station.stationId} — {locale === "en" ? station.titleEn ?? station.titleAr : station.titleAr}</span><h3>{title}</h3><p>{opening}</p></div></Link></li>; })}</ul><Link href="/seerah" className="text-link text-link--center">{t.seerahAll} <Arrow size={18} /></Link></div></section>
 
       {/* The entry follows local discovery progress and gives the child one
           clear next card without redesigning the home page. */}

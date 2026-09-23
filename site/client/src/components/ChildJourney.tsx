@@ -7,7 +7,7 @@ import { activeProfile, inProgressStories, inProgressLearningSteps, surahProgres
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { nextStep, readLocalProgress } from "@/lib/progress";
-import { factIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index.generated";
+import { factIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index-lite.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
 import { currentDiscovery } from "@/lib/quran-facts-journey";
 import { nextCompanion } from "@/lib/companions-progress";

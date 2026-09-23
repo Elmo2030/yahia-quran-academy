@@ -22,28 +22,41 @@ describe("the home page stays out of the content modules", () => {
   });
 
   it("reads the station cards from the generated index instead", () => {
-    expect(source).toContain("@/lib/page-index.generated");
+    expect(source).toContain("@/lib/page-index-lite.generated");
   });
 });
 
 /**
- * The generated index is the entry chunk's other passenger.
+ * The entry chunk carries names, not text.
  *
- * page-meta.ts needs it to name every route, and PageMeta renders at the root,
- * so whatever the index carries lands in the file every first-time visitor
- * downloads — including someone who only opens the reader. Adding a page per
- * Quran fact put a hundred more titles and bodies in it, about 15 KB gzipped,
- * which was a deliberate trade for a hundred findable pages.
+ * page-meta.ts needs the full generated index — every title, description and
+ * passage, 168 KB — to name every route, and PageMeta renders at the root, so
+ * it all used to land in the file every first-time visitor waits on, only to
+ * repeat what the Cloudflare function had already written into the HTML.
+ * Now PageMeta loads its tags lazily, and the eager readers (Home and the
+ * child's journey card) use the lite index: slugs, titles and pictures.
  *
- * This is the budget for that trade. If a future section pushes past it, the
- * fix is not a bigger number: it is to stop resolving per-item metadata at the
- * root and let each lazily-loaded page carry its own.
+ * If an eager file needs a description, add that one field to the lite index
+ * — do not point it back at the full one.
  */
-describe("the generated index stays affordable", () => {
-  it("fits the entry chunk's budget", async () => {
+const read = (path: string) => readFileSync(join(process.cwd(), path), "utf8");
+const staticImports = (path: string) => [...read(path).matchAll(/^import[^;]*?from\s+"([^"]+)"/gm)].map(match => match[1]);
+
+describe("the entry chunk stays light", () => {
+  it("keeps the eager files off the full index and off page-meta", () => {
+    for (const path of ["client/src/pages/Home.tsx", "client/src/components/ChildJourney.tsx", "client/src/components/PageMeta.tsx", "client/src/App.tsx"]) {
+      const imports = staticImports(path);
+      expect(imports.filter(spec => /page-index\.generated|lib\/page-meta|PageMetaTags/.test(spec)), path).toEqual([]);
+    }
+  });
+
+  it("loads the route tags lazily", () => {
+    expect(read("client/src/components/PageMeta.tsx")).toMatch(/import\("\.\/PageMetaTags"\)/);
+  });
+
+  it("keeps the lite index small", async () => {
     const { gzipSync } = await import("node:zlib");
-    const bytes = readFileSync(join(process.cwd(), "client/src/lib/page-index.generated.ts"));
-    const gzipped = gzipSync(bytes).length;
-    expect(gzipped, `page-index.generated.ts is ${(gzipped / 1024).toFixed(1)} KB gzipped`).toBeLessThan(60 * 1024);
+    const gzipped = gzipSync(readFileSync(join(process.cwd(), "client/src/lib/page-index-lite.generated.ts"))).length;
+    expect(gzipped, `page-index-lite.generated.ts is ${(gzipped / 1024).toFixed(1)} KB gzipped`).toBeLessThan(20 * 1024);
   });
 });
