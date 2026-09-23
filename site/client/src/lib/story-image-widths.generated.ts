@@ -14,8 +14,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/animals/cow-of-israel.jpg": [
   384,
@@ -336,8 +335,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/nations/dhul-qarnayn.jpg": [
   384,
@@ -388,8 +386,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/prophets/dawud.jpg": [
   384,
@@ -518,8 +515,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/breaking-idols-building-hearts.jpg": [
   384,
@@ -537,8 +533,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/cave-thawr-preparation.jpg": [
   384,
@@ -586,8 +581,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/dar-al-arqam.jpg": [
   384,
@@ -617,8 +611,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/dhimad-and-kab-poetry.jpg": [
   384,
@@ -691,8 +684,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/hero-in-the-bed.jpg": [
   384,
@@ -710,8 +702,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/honest-merchant-market-ethics.jpg": [
   384,
@@ -747,8 +738,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/kindness-to-animals-nature.jpg": [
   384,
@@ -786,8 +776,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/madinah-capital-of-light.jpg": [
   384,
@@ -963,15 +952,13 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/station-5.jpg": [
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/steadfast-leader-hunayn.jpg": [
   384,
@@ -1026,8 +1013,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/the-first-heaven-adam.jpg": [
   384,
@@ -1045,8 +1031,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/third-heaven-yusuf.jpg": [
   384,
@@ -1083,8 +1068,7 @@ export const storyImageWidths: Record<string, number[]> = {
   384,
   640,
   960,
-  1280,
-  1600
+  1280
  ],
  "/stories/seerah/usama-young-army-commander.jpg": [
   384,
