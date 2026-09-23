@@ -25,6 +25,7 @@ import { BadgeAward } from "@/components/BadgeAward";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useHifzStore } from "@/hooks/useHifzStore";
 import { characterArt } from "@/lib/hifz-characters";
+import { childActivity } from "@/lib/child-activity";
 import { dayNumber, recentlyForgotten, streakDays, todayPlan, type ForgottenAyah } from "@/lib/hifz-review";
 import { rankFor, starsFor, totalStars } from "@/lib/hifz-stars";
 import {
@@ -36,12 +37,13 @@ import {
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { forgetUnlock, isUnlocked, makeLock, pinMatches, pinProblem, rememberUnlock } from "@/lib/parent-lock";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
+import { readFactDiscoveryDates } from "@/lib/quran-facts-progress";
 import {
   deleteProfileRecordings, deleteRecording, getRecording, listAllRecordings, recordingsUse, storageEstimate,
   type RecordingSummary, type StorageUse,
 } from "@/lib/recordings";
 
-const copy = {
+export const copy = {
   ar: {
     title: "ركن وليّ الأمر",
     back: "رحلة الحفظ",
@@ -78,6 +80,33 @@ const copy = {
       return parent === 0 ? `${ayahs} — بلا شهادتك بعد` : parent === all ? `${ayahs} بشهادتك` : `${ayahs} — ${parent} بشهادتك`;
     },
     confirmed: "كل ما أُعلن بشهادتك",
+    weekTitle: "هذا الأسبوع",
+    noWeekActivity: "لا نشاط هذا الأسبوع",
+    weekStories: (n: number) => `خلّص ${arabicCount(n, "قصة واحدة", "قصتين", "قصص", "قصة")}`,
+    weekSeerah: (n: number) => `قرأ ${arabicCount(n, "قصة واحدة من السيرة", "قصتين من السيرة", "من السيرة", "من السيرة")}`,
+    weekAqeedah: (n: number) => `قرأ ${arabicCount(n, "بطاقة واحدة من العقيدة", "بطاقتين من العقيدة", "من العقيدة", "من العقيدة")}`,
+    weekCompanions: (n: number) => (n === 1 ? "قرأ عن صحابي واحد" : n === 2 ? "قرأ عن صحابيّين" : `قرأ عن ${n.toLocaleString("ar-EG")} من الصحابة`),
+    weekFacts: (n: number) => `اكتشف ${arabicCount(n, "اكتشافًا واحدًا", "اكتشافين", "اكتشافات", "اكتشافًا")}`,
+    weekAyahsDeclared: (n: number) => `أعلن حفظ ${arabicCount(n, "آية واحدة", "آيتين", "آيات", "آية")}`,
+    weekAyahReviews: (n: number) => `راجع آيات ${arabicCount(n, "مرة واحدة", "مرتين", "مرات", "مرة")}`,
+    weekDeedsRegistered: (n: number) => `سجّل ${arabicCount(n, "فعلًا واحدًا", "فعلين", "أفعال", "فعلًا")} من «جرّب اليوم»`,
+    weekDeedsConfirmed: (n: number) => `أكّدت ${arabicCount(n, "فعلًا واحدًا", "فعلين", "أفعال", "فعلًا")} له`,
+    weekRecitals: (n: number) => `سلّم ${arabicCount(n, "تسميعًا واحدًا", "تسميعين", "تسميعات", "تسميعًا")}`,
+    recentTitle: (n: number) => `آخر ما فعله (${n.toLocaleString("ar-EG")})`,
+    dayLabel: (days: number) => (days === 0 ? "اليوم" : days === 1 ? "أمس" : `قبل ${arabicCount(days, "يوم", "يومين", "أيام", "يومًا")}`),
+    recentStory: (title: string) => `خلّص قصة «${title}»`,
+    recentSeerah: (title: string) => `قرأ من السيرة: ${title}`,
+    recentAqeedah: (title: string) => `قرأ من العقيدة: ${title}`,
+    recentCompanions: (title: string) => `قرأ عن ${title}`,
+    recentFact: (title: string) => `اكتشف: ${title}`,
+    recentDeed: (title: string) => `سجّل فعل «${title}»`,
+    recentAyahDeclared: (surah: string, count: number) => `أعلن حفظ ${arabicCount(count, "آية واحدة", "آيتين", "آيات", "آية")} من سورة ${surah}`,
+    recentAyahReviewed: (count: number) => `راجع ${arabicCount(count, "آية واحدة", "آيتين", "آيات", "آية")}`,
+    recentRecital: (recital: string) => `سلّم تسميع ${recital}`,
+    encourageTitle: "شجّعه على",
+    encouragePractice: (recital: string) => `تسميع ${recital} يحتاج تدريبًا — شجّعه يحاول مرة أخرى`,
+    encourageReview: (n: number) => `${arabicCount(n, "آية واحدة مستحقة", "آيتان مستحقتان", "آيات مستحقة", "آية مستحقة")} المراجعة اليوم`,
+    encourageContinue: (title: string) => `لم يكمل «${title}» بعد — شجّعه يرجع لها`,
     needsReviewTitle: "تحتاج مراجعتك",
     deedSaid: (name: string) => `${name} قال إنه عملها`,
     deedDone: "تم", deedNotYet: "لسه",
@@ -148,6 +177,33 @@ const copy = {
     surahsTitle: "Surahs being worked on",
     declaredBy: (child: number, parent: number) => `${child + parent} ayahs declared — ${parent} confirmed by you`,
     confirmed: "Everything declared is confirmed by you",
+    weekTitle: "This week",
+    noWeekActivity: "No activity this week",
+    weekStories: (n: number) => `Completed ${n === 1 ? "one story" : `${n} stories`}`,
+    weekSeerah: (n: number) => `Read ${n === 1 ? "one" : n} from the Seerah`,
+    weekAqeedah: (n: number) => `Read ${n === 1 ? "one" : n} creed card${n === 1 ? "" : "s"}`,
+    weekCompanions: (n: number) => `Read about ${n === 1 ? "one companion" : `${n} companions`}`,
+    weekFacts: (n: number) => `Discovered ${n === 1 ? "one fact" : `${n} facts`}`,
+    weekAyahsDeclared: (n: number) => `Declared ${n === 1 ? "one ayah" : `${n} ayahs`} memorized`,
+    weekAyahReviews: (n: number) => `Reviewed ayahs ${n === 1 ? "once" : `${n} times`}`,
+    weekDeedsRegistered: (n: number) => `Logged ${n === 1 ? "one deed" : `${n} deeds`} from "try today"`,
+    weekDeedsConfirmed: (n: number) => `You confirmed ${n === 1 ? "one deed" : `${n} deeds`}`,
+    weekRecitals: (n: number) => `Submitted ${n === 1 ? "one recitation" : `${n} recitations`}`,
+    recentTitle: (n: number) => `What they did last (${n})`,
+    dayLabel: (days: number) => (days === 0 ? "Today" : days === 1 ? "Yesterday" : `${days} days ago`),
+    recentStory: (title: string) => `Completed the story "${title}"`,
+    recentSeerah: (title: string) => `Read from the Seerah: ${title}`,
+    recentAqeedah: (title: string) => `Read from the creed: ${title}`,
+    recentCompanions: (title: string) => `Read about ${title}`,
+    recentFact: (title: string) => `Discovered: ${title}`,
+    recentDeed: (title: string) => `Logged the deed "${title}"`,
+    recentAyahDeclared: (surah: string, count: number) => `Declared ${count === 1 ? "one ayah" : `${count} ayahs`} of Surah ${surah} memorized`,
+    recentAyahReviewed: (count: number) => `Reviewed ${count === 1 ? "one ayah" : `${count} ayahs`}`,
+    recentRecital: (recital: string) => `Submitted a recitation of ${recital}`,
+    encourageTitle: "Encourage next",
+    encouragePractice: (recital: string) => `${recital} needs practice — encourage another try`,
+    encourageReview: (n: number) => `${n === 1 ? "One ayah is" : `${n} ayahs are`} due for review today`,
+    encourageContinue: (title: string) => `Hasn't finished "${title}" yet — encourage them to go back`,
     needsReviewTitle: "Needs your review",
     deedSaid: (name: string) => `${name} said they did it`,
     deedDone: "Done", deedNotYet: "Not yet",
@@ -185,7 +241,7 @@ const copy = {
   },
 };
 
-type Copy = (typeof copy)["ar"];
+export type Copy = (typeof copy)["ar"];
 
 /**
  * Arabic counts a thing differently at one, two, three to ten, and above:
@@ -436,7 +492,7 @@ function StorageCard({ t, store }: { t: Copy; store: HifzStore }) {
 
 // ---------------------------------------------------------------------------
 
-function ChildReport({ t, profile, store, commit }: {
+export function ChildReport({ t, profile, store, commit }: {
   t: Copy; profile: ChildProfile; store: HifzStore; commit: (s: HifzStore) => boolean;
 }) {
   const { locale } = useLocale();
@@ -460,15 +516,51 @@ function ChildReport({ t, profile, store, commit }: {
     })
     .filter(row => row.progress.listened + row.progress.recorded + row.progress.declared > 0), [profile]);
 
-  const lastDay = useMemo(() => {
-    let last: number | null = null;
-    for (const record of Object.values(profile.ayahs)) {
-      for (const at of [record.listenedAt, record.recordedAt, record.declaredAt, record.forgotAt, ...record.reviews]) {
-        if (at) last = Math.max(last ?? 0, dayNumber(at));
-      }
-    }
-    return last;
+  // Every timestamp the child has, not only their ayahs — a child who reads
+  // stories and the Seerah without memorizing anything used to show "has not
+  // started yet" here, which was simply false.
+  const activity = useMemo(() => {
+    const facts = Object.entries(readFactDiscoveryDates(profile.id)).map(([slug, at]) => ({ slug, at }));
+    return childActivity(profile, { now: Date.now(), facts });
   }, [profile]);
+
+  const weekLines = [
+    activity.week.storiesDone > 0 && t.weekStories(activity.week.storiesDone),
+    activity.week.seerahDone > 0 && t.weekSeerah(activity.week.seerahDone),
+    activity.week.aqeedahDone > 0 && t.weekAqeedah(activity.week.aqeedahDone),
+    activity.week.companionsDone > 0 && t.weekCompanions(activity.week.companionsDone),
+    activity.week.factsDiscovered > 0 && t.weekFacts(activity.week.factsDiscovered),
+    activity.week.ayahsDeclared > 0 && t.weekAyahsDeclared(activity.week.ayahsDeclared),
+    activity.week.ayahReviews > 0 && t.weekAyahReviews(activity.week.ayahReviews),
+    activity.week.deedsRegistered > 0 && t.weekDeedsRegistered(activity.week.deedsRegistered),
+    activity.week.deedsConfirmed > 0 && t.weekDeedsConfirmed(activity.week.deedsConfirmed),
+    activity.week.recitalsSubmitted > 0 && t.weekRecitals(activity.week.recitalsSubmitted),
+  ].filter((line): line is string => Boolean(line));
+
+  const encourageLine = (() => {
+    const hint = activity.encourage;
+    if (!hint) return null;
+    if (hint.kind === "practice_recital") return { href: hint.href, text: t.encouragePractice(t.recitalOf(nameOf(hint.surah), hint.from, hint.to)) };
+    if (hint.kind === "review_due") return { href: hint.href, text: t.encourageReview(hint.count) };
+    return { href: hint.href, text: t.encourageContinue(locale === "en" && hint.titleEn ? hint.titleEn : hint.title) };
+  })();
+
+  const today = dayNumber(Date.now());
+  const recentLines = activity.recent.map(item => {
+    const day = t.dayLabel(today - dayNumber(item.at));
+    const localized = (title: string, titleEn: string | null) => (locale === "en" && titleEn ? titleEn : title);
+    switch (item.kind) {
+      case "story": return { href: item.href, day, text: t.recentStory(localized(item.title, item.titleEn)) };
+      case "seerah": return { href: item.href, day, text: t.recentSeerah(localized(item.title, item.titleEn)) };
+      case "aqeedah": return { href: item.href, day, text: t.recentAqeedah(localized(item.title, item.titleEn)) };
+      case "companions": return { href: item.href, day, text: t.recentCompanions(item.title) };
+      case "fact": return { href: item.href, day, text: t.recentFact(localized(item.title, item.titleEn)) };
+      case "deed": return { href: item.href, day, text: t.recentDeed(item.title) };
+      case "ayah_declared": return { href: item.href, day, text: t.recentAyahDeclared(nameOf(item.surah), item.count) };
+      case "ayah_reviewed": return { href: item.href, day, text: t.recentAyahReviewed(item.count) };
+      case "recital": return { href: item.href, day, text: t.recentRecital(t.recitalOf(nameOf(item.surah), item.from, item.to)) };
+    }
+  });
 
   return (
     <article className="hifz-card hifz-report">
@@ -484,8 +576,38 @@ function ChildReport({ t, profile, store, commit }: {
       <ul className="hifz-report__facts">
         <li>{t.dueToday(plan.due)}</li>
         <li>{t.streak(streakDays(profile))}</li>
-        <li>{lastDay === null ? t.neverSeen : t.lastSeen(dayNumber(Date.now()) - lastDay)}</li>
+        <li>{activity.lastActiveDay === null ? t.neverSeen : t.lastSeen(dayNumber(Date.now()) - activity.lastActiveDay)}</li>
       </ul>
+
+      <section className="hifz-report__week">
+        <h3>{t.weekTitle}</h3>
+        {weekLines.length > 0 ? (
+          <ul className="hifz-report__facts">{weekLines.map((line, i) => <li key={i}>{line}</li>)}</ul>
+        ) : (
+          <p className="hifz-report__empty">{t.noWeekActivity}</p>
+        )}
+      </section>
+
+      {encourageLine && (
+        <section className="hifz-report__encourage">
+          <h3>{t.encourageTitle}</h3>
+          <Link href={encourageLine.href}>{encourageLine.text}</Link>
+        </section>
+      )}
+
+      {recentLines.length > 0 && (
+        <details className="hifz-report__recent">
+          <summary>{t.recentTitle(recentLines.length)}</summary>
+          <ul>
+            {recentLines.map((line, i) => (
+              <li key={i}>
+                <Link href={line.href}>{line.text}</Link>
+                <small>{line.day}</small>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
 
       {rows.length > 0 && (
         <section>
