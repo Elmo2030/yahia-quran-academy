@@ -11,6 +11,8 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { MobileMenu } from "@/components/MobileMenu";
 import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
+import { StoryNarration } from "@/components/StoryNarration";
+import { narratedStories } from "@/lib/narration.generated";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { StoryPicture } from "@/components/StoryPicture";
 import { StoryChallengeSection } from "@/components/StoryChallengeSection";
@@ -314,6 +316,9 @@ export default function Stories() {
             </nav>
 
             <div className="story-article__content">
+              {locale === "ar" && narratedStories.includes(`${story.chapter}/${story.slug}`) && (
+                <StoryNarration src={`/stories/audio/${story.chapter}/${story.slug}.mp3`} />
+              )}
               <section className="story-reading-section story-reading-section--hook">
                 <span className="story-section-number">{n()}</span>
                 <div>

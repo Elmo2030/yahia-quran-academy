@@ -597,6 +597,9 @@
 .story-section-number { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--teal-ink); background: var(--surface-green); font-family: "Plus Jakarta Sans", sans-serif; font-size: .8rem; font-weight: 800; }
 .story-section-label { display: block; margin: 0; color: var(--brand); font-size: .75rem; font-weight: 800; letter-spacing: .04em; }
 .story-reading-section { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; }
+.story-narration { display: grid; justify-items: center; gap: .75rem; padding: 1.25rem; border-radius: 24px; background: var(--surface-green); text-align: center; }
+.story-narration h2 { display: inline-flex; align-items: center; gap: .5rem; margin: 0; color: var(--ink); font-size: 1.15rem; }
+.story-narration audio { width: 100%; max-width: 420px; }
 .story-reading-section--hook { background: var(--surface-green); border-radius: 24px; padding: 1.6rem; }
 .story-reading-section h2, .story-lesson-card h2, .story-bridge h2 { color: var(--ink); margin: 0 0 .65rem; font-family: "Noto Naskh Arabic", serif; font-size: clamp(1.7rem,3vw,2.35rem); line-height: 1.3; }
 /* The story's first section leads with its label rather than a separate

@@ -18,6 +18,8 @@ import { ArrowLeft, ArrowRight, Compass, HelpCircle, ShieldCheck, Sparkles, Trop
 
 import { SiteChrome } from "@/components/SiteChrome";
 import { useLocale } from "@/contexts/LocaleContext";
+import { StoryNarration } from "@/components/StoryNarration";
+import { narratedSeerah } from "@/lib/narration.generated";
 import { BadgeAward } from "@/components/BadgeAward";
 import { SkipLink, MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { StoryPicture } from "@/components/StoryPicture";
@@ -440,6 +442,9 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
           </nav>
 
           <div className="story-article__content">
+            {locale === "ar" && narratedSeerah.includes(story.slug) && (
+              <StoryNarration src={`/stories/seerah/audio/${story.slug}.mp3`} />
+            )}
             <section className="story-reading-section story-reading-section--hook" id="pilot-story">
               <span className="story-section-number">1</span>
               <div>

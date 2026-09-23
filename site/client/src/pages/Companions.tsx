@@ -13,6 +13,7 @@ import { activeProfile } from "@/lib/hifz-store";
 import { companionIndex } from "@/lib/companion-index.generated";
 import { nextCompanion } from "@/lib/companions-progress";
 import { loadCompanion, type CompanionStory } from "@/content/companions";
+import { narratedCompanions } from "@/lib/narration.generated";
 import "./companions.css";
 
 function Prose({ paragraphs }: { paragraphs: string[] }) {
@@ -35,10 +36,10 @@ function CompanionArt({ slug, symbol, variant = "card" }: { slug: string; symbol
   );
 }
 
-// A trial for one story before recording the rest: only render the player
-// where an audio file actually exists, so nothing here has to know which
-// stories are narrated yet.
-const COMPANION_AUDIO_SLUGS = new Set(["abu-bakr", "umar"]);
+// Only render the player where a recording actually exists. The list is
+// generated from the audio folder (scripts/build-narration-index.mjs), so a
+// new recording needs no change here.
+const COMPANION_AUDIO_SLUGS = new Set(narratedCompanions);
 
 function CompanionNarration({ slug }: { slug: string }) {
   if (!COMPANION_AUDIO_SLUGS.has(slug)) return null;
