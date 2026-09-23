@@ -61,14 +61,14 @@ export const fullUrl = (pathOrUrl: string): string =>
 // ---------------------------------------------------------------------------
 export const authMeta: Meta = {
   path: "/login",
-  title: "تسجيل الدخول — Yahya Quran Academy",
+  title: "تسجيل الدخول · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
     "سجّل دخولك للاحتفاظ بتقدّمك في قراءة القرآن وقصصه عبر الأجهزة.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Sign in — Yahya Quran Academy",
+      title: "Sign in · Yahya Quran Academy",
       description:
         "Sign in to keep your Quran reading and stories progress in sync across devices.",
     },
@@ -77,14 +77,14 @@ export const authMeta: Meta = {
 
 export const registerMeta: Meta = {
   path: "/register",
-  title: "إنشاء حساب — Yahya Quran Academy",
+  title: "إنشاء حساب · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
-    "أنشئ حسابًا جديدًا على Yahya Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
+    "أنشئ حسابًا جديدًا على أكاديمية يحيى ليُحفظ تقدّمك في الحفظ والقراءة.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Create account — Yahya Quran Academy",
+      title: "Create account · Yahya Quran Academy",
       description:
         "Create a Yahya Quran Academy account so your reading and memorization progress syncs everywhere.",
     },
@@ -93,13 +93,13 @@ export const registerMeta: Meta = {
 
 export const profileMeta: Meta = {
   path: "/profile",
-  title: "حسابي — Yahya Quran Academy",
-  description: "إدارة حسابك وتقدّمك في Yahya Quran Academy.",
+  title: "حسابي · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "إدارة حسابك وتقدّمك في أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "My account — Yahya Quran Academy",
+      title: "My account · Yahya Quran Academy",
       description:
         "Manage your account and progress on Yahya Quran Academy.",
     },
@@ -112,13 +112,13 @@ export const profileMeta: Meta = {
 // behind it; the map, the stars and the review queue have shipped since.
 export const hifzMeta: Meta = {
   path: "/hifz",
-  title: "رحلة حفظ جزء عمّ للأطفال — Yahya Quran Academy",
+  title: "رحلة حفظ جزء عمّ للأطفال · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
     "خريطة لحفظ جزء عمّ: الطفل يسمع الآية ويكرّرها ويسجّل صوته، وتعود عليه للمراجعة بعد يوم وثلاثة وسبعة. وليّ الأمر هو من يقدّر التلاوة، ولا يُحفظ شيء إلا على جهازك.",
   image: DEFAULT_IMAGE,
   i18n: {
     en: {
-      title: "A Juz Amma memorization journey for children — Yahya Quran Academy",
+      title: "A Juz Amma memorization journey for children · Yahya Quran Academy",
       description:
         "A map for memorizing Juz Amma: the child listens, repeats and records, and each ayah returns for review after a day, three days, a week. The parent is the one who judges the recitation, and nothing leaves the device.",
     },
@@ -130,12 +130,12 @@ export const hifzMeta: Meta = {
 // what it would read is a stranger's empty copy of it.
 export const hifzInnerMeta: Meta = {
   ...hifzMeta,
-  title: "رحلة الحفظ — Yahya Quran Academy",
+  title: "رحلة الحفظ · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
   noindex: true,
   i18n: {
     en: {
-      title: "Memorization journey — Yahya Quran Academy",
+      title: "Memorization journey · Yahya Quran Academy",
       description: "A Juz Amma memorization journey for children with Yahya and Fatima; all data stays on your device.",
     },
   },
@@ -148,12 +148,12 @@ export const hifzInnerMeta: Meta = {
 // reason — duplication, not privacy.
 export const mushafiMeta: Meta = {
   path: "/mushafi",
-  title: "مصحفي — المصحف الشريف برواية حفص | Yahya Quran Academy",
+  title: "مصحفي — المصحف الشريف برواية حفص · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "تصفّح صفحات المصحف الشريف الملوّنة بأحكام التجويد، برواية حفص عن عاصم، بالرسم العثماني، صفحة كما هي دون أي تعديل في النص.",
   image: DEFAULT_IMAGE,
   i18n: {
     en: {
-      title: "Mushafi — the Holy Mushaf in Hafs narration | Yahya Quran Academy",
+      title: "Mushafi — the Holy Mushaf in Hafs narration · Yahya Quran Academy",
       description: "Browse the mushaf's Tajweed-colored pages, in the narration of Hafs from Aasim, in the Uthmani script — every page exactly as printed.",
     },
   },
@@ -161,12 +161,12 @@ export const mushafiMeta: Meta = {
 
 export const mushafiPageMeta: Meta = {
   ...mushafiMeta,
-  title: "مصحفي — Yahya Quran Academy",
+  title: "مصحفي · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "صفحة من المصحف الشريف برواية حفص عن عاصم.",
   noindex: true,
   i18n: {
     en: {
-      title: "Mushafi — Yahya Quran Academy",
+      title: "Mushafi · Yahya Quran Academy",
       description: "A page of the mushaf, in the narration of Hafs from Aasim.",
     },
   },
@@ -184,13 +184,13 @@ export const quranFactsMeta: Meta = {
 
 const aboutMeta: Meta = {
   path: "/about",
-  title: "من نحن — موقع يحيى لتعليم الأطفال",
+  title: "من نحن · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
     "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله.",
   image: DEFAULT_IMAGE,
   i18n: {
     en: {
-      title: "About Yahya Quran Academy",
+      title: "About us · Yahya Quran Academy",
       description: "A children's Quran learning project, created as an ongoing charity in memory of Dr. Mohamed Yahya Abbas Aboud and Eng. Magda Moussa Mohamed.",
     },
   },
@@ -198,13 +198,13 @@ const aboutMeta: Meta = {
 
 const journeyMeta: Meta = {
   path: "/journey",
-  title: "رحلتي — Yahya Quran Academy",
+  title: "رحلتي · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "خطوة الطفل التالية بين رحلة الحفظ، وقصص القرآن، وفي رحاب القرآن.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "My journey — Yahya Quran Academy",
+      title: "My journey · Yahya Quran Academy",
       description: "A child's next step across memorization, Quran stories, and Quran discoveries.",
     },
   },
@@ -212,12 +212,12 @@ const journeyMeta: Meta = {
 
 const privacyMeta: Meta = {
   path: "/privacy",
-  title: "سياسة الخصوصية — Yahya Quran Academy",
-  description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
+  title: "سياسة الخصوصية · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "سياسة الخصوصية لمنصة أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
   i18n: {
     en: {
-      title: "Privacy policy — Yahya Quran Academy",
+      title: "Privacy policy · Yahya Quran Academy",
       description: "Privacy policy for Yahya Quran Academy.",
     },
   },
@@ -225,12 +225,12 @@ const privacyMeta: Meta = {
 
 export const termsMeta: Meta = {
   path: "/terms",
-  title: "شروط الاستخدام — Yahya Quran Academy",
-  description: "شروط استخدام Yahya Quran Academy.",
+  title: "شروط الاستخدام · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "شروط استخدام أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
   i18n: {
     en: {
-      title: "Terms of use — Yahya Quran Academy",
+      title: "Terms of use · Yahya Quran Academy",
       description: "Terms of use for Yahya Quran Academy.",
     },
   },
@@ -238,14 +238,14 @@ export const termsMeta: Meta = {
 
 export const forgotPasswordMeta: Meta = {
   path: "/forgot-password",
-  title: "استعادة كلمة المرور — Yahya Quran Academy",
+  title: "استعادة كلمة المرور · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
-    "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahya Quran Academy.",
+    "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Reset password — Yahya Quran Academy",
+      title: "Reset password · Yahya Quran Academy",
       description:
         "Enter your email to reset your Yahya Quran Academy password.",
     },
@@ -254,13 +254,13 @@ export const forgotPasswordMeta: Meta = {
 
 export const resetPasswordMeta: Meta = {
   path: "/reset-password",
-  title: "تعيين كلمة مرور جديدة — Yahya Quran Academy",
-  description: "عيّن كلمة مرور جديدة لحسابك على Yahya Quran Academy.",
+  title: "تعيين كلمة مرور جديدة · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "عيّن كلمة مرور جديدة لحسابك على أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
   noindex: true,
   i18n: {
     en: {
-      title: "Set a new password — Yahya Quran Academy",
+      title: "Set a new password · Yahya Quran Academy",
       description:
         "Set a new password for your Yahya Quran Academy account.",
     },
@@ -313,7 +313,7 @@ const FALLBACK_NOT_FOUND: Meta = {
   description: SITE_DESCRIPTION,
   image: DEFAULT_IMAGE,
   noindex: true,
-  i18n: { en: { title: "Page not found — Yahya Quran Academy", description: SITE_DESCRIPTION_EN } },
+  i18n: { en: { title: "Page not found · Yahya Quran Academy", description: SITE_DESCRIPTION_EN } },
 };
 
 /** The metadata as the reader's locale sees it. Falls back to Arabic for
@@ -330,7 +330,7 @@ export const metaForPath = (pathname: string): Meta => {
   if (head === "companions") {
     const story = companionIndex.find(c => c.slug === parts[1]);
     if (parts.length > 2 || (parts[1] && !story)) return FALLBACK_NOT_FOUND;
-    return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title}` : "الصحابة — قصص نتعلم منها", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
+    return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title} · الصحابة` : "الصحابة — قصص نتعلم منها · أكاديمية يحيى لتعليم القرآن للأطفال", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
   }
 
   if (head === "login") return authMeta;

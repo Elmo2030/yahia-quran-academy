@@ -63,6 +63,26 @@ describe("metaForPath", () => {
     }
   });
 
+  it("brands every title one way, in the reader's own language", () => {
+    // Arabic titles once ended "— Yahya Quran Academy" on some pages and
+    // "· أكاديمية يحيى…" on others; one separator, one name per language.
+    const paths = [
+      "/", "/stories", "/seerah", "/aqeedah", "/companions", "/companions/abu-bakr",
+      "/quran-facts", "/listen", "/listen/1", "/mushafi", "/mushafi/5", "/hifz", "/hifz/1",
+      "/journey", "/about", "/privacy", "/terms", "/login", "/register", "/profile", "/nope",
+    ];
+    for (const path of paths) {
+      const ar = metaForPath(path);
+      expect(ar.title, `${path}: ${ar.title}`).not.toMatch(/Yahya Quran Academy/);
+      expect(`${ar.title} ${ar.description}`, path).not.toMatch(/[—|] ?Yahya|Yahya Quran Academy/);
+      if (ar.arabicOnly) continue;
+      const en = localizedMeta(ar, "en");
+      expect(en.title, `${path}: ${en.title}`).not.toMatch(/ [—|] Yahya Quran Academy$/);
+    }
+    expect(metaForPath("/companions").title).toMatch(/ · أكاديمية يحيى لتعليم القرآن للأطفال$/);
+    expect(metaForPath("/companions/abu-bakr").title).toMatch(/ · الصحابة$/);
+  });
+
   it("stays Arabic by default", () => {
     expect(metaForPath("/listen/1").title).toContain("سورة");
     expect(localizedMeta(metaForPath("/listen/1"), "ar").title).toContain("سورة");

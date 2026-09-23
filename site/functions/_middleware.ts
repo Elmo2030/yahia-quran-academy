@@ -49,33 +49,33 @@ const ORIGIN = "https://yahyaquran.com";
 
 const authMeta = {
   path: "/login",
-  title: "تسجيل الدخول — Yahya Quran Academy",
+  title: "تسجيل الدخول · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
     "سجّل دخولك للاحتفاظ بتقدّمك في قراءة القرآن وقصصه عبر الأجهزة.",
   image: DEFAULT_IMAGE,
   noindex: true,
-  en: { title: "Sign in — Yahya Quran Academy",
+  en: { title: "Sign in · Yahya Quran Academy",
         description: "Sign in to keep your Quran reading and stories progress in sync across devices." },
 };
 
 const registerMeta = {
   path: "/register",
-  title: "إنشاء حساب — Yahya Quran Academy",
+  title: "إنشاء حساب · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
-    "أنشئ حسابًا جديدًا على Yahya Quran Academy ليُحفظ تقدّمك في الحفظ والقراءة.",
+    "أنشئ حسابًا جديدًا على أكاديمية يحيى ليُحفظ تقدّمك في الحفظ والقراءة.",
   image: DEFAULT_IMAGE,
   noindex: true,
-  en: { title: "Create account — Yahya Quran Academy",
+  en: { title: "Create account · Yahya Quran Academy",
         description: "Create a Yahya Quran Academy account so your reading and memorization progress syncs everywhere." },
 };
 
 const profileMeta = {
   path: "/profile",
-  title: "حسابي — Yahya Quran Academy",
-  description: "إدارة حسابك وتقدّمك في Yahya Quran Academy.",
+  title: "حسابي · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "إدارة حسابك وتقدّمك في أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
   noindex: true,
-  en: { title: "My account — Yahya Quran Academy",
+  en: { title: "My account · Yahya Quran Academy",
         description: "Manage your account and progress on Yahya Quran Academy." },
 };
 
@@ -86,39 +86,39 @@ const profileMeta = {
 const MUSHAFI_PAGE_COUNT = 604;
 const mushafiMeta = {
   path: "/mushafi",
-  title: "مصحفي — المصحف الشريف برواية حفص | Yahya Quran Academy",
+  title: "مصحفي — المصحف الشريف برواية حفص · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "تصفّح صفحات المصحف الشريف الملوّنة بأحكام التجويد، برواية حفص عن عاصم، بالرسم العثماني، صفحة كما هي دون أي تعديل في النص.",
   image: DEFAULT_IMAGE,
-  en: { title: "Mushafi — the Holy Mushaf in Hafs narration | Yahya Quran Academy",
+  en: { title: "Mushafi — the Holy Mushaf in Hafs narration · Yahya Quran Academy",
         description: "Browse the mushaf's Tajweed-colored pages, in the narration of Hafs from Aasim, in the Uthmani script — every page exactly as printed." },
 };
 
 const mushafiPageMeta = {
   ...mushafiMeta,
-  title: "مصحفي — Yahya Quran Academy",
+  title: "مصحفي · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "صفحة من المصحف الشريف برواية حفص عن عاصم.",
   noindex: true,
-  en: { title: "Mushafi — Yahya Quran Academy",
+  en: { title: "Mushafi · Yahya Quran Academy",
         description: "A page of the mushaf, in the narration of Hafs from Aasim." },
 };
 
 // The journey page is worth finding; the screens under it belong to one child.
 const hifzMeta = {
   path: "/hifz",
-  title: "رحلة حفظ جزء عمّ للأطفال — Yahya Quran Academy",
+  title: "رحلة حفظ جزء عمّ للأطفال · أكاديمية يحيى لتعليم القرآن للأطفال",
   description:
     "خريطة لحفظ جزء عمّ: الطفل يسمع الآية ويكرّرها ويسجّل صوته، وتعود عليه للمراجعة بعد يوم وثلاثة وسبعة. وليّ الأمر هو من يقدّر التلاوة، ولا يُحفظ شيء إلا على جهازك.",
   image: DEFAULT_IMAGE,
-  en: { title: "A Juz Amma memorization journey for children — Yahya Quran Academy",
+  en: { title: "A Juz Amma memorization journey for children · Yahya Quran Academy",
         description: "A map for memorizing Juz Amma: the child listens, repeats and records, and each ayah returns for review after a day, three days, a week. The parent is the one who judges the recitation, and nothing leaves the device." },
 };
 
 const hifzInnerMeta = {
   ...hifzMeta,
-  title: "رحلة الحفظ — Yahya Quran Academy",
+  title: "رحلة الحفظ · أكاديمية يحيى لتعليم القرآن للأطفال",
   description: "رحلة حفظ جزء عمّ للأطفال مع يحيى وفاطمة، وكل البيانات تبقى على جهازك.",
   noindex: true,
-  en: { title: "Memorization journey — Yahya Quran Academy",
+  en: { title: "Memorization journey · Yahya Quran Academy",
         description: "A Juz Amma memorization journey for children with Yahya and Fatima; all data stays on your device." },
 };
 
@@ -127,19 +127,19 @@ const hifzInnerMeta = {
 // pages, which is the opposite of the trust they exist to give.
 const privacyMeta = {
   path: "/privacy",
-  title: "سياسة الخصوصية — Yahya Quran Academy",
-  description: "سياسة الخصوصية لمنصة Yahya Quran Academy.",
+  title: "سياسة الخصوصية · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "سياسة الخصوصية لمنصة أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
-  en: { title: "Privacy policy — Yahya Quran Academy",
+  en: { title: "Privacy policy · Yahya Quran Academy",
         description: "Privacy policy for Yahya Quran Academy." },
 };
 
 const termsMeta = {
   path: "/terms",
-  title: "شروط الاستخدام — Yahya Quran Academy",
-  description: "شروط استخدام Yahya Quran Academy.",
+  title: "شروط الاستخدام · أكاديمية يحيى لتعليم القرآن للأطفال",
+  description: "شروط استخدام أكاديمية يحيى.",
   image: DEFAULT_IMAGE,
-  en: { title: "Terms of use — Yahya Quran Academy",
+  en: { title: "Terms of use · Yahya Quran Academy",
         description: "Terms of use for Yahya Quran Academy." },
 };
 
@@ -157,7 +157,7 @@ export function metaForPath(pathname: string) {
   if (head === "companions") {
     const story = companionIndex.find((c: any) => c.slug === parts[1]);
     if (parts.length > 2 || (parts[1] && !story)) return notFound(path);
-    return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title}` : "الصحابة — قصص نتعلم منها", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
+    return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title} · الصحابة` : "الصحابة — قصص نتعلم منها · أكاديمية يحيى لتعليم القرآن للأطفال", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
   }
 
   if (head === "login") return authMeta;
@@ -175,16 +175,16 @@ export function metaForPath(pathname: string) {
   // which points straight at /reset-password.
   if (head === "forgot-password") {
     return { path: "/forgot-password", image: DEFAULT_IMAGE, noindex: true,
-      title: "استعادة كلمة المرور — Yahya Quran Academy",
-      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على Yahya Quran Academy.",
-      en: { title: "Reset password — Yahya Quran Academy",
+      title: "استعادة كلمة المرور · أكاديمية يحيى لتعليم القرآن للأطفال",
+      description: "أدخل بريدك الإلكتروني لاستعادة كلمة مرور حسابك على أكاديمية يحيى.",
+      en: { title: "Reset password · Yahya Quran Academy",
             description: "Enter your email to reset your Yahya Quran Academy password." } };
   }
   if (head === "reset-password") {
     return { path: "/reset-password", image: DEFAULT_IMAGE, noindex: true,
-      title: "تعيين كلمة مرور جديدة — Yahya Quran Academy",
-      description: "عيّن كلمة مرور جديدة لحسابك على Yahya Quran Academy.",
-      en: { title: "Set a new password — Yahya Quran Academy",
+      title: "تعيين كلمة مرور جديدة · أكاديمية يحيى لتعليم القرآن للأطفال",
+      description: "عيّن كلمة مرور جديدة لحسابك على أكاديمية يحيى.",
+      en: { title: "Set a new password · Yahya Quran Academy",
             description: "Set a new password for your Yahya Quran Academy account." } };
   }
   if (head === "privacy") return privacyMeta;
@@ -211,17 +211,17 @@ export function metaForPath(pathname: string) {
 
   if (head === "about") {
     return { ...base, path: "/about",
-      title: "من نحن — موقع يحيى لتعليم الأطفال",
+      title: "من نحن · أكاديمية يحيى لتعليم القرآن للأطفال",
       description: "مشروع تعليمي للأطفال من 5 إلى 10 سنوات، أُنشئ صدقة جارية على روح د. محمد يحيى عباس عبود وم. ماجدة موسى محمد، رحمهما الله.",
-      en: { title: "About Yahya Quran Academy",
+      en: { title: "About us · Yahya Quran Academy",
             description: "A children's Quran learning project, created as an ongoing charity in memory of Dr. Mohamed Yahya Abbas Aboud and Eng. Magda Moussa Mohamed." } };
   }
 
   if (head === "journey") {
     return { ...base, path: "/journey", noindex: true,
-      title: "رحلتي — Yahya Quran Academy",
+      title: "رحلتي · أكاديمية يحيى لتعليم القرآن للأطفال",
       description: "خطوة الطفل التالية بين رحلة الحفظ، وقصص القرآن، وفي رحاب القرآن.",
-      en: { title: "My journey — Yahya Quran Academy",
+      en: { title: "My journey · Yahya Quran Academy",
             description: "A child's next step across memorization, Quran stories, and Quran discoveries." } };
   }
 
@@ -337,7 +337,7 @@ function notFound(path: string) {
     image: DEFAULT_IMAGE,
     title: `الصفحة غير موجودة · ${SITE}`,
     description: SITE_DESCRIPTION,
-    en: { title: "Page not found — Yahya Quran Academy", description: SITE_DESCRIPTION_EN },
+    en: { title: "Page not found · Yahya Quran Academy", description: SITE_DESCRIPTION_EN },
     noindex: true,
     missing: true,
   };
