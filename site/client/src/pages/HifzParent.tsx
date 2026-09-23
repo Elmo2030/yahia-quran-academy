@@ -120,6 +120,7 @@ export const copy = {
     // its own — this is the only case where the parent corner still needs
     // a link back to the story instead of quoting it here.
     deedFromStory: "فعل من إحدى القصص.", deedOpenStory: "افتح القصة لتقرأها",
+    deedOpenStoryInactive: (name: string) => `اختر ${name} أولًا لفتح القصة`,
     recitalOf: (surah: string, from: number, to: number) => (from === to ? `سورة ${surah} — الآية ${from}` : `سورة ${surah} — الآيات ${from} إلى ${to}`),
     recitalSaid: (name: string) => `${name} سمّع هذا المقطع`,
     recitalReady: "جاهز", recitalPractice: "يحتاج تدريبًا",
@@ -214,6 +215,7 @@ export const copy = {
     deedDone: "Done", deedNotYet: "Not yet",
     deedReward: "The deed's treasure",
     deedFromStory: "A deed from one of the stories.", deedOpenStory: "Open the story to read it",
+    deedOpenStoryInactive: (name: string) => `Switch to ${name} first to open the story`,
     recitalOf: (surah: string, from: number, to: number) => (from === to ? `Surah ${surah} — ayah ${from}` : `Surah ${surah} — ayahs ${from} to ${to}`),
     recitalSaid: (name: string) => `${name} recited this segment`,
     recitalReady: "Ready", recitalPractice: "Needs practice",
@@ -747,7 +749,7 @@ function NeedsYourReview({ t, profiles, store, commit }: {
                         active on this device, not necessarily item.profile. */}
                     {item.profile.id === store.activeProfileId
                       ? <Link href={`/stories/${item.chapter}/${item.slug}`} className="text-link">{t.deedOpenStory}</Link>
-                      : <span className="text-link">{t.deedOpenStory}</span>}
+                      : <span>{t.deedOpenStoryInactive(item.profile.name)}</span>}
                   </p>
                 )}
                 <small>{t.deedSaid(item.profile.name)}</small>
