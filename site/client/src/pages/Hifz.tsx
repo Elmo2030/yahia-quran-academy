@@ -107,7 +107,7 @@ export const copy = {
     exportLabel: "احفظ نسخة احتياطية",
     exportHint: "ملف صغير بكل الأطفال وإعداداتهم وتقدّمهم.",
     importLabel: "استرجع نسخة",
-    importReady: (n: number) => `${n === 0 ? "الملف فيه تقدّم الضيف فقط" : `الملف فيه ${n === 1 ? "طفل واحد" : `${n} أطفال`}`}. سيحلّ محلّ كل ما على هذا الجهاز الآن.`,
+    importReady: (n: number) => `${n === 0 ? "الملف فيه تقدّم الضيف فقط" : `الملف فيه ${n === 1 ? "طفل واحد" : n === 2 ? "طفلان" : n <= 10 ? `${n.toLocaleString("ar-EG")} أطفال` : `${n.toLocaleString("ar-EG")} طفلًا`}`}. سيحلّ محلّ كل ما على هذا الجهاز الآن.`,
     importConfirm: "استبدل واسترجع",
     imported: "تم استرجاع النسخة.",
     importErrors: {
@@ -785,6 +785,11 @@ export function DeviceData({ t, store, commit, profile }: {
               type="button" className="button button--primary"
               onClick={() => {
                 if (commit(pending.store)) {
+                  // The restore replaces every child on this device, so a child
+                  // who is not in the file is gone — and their discoveries go
+                  // with them, as they do when a child is deleted by hand.
+                  const restored = new Set(pending.store.profiles.map(p => p.id));
+                  for (const child of namedProfiles(store)) if (!restored.has(child.id)) resetFactDiscoveries(child.id);
                   for (const [profileId, entry] of Object.entries(pending.facts)) restoreFactDiscoveries(profileId, entry.discovered, entry.at);
                 }
                 setPending(null);

@@ -66,4 +66,43 @@ describe("DeviceData — restoring a backup", () => {
     expect(readFactDiscoveries(["bismillah"], profile.id)).toEqual(["bismillah"]);
     expect(readFactDiscoveryDates(profile.id)).toEqual({ bismillah: 555 });
   });
+
+  it("clears the discoveries of a child the restored file does not have", async () => {
+    // On the device: Omar, with a discovery. In the file: only Lina.
+    const device = createProfile(emptyStore(), { name: "Omar", character: "yahya" });
+    if (!device.ok) throw new Error(device.reason);
+    const omar = device.store.profiles[0];
+    discoverFact("egypt", ["egypt"], omar.id);
+
+    const file = createProfile(emptyStore(), { name: "Lina", character: "fatima" });
+    if (!file.ok) throw new Error(file.reason);
+    const lina = file.store.profiles[0];
+    const backupText = exportBackup(file.store, { [lina.id]: { discovered: ["bismillah"], at: { bismillah: 555 } } });
+    const upload = new File([backupText], "backup.json", { type: "application/json" });
+    Object.defineProperty(upload, "text", { value: async () => backupText });
+
+    render(
+      <LocaleProvider>
+        <DeviceData t={copy.ar} store={device.store} commit={() => true} />
+      </LocaleProvider>,
+    );
+
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    await fireEvent.change(input, { target: { files: [upload] } });
+    fireEvent.click(await screen.findByText("استبدل واسترجع"));
+
+    expect(localStorage.getItem(`yahya.facts.discovered.v1:${omar.id}`)).toBeNull();
+    expect(localStorage.getItem(`yahya.facts.discovered-at.v1:${omar.id}`)).toBeNull();
+    expect(readFactDiscoveries(["bismillah"], lina.id)).toEqual(["bismillah"]);
+  });
+});
+
+describe("DeviceData — restore wording", () => {
+  it("counts children the Arabic way", () => {
+    expect(copy.ar.importReady(1)).toContain("طفل واحد");
+    expect(copy.ar.importReady(2)).toContain("طفلان");
+    expect(copy.ar.importReady(3)).toContain("٣ أطفال");
+    expect(copy.ar.importReady(11)).toContain("١١ طفلًا");
+    expect(copy.ar.importReady(2)).not.toMatch(/[0-9]/);
+  });
 });
