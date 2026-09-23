@@ -1,8 +1,8 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
   FACTS_DISCOVERED_KEY, discoverFact, factCardState, factsDiscoveryKey, firstIncompleteStage,
-  readFactDiscoveries,
+  readFactDiscoveries, readFactDiscoveryDates,
 } from "./quran-facts-progress";
 import { currentDiscovery } from "./quran-facts-journey";
 
@@ -46,5 +46,32 @@ describe("Quran facts journey progress", () => {
     expect(currentDiscovery(facts, [])?.slug).toBe("one");
     expect(currentDiscovery(facts, ["one", "two"])?.slug).toBe("three");
     expect(currentDiscovery(facts, slugs)).toBeNull();
+  });
+
+  it("dates a named child's discovery once, and a re-discovery does not move it", () => {
+    const first = Date.now() - 10_000;
+    vi.spyOn(Date, "now").mockReturnValue(first);
+    discoverFact("one", slugs, "child-a");
+    expect(readFactDiscoveryDates("child-a")).toEqual({ one: first });
+
+    vi.spyOn(Date, "now").mockReturnValue(first + 10_000);
+    discoverFact("one", slugs, "child-a"); // already discovered — must not move the date
+    expect(readFactDiscoveryDates("child-a")).toEqual({ one: first });
+
+    discoverFact("two", slugs, "child-a");
+    expect(readFactDiscoveryDates("child-a")).toEqual({ one: first, two: first + 10_000 });
+    vi.restoreAllMocks();
+  });
+
+  it("never dates a guest's discoveries", () => {
+    discoverFact("one", slugs);
+    expect(readFactDiscoveryDates(null)).toEqual({});
+    expect(readFactDiscoveryDates(undefined)).toEqual({});
+  });
+
+  it("leaves the old undated list exactly as it was — other pages still read it", () => {
+    discoverFact("one", slugs, "child-a");
+    discoverFact("two", slugs, "child-a");
+    expect(JSON.parse(localStorage.getItem(factsDiscoveryKey("child-a")) ?? "[]")).toEqual(["one", "two"]);
   });
 });

@@ -42,7 +42,52 @@ export function discoverFact(slug: string, validSlugs: readonly string[], profil
   if (current.includes(slug)) return current;
   const next = [...current, slug];
   saveFactDiscoveries(next, profileId);
+  recordFactDiscoveryDate(slug, profileId);
   return next;
+}
+
+// ---------------------------------------------------------------------------
+// When each fact was discovered — added for the parent's corner's weekly
+// activity (مهمة تنفيذ ٤), alongside the undated list above rather than
+// inside it: other pages already read that list's shape, and changing it
+// would be a silent break for every one of them.
+// ---------------------------------------------------------------------------
+
+export const FACTS_DISCOVERED_AT_KEY = "yahya.facts.discovered-at.v1";
+
+function factsDiscoveryDatesKey(profileId: string) {
+  return `${FACTS_DISCOVERED_AT_KEY}:${profileId}`;
+}
+
+/** A guest's discoveries are never dated — there is no profile for the date
+ *  to belong to once a guest session ends, the same reason a guest's undated
+ *  list above stays at the shared key instead of one of its own. */
+export function readFactDiscoveryDates(profileId?: string | null): Record<string, number> {
+  if (!profileId) return {};
+  try {
+    const raw = storage()?.getItem(factsDiscoveryDatesKey(profileId));
+    const value = raw ? JSON.parse(raw) : {};
+    if (typeof value !== "object" || value === null || Array.isArray(value)) return {};
+    const out: Record<string, number> = {};
+    for (const [slug, at] of Object.entries(value)) {
+      if (typeof slug === "string" && typeof at === "number" && Number.isFinite(at)) out[slug] = at;
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+/** Written once, the first time a fact is discovered — opening it again must
+ *  not move its date, or "discovered this week" would include facts a child
+ *  found long ago and merely revisited. */
+function recordFactDiscoveryDate(slug: string, profileId?: string | null, now = Date.now()) {
+  if (!profileId) return;
+  const dates = readFactDiscoveryDates(profileId);
+  if (slug in dates) return;
+  try {
+    storage()?.setItem(factsDiscoveryDatesKey(profileId), JSON.stringify({ ...dates, [slug]: now }));
+  } catch { /* private mode */ }
 }
 
 export function resetFactDiscoveries(profileId?: string | null) {
