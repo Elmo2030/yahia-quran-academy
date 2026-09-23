@@ -92,7 +92,7 @@ export const hifzArt: Record<string, { widths: number[]; ratio: number }> = {
    640,
    960
   ],
-  "ratio": 0.739
+  "ratio": 0.709
  },
  "/hifz-art/characters/fatima/record": {
   "widths": [
