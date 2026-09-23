@@ -29,7 +29,9 @@ import {
   seerahTextFor,
   type AgeTier,
   type SeerahStory,
+  type SeerahText,
 } from "@/content/seerah";
+import { useSeerahEnglish } from "@/content/seerah-english";
 import type { SeerahPilotEpisode } from "@/content/seerah-pilot-station-1";
 
 // English and a single Arabic station must not download all nine narratives.
@@ -136,14 +138,22 @@ function Chrome({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Placeholder({ story, className }: { story: SeerahStory; className?: string }) {
+/** A story's title, lead line, questions and keepsakes in the reader's
+ *  language. English suspends once while seerah-en.ts arrives. */
+function useSeerahView(story: SeerahStory) {
   const { locale } = useLocale();
+  const english = useSeerahEnglish(locale);
+  return seerahTextFor(story, english?.[story.slug]);
+}
+
+function Placeholder({ story, className }: { story: SeerahStory; className?: string }) {
+  const text = useSeerahView(story);
   return (
     <figure className={`story-image story-image-placeholder story-image-placeholder--leaf ${className ?? ""}`} aria-hidden="true">
       <span className="story-image-placeholder__sun" />
       <span className="story-image-placeholder__hill" />
       <span className="story-image-placeholder__hill story-image-placeholder__hill--two" />
-      <small>{seerahTextFor(story, locale).title}</small>
+      <small>{text.title}</small>
     </figure>
   );
 }
@@ -171,7 +181,7 @@ function SeerahArt({ story, className, alt }: { story: SeerahStory; className?: 
 function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
   const { locale } = useLocale();
   const t = copy[locale];
-  const text = seerahTextFor(story, locale);
+  const text = useSeerahView(story);
   const [picked, setPicked] = useState<number | null>(null);
   const won = picked === text.interactive.challenge.correctAnswer;
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
@@ -182,7 +192,7 @@ function SeerahCard({ story, index }: { story: SeerahStory; index: number }) {
       <div className="story-list-card__body" {...langAttrs(locale)}>
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{text.title}</h3>
-        <p>{text.content.tier_1_age_6_8.shortLesson}</p>
+        <p>{text.lead}</p>
         <span className="story-read-pill">{t.read} <Arrow size={15} aria-hidden="true" /></span>
       </div>
     </Link>
@@ -201,7 +211,7 @@ function ChallengeSection({
 }) {
   const { locale } = useLocale();
   const t = copy[locale];
-  const text = seerahTextFor(story, locale);
+  const text = useSeerahView(story);
   const { challenge } = text.interactive;
 
   return (
@@ -240,11 +250,13 @@ function ChallengeSection({
   );
 }
 
-function SeerahStoryView({ story }: { story: SeerahStory }) {
+/** The English story, with both age tiers. Arabic readers get the station
+ *  text instead (SeerahPilotStoryView). */
+function SeerahStoryView({ story, english }: { story: SeerahStory; english: SeerahText }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const [tier, setTier] = useState<AgeTier>("tier_1_age_6_8");
-  const text = seerahTextFor(story, locale);
+  const text = english;
   // The answer lives here, not in the challenge, so the medal can wait on it.
   const { tried, won, answer, saveFailed, retrySave } = useLearningStep("seerah", story.slug, text.interactive.challenge.correctAnswer);
   const station = seerahStationOf(story);
@@ -370,11 +382,24 @@ function SeerahStoryView({ story }: { story: SeerahStory }) {
  * master narrative is Arabic-only; English continues to use the established
  * localized record until it receives the same editorial review.
  */
+/** The station text — the Arabic Seerah. */
+function ArabicStory({ story }: { story: SeerahStory }) {
+  const PilotView = pilotViews[story.stationId - 1];
+  return <PilotView story={story} />;
+}
+
+/** The English text once seerah-en.ts has arrived; a story it lacks falls
+ *  back to the Arabic station text rather than to nothing. */
+function EnglishStory({ story }: { story: SeerahStory }) {
+  const english = useSeerahEnglish("en")?.[story.slug];
+  return english ? <SeerahStoryView story={story} english={english} /> : <ArabicStory story={story} />;
+}
+
 function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode: SeerahPilotEpisode }) {
   const { locale } = useLocale();
   const t = copy[locale];
   const station = seerahStationOf(story);
-  const text = seerahTextFor(story, locale);
+  const text = seerahTextFor(story);
   // The pilot replaces the old prose with a reviewed narrative, but keeps the
   // existing story question and reward contract. A keepsake is earned through
   // the child-facing reflection instead of being announced as a text reward.
@@ -509,13 +534,17 @@ export default function SeerahDetail() {
     [isStory, params?.slug],
   );
 
+  // English waits for its own file once, so no card or heading flashes Arabic
+  // first; after that every component reads the cached copy.
+  const english = useSeerahEnglish(locale);
+  if (locale === "en" && !english) return <Chrome><p role="status" className="container">{t.loading}</p></Chrome>;
+
   if (!isStory || !story) {
     return <Chrome><section className="section"><div className="container"><p>{t.missing}</p><Link href="/seerah" className="text-link">{t.backToStation}</Link></div></section></Chrome>;
   }
-  const PilotView = pilotViews[story.stationId - 1];
-  return <Chrome>{locale === "ar" && PilotView
-    ? <Suspense fallback={<p role="status" className="container">{t.loading}</p>}><PilotView story={story} key={story.slug} /></Suspense>
-    : <SeerahStoryView story={story} key={story.slug} />}</Chrome>;
+  return <Chrome><Suspense fallback={<p role="status" className="container">{t.loading}</p>}>
+    {locale === "en" ? <EnglishStory story={story} key={story.slug} /> : <ArabicStory story={story} key={story.slug} />}
+  </Suspense></Chrome>;
 }
 
 /**
@@ -535,10 +564,12 @@ function SeerahStationMap() {
   const { locale } = useLocale();
   const t = copy[locale];
   const [openStation, setOpenStation] = useState<number | null>(seerahStations[0]?.stationId ?? 1);
+  const english = useSeerahEnglish(locale);
   const shown = openStation === null
     ? seerahStations
     : seerahStations.filter(station => station.stationId === openStation);
 
+  if (locale === "en" && !english) return <p role="status" className="container">{t.loading}</p>;
   return (
     <>
       <section className="seerah-map-section" aria-labelledby="seerah-map-title">

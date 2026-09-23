@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { seerahStories } from "./seerah";
+import { seerahEnglish } from "./seerah-en";
 import type { SeerahPilotEpisode } from "./seerah-pilot-station-1";
 import { seerahStoryIndex } from "@/lib/page-index.generated";
 
@@ -15,8 +16,8 @@ describe("Seerah publication metadata", () => {
       const metadata = seerahStoryIndex.find(item => item.slug === story.slug)!;
       expect(metadata.title, story.slug).toBe(episode.title);
       expect(episode.childStory[0], story.slug).toContain(metadata.description.replace(/…$/, ""));
-      expect(metadata.titleEn, story.slug).toBe(story.en!.title);
-      expect(story.en!.content.tier_1_age_6_8.narrative, story.slug).toContain(metadata.descriptionEn!.replace(/…$/, ""));
+      expect(metadata.titleEn, story.slug).toBe(seerahEnglish[story.slug].title);
+      expect(seerahEnglish[story.slug].content.tier_1_age_6_8.narrative, story.slug).toContain(metadata.descriptionEn!.replace(/…$/, ""));
     }
   });
 });

@@ -55,6 +55,18 @@ const aqeedahChapters = pickFrom(aqeedahSource, "aqeedahChapters", "aqeedah.ts")
 const aqeedahCards = pickFrom(aqeedahSource, "aqeedahCards", "aqeedah.ts");
 if (aqeedahCards.length === 0) throw new Error("no aqeedah cards parsed — check aqeedah.ts shape");
 const seerahStories = pickFrom(seerahSource, "seerahStories", "seerah.ts");
+// English moved to its own file so Arabic readers stop downloading it; it is
+// put back on each story here, and the rest of this script reads `story.en`.
+{
+  const { code } = await transform(readFileSync(join(root, "client/src/content/seerah-en.ts"), "utf8"), { loader: "ts", format: "esm" });
+  const { seerahEnglish } = await import(`data:text/javascript;base64,${Buffer.from(code).toString("base64")}`);
+  for (const story of seerahStories) {
+    story.en = seerahEnglish[story.slug];
+    if (!story.en) throw new Error(`seerah-en.ts has no text for ${story.slug}`);
+  }
+  const orphans = Object.keys(seerahEnglish).filter(slug => !seerahStories.some(story => story.slug === slug));
+  if (orphans.length) throw new Error(`seerah-en.ts has text for stories that do not exist: ${orphans.join(", ")}`);
+}
 const stationWords = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
 const seerahPilots = (await Promise.all(stationWords.map(async (word, index) => {
   const file = `seerah-pilot-station-${index + 1}.ts`;
@@ -87,7 +99,7 @@ for (const story of seerahStories) {
   const episode = pilotById.get(story.storyId);
   if (!episode) throw new Error(`Missing Arabic Seerah pilot: ${story.storyId}`);
   story.title = episode.title;
-  story.content.tier_1_age_6_8.narrative = episode.childStory[0];
+  story.content = { tier_1_age_6_8: { narrative: episode.childStory[0] } };
   story.source.reference = episode.sources.join(" ");
 }
 

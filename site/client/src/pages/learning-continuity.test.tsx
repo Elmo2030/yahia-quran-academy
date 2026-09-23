@@ -24,14 +24,17 @@ it("keeps invalid Seerah and Aqeedah routes out of child progress", () => {
   }
 });
 
-it("warns on failed saving and lets the child retry without losing the completed state", () => {
+it("warns on failed saving and lets the child retry without losing the completed state", async () => {
   const child = createProfile(emptyStore(), { name: "Amina", character: "fatima" });
   if (!child.ok) throw Error(child.reason);
   saveStore(child.store);
   window.history.pushState({}, "", "/seerah/little-shepherd?lang=en");
   render(<ThemeProvider><LocaleProvider><SeerahDetail /></LocaleProvider></ThemeProvider>);
+  // The English Seerah arrives in its own chunk; wait for the page before
+  // making storage fail, so entering the story still records normally.
+  const answer = await screen.findByRole("button", { name: "Shepherd" });
   const failure = vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new Error("quota"); });
-  fireEvent.click(screen.getByRole("button", { name: "Shepherd" }));
+  fireEvent.click(answer);
   expect(screen.getByRole("alert")).toHaveTextContent("could not be saved");
   failure.mockRestore();
   fireEvent.click(screen.getByRole("button", { name: "Retry saving" }));

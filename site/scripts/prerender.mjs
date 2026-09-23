@@ -25,6 +25,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { transform } from "esbuild";
 import { companions } from "./build-companions.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -67,6 +68,25 @@ const stories = readLiteral("content/stories.ts", "stories");
 attachEnglish(stories, readMap("content/stories-en.ts", "storiesEn"));
 const seerahStations = readLiteral("content/seerah.ts", "seerahStations");
 const seerahStories = readLiteral("content/seerah.ts", "seerahStories");
+// The Arabic Seerah is the station text — the same words a child reads on the
+// page — and the English is in its own file. The station files build their
+// episodes with a helper, so they are compiled and imported rather than read
+// as literals; esbuild does the type stripping the deploy builder's node may
+// not.
+const importTs = async file => {
+  const { code } = await transform(readFileSync(join(root, "client/src", file), "utf8"), { loader: "ts", format: "esm" });
+  return import(`data:text/javascript;base64,${Buffer.from(code).toString("base64")}`);
+};
+const stationWords = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+const seerahEpisodes = new Map((await Promise.all(stationWords.map((word, i) =>
+  importTs(`content/seerah-pilot-station-${i + 1}.ts`).then(m => m[`seerahStation${word}Pilot`])))).flat()
+  .map(episode => [episode.storyId, episode]));
+const { seerahEnglish } = await importTs("content/seerah-en.ts");
+for (const story of seerahStories) {
+  story.episode = seerahEpisodes.get(story.storyId);
+  story.en = seerahEnglish[story.slug];
+  if (!story.episode) throw new Error(`no station text for seerah story ${story.storyId}`);
+}
 const facts = readLiteral("content/quran-facts.ts", "quranFacts");
 const aqeedahChapters = readLiteral("content/aqeedah.ts", "aqeedahChapters");
 const aqeedahCards = readLiteral("content/aqeedah.ts", "aqeedahCards");
@@ -191,14 +211,17 @@ add("/seerah", section("ar", `
 `));
 
 for (const story of seerahStories) {
-  const tier1 = story.content?.tier_1_age_6_8;
-  const tier2 = story.content?.tier_2_age_9_11;
+  const e = story.episode;
   const ar = section("ar", `
-    <h1>${esc(story.title)}</h1>
-    ${p(tier1?.narrative)}${p(tier1?.shortLesson)}
-    ${p(tier2?.narrative)}${p(tier2?.details)}
+    <h1>${esc(e.title)}</h1>
+    ${p(e.hook)}
+    ${e.childStory.map(p).join("")}
+    ${e.quran ? `<h2>${esc(e.quran.reference)}</h2>${p(e.quran.text)}${p(e.quran.explanation)}` : ""}
+    ${e.sunnah ? `<h2>${esc(e.sunnah.reference)}</h2>${p(e.sunnah.text)}${p(e.sunnah.explanation)}` : ""}
+    <h2>${esc(e.learning.coreLesson)}</h2>
+    ${p(e.learning.whatHappened)}${p(e.learning.reflection)}${p(e.learning.tryIt)}
     ${story.interactive?.thinkQuestion ? `<h2>سؤال للتفكير</h2>${p(story.interactive.thinkQuestion)}` : ""}
-    ${story.source?.reference ? p(`المصدر: ${story.source.reference}`) : ""}
+    ${e.sources.length ? p(`المصادر: ${e.sources.join("؛ ")}`) : ""}
   `);
   const enText = story.en?.content?.tier_1_age_6_8 ?? story.en?.content?.tier_2_age_9_11;
   const enTier2 = story.en?.content?.tier_2_age_9_11;
