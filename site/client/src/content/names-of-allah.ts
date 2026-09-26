@@ -1025,32 +1025,76 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-wahid", order: 67, arabic: "الواحد", transliteration: "Al-Wahid",
     meaning: "المتفرد بلا شريك ولا نظير",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا شريك له",
+      paragraphs: [
+        "الله (الواحد) لا شريك له في ملكه، ولا شبيه له في ذاته أو صفاته.",
+        "قال الله تعالى: ﴿وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَّا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ﴾ (البقرة: ١٦٣).",
+      ],
+    }],
+    reflectionQuestion: "لماذا نتوجه بالعبادة لله وحده دون سواه؟",
+    tryToday: ["ردد اليوم: لا إله إلا الله، وتأمل معناها بقلبك."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ١٦٣" }],
   },
   {
     slug: "as-samad", order: 68, arabic: "الصمد", transliteration: "As-Samad",
     meaning: "الذي يُقصد في الحوائج، وهو غني عن كل أحد",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "إليه تُقصد الحوائج",
+      paragraphs: [
+        "(الصمد) هو الذي يقصده كل الخلق في حوائجهم، وهو وحده الغني عن الجميع.",
+        "قال الله تعالى: ﴿قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ﴾ (الإخلاص: ١-٢).",
+      ],
+    }],
+    reflectionQuestion: "إلى من تلجأ أولًا عندما تحتاج شيئًا مهمًا؟",
+    tryToday: ["اقرأ سورة الإخلاص اليوم وتأمل معنى (الصمد)."],
+    sources: [{ type: "quran", reference: "سورة الإخلاص، الآيتان ١-٢" }],
   },
   {
     slug: "al-qadir", order: 69, arabic: "القادر", transliteration: "Al-Qadir",
     meaning: "الذي يقدر على كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "قادر على كل شيء",
+      paragraphs: [
+        "لا يوجد شيء يعجز الله، فهو (القادر) على كل شيء يريده.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ﴾ (البقرة: ٢٠).",
+      ],
+    }],
+    reflectionQuestion: "هل هناك أمر تظنه مستحيلًا لكنك تعلم أن (القادر) يستطيع تحقيقه؟",
+    tryToday: ["ادعُ الله اليوم بأمر تشعر أنه صعب، فهو (القادر) على كل شيء."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٠" }],
   },
   {
     slug: "al-muqtadir", order: 70, arabic: "المقتدر", transliteration: "Al-Muqtadir",
     meaning: "كامل القدرة، لا يعجزه شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "قدرة كاملة",
+      paragraphs: [
+        "(المقتدر) قدرته كاملة تامة، يفعل ما يشاء وقتما يشاء بلا أي عائق.",
+        "قال الله تعالى: ﴿فَأَخَذْنَاهُمْ أَخْذَ عَزِيزٍ مُّقْتَدِرٍ﴾ (القمر: ٤٢).",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر بالأمان عندما تعلم أن (المقتدر) يحميك من كل سوء؟",
+    tryToday: ["توكل على الله اليوم في أمر يبدو صعبًا، فقدرته كاملة."],
+    sources: [{ type: "quran", reference: "سورة القمر، الآية ٤٢" }],
   },
   {
     slug: "al-muqaddim", order: 71, arabic: "المقدم", transliteration: "Al-Muqaddim",
     meaning: "الذي يقدّم من يشاء بفضله",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يقدّم من يشاء",
+      paragraphs: [
+        "كان النبي ﷺ يدعو في قيام الليل: «اللهم أنت المقدم وأنت المؤخر»، فالله (المقدم) يرفع من يشاء ويقدّمه بفضله.",
+      ],
+    }],
+    reflectionQuestion: "هل تعرف شخصًا قدّمه الله وأعلى شأنه رغم أن الناس لم يتوقعوا ذلك؟",
+    tryToday: ["ادعُ الله اليوم بدعاء النبي ﷺ: اللهم أنت المقدم وأنت المؤخر."],
+    sources: [{ type: "hadith", reference: "رواه مسلم، في دعاء قيام الليل" }],
   },
   {
     slug: "al-muakhkhir", order: 72, arabic: "المؤخر", transliteration: "Al-Mu'akhkhir",
