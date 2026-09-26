@@ -3304,7 +3304,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "العفو",
   "transliteration": "Al-Afuww",
   "meaning": "الذي يعفو عن الذنوب ويمحوها",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "ar-raauf",
@@ -3312,7 +3312,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الرؤوف",
   "transliteration": "Ar-Ra'uf",
   "meaning": "شديد الرأفة والرحمة بعباده",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "malik-al-mulk",
@@ -3320,7 +3320,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "مالك الملك",
   "transliteration": "Malik-ul-Mulk",
   "meaning": "الذي يملك كل الملك ويتصرف فيه كما يشاء",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "dhul-jalali-wal-ikram",
@@ -3328,7 +3328,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "ذو الجلال والإكرام",
   "transliteration": "Dhul-Jalali-wal-Ikram",
   "meaning": "صاحب العظمة والكرم المطلق",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-muqsit",
@@ -3336,7 +3336,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "المقسط",
   "transliteration": "Al-Muqsit",
   "meaning": "العادل في كل حكمه وقضائه",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-jami",

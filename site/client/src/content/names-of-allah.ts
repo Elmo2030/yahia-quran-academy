@@ -1249,32 +1249,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-afuww", order: 82, arabic: "العفو", transliteration: "Al-Afuww",
     meaning: "الذي يعفو عن الذنوب ويمحوها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يمحو الذنب تمامًا",
+      paragraphs: [
+        "(العفو) لا يكتفي بالمغفرة، بل يمحو الذنب تمامًا وكأنه لم يكن.",
+        "قال الله تعالى: ﴿وَكَانَ اللَّهُ عَفُوًّا غَفُورًا﴾ (النساء: ٩٩).",
+      ],
+    }],
+    reflectionQuestion: "ما الفرق بين أن يُغفر ذنبك وأن يُمحى تمامًا؟",
+    tryToday: ["ادعُ بدعاء عائشة رضي الله عنها: اللهم إنك عفو تحب العفو فاعف عني."],
+    sources: [{ type: "quran", reference: "سورة النساء، الآية ٩٩" }],
   },
   {
     slug: "ar-raauf", order: 83, arabic: "الرؤوف", transliteration: "Ar-Ra'uf",
     meaning: "شديد الرأفة والرحمة بعباده",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "رأفة تفوق كل رأفة",
+      paragraphs: [
+        "رأفة الله بعباده أعظم من رأفة أي أم بطفلها، فهو (الرؤوف) الذي يرق قلبه لضعفهم.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ بِالنَّاسِ لَرَءُوفٌ رَّحِيمٌ﴾ (البقرة: ١٤٣).",
+      ],
+    }],
+    reflectionQuestion: "متى شعرت برأفة الله بك في وقت كنت فيه ضعيفًا؟",
+    tryToday: ["كن رؤوفًا مع من هو أضعف منك اليوم، اقتداءً بـ(الرؤوف)."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ١٤٣" }],
   },
   {
     slug: "malik-al-mulk", order: 84, arabic: "مالك الملك", transliteration: "Malik-ul-Mulk",
     meaning: "الذي يملك كل الملك ويتصرف فيه كما يشاء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يملك كل شيء",
+      paragraphs: [
+        "(مالك الملك) يملك كل ملك في الأرض والسماء، ويعطيه من يشاء وينزعه ممن يشاء.",
+        "قال الله تعالى: ﴿قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاءُ﴾ (آل عمران: ٢٦).",
+      ],
+    }],
+    reflectionQuestion: "لماذا لا يجب أن نغتر بأي ملك أو سلطة في الدنيا؟",
+    tryToday: ["تذكر أن كل ما تملكه هو عطية من (مالك الملك)، فلا تتكبر به."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ٢٦" }],
   },
   {
     slug: "dhul-jalali-wal-ikram", order: 85, arabic: "ذو الجلال والإكرام", transliteration: "Dhul-Jalali-wal-Ikram",
     meaning: "صاحب العظمة والكرم المطلق",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "الباقي بجلاله وكرمه",
+      paragraphs: [
+        "(ذو الجلال والإكرام) اسم يجمع بين عظمة الله وكرمه معًا، وهو باقٍ بعد فناء كل شيء.",
+        "قال الله تعالى: ﴿وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو الْجَلَالِ وَالْإِكْرَامِ﴾ (الرحمن: ٢٧).",
+      ],
+    }],
+    reflectionQuestion: "كيف تجمع بين هيبة الله وحبك له في نفس الوقت؟",
+    tryToday: ["ردد اليوم: يا ذا الجلال والإكرام، أكرمني بطاعتك."],
+    sources: [{ type: "quran", reference: "سورة الرحمن، الآية ٢٧" }],
   },
   {
     slug: "al-muqsit", order: 86, arabic: "المقسط", transliteration: "Al-Muqsit",
     meaning: "العادل في كل حكمه وقضائه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "عدل تام",
+      paragraphs: [
+        "(المقسط) عادل في كل حكم وقضاء، لا يميل مع أحد على حساب أحد.",
+        "قال الله تعالى: ﴿شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ ... قَائِمًا بِالْقِسْطِ﴾ (آل عمران: ١٨).",
+      ],
+    }],
+    reflectionQuestion: "كيف تكون عادلًا مع إخوتك أو أصدقائك في موقف تحكيم بينهم؟",
+    tryToday: ["كن عادلًا اليوم في موقف تحتاج فيه أن تحكم بين اثنين."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ١٨" }],
   },
   {
     slug: "al-jami", order: 87, arabic: "الجامع", transliteration: "Al-Jami",
