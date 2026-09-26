@@ -9,7 +9,7 @@
  * asked for, and never caches a navigation response as an asset. Audio is left
  * alone: one surah is several megabytes and the browser's own cache handles it.
  */
-const VERSION = "v2";
+const VERSION = "v3";
 const SHELL = `yahya-shell-${VERSION}`;
 const ASSETS = `yahya-assets-${VERSION}`;
 /** Written by the page, never by this worker: surahs saved for offline play. */
