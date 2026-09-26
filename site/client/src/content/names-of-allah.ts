@@ -950,32 +950,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-mumit", order: 62, arabic: "المميت", transliteration: "Al-Mumit",
     meaning: "الذي يقدّر الموت على كل حي",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يقدّر الأجل",
+      paragraphs: [
+        "كما وهب الله الحياة، فهو (المميت) الذي يقدّر لكل مخلوق أجله المحتوم، ولا يتقدم أحد عن أجله ولا يتأخر.",
+        "قال الله تعالى: ﴿الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا﴾ (الملك: ٢).",
+      ],
+    }],
+    reflectionQuestion: "كيف يجعلك تذكّر الموت أكثر حرصًا على العمل الصالح؟",
+    tryToday: ["استعد ليوم لقاء الله بعمل صالح اليوم، فالحياة والموت اختبار من (المميت)."],
+    sources: [{ type: "quran", reference: "سورة الملك، الآية ٢" }],
   },
   {
     slug: "al-hayy", order: 63, arabic: "الحي", transliteration: "Al-Hayy",
     meaning: "الذي له الحياة الكاملة الدائمة",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "حياة لا تنتهي",
+      paragraphs: [
+        "كل إنسان يموت يومًا ما، إلا الله (الحي) الذي له حياة كاملة دائمة لا تنتهي أبدًا.",
+        "قال الله تعالى في آية الكرسي: ﴿اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ﴾ (البقرة: ٢٥٥).",
+      ],
+    }],
+    reflectionQuestion: "لماذا نطمئن أن الله (الحي) لن يموت أبدًا ليستمر في رعايتنا؟",
+    tryToday: ["احفظ أو راجع أول آية الكرسي اليوم، وتأمل معنى (الحي القيوم)."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٥٥" }],
   },
   {
     slug: "al-qayyum", order: 64, arabic: "القيوم", transliteration: "Al-Qayyum",
     meaning: "القائم بنفسه، القائم على كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "قائم على كل شيء",
+      paragraphs: [
+        "الله (القيوم) لا يحتاج إلى أحد، بل هو القائم بنفسه، وهو الذي يقوم بتدبير كل شيء في الكون: يمسك السماء، ويرزق كل مخلوق.",
+        "قال الله تعالى: ﴿اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ﴾ (البقرة: ٢٥٥).",
+      ],
+    }],
+    reflectionQuestion: "هل تشعر بالطمأنينة أن (القيوم) لا ينام ولا يغفل عن رعايتك ولو للحظة؟",
+    tryToday: ["نم الليلة بطمأنينة، متذكرًا أن (القيوم) يحرسك ولا ينام."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٥٥" }],
   },
   {
     slug: "al-wajid", order: 65, arabic: "الواجد", transliteration: "Al-Wajid",
     meaning: "الغني الذي لا يفتقر لشيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "غني لا يفتقر لشيء",
+      paragraphs: [
+        "الله (الواجد) غني عن كل شيء، لا يفتقر إلى أحد، ولا ينقصه شيء أبدًا مهما أعطى.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ لَغَنِيٌّ عَنِ الْعَالَمِينَ﴾ (العنكبوت: ٦).",
+      ],
+    }],
+    reflectionQuestion: "كيف يختلف غنى الله عن غنى الإنسان الذي مهما ملك يبقى محتاجًا؟",
+    tryToday: ["اشكر الله اليوم أنه أغناك عن كثير مما يحتاجه غيرك."],
+    sources: [{ type: "quran", reference: "سورة العنكبوت، الآية ٦" }],
   },
   {
     slug: "al-maajid", order: 66, arabic: "الماجد", transliteration: "Al-Maajid",
     meaning: "العظيم الكريم الواسع الفضل",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "فضل واسع",
+      paragraphs: [
+        "(الماجد) صاحب الفضل الواسع والكرم العظيم، تكاد نعمه لا تُحصى.",
+        "قال الله تعالى: ﴿إِنَّهُ حَمِيدٌ مَّجِيدٌ﴾ (هود: ٧٣)، فمن جلاله وكرمه يستحق أعلى الثناء.",
+      ],
+    }],
+    reflectionQuestion: "اذكر ثلاث نعم كبيرة أنعم الله بها عليك وعلى أسرتك.",
+    tryToday: ["اشكر الله اليوم على نعمة كبيرة في حياتك لم تشكره عليها من قبل."],
+    sources: [{ type: "quran", reference: "سورة هود، الآية ٧٣" }],
   },
   {
     slug: "al-wahid", order: 67, arabic: "الواحد", transliteration: "Al-Wahid",

@@ -3144,7 +3144,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "المميت",
   "transliteration": "Al-Mumit",
   "meaning": "الذي يقدّر الموت على كل حي",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-hayy",
@@ -3152,7 +3152,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الحي",
   "transliteration": "Al-Hayy",
   "meaning": "الذي له الحياة الكاملة الدائمة",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-qayyum",
@@ -3160,7 +3160,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "القيوم",
   "transliteration": "Al-Qayyum",
   "meaning": "القائم بنفسه، القائم على كل شيء",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-wajid",
@@ -3168,7 +3168,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الواجد",
   "transliteration": "Al-Wajid",
   "meaning": "الغني الذي لا يفتقر لشيء",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-maajid",
@@ -3176,7 +3176,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الماجد",
   "transliteration": "Al-Maajid",
   "meaning": "العظيم الكريم الواسع الفضل",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-wahid",
