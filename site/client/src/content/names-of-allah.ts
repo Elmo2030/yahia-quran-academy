@@ -1324,32 +1324,76 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-jami", order: 87, arabic: "الجامع", transliteration: "Al-Jami",
     meaning: "الذي يجمع الخلق يوم لا ريب فيه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يجمع الجميع يوم القيامة",
+      paragraphs: [
+        "مهما تفرّق الناس في الحياة، فإن الله (الجامع) سيجمعهم جميعًا يوم القيامة للحساب.",
+        "قال الله تعالى: ﴿رَبَّنَا إِنَّكَ جَامِعُ النَّاسِ لِيَوْمٍ لَّا رَيْبَ فِيهِ﴾ (آل عمران: ٩).",
+      ],
+    }],
+    reflectionQuestion: "كيف تستعد ليوم يجمعنا الله فيه جميعًا للحساب؟",
+    tryToday: ["ادعُ الله اليوم أن يجمعك بأحبائك في الجنة."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ٩" }],
   },
   {
     slug: "al-ghani", order: 88, arabic: "الغني", transliteration: "Al-Ghani",
     meaning: "الذي لا يحتاج إلى أحد، وكل أحد محتاج إليه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "غنى مطلق",
+      paragraphs: [
+        "كل إنسان محتاج إلى الله، مهما كان غنيًا في الدنيا، أما الله (الغني) فلا يحتاج إلى أحد أبدًا.",
+        "قال الله تعالى: ﴿يَا أَيُّهَا النَّاسُ أَنتُمُ الْفُقَرَاءُ إِلَى اللَّهِ ۖ وَاللَّهُ هُوَ الْغَنِيُّ الْحَمِيدُ﴾ (فاطر: ١٥).",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر عندما تدرك أنك محتاج إلى الله في كل لحظة؟",
+    tryToday: ["اطلب من الله اليوم حاجتك، مهما كانت صغيرة، فأنت الفقير إليه دائمًا."],
+    sources: [{ type: "quran", reference: "سورة فاطر، الآية ١٥" }],
   },
   {
     slug: "al-mughni", order: 89, arabic: "المغني", transliteration: "Al-Mughni",
     meaning: "الذي يغني من يشاء من عباده",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يغني من يشاء",
+      paragraphs: [
+        "الله (المغني) قادر أن يغني من يشاء من عباده من فضله، بعد فقر أو حاجة.",
+        "قال الله تعالى: ﴿وَإِنْ خِفْتُمْ عَيْلَةً فَسَوْفَ يُغْنِيكُمُ اللَّهُ مِن فَضْلِهِ إِن شَاءَ﴾ (التوبة: ٢٨).",
+      ],
+    }],
+    reflectionQuestion: "هل تعرف قصة شخص كان فقيرًا ثم أغناه الله؟",
+    tryToday: ["اطلب الغنى من الله بطريقة حلال اليوم، وارضَ بما قسمه لك."],
+    sources: [{ type: "quran", reference: "سورة التوبة، الآية ٢٨" }],
   },
   {
     slug: "al-mani", order: 90, arabic: "المانع", transliteration: "Al-Mani",
     meaning: "الذي يمنع الشر عمن يشاء بحكمته",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يمنع بحكمة",
+      paragraphs: [
+        "كان النبي ﷺ يقول بعد الصلاة: «اللهم لا مانع لما أعطيت، ولا معطي لما منعت»، فالله (المانع) يمنع الشر أو العطاء بحكمته وحده.",
+      ],
+    }],
+    reflectionQuestion: "هل حُرمت من شيء ثم اكتشفت لاحقًا أن حرمانه كان خيرًا لك؟",
+    tryToday: ["ردد الذكر بعد صلاتك اليوم: اللهم لا مانع لما أعطيت ولا معطي لما منعت."],
+    sources: [{ type: "hadith", reference: "رواه البخاري ومسلم" }],
   },
   {
     slug: "ad-darr", order: 91, arabic: "الضار", transliteration: "Ad-Darr",
     meaning: "الذي يقدّر الضرّ بحكمته لمصلحة يعلمها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا ضرر إلا بإذنه",
+      paragraphs: [
+        "لا يصيبك ضرر إلا بإذن الله وحكمته، وقد يكون في الضرّ الظاهر خير خفي لا تراه.",
+        "قال النبي ﷺ: «واعلم أن الأمة لو اجتمعت على أن يضروك بشيء لم يضروك إلا بشيء قد كتبه الله عليك».",
+      ],
+    }],
+    reflectionQuestion: "هل مررت بضرر صغير ثم تبين أنه كان سببًا في نجاتك من ضرر أكبر؟",
+    tryToday: ["لا تخف من ضرر أحد اليوم، فلن يصيبك إلا ما كتبه الله."],
+    sources: [{ type: "hadith", reference: "رواه الترمذي" }],
   },
   {
     slug: "an-nafi", order: 92, arabic: "النافع", transliteration: "An-Nafi",
