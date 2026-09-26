@@ -350,32 +350,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-basit", order: 22, arabic: "الباسط", transliteration: "Al-Basit",
     meaning: "الذي يوسّع الرزق بفضله",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يفتح أبواب السعة",
+      paragraphs: [
+        "بعد كل ضيق يقدّره الله بحكمته، يأتي دور (الباسط) الذي يوسّع الرزق والفرح على من يشاء من عباده.",
+        "قال الله تعالى: ﴿وَاللَّهُ يَقْبِضُ وَيَبْسُطُ وَإِلَيْهِ تُرْجَعُونَ﴾ (البقرة: ٢٤٥).",
+      ],
+    }],
+    reflectionQuestion: "اذكر وقتًا شعرت فيه أن الله وسّع عليك بعد ضيق.",
+    tryToday: ["وسّع على أحد اليوم بابتسامة أو مساعدة صغيرة، فالتوسعة صفة يحبها (الباسط)."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٤٥" }],
   },
   {
     slug: "al-khafid", order: 23, arabic: "الخافض", transliteration: "Al-Khafid",
     meaning: "الذي يخفض من يشاء بعدله",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يضع الكبرياء",
+      paragraphs: [
+        "بعض الناس يتكبرون في الدنيا، لكن يوم القيامة سيضع الله المتكبرين في أسفل المنازل.",
+        "وصف الله ذلك اليوم بقوله: ﴿خَافِضَةٌ رَّافِعَةٌ﴾ (الواقعة: ٣)، فمن رفع نفسه بالكبر في الدنيا خفضه الله يوم القيامة.",
+      ],
+    }],
+    reflectionQuestion: "كيف يشجعك اسم (الخافض) على التواضع بدل التكبر على الآخرين؟",
+    tryToday: ["تنازل اليوم عن حقك الصغير لصالح شخص آخر تواضعًا لله."],
+    sources: [{ type: "quran", reference: "سورة الواقعة، الآية ٣" }],
   },
   {
     slug: "ar-rafi", order: 24, arabic: "الرافع", transliteration: "Ar-Rafi",
     meaning: "الذي يرفع من يشاء بفضله",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يرفع المتواضع",
+      paragraphs: [
+        "وكما يخفض الله المتكبر، فهو (الرافع) الذي يرفع درجة من تواضع وأطاعه، ولو كان صغيرًا أو فقيرًا في نظر الناس.",
+        "قال الله تعالى: ﴿نَرْفَعُ دَرَجَاتٍ مَّن نَّشَاءُ﴾ (الأنعام: ٨٣).",
+      ],
+    }],
+    reflectionQuestion: "هل تعرف قصة نبي بدأ حياته ضعيفًا أو فقيرًا ثم رفع الله ذكره؟",
+    tryToday: ["ارفع من معنويات شخص يشعر بالإحباط اليوم بكلمة طيبة."],
+    sources: [{ type: "quran", reference: "سورة الأنعام، الآية ٨٣" }],
   },
   {
     slug: "al-muizz", order: 25, arabic: "المعز", transliteration: "Al-Mu'izz",
     meaning: "الذي يهب العزة لمن يشاء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "عزة بيد الله وحده",
+      paragraphs: [
+        "قد يظن الناس أن العزة تأتي بالمال أو المنصب، لكن العزة الحقيقية بيد الله وحده يهبها لمن يشاء.",
+        "قال الله تعالى: ﴿تُؤْتِي الْمُلْكَ مَن تَشَاءُ وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاءُ وَتُعِزُّ مَن تَشَاءُ وَتُذِلُّ مَن تَشَاءُ﴾ (آل عمران: ٢٦).",
+      ],
+    }],
+    reflectionQuestion: "ما هو مصدر العزة الحقيقي عند المؤمن؟",
+    tryToday: ["اطلب العزة من الله بالطاعة اليوم، لا من مظهر أو ممتلكات."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ٢٦" }],
   },
   {
     slug: "al-mudhill", order: 26, arabic: "المذل", transliteration: "Al-Mudhill",
     meaning: "الذي يهب الذلة لمن يشاء بحكمته",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا عزة بمعصية",
+      paragraphs: [
+        "كما يهب الله العزة، فهو (المذل) الذي يذل من عصاه واستكبر عليه، مهما بدا قويًا في أعين الناس.",
+        "قال الله تعالى: ﴿وَتُعِزُّ مَن تَشَاءُ وَتُذِلُّ مَن تَشَاءُ﴾ (آل عمران: ٢٦).",
+      ],
+    }],
+    reflectionQuestion: "لماذا لا تكون العزة الحقيقية في الكبر أو ظلم الآخرين؟",
+    tryToday: ["ابتعد اليوم عن أي تصرف فيه استكبار على أحد، فالعزة الحقيقية في طاعة الله."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ٢٦" }],
   },
   {
     slug: "as-sami", order: 27, arabic: "السميع", transliteration: "As-Sami",
