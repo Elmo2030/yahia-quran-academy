@@ -575,32 +575,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-aliyy", order: 37, arabic: "العلي", transliteration: "Al-Aliyy",
     meaning: "الذي علا فوق كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "فوق كل شيء",
+      paragraphs: [
+        "الله (العلي) فوق كل شيء، لا يعلوه أحد ولا يشبهه أحد في علوّه.",
+        "قال الله تعالى في آية الكرسي: ﴿وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾ (البقرة: ٢٥٥).",
+      ],
+    }],
+    reflectionQuestion: "لماذا يليق بنا أن نرفع أيدينا للسماء وقت الدعاء؟",
+    tryToday: ["ادعُ الله وأنت رافع يديك اليوم، متذكرًا أن (العلي) فوق كل شيء يسمعك."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٥٥" }],
   },
   {
     slug: "al-kabir", order: 38, arabic: "الكبير", transliteration: "Al-Kabir",
     meaning: "الذي هو أكبر من كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "الله أكبر",
+      paragraphs: [
+        "عندما تقول «الله أكبر» في الصلاة، فأنت تُقرّ أن الله (الكبير) أكبر من كل شيء تخاف منه أو تنشغل به.",
+        "قال الله تعالى: ﴿ذَٰلِكَ بِأَنَّ اللَّهَ هُوَ الْحَقُّ ... وَأَنَّ اللَّهَ هُوَ الْعَلِيُّ الْكَبِيرُ﴾ (الحج: ٦٢).",
+      ],
+    }],
+    reflectionQuestion: "في المرة القادمة التي تخاف فيها من شيء، كيف يساعدك تذكّر أن الله أكبر منه؟",
+    tryToday: ["قل «الله أكبر» بصدق اليوم عندما تواجه أمرًا يخيفك أو يقلقك."],
+    sources: [{ type: "quran", reference: "سورة الحج، الآية ٦٢" }],
   },
   {
     slug: "al-hafiz", order: 39, arabic: "الحفيظ", transliteration: "Al-Hafiz",
     meaning: "الذي يحفظ كل شيء من الضياع",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يحفظك حيث كنت",
+      paragraphs: [
+        "سواء كنت في بيتك أو بعيدًا عن أهلك، فإن الله (الحفيظ) يحفظك ويحفظ كل شيء من الضياع، حتى أعمالك مكتوبة محفوظة عنده.",
+        "قال الله تعالى على لسان يعقوب عليه السلام: ﴿فَاللَّهُ خَيْرٌ حَافِظًا وَهُوَ أَرْحَمُ الرَّاحِمِينَ﴾ (يوسف: ٦٤).",
+      ],
+    }],
+    reflectionQuestion: "هل تشعر بالأمان عندما تسافر أو تبتعد عن أهلك، وتتذكر أن الله (الحفيظ) يحفظك؟",
+    tryToday: ["ادعُ لأهلك اليوم بالحفظ، وقل: اللهم احفظهم بحفظك."],
+    sources: [{ type: "quran", reference: "سورة يوسف، الآية ٦٤" }],
   },
   {
     slug: "al-muqit", order: 40, arabic: "المقيت", transliteration: "Al-Muqit",
     meaning: "الذي يعطي كل مخلوق قوته وما يقيته",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يوصل القوت للجميع",
+      paragraphs: [
+        "(المقيت) هو الذي يوصل الطعام والقوت لكل مخلوق، ويعطي كل جسد ما يحتاجه من قوة ليستمر.",
+        "قال الله تعالى: ﴿...وَكَانَ اللَّهُ عَلَىٰ كُلِّ شَيْءٍ مُّقِيتًا﴾ (النساء: ٨٥).",
+      ],
+    }],
+    reflectionQuestion: "من الذي أوصل الطعام إلى طبقك اليوم، بدءًا من المزارع وحتى بيتك؟ فكّر في كل الأسباب التي يسّرها (المقيت).",
+    tryToday: ["اشكر الله قبل أكلك اليوم، وتذكر أنه هو (المقيت) الذي أوصل لك هذا الطعام."],
+    sources: [{ type: "quran", reference: "سورة النساء، الآية ٨٥" }],
   },
   {
     slug: "al-hasib", order: 41, arabic: "الحسيب", transliteration: "Al-Hasib",
     meaning: "الذي يحاسب عباده على أعمالهم، وكافيهم",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يكفيك ويحاسبك",
+      paragraphs: [
+        "(الحسيب) له معنيان: فهو الذي يحاسب كل إنسان على عمله يوم القيامة، وهو أيضًا كافي من توكل عليه.",
+        "قال الله تعالى: ﴿وَكَفَىٰ بِاللَّهِ حَسِيبًا﴾ (النساء: ٦).",
+      ],
+    }],
+    reflectionQuestion: "إذا كنت تعلم أن الله (الحسيب) سيحاسبك على كل عمل، هل يشجعك ذلك أن تكون أفضل؟",
+    tryToday: ["حاسب نفسك اليوم قبل النوم: ما الحسنة التي فعلتها؟ وما الذي تحتاج أن تعتذر عنه؟"],
+    sources: [{ type: "quran", reference: "سورة النساء، الآية ٦" }],
   },
   {
     slug: "al-jalil", order: 42, arabic: "الجليل", transliteration: "Al-Jalil",
