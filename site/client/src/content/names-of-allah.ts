@@ -500,32 +500,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-khabir", order: 32, arabic: "الخبير", transliteration: "Al-Khabir",
     meaning: "العالم ببواطن الأمور وحقائقها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يعلم الحقيقة كاملة",
+      paragraphs: [
+        "قد يخدعك مظهر شيء أو كلام إنسان، لكن الله (الخبير) يعلم حقيقة كل أمر كما هي، لا كما تبدو.",
+        "قال الله تعالى: ﴿...وَهُوَ اللَّطِيفُ الْخَبِيرُ﴾ (الأنعام: ١٠٣).",
+      ],
+    }],
+    reflectionQuestion: "هل تطمئن أن الله (الخبير) يعلم نيتك الحقيقية حتى لو أخطأ الناس في فهمك؟",
+    tryToday: ["اطلب من الله اليوم أن يهديك لحقيقة أمر محيّر لك، فهو (الخبير) بكل شيء."],
+    sources: [{ type: "quran", reference: "سورة الأنعام، الآية ١٠٣" }],
   },
   {
     slug: "al-halim", order: 33, arabic: "الحليم", transliteration: "Al-Halim",
     meaning: "الذي لا يعجل بالعقوبة مع قدرته عليها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يمهل ولا يهمل",
+      paragraphs: [
+        "مع قدرة الله الكاملة على معاقبة من يعصيه فورًا، فهو (الحليم): يمهل العاصي ولا يعاجله بالعقوبة، رجاء أن يتوب.",
+        "قال الله تعالى: ﴿وَاللَّهُ غَفُورٌ حَلِيمٌ﴾ (البقرة: ٢٢٥).",
+      ],
+    }],
+    reflectionQuestion: "كيف تكون حليمًا، أي لا تتعجل الغضب، مع أخيك الصغير في المرة القادمة التي يزعجك فيها؟",
+    tryToday: ["اضبط غضبك اليوم في موقف واحد بدل أن ترد بسرعة، اقتداءً بحلم الله."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٢٥" }],
   },
   {
     slug: "al-azim", order: 34, arabic: "العظيم", transliteration: "Al-Azim",
     meaning: "الذي له العظمة كلها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "أعظم من كل شيء",
+      paragraphs: [
+        "مهما رأيت شيئًا كبيرًا، جبلًا شامخًا أو بحرًا واسعًا، فإن الله (العظيم) أعظم من كل ما خلق.",
+        "قال الله تعالى في آية الكرسي: ﴿وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾ (البقرة: ٢٥٥).",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر عندما تتخيل حجم السماوات والأرض، ثم تتذكر أن خالقها أعظم منها؟",
+    tryToday: ["احفظ آية الكرسي أو راجعها اليوم، وتأمل معنى (العظيم) فيها."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٥٥" }],
   },
   {
     slug: "al-ghafur", order: 35, arabic: "الغفور", transliteration: "Al-Ghafur",
     meaning: "الذي يستر الذنوب ويغفرها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا تيأس من المغفرة",
+      paragraphs: [
+        "مهما كثرت ذنوبك، فباب (الغفور) مفتوح دائمًا، ولا ذنب أكبر من مغفرته لمن تاب.",
+        "قال الله تعالى: ﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ﴾ (الزمر: ٥٣).",
+      ],
+    }],
+    reflectionQuestion: "لماذا لا يجب أن نيأس من رحمة الله مهما أخطأنا؟",
+    tryToday: ["إذا أخطأت في شيء اليوم، تُب فورًا وثق أن (الغفور) يغفر لك."],
+    sources: [{ type: "quran", reference: "سورة الزمر، الآية ٥٣" }],
   },
   {
     slug: "ash-shakur", order: 36, arabic: "الشكور", transliteration: "Ash-Shakur",
     meaning: "الذي يجازي على القليل من الطاعة بالكثير من الأجر",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يُثيب على القليل بالكثير",
+      paragraphs: [
+        "قد تفعل عملًا صالحًا صغيرًا، فيجازيك الله عليه بأجر عظيم، لأنه (الشكور) الذي يقدّر أدنى طاعة من عبده.",
+        "قال الله تعالى: ﴿لِيُوَفِّيَهُمْ أُجُورَهُمْ وَيَزِيدَهُم مِّن فَضْلِهِ ۚ إِنَّهُ غَفُورٌ شَكُورٌ﴾ (فاطر: ٣٠).",
+      ],
+    }],
+    reflectionQuestion: "اذكر عملًا صالحًا صغيرًا فعلته، هل تتوقع أن الله يضاعف أجره؟",
+    tryToday: ["افعل عملًا صالحًا صغيرًا اليوم تنويه خالصًا لله، وثق أن (الشكور) يضاعفه."],
+    sources: [{ type: "quran", reference: "سورة فاطر، الآية ٣٠" }],
   },
   {
     slug: "al-aliyy", order: 37, arabic: "العلي", transliteration: "Al-Aliyy",
