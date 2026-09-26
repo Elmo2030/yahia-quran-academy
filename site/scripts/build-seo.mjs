@@ -54,6 +54,10 @@ const aqeedahSource = readFileSync(join(root, "client/src/content/aqeedah.ts"), 
 const aqeedahChapters = pickFrom(aqeedahSource, "aqeedahChapters", "aqeedah.ts");
 const aqeedahCards = pickFrom(aqeedahSource, "aqeedahCards", "aqeedah.ts");
 if (aqeedahCards.length === 0) throw new Error("no aqeedah cards parsed — check aqeedah.ts shape");
+
+const namesSource = readFileSync(join(root, "client/src/content/names-of-allah.ts"), "utf8");
+const namesOfAllah = pickFrom(namesSource, "namesOfAllah", "names-of-allah.ts");
+if (namesOfAllah.length !== 99) throw new Error(`expected 99 names of Allah, got ${namesOfAllah.length} — check names-of-allah.ts`);
 const seerahStories = pickFrom(seerahSource, "seerahStories", "seerah.ts");
 // English moved to its own file so Arabic readers stop downloading it; it is
 // put back on each story here, and the rest of this script reads `story.en`.
@@ -161,6 +165,8 @@ const urls = [
   { loc: "/aqeedah", priority: "0.8" },
   { loc: "/companions", priority: "0.8", arabicOnly: true },
   ...companionIndex.map(c => ({ loc: `/companions/${c.slug}`, priority: "0.7", arabicOnly: true })),
+  { loc: "/names-of-allah", priority: "0.8", arabicOnly: true },
+  ...namesOfAllah.map(n => ({ loc: `/names-of-allah/${n.slug}`, priority: "0.6", arabicOnly: true })),
   ...aqeedahCards.map(c => ({ loc: `/aqeedah/${c.slug}`, priority: "0.7" })),
   ...seerahStories.map(s => ({ loc: `/seerah/${s.slug}`, priority: "0.7" })),
 ];
@@ -276,6 +282,9 @@ ${aqeedahCards.map(c => `- [${c.title}](${ORIGIN}/aqeedah/${c.slug}): ${c.value}
 ${companionIndex.map(c => `- [${c.name} — ${c.title}](${ORIGIN}/companions/${c.slug})`).join("\n")}
 Sources and adult editorial notes accompany each story; technical publication is not scholarly approval.
 
+## The 99 Beautiful Names of Allah — Arabic, in progress
+${namesOfAllah.map(n => `- [${n.arabic} — ${n.transliteration}](${ORIGIN}/names-of-allah/${n.slug})${n.status === "coming-soon" ? " (meaning only; full page pending)" : ""}`).join("\n")}
+
 ## Seerah of the Prophet
 ${seerahLines.join("\n")}
 
@@ -340,6 +349,7 @@ type SeerahStory = { stationId: number; slug: string; title: string; description
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
 type Fact = { number: number; slug: string; icon: string; title: string; body: string; titleEn: string; bodyEn: string };
+type NameOfAllah = { slug: string; order: number; arabic: string; transliteration: string; meaning: string; status: string };
 export const chapterIndex: Chapter[] = ${JSON.stringify(chapters.map(c => ({
   slug: c.slug, titleAr: c.titleAr, descriptionAr: c.descriptionAr,
   titleEn: c.titleEn ?? null, descriptionEn: c.descriptionEn ?? null,
@@ -386,6 +396,11 @@ export const factIndex: Fact[] = ${JSON.stringify(quranFacts.map(f => ({
   number: f.number, slug: f.slug, icon: f.icon,
   title: f.title.ar, body: clip(f.body.ar),
   titleEn: f.title.en, bodyEn: clip(f.body.en),
+})), null, 1)};
+
+export const namesOfAllahIndex: NameOfAllah[] = ${JSON.stringify(namesOfAllah.map(n => ({
+  slug: n.slug, order: n.order, arabic: n.arabic, transliteration: n.transliteration,
+  meaning: clip(n.meaning), status: n.status,
 })), null, 1)};
 `);
 
@@ -457,6 +472,10 @@ writeFileSync(join(root, "functions/page-data.js"),
 `export const quranFacts = ${JSON.stringify(quranFacts.map(f => ({
   number: f.number, slug: f.slug, title: f.title.ar, body: clip(f.body.ar),
   titleEn: f.title.en, bodyEn: clip(f.body.en),
+})), null, 1)};\n` +
+`export const namesOfAllahIndex = ${JSON.stringify(namesOfAllah.map(n => ({
+  slug: n.slug, order: n.order, arabic: n.arabic, transliteration: n.transliteration,
+  meaning: clip(n.meaning), status: n.status,
 })), null, 1)};\n`);
 
 console.log(`  sitemap.xml: ${urls.length} URLs`);

@@ -26,13 +26,13 @@ const copy = {
   ar: {
     open: "القائمة", close: "أغلق القائمة", title: "التنقل",
     home: "الرئيسية", journey: "رحلتي", hifz: "رحلة الحفظ", mushafi: "مصحفي", listen: "الاستماع", stories: "قصص القرآن",
-    companions: "الصحابة", seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
+    companions: "الصحابة", namesOfAllah: "أسماء الله الحسنى", seerah: "السيرة النبوية", facts: "في رحاب القرآن", aqeedah: "العقيدة", about: "عن الأكاديمية",
     account: "حسابي", register: "أنشئ حسابًا",
   },
   en: {
     open: "Menu", close: "Close the menu", title: "Navigation",
     home: "Home", journey: "My journey", hifz: "Memorization journey", mushafi: "Mushafi", listen: "Listening", stories: "Quran stories",
-    companions: "Companions", seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
+    companions: "Companions", namesOfAllah: "Names of Allah", seerah: "The Prophet’s Seerah", facts: "In the Realm of the Quran", aqeedah: "Creed for children", about: "About the academy",
     account: "My account", register: "Create an account",
   },
 } as const;
@@ -45,6 +45,7 @@ const LINKS = [
   { href: "/stories", key: "stories" },
   { href: "/seerah", key: "seerah" },
   { href: "/companions", key: "companions" },
+  { href: "/names-of-allah", key: "namesOfAllah" },
   { href: "/quran-facts", key: "facts" },
   { href: "/aqeedah", key: "aqeedah" },
   { href: "/listen", key: "listen" },

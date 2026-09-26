@@ -9,6 +9,7 @@ import {
   aqeedahCardIndex,
   aqeedahChapterIndex,
   factIndex,
+  namesOfAllahIndex,
 } from "./page-index.generated";
 import { englishSurahNames, surahNames } from "./quran-content";
 import { companionIndex } from "./companion-index.generated";
@@ -331,6 +332,12 @@ export const metaForPath = (pathname: string): Meta => {
     const story = companionIndex.find(c => c.slug === parts[1]);
     if (parts.length > 2 || (parts[1] && !story)) return FALLBACK_NOT_FOUND;
     return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title} · الصحابة` : "الصحابة — قصص نتعلم منها · أكاديمية يحيى لتعليم القرآن للأطفال", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
+  }
+
+  if (head === "names-of-allah") {
+    const name = namesOfAllahIndex.find(n => n.slug === parts[1]);
+    if (parts.length > 2 || (parts[1] && !name)) return FALLBACK_NOT_FOUND;
+    return { path, arabicOnly: true, title: name ? `${name.arabic} — ${name.transliteration} · أسماء الله الحسنى` : "أسماء الله الحسنى · أكاديمية يحيى لتعليم القرآن للأطفال", description: name?.meaning ?? "أسماء الله الحسنى التسعة والتسعون: المعنى، وقصص وأسئلة وأنشطة للأطفال.", image: DEFAULT_IMAGE };
   }
 
   if (head === "login") return authMeta;

@@ -90,6 +90,7 @@ for (const story of seerahStories) {
 const facts = readLiteral("content/quran-facts.ts", "quranFacts");
 const aqeedahChapters = readLiteral("content/aqeedah.ts", "aqeedahChapters");
 const aqeedahCards = readLiteral("content/aqeedah.ts", "aqeedahCards");
+const namesOfAllah = readLiteral("content/names-of-allah.ts", "namesOfAllah");
 
 // About keeps its copy in one object; the policy pages pick between two with a
 // ternary. Both are read rather than restated, so the page a crawler is given
@@ -132,6 +133,11 @@ const add = (path, body) => pages.set(path, body);
 add("/companions", section("ar", `<h1>الصحابة</h1>${list(companions.map(c => link(`/companions/${c.slug}`, `${c.name} — ${c.title}`)))}`));
 for (const c of companions) {
   add(`/companions/${c.slug}`, section("ar", `<h1>${esc(c.title)}</h1>${p(c.name)}${c.sections.map(s => `${s.title ? `<h2>${esc(s.title)}</h2>` : ""}${s.paragraphs.map(p).join("")}`).join("")}<h2>جرّبها اليوم</h2>${c.tryToday.map(p).join("")}<h2>يحيى يسأل</h2>${p(c.challenge.question)}<h2>اكتشف أكثر</h2>${c.exploreMore.map(p).join("")}<h2>المصادر</h2>${list(c.sources.map(s => esc(s.reference)))}${link("/companions", "كل الصحابة")}`));
+}
+
+add("/names-of-allah", section("ar", `<h1>أسماء الله الحسنى</h1>${list(namesOfAllah.map(n => link(`/names-of-allah/${n.slug}`, `${n.arabic} — ${n.transliteration}`)))}`));
+for (const n of namesOfAllah) {
+  add(`/names-of-allah/${n.slug}`, section("ar", `<h1>${esc(n.arabic)}</h1>${p(n.transliteration)}${p(n.meaning)}${n.status === "coming-soon" ? p("قيد الإعداد.") : `${n.sections.map(s => `${s.title ? `<h2>${esc(s.title)}</h2>` : ""}${s.paragraphs.map(p).join("")}`).join("")}<h2>جرّبها اليوم</h2>${n.tryToday.map(p).join("")}<h2>يحيى يسأل</h2>${p(n.reflectionQuestion)}<h2>المصادر</h2>${list(n.sources.map(s => esc(s.reference)))}`}${link("/names-of-allah", "كل الأسماء")}`));
 }
 
 add("/", section("ar", `

@@ -2084,6 +2084,606 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://yahyaquran.com/names-of-allah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/allah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/allah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/allah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-rahman</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-rahman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-rahman" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-raheem</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-raheem" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-raheem" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-malik</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-malik" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-malik" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-quddus</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-quddus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-quddus" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/as-salam</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/as-salam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/as-salam" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mumin</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mumin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mumin" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muhaymin</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muhaymin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muhaymin" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-aziz</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-aziz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-aziz" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-jabbar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-jabbar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-jabbar" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mutakabbir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mutakabbir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mutakabbir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-khaliq</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-khaliq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-khaliq" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-bari</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-bari" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-bari" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-musawwir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-musawwir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-musawwir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-ghaffar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-ghaffar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-ghaffar" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-qahhar</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-qahhar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-qahhar" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-wahhab</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-wahhab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-wahhab" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-razzaq</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-razzaq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-razzaq" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-fattah</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-fattah" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-fattah" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-alim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-alim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-alim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-qabid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-qabid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-qabid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-basit</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-basit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-basit" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-khafid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-khafid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-khafid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-rafi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-rafi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-rafi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muizz</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muizz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muizz" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mudhill</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mudhill" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mudhill" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/as-sami</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/as-sami" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/as-sami" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-basir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-basir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-basir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hakam</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hakam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hakam" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-adl</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-adl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-adl" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-latif</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-latif" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-latif" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-khabir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-khabir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-khabir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-halim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-halim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-halim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-azim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-azim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-azim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-ghafur</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-ghafur" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-ghafur" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ash-shakur</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ash-shakur" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ash-shakur" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-aliyy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-aliyy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-aliyy" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-kabir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-kabir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-kabir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hafiz</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hafiz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hafiz" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muqit</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muqit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muqit" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hasib</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hasib" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hasib" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-jalil</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-jalil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-jalil" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-karim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-karim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-karim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-raqib</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-raqib" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-raqib" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mujib</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mujib" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mujib" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-wasi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-wasi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-wasi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hakim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hakim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hakim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-wadud</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-wadud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-wadud" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-majeed</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-majeed" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-majeed" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-baith</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-baith" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-baith" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ash-shahid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ash-shahid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ash-shahid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-haqq</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-haqq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-haqq" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-wakil</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-wakil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-wakil" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-qawiyy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-qawiyy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-qawiyy" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-matin</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-matin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-matin" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-waliyy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-waliyy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-waliyy" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hamid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hamid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hamid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muhsi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muhsi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muhsi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mubdi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mubdi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mubdi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muhyi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muhyi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muhyi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mumit</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mumit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mumit" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hayy</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hayy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hayy" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-qayyum</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-qayyum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-qayyum" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-wajid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-wajid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-wajid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-maajid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-maajid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-maajid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-wahid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-wahid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-wahid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/as-samad</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/as-samad" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/as-samad" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-qadir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-qadir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-qadir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muqtadir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muqtadir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muqtadir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muqaddim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muqaddim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muqaddim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muakhkhir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muakhkhir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muakhkhir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-awwal</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-awwal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-awwal" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-akhir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-akhir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-akhir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/az-zahir</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/az-zahir" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/az-zahir" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-batin</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-batin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-batin" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-waali</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-waali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-waali" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mutaali</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mutaali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mutaali" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-barr</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-barr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-barr" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/at-tawwab</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/at-tawwab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/at-tawwab" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muntaqim</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muntaqim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muntaqim" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-afuww</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-afuww" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-afuww" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-raauf</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-raauf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-raauf" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/malik-al-mulk</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/malik-al-mulk" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/malik-al-mulk" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/dhul-jalali-wal-ikram</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/dhul-jalali-wal-ikram" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/dhul-jalali-wal-ikram" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-muqsit</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-muqsit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-muqsit" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-jami</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-jami" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-jami" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-ghani</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-ghani" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-ghani" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mughni</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mughni" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mughni" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-mani</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-mani" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-mani" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ad-darr</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ad-darr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ad-darr" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/an-nafi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/an-nafi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/an-nafi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/an-nur</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/an-nur" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/an-nur" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-hadi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-hadi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-hadi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-badi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-badi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-badi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-baqi</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-baqi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-baqi" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/al-warith</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/al-warith" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/al-warith" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/ar-rashid</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/ar-rashid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/ar-rashid" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yahyaquran.com/names-of-allah/as-sabur</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/names-of-allah/as-sabur" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahyaquran.com/names-of-allah/as-sabur" />
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://yahyaquran.com/aqeedah/knowing-my-lord</loc>
     <xhtml:link rel="alternate" hreflang="ar" href="https://yahyaquran.com/aqeedah/knowing-my-lord" />
     <xhtml:link rel="alternate" hreflang="en" href="https://yahyaquran.com/aqeedah/knowing-my-lord?lang=en" />

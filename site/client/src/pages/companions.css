@@ -19,36 +19,6 @@
 .companion-reading h2{font-size:1.45rem;margin-block:1.5rem .75rem;line-height:1.7}
 .companion-reading p{white-space:pre-line;margin-block:.7rem}
 .companion-key-moment{border-inline-start:4px solid #c9a458;padding-inline:1.25rem}
-.companion-audio{margin-block:0 1.5rem;padding:1.25rem;border-radius:20px;background:#faf4e6;border:1px solid #e5d6b5;text-align:center}
-.companion-audio h2{margin-block:0 .75rem;font-size:1.15rem}
-.companion-audio audio{width:100%;max-width:420px}
-
-/* An old valve radio, not a browser progress bar: a brass knob to press,
-   a lit "on air" lamp, and a tuning dial to drag instead of a plain seek bar. */
-.companion-audio--retro{background:linear-gradient(155deg,#5b3a22,#3a2414);border:1px solid #2a180c;box-shadow:inset 0 2px 3px rgb(255 255 255 / 12%),inset 0 -4px 10px rgb(0 0 0 / 50%),0 10px 22px rgb(0 0 0 / 28%)}
-.companion-audio--retro h2{color:#f2dfc0;text-shadow:0 1px 0 rgb(0 0 0 / 50%)}
-.companion-audio--retro audio{display:none}
-.retro-radio{display:flex;align-items:center;justify-content:center;gap:1.1rem;flex-wrap:wrap}
-.retro-radio__face{position:relative;flex:none;display:grid;place-items:center;width:88px;height:88px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#caa15a,#8a6329 55%,#5a3f1b 100%);box-shadow:inset 0 2px 3px rgb(255 255 255 / 40%),inset 0 -4px 8px rgb(0 0 0 / 50%),0 4px 8px rgb(0 0 0 / 35%)}
-.retro-radio__grille{position:absolute;inset:9px;display:grid;grid-template-columns:repeat(6,1fr);gap:3px;padding:8px;border-radius:50%;background:#2c1c0e;box-shadow:inset 0 2px 4px rgb(0 0 0 / 60%)}
-.retro-radio__grille span{border-radius:50%;background:#171009}
-.retro-radio__knob{position:relative;z-index:1;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#2c1c0e;background:radial-gradient(circle at 35% 30%,#f4d38a,#c99a3f 60%,#8a6329 100%);box-shadow:inset 0 2px 3px rgb(255 255 255 / 50%),inset 0 -2px 4px rgb(0 0 0 / 35%),0 3px 6px rgb(0 0 0 / 40%);transition:transform .12s ease}
-.retro-radio__knob:active{transform:scale(.94)}
-.retro-radio__panel{flex:1 1 220px;min-width:200px;display:flex;flex-direction:column;gap:.5rem}
-.retro-radio__lamp{align-self:flex-end;width:9px;height:9px;border-radius:50%;background:#7a2a20;box-shadow:inset 0 0 2px rgb(0 0 0 / 60%)}
-.retro-radio__lamp.is-on{background:#ff5a3c;box-shadow:0 0 6px 2px rgb(255 90 60 / 85%),inset 0 0 2px rgb(255 255 255 / 50%)}
-/* The thumb's own start/growth side is flipped by the page's dir (a browser
-   behaviour, not something this CSS controls: rtl starts the thumb at the
-   right), so the fill gradient direction is keyed off the same attribute to
-   grow from the edge the thumb actually starts at. */
-.retro-radio__dial{width:100%;height:22px;border-radius:6px;cursor:pointer;-webkit-appearance:none;appearance:none;border:1px solid #1f130a;box-shadow:inset 0 2px 4px rgb(0 0 0 / 55%);background:repeating-linear-gradient(90deg,rgb(0 0 0 / 35%) 0 1px,transparent 1px 9px)}
-[dir="rtl"] .retro-radio__dial{background:linear-gradient(to left,#e8b95c 0 var(--progress,0%),#3a2414 var(--progress,0%) 100%),repeating-linear-gradient(90deg,rgb(0 0 0 / 35%) 0 1px,transparent 1px 9px)}
-[dir="ltr"] .retro-radio__dial{background:linear-gradient(to right,#e8b95c 0 var(--progress,0%),#3a2414 var(--progress,0%) 100%),repeating-linear-gradient(90deg,rgb(0 0 0 / 35%) 0 1px,transparent 1px 9px)}
-.retro-radio__dial::-webkit-slider-thumb{-webkit-appearance:none;width:6px;height:26px;margin-top:-2px;border-radius:2px;background:#fff3d6;box-shadow:0 0 4px rgb(255 243 214 / 90%),0 0 0 2px rgb(0 0 0 / 40%);cursor:pointer}
-.retro-radio__dial::-moz-range-track{height:22px;border-radius:6px;background:transparent}
-.retro-radio__dial::-moz-range-thumb{width:6px;height:26px;border:none;border-radius:2px;background:#fff3d6;box-shadow:0 0 4px rgb(255 243 214 / 90%),0 0 0 2px rgb(0 0 0 / 40%);cursor:pointer}
-.retro-radio__time{align-self:flex-end;font-family:"Courier New",ui-monospace,monospace;letter-spacing:.05em;color:#f2dfc0;font-size:.8rem;text-shadow:0 0 4px rgb(255 220 150 / 35%)}
-@media(max-width:420px){.retro-radio__face{width:72px;height:72px}.retro-radio__knob{width:40px;height:40px}}
 .companion-action,.companion-challenge,.companion-collection{padding:1.5rem;border-radius:24px;background:#faf4e6;border:1px solid #e5d6b5;color:#443628}
 .companion-details{margin-block:1.5rem;border-block:1px solid #dfd2b6;padding-block:.5rem}
 .companion-details summary{cursor:pointer;padding:.8rem .25rem;min-height:48px;font-weight:700}

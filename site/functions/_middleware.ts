@@ -29,7 +29,7 @@
  * link previews show English text.
  */
 
-import { chapters, stories, surahNames, englishSurahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts, companionIndex } from "./page-data.js";
+import { chapters, stories, surahNames, englishSurahNames, seerahStations, seerahStories, aqeedahCards, aqeedahChapters, quranFacts, companionIndex, namesOfAllahIndex } from "./page-data.js";
 
 const SITE = "أكاديمية يحيى لتعليم القرآن للأطفال";
 const SITE_EN = "Yahya Quran Academy";
@@ -158,6 +158,12 @@ export function metaForPath(pathname: string) {
     const story = companionIndex.find((c: any) => c.slug === parts[1]);
     if (parts.length > 2 || (parts[1] && !story)) return notFound(path);
     return { path, arabicOnly: true, title: story ? `${story.name} — ${story.title} · الصحابة` : "الصحابة — قصص نتعلم منها · أكاديمية يحيى لتعليم القرآن للأطفال", description: story?.description ?? "قصص الصحابة والصحابيات: مواقف وقيم وأسئلة للفهم ومراجع للوالدين.", image: DEFAULT_IMAGE };
+  }
+
+  if (head === "names-of-allah") {
+    const name = namesOfAllahIndex.find((n: any) => n.slug === parts[1]);
+    if (parts.length > 2 || (parts[1] && !name)) return notFound(path);
+    return { path, arabicOnly: true, title: name ? `${name.arabic} — ${name.transliteration} · أسماء الله الحسنى` : "أسماء الله الحسنى · أكاديمية يحيى لتعليم القرآن للأطفال", description: name?.meaning ?? "أسماء الله الحسنى التسعة والتسعون: المعنى، وقصص وأسئلة وأنشطة للأطفال.", image: DEFAULT_IMAGE };
   }
 
   if (head === "login") return authMeta;
@@ -414,7 +420,7 @@ export const onRequest: PagesFunction = async (context) => {
   // An explicit ?lang=en in the address is the reader's own choice, unlike the
   // Accept-Language a link-preview bot sends, which is why this is read from
   // the URL and nothing else.
-  const locale = url.searchParams.get("lang") === "en" && !pathname.startsWith("/companions") ? "en" : "ar";
+  const locale = url.searchParams.get("lang") === "en" && !pathname.startsWith("/companions") && !pathname.startsWith("/names-of-allah") ? "en" : "ar";
   const meta = localized(metaForPath(pathname), locale);
   const arabicUrl = `${ORIGIN}${meta.path}`;
   // The English page is its own page as far as search is concerned. Pointing

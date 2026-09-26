@@ -8,6 +8,7 @@ type SeerahStory = { stationId: number; slug: string; title: string; description
 type AqeedahChapter = { slug: string; titleAr: string; titleEn: string; descriptionAr: string; descriptionEn: string | null };
 type AqeedahCard = { slug: string; chapter: string; title: string; value: string; titleEn: string | null; valueEn: string | null; image: string | null };
 type Fact = { number: number; slug: string; icon: string; title: string; body: string; titleEn: string; bodyEn: string };
+type NameOfAllah = { slug: string; order: number; arabic: string; transliteration: string; meaning: string; status: string };
 export const chapterIndex: Chapter[] = [
  {
   "slug": "animals",
@@ -2645,5 +2646,800 @@ export const factIndex: Fact[] = [
   "body": "تكفّل الله بحفظ القرآن من أي تحريف، فبقي كما نزل، ويبقى معجزة باقية على مرّ العصور.",
   "titleEn": "And We will surely guard it",
   "bodyEn": "Allah took upon Himself the guarding of the Quran from any change. It has stayed exactly as it came down, and remains a standing miracle through every age."
+ }
+];
+
+export const namesOfAllahIndex: NameOfAllah[] = [
+ {
+  "slug": "allah",
+  "order": 1,
+  "arabic": "الله",
+  "transliteration": "Allah",
+  "meaning": "الاسم الجامع لكل صفات الكمال، خالق كل شيء والمعبود بحق وحده",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ar-rahman",
+  "order": 2,
+  "arabic": "الرحمن",
+  "transliteration": "Ar-Rahman",
+  "meaning": "واسع الرحمة، يرحم كل الخلق في الدنيا: المؤمن والكافر، الإنسان والحيوان",
+  "status": "ready"
+ },
+ {
+  "slug": "ar-raheem",
+  "order": 3,
+  "arabic": "الرحيم",
+  "transliteration": "Ar-Raheem",
+  "meaning": "شديد الرحمة بالمؤمنين خاصة، يرحمهم في الدنيا ويوم القيامة",
+  "status": "ready"
+ },
+ {
+  "slug": "al-malik",
+  "order": 4,
+  "arabic": "الملك",
+  "transliteration": "Al-Malik",
+  "meaning": "المالك لكل شيء في الكون، المتصرف فيه وحده، لا شريك له في ملكه",
+  "status": "ready"
+ },
+ {
+  "slug": "al-quddus",
+  "order": 5,
+  "arabic": "القدوس",
+  "transliteration": "Al-Quddus",
+  "meaning": "المنزّه عن كل نقص وعيب وشريك، الطاهر الكامل في ذاته وصفاته",
+  "status": "ready"
+ },
+ {
+  "slug": "as-salam",
+  "order": 6,
+  "arabic": "السلام",
+  "transliteration": "As-Salam",
+  "meaning": "السالم من كل عيب ونقص، ومنه السلام الذي يهبه لأهل الجنة",
+  "status": "ready"
+ },
+ {
+  "slug": "al-mumin",
+  "order": 7,
+  "arabic": "المؤمن",
+  "transliteration": "Al-Mu'min",
+  "meaning": "يصدق وعده، ويؤمّن عباده من الخوف",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muhaymin",
+  "order": 8,
+  "arabic": "المهيمن",
+  "transliteration": "Al-Muhaymin",
+  "meaning": "الرقيب الحافظ لكل شيء، المطّلع عليه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-aziz",
+  "order": 9,
+  "arabic": "العزيز",
+  "transliteration": "Al-Aziz",
+  "meaning": "الغالب الذي لا يُقهر أبدًا",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-jabbar",
+  "order": 10,
+  "arabic": "الجبار",
+  "transliteration": "Al-Jabbar",
+  "meaning": "الذي يجبر الضعيف ويقهر كل شيء بقوته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mutakabbir",
+  "order": 11,
+  "arabic": "المتكبر",
+  "transliteration": "Al-Mutakabbir",
+  "meaning": "المتفرد بالعظمة، فلا كبرياء لأحد سواه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-khaliq",
+  "order": 12,
+  "arabic": "الخالق",
+  "transliteration": "Al-Khaliq",
+  "meaning": "الذي أوجد كل شيء من العدم",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-bari",
+  "order": 13,
+  "arabic": "البارئ",
+  "transliteration": "Al-Bari",
+  "meaning": "الذي أبدع الخلق بلا مثال سابق",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-musawwir",
+  "order": 14,
+  "arabic": "المصور",
+  "transliteration": "Al-Musawwir",
+  "meaning": "الذي يعطي كل مخلوق صورته الخاصة",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-ghaffar",
+  "order": 15,
+  "arabic": "الغفار",
+  "transliteration": "Al-Ghaffar",
+  "meaning": "كثير المغفرة للذنوب مهما تكررت",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-qahhar",
+  "order": 16,
+  "arabic": "القهار",
+  "transliteration": "Al-Qahhar",
+  "meaning": "الغالب لكل شيء، لا يقف أمامه شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-wahhab",
+  "order": 17,
+  "arabic": "الوهاب",
+  "transliteration": "Al-Wahhab",
+  "meaning": "كثير العطاء بلا مقابل",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ar-razzaq",
+  "order": 18,
+  "arabic": "الرزاق",
+  "transliteration": "Ar-Razzaq",
+  "meaning": "الذي يرزق كل مخلوق ما يحتاجه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-fattah",
+  "order": 19,
+  "arabic": "الفتاح",
+  "transliteration": "Al-Fattah",
+  "meaning": "الذي يفتح أبواب الرزق والخير والحكم بين الناس",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-alim",
+  "order": 20,
+  "arabic": "العليم",
+  "transliteration": "Al-Alim",
+  "meaning": "الذي يعلم كل شيء، ظاهره وباطنه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-qabid",
+  "order": 21,
+  "arabic": "القابض",
+  "transliteration": "Al-Qabid",
+  "meaning": "الذي يُضيّق الرزق بحكمته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-basit",
+  "order": 22,
+  "arabic": "الباسط",
+  "transliteration": "Al-Basit",
+  "meaning": "الذي يوسّع الرزق بفضله",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-khafid",
+  "order": 23,
+  "arabic": "الخافض",
+  "transliteration": "Al-Khafid",
+  "meaning": "الذي يخفض من يشاء بعدله",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ar-rafi",
+  "order": 24,
+  "arabic": "الرافع",
+  "transliteration": "Ar-Rafi",
+  "meaning": "الذي يرفع من يشاء بفضله",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muizz",
+  "order": 25,
+  "arabic": "المعز",
+  "transliteration": "Al-Mu'izz",
+  "meaning": "الذي يهب العزة لمن يشاء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mudhill",
+  "order": 26,
+  "arabic": "المذل",
+  "transliteration": "Al-Mudhill",
+  "meaning": "الذي يهب الذلة لمن يشاء بحكمته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "as-sami",
+  "order": 27,
+  "arabic": "السميع",
+  "transliteration": "As-Sami",
+  "meaning": "الذي يسمع كل شيء، خفيّه وجهره",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-basir",
+  "order": 28,
+  "arabic": "البصير",
+  "transliteration": "Al-Basir",
+  "meaning": "الذي يرى كل شيء مهما دقّ",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hakam",
+  "order": 29,
+  "arabic": "الحكم",
+  "transliteration": "Al-Hakam",
+  "meaning": "الحاكم الذي يفصل بين الخلق بالعدل",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-adl",
+  "order": 30,
+  "arabic": "العدل",
+  "transliteration": "Al-Adl",
+  "meaning": "الذي لا يظلم أحدًا أبدًا",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-latif",
+  "order": 31,
+  "arabic": "اللطيف",
+  "transliteration": "Al-Latif",
+  "meaning": "الرفيق بعباده، يعلم دقائق الأمور",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-khabir",
+  "order": 32,
+  "arabic": "الخبير",
+  "transliteration": "Al-Khabir",
+  "meaning": "العالم ببواطن الأمور وحقائقها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-halim",
+  "order": 33,
+  "arabic": "الحليم",
+  "transliteration": "Al-Halim",
+  "meaning": "الذي لا يعجل بالعقوبة مع قدرته عليها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-azim",
+  "order": 34,
+  "arabic": "العظيم",
+  "transliteration": "Al-Azim",
+  "meaning": "الذي له العظمة كلها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-ghafur",
+  "order": 35,
+  "arabic": "الغفور",
+  "transliteration": "Al-Ghafur",
+  "meaning": "الذي يستر الذنوب ويغفرها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ash-shakur",
+  "order": 36,
+  "arabic": "الشكور",
+  "transliteration": "Ash-Shakur",
+  "meaning": "الذي يجازي على القليل من الطاعة بالكثير من الأجر",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-aliyy",
+  "order": 37,
+  "arabic": "العلي",
+  "transliteration": "Al-Aliyy",
+  "meaning": "الذي علا فوق كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-kabir",
+  "order": 38,
+  "arabic": "الكبير",
+  "transliteration": "Al-Kabir",
+  "meaning": "الذي هو أكبر من كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hafiz",
+  "order": 39,
+  "arabic": "الحفيظ",
+  "transliteration": "Al-Hafiz",
+  "meaning": "الذي يحفظ كل شيء من الضياع",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muqit",
+  "order": 40,
+  "arabic": "المقيت",
+  "transliteration": "Al-Muqit",
+  "meaning": "الذي يعطي كل مخلوق قوته وما يقيته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hasib",
+  "order": 41,
+  "arabic": "الحسيب",
+  "transliteration": "Al-Hasib",
+  "meaning": "الذي يحاسب عباده على أعمالهم، وكافيهم",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-jalil",
+  "order": 42,
+  "arabic": "الجليل",
+  "transliteration": "Al-Jalil",
+  "meaning": "صاحب الجلال والعظمة",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-karim",
+  "order": 43,
+  "arabic": "الكريم",
+  "transliteration": "Al-Karim",
+  "meaning": "كثير العطاء والفضل",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ar-raqib",
+  "order": 44,
+  "arabic": "الرقيب",
+  "transliteration": "Ar-Raqib",
+  "meaning": "الذي لا يغيب عنه شيء، يراقب كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mujib",
+  "order": 45,
+  "arabic": "المجيب",
+  "transliteration": "Al-Mujib",
+  "meaning": "الذي يجيب دعاء من دعاه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-wasi",
+  "order": 46,
+  "arabic": "الواسع",
+  "transliteration": "Al-Wasi",
+  "meaning": "الذي وسعت رحمته وعلمه كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hakim",
+  "order": 47,
+  "arabic": "الحكيم",
+  "transliteration": "Al-Hakim",
+  "meaning": "الذي يضع كل شيء في موضعه بحكمة",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-wadud",
+  "order": 48,
+  "arabic": "الودود",
+  "transliteration": "Al-Wadud",
+  "meaning": "الذي يحب عباده الصالحين ويحبونه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-majeed",
+  "order": 49,
+  "arabic": "المجيد",
+  "transliteration": "Al-Majeed",
+  "meaning": "الكريم العظيم الشأن",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-baith",
+  "order": 50,
+  "arabic": "الباعث",
+  "transliteration": "Al-Ba'ith",
+  "meaning": "الذي يبعث الخلق يوم القيامة",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ash-shahid",
+  "order": 51,
+  "arabic": "الشهيد",
+  "transliteration": "Ash-Shahid",
+  "meaning": "الذي لا يغيب عنه شيء، حاضر لكل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-haqq",
+  "order": 52,
+  "arabic": "الحق",
+  "transliteration": "Al-Haqq",
+  "meaning": "الثابت الذي لا يزول، وكل شيء سواه باطل",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-wakil",
+  "order": 53,
+  "arabic": "الوكيل",
+  "transliteration": "Al-Wakil",
+  "meaning": "الذي يتولى أمور من توكل عليه ويكفيه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-qawiyy",
+  "order": 54,
+  "arabic": "القوي",
+  "transliteration": "Al-Qawiyy",
+  "meaning": "الذي له القوة كلها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-matin",
+  "order": 55,
+  "arabic": "المتين",
+  "transliteration": "Al-Matin",
+  "meaning": "شديد القوة الذي لا يتعبه شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-waliyy",
+  "order": 56,
+  "arabic": "الولي",
+  "transliteration": "Al-Waliyy",
+  "meaning": "الناصر والمعين لأوليائه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hamid",
+  "order": 57,
+  "arabic": "الحميد",
+  "transliteration": "Al-Hamid",
+  "meaning": "المحمود على كل حال بأفعاله وصفاته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muhsi",
+  "order": 58,
+  "arabic": "المحصي",
+  "transliteration": "Al-Muhsi",
+  "meaning": "الذي أحصى كل شيء عددًا",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mubdi",
+  "order": 59,
+  "arabic": "المبدئ",
+  "transliteration": "Al-Mubdi",
+  "meaning": "الذي بدأ الخلق من العدم",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muid",
+  "order": 60,
+  "arabic": "المعيد",
+  "transliteration": "Al-Mu'id",
+  "meaning": "الذي يعيد الخلق بعد الفناء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muhyi",
+  "order": 61,
+  "arabic": "المحيي",
+  "transliteration": "Al-Muhyi",
+  "meaning": "الذي يهب الحياة",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mumit",
+  "order": 62,
+  "arabic": "المميت",
+  "transliteration": "Al-Mumit",
+  "meaning": "الذي يقدّر الموت على كل حي",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hayy",
+  "order": 63,
+  "arabic": "الحي",
+  "transliteration": "Al-Hayy",
+  "meaning": "الذي له الحياة الكاملة الدائمة",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-qayyum",
+  "order": 64,
+  "arabic": "القيوم",
+  "transliteration": "Al-Qayyum",
+  "meaning": "القائم بنفسه، القائم على كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-wajid",
+  "order": 65,
+  "arabic": "الواجد",
+  "transliteration": "Al-Wajid",
+  "meaning": "الغني الذي لا يفتقر لشيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-maajid",
+  "order": 66,
+  "arabic": "الماجد",
+  "transliteration": "Al-Maajid",
+  "meaning": "العظيم الكريم الواسع الفضل",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-wahid",
+  "order": 67,
+  "arabic": "الواحد",
+  "transliteration": "Al-Wahid",
+  "meaning": "المتفرد بلا شريك ولا نظير",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "as-samad",
+  "order": 68,
+  "arabic": "الصمد",
+  "transliteration": "As-Samad",
+  "meaning": "الذي يُقصد في الحوائج، وهو غني عن كل أحد",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-qadir",
+  "order": 69,
+  "arabic": "القادر",
+  "transliteration": "Al-Qadir",
+  "meaning": "الذي يقدر على كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muqtadir",
+  "order": 70,
+  "arabic": "المقتدر",
+  "transliteration": "Al-Muqtadir",
+  "meaning": "كامل القدرة، لا يعجزه شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muqaddim",
+  "order": 71,
+  "arabic": "المقدم",
+  "transliteration": "Al-Muqaddim",
+  "meaning": "الذي يقدّم من يشاء بفضله",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muakhkhir",
+  "order": 72,
+  "arabic": "المؤخر",
+  "transliteration": "Al-Mu'akhkhir",
+  "meaning": "الذي يؤخر من يشاء بحكمته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-awwal",
+  "order": 73,
+  "arabic": "الأول",
+  "transliteration": "Al-Awwal",
+  "meaning": "الذي ليس قبله شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-akhir",
+  "order": 74,
+  "arabic": "الآخر",
+  "transliteration": "Al-Akhir",
+  "meaning": "الذي ليس بعده شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "az-zahir",
+  "order": 75,
+  "arabic": "الظاهر",
+  "transliteration": "Az-Zahir",
+  "meaning": "الذي ظهر فوق كل شيء بقدرته وعلت آياته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-batin",
+  "order": 76,
+  "arabic": "الباطن",
+  "transliteration": "Al-Batin",
+  "meaning": "العالم بما بطن وخفي",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-waali",
+  "order": 77,
+  "arabic": "الوالي",
+  "transliteration": "Al-Waali",
+  "meaning": "المتولي لتدبير خلقه وأمورهم",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mutaali",
+  "order": 78,
+  "arabic": "المتعالي",
+  "transliteration": "Al-Muta'aali",
+  "meaning": "المنزّه عن كل نقص، العالي فوق خلقه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-barr",
+  "order": 79,
+  "arabic": "البر",
+  "transliteration": "Al-Barr",
+  "meaning": "كثير الإحسان والخير لعباده",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "at-tawwab",
+  "order": 80,
+  "arabic": "التواب",
+  "transliteration": "At-Tawwab",
+  "meaning": "الذي يقبل توبة عباده مهما أخطأوا",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muntaqim",
+  "order": 81,
+  "arabic": "المنتقم",
+  "transliteration": "Al-Muntaqim",
+  "meaning": "الذي ينتقم من الظالمين بعدله",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-afuww",
+  "order": 82,
+  "arabic": "العفو",
+  "transliteration": "Al-Afuww",
+  "meaning": "الذي يعفو عن الذنوب ويمحوها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ar-raauf",
+  "order": 83,
+  "arabic": "الرؤوف",
+  "transliteration": "Ar-Ra'uf",
+  "meaning": "شديد الرأفة والرحمة بعباده",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "malik-al-mulk",
+  "order": 84,
+  "arabic": "مالك الملك",
+  "transliteration": "Malik-ul-Mulk",
+  "meaning": "الذي يملك كل الملك ويتصرف فيه كما يشاء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "dhul-jalali-wal-ikram",
+  "order": 85,
+  "arabic": "ذو الجلال والإكرام",
+  "transliteration": "Dhul-Jalali-wal-Ikram",
+  "meaning": "صاحب العظمة والكرم المطلق",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-muqsit",
+  "order": 86,
+  "arabic": "المقسط",
+  "transliteration": "Al-Muqsit",
+  "meaning": "العادل في كل حكمه وقضائه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-jami",
+  "order": 87,
+  "arabic": "الجامع",
+  "transliteration": "Al-Jami",
+  "meaning": "الذي يجمع الخلق يوم لا ريب فيه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-ghani",
+  "order": 88,
+  "arabic": "الغني",
+  "transliteration": "Al-Ghani",
+  "meaning": "الذي لا يحتاج إلى أحد، وكل أحد محتاج إليه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mughni",
+  "order": 89,
+  "arabic": "المغني",
+  "transliteration": "Al-Mughni",
+  "meaning": "الذي يغني من يشاء من عباده",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-mani",
+  "order": 90,
+  "arabic": "المانع",
+  "transliteration": "Al-Mani",
+  "meaning": "الذي يمنع الشر عمن يشاء بحكمته",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ad-darr",
+  "order": 91,
+  "arabic": "الضار",
+  "transliteration": "Ad-Darr",
+  "meaning": "الذي يقدّر الضرّ بحكمته لمصلحة يعلمها",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "an-nafi",
+  "order": 92,
+  "arabic": "النافع",
+  "transliteration": "An-Nafi",
+  "meaning": "الذي يوصل النفع لمن يشاء من عباده",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "an-nur",
+  "order": 93,
+  "arabic": "النور",
+  "transliteration": "An-Nur",
+  "meaning": "الذي نوّر السماوات والأرض بنوره وهداه",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-hadi",
+  "order": 94,
+  "arabic": "الهادي",
+  "transliteration": "Al-Hadi",
+  "meaning": "الذي يهدي عباده إلى الحق والصواب",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-badi",
+  "order": 95,
+  "arabic": "البديع",
+  "transliteration": "Al-Badi",
+  "meaning": "الذي أبدع الخلق على غير مثال سابق",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-baqi",
+  "order": 96,
+  "arabic": "الباقي",
+  "transliteration": "Al-Baqi",
+  "meaning": "الذي لا يفنى ولا يزول",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "al-warith",
+  "order": 97,
+  "arabic": "الوارث",
+  "transliteration": "Al-Warith",
+  "meaning": "الباقي بعد فناء كل شيء، له كل شيء",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "ar-rashid",
+  "order": 98,
+  "arabic": "الرشيد",
+  "transliteration": "Ar-Rashid",
+  "meaning": "الذي يهدي إلى الرشد والصواب",
+  "status": "coming-soon"
+ },
+ {
+  "slug": "as-sabur",
+  "order": 99,
+  "arabic": "الصبور",
+  "transliteration": "As-Sabur",
+  "meaning": "الذي لا يعجل بالعقوبة، ويمهل عباده",
+  "status": "coming-soon"
  }
 ];

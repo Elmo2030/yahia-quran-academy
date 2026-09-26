@@ -1,0 +1,8 @@
+/* Reuses .companions-page / .companions-hero / .companions-intro* / .companion-card
+   and friends from companions.css (imported alongside this file) — the two
+   sections share the same card-grid, reading and audio-player look. These
+   rules are only the small differences: no cover photo on a name's card, so
+   its heading needs the padding an image would otherwise take up. */
+.names-card{text-align:center;padding-top:1.75rem}
+.names-card h2{font-size:1.4rem}
+@media(max-width:560px){.names-card{padding-top:1.4rem}}
