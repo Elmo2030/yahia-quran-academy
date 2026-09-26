@@ -1174,32 +1174,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-waali", order: 77, arabic: "الوالي", transliteration: "Al-Waali",
     meaning: "المتولي لتدبير خلقه وأمورهم",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يتولى تدبير كل شيء",
+      paragraphs: [
+        "الله (الوالي) يتولى تدبير كل شيء في الكون، ولا أحد يملك أن يتولى أمرًا من دونه.",
+        "قال الله تعالى: ﴿وَمَا لَهُم مِّن دُونِهِ مِن وَالٍ﴾ (الرعد: ١١).",
+      ],
+    }],
+    reflectionQuestion: "من الذي يتولى أمورك الحقيقي، حتى لو ساعدك أشخاص كثيرون؟",
+    tryToday: ["سلّم أمرك كله لله اليوم في قرار تحتاج اتخاذه."],
+    sources: [{ type: "quran", reference: "سورة الرعد، الآية ١١" }],
   },
   {
     slug: "al-mutaali", order: 78, arabic: "المتعالي", transliteration: "Al-Muta'aali",
     meaning: "المنزّه عن كل نقص، العالي فوق خلقه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "فوق كل نقص",
+      paragraphs: [
+        "(المتعالي) منزّه عن كل نقص يخطر ببال، عالٍ فوق خلقه في ذاته وصفاته.",
+        "قال الله تعالى: ﴿عَالِمُ الْغَيْبِ وَالشَّهَادَةِ الْكَبِيرُ الْمُتَعَالِ﴾ (الرعد: ٩).",
+      ],
+    }],
+    reflectionQuestion: "كيف تنزّه الله في كلامك عن أي وصف لا يليق به؟",
+    tryToday: ["سبّح الله اليوم: سبحان الله العلي المتعال."],
+    sources: [{ type: "quran", reference: "سورة الرعد، الآية ٩" }],
   },
   {
     slug: "al-barr", order: 79, arabic: "البر", transliteration: "Al-Barr",
     meaning: "كثير الإحسان والخير لعباده",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "كثير الإحسان",
+      paragraphs: [
+        "الله (البر) يحسن إلى عباده بلا حدود، ويتلطف بهم في كل أحوالهم.",
+        "قال الله تعالى: ﴿إِنَّا كُنَّا مِن قَبْلُ نَدْعُوهُ ۖ إِنَّهُ هُوَ الْبَرُّ الرَّحِيمُ﴾ (الطور: ٢٨).",
+      ],
+    }],
+    reflectionQuestion: "اذكر إحسانًا من الله وصلك اليوم لم تنتبه له من قبل.",
+    tryToday: ["أحسن إلى والديك اليوم بعمل بسيط، اقتداءً بـ(البر)."],
+    sources: [{ type: "quran", reference: "سورة الطور، الآية ٢٨" }],
   },
   {
     slug: "at-tawwab", order: 80, arabic: "التواب", transliteration: "At-Tawwab",
     meaning: "الذي يقبل توبة عباده مهما أخطأوا",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يفرح بتوبة عبده",
+      paragraphs: [
+        "عندما أخطأ آدم عليه السلام وتاب، قبل الله توبته فورًا، لأنه (التواب) الذي يفرح بعودة عبده إليه.",
+        "قال الله تعالى: ﴿فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾ (البقرة: ٣٧).",
+      ],
+    }],
+    reflectionQuestion: "هل تتردد في التوبة أحيانًا خوفًا من الرفض؟ لماذا لا يجب أن تخاف مع (التواب)؟",
+    tryToday: ["تب إلى الله اليوم من أي خطأ، وثق أنه (التواب) يقبلك."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٣٧" }],
   },
   {
     slug: "al-muntaqim", order: 81, arabic: "المنتقم", transliteration: "Al-Muntaqim",
     meaning: "الذي ينتقم من الظالمين بعدله",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "ينتقم من الظالم",
+      paragraphs: [
+        "قد يفلت الظالم من عقاب الدنيا، لكن الله (المنتقم) لن يترك ظلمه بلا حساب يوم القيامة.",
+        "قال الله تعالى: ﴿إِنَّا مِنَ الْمُجْرِمِينَ مُنتَقِمُونَ﴾ (السجدة: ٢٢).",
+      ],
+    }],
+    reflectionQuestion: "كيف يريحك أن تعلم أن الظالم لن يفلت من عدل الله، حتى لو أفلت من عدل الدنيا؟",
+    tryToday: ["لا تنتقم بنفسك اليوم من أحد أساء إليك، واترك الأمر لله (المنتقم) العادل."],
+    sources: [{ type: "quran", reference: "سورة السجدة، الآية ٢٢" }],
   },
   {
     slug: "al-afuww", order: 82, arabic: "العفو", transliteration: "Al-Afuww",
