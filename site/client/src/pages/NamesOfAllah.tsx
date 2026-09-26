@@ -38,7 +38,12 @@ function Hub() {
       </div>
       <div className="companions-intro__story">
         <p>الترتيب هنا هو الترتيب المشهور المروي عن الترمذي، وهو الأكثر تداولًا؛ توجد صياغات أخرى عند بعض العلماء.</p>
-        <p>{namesOfAllah.filter(n => n.status === "ready").length} من ٩٩ اسمًا فيها الآن قصة كاملة وسؤال ونشاط، والباقي قيد الإعداد ويُضاف تباعًا.</p>
+        {(() => {
+          const ready = namesOfAllah.filter(n => n.status === "ready").length;
+          return ready === namesOfAllah.length
+            ? <p>كل الأسماء التسعة والتسعين فيها الآن قصة كاملة وسؤال ونشاط.</p>
+            : <p>{ready} من ٩٩ اسمًا فيها الآن قصة كاملة وسؤال ونشاط، والباقي قيد الإعداد ويُضاف تباعًا.</p>;
+        })()}
       </div>
     </section>
 

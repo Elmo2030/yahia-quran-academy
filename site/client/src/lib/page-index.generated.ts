@@ -2656,7 +2656,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الله",
   "transliteration": "Allah",
   "meaning": "الاسم الجامع لكل صفات الكمال، خالق كل شيء والمعبود بحق وحده",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "ar-rahman",
@@ -3384,7 +3384,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "النافع",
   "transliteration": "An-Nafi",
   "meaning": "الذي يوصل النفع لمن يشاء من عباده",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "an-nur",
@@ -3392,7 +3392,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "النور",
   "transliteration": "An-Nur",
   "meaning": "الذي نوّر السماوات والأرض بنوره وهداه",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-hadi",
@@ -3400,7 +3400,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الهادي",
   "transliteration": "Al-Hadi",
   "meaning": "الذي يهدي عباده إلى الحق والصواب",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-badi",
@@ -3408,7 +3408,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "البديع",
   "transliteration": "Al-Badi",
   "meaning": "الذي أبدع الخلق على غير مثال سابق",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-baqi",
@@ -3416,7 +3416,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الباقي",
   "transliteration": "Al-Baqi",
   "meaning": "الذي لا يفنى ولا يزول",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-warith",
@@ -3424,7 +3424,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الوارث",
   "transliteration": "Al-Warith",
   "meaning": "الباقي بعد فناء كل شيء، له كل شيء",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "ar-rashid",
@@ -3432,7 +3432,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الرشيد",
   "transliteration": "Ar-Rashid",
   "meaning": "الذي يهدي إلى الرشد والصواب",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "as-sabur",
@@ -3440,6 +3440,6 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الصبور",
   "transliteration": "As-Sabur",
   "meaning": "الذي لا يعجل بالعقوبة، ويمهل عباده",
-  "status": "coming-soon"
+  "status": "ready"
  }
 ];

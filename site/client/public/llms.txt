@@ -162,7 +162,7 @@ Non-commercial and educational.
 Sources and adult editorial notes accompany each story; technical publication is not scholarly approval.
 
 ## The 99 Beautiful Names of Allah — Arabic, in progress
-- [الله — Allah](https://yahyaquran.com/names-of-allah/allah) (meaning only; full page pending)
+- [الله — Allah](https://yahyaquran.com/names-of-allah/allah)
 - [الرحمن — Ar-Rahman](https://yahyaquran.com/names-of-allah/ar-rahman)
 - [الرحيم — Ar-Raheem](https://yahyaquran.com/names-of-allah/ar-raheem)
 - [الملك — Al-Malik](https://yahyaquran.com/names-of-allah/al-malik)
@@ -253,14 +253,14 @@ Sources and adult editorial notes accompany each story; technical publication is
 - [المغني — Al-Mughni](https://yahyaquran.com/names-of-allah/al-mughni)
 - [المانع — Al-Mani](https://yahyaquran.com/names-of-allah/al-mani)
 - [الضار — Ad-Darr](https://yahyaquran.com/names-of-allah/ad-darr)
-- [النافع — An-Nafi](https://yahyaquran.com/names-of-allah/an-nafi) (meaning only; full page pending)
-- [النور — An-Nur](https://yahyaquran.com/names-of-allah/an-nur) (meaning only; full page pending)
-- [الهادي — Al-Hadi](https://yahyaquran.com/names-of-allah/al-hadi) (meaning only; full page pending)
-- [البديع — Al-Badi](https://yahyaquran.com/names-of-allah/al-badi) (meaning only; full page pending)
-- [الباقي — Al-Baqi](https://yahyaquran.com/names-of-allah/al-baqi) (meaning only; full page pending)
-- [الوارث — Al-Warith](https://yahyaquran.com/names-of-allah/al-warith) (meaning only; full page pending)
-- [الرشيد — Ar-Rashid](https://yahyaquran.com/names-of-allah/ar-rashid) (meaning only; full page pending)
-- [الصبور — As-Sabur](https://yahyaquran.com/names-of-allah/as-sabur) (meaning only; full page pending)
+- [النافع — An-Nafi](https://yahyaquran.com/names-of-allah/an-nafi)
+- [النور — An-Nur](https://yahyaquran.com/names-of-allah/an-nur)
+- [الهادي — Al-Hadi](https://yahyaquran.com/names-of-allah/al-hadi)
+- [البديع — Al-Badi](https://yahyaquran.com/names-of-allah/al-badi)
+- [الباقي — Al-Baqi](https://yahyaquran.com/names-of-allah/al-baqi)
+- [الوارث — Al-Warith](https://yahyaquran.com/names-of-allah/al-warith)
+- [الرشيد — Ar-Rashid](https://yahyaquran.com/names-of-allah/ar-rashid)
+- [الصبور — As-Sabur](https://yahyaquran.com/names-of-allah/as-sabur)
 
 ## Seerah of the Prophet
 - [Beginnings — Seeds of Light](https://yahyaquran.com/seerah#station-1): 5 stories. Five stories from the childhood of the Prophet (pbuh): his birth, his years in the desert, the love of his grandfather and uncle, and the first work of his life.

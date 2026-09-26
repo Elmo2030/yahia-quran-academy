@@ -1,10 +1,10 @@
 // أسماء الله الحسنى — الترتيب المعروف من رواية الترمذي (رقم ٣٥٠٧)، وهو الترتيب
 // الأشهر المتداول؛ توجد اجتهادات أخرى في الصياغة والترتيب عند بعض العلماء.
 //
-// الأسماء المعلَّمة status:"ready" فيها محتوى كامل مراجَع (قصة/موقف + آية +
-// سؤال تفكير + نشاط + مصدر)، تُضاف على دفعات. الباقي status:"coming-soon"
-// فيه الاسم والمعنى المختصر فقط، وينتظر كتابة تفصيلية لاحقة قبل اعتماده —
-// لا تُخترع لها قصص أو مصادر.
+// الأسماء التسعة والتسعون كلها status:"ready" الآن، كل واحد بمحتوى كامل
+// مراجَع (قصة/موقف + آية أو حديث + سؤال تفكير + نشاط + مصدر). أي إضافة
+// مستقبلية (تصحيح مصدر، توسيع قصة) تبقى على نفس المعيار — لا تُخترع قصص
+// أو مصادر لم تُراجع.
 
 export type NameOfAllahSource = { type: "quran" | "hadith"; reference: string };
 export type NameOfAllahSection = { title?: string; paragraphs: string[] };
@@ -25,8 +25,18 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "allah", order: 1, arabic: "الله", transliteration: "Allah",
     meaning: "الاسم الجامع لكل صفات الكمال، خالق كل شيء والمعبود بحق وحده",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "الاسم الأعظم",
+      paragraphs: [
+        "(الله) هو الاسم الأعظم الذي يجمع كل صفات الكمال، ولا يُسمى به أحد سواه أبدًا.",
+        "عندما كلّم الله موسى عليه السلام أول مرة، عرّفه بنفسه بهذا الاسم: ﴿إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي﴾ (طه: ١٤).",
+        "وكل الأسماء الحسنى التي تعرّفنا عليها في هذه الرحلة هي صفات لهذا الاسم الجامع.",
+      ],
+    }],
+    reflectionQuestion: "من بين كل الأسماء الحسنى التي قرأتها، ما الذي تعلمته عن الله ولم تكن تعرفه من قبل؟",
+    tryToday: ["اختم رحلتك مع الأسماء الحسنى بدعاء تجمع فيه أكثر من اسم تعلمته، مثل: يا رحمن يا رحيم يا غفور."],
+    sources: [{ type: "quran", reference: "سورة طه، الآية ١٤" }],
   },
   {
     slug: "ar-rahman", order: 2, arabic: "الرحمن", transliteration: "Ar-Rahman",
@@ -1398,49 +1408,121 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "an-nafi", order: 92, arabic: "النافع", transliteration: "An-Nafi",
     meaning: "الذي يوصل النفع لمن يشاء من عباده",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "ينفع من يشاء",
+      paragraphs: [
+        "كما يقدّر الله الضرّ بحكمته، فهو (النافع) الذي يوصل النفع والخير لمن يشاء من عباده.",
+        "قال النبي ﷺ: «واعلم أن الأمة لو اجتمعت على أن ينفعوك بشيء لم ينفعوك إلا بشيء قد كتبه الله لك».",
+      ],
+    }],
+    reflectionQuestion: "اذكر نفعًا وصلك اليوم من حيث لم تحتسب.",
+    tryToday: ["كن سببًا في نفع أحد اليوم، وتذكر أن النفع الحقيقي من (النافع)."],
+    sources: [{ type: "hadith", reference: "رواه الترمذي" }],
   },
   {
     slug: "an-nur", order: 93, arabic: "النور", transliteration: "An-Nur",
     meaning: "الذي نوّر السماوات والأرض بنوره وهداه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "نور السماوات والأرض",
+      paragraphs: [
+        "الله (النور) نوّر السماوات والأرض بنوره الحسي، ونوّر قلوب المؤمنين بالهداية.",
+        "قال الله تعالى: ﴿اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ﴾ (النور: ٣٥).",
+      ],
+    }],
+    reflectionQuestion: "كيف يشبه نور الإيمان في القلب نور الشمس في السماء؟",
+    tryToday: ["ادعُ الله أن ينوّر قلبك بالهداية اليوم."],
+    sources: [{ type: "quran", reference: "سورة النور، الآية ٣٥" }],
   },
   {
     slug: "al-hadi", order: 94, arabic: "الهادي", transliteration: "Al-Hadi",
     meaning: "الذي يهدي عباده إلى الحق والصواب",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يهدي إلى الصواب",
+      paragraphs: [
+        "الله (الهادي) يهدي من يشاء من عباده إلى طريق الحق، ويثبتهم عليه.",
+        "قال الله تعالى: ﴿وَكَفَىٰ بِرَبِّكَ هَادِيًا وَنَصِيرًا﴾ (الفرقان: ٣١).",
+      ],
+    }],
+    reflectionQuestion: "في الفاتحة ندعو: اهدنا الصراط المستقيم؛ ماذا تقصد بهذا الدعاء؟",
+    tryToday: ["اطلب الهداية من الله اليوم في أمر تشعر بالحيرة فيه."],
+    sources: [{ type: "quran", reference: "سورة الفرقان، الآية ٣١" }],
   },
   {
     slug: "al-badi", order: 95, arabic: "البديع", transliteration: "Al-Badi",
     meaning: "الذي أبدع الخلق على غير مثال سابق",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "إبداع بلا مثال",
+      paragraphs: [
+        "الله (البديع) خلق السماوات والأرض بشكل مبدع فريد، لم يسبقه مثال يقتدي به.",
+        "قال الله تعالى: ﴿بَدِيعُ السَّمَاوَاتِ وَالْأَرْضِ﴾ (البقرة: ١١٧).",
+      ],
+    }],
+    reflectionQuestion: "ما أكثر شيء في الكون يدهشك بإبداع خلقه؟",
+    tryToday: ["تأمل شيئًا مبدعًا في الطبيعة اليوم، وتفكر في عظمة (البديع)."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ١١٧" }],
   },
   {
     slug: "al-baqi", order: 96, arabic: "الباقي", transliteration: "Al-Baqi",
     meaning: "الذي لا يفنى ولا يزول",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "الباقي بعد فناء الجميع",
+      paragraphs: [
+        "كل من على الأرض سيموت ويفنى، إلا الله (الباقي) الذي لا يفنى ولا يزول أبدًا.",
+        "قال الله تعالى: ﴿كُلُّ مَنْ عَلَيْهَا فَانٍ * وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو الْجَلَالِ وَالْإِكْرَامِ﴾ (الرحمن: ٢٦-٢٧).",
+      ],
+    }],
+    reflectionQuestion: "لماذا نعمل للآخرة الباقية بدل الدنيا الفانية؟",
+    tryToday: ["افعل اليوم عملًا صالحًا يبقى أجره، مثل صدقة أو دعاء لوالديك."],
+    sources: [{ type: "quran", reference: "سورة الرحمن، الآيتان ٢٦-٢٧" }],
   },
   {
     slug: "al-warith", order: 97, arabic: "الوارث", transliteration: "Al-Warith",
     meaning: "الباقي بعد فناء كل شيء، له كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "وارث كل شيء",
+      paragraphs: [
+        "عندما يموت الجميع ويترك كل ما يملك، يبقى الله (الوارث) صاحب كل شيء في النهاية.",
+        "قال الله تعالى: ﴿وَإِنَّا لَنَحْنُ نُحْيِي وَنُمِيتُ وَنَحْنُ الْوَارِثُونَ﴾ (الحجر: ٢٣).",
+      ],
+    }],
+    reflectionQuestion: "إذا كان كل شيء سيعود لله في النهاية، فلماذا نتمسك بالدنيا كثيرًا؟",
+    tryToday: ["تصدق بشيء بسيط تملكه اليوم، فكل شيء يعود لـ(الوارث) في النهاية."],
+    sources: [{ type: "quran", reference: "سورة الحجر، الآية ٢٣" }],
   },
   {
     slug: "ar-rashid", order: 98, arabic: "الرشيد", transliteration: "Ar-Rashid",
     meaning: "الذي يهدي إلى الرشد والصواب",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يهدي إلى الصواب الكامل",
+      paragraphs: [
+        "(الرشيد) هو الذي يدبر أمور الخلق كلها بالصواب التام، فلا يحتاج إلى مشورة أحد ولا يخطئ أبدًا في تدبيره.",
+        "ورد هذا الاسم ضمن الأسماء الحسنى التي عدّدها النبي ﷺ في الحديث الشريف.",
+      ],
+    }],
+    reflectionQuestion: "كيف تسترشد بهدي الله في قراراتك الصعبة؟",
+    tryToday: ["استشر الله بالدعاء قبل قرار تحتاج فيه للرشد اليوم."],
+    sources: [{ type: "hadith", reference: "رواه الترمذي، حديث تعداد الأسماء الحسنى" }],
   },
   {
     slug: "as-sabur", order: 99, arabic: "الصبور", transliteration: "As-Sabur",
     meaning: "الذي لا يعجل بالعقوبة، ويمهل عباده",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يمهل ولا يهمل",
+      paragraphs: [
+        "الله (الصبور) يمهل العصاة ولا يعاجلهم بالعقوبة، رغم قدرته الكاملة على ذلك، رجاء أن يتوبوا.",
+        "ورد هذا الاسم ضمن الأسماء الحسنى التي عدّدها النبي ﷺ، وهو قريب في معناه من (الحليم).",
+      ],
+    }],
+    reflectionQuestion: "بعد رحلتنا مع الأسماء التسعة والتسعين، أي اسم أحببته أكثر ولماذا؟",
+    tryToday: ["اختر اسمًا من الأسماء التي تعلمتها، واجعله دعاءك المفضل هذا الأسبوع."],
+    sources: [{ type: "hadith", reference: "رواه الترمذي، حديث تعداد الأسماء الحسنى" }],
   },
 ];
