@@ -1099,32 +1099,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-muakhkhir", order: 72, arabic: "المؤخر", transliteration: "Al-Mu'akhkhir",
     meaning: "الذي يؤخر من يشاء بحكمته",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يؤخر بحكمة",
+      paragraphs: [
+        "كما يقدّم الله من يشاء، فهو (المؤخر) الذي يؤخر من يشاء بحكمته، وقد يكون في التأخير خير لم تكن تتوقعه.",
+        "كان النبي ﷺ يدعو في قيام الليل: «اللهم أنت المقدم وأنت المؤخر».",
+      ],
+    }],
+    reflectionQuestion: "هل تأخر أمر كنت تريده بسرعة، ثم اكتشفت أن التأخير كان لخير؟",
+    tryToday: ["إذا تأخر أمر تنتظره اليوم، ثق أن (المؤخر) يعلم الوقت الأنسب."],
+    sources: [{ type: "hadith", reference: "رواه مسلم، في دعاء قيام الليل" }],
   },
   {
     slug: "al-awwal", order: 73, arabic: "الأول", transliteration: "Al-Awwal",
     meaning: "الذي ليس قبله شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا بداية له",
+      paragraphs: [
+        "الله (الأول) ليس قبله شيء، فهو موجود أزلًا بلا بداية.",
+        "قال الله تعالى: ﴿هُوَ الْأَوَّلُ وَالْآخِرُ وَالظَّاهِرُ وَالْبَاطِنُ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ﴾ (الحديد: ٣).",
+      ],
+    }],
+    reflectionQuestion: "كيف تتخيل وجود إله ليس له بداية؟",
+    tryToday: ["تأمل هذه الآية العظيمة اليوم، واحفظها إن استطعت."],
+    sources: [{ type: "quran", reference: "سورة الحديد، الآية ٣" }],
   },
   {
     slug: "al-akhir", order: 74, arabic: "الآخر", transliteration: "Al-Akhir",
     meaning: "الذي ليس بعده شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا نهاية له",
+      paragraphs: [
+        "كما ليس قبل الله شيء، فليس بعده شيء أيضًا، فهو (الآخر) الباقي بعد فناء كل شيء.",
+        "قال الله تعالى: ﴿هُوَ الْأَوَّلُ وَالْآخِرُ وَالظَّاهِرُ وَالْبَاطِنُ﴾ (الحديد: ٣).",
+      ],
+    }],
+    reflectionQuestion: "لماذا تطمئن قلوبنا أن (الآخر) سيبقى دائمًا بعد أن يفنى كل شيء؟",
+    tryToday: ["فكّر اليوم في أن كل شيء سيفنى إلا الله، وكيف يوجهك هذا لما هو باقٍ، وهو العمل الصالح."],
+    sources: [{ type: "quran", reference: "سورة الحديد، الآية ٣" }],
   },
   {
     slug: "az-zahir", order: 75, arabic: "الظاهر", transliteration: "Az-Zahir",
     meaning: "الذي ظهر فوق كل شيء بقدرته وعلت آياته",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "ظاهر بآياته",
+      paragraphs: [
+        "الله (الظاهر) تظهر آثار قدرته في كل شيء حولنا، حتى وإن لم نره بأعيننا.",
+        "قال الله تعالى: ﴿هُوَ الْأَوَّلُ وَالْآخِرُ وَالظَّاهِرُ وَالْبَاطِنُ﴾ (الحديد: ٣).",
+      ],
+    }],
+    reflectionQuestion: "اذكر ثلاث علامات في الكون تدل على وجود الله وقدرته.",
+    tryToday: ["انظر إلى السماء الليلة وتأمل كيف تظهر عظمة (الظاهر) في خلقه."],
+    sources: [{ type: "quran", reference: "سورة الحديد، الآية ٣" }],
   },
   {
     slug: "al-batin", order: 76, arabic: "الباطن", transliteration: "Al-Batin",
     meaning: "العالم بما بطن وخفي",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يعلم الخفايا",
+      paragraphs: [
+        "كما يظهر الله بآياته، فهو (الباطن) الذي يعلم كل ما خفي وبطن، فلا يخفى عليه سر.",
+        "قال الله تعالى: ﴿هُوَ الْأَوَّلُ وَالْآخِرُ وَالظَّاهِرُ وَالْبَاطِنُ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ﴾ (الحديد: ٣).",
+      ],
+    }],
+    reflectionQuestion: "هل تشعر بالراحة أن الله يعلم ما بداخل قلبك حتى لو لم تستطع التعبير عنه؟",
+    tryToday: ["أخبر الله بصدق بما في قلبك اليوم من هموم، فهو (الباطن) يعلمها."],
+    sources: [{ type: "quran", reference: "سورة الحديد، الآية ٣" }],
   },
   {
     slug: "al-waali", order: 77, arabic: "الوالي", transliteration: "Al-Waali",
