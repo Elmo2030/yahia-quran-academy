@@ -875,32 +875,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-hamid", order: 57, arabic: "الحميد", transliteration: "Al-Hamid",
     meaning: "المحمود على كل حال بأفعاله وصفاته",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يُحمد في كل حال",
+      paragraphs: [
+        "الله (الحميد) يستحق الحمد دائمًا، في السراء والضراء، لأن كل أفعاله وصفاته محمودة.",
+        "قال الله تعالى: ﴿وَاللَّهُ الْغَنِيُّ الْحَمِيدُ﴾ (فاطر: ١٥).",
+      ],
+    }],
+    reflectionQuestion: "لماذا نحمد الله حتى في الأوقات الصعبة؟",
+    tryToday: ["قل: الحمد لله، عشر مرات اليوم، في السراء والضراء."],
+    sources: [{ type: "quran", reference: "سورة فاطر، الآية ١٥" }],
   },
   {
     slug: "al-muhsi", order: 58, arabic: "المحصي", transliteration: "Al-Muhsi",
     meaning: "الذي أحصى كل شيء عددًا",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يحصي كل شيء بدقة",
+      paragraphs: [
+        "الله (المحصي) أحصى عدد كل شيء: عدد ورق الشجر، وعدد أنفاسك، وحتى عدد حسناتك وسيئاتك.",
+        "قال الله تعالى: ﴿وَأَحْصَىٰ كُلَّ شَيْءٍ عَدَدًا﴾ (الجن: ٢٨).",
+      ],
+    }],
+    reflectionQuestion: "هل يشجعك أن تعلم أن كل حسنة صغيرة تفعلها محصاة عند الله ولن تضيع؟",
+    tryToday: ["افعل حسنة صغيرة اليوم، وتذكر أن (المحصي) لا يضيعها."],
+    sources: [{ type: "quran", reference: "سورة الجن، الآية ٢٨" }],
   },
   {
     slug: "al-mubdi", order: 59, arabic: "المبدئ", transliteration: "Al-Mubdi",
     meaning: "الذي بدأ الخلق من العدم",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "بداية كل شيء",
+      paragraphs: [
+        "الله (المبدئ) بدأ خلق كل شيء من العدم لأول مرة، بلا مادة سابقة ولا مثال.",
+        "قال الله تعالى: ﴿أَوَلَمْ يَرَوْا كَيْفَ يُبْدِئُ اللَّهُ الْخَلْقَ ثُمَّ يُعِيدُهُ﴾ (العنكبوت: ١٩).",
+      ],
+    }],
+    reflectionQuestion: "إذا كان الله قادرًا أن يبدأ الخلق من لا شيء، فهل تشك في قدرته على إعادته يوم القيامة؟",
+    tryToday: ["تأمل كيف بدأ الله خلقك من نطفة صغيرة، واشكره على هذه البداية."],
+    sources: [{ type: "quran", reference: "سورة العنكبوت، الآية ١٩" }],
   },
   {
     slug: "al-muid", order: 60, arabic: "المعيد", transliteration: "Al-Mu'id",
     meaning: "الذي يعيد الخلق بعد الفناء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يعيد ما فني",
+      paragraphs: [
+        "كما بدأ الله الخلق، فهو (المعيد) القادر أن يعيده مرة أخرى يوم القيامة بعد أن يفنى.",
+        "قال الله تعالى: ﴿...ثُمَّ يُعِيدُهُ ۚ إِنَّ ذَٰلِكَ عَلَى اللَّهِ يَسِيرٌ﴾ (العنكبوت: ١٩).",
+      ],
+    }],
+    reflectionQuestion: "كيف تستعد ليوم إعادة البعث بعمل صالح تفعله اليوم؟",
+    tryToday: ["تذكر يوم الإعادة وأنت تفعل عملًا صالحًا اليوم."],
+    sources: [{ type: "quran", reference: "سورة العنكبوت، الآية ١٩" }],
   },
   {
     slug: "al-muhyi", order: 61, arabic: "المحيي", transliteration: "Al-Muhyi",
     meaning: "الذي يهب الحياة",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يهب الحياة",
+      paragraphs: [
+        "من الذي يجعل الأرض الميتة تُنبت بعد المطر، ويجعل الجنين حيًا في بطن أمه؟ إنه الله (المحيي).",
+        "قال الله تعالى: ﴿إِنَّ الَّذِي أَحْيَاهَا لَمُحْيِي الْمَوْتَىٰ﴾ (فصلت: ٣٩).",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر عندما ترى الأرض تخضرّ بعد المطر، وتتذكر أن (المحيي) قادر أن يحيي الموتى بنفس الطريقة؟",
+    tryToday: ["راقب نباتًا ينمو هذا الأسبوع، وتذكر قدرة (المحيي) في كل ورقة."],
+    sources: [{ type: "quran", reference: "سورة فصلت، الآية ٣٩" }],
   },
   {
     slug: "al-mumit", order: 62, arabic: "المميت", transliteration: "Al-Mumit",
