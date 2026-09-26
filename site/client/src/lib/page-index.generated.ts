@@ -2704,7 +2704,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "المؤمن",
   "transliteration": "Al-Mu'min",
   "meaning": "يصدق وعده، ويؤمّن عباده من الخوف",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-muhaymin",
@@ -2712,7 +2712,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "المهيمن",
   "transliteration": "Al-Muhaymin",
   "meaning": "الرقيب الحافظ لكل شيء، المطّلع عليه",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-aziz",
@@ -2720,7 +2720,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "العزيز",
   "transliteration": "Al-Aziz",
   "meaning": "الغالب الذي لا يُقهر أبدًا",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-jabbar",
@@ -2728,7 +2728,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الجبار",
   "transliteration": "Al-Jabbar",
   "meaning": "الذي يجبر الضعيف ويقهر كل شيء بقوته",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-mutakabbir",
@@ -2736,7 +2736,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "المتكبر",
   "transliteration": "Al-Mutakabbir",
   "meaning": "المتفرد بالعظمة، فلا كبرياء لأحد سواه",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-khaliq",
