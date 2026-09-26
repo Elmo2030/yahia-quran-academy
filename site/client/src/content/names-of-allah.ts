@@ -800,32 +800,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-haqq", order: 52, arabic: "الحق", transliteration: "Al-Haqq",
     meaning: "الثابت الذي لا يزول، وكل شيء سواه باطل",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "الثابت الذي لا يتغير",
+      paragraphs: [
+        "كل شيء في الدنيا يتغير ويزول، إلا الله (الحق) الثابت الذي لا يتبدل ولا يزول.",
+        "قال الله تعالى: ﴿ذَٰلِكَ بِأَنَّ اللَّهَ هُوَ الْحَقُّ وَأَنَّ مَا يَدْعُونَ مِن دُونِهِ الْبَاطِلُ﴾ (الحج: ٦٢).",
+      ],
+    }],
+    reflectionQuestion: "لماذا نطمئن إذا اعتمدنا على (الحق) الذي لا يتغير، بدل أشياء الدنيا الزائلة؟",
+    tryToday: ["تمسّك بالحق اليوم في كلامك، حتى لو كان صعبًا، اقتداءً بأن الله هو (الحق)."],
+    sources: [{ type: "quran", reference: "سورة الحج، الآية ٦٢" }],
   },
   {
     slug: "al-wakil", order: 53, arabic: "الوكيل", transliteration: "Al-Wakil",
     meaning: "الذي يتولى أمور من توكل عليه ويكفيه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يكفي من توكل عليه",
+      paragraphs: [
+        "عندما تتوكل على الله في أمر، فهو (الوكيل) الذي يتولى أمرك ويكفيك ما أهمّك.",
+        "قال الله تعالى: ﴿حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ﴾ (آل عمران: ١٧٣).",
+      ],
+    }],
+    reflectionQuestion: "اذكر أمرًا قلقت منه ثم توكلت على الله فيه، ماذا حدث؟",
+    tryToday: ["قل: حسبنا الله ونعم الوكيل، عندما تقلق من أمر اليوم."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ١٧٣" }],
   },
   {
     slug: "al-qawiyy", order: 54, arabic: "القوي", transliteration: "Al-Qawiyy",
     meaning: "الذي له القوة كلها",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "قوة لا تُقهر",
+      paragraphs: [
+        "الله (القوي) له كل القوة، ولا يحتاج إلى عون أحد، وهو الذي ينصر أولياءه مهما كانوا ضعفاء.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ لَقَوِيٌّ عَزِيزٌ﴾ (الحج: ٤٠).",
+      ],
+    }],
+    reflectionQuestion: "كيف تستمد القوة من (القوي) عندما تشعر بالضعف؟",
+    tryToday: ["ادعُ الله بالقوة اليوم قبل أن تواجه أمرًا يحتاج شجاعة."],
+    sources: [{ type: "quran", reference: "سورة الحج، الآية ٤٠" }],
   },
   {
     slug: "al-matin", order: 55, arabic: "المتين", transliteration: "Al-Matin",
     meaning: "شديد القوة الذي لا يتعبه شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا يتعب أبدًا",
+      paragraphs: [
+        "خلق الله السماوات والأرض بلا أي تعب أو إرهاق، لأنه (المتين) شديد القوة الذي لا ينهكه شيء.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ هُوَ الرَّزَّاقُ ذُو الْقُوَّةِ الْمَتِينُ﴾ (الذاريات: ٥٨).",
+      ],
+    }],
+    reflectionQuestion: "كيف يريحك أن تعلم أن الله لا يتعب أبدًا من الاستجابة لدعائك؟",
+    tryToday: ["ادعُ الله كثيرًا اليوم بلا خجل، فهو (المتين) لا يمل من سؤالك."],
+    sources: [{ type: "quran", reference: "سورة الذاريات، الآية ٥٨" }],
   },
   {
     slug: "al-waliyy", order: 56, arabic: "الولي", transliteration: "Al-Waliyy",
     meaning: "الناصر والمعين لأوليائه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "ناصر المؤمنين",
+      paragraphs: [
+        "الله (الولي) يتولى أمر المؤمنين، وينصرهم، ويخرجهم من الظلمات إلى النور.",
+        "قال الله تعالى: ﴿اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ﴾ (البقرة: ٢٥٧).",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر بالأمان عندما تعلم أن (الولي) يتولى أمرك؟",
+    tryToday: ["اطلب من الله اليوم أن يكون وليك وناصرك في أمر يصعب عليك."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٥٧" }],
   },
   {
     slug: "al-hamid", order: 57, arabic: "الحميد", transliteration: "Al-Hamid",
