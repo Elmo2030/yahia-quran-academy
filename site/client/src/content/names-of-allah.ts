@@ -650,32 +650,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-jalil", order: 42, arabic: "الجليل", transliteration: "Al-Jalil",
     meaning: "صاحب الجلال والعظمة",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "صاحب العظمة والجلال",
+      paragraphs: [
+        "(الجليل) صاحب الجلال والعظمة والهيبة التي لا تُضاهى.",
+        "قال الله تعالى: ﴿وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو الْجَلَالِ وَالْإِكْرَامِ﴾ (الرحمن: ٢٧)، فجلاله باقٍ لا يزول أبدًا.",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر بالهيبة والاحترام عندما تقف للصلاة أمام (الجليل)؟",
+    tryToday: ["اجعل صلاتك اليوم أكثر خشوعًا، متذكرًا جلال الله وعظمته."],
+    sources: [{ type: "quran", reference: "سورة الرحمن، الآية ٢٧" }],
   },
   {
     slug: "al-karim", order: 43, arabic: "الكريم", transliteration: "Al-Karim",
     meaning: "كثير العطاء والفضل",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "كثير العطاء",
+      paragraphs: [
+        "(الكريم) يعطي بلا حدود، ويتجاوز عن المقصرين، ويحب الكرم في عباده.",
+        "قال الله تعالى: ﴿يَا أَيُّهَا الْإِنسَانُ مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ﴾ (الانفطار: ٦).",
+      ],
+    }],
+    reflectionQuestion: "كيف تكون كريمًا مع من حولك اليوم، حتى بشيء بسيط؟",
+    tryToday: ["أعطِ شيئًا لأخيك أو صديقك اليوم بسخاء، اقتداءً بـ(الكريم)."],
+    sources: [{ type: "quran", reference: "سورة الانفطار، الآية ٦" }],
   },
   {
     slug: "ar-raqib", order: 44, arabic: "الرقيب", transliteration: "Ar-Raqib",
     meaning: "الذي لا يغيب عنه شيء، يراقب كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "رقيب على كل شيء",
+      paragraphs: [
+        "الله (الرقيب) يراقبك في كل حال، ولا يغفل عنك لحظة واحدة.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا﴾ (النساء: ١).",
+      ],
+    }],
+    reflectionQuestion: "كيف يجعلك تذكّر (الرقيب) أكثر حرصًا على حسن التصرف حتى في غياب الرقابة البشرية؟",
+    tryToday: ["راقب نيتك اليوم في عمل تفعله، وتأكد أنه خالص لله (الرقيب)."],
+    sources: [{ type: "quran", reference: "سورة النساء، الآية ١" }],
   },
   {
     slug: "al-mujib", order: 45, arabic: "المجيب", transliteration: "Al-Mujib",
     meaning: "الذي يجيب دعاء من دعاه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "قريب يجيب",
+      paragraphs: [
+        "الله (المجيب) قريب منك، يسمع دعاءك ويجيبه، ولو بطريقة لم تتوقعها.",
+        "قال الله تعالى: ﴿وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ﴾ (البقرة: ١٨٦).",
+      ],
+    }],
+    reflectionQuestion: "اذكر دعاء دعوت به وأجابه الله، ولو بطريقة مختلفة عمّا كنت تتوقع.",
+    tryToday: ["ادعُ الله اليوم بشيء تتمناه بثقة أنه (المجيب)."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ١٨٦" }],
   },
   {
     slug: "al-wasi", order: 46, arabic: "الواسع", transliteration: "Al-Wasi",
     meaning: "الذي وسعت رحمته وعلمه كل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "رحمة وعلم بلا حدود",
+      paragraphs: [
+        "رحمة الله وعلمه وفضله لا حدود لها، ولا يضيق عن أحد مهما كثرت طلباته.",
+        "قال الله تعالى: ﴿وَاللَّهُ وَاسِعٌ عَلِيمٌ﴾ (البقرة: ٢٦٨).",
+      ],
+    }],
+    reflectionQuestion: "لماذا لا تخاف أن تطلب من الله كثيرًا، مع أنه (الواسع) الذي لا ينقص عطاؤه؟",
+    tryToday: ["اطلب من الله اليوم أمرًا كبيرًا تتمناه، فرحمته واسعة لا تضيق."],
+    sources: [{ type: "quran", reference: "سورة البقرة، الآية ٢٦٨" }],
   },
   {
     slug: "al-hakim", order: 47, arabic: "الحكيم", transliteration: "Al-Hakim",
