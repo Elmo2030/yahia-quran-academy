@@ -13,10 +13,7 @@ function Prose({ paragraphs }: { paragraphs: string[] }) {
   return <>{paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</>;
 }
 
-// Flip to true once client/public/stories/names-of-allah/audio/all-names.mp3
-// exists (converted and sanity-checked the same way every other narration on
-// this site is, before it is ever linked from a live page).
-const COMBINED_AUDIO_AVAILABLE = false;
+const COMBINED_AUDIO_AVAILABLE = true;
 
 function Hub() {
   return <>
