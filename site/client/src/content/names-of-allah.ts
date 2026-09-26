@@ -725,32 +725,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "al-hakim", order: 47, arabic: "الحكيم", transliteration: "Al-Hakim",
     meaning: "الذي يضع كل شيء في موضعه بحكمة",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "كل شيء بحكمة",
+      paragraphs: [
+        "قد تسأل: لماذا خلق الله كذا أو قدّر كذا؟ والجواب أن الله (الحكيم) يضع كل شيء في موضعه الصحيح، حتى لو خفيت علينا الحكمة أحيانًا.",
+        "قال الله تعالى: ﴿وَهُوَ الْحَكِيمُ الْخَبِيرُ﴾ (الأنعام: ١٨).",
+      ],
+    }],
+    reflectionQuestion: "هل مررت بأمر بدا صعبًا في البداية، ثم اكتشفت لاحقًا حكمة من ورائه؟",
+    tryToday: ["إذا واجهت أمرًا لا تفهم حكمته اليوم، ثق أن (الحكيم) يعلم ما لا تعلم."],
+    sources: [{ type: "quran", reference: "سورة الأنعام، الآية ١٨" }],
   },
   {
     slug: "al-wadud", order: 48, arabic: "الودود", transliteration: "Al-Wadud",
     meaning: "الذي يحب عباده الصالحين ويحبونه",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "محبة متبادلة",
+      paragraphs: [
+        "الله لا يكتفي بأن يرحم عباده، بل هو (الودود): يحب من يطيعه، ويجعل في قلوب المؤمنين محبة له.",
+        "قال الله تعالى: ﴿وَهُوَ الْغَفُورُ الْوَدُودُ﴾ (البروج: ١٤).",
+      ],
+    }],
+    reflectionQuestion: "كيف تشعر عندما تعلم أن الله يحبك إذا أطعته؟",
+    tryToday: ["عبّر عن حبك لله اليوم بطاعة صغيرة، مثل صلاة في وقتها بخشوع."],
+    sources: [{ type: "quran", reference: "سورة البروج، الآية ١٤" }],
   },
   {
     slug: "al-majeed", order: 49, arabic: "المجيد", transliteration: "Al-Majeed",
     meaning: "الكريم العظيم الشأن",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "عظيم الشأن والكرم",
+      paragraphs: [
+        "(المجيد) يجمع بين العظمة والكرم في آن واحد، فلا أحد أعظم شأنًا ولا أكرم منه.",
+        "قال الله تعالى: ﴿ذُو الْعَرْشِ الْمَجِيدُ﴾ (البروج: ١٥).",
+      ],
+    }],
+    reflectionQuestion: "كيف يجتمع العظمة والكرم معًا في صفات الله؟",
+    tryToday: ["مجّد الله اليوم بذكره: سبحان الله وبحمده."],
+    sources: [{ type: "quran", reference: "سورة البروج، الآية ١٥" }],
   },
   {
     slug: "al-baith", order: 50, arabic: "الباعث", transliteration: "Al-Ba'ith",
     meaning: "الذي يبعث الخلق يوم القيامة",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يوم يُبعث الجميع",
+      paragraphs: [
+        "مهما مات الإنسان وتحلل جسده، فإن الله (الباعث) قادر أن يعيد الحياة للجميع يوم القيامة.",
+        "قال الله تعالى: ﴿وَأَنَّ السَّاعَةَ آتِيَةٌ لَّا رَيْبَ فِيهَا وَأَنَّ اللَّهَ يَبْعَثُ مَن فِي الْقُبُورِ﴾ (الحج: ٧).",
+      ],
+    }],
+    reflectionQuestion: "كيف يجعلك تذكّر يوم البعث أكثر حرصًا على عملك الصالح اليوم؟",
+    tryToday: ["افعل عملًا صالحًا اليوم تتمنى أن تراه في ميزانك يوم البعث."],
+    sources: [{ type: "quran", reference: "سورة الحج، الآية ٧" }],
   },
   {
     slug: "ash-shahid", order: 51, arabic: "الشهيد", transliteration: "Ash-Shahid",
     meaning: "الذي لا يغيب عنه شيء، حاضر لكل شيء",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "شاهد على كل عمل",
+      paragraphs: [
+        "الله (الشهيد) حاضر يشهد كل قول تقوله وكل عمل تفعله، ولن يضيع عنده شيء يوم الحساب.",
+        "قال الله تعالى: ﴿وَاللَّهُ شَهِيدٌ عَلَىٰ مَا تَعْمَلُونَ﴾ (آل عمران: ٩٨).",
+      ],
+    }],
+    reflectionQuestion: "هل يشجعك تذكّر أن الله (الشهيد) شاهد على كل شيء أن تكون صادقًا في أقوالك؟",
+    tryToday: ["قل كلمة صدق اليوم حتى لو كانت صعبة، فالله (الشهيد) يشهد صدقك."],
+    sources: [{ type: "quran", reference: "سورة آل عمران، الآية ٩٨" }],
   },
   {
     slug: "al-haqq", order: 52, arabic: "الحق", transliteration: "Al-Haqq",
