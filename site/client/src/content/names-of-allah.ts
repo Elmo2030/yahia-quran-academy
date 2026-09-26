@@ -425,32 +425,77 @@ export const namesOfAllah: NameOfAllah[] = [
   {
     slug: "as-sami", order: 27, arabic: "السميع", transliteration: "As-Sami",
     meaning: "الذي يسمع كل شيء، خفيّه وجهره",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يسمع كل صوت",
+      paragraphs: [
+        "عندما أرسل الله موسى وهارون إلى فرعون، خافا، فقال لهما: ﴿لَا تَخَافَا إِنَّنِي مَعَكُمَا أَسْمَعُ وَأَرَىٰ﴾ (طه: ٤٦).",
+        "الله هو (السميع): يسمع كل صوت في الكون، حتى صوت دعائك الخافت في قلبك.",
+      ],
+    }],
+    reflectionQuestion: "هل تشعر بالطمأنينة وأنت تدعو الله، وتعلم أنه (السميع) يسمعك دائمًا؟",
+    tryToday: ["ادعُ الله بصوت خافت اليوم بشيء تتمناه، وتذكر أن (السميع) يسمعك."],
+    sources: [{ type: "quran", reference: "سورة طه، الآية ٤٦" }],
   },
   {
     slug: "al-basir", order: 28, arabic: "البصير", transliteration: "Al-Basir",
     meaning: "الذي يرى كل شيء مهما دقّ",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "يرى كل شيء",
+      paragraphs: [
+        "حتى لو أغلقت الباب ولم يرك أحد، فإن الله (البصير) يراك في كل لحظة.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ بَصِيرٌ بِمَا تَعْمَلُونَ﴾ (الحجرات: ١٨).",
+      ],
+    }],
+    reflectionQuestion: "كيف يساعدك تذكّر أن الله (البصير) يراك على أن تكون صادقًا حتى وأنت وحدك؟",
+    tryToday: ["افعل عملًا خيّرًا صغيرًا وأنت وحدك اليوم، فـ(البصير) يراه ولو لم يره أحد."],
+    sources: [{ type: "quran", reference: "سورة الحجرات، الآية ١٨" }],
   },
   {
     slug: "al-hakam", order: 29, arabic: "الحكم", transliteration: "Al-Hakam",
     meaning: "الحاكم الذي يفصل بين الخلق بالعدل",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "الحكم الأخير له",
+      paragraphs: [
+        "قد يظلم بعض الحكام في الدنيا، لكن الحكم الأخير والعادل يوم القيامة لله وحده (الحكم).",
+        "قال الله تعالى: ﴿أَلَا لَهُ الْحُكْمُ وَهُوَ أَسْرَعُ الْحَاسِبِينَ﴾ (الأنعام: ٦٢).",
+      ],
+    }],
+    reflectionQuestion: "هل يريحك أن تعلم أن كل ظلم في الدنيا سيُحاسَب عليه يوم القيامة عند (الحكم) العادل؟",
+    tryToday: ["إذا ظُلمت اليوم في شيء صغير، اصبر وتذكر أن الحكم النهائي عند الله."],
+    sources: [{ type: "quran", reference: "سورة الأنعام، الآية ٦٢" }],
   },
   {
     slug: "al-adl", order: 30, arabic: "العدل", transliteration: "Al-Adl",
     meaning: "الذي لا يظلم أحدًا أبدًا",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "لا ظلم عنده أبدًا",
+      paragraphs: [
+        "الله هو (العدل): لا يظلم أحدًا مثقال ذرة.",
+        "قال الله تعالى: ﴿إِنَّ اللَّهَ لَا يَظْلِمُ النَّاسَ شَيْئًا وَلَٰكِنَّ النَّاسَ أَنفُسَهُمْ يَظْلِمُونَ﴾ (يونس: ٤٤).",
+      ],
+    }],
+    reflectionQuestion: "لماذا نطمئن عندما نعلم أن حسابنا يوم القيامة عند (العدل) الذي لا يظلم أحدًا؟",
+    tryToday: ["كن عادلًا اليوم مع من هو أصغر منك، ولا تحابِ أحدًا على حساب أحد."],
+    sources: [{ type: "quran", reference: "سورة يونس، الآية ٤٤" }],
   },
   {
     slug: "al-latif", order: 31, arabic: "اللطيف", transliteration: "Al-Latif",
     meaning: "الرفيق بعباده، يعلم دقائق الأمور",
-    status: "coming-soon",
-    sections: [], reflectionQuestion: "", tryToday: [], sources: [],
+    status: "ready",
+    sections: [{
+      title: "رفيق بعباده",
+      paragraphs: [
+        "(اللطيف) هو الرفيق بعباده، الذي يعلم أدق التفاصيل التي لا يراها أحد، ويرزق عباده من حيث لا يحتسبون.",
+        "قال الله تعالى: ﴿لَا تُدْرِكُهُ الْأَبْصَارُ وَهُوَ يُدْرِكُ الْأَبْصَارَ وَهُوَ اللَّطِيفُ الْخَبِيرُ﴾ (الأنعام: ١٠٣).",
+      ],
+    }],
+    reflectionQuestion: "اذكر موقفًا صغيرًا سهّله الله عليك بطريقة لطيفة لم تتوقعها.",
+    tryToday: ["كن لطيفًا في تعاملك مع من حولك اليوم، اقتداءً بـ(اللطيف)."],
+    sources: [{ type: "quran", reference: "سورة الأنعام، الآية ١٠٣" }],
   },
   {
     slug: "al-khabir", order: 32, arabic: "الخبير", transliteration: "Al-Khabir",

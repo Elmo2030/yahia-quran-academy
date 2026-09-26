@@ -2864,7 +2864,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "السميع",
   "transliteration": "As-Sami",
   "meaning": "الذي يسمع كل شيء، خفيّه وجهره",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-basir",
@@ -2872,7 +2872,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "البصير",
   "transliteration": "Al-Basir",
   "meaning": "الذي يرى كل شيء مهما دقّ",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-hakam",
@@ -2880,7 +2880,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "الحكم",
   "transliteration": "Al-Hakam",
   "meaning": "الحاكم الذي يفصل بين الخلق بالعدل",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-adl",
@@ -2888,7 +2888,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "العدل",
   "transliteration": "Al-Adl",
   "meaning": "الذي لا يظلم أحدًا أبدًا",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-latif",
@@ -2896,7 +2896,7 @@ export const namesOfAllahIndex: NameOfAllah[] = [
   "arabic": "اللطيف",
   "transliteration": "Al-Latif",
   "meaning": "الرفيق بعباده، يعلم دقائق الأمور",
-  "status": "coming-soon"
+  "status": "ready"
  },
  {
   "slug": "al-khabir",
