@@ -24,6 +24,7 @@ export const journeyWorlds: readonly JourneyWorld[] = [
   { id: "aqeedah", title: { ar: "العقيدة", en: "Creed" }, symbol: "mountain", landscape: "hills", href: "/aqeedah" },
   { id: "facts", title: { ar: "في رحاب القرآن", en: "Quran discoveries" }, symbol: "spark", landscape: "sky", href: "/quran-facts" },
   { id: "companions", title: { ar: "الصحابة", en: "The companions" }, symbol: "tent", landscape: "valley", href: "/companions", onMap: true },
+  { id: "namesOfAllah", title: { ar: "أسماء الله الحسنى", en: "The Beautiful Names of Allah" }, symbol: "spark", landscape: "sky", href: "/names-of-allah", onMap: true },
   { id: "manners", title: { ar: "آداب الإسلام", en: "Islamic manners" }, symbol: "tree", landscape: "hills", comingSoon: true, onMap: true },
   { id: "values", title: { ar: "القيم والأخلاق", en: "Values & character" }, symbol: "tree", landscape: "hills", comingSoon: true },
   { id: "prophets", title: { ar: "الأنبياء", en: "The prophets" }, symbol: "book", landscape: "oasis", comingSoon: true },

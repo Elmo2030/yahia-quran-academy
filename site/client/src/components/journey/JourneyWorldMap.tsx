@@ -6,14 +6,14 @@ import { journeyCopy } from "./copy";
 
 const symbols: Record<JourneyWorld["symbol"], LucideIcon> = { book: BookOpen, town: Castle, mountain: Mountain, spark: Sparkles, compass: Compass, tent: Tent, tree: Trees };
 // Coordinates belong to the supplied artwork, not to reading direction.
-// One drawn landmark on the background (originally "quran reading", at
-// roughly 88.9%/55.8%) is now unused now that the standalone reader — and
-// its world on this map — is gone; the artwork itself still shows it since
-// re-drawing the map is a separate, deferred art decision, not a code change.
+// The landmark once labelled "quran reading" (86.6%/33.8%, previously drawn
+// as the standalone .journey-reading-landmark placeholder below) is unused
+// since that standalone reader and its world were retired; it now hosts the
+// Beautiful Names of Allah stop instead of sitting empty on the map.
 const artworkStops: Record<string, { x: number; y: number }> = {
   seerah: { x: 24.5, y: 20.2 }, stories: { x: 50, y: 27 },
   hifz: { x: 74.7, y: 28.7 }, aqeedah: { x: 22.2, y: 51.7 },
-  facts: { x: 46.4, y: 55.8 },
+  facts: { x: 46.4, y: 55.8 }, namesOfAllah: { x: 86.6, y: 33.8 },
   companions: { x: 76.5, y: 82.4 }, manners: { x: 52.4, y: 82.4 },
 };
 const mapArtwork = "/journey/map/adventure-worlds-blank.png";
@@ -42,7 +42,7 @@ export function JourneyWorldMap({ worlds, currentId, progress, destinations, loc
   const end = points[points.length - 1];
   const illustrated = worlds.every(world => artworkStops[world.id]);
   return <section className={`adventure-map${illustrated ? " adventure-map--illustrated" : ""}`} aria-label={t.map} style={{ "--map-height": `${height}px` } as CSSProperties}>
-    {illustrated && <><div className="journey-map-art" aria-hidden="true"><img src={mapArtwork} alt="" width="1672" height="941" fetchPriority="high" /></div><div className="journey-map-title" aria-hidden="true"><b>{t.title}</b><span>{t.intro}</span></div><span className="journey-reading-landmark" aria-hidden="true"><BookOpen /></span></>}
+    {illustrated && <><div className="journey-map-art" aria-hidden="true"><img src={mapArtwork} alt="" width="1672" height="941" fetchPriority="high" /></div><div className="journey-map-title" aria-hidden="true"><b>{t.title}</b><span>{t.intro}</span></div></>}
     <div className="adventure-map__cloud adventure-map__cloud--one" aria-hidden="true" /><div className="adventure-map__cloud adventure-map__cloud--two" aria-hidden="true" />
     <svg className="adventure-trail" viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true">
       {segments.map((d, i) => <g key={i} className={worldState(worlds[i], currentId, progress[worlds[i].id]) === "completed" ? "is-travelled" : ""}><path className="adventure-trail__shadow" d={d} /><path className="adventure-trail__line" d={d} /></g>)}
