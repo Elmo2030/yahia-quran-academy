@@ -29,6 +29,7 @@ const copy: Record<"ar" | "en", PolicyCopy> = {
         items: [
           "البريد الإلكتروني وكلمة المرور — تديرها Supabase، وكلمة المرور محفوظة بشكل مُجزّأ (hash) ولا نراها.",
           "الاسم الظاهر واللغة المفضلة.",
+          "إذا سجّلت الدخول بحساب Google، نستلم منه اسمك وبريدك الإلكتروني فقط.",
           "تقدّم القراءة (آخر سورة وآية، ووقت القراءة، وأيام المواظبة) والقصص المحفوظة، لتظهر لك على أي جهاز.",
         ],
       },
@@ -60,6 +61,7 @@ const copy: Record<"ar" | "en", PolicyCopy> = {
         items: [
           "Supabase — الحسابات وقاعدة البيانات.",
           "Cloudflare — استضافة الموقع وتوصيل الصوت والصور، وإحصاءات زيارات مجمّعة لا تستخدم ملفات تعريف الارتباط (Cookies) ولا تتعرف على الأشخاص.",
+          "تقارير الأخطاء — إذا تعطلت صفحة، يرسل المتصفح إلينا رسالة الخطأ وعنوان الصفحة فقط، بعد حذف أي بريد أو رمز دخول، لنصلحها.",
         ],
       },
       {
@@ -84,6 +86,7 @@ const copy: Record<"ar" | "en", PolicyCopy> = {
         items: [
           "Your email and password — handled by Supabase; the password is stored hashed and we never see it.",
           "Your display name and preferred language.",
+          "If you sign in with Google, we receive only your name and email address from Google.",
           "Reading progress (last surah and ayah, reading time, streak days) and saved stories, so they follow you to any device.",
         ],
       },
@@ -115,6 +118,7 @@ const copy: Record<"ar" | "en", PolicyCopy> = {
         items: [
           "Supabase — accounts and database.",
           "Cloudflare — hosting, delivery of audio and images, and aggregated visit statistics that use no cookies and do not identify anyone.",
+          "Error reports — if a page breaks, your browser sends us only the error message and the page address, with any email or sign-in token removed, so we can fix it.",
         ],
       },
       {

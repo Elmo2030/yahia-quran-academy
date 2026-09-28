@@ -39,6 +39,8 @@ describe("privacy policy matches the product", () => {
     expect(t).toMatch(/Cloudflare/);
     expect(t).toMatch(/delete/i);
     expect(t).toMatch(/until you delete/i);
+    expect(t).toMatch(/Google/);
+    expect(t).toMatch(/error report/i);
   });
 
   it("gives visitors without an account a way to reach us when a contact address is configured", () => {
