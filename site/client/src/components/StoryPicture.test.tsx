@@ -19,9 +19,12 @@ describe("StoryPicture loading priority", () => {
     expect(img.getAttribute("fetchpriority")).toBeNull();
   });
 
-  it("marks the story page's hero art as the eager picture (it is the page's largest paint)", () => {
+  it("marks every story page hero art as the eager picture (it is the page's largest paint)", () => {
     const page = readFileSync(join(process.cwd(), "client/src/pages/SeerahDetail.tsx"), "utf8");
-    const hero = page.slice(page.indexOf('className="story-detail-hero"'), page.indexOf("</section>", page.indexOf('className="story-detail-hero"')));
-    expect(hero).toMatch(/<SeerahArt[^>]*\beager\b/);
+    const heroes = page.split('className="story-detail-hero"').slice(1).map((rest) => rest.slice(0, rest.indexOf("</section>")));
+    expect(heroes.length).toBeGreaterThan(1);
+    for (const hero of heroes.filter((h) => h.includes("<SeerahArt"))) {
+      expect(hero).toMatch(/<SeerahArt[^>]*\beager\b/);
+    }
   });
 });

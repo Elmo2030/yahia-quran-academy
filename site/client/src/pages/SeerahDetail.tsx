@@ -425,7 +425,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
             <h1>{episode.title}</h1>
             <p className="story-detail-hero__hook">{episode.hook}</p>
           </div>
-          <SeerahArt story={story} alt={artAlt(episode.title, locale)} />
+          <SeerahArt story={story} alt={artAlt(episode.title, locale)} eager />
         </div>
       </section>
 
