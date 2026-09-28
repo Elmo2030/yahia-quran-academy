@@ -15,7 +15,10 @@ import { useAuth } from "@/hooks/useAuth";
 import { activeProfile, loadStore, pendingDeeds, pendingRecitals, practiceRecitals, type StepRef } from "@/lib/hifz-store";
 import { reviewQueue } from "@/lib/hifz-review";
 
+// Guests keep the original key; each signed-in account has its own, so one
+// account's last-read ayah never becomes another's "continue reading".
 const LOCAL_KEY = "yahya.progress.v1";
+const keyFor = (userId?: string | null) => (userId ? `${LOCAL_KEY}:${userId}` : LOCAL_KEY);
 
 export type LocalProgress = {
   surah: number;
@@ -39,9 +42,9 @@ const emptySummary: ProgressSummary = {
   savedStoriesCount: 0,
 };
 
-export function readLocalProgress(): LocalProgress | null {
+export function readLocalProgress(userId?: string | null): LocalProgress | null {
   try {
-    const raw = localStorage.getItem(LOCAL_KEY);
+    const raw = localStorage.getItem(keyFor(userId));
     if (!raw) return null;
     const parsed = JSON.parse(raw) as Partial<LocalProgress>;
     if (
@@ -62,9 +65,9 @@ export function readLocalProgress(): LocalProgress | null {
   }
 }
 
-export function writeLocalProgress(value: LocalProgress): void {
+export function writeLocalProgress(value: LocalProgress, userId?: string | null): void {
   try {
-    localStorage.setItem(LOCAL_KEY, JSON.stringify(value));
+    localStorage.setItem(keyFor(userId), JSON.stringify(value));
   } catch {
     // storage unavailable — the session still works, it just cannot remember
   }
@@ -135,10 +138,17 @@ export function nextStep(local: LocalProgress | null): NextStep | null {
 
 export function useReadingProgress() {
   const { session, profile } = useAuth();
-  const [progress, setProgress] = useState<LocalProgress | null>(() => readLocalProgress());
-  const [summary, setSummary] = useState<ProgressSummary>(emptySummary);
-  const profileId = profile?.id ?? null;
   const userId = session?.user?.id ?? null;
+  const profileId = userId ? (profile?.id ?? null) : null;
+  const [progress, setProgress] = useState<LocalProgress | null>(() => readLocalProgress(userId));
+  const [summary, setSummary] = useState<ProgressSummary>(emptySummary);
+
+  // A different account (or signing out) shows that person's own progress at
+  // once, and never the previous account's summary.
+  useEffect(() => {
+    setProgress(readLocalProgress(userId));
+    setSummary(emptySummary);
+  }, [userId]);
 
   // When a profile becomes available, hydrate the summary + latest progress
   // from Supabase and prefer whichever copy is newer.
@@ -175,7 +185,7 @@ export function useReadingProgress() {
           };
           setProgress((current) => {
             if (!current || remote.updatedAt >= current.updatedAt) {
-              writeLocalProgress(remote);
+              writeLocalProgress(remote, userId);
               return remote;
             }
             return current;
@@ -193,7 +203,7 @@ export function useReadingProgress() {
   const recordReading = useCallback(
     async (surah: number, ayah: number, seconds = 10) => {
       const value: LocalProgress = { surah, ayah, updatedAt: Date.now() };
-      writeLocalProgress(value);
+      writeLocalProgress(value, userId);
       setProgress(value);
       // Nobody signed in means nothing to save remotely, and asking for the
       // client is what downloads the library — so check that first.
@@ -211,7 +221,7 @@ export function useReadingProgress() {
         // best effort — the local copy is already saved
       }
     },
-    [profileId],
+    [profileId, userId],
   );
 
   return { progress, summary, recordReading };
