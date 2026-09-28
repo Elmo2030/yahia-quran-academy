@@ -73,3 +73,20 @@ describe("row-level security with two accounts", () => {
     expect(rows[0].streak_days).toBe(1);
   });
 });
+
+describe("account deletion", () => {
+  it("removes the parent's account together with the child profiles linked to it", async () => {
+    const db = await freshDatabase();
+    const parent = await createUser(db, A, "Alice");
+    const other = await createUser(db, B, "Bob");
+    const kid = await asUser<{ id: string }>(db, A, "insert into public.profiles (role, parent_id, display_name) values ('child', $1, 'Kid') returning id", [parent]);
+    expect(kid.error).toBeNull();
+    await asUser(db, B, "insert into public.profiles (role, parent_id, display_name) values ('child', $1, 'Other kid')", [other]);
+
+    const { error } = await asUser(db, A, "select public.delete_own_account()");
+    expect(error).toBeNull();
+
+    const { rows } = await db.query<{ display_name: string }>("select display_name from public.profiles order by 1");
+    expect(rows.map((r) => r.display_name)).toEqual(["Bob", "Other kid"]);
+  }, 60_000);
+});

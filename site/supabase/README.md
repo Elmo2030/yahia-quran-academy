@@ -5,7 +5,7 @@ this order (the single source of the order is `supabase/tests/db-harness.ts`):
 
 1. `../supabase/init_schema.sql` — base tables (profiles with role/parent_id, memorization_logs, quran_metadata)
 2. `../supabase/migrations/*.sql` — practice sessions, secure new-user trigger, dependent child profiles
-3. `site/supabase/migrations/*.sql` (001 → 007) — site accounts, social login, progress, policy fixes, account deletion, column restoration, column-level update grants
+3. `site/supabase/migrations/*.sql` (001 → 008) — site accounts, social login, progress, policy fixes, account deletion, column restoration, column-level update grants, deletion of linked children
 
 Applying `site/supabase/migrations` alone fails at 004 (`column c.parent_id does not exist`).
 
