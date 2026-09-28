@@ -1,6 +1,7 @@
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { Component, ReactNode } from "react";
 import { useLocale, type SiteLocale } from "@/contexts/LocaleContext";
+import { reportError } from "@/lib/error-reporting";
 
 interface Props {
   children: ReactNode;
@@ -34,6 +35,10 @@ class LocalizedErrorBoundary extends Component<Props, State> {
 
   static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error) {
+    reportError(error, "boundary");
   }
 
   render() {
