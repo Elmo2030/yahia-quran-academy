@@ -109,7 +109,8 @@ const readTernaryCopy = (file) => {
 };
 
 const about = readObject("pages/About.tsx", "copy");
-const privacy = readTernaryCopy("pages/Privacy.tsx");
+const privacy = readObject("pages/Privacy.tsx", "copy");
+const privacyContact = process.env.VITE_PRIVACY_CONTACT_EMAIL ?? "";
 const terms = readTernaryCopy("pages/Terms.tsx");
 const surahNames = readLiteral("lib/quran-content.ts", "surahNames");
 const englishSurahNames = readLiteral("lib/quran-content.ts", "englishSurahNames");
@@ -347,7 +348,9 @@ const policySide = (c, lang) => section(lang, `
   ${c.notCollected ? `<h2>${esc(c.notCollected)}</h2>${list((c.notCollectedItems ?? []).map(esc))}` : ""}
   ${c.rules ? `<h2>${esc(c.rules)}</h2>${list((c.rulesItems ?? []).map(esc))}` : ""}
   ${c.usage ? `<h2>${esc(c.usage)}</h2>${list((c.usageItems ?? []).map(esc))}` : ""}
-  ${c.contact ? `<h2>${esc(c.contact)}</h2>${p(c.contactBody)}` : ""}
+  ${(c.sections ?? []).map(s => `<h2>${esc(s.heading)}</h2>${list(s.items.map(esc))}`).join("")}
+  ${c.contact ? `<h2>${esc(c.contact)}</h2>${p(c.contactBody ?? c.contactWithAccount)}` : ""}
+  ${c.contactEmail && privacyContact ? p(`${c.contactEmail} ${privacyContact}`) : ""}
 `);
 add("/privacy", policySide(privacy.ar, "ar") + policySide(privacy.en, "en"));
 add("/terms", policySide(terms.ar, "ar") + policySide(terms.en, "en"));

@@ -231,70 +231,70 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setState((s) => ({ ...s, profile }));
   }, [state.session?.user.id, fetchProfile]);
 
-  // Initial subscription + auth state changes.
-  useEffect(() => {
-    let cancelled = false;
-    let unsubscribe = () => {};
+  // One subscription to auth state changes for the provider's lifetime. It is
+  // attached lazily: a reader with no session never loads the SDK, but the
+  // first sign-in, sign-up or provider call attaches it before talking to
+  // Supabase. It used to be attached only at mount when a session hint
+  // existed, so a first sign-in on a new device succeeded at Supabase while
+  // the page stayed signed out until a reload.
+  const mountedRef = useRef(true);
+  const subscriptionRef = useRef<{ unsubscribe: () => void } | null>(null);
 
-    void (async () => {
-    // Nobody signed in and nothing coming back from a provider: there is no
-    // session to restore, so the library is not fetched. It loads the moment
-    // anything actually needs it — signing in, or opening the account page.
-    if (isSupabaseConfigured() && !mightHaveSession()) {
-      setState((s) => ({ ...s, configured: true, session: null, profile: null, loading: false, initialized: true }));
-      return;
+  const applySession = useCallback((raw: { user?: { id: string; email?: string | null; email_confirmed_at?: string | null } } | null) => {
+    if (!mountedRef.current) return;
+    const user = raw?.user;
+    const session = user ? { user: { id: user.id, email: user.email ?? null } } : null;
+    const verified = !!user?.email_confirmed_at;
+    setState((s) => ({ ...s, session, emailVerified: verified, loading: false, initialized: true }));
+    if (session && session.user.id !== lastFetchedUserIdRef.current) {
+      lastFetchedUserIdRef.current = session.user.id;
+      setState((s) => ({ ...s, profile: null }));
+      fetchProfile(session.user.id).then((profile) => {
+        // A newer sign-in may have replaced this user while the profile loaded.
+        if (mountedRef.current && lastFetchedUserIdRef.current === session.user.id) {
+          setState((s) => ({ ...s, profile }));
+        }
+      });
+    } else if (!session) {
+      lastFetchedUserIdRef.current = null;
+      setState((s) => ({ ...s, profile: null }));
     }
+  }, [fetchProfile]);
 
+  /** Loads the SDK if needed and makes sure auth changes reach this provider. */
+  const connect = useCallback(async () => {
     const client = await getSupabase();
-    if (!client) {
-      setState({ ...emptyState, configured: false, loading: false, initialized: true });
-      return;
+    if (client && !subscriptionRef.current && mountedRef.current) {
+      const { data: sub } = client.auth.onAuthStateChange((_event, newSession) => applySession(newSession));
+      subscriptionRef.current = sub.subscription;
     }
+    return client;
+  }, [applySession]);
 
-    client.auth.getSession().then(({ data }) => {
-      if (cancelled) return;
-      const session = data.session
-        ? { user: { id: data.session.user.id, email: data.session.user.email ?? null } }
-        : null;
-      const verified = !!data.session?.user?.email_confirmed_at;
-      setState((s) => ({ ...s, session, emailVerified: verified, loading: false, initialized: true }));
-      if (session) {
-        lastFetchedUserIdRef.current = session.user.id;
-        fetchProfile(session.user.id).then((profile) => {
-          if (!cancelled) setState((s) => ({ ...s, profile }));
-        });
+  useEffect(() => {
+    mountedRef.current = true;
+    void (async () => {
+      // Nobody signed in and nothing coming back from a provider: there is no
+      // session to restore, so the library is not fetched. It loads the moment
+      // anything actually needs it — signing in, or opening the account page.
+      if (isSupabaseConfigured() && !mightHaveSession()) {
+        setState((s) => ({ ...s, configured: true, session: null, profile: null, loading: false, initialized: true }));
+        return;
       }
-    });
-
-    const { data: sub } = client.auth.onAuthStateChange((_event, newSession) => {
-      if (cancelled) return;
-      const session = newSession
-        ? { user: { id: newSession.user.id, email: newSession.user.email ?? null } }
-        : null;
-      const verified = !!newSession?.user?.email_confirmed_at;
-      setState((s) => ({ ...s, session, emailVerified: verified }));
-      // Email-verification notice: Supabase fires SIGNED → sign-in succeeded
-      // regardless of email confirmation. Track it in state so the UI can
-      // show a banner prompting the user to check their inbox.
-      if (session && session.user.id !== lastFetchedUserIdRef.current) {
-        lastFetchedUserIdRef.current = session.user.id;
-        fetchProfile(session.user.id).then((profile) => {
-          if (!cancelled) setState((s) => ({ ...s, profile }));
-        });
-      } else if (!session) {
-        lastFetchedUserIdRef.current = null;
-        setState((s) => ({ ...s, profile: null }));
+      const client = await connect();
+      if (!client) {
+        if (mountedRef.current) setState({ ...emptyState, configured: false, loading: false, initialized: true });
+        return;
       }
-    });
-
-    unsubscribe = () => sub.subscription.unsubscribe();
+      const { data } = await client.auth.getSession();
+      applySession(data.session);
     })();
 
     return () => {
-      cancelled = true;
-      unsubscribe();
+      mountedRef.current = false;
+      subscriptionRef.current?.unsubscribe();
+      subscriptionRef.current = null;
     };
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -303,9 +303,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // -------------------------------------------------------------------------
 
   const signIn = useCallback(async (input: SignInInput) => {
-    const client = await getSupabase();
+    const client = await connect();
     if (!client) throw new AuthError("not_configured", "تسجيل الدخول غير متاح مؤقتًا.", "Sign-in is temporarily unavailable.");
-    const { error } = await client.auth.signInWithPassword({
+    const { data, error } = await client.auth.signInWithPassword({
       email: input.email.trim(),
       password: input.password,
     });
@@ -313,10 +313,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const f = friendlyForSupabaseError(error.message);
       throw new AuthError(f.code, f.ar, f.en, error);
     }
-  }, []);
+    applySession(data.session);
+  }, [connect, applySession]);
 
   const signInWithProvider = useCallback(async (provider: SocialProvider, redirectTo?: string) => {
-    const client = await getSupabase();
+    const client = await connect();
     if (!client) {
       throw new AuthError(
         "not_configured",
@@ -340,7 +341,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const f = friendlyForSupabaseError(error.message);
       throw new AuthError(f.code, f.ar, f.en, error);
     }
-  }, []);
+  }, [connect]);
 
   const sendPasswordReset = useCallback(async (email: string) => {
     const client = await getSupabase();
@@ -377,7 +378,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (input: SignUpInput) => {
-    const client = await getSupabase();
+    const client = await connect();
     if (!client) throw new AuthError("not_configured", "إنشاء الحسابات غير متاح مؤقتًا.", "Sign-up is temporarily unavailable.");
     const { data, error } = await client.auth.signUp({
       email: input.email.trim(),
@@ -391,14 +392,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     if (error) {
       const f = friendlyForSupabaseError(error.message);
+      // Saying "this email is already registered" lets anyone test which
+      // addresses have accounts. Answer exactly as for a new sign-up that
+      // awaits confirmation; the owner of the address can sign in or reset.
+      if (f.code === "email_taken") return { needsEmailConfirmation: true };
       throw new AuthError(f.code, f.ar, f.en, error);
     }
     // With "Confirm email" enabled Supabase creates the user but returns no
     // session, and no auth-state event fires. Sign-up used to discard this and
     // route to /profile regardless, which bounced straight back — the account
     // was created, but the person was returned to the form with no explanation.
+    if (data.session) applySession(data.session);
     return { needsEmailConfirmation: !data.session };
-  }, []);
+  }, [connect, applySession]);
 
   const resendConfirmation = useCallback(async (email: string) => {
     const client = await getSupabase();
@@ -415,11 +421,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = useCallback(async () => {
-    const client = await getSupabase();
+    const client = await connect();
     if (!client) return;
     await client.auth.signOut();
-    // The onAuthStateChange listener above will clear session + profile.
-  }, []);
+    // The listener clears it too; clearing here does not depend on it.
+    applySession(null);
+  }, [connect, applySession]);
 
   const updateProfile = useCallback<AuthApi["updateProfile"]>(async (patch) => {
     const client = await getSupabase();
@@ -452,6 +459,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }), [state, signUp, signIn, signInWithProvider, sendPasswordReset, resendConfirmation, updatePassword, signOut, refreshProfile, updateProfile]);
 
   return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
+}
+
+/** Auth state where a provider may be absent (shared components, isolated tests). */
+export function useOptionalAuth(): AuthApi | null {
+  return useContext(AuthContext);
 }
 
 export function useAuth(): AuthApi {

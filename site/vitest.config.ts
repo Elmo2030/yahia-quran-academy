@@ -24,6 +24,7 @@ export default defineConfig({
     setupFiles: ["client/src/test-setup.ts"],
     include: [
       "functions/**/*.test.{ts,tsx}",
+      "supabase/**/*.test.ts",
       "server/**/*.test.{ts,tsx}",
       "server/**/*.spec.{ts,tsx}",
       "client/src/**/*.test.{ts,tsx}",

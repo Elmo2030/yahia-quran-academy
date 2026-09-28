@@ -163,7 +163,7 @@ function Placeholder({ story, className }: { story: SeerahStory; className?: str
 /** Artwork with the drawn placeholder as a fallback — used both when a story
  *  declares no image and when the declared file has not been added yet, so a
  *  missing drop-in never shows a broken image. */
-function SeerahArt({ story, className, alt }: { story: SeerahStory; className?: string; alt: string }) {
+function SeerahArt({ story, className, alt, eager }: { story: SeerahStory; className?: string; alt: string; eager?: boolean }) {
   const [failed, setFailed] = useState(false);
   if (!story.image || failed) return <Placeholder story={story} className={className} />;
   return (
@@ -174,6 +174,7 @@ function SeerahArt({ story, className, alt }: { story: SeerahStory; className?: 
         sizes={CARD_SIZES}
         width={1200}
         height={670}
+        eager={eager}
         onError={() => setFailed(true)}
       />
     </figure>
@@ -298,7 +299,7 @@ function SeerahStoryView({ story, english }: { story: SeerahStory; english: Seer
               ))}
             </div>
           </div>
-          <SeerahArt story={story} alt={artAlt(text.title, locale)} />
+          <SeerahArt story={story} alt={artAlt(text.title, locale)} eager />
         </div>
       </section>
 
@@ -424,7 +425,7 @@ function SeerahPilotStoryView({ story, episode }: { story: SeerahStory; episode:
             <h1>{episode.title}</h1>
             <p className="story-detail-hero__hook">{episode.hook}</p>
           </div>
-          <SeerahArt story={story} alt={artAlt(episode.title, locale)} />
+          <SeerahArt story={story} alt={artAlt(episode.title, locale)} eager />
         </div>
       </section>
 
