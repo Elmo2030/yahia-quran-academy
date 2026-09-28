@@ -8,6 +8,7 @@
     "build": "node scripts/build-narration-index.mjs && node scripts/build-surah-data.mjs && node scripts/build-recitation-data.mjs && node scripts/build-seo.mjs && vite build && node scripts/prerender.mjs && rm -rf dist/functions && cp -R functions dist/functions",
     "preview": "vite preview",
     "check": "tsc --noEmit",
+    "ci:build": "pnpm check && pnpm test && pnpm build",
     "format": "prettier --write .",
     "pretest": "node scripts/build-surah-data.mjs && node scripts/build-recitation-data.mjs && node scripts/build-seo.mjs",
     "test": "vitest run",
