@@ -43,6 +43,9 @@ export function StoryPicture({
       width={width}
       height={height}
       loading={eager ? "eager" : "lazy"}
+      // The eager picture is usually the page's largest paint: fetch it before
+      // scripts and other images compete for the connection.
+      fetchPriority={eager ? "high" : undefined}
       decoding="async"
       onError={onError}
     />
