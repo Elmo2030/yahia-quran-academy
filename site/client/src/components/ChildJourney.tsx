@@ -7,6 +7,7 @@ import { activeProfile, inProgressStories, inProgressLearningSteps, surahProgres
 import { JOURNEY_SURAHS, ayahCountOf } from "@/lib/juz-amma";
 import { getEnglishSurahName, getSurahName } from "@/lib/quran-content";
 import { nextStep, readLocalProgress } from "@/lib/progress";
+import { useOptionalAuth } from "@/contexts/AuthContext";
 import { factIndex, storyIndex, seerahStoryIndex, aqeedahCardIndex } from "@/lib/page-index-lite.generated";
 import { readFactDiscoveries } from "@/lib/quran-facts-progress";
 import { currentDiscovery } from "@/lib/quran-facts-journey";
@@ -44,10 +45,11 @@ const copy = {
 type Activity = { href: string; title: string; body: string; Icon: LucideIcon; kind: string };
 
 /** A view over existing local records; it never writes progress or ranks work. */
-export function childJourneyActivities(locale: "ar" | "en", profileId: string | null, profile: ReturnType<typeof activeProfile>): { primary: Activity; activities: Activity[]; hasProgress: boolean } {
+export function childJourneyActivities(locale: "ar" | "en", profileId: string | null, profile: ReturnType<typeof activeProfile>, authUserId: string | null = null): { primary: Activity; activities: Activity[]; hasProgress: boolean } {
   const t = copy[locale];
   const nameFor = (surah: number) => locale === "ar" ? getSurahName(surah) : getEnglishSurahName(surah);
-  const local = readLocalProgress();
+  // The signed-in account's own reading; a guest's otherwise (see progress.ts).
+  const local = readLocalProgress(authUserId);
   const step = nextStep(local);
   const currentSurah = profile
     ? JOURNEY_SURAHS.find(surah => surahProgress(profile, surah, ayahCountOf(surah)).declared < ayahCountOf(surah)) ?? JOURNEY_SURAHS[0]
@@ -120,7 +122,8 @@ export function JourneyEntry() {
   const { locale } = useLocale();
   const { store } = useHifzStore();
   const profile = activeProfile(store);
-  const { primary, hasProgress } = childJourneyActivities(locale, profile?.id ?? null, profile);
+  const authUserId = useOptionalAuth()?.session?.user.id ?? null;
+  const { primary, hasProgress } = childJourneyActivities(locale, profile?.id ?? null, profile, authUserId);
   const t = copy[locale];
   const Arrow = locale === "ar" ? ChevronLeft : ChevronRight;
   const Icon = primary.Icon;

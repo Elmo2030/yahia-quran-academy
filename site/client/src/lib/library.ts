@@ -16,11 +16,17 @@ import { useAuth } from "@/hooks/useAuth";
 import { stories } from "@/content/stories";
 import { mergeLibrarySlugs } from "@/lib/progress";
 
-// Guests keep the original key, so libraries saved before accounts existed
-// are not lost. A signed-in account gets its own key: on a shared family
-// device, one child's saved stories must never show up for another.
-const GUEST_KEY = "yahya.library.v1";
-const keyFor = (userId: string | null) => (userId ? `${GUEST_KEY}:${userId}` : GUEST_KEY);
+// A signed-in account gets its own key: on a shared family device, one
+// child's saved stories must never show up for another.
+//
+// Before accounts had their own keys, everyone's library — signed in or not —
+// lived in yahya.library.v1, so its owner is unknown. It is kept for guests
+// (they see what this device showed before) but never handed to an account.
+// Only stories saved as a guest since then (GUEST_KEY) go to the first
+// account that signs in.
+const LEGACY_KEY = "yahya.library.v1";
+const GUEST_KEY = "yahya.library.v2:guest";
+const keyFor = (userId: string | null) => (userId ? `${LEGACY_KEY}:${userId}` : GUEST_KEY);
 const CHANGED = "yahya:library-changed";
 const UNKNOWN_CHAPTER = "unknown";
 
@@ -34,9 +40,14 @@ function read(key: string): string[] {
   }
 }
 
+/** What the current person sees: their account's library, or a guest's. */
+function readView(userId: string | null): string[] {
+  return userId ? read(keyFor(userId)) : mergeLibrarySlugs(read(LEGACY_KEY), read(GUEST_KEY));
+}
+
 function write(key: string, slugs: string[]) {
   try {
-    if (slugs.length === 0 && key === GUEST_KEY) localStorage.removeItem(key);
+    if (slugs.length === 0 && (key === GUEST_KEY || key === LEGACY_KEY)) localStorage.removeItem(key);
     else localStorage.setItem(key, JSON.stringify(slugs));
   } catch {
     // storage unavailable or full — the page still works, it just cannot remember
@@ -52,12 +63,12 @@ export function useLibrary() {
   const userId = session?.user?.id ?? null;
   const profileId = userId ? (profile?.id ?? null) : null;
   const key = keyFor(userId);
-  const [slugs, setSlugs] = useState<string[]>(() => read(key));
+  const [slugs, setSlugs] = useState<string[]>(() => readView(userId));
 
   // Follow the library of whoever is signed in right now. Switching accounts
   // replaces what is shown immediately rather than waiting on the network.
   useEffect(() => {
-    const sync = () => setSlugs(read(key));
+    const sync = () => setSlugs(readView(userId));
     sync();
     window.addEventListener(CHANGED, sync);
     window.addEventListener("storage", sync);
@@ -65,6 +76,7 @@ export function useLibrary() {
       window.removeEventListener(CHANGED, sync);
       window.removeEventListener("storage", sync);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
   // Signed in: merge this account's remote saved_stories into its own local
@@ -113,11 +125,16 @@ export function useLibrary() {
 
   const toggle = useCallback(
     (slug: string) => {
-      const current = read(key);
-      const next = current.includes(slug)
-        ? current.filter((s) => s !== slug)
-        : [...current, slug];
-      write(key, next);
+      const saved = readView(userId).includes(slug);
+      if (!userId && saved) {
+        // A guest removing a story removes it wherever this device kept it.
+        write(GUEST_KEY, read(GUEST_KEY).filter((s) => s !== slug));
+        write(LEGACY_KEY, read(LEGACY_KEY).filter((s) => s !== slug));
+      } else {
+        const current = read(key);
+        write(key, saved ? current.filter((s) => s !== slug) : [...current, slug]);
+      }
+      const next = readView(userId);
       if (!profileId) return;
       void (async () => {
         const client = await getSupabase();
@@ -146,7 +163,7 @@ export function useLibrary() {
         }
       })();
     },
-    [key, profileId],
+    [key, userId, profileId],
   );
 
   const has = useCallback((slug: string) => slugs.includes(slug), [slugs]);

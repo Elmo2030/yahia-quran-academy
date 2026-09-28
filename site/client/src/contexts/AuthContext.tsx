@@ -461,6 +461,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
 }
 
+/** Auth state where a provider may be absent (shared components, isolated tests). */
+export function useOptionalAuth(): AuthApi | null {
+  return useContext(AuthContext);
+}
+
 export function useAuth(): AuthApi {
   const ctx = useContext(AuthContext);
   if (!ctx) {

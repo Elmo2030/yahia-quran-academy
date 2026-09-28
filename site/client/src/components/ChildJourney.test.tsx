@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("@/lib/supabase", () => ({ getSupabase: vi.fn(() => null) }));
+vi.mock("@/lib/supabase", () => ({ getSupabase: vi.fn(() => null), isSupabaseConfigured: () => false, mightHaveSession: () => false }));
 vi.mock("@/hooks/useAuth", () => ({ useAuth: () => ({ session: null, profile: null }) }));
 
 import { childJourneyActivities } from "./ChildJourney";
@@ -83,5 +83,15 @@ describe("unified child journey", () => {
     const started = recordLearningStep(created.store, created.profile.id, { kind: "companions", slug: "abu-bakr" }, "in_progress", 1000);
     const journey = childJourneyActivities("ar", created.profile.id, started.profiles[0]);
     expect(journey.activities.find(activity => activity.kind === "companions")?.href).toBe("/companions/abu-bakr");
+  });
+
+  it("continues from the signed-in account's own reading, not the device's shared pre-update copy", () => {
+    localStorage.setItem("yahya.progress.v1", JSON.stringify({ surah: 2, ayah: 1, updatedAt: 1 }));
+    localStorage.setItem("yahya.progress.v1:user-a", JSON.stringify({ surah: 18, ayah: 4, updatedAt: 2 }));
+    const signedIn = childJourneyActivities("en", null, null, "user-a");
+    expect(signedIn.primary.href).toBe("/hifz/18");
+    const guest = childJourneyActivities("en", null, null, null);
+    expect(guest.primary.href).toBe("/hifz/2");
+    localStorage.clear();
   });
 });

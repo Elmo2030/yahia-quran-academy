@@ -11,6 +11,7 @@ import { readFactDiscoveries, factsDiscoveryKey } from "@/lib/quran-facts-progre
 import { FACTS_PER_STAGE, stageIsComplete } from "@/lib/quran-facts-journey";
 import { journeyWorlds, journeyWorldProgress, worldForHref } from "@/lib/journey-worlds";
 import { childJourneyActivities } from "@/components/ChildJourney";
+import { useOptionalAuth } from "@/contexts/AuthContext";
 import { JourneyWorldMap, WorldLandscape } from "./JourneyWorldMap";
 import { journeyCopy } from "./copy";
 import "./adventure-journey.css";
@@ -31,7 +32,8 @@ export function AdventureJourney() {
   }, [profile?.id]);
   const discovered = readFactDiscoveries(factIndex.map(f => f.slug), profile?.id);
   const progress = journeyWorldProgress(profile, discovered);
-  const { primary, activities } = childJourneyActivities(locale, profile?.id ?? null, profile);
+  const authUserId = useOptionalAuth()?.session?.user.id ?? null;
+  const { primary, activities } = childJourneyActivities(locale, profile?.id ?? null, profile, authUserId);
   const currentId = worldForHref(primary.href);
   const currentWorld = journeyWorlds.find(w => w.id === currentId)!;
   const liveWorlds = journeyWorlds.filter(w => !w.comingSoon);

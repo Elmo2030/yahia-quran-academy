@@ -96,4 +96,19 @@ describe("per-account browser storage", () => {
     await new Promise((r) => setTimeout(r, 20));
     expect(slugs()).toBe("");
   });
+
+  it("never hands a pre-update library (owner unknown) to whichever account signs in", async () => {
+    // Before per-account keys, yahya.library.v1 held the signed-in account's library too.
+    localStorage.setItem("yahya.library.v1", JSON.stringify(["someone-elses-story"]));
+    signIn("b");
+    const { rerender } = render(<Probe />);
+    await waitFor(() => expect(identity.profile?.id).toBe("p-b"));
+    await new Promise((r) => setTimeout(r, 20));
+    expect(slugs()).toBe("");
+    expect(upserts).toEqual([]);
+
+    signOut();
+    rerender(<Probe />);
+    await waitFor(() => expect(slugs()).toBe("someone-elses-story")); // a guest still sees what this device showed before
+  });
 });
