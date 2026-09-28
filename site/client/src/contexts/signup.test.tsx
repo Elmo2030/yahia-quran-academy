@@ -58,4 +58,11 @@ describe("signUp", () => {
     screen.getByText("go").click();
     await waitFor(() => expect(document.title).toBe("false"));
   });
+
+  it("answers an already-registered email exactly like a new one, so sign-up cannot be used to find accounts", async () => {
+    signUpMock.mockResolvedValue({ data: { user: null, session: null }, error: { message: "User already registered" } });
+    render(<AuthProvider><Probe /></AuthProvider>);
+    screen.getByText("go").click();
+    await waitFor(() => expect(document.title).toBe("true"));
+  });
 });

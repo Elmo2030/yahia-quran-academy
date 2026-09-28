@@ -392,6 +392,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     if (error) {
       const f = friendlyForSupabaseError(error.message);
+      // Saying "this email is already registered" lets anyone test which
+      // addresses have accounts. Answer exactly as for a new sign-up that
+      // awaits confirmation; the owner of the address can sign in or reset.
+      if (f.code === "email_taken") return { needsEmailConfirmation: true };
       throw new AuthError(f.code, f.ar, f.en, error);
     }
     // With "Confirm email" enabled Supabase creates the user but returns no
