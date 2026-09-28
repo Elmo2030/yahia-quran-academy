@@ -55,6 +55,17 @@ describe("row-level security with two accounts", () => {
     expect(rows).toEqual([{ display_name: "Alice B" }]);
   });
 
+  it.each([
+    ["role", "update public.profiles set role = 'teacher' where id = $1"],
+    ["parent_id", "update public.profiles set parent_id = $2 where id = $1"],
+    ["streak_days", "update public.profiles set streak_days = 9999 where id = $1"],
+    ["auth_user_id", "update public.profiles set auth_user_id = auth.uid() where id = $1"],
+  ])("a user cannot change their own %s", async (_column, sql) => {
+    const params = sql.includes("$2") ? [profileA, profileB] : [profileA];
+    const { error } = await asUser(db, A, sql, params);
+    expect(error).toMatch(/permission denied/);
+  });
+
   it("the streak still advances through record_reading", async () => {
     const { error } = await asUser(db, A, "select public.record_reading($1, 1::smallint, 1::smallint, 30)", [profileA]);
     expect(error).toBeNull();
