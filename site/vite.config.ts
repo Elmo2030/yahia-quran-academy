@@ -152,10 +152,11 @@ function vitePluginManusDebugCollector(): Plugin {
 // The Manus runtime and debug collector are gone with the platform they
 // reported to: the runtime inlined 358 KB into every page and the collector
 // posted browser logs to a dev endpoint that no longer exists.
-const plugins = [react(), tailwindcss(), jsxLocPlugin()];
-
-export default defineConfig({
-  plugins,
+// jsx-loc stamps data-loc="client/src/<file>.tsx:<line>" on every element for
+// the editor; it is kept to the dev server so production pages do not publish
+// the source layout (see client/src/build-config.test.ts).
+export default defineConfig(({ command }) => ({
+  plugins: command === "serve" ? [react(), tailwindcss(), jsxLocPlugin()] : [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -186,4 +187,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
