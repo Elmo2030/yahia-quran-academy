@@ -6,9 +6,19 @@ import { SiteFooter } from "@/components/SiteFooter";
 // account rows in Supabase, everything else in this browser, recordings never
 // uploaded, Cloudflare for hosting/files/cookieless analytics. When a feature
 // changes what is collected, this page changes in the same pull request.
+// scripts/prerender.mjs reads this object (plain literal, no casts inside) so
+// the crawler's copy of the page cannot drift from the reader's.
 type Section = { heading: string; items: string[] };
+type PolicyCopy = {
+  title: string;
+  intro: string;
+  sections: Section[];
+  contact: string;
+  contactWithAccount: string;
+  contactEmail: string;
+};
 
-const copy = {
+const copy: Record<"ar" | "en", PolicyCopy> = {
   ar: {
     title: "سياسة الخصوصية",
     intro:
@@ -59,7 +69,7 @@ const copy = {
           "حذف الحساب من صفحة «حسابي» يمحو فورًا الحساب والتقدّم والقصص المحفوظة وملفات الأطفال المرتبطة به، ولا يمكن التراجع عنه.",
         ],
       },
-    ] as Section[],
+    ],
     contact: "تواصل",
     contactWithAccount: "لحذف حسابك أو تعديل بياناتك استخدم صفحة «حسابي».",
     contactEmail: "لأي سؤال عن الخصوصية، حتى بدون حساب، راسلنا على",
@@ -114,12 +124,12 @@ const copy = {
           "Deleting your account from the My account page immediately erases the account, progress, saved stories and linked child profiles. It cannot be undone.",
         ],
       },
-    ] as Section[],
+    ],
     contact: "Contact",
     contactWithAccount: "To delete your account or change your details, use the My account page.",
     contactEmail: "For any privacy question, with or without an account, write to",
   },
-} as const;
+};
 
 export default function Privacy() {
   const { locale } = useLocale();
